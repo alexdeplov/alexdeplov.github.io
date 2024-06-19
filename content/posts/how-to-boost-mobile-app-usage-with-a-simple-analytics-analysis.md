@@ -1,5 +1,5 @@
 +++
-title = 'How to Boost Mobile App Usage With a Simple Alanytics Analytics'
+title = '1 How to Boost Mobile App Usage With a Simple Alanytics Analytics'
 date = 2023-09-21T20:41:08+02:00
 draft = false
 +++
