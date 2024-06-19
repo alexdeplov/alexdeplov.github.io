@@ -1,0 +1,408 @@
+<!doctype html>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<html
+  class="not-ready lg:text-base"
+  style="--bg: #faf8f1"
+  lang="en-us"
+>
+  <head><script src="/livereload.js?mindelay=10&amp;v=2&amp;port=1313&amp;path=livereload" data-no-instant defer></script>
+  <meta charset="utf-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <meta
+    name="viewport"
+    content="width=device-width, initial-scale=1, shrink-to-fit=no"
+  />
+
+  
+  <title>How to Boost Mobile App Usage With a Simple Alanytics Analytics - Alexander Deplov – Senior Product Designer</title>
+
+  
+  <meta name="theme-color" />
+
+  
+  
+  
+  
+  <meta name="description" content="Introduction If you are working on an app interface, you need to know very well how people are using your app.
+In order to improve usage, you need to find an answer to what exactly is popular amount of users and what isn’t.
+Sometimes app analytics can be very tricky, depending on the complexity of your app, your level of expertise in data analysis and the variety of techniques that require skills to work well." />
+  <meta name="author" content="Alexander Deplov – Senior Product Designer" />
+  
+
+  
+  
+  
+  
+  
+  
+  <link rel="preload stylesheet" as="style" href="http://localhost:1313/main.min.css" />
+
+  
+  
+  
+  
+  
+  <link rel="preload" as="image" href="http://localhost:1313/theme.svg" />
+
+  
+  
+  
+  
+  <link rel="preload" as="image" href="https://gravatar.com/avatar/7a371a2fef36b02d83ee5e65f9a7721d?size=256&amp;cache=1718741543588" />
+  
+  
+
+  
+  
+  <link rel="preload" as="image" href="http://localhost:1313/mastodon.svg" />
+  
+  <link rel="preload" as="image" href="http://localhost:1313/rss.svg" />
+  
+  
+
+  
+  
+  <script
+    defer
+    src="http://localhost:1313/highlight.min.js"
+    onload="hljs.initHighlightingOnLoad();"
+  ></script>
+  
+
+  
+  
+  
+  
+<link
+  rel="stylesheet"
+  href="https://cdn.jsdelivr.net/npm/katex@0.16.7/dist/katex.min.css"
+  integrity="sha384-3UiQGuEI4TTMaFmGIZumfRPtfKQ3trwQE2JgosJxCnGmQpL/lJdjpcHkaaFwHlcI"
+  crossorigin="anonymous"
+/>
+<script
+  defer
+  src="https://cdn.jsdelivr.net/npm/katex@0.16.7/dist/katex.min.js"
+  integrity="sha384-G0zcxDFp5LWZtDuRMnBkk3EphCK1lhEf4UEyEM693ka574TZGwo4IWwS6QLzM/2t"
+  crossorigin="anonymous"
+></script>
+<script
+  defer
+  src="https://cdn.jsdelivr.net/npm/katex@0.16.7/dist/contrib/auto-render.min.js"
+  integrity="sha384-+VBxd3r6XgURycqtZ117nYw44OOcIax56Z4dCRWbxyPt0Koah1uHoK0o4+/RRE05"
+  crossorigin="anonymous"
+></script>
+
+
+<script>
+  document.addEventListener('DOMContentLoaded', () =>
+    renderMathInElement(document.body, {
+      
+      
+      delimiters: [
+        { left: '$$', right: '$$', display: true },
+        { left: '$', right: '$', display: false },
+      ],
+      
+      throwOnError: false,
+    }),
+  );
+</script>
+
+  
+  
+  
+
+  
+  <link rel="icon" href="http://localhost:1313/favicon.ico" />
+  <link rel="apple-touch-icon" href="http://localhost:1313/apple-touch-icon.png" />
+
+  
+  <meta name="generator" content="Hugo 0.127.0">
+
+  
+  
+  
+</head>
+
+  <body class="text-black duration-200 ease-out dark:text-white">
+    <header class="mx-auto flex h-[4.5rem] max-w-3xl px-8 lg:justify-center">
+  <div class="relative z-50 mr-auto flex items-center">
+    <a
+      class="-translate-x-[1px] -translate-y-[1px] text-2xl font-semibold"
+      href="http://localhost:1313/"
+      >Alexander Deplov – Senior Product Designer</a
+    >
+    <div
+      class="btn-dark text-[0] ml-4 h-6 w-6 shrink-0 cursor-pointer [background:url(./theme.svg)_left_center/cover_no-repeat] dark:invert dark:[background-position:right]"
+      role="button"
+      aria-label="Dark"
+    ></div>
+  </div>
+
+  <div
+    class="btn-menu relative z-50 -mr-8 flex h-[4.5rem] w-[5rem] shrink-0 cursor-pointer flex-col items-center justify-center gap-2.5 lg:hidden"
+    role="button"
+    aria-label="Menu"
+  ></div>
+
+  
+
+  <script>
+    
+    const htmlClass = document.documentElement.classList;
+    setTimeout(() => {
+      htmlClass.remove('not-ready');
+    }, 10);
+
+    
+    const btnMenu = document.querySelector('.btn-menu');
+    btnMenu.addEventListener('click', () => {
+      htmlClass.toggle('open');
+    });
+
+    
+    const metaTheme = document.querySelector('meta[name="theme-color"]');
+    const lightBg = '#faf8f1'.replace(/"/g, '');
+    const setDark = (isDark) => {
+      metaTheme.setAttribute('content', isDark ? '#000' : lightBg);
+      htmlClass[isDark ? 'add' : 'remove']('dark');
+      localStorage.setItem('dark', isDark);
+    };
+
+    
+    const darkScheme = window.matchMedia('(prefers-color-scheme: dark)');
+    if (htmlClass.contains('dark')) {
+      setDark(true);
+    } else {
+      const darkVal = localStorage.getItem('dark');
+      setDark(darkVal ? darkVal === 'true' : darkScheme.matches);
+    }
+
+    
+    darkScheme.addEventListener('change', (event) => {
+      setDark(event.matches);
+    });
+
+    
+    const btnDark = document.querySelector('.btn-dark');
+    btnDark.addEventListener('click', () => {
+      setDark(localStorage.getItem('dark') !== 'true');
+    });
+  </script>
+
+  <div
+    class="nav-wrapper fixed inset-x-0 top-full z-40 flex h-full select-none flex-col justify-center pb-16 duration-200 dark:bg-black lg:static lg:h-auto lg:flex-row lg:!bg-transparent lg:pb-0 lg:transition-none"
+  >
+    
+    
+
+    
+    <nav
+      class="mt-12 flex justify-center space-x-10 dark:invert lg:ml-12 lg:mt-0 lg:items-center lg:space-x-6"
+    >
+      
+      <a
+        class="h-8 w-8 text-[0] [background:var(--url)_center_center/cover_no-repeat] lg:h-6 lg:w-6"
+        style="--url: url(./mastodon.svg)"
+        href="https://mastodon.social/@alex_deplov"
+        target="_blank"
+        rel="me"
+      >
+        mastodon
+      </a>
+      
+      <a
+        class="h-8 w-8 text-[0] [background:var(--url)_center_center/cover_no-repeat] lg:h-6 lg:w-6"
+        style="--url: url(./rss.svg)"
+        href="http://localhost:1313/index.xml"
+        target="_blank"
+        rel="alternate"
+      >
+        rss
+      </a>
+      
+    </nav>
+    
+  </div>
+</header>
+
+
+    <main
+      class="prose prose-neutral relative mx-auto min-h-[calc(100%-9rem)] max-w-3xl px-8 pb-16 pt-12 dark:prose-invert"
+    >
+      
+
+<article>
+  <header class="mb-16">
+    <h1 class="!my-0 pb-2.5">How to Boost Mobile App Usage With a Simple Alanytics Analytics</h1>
+
+    
+    <div class="text-sm antialiased opacity-60">
+      
+      <time>Sep 21, 2023</time>
+      
+      
+      
+      
+    </div>
+    
+  </header>
+
+  <section><h2 id="introduction">Introduction</h2>
+<p>If you are working on an app interface, you need to know very well how people are using your app.</p>
+<p>In order to improve usage, you need to find an answer to what exactly is popular amount of users and what isn’t.</p>
+<p>Sometimes app analytics can be very tricky, depending on the complexity of your app, your level of expertise in data analysis and the variety of techniques that require skills to work well. So after a while you might feel that you don’t use analytics very often.</p>
+<p><img src="images/1.webp" alt=""></p>
+<p>There are many techniques for using analytics to improve app usage, but I’m going to share some simple and specific ones about one screen usage.</p>
+<h3 id="how-to-improve-mobile-screen-usage-with-this-simple-analytics-trick">How to improve mobile screen usage with this simple analytics trick</h3>
+<ol>
+<li>
+<p>The first thing you need to do is make sure that your analytics API is tracking most of the buttons on the screen. Try to set it up to track as many as possible.</p>
+</li>
+<li>
+<p>Take a screenshot of the screen and put in Figma.</p>
+</li>
+</ol>
+<p><img src="images/2.webp" alt=""></p>
+<ol start="3">
+<li>In your analytics set filter by total even amount per latest 30 days.</li>
+</ol>
+<p><img src="images/3.webp" alt=""></p>
+<ol start="4">
+<li>Take the usage number of each button and place it on top of each element. As you can see, I am also desaturating the UIs to make the event tags more visible.</li>
+</ol>
+<p><img src="images/4.webp" alt=""></p>
+<ol start="5">
+<li>Usually I split numbers into 3 groups: low popularity (red), medium popularity (blue), high popularity (green). You can use ChatGPT and ask to split your numbers into these three categories, so you don’t have to calculate it.</li>
+</ol>
+<blockquote>
+<p>Ask ChatGPT to take these numbers and split into 3 groups by low amount, medium and max amount
+563, 3.8K, 6.1K, 4.2K, 2K, 5.7K, 2.4K, 6.5K, 5.1K, 7K, 4.3K,
+6.8K, 2.7K, 3.4K, 5.6K, 6.9K, 4.9K, 5.3K, 6.4K, 3.8K, 6.2K,
+1.3K, 5.8K, 4.7K, 3.6K, 7K, 3K, 5.2K, 4.1K, 6.5K</p>
+</blockquote>
+<blockquote>
+<p>Ask ChatGPT to create rage min/max for each group</p>
+</blockquote>
+<p><img src="images/5.webp" alt=""></p>
+<blockquote>
+<p>Now you have a perfect view of what’s happening on your app’s screen. Now you can analyse and improve app usage, or argue with your team for design changes based on analytics. You can also track the impact over time.</p>
+</blockquote>
+<h3 id="as-a-next-step-you-can-ask-further-questions">As a next step, you can ask further questions:</h3>
+<ul>
+<li>Should we improve the use of red elements?</li>
+<li>Why aren’t users interested in red elements? Maybe they don’t need them, or maybe they can’t find them?</li>
+<li>If users are interested in green elements, should we make them more accessible (more visible, move on top)?</li>
+<li>How can we improve blue elements to make them green?</li>
+</ul>
+</section>
+
+  
+  
+
+  
+  
+
+  
+  
+
+  
+  
+  <div class="mt-24" id="graphcomment"></div>
+  <script type="text/javascript">
+    var __semio__params = {
+      graphcommentId: 'YOUR_GRAPH_COMMENT_ID',
+      behaviour: {
+        
+      },
+      
+    };
+
+    function __semio__onload() {
+      __semio__gc_graphlogin(__semio__params);
+    }
+
+    (function () {
+      var gc = document.createElement('script');
+      gc.type = 'text/javascript';
+      gc.async = true;
+      gc.onload = __semio__onload;
+      gc.defer = true;
+      gc.src =
+        'https://integration.graphcomment.com/gc_graphlogin.js?' + Date.now();
+      (
+        document.getElementsByTagName('head')[0] ||
+        document.getElementsByTagName('body')[0]
+      ).appendChild(gc);
+    })();
+  </script>
+  
+
+  
+
+
+  
+</article>
+
+
+    </main>
+
+    <footer
+  class="opaco mx-auto flex h-[4.5rem] max-w-3xl items-center px-8 text-[0.9em] opacity-60"
+>
+  <div class="mr-auto">
+    &copy; 2024
+    <a class="link" href="http://localhost:1313/">Alexander Deplov – Senior Product Designer</a>
+  </div>
+  <a class="link mx-6" href="https://gohugo.io/" rel="noopener" target="_blank"
+    >Powered by Hugo️️</a
+  >️
+  <a
+    class="link"
+    href="https://github.com/nanxiaobei/hugo-paper"
+    rel="noopener"
+    target="_blank"
+    >✎ Paper</a
+  >
+</footer>
+
+  </body>
+</html>

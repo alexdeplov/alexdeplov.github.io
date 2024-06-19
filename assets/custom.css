@@ -1,0 +1,16 @@
+.hover\:animate-spin:hover{
+    animation: none !important; 
+}
+
+p{
+    color: #444;
+}
+html.dark p{
+ color: #aeaeae;
+}
+
+/* Avatar */
+.p-3{
+    padding: 1px;
+}
+
