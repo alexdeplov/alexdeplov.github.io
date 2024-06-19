@@ -2,35 +2,35 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
   xmlns:xhtml="http://www.w3.org/1999/xhtml">
   <url>
-    <loc>https://alexdeplov.github.io/</loc>
+    <loc>http://localhost:1313/</loc>
     <lastmod>2023-09-21T20:41:08+02:00</lastmod>
   </url><url>
-    <loc>https://alexdeplov.github.io/posts/how-to-boost-mobile-app-usage-with-a-simple-analytics-analysis/</loc>
+    <loc>http://localhost:1313/posts/how-to-boost-mobile-app-usage-with-a-simple-analytics-analysis/</loc>
     <lastmod>2023-09-21T20:41:08+02:00</lastmod>
   </url><url>
-    <loc>https://alexdeplov.github.io/posts/</loc>
+    <loc>http://localhost:1313/posts/</loc>
     <lastmod>2023-09-21T20:41:08+02:00</lastmod>
   </url><url>
-    <loc>https://alexdeplov.github.io/posts/how-to-use-strings-method-to-improve-any-ui-design/</loc>
+    <loc>http://localhost:1313/posts/how-to-use-strings-method-to-improve-any-ui-design/</loc>
     <lastmod>2023-08-15T20:41:08+02:00</lastmod>
   </url><url>
-    <loc>https://alexdeplov.github.io/posts/how-text-affects-the-meaning-of-ui-icons/</loc>
+    <loc>http://localhost:1313/posts/how-text-affects-the-meaning-of-ui-icons/</loc>
     <lastmod>2023-08-13T20:41:08+02:00</lastmod>
   </url><url>
-    <loc>https://alexdeplov.github.io/posts/what-works-better-than-three-click-rule/</loc>
+    <loc>http://localhost:1313/posts/what-works-better-than-three-click-rule/</loc>
     <lastmod>2023-08-11T20:41:08+02:00</lastmod>
   </url><url>
-    <loc>https://alexdeplov.github.io/posts/why-layout-evolution-matters-in-ui-design/</loc>
+    <loc>http://localhost:1313/posts/why-layout-evolution-matters-in-ui-design/</loc>
     <lastmod>2023-02-08T20:41:08+02:00</lastmod>
   </url><url>
-    <loc>https://alexdeplov.github.io/posts/the-day-apple-reset-the-app-store/</loc>
+    <loc>http://localhost:1313/posts/the-day-apple-reset-the-app-store/</loc>
     <lastmod>2021-01-14T20:41:08+02:00</lastmod>
   </url><url>
-    <loc>https://alexdeplov.github.io/posts/the-future-of-icons-is-no-shapes/</loc>
+    <loc>http://localhost:1313/posts/the-future-of-icons-is-no-shapes/</loc>
     <lastmod>2016-07-16T20:41:08+02:00</lastmod>
   </url><url>
-    <loc>https://alexdeplov.github.io/categories/</loc>
+    <loc>http://localhost:1313/categories/</loc>
   </url><url>
-    <loc>https://alexdeplov.github.io/tags/</loc>
+    <loc>http://localhost:1313/tags/</loc>
   </url>
 </urlset>
