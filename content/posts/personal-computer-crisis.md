@@ -6,7 +6,7 @@ draft = false
 
 ![WarGames movie](images/1.jpg)
 
-First computer in our family was bought when I was about 11-13 years old. It was a 486 IBM PC. During that first period I learned a lot about DOS, Win 3.1 and so on.
+First computer in our family was bought when I was about 11-13 years old. It was a 486 IBM PC. During that first period I learned a lot about DOS, Win 3.1, OS/2 Warp, all kind of Linuxes and FreeBSD, and so on.
 
 Different operating systems were installed, along with games and all kinds of software just out of curiosity. 
 
