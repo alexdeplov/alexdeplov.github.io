@@ -12,7 +12,7 @@ rss = true
 # home page profile
   avatar = 'https://gravatar.com/avatar/7a371a2fef36b02d83ee5e65f9a7721d?size=256&cache=1718741543588'                 # gravatar email or image url
   #name = 'Alex Deplov'
-  #bio = 'Bio text'
+  bio = 'I am a Senior Product Designer with coding skills. Co-founder of Pleeq Software. Mentoring designers on ADPList. AI prompts curator on Pinterest.'
 
 # misc
   disableHLJS = false                       # disable highlight.js
@@ -21,9 +21,9 @@ rss = true
   #gravatarCdn = 'GRAVATAR_CDN_LINK'         # e.g. 'https://cdn.v2ex.com/gravatar/'
   math = true                               # enable KaTeX math typesetting globally
   localKatex = false                        # use local KaTeX js/css instead of CDN
-  graphCommentId = "YOUR_GRAPH_COMMENT_ID"  # use graph comment (disqus alternative)
-  favicon = "favicon.ico"                   # customize the default favicon
-  appleTouchIcon = "apple-touch-icon.png"   # customize the default Apple touch icon
+  #graphCommentId = "YOUR_GRAPH_COMMENT_ID"  # use graph comment (disqus alternative)
+  #favicon = "favicon.ico"                   # customize the default favicon
+  #appleTouchIcon = "apple-touch-icon.png"   # customize the default Apple touch icon
 
 
   [module]
