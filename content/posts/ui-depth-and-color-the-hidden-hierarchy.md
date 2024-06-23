@@ -2,6 +2,7 @@
 title = 'Dark UI Depth – The Hidden Hierarchy'
 date = 2024-06-20T20:38:00+02:00
 draft = false
+featured = false
 +++
 
 ## Introduction

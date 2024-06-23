@@ -2,6 +2,7 @@
 title = 'What Works Better Than a Three-Click Rule?'
 date = 2023-08-11T20:41:08+02:00
 draft = false
+featured = false
 +++
 
 ![](images/0.webp)

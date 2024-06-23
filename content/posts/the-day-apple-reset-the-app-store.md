@@ -2,6 +2,7 @@
 title = 'The Day Apple Reset the App Store'
 date = 2021-01-14T20:41:08+02:00
 draft = false
+featured = false
 +++
 
 ![The day Apple reset the App Store](images/1.webp)
