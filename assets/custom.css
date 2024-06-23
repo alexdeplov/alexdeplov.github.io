@@ -3,8 +3,9 @@
 }
 
 p, li, strong{
-    color: #444;
+    color: #666;
 }
+
 html.dark p,
 html.dark li,
 html.dark strong{
@@ -17,5 +18,6 @@ html.dark strong{
 }
 
 h2{
-    font-size: 20px !important;
+    font-size: 1.25rem !important;
+    font-weight: 700 !important;
 }

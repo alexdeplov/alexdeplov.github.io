@@ -26,4 +26,4 @@ All the people around me, from 11 to 22 years old, yearn to have an iPad or an i
 
 With this obsession with content-consuming devices, we will soon have fewer and fewer good IT professionals with a broad range of skills. And that is pretty sad. 
 
-"Computers are like a bicycle for our minds," said Steve Jobs. Back then, computers were a miracle for our generation. It's sad to see that when young people are asked, "Would you like to have a computer?" the most common response I hear is, "What for?"
+"Computers are like a bicycle for our minds," said Steve Jobs. Back then, computers were a miracle for our generation. It's sad to see that when young people are asked, "Would you like to have a computer?" the most common response I hear is, **"What for?"**
