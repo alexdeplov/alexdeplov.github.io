@@ -42,7 +42,7 @@ After some basic tweaking, Linux Mint has the same boot time as my expensive Mac
 
 I haven't tested the boot time with FreeBSD (although I was able to tweak it to about 5 seconds boot time, but no GUI mode, [by using this amazing guide](https://vermaden.wordpress.com/2018/03/29/freebsd-desktop-part-1-simplified-boot/)), hoverer I noticed it uses almost twice less CPU and the same amount of RAM for the same open applications compared to Linux.  
 
-![](images/2.jpg)
+![](images/1.jpg)
 
 ### The good
 
