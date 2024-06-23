@@ -27,6 +27,11 @@ h1{
     font-family: "Clash Display", sans-serif !important;
     font-weight: 600 !important;
     letter-spacing: 0.05rem !important;
+    color: beige;
+}
+
+html.dark h1{
+    color: black;
 }
 
 h2{
