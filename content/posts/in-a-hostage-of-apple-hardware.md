@@ -2,6 +2,7 @@
 title = 'In a Hostage of Apple Hardware'
 date = 2024-06-22T21:54:19+02:00
 draft = false
+featured = false
 +++
 
 ### TL;DR

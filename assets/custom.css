@@ -1,7 +1,3 @@
-.hover\:animate-spin:hover{
-    animation: none !important; 
-}
-
 p, li, strong{
     color: #666;
 }
@@ -20,4 +16,21 @@ html.dark strong{
 h2{
     font-size: 1.25rem !important;
     font-weight: 700 !important;
+}
+
+/* Featured icon */
+.featuredIcon{
+    margin-left: -26px;
+    width: 26px;
+    min-width: 26px;
+    min-height: 21px;
+}
+
+svg path{
+    fill: #6100FF;
+}
+
+html.dark svg path{
+    fill:#8C52FF;
+    /* filter: invert(100%); */
 }

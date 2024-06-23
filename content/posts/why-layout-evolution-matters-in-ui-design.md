@@ -1,7 +1,8 @@
 +++
-title = '★ Why Layout Evolution Matters in UI Design'
+title = 'Why Layout Evolution Matters in UI Design'
 date = 2023-02-08T20:41:08+02:00
 draft = false
+featured = true
 +++
 ## Introduction
 
