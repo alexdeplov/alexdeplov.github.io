@@ -1,5 +1,5 @@
 +++
-title = 'How to Boost Mobile App Usage With a Simple Alanytics Analysis'
+title = 'How to Boost Mobile App Usage With a Simple Analytics Analysis'
 date = 2023-09-21T20:41:08+02:00
 draft = false
 +++
