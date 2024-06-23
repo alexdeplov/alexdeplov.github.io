@@ -8,7 +8,7 @@ featured = true
 
 While researching old operating systems I decided to try an experiment and re-created old UIs with modern components. Here we have File Viewer from NeXTSTEP operating system (left screenshot).
 
-![](images/1.webp)
+![](images/1.png)
 
 ### Old layout by modern UI components
 
@@ -28,4 +28,4 @@ After rebuilding it with modern components (right screenshot), we still have all
 
 Now I have recreated the modern layout using the old UI components for comparison (right screenshot below). Now it’s clear that this approach works better because we can clearly see where users are currently, where favourites are, a direction for sidebar and content. And the overall use of window space is now better, especially when we need that window into horizontal space of a screen itself.
 
-![](images/2.webp)
+![](images/2.png)
