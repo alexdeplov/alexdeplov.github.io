@@ -2,6 +2,7 @@
 title = 'How Text Affects the Meaning of UI Icons'
 date = 2023-08-13T20:41:08+02:00
 draft = false
+featured = false
 +++
 ## Introduction
 
