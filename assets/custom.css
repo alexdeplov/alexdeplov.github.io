@@ -2,10 +2,12 @@
     animation: none !important; 
 }
 
-p{
+p, li, strong{
     color: #444;
 }
-html.dark p{
+html.dark p,
+html.dark li,
+html.dark strong{
  color: #aeaeae;
 }
 
