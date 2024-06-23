@@ -4,7 +4,8 @@ title = 'Alexander Deplov – Senior Product Designer'
 theme = 'paper'
 
 [params]
-color = 'linen'
+  color = 'linen'
+  paginate = 20 
 
 mastodon = 'https://mastodon.social/@alex_deplov'
 rss = true
