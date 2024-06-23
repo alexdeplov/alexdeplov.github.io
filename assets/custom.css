@@ -10,7 +10,7 @@ html.dark p,
 html.dark li,
 html.dark strong,
 html.dark .prose :where(strong):not(:where([class~="not-prose"], [class~="not-prose"] *)){
- color: #7d7d7d;
+ color: #8d8d8d;
  /* font-family: "Archivo Regular", sans-serif !important; */
 }
 
