@@ -1,6 +1,6 @@
 +++
 title = 'Why the Fear of AI Taking on Humans s a Nonsense'
-date = 2024-06-23T20:05:56+02:00
+date = 2024-03-23T20:05:56+02:00
 draft = false
 featured = false
 +++
