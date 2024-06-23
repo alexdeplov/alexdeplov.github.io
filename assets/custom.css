@@ -1,3 +1,6 @@
+@import url('css/clash-display.css');
+@import url('archivo.css');
+
 p, li, strong,
 .prose :where(strong):not(:where([class~="not-prose"], [class~="not-prose"] *)){
     color: #666;
@@ -8,6 +11,11 @@ html.dark li,
 html.dark strong,
 html.dark .prose :where(strong):not(:where([class~="not-prose"], [class~="not-prose"] *)){
  color: #aeaeae;
+ /* font-family: "Archivo Regular", sans-serif !important; */
+}
+
+body{
+    /* font-family: "Archivo Regular", sans-serif !important; */
 }
 
 /* Avatar */
@@ -15,9 +23,24 @@ html.dark .prose :where(strong):not(:where([class~="not-prose"], [class~="not-pr
     padding: 1px;
 }
 
+h1{
+    font-family: "Clash Display", sans-serif !important;
+    font-weight: 600 !important;
+    letter-spacing: 0.05rem !important;
+}
+
 h2{
-    font-size: 1.25rem !important;
-    font-weight: 700 !important;
+    /* font-size: 1.2rem !important; */
+    /* font-weight: 500 !important; */
+    /* letter-spacing: 0.06rem !important; */
+    /* font-family: "Clash Display", sans-serif !important; */
+}
+
+h3{
+    /* font-family: "Clash Display", sans-serif !important; */
+    /* font-size: 1.25em; */
+    /* font-weight: 600; */
+    /* letter-spacing: 0.06rem !important; */
 }
 
 /* Featured icon */
@@ -26,6 +49,7 @@ h2{
     width: 26px;
     min-width: 26px;
     min-height: 21px;
+    margin-top: 2px;
 }
 
 svg path{
@@ -35,4 +59,9 @@ svg path{
 html.dark svg path{
     fill:#8C52FF;
     /* filter: invert(100%); */
+}
+
+.btn-dark{
+    margin-left: 0.4rem !important;
+    scale: 0.8;
 }
