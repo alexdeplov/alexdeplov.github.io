@@ -71,9 +71,9 @@ CPU usage on FreeBSD was close to 0-0.5% idle, per a couple of cores. Nice! With
 
 ### Conclusion 
 
-I realize how badly the hardware stands for your work needs. Without Zoom, Figma, lack of other specific software, good font rendering, poor hardware support for Magic Trackpad and Bluetooth, I couldn't use it for work needs. As an Apple developer and iOS/Mac interface designer, I still have to use macOS. 
+At the end of the test I realise that I can't fully switch. Without Zoom, Figma, lack of other specific software, good font rendering, poor hardware support for Magic Trackpad and Bluetooth, I couldn't use mini PC with FreeBSD as a main computer for work needs. As an Apple developer and iOS/Mac interface designer, I still have to use macOS. 
 
-With that experiment I can see myself impressive capabilities of low-cost hardware. It means if you can stick with Linux and especially FreeBSD, you might have **fast computer for *longer!*** With each year and macOS update, Apple adds more and more fancy staff to macOS, guided by marketing first to achieve more sales. But in reality we all — existing and new users — pay for it, because more fancy stuff requires more powerful hardware to run well, forcing us to upgrade to more powerful hardware soon. So in the end, Mac users get less power for the price.
+With that experiment I can see myself impressive capabilities of low-cost hardware. It means if you can stick with Linux and especially FreeBSD, you might have **fast computer for *longer!*** With each year macOS updated, Apple adds more and more fancy staff to it, guided by marketing first to achieve more sales. But in reality we all — existing and new users — pay for it, because more fancy stuff requires more powerful hardware to run well, forcing us to upgrade to more powerful hardware soon. So in the end, Mac users get less power for the price.
 
 [This video of FreeBSD running on a white MacBook 2009](https://www.youtube.com/watch?v=3scLHnwwgn0) impressed me with the speed. Most applications open almost in a flash. At the same time, my MacBook 2017 can't run the latest supported macOS well because its hardware has become *an obsolete*! Again, a 15 year old white MacBook running FreeBSD can run better than a 7 year old 2017 MacBook running macOS. 
 
