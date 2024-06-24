@@ -2,7 +2,8 @@
 title = 'Waterlogue Pro macOS App Icon Creation'
 date = 2024-06-24T17:31:08+02:00
 draft = false
-featured = true
+featured = false
+type = "portfolio"
 +++
 
 ### Project goal
