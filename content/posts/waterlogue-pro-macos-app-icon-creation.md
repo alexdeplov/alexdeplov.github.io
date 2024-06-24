@@ -6,7 +6,7 @@ featured = true
 +++
 
 ### Project goal
-A friend and client of mine — [Tinrocket](https://www.tinrocket.com) — asked me to create a new Mac app icon for the new Waterlogue Pro app. Back in the day, an iOS version of the icon was used for macOS, but John (the founder of Tinrocket) wanted to make it more mature and more "pro".
+A friend and client of mine — [Tinrocket](https://www.tinrocket.com) — asked me to create a new Mac app icon for the new Waterlogue Pro app. Back in the day, an iOS version of the icon was used for macOS, but John (the founder of Tinrocket) set the goal to make it more mature and more "pro".
 
 ![iOS version of the icon](images/1.jpg)
 
@@ -15,9 +15,9 @@ As the lead designer on this project, I started with hand-drawn sketches to get 
 
 Hand-drawn sketches are a great way to quickly explore different shape variations. The shape should be simple, bold, and visually interesting.
 
-![Hand-drawn sketches](images/2.jpg)
+For this project, I used my favorite [Winsor & Newton](https://www.winsornewton.com/row/graphic-art/pencils/colour-pencils-studio-collection/) colored pencils, which have very saturated colors. They were the perfect choice for drawing water splashes and translucency effects. 
 
-For this project, I used my favorite [Winsor & Newton](https://www.winsornewton.com/row/graphic-art/pencils/colour-pencils-studio-collection/) colored pencils, which have very bright and saturated colors. They were the perfect choice for drawing water splashes and translucency effects. 
+![Hand-drawn sketches](images/2.jpg)
 
 I showed John variations and he chose the whale's tail up version. It wasn't my favorite at the time because another icon had a more dynamic shape. But John has a great sense of taste, as has been shown many times before, so I agreed to go ahead with this one. 
 

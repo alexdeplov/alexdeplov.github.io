@@ -2,9 +2,10 @@ baseURL = 'https://alexdeplov.github.io/'
 languageCode = 'en-us'
 title = 'Alexander Deplov – Senior Product Designer'
 theme = 'paper'
+paginate = 50
 
 [params]
-  color = 'linen'
+  color = 'linen'  
 
 mastodon = 'https://mastodon.social/@alex_deplov'
 rss = true
