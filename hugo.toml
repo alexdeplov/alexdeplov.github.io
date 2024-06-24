@@ -2,7 +2,7 @@ baseURL = 'https://alexdeplov.github.io/'
 languageCode = 'en-us'
 title = 'Alexander Deplov – Senior Product Designer'
 theme = 'paper'
-paginate = 50
+paginate = 100
 
 [params]
   color = 'linen'  
