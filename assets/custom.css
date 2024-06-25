@@ -64,3 +64,11 @@ html.dark svg path{
     margin-left: 0.4rem !important;
     scale: 0.8;
 }
+
+.mt-8{
+    margin-top: 2rem; /* 32px */
+    margin-bottom: 2rem; /* 32px */    
+}
+
+
+

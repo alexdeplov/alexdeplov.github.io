@@ -2,94 +2,87 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>Posts on Alexander Deplov – Senior Product Designer</title>
-    <link>http://localhost:1313/posts/</link>
+    <link>https://alexdeplov.github.io/posts/</link>
     <description>Recent content in Posts on Alexander Deplov – Senior Product Designer</description>
     <generator>Hugo</generator>
     <language>en-us</language>
     <lastBuildDate>Mon, 24 Jun 2024 17:31:08 +0200</lastBuildDate>
-    <atom:link href="http://localhost:1313/posts/index.xml" rel="self" type="application/rss+xml" />
+    <atom:link href="https://alexdeplov.github.io/posts/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>Waterlogue Pro macOS App Icon Creation</title>
-      <link>http://localhost:1313/posts/waterlogue-pro-macos-app-icon-creation/</link>
+      <link>https://alexdeplov.github.io/posts/portfolio/waterlogue-pro-macos-app-icon-creation/</link>
       <pubDate>Mon, 24 Jun 2024 17:31:08 +0200</pubDate>
-      <guid>http://localhost:1313/posts/waterlogue-pro-macos-app-icon-creation/</guid>
+      <guid>https://alexdeplov.github.io/posts/portfolio/waterlogue-pro-macos-app-icon-creation/</guid>
       <description>Project goal A friend and client of mine — Tinrocket — asked me to create a new Mac app icon for the new Waterlogue Pro app. Back in the day, an iOS version of the icon was used for macOS, but John (the founder of Tinrocket) set the goal to make it more mature and more &amp;ldquo;pro&amp;rdquo;.&#xA;How As the lead designer on this project, I started with hand-drawn sketches to get a feel for a new icon.</description>
     </item>
     <item>
-      <title>In a Hostage of Apple Hardware</title>
-      <link>http://localhost:1313/posts/in-a-hostage-of-apple-hardware/</link>
-      <pubDate>Sat, 22 Jun 2024 21:54:19 +0200</pubDate>
-      <guid>http://localhost:1313/posts/in-a-hostage-of-apple-hardware/</guid>
-      <description>TL;DR I put my €1800 MacBook Pro head-to-head with a €300 mini PC and found the cheaper option surprisingly fast. While the mini PC couldn&amp;rsquo;t completely replace my Mac for work due to some software and hardware limitations, it did make me question the need for expensive upgrades. Do we really need the latest and greatest hardware to be productive? Or are we being pushed to constantly upgrade for features we might not even fully utilize?</description>
-    </item>
-    <item>
       <title>Personal Computer Crisis</title>
-      <link>http://localhost:1313/posts/personal-computer-crisis/</link>
+      <link>https://alexdeplov.github.io/posts/blog/personal-computer-crisis/</link>
       <pubDate>Sat, 22 Jun 2024 16:30:18 +0200</pubDate>
-      <guid>http://localhost:1313/posts/personal-computer-crisis/</guid>
+      <guid>https://alexdeplov.github.io/posts/blog/personal-computer-crisis/</guid>
       <description>First computer in our family was bought when I was about 11-13 years old. It was a 486 IBM PC. During that first period I learned a lot about DOS, Win 3.1, OS/2 Warp, all kind of Linuxes and FreeBSD, and so on.&#xA;Different operating systems were installed, along with games and all kinds of software just out of curiosity.&#xA;By playing with a computer, I was able to learn many different things about how it works, how hardware works, how software works, how to write a code or create a digital image, and many-many different things that we can call computer science.</description>
     </item>
     <item>
       <title>Dark UI Depth – The Hidden Hierarchy</title>
-      <link>http://localhost:1313/posts/ui-depth-and-color-the-hidden-hierarchy/</link>
+      <link>https://alexdeplov.github.io/posts/blog/ui-depth-and-color-the-hidden-hierarchy/</link>
       <pubDate>Thu, 20 Jun 2024 20:38:00 +0200</pubDate>
-      <guid>http://localhost:1313/posts/ui-depth-and-color-the-hidden-hierarchy/</guid>
+      <guid>https://alexdeplov.github.io/posts/blog/ui-depth-and-color-the-hidden-hierarchy/</guid>
       <description>Introduction When working with dark UI and custom colors, you need to think about how the content will appear on the screen, not only from top to bottom, but also from far to near.&#xA;Every button, every view you have has a different sense of distance to the viewer.&#xA;Darker, or objects that appear in a shadow or semi-transparent usually feels far away from the viewer. White and contrasted with the background feels closer to the viewer.</description>
     </item>
     <item>
       <title>Why the Fear of AI Taking on Humans s a Nonsense</title>
-      <link>http://localhost:1313/posts/why-the-fear-of-ai-taking-on-humans-is-a-nonsense/</link>
+      <link>https://alexdeplov.github.io/posts/blog/why-the-fear-of-ai-taking-on-humans-is-a-nonsense/</link>
       <pubDate>Sat, 23 Mar 2024 20:05:56 +0200</pubDate>
-      <guid>http://localhost:1313/posts/why-the-fear-of-ai-taking-on-humans-is-a-nonsense/</guid>
+      <guid>https://alexdeplov.github.io/posts/blog/why-the-fear-of-ai-taking-on-humans-is-a-nonsense/</guid>
       <description>Lately you may hear a lot of talk about AI going wild and deciding to destroy humans and how dangerous that can be. This is such nonsense, and here is why.&#xA;First of all, AI must raise a question about humans. Only then should it make a decision to do something with it. From what we currently have, our AI systems have never asked a question. With a current state of technology it just runs a piece of code we ask to be loaded into a computer memory, chunk by chunk, and performs an output according to it.</description>
     </item>
     <item>
       <title>How to Boost Mobile App Usage With a Simple Analytics Analysis</title>
-      <link>http://localhost:1313/posts/how-to-boost-mobile-app-usage-with-a-simple-analytics-analysis/</link>
+      <link>https://alexdeplov.github.io/posts/blog/how-to-boost-mobile-app-usage-with-a-simple-analytics-analysis/</link>
       <pubDate>Thu, 21 Sep 2023 20:41:08 +0200</pubDate>
-      <guid>http://localhost:1313/posts/how-to-boost-mobile-app-usage-with-a-simple-analytics-analysis/</guid>
+      <guid>https://alexdeplov.github.io/posts/blog/how-to-boost-mobile-app-usage-with-a-simple-analytics-analysis/</guid>
       <description>Introduction If you are working on an app interface, you need to know very well how people are using your app.&#xA;In order to improve usage, you need to find an answer to what exactly is popular amount of users and what isn’t.&#xA;Sometimes app analytics can be very tricky, depending on the complexity of your app, your level of expertise in data analysis and the variety of techniques that require skills to work well.</description>
     </item>
     <item>
       <title>How to Use Strings Method to Improve Any App UI Design</title>
-      <link>http://localhost:1313/posts/how-to-use-strings-method-to-improve-any-ui-design/</link>
+      <link>https://alexdeplov.github.io/posts/blog/how-to-use-strings-method-to-improve-any-ui-design/</link>
       <pubDate>Tue, 15 Aug 2023 20:41:08 +0200</pubDate>
-      <guid>http://localhost:1313/posts/how-to-use-strings-method-to-improve-any-ui-design/</guid>
+      <guid>https://alexdeplov.github.io/posts/blog/how-to-use-strings-method-to-improve-any-ui-design/</guid>
       <description>Introduction Sometimes, when you’re building a UI or trying to analyse competitors’ apps, you notice that something is wrong with the UI, but you can’t say for sure what it is. It just looks wrong, or not well aligned, or noisy.&#xA;If you need to make the UI look clean and professional, you can use Strings Method to clean it up quickly.&#xA;Let’s take a look at this screen first, it’s clearly noisy and not well aligned:</description>
     </item>
     <item>
       <title>How Text Affects the Meaning of UI Icons</title>
-      <link>http://localhost:1313/posts/how-text-affects-the-meaning-of-ui-icons/</link>
+      <link>https://alexdeplov.github.io/posts/blog/how-text-affects-the-meaning-of-ui-icons/</link>
       <pubDate>Sun, 13 Aug 2023 20:41:08 +0200</pubDate>
-      <guid>http://localhost:1313/posts/how-text-affects-the-meaning-of-ui-icons/</guid>
+      <guid>https://alexdeplov.github.io/posts/blog/how-text-affects-the-meaning-of-ui-icons/</guid>
       <description>Introduction When you create icons for the user interface of an app, you should remember that the icon should be easy to read. The user should grasp the meaning of an icon in a few milliseconds and understand the meaning correctly. Otherwise, it will lead to confusion.&#xA;A good designer should remember that the meaning of the same icon can be changed by its label.&#xA;By reading the label, the user creates a meaning that affects what we see when we look at the icon.</description>
     </item>
     <item>
       <title>What Works Better Than a Three-Click Rule?</title>
-      <link>http://localhost:1313/posts/what-works-better-than-three-click-rule/</link>
+      <link>https://alexdeplov.github.io/posts/blog/what-works-better-than-three-click-rule/</link>
       <pubDate>Fri, 11 Aug 2023 20:41:08 +0200</pubDate>
-      <guid>http://localhost:1313/posts/what-works-better-than-three-click-rule/</guid>
+      <guid>https://alexdeplov.github.io/posts/blog/what-works-better-than-three-click-rule/</guid>
       <description>Introduction One of my favorite product design podcasts is the Quick Coffee. They discussed what makes great product design in the episode “5 principles of product design”. One of the principles was the “3 click rule”. The idea is simple: Keep a goal closer to the user, so they don’t have to do more than three clicks.&#xA;After research on that topic I found alternative ideas to that.&#xA;Normal Nielsen on three clicks rule: Click count varies with task complexity, no fixed number.</description>
     </item>
     <item>
       <title>Why Layout Evolution Matters in UI Design</title>
-      <link>http://localhost:1313/posts/why-layout-evolution-matters-in-ui-design/</link>
+      <link>https://alexdeplov.github.io/posts/blog/why-layout-evolution-matters-in-ui-design/</link>
       <pubDate>Wed, 08 Feb 2023 20:41:08 +0200</pubDate>
-      <guid>http://localhost:1313/posts/why-layout-evolution-matters-in-ui-design/</guid>
+      <guid>https://alexdeplov.github.io/posts/blog/why-layout-evolution-matters-in-ui-design/</guid>
       <description>Introduction While researching old operating systems I decided to try an experiment and re-created old UIs with modern components. Here we have File Viewer from NeXTSTEP operating system (left screenshot).&#xA;Old layout by modern UI components Here we can quickly notice few problems with old layout :&#xA;It’s unclear what first row do. I still can’t say for sure, seems like a favorites&#xA;Second row uses for navigation, but selection of the Preview.</description>
     </item>
     <item>
       <title>The Day Apple Reset the App Store</title>
-      <link>http://localhost:1313/posts/the-day-apple-reset-the-app-store/</link>
+      <link>https://alexdeplov.github.io/posts/blog/the-day-apple-reset-the-app-store/</link>
       <pubDate>Thu, 14 Jan 2021 20:41:08 +0200</pubDate>
-      <guid>http://localhost:1313/posts/the-day-apple-reset-the-app-store/</guid>
+      <guid>https://alexdeplov.github.io/posts/blog/the-day-apple-reset-the-app-store/</guid>
       <description>Introduction As an indie iOS developer, you’re facing stiff competition on the App Store market. Each year, thousands of apps are added by developers from all around the globe. Each of us wants to dominate that market to capture all the money and attention of users. With more apps on the App Store, there are fewer opportunities for each developer. More effort is needed to gather an audience, improve your ASO for visibility, or pay more for advertising.</description>
     </item>
     <item>
       <title>The Future of Icons is No Shapes?</title>
-      <link>http://localhost:1313/posts/the-future-of-icons-is-no-shapes/</link>
+      <link>https://alexdeplov.github.io/posts/blog/the-future-of-icons-is-no-shapes/</link>
       <pubDate>Sat, 16 Jul 2016 20:41:08 +0200</pubDate>
-      <guid>http://localhost:1313/posts/the-future-of-icons-is-no-shapes/</guid>
+      <guid>https://alexdeplov.github.io/posts/blog/the-future-of-icons-is-no-shapes/</guid>
       <description>Introduction If you’re a designer or developer you probably working with icons a lot. They’re everywhere. The main goal for every icon designer — is to make its shapes so clear, so it can be understandable without labels, without words. Even in foreign cultures.&#xA;Few years ago there is one popular topic in designers circles “why we should not use floppy disk icons anymore”, remember? The idea is simple, modern computers has changed, we don’t have floppy disk so modern user can’t associate the idea of save something with a floppy disk shape.</description>
     </item>
   </channel>

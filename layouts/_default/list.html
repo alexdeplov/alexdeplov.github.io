@@ -44,12 +44,12 @@
 </div>
 {{ end }}<!---->
   <div class="w-full">
-    <h2 class="">Blog</h2>
+    <h2 class="opacity-60">Blog</h2>
   </div>
 
 {{ end }}
 
-<section class="relative my-10 first-of-type:mt-0 last-of-type:mb-0">
+<section class="relative mt-8 first-of-type:mt-0 last-of-type:mb-0">
   {{ if gt .Weight 0 }}
   <span
     class="mb-2 ml-px inline-block text-[0.8rem] font-medium uppercase tracking-wider text-[#ff3b2d] opacity-70"
@@ -57,7 +57,7 @@
   >
   {{ end }}
   
-  <h3 class="!my-0 pb-1 font-bold !leading-none flex">{{ partial "featured_icon.html" . }}{{ .Title }}</h3>
+  <h3 class="!my-0 font-bold !leading-none flex">{{ partial "featured_icon.html" . }}{{ .Title }}</h3>
   <time class="text-sm antialiased opacity-60"
     >{{ .Date | time.Format ":date_medium" }}</time
   >
