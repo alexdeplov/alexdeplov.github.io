@@ -2,47 +2,50 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
   xmlns:xhtml="http://www.w3.org/1999/xhtml">
   <url>
-    <loc>https://alexdeplov.github.io/</loc>
+    <loc>http://localhost:1313/</loc>
     <lastmod>2024-06-24T17:31:08+02:00</lastmod>
   </url><url>
-    <loc>https://alexdeplov.github.io/posts/</loc>
+    <loc>http://localhost:1313/posts/</loc>
     <lastmod>2024-06-24T17:31:08+02:00</lastmod>
   </url><url>
-    <loc>https://alexdeplov.github.io/posts/waterlogue-pro-macos-app-icon-creation/</loc>
+    <loc>http://localhost:1313/posts/waterlogue-pro-macos-app-icon-creation/</loc>
     <lastmod>2024-06-24T17:31:08+02:00</lastmod>
   </url><url>
-    <loc>https://alexdeplov.github.io/posts/personal-computer-crisis/</loc>
+    <loc>http://localhost:1313/posts/in-a-hostage-of-apple-hardware/</loc>
+    <lastmod>2024-06-22T21:54:19+02:00</lastmod>
+  </url><url>
+    <loc>http://localhost:1313/posts/personal-computer-crisis/</loc>
     <lastmod>2024-06-22T16:30:18+02:00</lastmod>
   </url><url>
-    <loc>https://alexdeplov.github.io/posts/ui-depth-and-color-the-hidden-hierarchy/</loc>
+    <loc>http://localhost:1313/posts/ui-depth-and-color-the-hidden-hierarchy/</loc>
     <lastmod>2024-06-20T20:38:00+02:00</lastmod>
   </url><url>
-    <loc>https://alexdeplov.github.io/posts/why-the-fear-of-ai-taking-on-humans-is-a-nonsense/</loc>
+    <loc>http://localhost:1313/posts/why-the-fear-of-ai-taking-on-humans-is-a-nonsense/</loc>
     <lastmod>2024-03-23T20:05:56+02:00</lastmod>
   </url><url>
-    <loc>https://alexdeplov.github.io/posts/how-to-boost-mobile-app-usage-with-a-simple-analytics-analysis/</loc>
+    <loc>http://localhost:1313/posts/how-to-boost-mobile-app-usage-with-a-simple-analytics-analysis/</loc>
     <lastmod>2023-09-21T20:41:08+02:00</lastmod>
   </url><url>
-    <loc>https://alexdeplov.github.io/posts/how-to-use-strings-method-to-improve-any-ui-design/</loc>
+    <loc>http://localhost:1313/posts/how-to-use-strings-method-to-improve-any-ui-design/</loc>
     <lastmod>2023-08-15T20:41:08+02:00</lastmod>
   </url><url>
-    <loc>https://alexdeplov.github.io/posts/how-text-affects-the-meaning-of-ui-icons/</loc>
+    <loc>http://localhost:1313/posts/how-text-affects-the-meaning-of-ui-icons/</loc>
     <lastmod>2023-08-13T20:41:08+02:00</lastmod>
   </url><url>
-    <loc>https://alexdeplov.github.io/posts/what-works-better-than-three-click-rule/</loc>
+    <loc>http://localhost:1313/posts/what-works-better-than-three-click-rule/</loc>
     <lastmod>2023-08-11T20:41:08+02:00</lastmod>
   </url><url>
-    <loc>https://alexdeplov.github.io/posts/why-layout-evolution-matters-in-ui-design/</loc>
+    <loc>http://localhost:1313/posts/why-layout-evolution-matters-in-ui-design/</loc>
     <lastmod>2023-02-08T20:41:08+02:00</lastmod>
   </url><url>
-    <loc>https://alexdeplov.github.io/posts/the-day-apple-reset-the-app-store/</loc>
+    <loc>http://localhost:1313/posts/the-day-apple-reset-the-app-store/</loc>
     <lastmod>2021-01-14T20:41:08+02:00</lastmod>
   </url><url>
-    <loc>https://alexdeplov.github.io/posts/the-future-of-icons-is-no-shapes/</loc>
+    <loc>http://localhost:1313/posts/the-future-of-icons-is-no-shapes/</loc>
     <lastmod>2016-07-16T20:41:08+02:00</lastmod>
   </url><url>
-    <loc>https://alexdeplov.github.io/categories/</loc>
+    <loc>http://localhost:1313/categories/</loc>
   </url><url>
-    <loc>https://alexdeplov.github.io/tags/</loc>
+    <loc>http://localhost:1313/tags/</loc>
   </url>
 </urlset>
