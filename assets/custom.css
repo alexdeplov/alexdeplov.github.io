@@ -10,7 +10,7 @@ html.dark p,
 html.dark li,
 html.dark strong,
 html.dark .prose :where(strong):not(:where([class~="not-prose"], [class~="not-prose"] *)){
- color: #8d8d8d;
+ color: #a8a8a8;
  /* font-family: "Archivo Regular", sans-serif !important; */
 }
 
@@ -45,10 +45,12 @@ h3{
 
 /* Featured icon */
 .featuredIcon{
-    margin-left: -26px;
+    margin-left: -20px;
     width: 26px;
     min-width: 26px;
     min-height: 21px;
+    margin-top: -1px;
+    scale: 0.9;
 }
 
 svg path{
@@ -70,5 +72,7 @@ html.dark svg path{
     margin-bottom: 2rem; /* 32px */    
 }
 
-
+.pl-0{
+    padding-left: 0;
+}
 
