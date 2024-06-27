@@ -5,14 +5,14 @@ theme = 'paper'
 paginate = 100
 
 [params]
-  color = 'linen'  
+  color = 'linen'
 
 mastodon = 'https://mastodon.social/@alex_deplov'
 rss = true
 
 # home page profile
   avatar = 'https://gravatar.com/avatar/7a371a2fef36b02d83ee5e65f9a7721d?size=256&cache=1718741543588'                 # gravatar email or image url
-  #name = 'Alex Deplov'
+  name = ' '
   bio = 'I am a Senior Product Designer with coding skills. Co-founder of Pleeq Software. Mentoring designers on ADPList. AI prompts curator on Pinterest.'
 
 # misc
