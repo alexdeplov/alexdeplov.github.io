@@ -1,6 +1,6 @@
 baseURL = 'https://alexdeplov.github.io/'
 languageCode = 'en-us'
-title = 'Alexander Deplov – Senior Product Designer'
+title = 'Alexander Deplov – Senior Product Designer Blog'
 theme = 'paper'
 paginate = 100
 
@@ -13,7 +13,7 @@ rss = true
 # home page profile
   avatar = 'https://gravatar.com/avatar/7a371a2fef36b02d83ee5e65f9a7721d?size=256&cache=1718741543588'                 # gravatar email or image url
   name = ' '
-  bio = 'I am designer with coding skills. Co-founder of Pleeq Software. Mentoring designers on ADPList. AI prompts curator on Pinterest.'
+  bio = 'I am digital designer with coding skills. Co-founder of Pleeq Software. Mentoring designers on ADPList. AI prompts curator on Pinterest.'
 
 # misc
   disableHLJS = false                       # disable highlight.js
