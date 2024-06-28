@@ -6,14 +6,13 @@ paginate = 100
 
 [params]
   color = 'linen'
-
-mastodon = 'https://mastodon.social/@alex_deplov'
-rss = true
+  mastodon = 'https://mastodon.social/@alex_deplov'
+  rss = true
 
 # home page profile
   avatar = 'https://gravatar.com/avatar/7a371a2fef36b02d83ee5e65f9a7721d?size=256&cache=1718741543588'                 # gravatar email or image url
   name = ' '
-  bio = 'I am digital designer with coding skills. Co-founder of Pleeq Software. Mentoring designers on ADPList. AI prompts curator on Pinterest.'
+  bio = 'Digital designer and coder. Co-founder, Pleeq Software. ADPList design mentor. AI prompt curator on Pinterest. Blending creativity with technology to shape digital experiences.'
 
 # misc
   disableHLJS = false                       # disable highlight.js

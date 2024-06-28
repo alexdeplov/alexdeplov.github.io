@@ -76,3 +76,7 @@ html.dark svg path{
     padding-left: 0;
 }
 
+.items-start{
+    align-items: flex-start;
+}
+
