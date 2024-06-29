@@ -79,6 +79,13 @@
       <description>Introduction While researching old operating systems I decided to try an experiment and re-created old UIs with modern components. Here we have File Viewer from NeXTSTEP operating system (left screenshot).&#xA;Old layout by modern UI components Here we can quickly notice few problems with old layout :&#xA;It’s unclear what first row do. I still can’t say for sure, seems like a favorites&#xA;Second row uses for navigation, but selection of the Preview.</description>
     </item>
     <item>
+      <title>Recreate the Apple Watch&#39;s Iconic Pairing Pattern in Vector</title>
+      <link>https://alexdeplov.github.io/posts/blog/archive/cracking-the-code-recreate-the-apple-watch_s-iconic-pairing-pattern/</link>
+      <pubDate>Mon, 22 Mar 2021 10:27:48 +0200</pubDate>
+      <guid>https://alexdeplov.github.io/posts/blog/archive/cracking-the-code-recreate-the-apple-watch_s-iconic-pairing-pattern/</guid>
+      <description>Apple Watch so pretty itself, but also its pairing screen. I feel that this pattern is too complicated to be made manually, so it seems it was made by using code. Turns out Apple made it to be based on 24 ovals, each one representing 24 hours in a day. Each oval shifted from the center. This is how we can re-create it easily by code.&#xA;I&amp;rsquo;m using PaperJS – a vector graphics scripting framework – becase you can export any final shape or a pattern in SVG file.</description>
+    </item>
+    <item>
       <title>The Day Apple Reset the App Store</title>
       <link>https://alexdeplov.github.io/posts/blog/archive/the-day-apple-reset-the-app-store/</link>
       <pubDate>Thu, 14 Jan 2021 20:41:08 +0200</pubDate>
