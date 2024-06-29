@@ -7,9 +7,9 @@ featured = false
 
 ![](images/0.jpg)
 
-Apple Watch so pretty itself, but also its pairing screen. I feel that this pattern is too complicated to be made manually, so it seems it was made by using code. Turns out Apple made it to be based on 24 ovals, each one representing 24 hours in a day. Each oval shifted from the center. This is how we can re-create it easily by code.
+Apple Watch itself is so beautiful, but also its pairing screen. I feel that this pattern is too complicated to be made by hand, so it seems that it was made by using code. It turns out that Apple made it based on 24 ovals, each representing 24 hours in a day. Each oval is offset from the center. So we can easily recreate it in code.
 
-I'm using PaperJS – a vector graphics scripting framework – becase you can export any final shape or a pattern in SVG file.
+I'm using PaperJS - a vector graphics scripting framework - because you can export any final shape or pattern to an SVG file.
 
 ### Start with an ellipse
 
@@ -26,14 +26,13 @@ var ellipse = new Path.Ellipse({
 })
 ```
 
-The code is simple and self-explaining, except the last line where I moving the ellipse off the center x: 94 and y: 0. 
+The code is simple and self-explanatory, except for the last line where I move the ellipse away from the center x: 94 and y: 0. 
 
-It will be necessary later when we make copies of that ellipse and rotate them around the center.
+This will be necessary later when we make copies of this ellipse and rotate them around the center.
 
 ### Making multiple ellipse clones
 
-
-Simple for-loop is used to make 24 clones.
+A simple for loop is used to create 24 clones.
 
 At the end of the loop, we need to rotate the ellipse by an angle multiplied by the number of clones and rotate it from the center of the view.
 
@@ -56,14 +55,14 @@ for (var i = 0; i < clones; i++){
 }
 ```
 
-The fun about the code is that you can tweak any number to get fun and interesting results.
+The fun of the code is that you can tweak any number to get fun and interesting results.
 
 ![](images/2.jpg)
 
 
 ### Adding dials
 
-For the deals, we need to write a simple function that creates rectangles based on the function’s parameters. We going to use this function twice: for making 12 and 24 dials.
+For the dials, we need to write a simple function that creates rectangles based on the parameters of the function. We will use this function twice: to create 12 and 24 dials.
 
 Try yourself: [Sketch](http://sketch.paperjs.org/#V/0.12.15/S/jVNNT8MwDP0rUS+0LOq67gNR4DTgjODAodshy7I1apZMSdgkqv134nRl7ZgAS60TPzux32urQJINC7LgrWSWFgEOqFrCfkc0okJJZtADSkczPZMQInItmIsMJ0m/hhvEWK1K9s6XtoAKCMOzUhqFgHMXTe6cuz+e69a9XlQhZ5AIHvKYEHxr4A7J9uiF2CJ+qkNh1eSBGf7JMpRPJhgNhzdz3MF8L1MllM7Q1UIQWl5dSPDNZu1NJ2mrDLdcyQztONvHlEnLNOqh/HaEUXK68RA1q8YfZ4i1ssSysCbtGnHcPslXHb55+pAULkNUM1fzyIkwYU0U9rNGVZulyzo06JIbSyRlz1ptpnXbTpLBuMn5U5Q2DZCnGbVtRV7d3rfQ1eSkC7zxObTiQvwiClhNjdPVEwWnxHsQpp8eufOhgvF1YfupE+PnqN1P4SQOGMzxD1V8YUeetirpyFWNMcpTPEjm0Tk8cK3mYw+532nhkHKruLQmyPL54Qs=)
 
@@ -100,6 +99,6 @@ createDials(24 * 5, [2,10])
 createDials(12, [5,10])
 ```
 
-At the right corner of the Sketch tap "Save as SVG" button, so you can open it in any vector editing tool.
+In the right corner of the sketch, tap the "Save as SVG" button to open it in any vector editing tool.
 
 ![](images/3.jpg)
