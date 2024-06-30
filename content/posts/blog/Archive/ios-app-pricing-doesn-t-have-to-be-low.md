@@ -1,7 +1,7 @@
 +++
 title = "iOS App Pricing Doesn't Have to Be Low"
 date = 2021-06-30T18:46:57+02:00
-draft = true
+draft = false
 featured = false
 +++
 
