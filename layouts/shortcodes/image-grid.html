@@ -1,0 +1,6 @@
+{{ $images := .Params }}
+<div class="image-grid">
+  {{ range $image := $images }}
+    <img src="{{ $image }}" alt="{{ $image }}">
+  {{ end }}
+</div>

@@ -19,10 +19,10 @@ Today in the App Store have about 4 million and 1 million of games according to 
 
 If you have an iOS or macOS app that has zero sales on the App Store, here is a trick to shake it up:
 
-* Set the price to paid for a few days
-* Set the price back to free for a few days
+* Set the price to paid for a few days.
+* Set the price back to free for a few days.
 * On the next iterations, try playing with the price to find the one that makes more sales for you.
-* Find the better range when the praise should be paid and free
+* Find the better range when the praise should be paid and free,
 * If you have a free app with in-app purchases, during the promo period you can set the in-app to free when you set the app price to paid and vice versa.
 
 In my tests, setting the price to free gives me from 1K to 5K free downloads. I can't set the price more than once or twice a month. More sales can be made when I have biggest free downloads on a peak. If you lose the moment you don't switch the price back to paid, sales will be less and you can't bring it back quickly. The key indicator that I'm going to have many free downloads is when people are talking in Twitter about my apps for latest 24 hours. 
