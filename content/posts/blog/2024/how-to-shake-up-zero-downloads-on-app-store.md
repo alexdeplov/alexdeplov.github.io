@@ -5,11 +5,9 @@ draft = false
 featured = false
 +++
 
-### Situation 
+### The Problem 
 
 You have a paid iOS app that you want to publish to the App Store, or it's already published, but sales are dropping to zero.
-
-### Issue
 
 Today in the App Store have about 4 million and 1 million of games according to statista. With such huge competition each new app will be hidden to a user, and according to PhoneArena:
 
@@ -31,3 +29,8 @@ Negative effects to keep in mind:
 
 * During the promotion period, your app will be excluded from the paid category.
 * Some users don't see value in free apps and reviews may not be positive enough.
+
+
+### The hidden cost of free
+
+People who downloaded apps for free were willing to give more negative reviews compared to people who actually bought the app. My theory is that paid users are thinking before they buy, so they are trying to answer a question on "why" they actually wanted this app. Free users was on a hype of a blog, seeing that an expensive app become free, they get it not because they need it, so their meaning to use the app was low.
