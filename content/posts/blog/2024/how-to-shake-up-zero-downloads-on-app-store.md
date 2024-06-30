@@ -26,3 +26,8 @@ If you have an iOS or macOS app that has zero sales on the App Store, here is a 
 * If you have a free app with in-app purchases, during the promo period you can set the in-app to free when you set the app price to paid and vice versa.
 
 In my tests, setting the price to free gives me from 1K to 5K free downloads. I can't set the price more than once or twice a month. More sales can be made when I have biggest free downloads on a peak. If you lose the moment you don't switch the price back to paid, sales will be less and you can't bring it back quickly. The key indicator that I'm going to have many free downloads is when people are talking in Twitter about my apps for latest 24 hours. 
+
+Negative effects to keep in mind:
+
+* During the promotion period, your app will be excluded from the paid category.
+* Some users don't see value in free apps and reviews may not be positive enough.
