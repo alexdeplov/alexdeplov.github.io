@@ -86,6 +86,13 @@
       <description>Introduction While researching old operating systems I decided to try an experiment and re-created old UIs with modern components. Here we have File Viewer from NeXTSTEP operating system (left screenshot).&#xA;Old layout by modern UI components Here we can quickly notice few problems with old layout :&#xA;It’s unclear what first row do. I still can’t say for sure, seems like a favorites&#xA;Second row uses for navigation, but selection of the Preview.</description>
     </item>
     <item>
+      <title>iOS App Pricing Doesn&#39;t Have to Be Low</title>
+      <link>https://alexdeplov.github.io/posts/blog/archive/ios-app-pricing-doesn-t-have-to-be-low/</link>
+      <pubDate>Wed, 30 Jun 2021 18:46:57 +0200</pubDate>
+      <guid>https://alexdeplov.github.io/posts/blog/archive/ios-app-pricing-doesn-t-have-to-be-low/</guid>
+      <description>For many years, I developed only a few paid iOS apps. I read many online articles suggesting to set the price low, like $0.99 per copy. They said it allows more people to afford it.&#xA;After some tests, I thought less than 0.99 (Tiers A, B), 0.99, 1.99, 2.99, up to 11.99. The result was that one of my top apps made more money in total when the price was 3.</description>
+    </item>
+    <item>
       <title>Recreate the Apple Watch&#39;s Iconic Pairing Pattern in Vector</title>
       <link>https://alexdeplov.github.io/posts/blog/archive/cracking-the-code-recreate-the-apple-watch_s-iconic-pairing-pattern/</link>
       <pubDate>Mon, 22 Mar 2021 10:27:48 +0200</pubDate>
