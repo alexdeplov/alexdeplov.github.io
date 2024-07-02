@@ -7,7 +7,7 @@ featured = false
 
 ### TL;DR
 
-> I put my €1800 MacBook Pro head-to-head with a €300 mini PC and found the cheaper option surprisingly fast. While the mini PC couldn't completely replace my Mac for work due to some software and hardware limitations, it did make me question the need for expensive upgrades. Do we really need the latest and greatest hardware to be productive? Or are we being pushed to constantly upgrade for features we might not even fully utilize?
+> I put my €1800 MacBook Pro head-to-head with a €300 mini PC and found the cheaper option surprisingly fast. While the mini PC couldn't completely replace my Mac for work due to some software and hardware limitations, it did make me question the need for expensive purchase. Do we really need the latest and greatest hardware to be productive? Or are we being pushed to constantly upgrade for features we might not even fully utilize?
 
 ### Introduction
 
