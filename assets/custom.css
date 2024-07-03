@@ -1,6 +1,12 @@
 @import url('css/clash-display.css');
 @import url('archivo.css');
 
+/* body{
+    background-image:  repeating-radial-gradient(circle at 0 0, transparent 0, #11092d 20%), repeating-linear-gradient(#1a1042, #090519);
+    background-color: #11092d;
+    background-attachment: fixed;
+} */
+
 p, li, strong,
 .prose :where(strong):not(:where([class~="not-prose"], [class~="not-prose"] *)){
     color: #666;
