@@ -1,11 +1,13 @@
 +++
 title = "Navigating Success: 11 Years of Innovation with Anchor Pointer GPS Compass"
 date = 2024-07-04T21:52:14+02:00
-draft = true
+draft = false
 featured = true
 +++
 
-As a product designer with a passion for innovation, I embarked on a journey to create my own product. This led to the birth of the Anchor Pointer GPS Compass, an iOS app designed to provide reliable navigation without an internet connection.
+As a product designer with a passion for innovation, I embarked on a journey to create my own product. This led to the birth of the [Anchor Pointer GPS Compass](https://apps.apple.com/us/app/find-car-anchor-pointer/id791684332), an iOS app designed to provide reliable navigation without an internet connection.
+
+![](images/7.jpg)
 
 ### Project goal
 
@@ -40,14 +42,18 @@ After a few iterations, I found the perfect balance of easy-to-use navigation an
 
 #### User reviews
 
->  ***must have! ★★★★★***\
+>  ***Must have! ★★★★★***\
 I didn’t know I needed this app and now it’s my go to every time I’m in a new place. There is nothing more annoying than trying to mark something in Google maps and the app not working… this app is flawless and work with both Google maps and Apple. I’m traveling to different places all the time where Google doesn’t necessarily have the locations correctly or at all and with this I just mark it, name it and I’m done! Great work!, – Nov 9, 2023, US.
 
 > ***Saves me from myself! ★★★★★***\
 Updated review… still saving me from myself! Been on my home screen for two years +. Never disappoints! 5 stars for giving me one less thing to be worried about. Thank you!, - Aug 30, 2023, US.
 
 > ***OUTSTANDING, REGULARLY UPDATED ★★★★★***\
-This world traveler uses it often. It has never had a glitch. (Retired Delta Air Lines pilot.)", Jan 17, 2024, US.
+This world traveler uses it often. It has never had a glitch. (Retired Delta Air Lines pilot.), – Jan 17, 2024, US.
+
+> ***Great App! ★★★★★***\
+ Anchor Pointer is the single ONLY app that has helped me navigate in Italy, Spain, and London. Google Maps and other GPS apps are absolutely useless. One suggestion: I have friends on the android platform that would love to use this app. Any plans? Thanks Alex.Used this wonderful app to make my way through Spain. Worked great.Alex, you asked for suggestions to enhance Anchor Pointer: Perhaps it would be helpful to be able to import addresses from users’ iPhone contact list or from the web. Thanks.An update for Alex:I just returned from Italy on Monday. Again, Anchor Pointer was stellar in the most remote areas, including Venice, which is poorly mapped. Thanks so much for this wonderful app., – Jan 10, 2019, US.
+
 
 ### Development
 
@@ -98,11 +104,15 @@ Before I add new feature I run research again to gather answers, and align it wi
 ![](images/3.jpg)
 
 #### Apple Watch support was a mistake ####
-When Apple released the first Apple Watch, it was clearly a new market that we could rely on because people were buying such a new, beautiful device, but the number of apps was limited. So we decided to make an Apple Watch app. It turned out to be a big mistake because at that time the Apple Watch didn't have a digital compass, so I decided to make a simplified version of the app that would allow you to see saved locations on the map and save the current location as a shortcut. But people weren't happy. After receiving tons of negative reviews with requests to deliver Apple Watch app, after the release, we faced tons of negative reviews saying that the app is not good enough, the experience is not as great compared to the iPhone app. For me, it was a mistake to release Apple Watch support so early without similar experience. Later, in 2019, Apple released Apple Watch Series 5 with digital compass support. Unfortunately, our life changed a lot and we didn't actively develop the app anymore. But in 2017 major companies also not found a value to support that device and decided to remove their apps too.
+When Apple released the first Apple Watch, it was clearly a new market that we could rely on because people were buying such a new, beautiful device, but the number of apps was limited. So we decided to make an Apple Watch app. It turned out to be a big mistake because at that time the Apple Watch didn't have a digital compass, so I decided to make a simplified version of the app that would allow you to see saved locations on the map and save the current location as a shortcut. But people weren't happy. 
+
+After receiving tons of negative reviews with requests to deliver Apple Watch app, after the release, we faced tons of negative reviews saying that the app is not good enough, the experience is not as great compared to the iPhone app. For me, it was a mistake to release Apple Watch support so early without similar experience to iPhone app. Later, in 2019, Apple released Apple Watch Series 5 with digital compass support. 
+
+Unfortunately, our life changed a lot and we didn't actively develop the app anymore. But in 2017, even the big companies didn't see the value in supporting this device and decided to remove their apps as well. Apple Watch is great device by itself, but it's not for all type of apps.
 
 ![](images/6.jpg)
 
-#### Technologies has limits and it should be shown to a user in a clear way. ####
+#### Technologies has limits and it should be shown to a user in a clear way ####
 GPS technology has [limitations](https://www.blackboxcamera.com/pic-osd/gps_limits.htm): 
 - Can't be used inside a building because there's no direct connection to satellites.
 - GPS works better in some areas than others.
@@ -111,11 +121,27 @@ GPS technology has [limitations](https://www.blackboxcamera.com/pic-osd/gps_limi
 
 All these limitations are unknown to an average user, in case if something doesn't work, user must be notified with clear message why and what they can do to make it work again.
 
+#### Monetization model ####
+Back to 2013, when app was released most popular monetization model was free apps, or apps with in-app purchases. After analysis I decided to go with the paid app, as the fastest way to get the income. Today, I'd choose subscription model for next reasons:
+- If you aiming to provide service on a long term, it's very hard to sell the app for 0.99, and keep it to be updated for 11 years
+- 
+
 ### Learnings
 
 - App Store reviews, support emails, social network mentions - the best source to keep your hand on user feedback. Since we were a two-man team, I was not only designing, but also answering all support emails and App Store reviews. I found that it helped me as a designer to stay in touch with users and not just rely on analytics. 
 - Pricing is not a static thing. I have found that the only way to [shake up zero downloads on the App Store](http://localhost:1313/posts/blog/2024/how-to-shake-up-zero-downloads-on-app-store/) is to tweak the price. 
 - App analytics is the way to optimize the business. At some point I added mobile analytics to track every button press and screen visit. It helps to answer the question of what feature people aren't using. I found out that some screens were never opened by the user. In this case there are only two answers why: or people don't need it, or they don't know it exists. Both possibilities can be improved by interface tweaks.
+- Always respond to App Store reviews. It really helps you connect with people. Especially if they have a problem with your app. Some negative reviews have been turned into positive ones when people feel that help and care is on the way.
+
+![](images/8.jpg)
+
+- A lot of articles have suggested pricing apps at 0.99 makes because *more people can afford it.* But I did a lot of testing with different prices, and it turns out that for this particular app, $3.99 makes more money *in total.*
+
+- ASO is a must. Without it, it's very hard to compile into other apps. It should be done in a continuous way, sinc other apps amount is growing with every year.
+
+![](images/9.jpg)
+
+
 
 During my 11 years on the App Store, I learned a lot about ADS, user research, the development process, code, business, and other areas that ultimately helped me become a better designer. 
 
