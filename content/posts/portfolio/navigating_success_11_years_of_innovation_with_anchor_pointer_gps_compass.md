@@ -123,8 +123,8 @@ All these limitations are unknown to an average user, in case if something doesn
 
 #### Monetization model ####
 Back to 2013, when app was released most popular monetization model was free apps, or apps with in-app purchases. After analysis I decided to go with the paid app, as the fastest way to get the income. Today, I'd choose subscription model for next reasons:
-- If you aiming to provide service on a long term, it's very hard to sell the app for 0.99, and keep it to be updated for 11 years
-- 
+- If you want to provide a long-term service, it's very hard to sell the app for 0.99-3.99 per copy and keep it updated for 11 years. You might be wondering what needs to be updated for such a simple app? Actually, a lot: every year, Apple releases new APIs, updates design guidelines, and pushes developers to support them all. With limited income from paid apps, you will always be looking for new customers to expand the market, new localizations and marketing requires effort, time and money. 
+- Subscription apps have more freedom to experiment with advertising and marketing, and generally have more money to improve the product over time. Of course, the subscription model doesn't work for all apps. 
 
 ### Learnings
 
@@ -135,7 +135,7 @@ Back to 2013, when app was released most popular monetization model was free app
 
 ![](images/8.jpg)
 
-- A lot of articles have suggested pricing apps at 0.99 makes because *more people can afford it.* But I did a lot of testing with different prices, and it turns out that for this particular app, $3.99 makes more money *in total.*
+- A lot of articles have suggested pricing apps at 0.99 makes because more people can afford it. But I did a lot of testing with different prices, and it turns out that for this particular app, $3.99 makes more money overall. So when I made it to be 0.99 I was just stealing from myself. 
 
 - ASO is a must. Without it, it's very hard to compile into other apps. It should be done in a continuous way, sinc other apps amount is growing with every year.
 
