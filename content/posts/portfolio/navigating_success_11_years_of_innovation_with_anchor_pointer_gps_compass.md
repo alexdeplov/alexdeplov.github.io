@@ -106,11 +106,15 @@ Before I add new feature I run research again to gather answers, and align it wi
 #### Apple Watch support was a mistake ####
 When Apple released the first Apple Watch, it was clearly a new market that we could rely on because people were buying such a new, beautiful device, but the number of apps was limited. So we decided to make an Apple Watch app. It turned out to be a big mistake because at that time the Apple Watch didn't have a digital compass, so I decided to make a simplified version of the app that would allow you to see saved locations on the map and save the current location as a shortcut. But people weren't happy. 
 
-After receiving tons of negative reviews with requests to deliver Apple Watch app, after the release, we faced tons of negative reviews saying that the app is not good enough, the experience is not as great compared to the iPhone app. For me, it was a mistake to release Apple Watch support so early without similar experience to iPhone app. Later, in 2019, Apple released Apple Watch Series 5 with digital compass support. 
+After receiving tons of negative reviews with requests to deliver Apple Watch app, after the release, we faced tons of negative reviews saying that the app is not good enough, the experience is not as great compared to the iPhone app. For me, it was a mistake to release Apple Watch app so early without similar experience to iPhone app. Another problem was that the Apple Watch app **didn't change sales at all**, so we ended up spending time for nothing.
 
-Unfortunately, our life changed a lot and we didn't actively develop the app anymore. But in 2017, even the big companies didn't see the value in supporting this device and decided to remove their apps as well. Apple Watch is great device by itself, but it's not for all type of apps.
+In 2017 even the big companies didn't see the value in supporting this device and decided to remove their apps as well.
 
 ![](images/6.jpg)
+
+Later, in 2019, Apple released Apple Watch Series 5 with digital compass support. Unfortunately, our life changed a lot and we didn't actively develop the app anymore.  Apple Watch is great device by itself, but it's not for all type of apps.
+
+
 
 #### Technologies has limits and it should be shown to a user in a clear way ####
 GPS technology has [limitations](https://www.blackboxcamera.com/pic-osd/gps_limits.htm): 
