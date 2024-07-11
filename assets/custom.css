@@ -12,10 +12,6 @@ p, li, strong,
     color: #666;
 }
 
-html{
-    font-size: 1em;
-}
-
 html.dark p,
 html.dark li,
 html.dark strong,
