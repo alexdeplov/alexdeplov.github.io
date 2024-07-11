@@ -12,6 +12,10 @@ p, li, strong,
     color: #666;
 }
 
+html{
+    font-size: 1em;
+}
+
 html.dark p,
 html.dark li,
 html.dark strong,
@@ -20,9 +24,10 @@ html.dark .prose :where(strong):not(:where([class~="not-prose"], [class~="not-pr
  /* font-family: "Archivo Regular", sans-serif !important; */
 }
 
-body{
-    /* font-family: "Archivo Regular", sans-serif !important; */
+/* body{ 
+     font-family: "Archivo Regular", sans-serif !important; 
 }
+*/
 
 /* Avatar */
 .p-3{
