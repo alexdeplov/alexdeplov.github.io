@@ -121,6 +121,13 @@
       <description>Introduction If you’re a designer or developer you probably working with icons a lot. They’re everywhere. The main goal for every icon designer — is to make its shapes so clear, so it can be understandable without labels, without words. Even in foreign cultures.&#xA;Few years ago there is one popular topic in designers circles “why we should not use floppy disk icons anymore”, remember? The idea is simple, modern computers has changed, we don’t have floppy disk so modern user can’t associate the idea of save something with a floppy disk shape.</description>
     </item>
     <item>
+      <title>How to Deselect Selected UITableView Cell</title>
+      <link>https://alexdeplov.github.io/posts/blog/archive/how-to-deselect-selected-uitable-view-cell/</link>
+      <pubDate>Wed, 06 Apr 2016 12:22:56 +0200</pubDate>
+      <guid>https://alexdeplov.github.io/posts/blog/archive/how-to-deselect-selected-uitable-view-cell/</guid>
+      <description>You have UITableView with customized cells style, selection color, etc. When you tap on the cell, slide to another VC and came back, your cell still selected. Really annoing. Here is how to fix that.&#xA;override func viewWillAppear(_ animated: Bool) { super.viewWillAppear(animated) if let selectedIndexPath = tableView.indexPathForSelectedRow { tableView.deselectRow(at: selectedIndexPath, animated: true) } } </description>
+    </item>
+    <item>
       <title>How to use PDF’s as icons source in Xcode</title>
       <link>https://alexdeplov.github.io/posts/blog/archive/how-to-use-pdfs-as-icons-source-in-xcode/</link>
       <pubDate>Fri, 30 Oct 2015 09:47:22 +0200</pubDate>
