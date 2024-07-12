@@ -3,6 +3,7 @@ title = "Recreate the Apple Watch's Iconic Pairing Pattern in Vector"
 date = 2021-03-22T10:27:48+02:00
 draft = false
 featured = false
+author = "Alexander Deplov"
 +++
 
 ![](images/0.jpg)

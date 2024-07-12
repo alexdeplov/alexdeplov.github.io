@@ -3,6 +3,7 @@ title = 'How to Use Strings Method to Improve Any App UI Design'
 date = 2023-08-15T20:41:08+02:00
 draft = false
 featured = true
+author = "Alexander Deplov"
 +++
 ## Introduction
 

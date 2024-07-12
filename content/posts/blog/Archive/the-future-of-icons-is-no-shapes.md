@@ -3,6 +3,7 @@ title = 'The Future of Icons is No Shapes?'
 date = 2016-07-16T20:41:08+02:00
 draft = false
 featured = false
+author = "Alexander Deplov"
 +++
 
 ## Introduction

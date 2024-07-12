@@ -3,6 +3,7 @@ title = 'Personal Computer Crisis'
 date = 2024-06-22T16:30:18+02:00
 draft = false
 featured = true
+author = "Alexander Deplov"
 +++
 
 ![WarGames movie](images/1.jpg)

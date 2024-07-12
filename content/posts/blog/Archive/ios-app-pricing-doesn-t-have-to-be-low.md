@@ -3,6 +3,7 @@ title = "iOS App Pricing Doesn't Have to Be Low"
 date = 2021-06-30T18:46:57+02:00
 draft = false
 featured = false
+author = "Alexander Deplov"
 +++
 
 For many years, I developed only a few paid iOS apps. I read many online articles suggesting to set the price low, like $0.99 per copy. They said it allows more people to afford it. 

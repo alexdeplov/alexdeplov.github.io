@@ -1,11 +1,10 @@
 +++
-title = "How to duplicate geometry from .DAE files in SceneKit (Swift)"
+title = "How to Duplicate Geometry from .DAE Files in SceneKit (Swift)"
 date = 2015-01-11T08:56:17+02:00
 draft = false
 featured = false
+author = "Alexander Deplov"
 +++
-
-## How to duplicate geometry from .DAE files in SceneKit (Swift)
 
 The important part of this code is that every duplicated object has it's own color. Different from the color of the source object.
 

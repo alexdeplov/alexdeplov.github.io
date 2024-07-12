@@ -3,6 +3,7 @@ title = 'In a Hostage of Apple Hardware'
 date = 2024-06-22T21:54:19+02:00
 draft = true
 featured = false
+author = "Alexander Deplov"
 +++
 
 ### TL;DR
