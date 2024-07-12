@@ -128,6 +128,13 @@
       <description>You have UITableView with customized cells style, selection color, etc. When you tap on the cell, slide to another VC and came back, your cell still selected. Really annoing. Here is how to fix that.&#xA;override func viewWillAppear(_ animated: Bool) { super.viewWillAppear(animated) if let selectedIndexPath = tableView.indexPathForSelectedRow { tableView.deselectRow(at: selectedIndexPath, animated: true) } } </description>
     </item>
     <item>
+      <title>How to Change UIlabel Line Height in Swift</title>
+      <link>https://alexdeplov.github.io/posts/blog/archive/how-to-change-uilabel-line-height-swift/</link>
+      <pubDate>Wed, 30 Mar 2016 16:53:11 +0200</pubDate>
+      <guid>https://alexdeplov.github.io/posts/blog/archive/how-to-change-uilabel-line-height-swift/</guid>
+      <description>@IBOutlet weak var myLabel: UILabel! let textForLabel = &amp;#34;&amp;#34;&amp;#34; Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry&amp;#39;s standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. &amp;#34;&amp;#34;&amp;#34; let paragraphStyle = NSMutableParagraphStyle() // Line height size paragraphStyle.</description>
+    </item>
+    <item>
       <title>How to use PDF’s as icons source in Xcode</title>
       <link>https://alexdeplov.github.io/posts/blog/archive/how-to-use-pdfs-as-icons-source-in-xcode/</link>
       <pubDate>Fri, 30 Oct 2015 09:47:22 +0200</pubDate>
