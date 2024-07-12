@@ -135,6 +135,13 @@
       <description>@IBOutlet weak var myLabel: UILabel! let textForLabel = &amp;#34;&amp;#34;&amp;#34; Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry&amp;#39;s standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. &amp;#34;&amp;#34;&amp;#34; let paragraphStyle = NSMutableParagraphStyle() // Line height size paragraphStyle.</description>
     </item>
     <item>
+      <title>How to Dismiss Modal View Form Sheet Controller in Swift</title>
+      <link>https://alexdeplov.github.io/posts/blog/archive/how-to-dismiss-modal-view-form-sheet-controller-in-swift/</link>
+      <pubDate>Wed, 25 Nov 2015 17:01:15 +0200</pubDate>
+      <guid>https://alexdeplov.github.io/posts/blog/archive/how-to-dismiss-modal-view-form-sheet-controller-in-swift/</guid>
+      <description>When storyboard segue presentation mode set to Form Sheet you can add simple code to hide its ViewController tap on background. You don&amp;rsquo;t need Done button. Of course this trick is for iPad app only, because on iPhone Form Sheet will cover all screen size.&#xA;This code works well in Swift, iOS 9:&#xA;class ViewController: UIViewController, UIGestureRecognizerDelegate{var tapBGGesture: UITapGestureRecognizer!override func viewDidAppear(animated: Bool) {tapBGGesture = UITapGestureRecognizer(target: self, action: “settingsBGTapped:”)tapBGGesture.delegate = selftapBGGesture.numberOfTapsRequired = 1tapBGGesture.</description>
+    </item>
+    <item>
       <title>How to use PDF’s as icons source in Xcode</title>
       <link>https://alexdeplov.github.io/posts/blog/archive/how-to-use-pdfs-as-icons-source-in-xcode/</link>
       <pubDate>Fri, 30 Oct 2015 09:47:22 +0200</pubDate>
