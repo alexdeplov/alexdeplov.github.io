@@ -12,15 +12,37 @@ When storyboard segue presentation mode set to Form Sheet you can add simple cod
 This code works well in Swift, iOS 9:
 
 ```
-class ViewController: UIViewController, UIGestureRecognizerDelegate{var tapBGGesture: UITapGestureRecognizer!override func viewDidAppear(animated: Bool) {tapBGGesture = UITapGestureRecognizer(target: self, action: “settingsBGTapped:”)tapBGGesture.delegate = selftapBGGesture.numberOfTapsRequired = 1tapBGGesture.cancelsTouchesInView = falseself.view.window!.addGestureRecognizer(tapBGGesture)}
-
-func settingsBGTapped(sender: UITapGestureRecognizer){if sender.state == UIGestureRecognizerState.Ended{guard let presentedView = presentedViewController?.view else {return}
-
-if !CGRectContainsPoint(presentedView.bounds, sender.locationInView(presentedView)) {self.dismissViewControllerAnimated(true, completion: { () -> Void in})}}}
-
-func gestureRecognizer(gestureRecognizer: UIGestureRecognizer, shouldRecognizeSimultaneouslyWithGestureRecognizer otherGestureRecognizer: UIGestureRecognizer) -> Bool {return true}
-
-override func viewWillDisappear(animated: Bool) {self.view.window!.removeGestureRecognizer(tapBGGesture)}
+class ViewController: UIViewController, UIGestureRecognizerDelegate {
+    var tapBGGesture: UITapGestureRecognizer!
+    
+    override func viewDidAppear(animated: Bool) {
+        tapBGGesture = UITapGestureRecognizer(target: self, action: "settingsBGTapped:")
+        tapBGGesture.delegate = self
+        tapBGGesture.numberOfTapsRequired = 1
+        tapBGGesture.cancelsTouchesInView = false
+        self.view.window!.addGestureRecognizer(tapBGGesture)
+    }
+    
+    func settingsBGTapped(sender: UITapGestureRecognizer) {
+        if sender.state == UIGestureRecognizerState.Ended {
+            guard let presentedView = presentedViewController?.view else {
+                return
+            }
+            
+            if !CGRectContainsPoint(presentedView.bounds, sender.locationInView(presentedView)) {
+                self.dismissViewControllerAnimated(true, completion: { () -> Void in
+                })
+            }
+        }
+    }
+    
+    func gestureRecognizer(gestureRecognizer: UIGestureRecognizer, shouldRecognizeSimultaneouslyWithGestureRecognizer otherGestureRecognizer: UIGestureRecognizer) -> Bool {
+        return true
+    }
+    
+    override func viewWillDisappear(animated: Bool) {
+        self.view.window!.removeGestureRecognizer(tapBGGesture)
+    }
 }
 
 ```

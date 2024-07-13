@@ -121,6 +121,13 @@
       <description>Introduction If you’re a designer or developer you probably working with icons a lot. They’re everywhere. The main goal for every icon designer — is to make its shapes so clear, so it can be understandable without labels, without words. Even in foreign cultures.&#xA;Few years ago there is one popular topic in designers circles “why we should not use floppy disk icons anymore”, remember? The idea is simple, modern computers has changed, we don’t have floppy disk so modern user can’t associate the idea of save something with a floppy disk shape.</description>
     </item>
     <item>
+      <title>New App Release Newspaper for iPad</title>
+      <link>https://alexdeplov.github.io/posts/blog/archive/new-app-release-newspaper-for-ipad/</link>
+      <pubDate>Tue, 12 Apr 2016 09:51:03 +0200</pubDate>
+      <guid>https://alexdeplov.github.io/posts/blog/archive/new-app-release-newspaper-for-ipad/</guid>
+      <description>The Old Newspaper app released on App Store.&#xA;Story behind the app I just finished a side project I always wanted to do: turn the iPad into a newspaper. From the first moment I saw the iPad, I saw it as a book replacement. The surface we can fill with dynamic information, but unlike the iPhone, it has the same format as books. Or, yes, a newspaper.&#xA;I started this project a year ago, in 2015.</description>
+    </item>
+    <item>
       <title>How to Deselect Selected UITableView Cell</title>
       <link>https://alexdeplov.github.io/posts/blog/archive/how-to-deselect-selected-uitable-view-cell/</link>
       <pubDate>Wed, 06 Apr 2016 12:22:56 +0200</pubDate>
@@ -139,7 +146,7 @@
       <link>https://alexdeplov.github.io/posts/blog/archive/how-to-dismiss-modal-view-form-sheet-controller-in-swift/</link>
       <pubDate>Wed, 25 Nov 2015 17:01:15 +0200</pubDate>
       <guid>https://alexdeplov.github.io/posts/blog/archive/how-to-dismiss-modal-view-form-sheet-controller-in-swift/</guid>
-      <description>When storyboard segue presentation mode set to Form Sheet you can add simple code to hide its ViewController tap on background. You don&amp;rsquo;t need Done button. Of course this trick is for iPad app only, because on iPhone Form Sheet will cover all screen size.&#xA;This code works well in Swift, iOS 9:&#xA;class ViewController: UIViewController, UIGestureRecognizerDelegate{var tapBGGesture: UITapGestureRecognizer!override func viewDidAppear(animated: Bool) {tapBGGesture = UITapGestureRecognizer(target: self, action: “settingsBGTapped:”)tapBGGesture.delegate = selftapBGGesture.numberOfTapsRequired = 1tapBGGesture.</description>
+      <description>When storyboard segue presentation mode set to Form Sheet you can add simple code to hide its ViewController tap on background. You don&amp;rsquo;t need Done button. Of course this trick is for iPad app only, because on iPhone Form Sheet will cover all screen size.&#xA;This code works well in Swift, iOS 9:&#xA;class ViewController: UIViewController, UIGestureRecognizerDelegate { var tapBGGesture: UITapGestureRecognizer! override func viewDidAppear(animated: Bool) { tapBGGesture = UITapGestureRecognizer(target: self, action: &amp;#34;settingsBGTapped:&amp;#34;) tapBGGesture.</description>
     </item>
     <item>
       <title>How to use PDF’s as icons source in Xcode</title>
