@@ -61,7 +61,7 @@
   {{ if not .Params.featured }}
   <li class="list-none">
   {{ end }}
-      <h3 class="!my-0 font-bold !leading-none flex">{{ partial "featured_icon.html" . }}{{ .Title }}</h3>
+      <h3 class="!my-0 font-bold flex">{{ partial "featured_icon.html" . }}{{ .Title }}</h3>
        <!-- <time class="text-sm antialiased opacity-60">{{ .Date | time.Format ":date_medium" }}</time> -->
       <a class="absolute inset-0 text-[0]" href="{{ .Permalink }}">{{ .Title }}</a>
     </li>
