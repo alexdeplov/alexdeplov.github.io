@@ -114,6 +114,27 @@
       <description>Introduction As an indie iOS developer, you’re facing stiff competition on the App Store market. Each year, thousands of apps are added by developers from all around the globe. Each of us wants to dominate that market to capture all the money and attention of users. With more apps on the App Store, there are fewer opportunities for each developer. More effort is needed to gather an audience, improve your ASO for visibility, or pay more for advertising.</description>
     </item>
     <item>
+      <title>How to Convert RGB to HUE Value in Swift</title>
+      <link>https://alexdeplov.github.io/posts/blog/archive/how-to-convert-rgb-to-hue-value-in-swift/</link>
+      <pubDate>Thu, 22 Jun 2017 10:46:05 +0200</pubDate>
+      <guid>https://alexdeplov.github.io/posts/blog/archive/how-to-convert-rgb-to-hue-value-in-swift/</guid>
+      <description>Sometimes it’s handy to use HUE properties in apps or games to animate its saturation or brightness or even the color itself. So here is super simple func to convert RGB to HUE.&#xA;let r: CGFloat = 251/255 let g: CGFloat = 94/255 let b: CGFloat = 50/255 func rgbToHue(r: CGFloat, g: CGFloat, b: CGFloat) -&amp;gt; (h: CGFloat, s: CGFloat, b: CGFloat) { let minV: CGFloat = CGFloat(min(r, g, b)) let maxV: CGFloat = CGFloat(max(r, g, b)) let delta: CGFloat = maxV - minV var hue: CGFloat = 0 if delta !</description>
+    </item>
+    <item>
+      <title>How to Create Delegate in Swift</title>
+      <link>https://alexdeplov.github.io/posts/blog/archive/how-to-create-delegate-in-swift/</link>
+      <pubDate>Tue, 30 May 2017 10:42:43 +0200</pubDate>
+      <guid>https://alexdeplov.github.io/posts/blog/archive/how-to-create-delegate-in-swift/</guid>
+      <description>In class that send the data create protocol: protocol BackButtonActionDelegate { func pressFinished(){} } Inside this class: class BackButton: SKNode { var delegate: BackButtonActionDelegate? } Inside the class send the data, run the delegate message when needed: delegate?.pressFinished() Inside another class, that received data, add delegate:&#xA;class OptionsWindow: SKNode, BackButtonActionDelegate { } Add same function from sender:&#xA;func pressFinished() { print(&amp;#34;delegate triggered&amp;#34;) } Inside another class, that received data, in viewDidLoad() add:</description>
+    </item>
+    <item>
+      <title>Taskmoji: Simplified To-Do App for People Who Hate To-Do Apps</title>
+      <link>https://alexdeplov.github.io/posts/portfolio/taskmoji-simplified-to-do-app-for-people-who-hate-to-do-apps/</link>
+      <pubDate>Wed, 07 Sep 2016 10:53:16 +0200</pubDate>
+      <guid>https://alexdeplov.github.io/posts/portfolio/taskmoji-simplified-to-do-app-for-people-who-hate-to-do-apps/</guid>
+      <description>You probably know that apps can sometimes be harder to use than physical objects. They&amp;rsquo;re slow, confusing, and require a lot of taps, clicks, and selections.&#xA;That&amp;rsquo;s why, for many people, pen and paper still works better than some fancy app on your iPhone.&#xA;Core of the problem I started digging into the idea of &amp;ldquo;how can it be so simple, so literally replace pen &amp;amp; paper&amp;rdquo; and found that there are two main problems with apps:</description>
+    </item>
+    <item>
       <title>The Future of Icons is No Shapes?</title>
       <link>https://alexdeplov.github.io/posts/blog/archive/the-future-of-icons-is-no-shapes/</link>
       <pubDate>Sat, 16 Jul 2016 20:41:08 +0200</pubDate>
