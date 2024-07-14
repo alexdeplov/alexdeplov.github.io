@@ -6,8 +6,15 @@
     <description>Recent content in Posts on Alexander Deplov – Senior Product Designer Blog</description>
     <generator>Hugo</generator>
     <language>en-us</language>
-    <lastBuildDate>Thu, 04 Jul 2024 21:52:14 +0200</lastBuildDate>
+    <lastBuildDate>Sun, 14 Jul 2024 13:24:09 +0200</lastBuildDate>
     <atom:link href="https://alexdeplov.github.io/posts/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Product Page Optimization Anchor Pointer App</title>
+      <link>https://alexdeplov.github.io/posts/blog/2024/asc-product-page-optimization-anchor-pointer-app/</link>
+      <pubDate>Sun, 14 Jul 2024 13:24:09 +0200</pubDate>
+      <guid>https://alexdeplov.github.io/posts/blog/2024/asc-product-page-optimization-anchor-pointer-app/</guid>
+      <description>Inspired by this post I decided to try this approach with my Anchor Pointer app. The idea is to create a hook with the first screenshot and then highlight features with others.&#xA;The test ran for 14 days and ended with +7.92% improvement and 40.3% confidence.&#xA;Current Product Page: Treatment A (the winner): </description>
+    </item>
     <item>
       <title>Navigating Success: 11 Years of Innovation with Anchor Pointer GPS Compass</title>
       <link>https://alexdeplov.github.io/posts/portfolio/navigating_success_11_years_of_innovation_with_anchor_pointer_gps_compass/</link>
