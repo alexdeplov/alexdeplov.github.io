@@ -4,6 +4,9 @@ title = "Alexander Deplov – Senior Product Designer Blog"
 theme = 'paper'
 paginate = 100
 
+[taxonomies]
+tag = "tags"
+
 [params]
   color = 'linen'
   mastodon = 'https://mastodon.social/@alex_deplov'

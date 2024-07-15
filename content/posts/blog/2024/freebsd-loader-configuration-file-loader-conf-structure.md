@@ -1,9 +1,10 @@
 +++
-title = "FreeBSD loader configuration file (loader.conf) structure"
+title = "Loader Configuration File (loader.conf) Structure in FreeBSD"
 date = 2024-07-15T16:42:44+02:00
 draft = true
 featured = false
 author = "Alexander Deplov"
+tags = ["freebsd"]
 +++
 FreeBSD manages system settings using default files and separate customization files. This allows users to modify settings without directly editing the default configurations, ensuring compatibility during upgrades and providing a clear way to view and customize system options.
 

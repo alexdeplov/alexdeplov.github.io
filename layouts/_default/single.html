@@ -1,21 +1,24 @@
 {{ define "main" }}
 
 <article>
-  <header class="mb-16">
-  
-
+ <header class="mb-16">
     <h1 class="mb-2">{{ .Title }}</h1> 
 
     {{ if ne .Type "page" }}
     <div class="text-sm antialiased opacity-60">
       {{ if .Date }}
       <time>{{ .Date | time.Format ":date_medium" }}</time>
-      {{ end }}<!---->
-      {{ $single_author := or .Params.Author site.Author.name }}
-      <!---->
-      {{ if $single_author }}
+      {{ end }}{{ $single_author := or .Params.Author site.Author.name }}
       <span class="mx-1">&middot;</span>
       <span>{{ $single_author }}</span>
+      {{ if and $single_author (isset .Params "tags") }} 
+      
+      <span class="mx-1">&middot;</span>
+      <span class="post-tags">
+        {{ range .Params.tags }}
+            <a href="{{ "tags/" | relURL }}{{ . | urlize }}/">{{ . }}</a>
+        {{ end }}
+      </span>
       {{ end }}
     </div>
     {{ end }}

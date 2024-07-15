@@ -4,4 +4,5 @@ date = {{ .Date }}
 draft = true
 featured = false
 author = "Alexander Deplov"
+tags = []
 +++

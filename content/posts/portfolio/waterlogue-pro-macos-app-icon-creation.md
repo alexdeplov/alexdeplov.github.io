@@ -4,6 +4,7 @@ date = 2024-06-24T17:31:08+02:00
 draft = false
 featured = false
 author = "Alexander Deplov"
+tags = ["portfolio"]
 +++
 
 ### Project goal

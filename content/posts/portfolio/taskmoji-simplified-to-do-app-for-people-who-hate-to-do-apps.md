@@ -4,6 +4,7 @@ date = 2016-09-07T10:53:16+02:00
 draft = false
 featured = false
 author = "Alexander Deplov"
+tags = ["portfolio"]
 +++
 You probably know that apps can sometimes be harder to use than physical objects. They're slow, confusing, and require a lot of taps, clicks, and selections.
 

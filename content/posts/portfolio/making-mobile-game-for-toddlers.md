@@ -4,6 +4,7 @@ date = 2024-06-26T12:08:12+02:00
 draft = false
 featured = false
 author = "Alexander Deplov"
+tags = ["portfolio"]
 +++
 
 ![Hero](images/1.jpg)
