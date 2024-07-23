@@ -87,8 +87,9 @@ html.dark svg path{
     align-items: flex-start;
 }
 
-.mastodonFillColor{
+.mastodonColor{
     background-color: #563ACC;
+    color: white;
 }
 
 /* for layouts / schortcodes:  
