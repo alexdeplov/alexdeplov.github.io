@@ -9,6 +9,8 @@ tags = ["portfolio"]
 
 As a product designer with a passion for innovation, I embarked on a journey to create my own product. This led to the birth of the [Anchor Pointer GPS Compass](https://apps.apple.com/us/app/find-car-anchor-pointer/id791684332), an iOS app designed to provide reliable navigation without an internet connection.
 
+Total downloads 732K, latest 5 years:
+
 ![](images/7.jpg)
 
 ### Project goal
