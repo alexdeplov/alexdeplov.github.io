@@ -5,7 +5,7 @@ draft = false
 featured = false
 author = "Alexander Deplov"
 +++
-Knowing the age of your target audience is critical to creating a product that truly resonates with your users. By understanding their age, you can tailor the user experience, features, and even your marketing messages to their specific needs and preferences. This personalization not only increases engagement, but also contributes to the overall success of your product.
+Knowing your target audience is critical to creating a product that truly resonates with your users. By understanding their age (as an example), you can tailor the user experience, features, and even your marketing messages to their specific needs and preferences. This personalization not only increases engagement, but also contributes to the overall success of your product.
 
 As a product designer, if you can't define your users, it's like trying to shoot a target blindfolded. You need to know their ages, preferences, and behaviors in order to design a product that fits them like a glove. 
 
@@ -42,5 +42,7 @@ At some point, when you have enough data, you can do the next two things:
 ![](images/3.webp)
 
 I used both techniques when building [Anchor Pointer GPS Compass for iOS](https://interfacecraft.online/posts/portfolio/navigating_success_11_years_of_innovation_with_anchor_pointer_gps_compass/). Initially, I imagined that our target audience was a teenager, it turned out to be 50 - 69+.
+
+By using this method you can create gather most of the important data about your users, not only an age. 
 
 
