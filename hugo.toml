@@ -15,7 +15,7 @@ tag = "tags"
 # home page profile
   avatar = 'https://gravatar.com/avatar/7a371a2fef36b02d83ee5e65f9a7721d?size=256&cache=1718741543588'                 # gravatar email or image url
   name = ' '
-  bio = "I'm senior product designer. Co-founder of Pleeq Software. ADPList design mentor. AI prompt curator on Pinterest. FreeBSD hobbyist."
+  bio = "I'm senior product designer of iOS apps. Co-founder of Pleeq Software. ADPList design mentor. AI prompt curator on Pinterest. FreeBSD hobbyist."
 
 # misc
   disableHLJS = false                       # disable highlight.js
