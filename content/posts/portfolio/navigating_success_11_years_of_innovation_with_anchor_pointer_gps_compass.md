@@ -17,6 +17,10 @@ Total downloads 732K, latest 5 years:
 
 In 2013 I decided to release my first iOS app. On this way I asked my brother-developer to help me with this project. The goal was to try to create a unique navigation app using GPS as a core technology with one big advantage, it can work without internet connection by reading GPS signal directly from satellites. It could be handy for people who are traveling and not willing to buy another SIM card just to have an internet connection. Or people who use iPhone in a natural area, far away from cell towers.
 
+### My role
+
+As co-founder of Pleeq Software, I led the design process from conception to launch, including competitive analysis, user research, and UX/UI design, as well as answering support emails, running A/B tests and online advertising (Apple Search ADS Advanced, and others), setting up app analytics, and more.
+
 ### Researching target audiences
 
 Since the app was unique in the market, there was no direct access to the target audience, it was unknown. Instead, I assumed that the target audience would be the same as most active iOS users during that period: young, active people in the 25-34 age range.
