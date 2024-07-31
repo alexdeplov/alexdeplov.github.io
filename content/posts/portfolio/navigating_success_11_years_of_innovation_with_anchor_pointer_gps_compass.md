@@ -19,7 +19,7 @@ In 2013 I decided to release my first iOS app. On this way I asked my brother-de
 
 ### My role
 
-As co-founder of Pleeq Software, I led the design process from conception to launch, including competitive analysis, user research, and UX/UI design, as well as answering support emails, running A/B tests and online advertising (Apple Search ADS Advanced, and others), setting up app analytics, and more.
+As co-founder of [Pleeq Software](https://pleeq.com), I led the design process from conception to launch, including competitive analysis, user research, and UX/UI design, as well as answering support emails, running A/B tests and online advertising (Apple Search ADS Advanced, and others), setting up app analytics, and more.
 
 ### Researching target audiences
 
