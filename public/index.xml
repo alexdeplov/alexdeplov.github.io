@@ -184,7 +184,7 @@
       <description>When storyboard segue presentation mode set to Form Sheet you can add simple code to hide its ViewController tap on background. You don&amp;rsquo;t need Done button. Of course this trick is for iPad app only, because on iPhone Form Sheet will cover all screen size.&#xA;This code works well in Swift, iOS 9:&#xA;class ViewController: UIViewController, UIGestureRecognizerDelegate { var tapBGGesture: UITapGestureRecognizer! override func viewDidAppear(animated: Bool) { tapBGGesture = UITapGestureRecognizer(target: self, action: &amp;#34;settingsBGTapped:&amp;#34;) tapBGGesture.</description>
     </item>
     <item>
-      <title>How to use PDF’s as icons source in Xcode</title>
+      <title>How to Use PDF’s as Icons Source in Xcode</title>
       <link>https://alexdeplov.github.io/posts/blog/archive/how-to-use-pdfs-as-icons-source-in-xcode/</link>
       <pubDate>Fri, 30 Oct 2015 09:47:22 +0200</pubDate>
       <guid>https://alexdeplov.github.io/posts/blog/archive/how-to-use-pdfs-as-icons-source-in-xcode/</guid>
@@ -198,7 +198,7 @@
       <description>The easiest way to customize navigation controller back button.&#xA;By default back button looks like this:&#xA;We are going to make it looks like Instagram back button (without text):&#xA;I quickly redraw the button in the Sketch and add into Assets:&#xA;Storyboard looks like this:&#xA;In the ViewController.swift write: override func viewDidLoad() { super.viewDidLoad() if let backButtonImage = UIImage(named: &amp;#34;backButton&amp;#34;) { navigationController?.navigationBar.backIndicatorImage = backButtonImage navigationController?.navigationBar.backIndicatorTransitionMaskImage = backButtonImage } navigationItem.backBarButtonItem = UIBarButtonItem(title: &amp;#34;&amp;#34;, style: .</description>
     </item>
     <item>
-      <title>How to Disable Uinavigationbar Shadow in Ios 9 Swift</title>
+      <title>How to Disable UINavigationBar Shadow in iOS 9 Swift</title>
       <link>https://alexdeplov.github.io/posts/blog/archive/how-to-disable-uinavigationbar-shadow-in-ios-9-swift/</link>
       <pubDate>Tue, 21 Jul 2015 09:31:28 +0200</pubDate>
       <guid>https://alexdeplov.github.io/posts/blog/archive/how-to-disable-uinavigationbar-shadow-in-ios-9-swift/</guid>

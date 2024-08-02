@@ -1,5 +1,5 @@
 +++
-title = "How to Disable Uinavigationbar Shadow in Ios 9 Swift"
+title = "How to Disable UINavigationBar Shadow in iOS 9 Swift"
 date = 2015-07-21T09:31:28+02:00
 draft = false
 featured = false

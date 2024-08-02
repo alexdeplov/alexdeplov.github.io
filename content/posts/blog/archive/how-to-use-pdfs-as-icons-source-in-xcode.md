@@ -1,5 +1,5 @@
 +++
-title = "How to use PDF’s as icons source in Xcode"
+title = "How to Use PDF’s as Icons Source in Xcode"
 date = 2015-10-30T09:47:22+02:00
 draft = false
 featured = false
