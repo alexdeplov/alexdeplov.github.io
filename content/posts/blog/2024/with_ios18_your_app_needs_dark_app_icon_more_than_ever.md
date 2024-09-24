@@ -1,7 +1,7 @@
 +++
 title = "With iOS 18 Your App Needs Dark App Icon More Than Ever"
 date = 2024-09-24T17:02:50+02:00
-draft = true
+draft = false
 featured = false
 author = "Alexander Deplov"
 +++

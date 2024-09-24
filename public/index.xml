@@ -6,8 +6,15 @@
     <description>Recent content on Alexander Deplov – Senior Product Designer Blog</description>
     <generator>Hugo</generator>
     <language>en-us</language>
-    <lastBuildDate>Tue, 10 Sep 2024 14:08:34 +0200</lastBuildDate>
+    <lastBuildDate>Tue, 24 Sep 2024 17:02:50 +0200</lastBuildDate>
     <atom:link href="https://alexdeplov.github.io/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>With iOS 18 Your App Needs Dark App Icon More Than Ever</title>
+      <link>https://alexdeplov.github.io/posts/blog/2024/with_ios18_your_app_needs_dark_app_icon_more_than_ever/</link>
+      <pubDate>Tue, 24 Sep 2024 17:02:50 +0200</pubDate>
+      <guid>https://alexdeplov.github.io/posts/blog/2024/with_ios18_your_app_needs_dark_app_icon_more_than_ever/</guid>
+      <description>With the latest release of iOS 18, Apple continues to emphasize design harmony throughout the operating system with Dark Mode for app icons. It provides a sleek and modern aesthetic that many users have come to love. Unfortunately, if your app doesn&amp;rsquo;t conform to this visual paradigm, users are more likely to remove it from the Home Screen to get rid of an app icon that doesn&amp;rsquo;t fit.&#xA;When an iOS 18 user enables Dark Mode on their device, the operating system automatically switches to a dark theme for all apps.</description>
+    </item>
     <item>
       <title>UI Elements: Understanding Their Purpose for Effective Design</title>
       <link>https://alexdeplov.github.io/posts/blog/2024/ui-elements-understanding-their-purpose-for-effective-design/</link>
