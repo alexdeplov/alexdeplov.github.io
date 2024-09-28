@@ -92,6 +92,12 @@ html.dark svg path{
     color: white;
 }
 
+.linkedInColor{
+    background-color: #1f4dd7;
+    color: white;
+    border-radius: .5rem !important;
+}
+
 /* for layouts / schortcodes:  
  .image-grid {
     display: grid;
