@@ -11,7 +11,7 @@ As a product designer with a passion for innovation, I embarked on a journey to 
 
 Total downloads 732K, latest 5 years:
 
-![](images/7.jpg)
+![](images/1.jpg)
 
 ### Project goal
 
