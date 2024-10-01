@@ -1,7 +1,7 @@
 +++
 title = "Product Page Optimization Anchor Pointer App"
 date = 2024-07-14T13:24:09+02:00
-draft = false
+draft = true
 featured = false
 author = "Alexander Deplov"
 +++
