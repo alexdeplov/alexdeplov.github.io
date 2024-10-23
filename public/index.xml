@@ -6,8 +6,15 @@
     <description>Recent content on Alexander Deplov – Senior Product Designer Blog</description>
     <generator>Hugo</generator>
     <language>en-us</language>
-    <lastBuildDate>Tue, 24 Sep 2024 17:02:50 +0200</lastBuildDate>
+    <lastBuildDate>Wed, 23 Oct 2024 21:44:06 +0200</lastBuildDate>
     <atom:link href="https://alexdeplov.github.io/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>My iOS App Icons Design</title>
+      <link>https://alexdeplov.github.io/posts/portfolio/ios-app-icons-design/</link>
+      <pubDate>Wed, 23 Oct 2024 21:44:06 +0200</pubDate>
+      <guid>https://alexdeplov.github.io/posts/portfolio/ios-app-icons-design/</guid>
+      <description>Through my career I have created some iOS app icons. The biggest challenge is to express app idea through simple graphics that can be readable without additioonal explanation. At the same time, the icon should be unique, so researching the competition is always necessary.&#xA;Some of the icons were A/B tested to find the best performing versions.</description>
+    </item>
     <item>
       <title>With iOS 18 Your App Needs Dark App Icon More Than Ever</title>
       <link>https://alexdeplov.github.io/posts/blog/2024/with_ios18_your_app_needs_dark_app_icon_more_than_ever/</link>

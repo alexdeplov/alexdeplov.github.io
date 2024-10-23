@@ -6,8 +6,15 @@
     <description>Recent content in Portfolio on Alexander Deplov – Senior Product Designer Blog</description>
     <generator>Hugo</generator>
     <language>en-us</language>
-    <lastBuildDate>Thu, 04 Jul 2024 21:52:14 +0200</lastBuildDate>
+    <lastBuildDate>Wed, 23 Oct 2024 21:44:06 +0200</lastBuildDate>
     <atom:link href="https://alexdeplov.github.io/tags/portfolio/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>My iOS App Icons Design</title>
+      <link>https://alexdeplov.github.io/posts/portfolio/ios-app-icons-design/</link>
+      <pubDate>Wed, 23 Oct 2024 21:44:06 +0200</pubDate>
+      <guid>https://alexdeplov.github.io/posts/portfolio/ios-app-icons-design/</guid>
+      <description>Through my career I have created some iOS app icons. The biggest challenge is to express app idea through simple graphics that can be readable without additioonal explanation. At the same time, the icon should be unique, so researching the competition is always necessary.&#xA;Some of the icons were A/B tested to find the best performing versions.</description>
+    </item>
     <item>
       <title>Navigating Success: 11 Years of Innovation with Anchor Pointer GPS Compass</title>
       <link>https://alexdeplov.github.io/posts/portfolio/navigating_success_11_years_of_innovation_with_anchor_pointer_gps_compass/</link>
