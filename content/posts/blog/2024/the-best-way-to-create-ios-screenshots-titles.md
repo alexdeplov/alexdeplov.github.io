@@ -25,7 +25,7 @@ An improved version of the title could be:
 
 ![](images/3.webp)
 
-Now the statement is clear. If [as a user] i will use the app, I will [never lost again], but why? Because of [GPS navigation]. The benefit is clear.
+Now the statement is clear. If [as a user] I will use the app, I will [never lost again], but why? Because of [GPS navigation]. The benefit is clear.
 
 Only after text is done we can add graphical asset to support that text.
 
