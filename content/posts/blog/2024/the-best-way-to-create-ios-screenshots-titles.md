@@ -29,6 +29,20 @@ Now the statement is clear. If [as a user] I will use the app, I will [never los
 
 Only after text is done we can add graphical asset to support that text.
 
+Another example. Before:
+![](images/4.webp)
+
+After:
+![](images/5.webp)
+
+Screenshot 1: 
+- Before: "Apply effects in one tap" But why? Why I have to apply effects?
+- After: "Select a filter to express your idea". Why I have to select a filter? To express your idea.
+
+Screenshot 2:
+- Before: "Swipe to change dust effect". Why I want to change dust effect anyway?
+- After: "Add dust for a nostalgic vibe". Now I see the benefit! 
+
 
 ### Pro Tips for Crafting Effective Screenshot Text
 
