@@ -6,8 +6,15 @@
     <description>Recent content on Alexander Deplov – Senior Product Designer Blog</description>
     <generator>Hugo</generator>
     <language>en-us</language>
-    <lastBuildDate>Wed, 23 Oct 2024 21:44:06 +0200</lastBuildDate>
+    <lastBuildDate>Fri, 25 Oct 2024 11:08:10 +0200</lastBuildDate>
     <atom:link href="https://alexdeplov.github.io/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>The Best Way to Create iOS Screenshots Titles</title>
+      <link>https://alexdeplov.github.io/posts/blog/2024/the-best-way-to-create-ios-screenshots-titles/</link>
+      <pubDate>Fri, 25 Oct 2024 11:08:10 +0200</pubDate>
+      <guid>https://alexdeplov.github.io/posts/blog/2024/the-best-way-to-create-ios-screenshots-titles/</guid>
+      <description>Inspired by that tweet, instead of saying &amp;ldquo;Here&amp;rsquo;s what our product can do&amp;rdquo; you can shift to &amp;ldquo;Here&amp;rsquo;s what you can do with our product&amp;rdquo;. This approach led me to rethink all the screenshots I&amp;rsquo;ve created in the past to make them more effective.&#xA;I realized I made another mistake by not considering that users often lack context. Here is a bad example:&#xA;In the first screenshot, we see the large &amp;ldquo;SAVE&amp;rdquo; title.</description>
+    </item>
     <item>
       <title>My iOS App Icons Design</title>
       <link>https://alexdeplov.github.io/posts/portfolio/ios-app-icons-design/</link>
