@@ -1,11 +1,13 @@
 +++
 title = "Opera Browser Onboarding UX Analysis"
 date = 2024-11-01T16:28:45+01:00
-draft = false
+draft = true
 featured = false
 author = "Alexander Deplov"
 tags = ["case-studies"]
 +++
+
+<iframe src="https://docs.google.com/presentation/d/e/2PACX-1vQUm7Jau4UWxkw18vvcTMDVF6rSWcHKhKfgVAueandD9rMa4uHzsEB4DSPVLggncBGWD6_P5XpCPwBP/embed?start=false&loop=false&delayms=3000" frameborder="0" width="960" height="569" allowfullscreen="true" mozallowfullscreen="true" webkitallowfullscreen="true" onload="this.contentWindow.focus()"></iframe>
 
 
 Inspired by the [Product Psychology Masterclass](https://growth.design/course), I did an analysis of the Opera browser onboarding to find the peaks and valleys in the journey. 

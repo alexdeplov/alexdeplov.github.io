@@ -7,6 +7,11 @@ paginate = 100
 [taxonomies]
 tag = "tags"
 
+[markup]
+  [markup.goldmark]
+    [markup.goldmark.renderer]
+      unsafe = true
+
 [params]
   color = 'linen'
   mastodon = 'https://mastodon.social/@alex_deplov'
