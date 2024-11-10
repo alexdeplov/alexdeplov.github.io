@@ -7,7 +7,7 @@ author = "Alexander Deplov"
 tags = ["case-studies"]
 +++
 
-<iframe src="https://docs.google.com/presentation/d/e/2PACX-1vQlk_bUStpNmEc5hiQs7nGSU7qHR1J5z4bi4TDNpvF4pSI5bCRIlzCHPKMvLY21Cg/embed?start=false&loop=false&delayms=3000" frameborder="0" width="100%" allowfullscreen="true" mozallowfullscreen="true" webkitallowfullscreen="true" style="min-height: 435px;" autofocus></iframe>
+<iframe src="https://docs.google.com/presentation/d/e/2PACX-1vQlk_bUStpNmEc5hiQs7nGSU7qHR1J5z4bi4TDNpvF4pSI5bCRIlzCHPKMvLY21Cg/embed?start=false&loop=false&delayms=3000" frameborder="0" width="100%" allowfullscreen="true" mozallowfullscreen="true" webkitallowfullscreen="true" style="width: 100%; aspect-ratio: 16/10" autofocus></iframe>
 
 Inspired by the [Product Psychology Masterclass](https://growth.design/course), I did an analysis of the Opera browser onboarding to find the peaks and valleys in the journey. 
 
