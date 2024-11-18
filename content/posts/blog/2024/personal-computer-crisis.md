@@ -18,13 +18,13 @@ My main point of interest was computer graphics, but I also learned how to make 
 
 ### iPad is not a computer 
 
-Apple often claims that iPad is a new computer, and I don't agree. With its closed software, you can't install other operating systems or software beyond iOS, and your experience is limited to App Store apps. 
+Apple often claims that the iPad is a new type of computer, but I disagree. With its closed software ecosystem, you can't install alternative operating systems or software beyond iOS, limiting your experience to App Store apps. Furthermore, in a few decades, you likely won't be able to run old iOS apps, whether out of curiosity or nostalgia. This is because Apple controls which iOS versions can be installed on specific devices. In contrast, today we can still run old Windows or DOS applications on modern PCs.
 
 With a computer, you should be able to build another computer - from 3D to CAD and PCB to manufacturing. Can you build another iPad with an iPad? I doubt it. But you can use a computer to make another computer, or even an iPad.
 
 ### iPad as a teenager dream
 
-All the people around me, from 11 to 22 years old, yearn to have an iPad or an iPhone. Most of the time they use it as a device to consume content: to watch a video on Instagram or YouTube, to post on social networks, and in rare cases to work with Procreate. I have never seen anyone use it to make music, to work in 3D, or to write code. 
+All the people around me, from 11 to 22 years old, yearn to have an iPad or an iPhone. Most of the time they use it as a device to consume content: to watch a video on Instagram or YouTube, to play games, share statuses on social media, and in rare cases to work with Procreate. I have never seen anyone use it to make music, to work in 3D, or to write code. 
 
 With this obsession with content-consuming devices, we will soon have fewer and fewer good IT professionals with a broad range of skills. And that is pretty sad. 
 
