@@ -50,13 +50,28 @@ That Citizen watch has another feature that I love. Its lume is one of the longe
 
 ![](images/8.webp)
 
-I'm really happy with that move. I like that I replaced a watch that I need to charge three times per day with a watch that I don't need to charge at all. 
+Because of the battery issue, most people wear the Apple Watch with the display off. So you can't see the time from the side until you flip your wrist 90 degrees toward your face. 
+Now, when I'm wearing a physical watch, noticing that feels odd. A watch that most of the time has no face.
+
+![](images/9.webp)
+
+I'm really happy with that transition. I like that I replaced a watch that I need to charge three times per day with a watch that I don't need to charge at all. 
 
 ![](images/3.webp)
 ![](images/4.webp)
 
+I like that my new Citizen watch has these characteristics:
+- Not a smartwatch, no notifications, less stress
+- Uses a battery rechargeable by any light source, reducing waste
+- Potential battery lifetime of 10-15 years
+- Robust luminous material that glows for hours
+- Allows for customization with interchangeable watch bands
+- Provides a simple, reliable timekeeping experience without technological complexity
+- Most importantly, I am the true owner of the watch; it will become obsolete only when I decide, not when Apple decides. So potential lifetime is indefinite.
 
-Because of the battery issue, most people wear the Apple Watch with the display off. So you can't see the time from the side until you flip your wrist 90 degrees toward your face. Now, noticing that feels odd. A watch that most of the time has no face.
+If you're thinking to try to replace your smart watch with something more classical, consider what truly matters to you in a timepiece. For me, the journey from a high-tech Apple Watch to a classic Citizen Promaster Dive was about rediscovering simplicity, sustainability, and genuine utility. It's not just about telling time, but about finding a device that seamlessly integrates into your life without constant demands for charging or attention.
+
+
 
 
 
