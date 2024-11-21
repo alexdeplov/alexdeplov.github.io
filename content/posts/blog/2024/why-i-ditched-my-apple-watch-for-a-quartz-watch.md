@@ -44,14 +44,17 @@ So in the end, I bought that Citizen watch.
 The stock band was total rubbish compared to Apple's. So I bought a couple of Apple Watch bands that were adapted for classic watches on Aliexpress. On the image you can find name of each.
 
 ![](images/2.webp)
+![](images/5.webp)
 
 That Citizen watch has another feature that I love. Its lume is one of the longest-lasting on the market. So when I wake up, even as late as 6 AM, I'm still able to read the time, even in complete darkness. I like that it's charged by light and not by a battery. It works by absorbing light energy and storing it in the electrons of the luminous material. When the lights go out, these electrons gradually release the stored energy as light, allowing the watch hands and markers to glow in the dark. It's a fascinating and I think way smarter way to use physics, compared to a smart watch.
+
+![](images/8.webp)
 
 I'm really happy with that move. I like that I replaced a watch that I need to charge three times per day with a watch that I don't need to charge at all. 
 
 ![](images/3.webp)
 ![](images/4.webp)
-![](images/5.webp)
+
 
 Because of the battery issue, most people wear the Apple Watch with the display off. So you can't see the time from the side until you flip your wrist 90 degrees toward your face. Now, noticing that feels odd. A watch that most of the time has no face.
 
