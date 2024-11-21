@@ -6,7 +6,7 @@ featured = false
 author = "Alexander Deplov"
 +++
 
-I have always been a HUGE Apple Watch fan. I used this device day and night, but at some point, after couple of yers usage, I realized that I don't like it anymore. The biggest issue was that the battery drained too fast, so I had to charge it three times a day. I should add that I was wearing it at night to see the time if I woke up in the middle of the night.
+I have always been a HUGE Apple Watch fan. I used this device day and night, but at some point, after couple of years usage, I realized that I don't like it anymore. The biggest issue was that the battery drained too fast, so I had to charge it three times a day. I should add that I was wearing it at night to see the time if I woke up in the middle of the night.
 
 In 2024, Apple introduced the Apple Watch Series 10, and my initial thought was to buy that new version. However, I was surprised to find out that it has the same battery capacity as my old Apple Watch SE 1st generation.
 
