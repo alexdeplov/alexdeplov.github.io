@@ -2,7 +2,7 @@
 title = "Opera Browser Onboarding UX Analysis"
 date = 2024-11-01T16:28:45+01:00
 draft = false
-featured = false
+featured = true
 author = "Alexander Deplov"
 tags = ["case-studies"]
 +++
