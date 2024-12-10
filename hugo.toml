@@ -20,7 +20,7 @@ tag = "tags"
 # home page profile
   avatar = 'https://gravatar.com/avatar/7a371a2fef36b02d83ee5e65f9a7721d?size=256&cache=1718741543588'                 # gravatar email or image url
   name = ' '
-  bio = "I'm senior product designer at Slumber Studios. Co-founder of Pleeq Software. "
+  bio = "I'm a Senior Product Designer with 16 years of experience in tech startups, specializing in sleep wellness, AI, creative photo filters and other B2C apps. I collaborate with startups to lead projects both before and after launch."
 
 # misc
   disableHLJS = false                       # disable highlight.js
