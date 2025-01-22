@@ -1,5 +1,14 @@
 @import url('css/clash-display.css');
 @import url('archivo.css');
+@font-face {
+    font-family: 'JetBrains Mono'; /* Choose a descriptive font family name */
+    font-style: italic;
+    font-weight: bold;
+    src: url('/webfonts/JetBrainsMono-Regular.woff2') format('woff2'); /* Replace with actual URL */
+  }
+body{
+    font-family: 'JetBrains Mono';
+}
 
 /* body{
     background-image:  repeating-radial-gradient(circle at 0 0, transparent 0, #11092d 20%), repeating-linear-gradient(#1a1042, #090519);
