@@ -1,11 +1,6 @@
 @import url('css/clash-display.css');
 @import url('archivo.css');
 
-/* body{
-    background-image:  repeating-radial-gradient(circle at 0 0, transparent 0, #11092d 20%), repeating-linear-gradient(#1a1042, #090519);
-    background-color: #11092d;
-    background-attachment: fixed;
-} */
 
 p, li, strong,
 .prose :where(strong):not(:where([class~="not-prose"], [class~="not-prose"] *)){
@@ -17,13 +12,7 @@ html.dark li,
 html.dark strong,
 html.dark .prose :where(strong):not(:where([class~="not-prose"], [class~="not-prose"] *)){
  color: #cacaca;
- /* font-family: "Archivo Regular", sans-serif !important; */
 }
-
-/* body{ 
-     font-family: "Archivo Regular", sans-serif !important; 
-}
-*/
 
 /* Avatar */
 .p-3{
@@ -52,7 +41,7 @@ h3{
 
 /* Featured icon */
 .featuredIcon{
-    margin-left: -20px;
+    margin-left: -25px;
     width: 26px;
     min-width: 26px;
     min-height: 21px;
@@ -133,3 +122,35 @@ html.dark svg path{
 .rounded{
     border-radius: 0.25rem; /* 4px */
 }	
+
+
+.prose :where(a):not(:where([class~="not-prose"], [class~="not-prose"] *)){
+    text-decoration: none !important;
+}
+
+ul {
+    list-style-type: none !important;
+}
+
+li h3 a{
+    text-decoration: none !important;
+}
+li h3 a{
+    color: white;
+    
+}
+@media (prefers-color-scheme: dark){
+    li h3 a{
+        color: #171717;
+    }
+}
+
+li h3 a:visited{
+    color: #7d7a82 !important;
+}
+@media  (prefers-color-scheme: dark){
+    li h3 a:visited{
+        color: #7d7a82;
+    }
+}
+

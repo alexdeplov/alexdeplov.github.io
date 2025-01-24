@@ -59,16 +59,14 @@
     >Featured</span
   >
   {{ end }}
-  <ul class="pl-0 ml-4">
-  <!-- Hide dot icon from list, if featured star is already shown -->
-  {{ if not .Params.featured }}
-  <li class="list-none">
-  {{ end }}
-      <h3 class="!my-0 font-bold flex">{{ partial "featured_icon.html" . }}{{ .Title }}</h3>
-       <!-- <time class="text-sm antialiased opacity-60">{{ .Date | time.Format ":date_medium" }}</time> -->
-      <a class="absolute inset-0 text-[0]" href="{{ .Permalink }}">{{ .Title }}</a>
-    </li>
-  </ul>
+<ul class="pl-0 ml-4">
+  <li>
+    <h3 class="!my-0 font-bold flex">
+      {{ partial "featured_icon.html" . }}
+      <a class="!my-0 font-bold flex" href="{{ .Permalink }}">{{ .Title }}</a>
+    </h3>
+  </li>
+</ul>
 </section>
 {{ end }}
 
