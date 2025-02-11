@@ -64,7 +64,7 @@ At one point, I experimented with Motif Window Manager (MWM), which uses no more
 
 ### Conclusion
 
-After completing the test, I realized I couldn't fully switch platforms. Without Zoom, Figma, and other specific software, plus considering the font rendering issues, I couldn't use the mini PC with FreeBSD as my main work computer. As an Apple developer and iOS/Mac interface designer, I still need to use macOS.
+After completing the test, I realized that I couldn't completely switch platforms. Without Zoom, Figma, and other specific software, and considering the font rendering issues, I couldn't use the mini-PC running FreeBSD as my main work computer. Figma works fine in Firefox, but I couldn't get it to read local fonts, which was critical for me. And as an Apple developer and iOS/Mac interface designer, I still need to use macOS.
 
 This experiment showed me the impressive capabilities of low-cost hardware. If you can work with FreeBSD, you don't need to replace your computer every 5 years or so. However, with each macOS update, Apple adds more features, driven primarily by marketing to achieve more sales. In reality, we all — existing and new users — pay for this, as more features require more powerful hardware to run well, forcing us to upgrade. Consequently, Mac users get less value for their money.
 
