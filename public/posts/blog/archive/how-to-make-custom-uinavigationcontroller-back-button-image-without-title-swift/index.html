@@ -63,10 +63,25 @@
   
   <meta name="description" content="The easiest way to customize navigation controller back button.
 By default back button looks like this:
+
 We are going to make it looks like Instagram back button (without text):
+
 I quickly redraw the button in the Sketch and add into Assets:
+
 Storyboard looks like this:
-In the ViewController.swift write: override func viewDidLoad() { super.viewDidLoad() if let backButtonImage = UIImage(named: &#34;backButton&#34;) { navigationController?.navigationBar.backIndicatorImage = backButtonImage navigationController?.navigationBar.backIndicatorTransitionMaskImage = backButtonImage } navigationItem.backBarButtonItem = UIBarButtonItem(title: &#34;&#34;, style: ." />
+
+In the ViewController.swift write:
+override func viewDidLoad() {
+    super.viewDidLoad()
+
+    if let backButtonImage = UIImage(named: &#34;backButton&#34;) {  
+        navigationController?.navigationBar.backIndicatorImage = backButtonImage
+        navigationController?.navigationBar.backIndicatorTransitionMaskImage = backButtonImage
+    }
+
+    navigationItem.backBarButtonItem = UIBarButtonItem(title: &#34;&#34;, style: .plain, target: nil, action: nil)
+}
+" />
   <meta name="author" content="Alexander Deplov" />
   
 
@@ -158,15 +173,12 @@ In the ViewController.swift write: override func viewDidLoad() { super.viewDidLo
   <link rel="apple-touch-icon" href="https://alexdeplov.github.io/apple-touch-icon.png" />
 
   
-  <meta name="generator" content="Hugo 0.133.1">
+  <meta name="generator" content="Hugo 0.143.1">
 
   
   
   
   
-  
-
-
   
   
   <meta itemprop="name" content="How to Make Custom UINavigationController Back Button Image Without Title (Swift)">
@@ -175,7 +187,7 @@ By default back button looks like this:
 We are going to make it looks like Instagram back button (without text):
 I quickly redraw the button in the Sketch and add into Assets:
 Storyboard looks like this:
-In the ViewController.swift write: override func viewDidLoad() { super.viewDidLoad() if let backButtonImage = UIImage(named: &#34;backButton&#34;) { navigationController?.navigationBar.backIndicatorImage = backButtonImage navigationController?.navigationBar.backIndicatorTransitionMaskImage = backButtonImage } navigationItem.backBarButtonItem = UIBarButtonItem(title: &#34;&#34;, style: .">
+In the ViewController.swift write: override func viewDidLoad() { super.viewDidLoad() if let backButtonImage = UIImage(named: &#34;backButton&#34;) { navigationController?.navigationBar.backIndicatorImage = backButtonImage navigationController?.navigationBar.backIndicatorTransitionMaskImage = backButtonImage } navigationItem.backBarButtonItem = UIBarButtonItem(title: &#34;&#34;, style: .plain, target: nil, action: nil) }">
   <meta itemprop="datePublished" content="2015-07-21T09:39:55+02:00">
   <meta itemprop="dateModified" content="2015-07-21T09:39:55+02:00">
   <meta itemprop="wordCount" content="97">
@@ -188,7 +200,7 @@ By default back button looks like this:
 We are going to make it looks like Instagram back button (without text):
 I quickly redraw the button in the Sketch and add into Assets:
 Storyboard looks like this:
-In the ViewController.swift write: override func viewDidLoad() { super.viewDidLoad() if let backButtonImage = UIImage(named: &#34;backButton&#34;) { navigationController?.navigationBar.backIndicatorImage = backButtonImage navigationController?.navigationBar.backIndicatorTransitionMaskImage = backButtonImage } navigationItem.backBarButtonItem = UIBarButtonItem(title: &#34;&#34;, style: .">
+In the ViewController.swift write: override func viewDidLoad() { super.viewDidLoad() if let backButtonImage = UIImage(named: &#34;backButton&#34;) { navigationController?.navigationBar.backIndicatorImage = backButtonImage navigationController?.navigationBar.backIndicatorTransitionMaskImage = backButtonImage } navigationItem.backBarButtonItem = UIBarButtonItem(title: &#34;&#34;, style: .plain, target: nil, action: nil) }">
   <meta property="og:locale" content="en_us">
   <meta property="og:type" content="article">
     <meta property="article:section" content="posts">
@@ -204,7 +216,7 @@ By default back button looks like this:
 We are going to make it looks like Instagram back button (without text):
 I quickly redraw the button in the Sketch and add into Assets:
 Storyboard looks like this:
-In the ViewController.swift write: override func viewDidLoad() { super.viewDidLoad() if let backButtonImage = UIImage(named: &#34;backButton&#34;) { navigationController?.navigationBar.backIndicatorImage = backButtonImage navigationController?.navigationBar.backIndicatorTransitionMaskImage = backButtonImage } navigationItem.backBarButtonItem = UIBarButtonItem(title: &#34;&#34;, style: .">
+In the ViewController.swift write: override func viewDidLoad() { super.viewDidLoad() if let backButtonImage = UIImage(named: &#34;backButton&#34;) { navigationController?.navigationBar.backIndicatorImage = backButtonImage navigationController?.navigationBar.backIndicatorTransitionMaskImage = backButtonImage } navigationItem.backBarButtonItem = UIBarButtonItem(title: &#34;&#34;, style: .plain, target: nil, action: nil) }">
 
   
   

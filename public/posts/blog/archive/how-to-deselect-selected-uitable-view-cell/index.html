@@ -62,7 +62,14 @@
   
   
   <meta name="description" content="You have UITableView with customized cells style, selection color, etc. When you tap on the cell, slide to another VC and came back, your cell still selected. Really annoing. Here is how to fix that.
-override func viewWillAppear(_ animated: Bool) { super.viewWillAppear(animated) if let selectedIndexPath = tableView.indexPathForSelectedRow { tableView.deselectRow(at: selectedIndexPath, animated: true) } } " />
+override func viewWillAppear(_ animated: Bool) {
+    super.viewWillAppear(animated)
+
+    if let selectedIndexPath = tableView.indexPathForSelectedRow {
+        tableView.deselectRow(at: selectedIndexPath, animated: true)
+    }
+}
+" />
   <meta name="author" content="Alexander Deplov" />
   
 
@@ -154,20 +161,17 @@ override func viewWillAppear(_ animated: Bool) { super.viewWillAppear(animated) 
   <link rel="apple-touch-icon" href="https://alexdeplov.github.io/apple-touch-icon.png" />
 
   
-  <meta name="generator" content="Hugo 0.133.1">
+  <meta name="generator" content="Hugo 0.143.1">
 
   
   
   
   
-  
-
-
   
   
   <meta itemprop="name" content="How to Deselect Selected UITableView Cell">
   <meta itemprop="description" content="You have UITableView with customized cells style, selection color, etc. When you tap on the cell, slide to another VC and came back, your cell still selected. Really annoing. Here is how to fix that.
-override func viewWillAppear(_ animated: Bool) { super.viewWillAppear(animated) if let selectedIndexPath = tableView.indexPathForSelectedRow { tableView.deselectRow(at: selectedIndexPath, animated: true) } } ">
+override func viewWillAppear(_ animated: Bool) { super.viewWillAppear(animated) if let selectedIndexPath = tableView.indexPathForSelectedRow { tableView.deselectRow(at: selectedIndexPath, animated: true) } }">
   <meta itemprop="datePublished" content="2016-04-06T12:22:56+02:00">
   <meta itemprop="dateModified" content="2016-04-06T12:22:56+02:00">
   <meta itemprop="wordCount" content="54">
@@ -176,7 +180,7 @@ override func viewWillAppear(_ animated: Bool) { super.viewWillAppear(animated) 
   <meta property="og:site_name" content="Alexander Deplov – Senior Product Designer Blog">
   <meta property="og:title" content="How to Deselect Selected UITableView Cell">
   <meta property="og:description" content="You have UITableView with customized cells style, selection color, etc. When you tap on the cell, slide to another VC and came back, your cell still selected. Really annoing. Here is how to fix that.
-override func viewWillAppear(_ animated: Bool) { super.viewWillAppear(animated) if let selectedIndexPath = tableView.indexPathForSelectedRow { tableView.deselectRow(at: selectedIndexPath, animated: true) } } ">
+override func viewWillAppear(_ animated: Bool) { super.viewWillAppear(animated) if let selectedIndexPath = tableView.indexPathForSelectedRow { tableView.deselectRow(at: selectedIndexPath, animated: true) } }">
   <meta property="og:locale" content="en_us">
   <meta property="og:type" content="article">
     <meta property="article:section" content="posts">
@@ -188,7 +192,7 @@ override func viewWillAppear(_ animated: Bool) { super.viewWillAppear(animated) 
   <meta name="twitter:card" content="summary">
   <meta name="twitter:title" content="How to Deselect Selected UITableView Cell">
   <meta name="twitter:description" content="You have UITableView with customized cells style, selection color, etc. When you tap on the cell, slide to another VC and came back, your cell still selected. Really annoing. Here is how to fix that.
-override func viewWillAppear(_ animated: Bool) { super.viewWillAppear(animated) if let selectedIndexPath = tableView.indexPathForSelectedRow { tableView.deselectRow(at: selectedIndexPath, animated: true) } } ">
+override func viewWillAppear(_ animated: Bool) { super.viewWillAppear(animated) if let selectedIndexPath = tableView.indexPathForSelectedRow { tableView.deselectRow(at: selectedIndexPath, animated: true) } }">
 
   
   

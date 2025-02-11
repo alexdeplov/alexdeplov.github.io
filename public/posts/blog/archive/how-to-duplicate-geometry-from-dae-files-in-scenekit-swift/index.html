@@ -62,7 +62,56 @@
   
   
   <meta name="description" content="The important part of this code is that every duplicated object has it&rsquo;s own color. Different from the color of the source object.
-// Import .dae source let scene = SCNScene(named: &#34;art.scnassets/chess.dae&#34;)! // Find layer with &#34;queen&#34; name of the figure let queenNode = scene.rootNode.childNodeWithName(&#34;queen&#34;, recursively: true) queenNode?.scale = SCNVector3Make(100, 100, 100) // Set up scene view let sceneView = SCNView() sceneView.frame = self.view.frame sceneView.scene = scene sceneView.autoenablesDefaultLighting = true sceneView." />
+// Import .dae source
+let scene = SCNScene(named: &#34;art.scnassets/chess.dae&#34;)!
+
+// Find layer with &#34;queen&#34; name of the figure
+let queenNode = scene.rootNode.childNodeWithName(&#34;queen&#34;, recursively: true)
+queenNode?.scale = SCNVector3Make(100, 100, 100)
+
+// Set up scene view
+let sceneView = SCNView()
+sceneView.frame = self.view.frame
+sceneView.scene = scene
+sceneView.autoenablesDefaultLighting = true
+sceneView.allowsCameraControl = true
+sceneView.backgroundColor = UIColor(red: 237/255, green: 229/255, blue: 211/255, alpha: 1)
+self.view = sceneView
+
+// Set up camera
+let cameraNode = SCNNode()
+cameraNode.camera = SCNCamera()
+scene.rootNode.addChildNode(cameraNode)
+cameraNode.position = SCNVector3(x: -30, y: 0, z: 100)
+cameraNode.camera?.automaticallyAdjustsZRange = true
+
+// Create simple for loop
+for i in 1...5 {
+    let box2 = queenNode?.clone() as! SCNNode
+    let box2Geometry = box2.geometry?.copy() as! SCNGeometry
+    let box2GeometryNode = SCNNode(geometry: box2Geometry)
+    box2GeometryNode.scale = SCNVector3Make(100, 100, 100)
+    box2GeometryNode.position = SCNVector3(x: -20 * Float(i), y: 0, z: 0)
+    
+    let newMaterial2 = SCNMaterial()
+    newMaterial2.diffuse.contents = UIColor.yellow
+    box2GeometryNode.geometry?.firstMaterial = newMaterial2
+    
+    if i == 2 {
+        newMaterial2.diffuse.contents = UIColor.red
+    } else if i &lt; 2 {
+        newMaterial2.diffuse.contents = UIColor.purple
+        box2GeometryNode.rotation = SCNVector4Make(0, 1, 0, 1.5)
+    } else if i &gt; 3 {
+        newMaterial2.diffuse.contents = UIColor.brown
+    } else if i == 4 {
+        newMaterial2.diffuse.contents = UIColor.blue
+    }
+    
+    scene.rootNode.addChildNode(box2GeometryNode)
+}
+Result
+" />
   <meta name="author" content="Alexander Deplov" />
   
 
@@ -154,20 +203,17 @@
   <link rel="apple-touch-icon" href="https://alexdeplov.github.io/apple-touch-icon.png" />
 
   
-  <meta name="generator" content="Hugo 0.133.1">
+  <meta name="generator" content="Hugo 0.143.1">
 
   
   
   
   
-  
-
-
   
   
   <meta itemprop="name" content="How to Duplicate Geometry from .DAE Files in SceneKit (Swift)">
   <meta itemprop="description" content="The important part of this code is that every duplicated object has it’s own color. Different from the color of the source object.
-// Import .dae source let scene = SCNScene(named: &#34;art.scnassets/chess.dae&#34;)! // Find layer with &#34;queen&#34; name of the figure let queenNode = scene.rootNode.childNodeWithName(&#34;queen&#34;, recursively: true) queenNode?.scale = SCNVector3Make(100, 100, 100) // Set up scene view let sceneView = SCNView() sceneView.frame = self.view.frame sceneView.scene = scene sceneView.autoenablesDefaultLighting = true sceneView.">
+// Import .dae source let scene = SCNScene(named: &#34;art.scnassets/chess.dae&#34;)! // Find layer with &#34;queen&#34; name of the figure let queenNode = scene.rootNode.childNodeWithName(&#34;queen&#34;, recursively: true) queenNode?.scale = SCNVector3Make(100, 100, 100) // Set up scene view let sceneView = SCNView() sceneView.frame = self.view.frame sceneView.scene = scene sceneView.autoenablesDefaultLighting = true sceneView.allowsCameraControl = true sceneView.backgroundColor = UIColor(red: 237/255, green: 229/255, blue: 211/255, alpha: 1) self.view = sceneView // Set up camera let cameraNode = SCNNode() cameraNode.camera = SCNCamera() scene.rootNode.addChildNode(cameraNode) cameraNode.position = SCNVector3(x: -30, y: 0, z: 100) cameraNode.camera?.automaticallyAdjustsZRange = true // Create simple for loop for i in 1...5 { let box2 = queenNode?.clone() as! SCNNode let box2Geometry = box2.geometry?.copy() as! SCNGeometry let box2GeometryNode = SCNNode(geometry: box2Geometry) box2GeometryNode.scale = SCNVector3Make(100, 100, 100) box2GeometryNode.position = SCNVector3(x: -20 * Float(i), y: 0, z: 0) let newMaterial2 = SCNMaterial() newMaterial2.diffuse.contents = UIColor.yellow box2GeometryNode.geometry?.firstMaterial = newMaterial2 if i == 2 { newMaterial2.diffuse.contents = UIColor.red } else if i &lt; 2 { newMaterial2.diffuse.contents = UIColor.purple box2GeometryNode.rotation = SCNVector4Make(0, 1, 0, 1.5) } else if i &gt; 3 { newMaterial2.diffuse.contents = UIColor.brown } else if i == 4 { newMaterial2.diffuse.contents = UIColor.blue } scene.rootNode.addChildNode(box2GeometryNode) } Result">
   <meta itemprop="datePublished" content="2015-01-11T08:56:17+02:00">
   <meta itemprop="dateModified" content="2015-01-11T08:56:17+02:00">
   <meta itemprop="wordCount" content="209">
@@ -176,7 +222,7 @@
   <meta property="og:site_name" content="Alexander Deplov – Senior Product Designer Blog">
   <meta property="og:title" content="How to Duplicate Geometry from .DAE Files in SceneKit (Swift)">
   <meta property="og:description" content="The important part of this code is that every duplicated object has it’s own color. Different from the color of the source object.
-// Import .dae source let scene = SCNScene(named: &#34;art.scnassets/chess.dae&#34;)! // Find layer with &#34;queen&#34; name of the figure let queenNode = scene.rootNode.childNodeWithName(&#34;queen&#34;, recursively: true) queenNode?.scale = SCNVector3Make(100, 100, 100) // Set up scene view let sceneView = SCNView() sceneView.frame = self.view.frame sceneView.scene = scene sceneView.autoenablesDefaultLighting = true sceneView.">
+// Import .dae source let scene = SCNScene(named: &#34;art.scnassets/chess.dae&#34;)! // Find layer with &#34;queen&#34; name of the figure let queenNode = scene.rootNode.childNodeWithName(&#34;queen&#34;, recursively: true) queenNode?.scale = SCNVector3Make(100, 100, 100) // Set up scene view let sceneView = SCNView() sceneView.frame = self.view.frame sceneView.scene = scene sceneView.autoenablesDefaultLighting = true sceneView.allowsCameraControl = true sceneView.backgroundColor = UIColor(red: 237/255, green: 229/255, blue: 211/255, alpha: 1) self.view = sceneView // Set up camera let cameraNode = SCNNode() cameraNode.camera = SCNCamera() scene.rootNode.addChildNode(cameraNode) cameraNode.position = SCNVector3(x: -30, y: 0, z: 100) cameraNode.camera?.automaticallyAdjustsZRange = true // Create simple for loop for i in 1...5 { let box2 = queenNode?.clone() as! SCNNode let box2Geometry = box2.geometry?.copy() as! SCNGeometry let box2GeometryNode = SCNNode(geometry: box2Geometry) box2GeometryNode.scale = SCNVector3Make(100, 100, 100) box2GeometryNode.position = SCNVector3(x: -20 * Float(i), y: 0, z: 0) let newMaterial2 = SCNMaterial() newMaterial2.diffuse.contents = UIColor.yellow box2GeometryNode.geometry?.firstMaterial = newMaterial2 if i == 2 { newMaterial2.diffuse.contents = UIColor.red } else if i &lt; 2 { newMaterial2.diffuse.contents = UIColor.purple box2GeometryNode.rotation = SCNVector4Make(0, 1, 0, 1.5) } else if i &gt; 3 { newMaterial2.diffuse.contents = UIColor.brown } else if i == 4 { newMaterial2.diffuse.contents = UIColor.blue } scene.rootNode.addChildNode(box2GeometryNode) } Result">
   <meta property="og:locale" content="en_us">
   <meta property="og:type" content="article">
     <meta property="article:section" content="posts">
@@ -188,7 +234,7 @@
   <meta name="twitter:card" content="summary">
   <meta name="twitter:title" content="How to Duplicate Geometry from .DAE Files in SceneKit (Swift)">
   <meta name="twitter:description" content="The important part of this code is that every duplicated object has it’s own color. Different from the color of the source object.
-// Import .dae source let scene = SCNScene(named: &#34;art.scnassets/chess.dae&#34;)! // Find layer with &#34;queen&#34; name of the figure let queenNode = scene.rootNode.childNodeWithName(&#34;queen&#34;, recursively: true) queenNode?.scale = SCNVector3Make(100, 100, 100) // Set up scene view let sceneView = SCNView() sceneView.frame = self.view.frame sceneView.scene = scene sceneView.autoenablesDefaultLighting = true sceneView.">
+// Import .dae source let scene = SCNScene(named: &#34;art.scnassets/chess.dae&#34;)! // Find layer with &#34;queen&#34; name of the figure let queenNode = scene.rootNode.childNodeWithName(&#34;queen&#34;, recursively: true) queenNode?.scale = SCNVector3Make(100, 100, 100) // Set up scene view let sceneView = SCNView() sceneView.frame = self.view.frame sceneView.scene = scene sceneView.autoenablesDefaultLighting = true sceneView.allowsCameraControl = true sceneView.backgroundColor = UIColor(red: 237/255, green: 229/255, blue: 211/255, alpha: 1) self.view = sceneView // Set up camera let cameraNode = SCNNode() cameraNode.camera = SCNCamera() scene.rootNode.addChildNode(cameraNode) cameraNode.position = SCNVector3(x: -30, y: 0, z: 100) cameraNode.camera?.automaticallyAdjustsZRange = true // Create simple for loop for i in 1...5 { let box2 = queenNode?.clone() as! SCNNode let box2Geometry = box2.geometry?.copy() as! SCNGeometry let box2GeometryNode = SCNNode(geometry: box2Geometry) box2GeometryNode.scale = SCNVector3Make(100, 100, 100) box2GeometryNode.position = SCNVector3(x: -20 * Float(i), y: 0, z: 0) let newMaterial2 = SCNMaterial() newMaterial2.diffuse.contents = UIColor.yellow box2GeometryNode.geometry?.firstMaterial = newMaterial2 if i == 2 { newMaterial2.diffuse.contents = UIColor.red } else if i &lt; 2 { newMaterial2.diffuse.contents = UIColor.purple box2GeometryNode.rotation = SCNVector4Make(0, 1, 0, 1.5) } else if i &gt; 3 { newMaterial2.diffuse.contents = UIColor.brown } else if i == 4 { newMaterial2.diffuse.contents = UIColor.blue } scene.rootNode.addChildNode(box2GeometryNode) } Result">
 
   
   

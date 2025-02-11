@@ -62,8 +62,41 @@
   
   
   <meta name="description" content="When storyboard segue presentation mode set to Form Sheet you can add simple code to hide its ViewController tap on background. You don&rsquo;t need Done button. Of course this trick is for iPad app only, because on iPhone Form Sheet will cover all screen size.
+
 This code works well in Swift, iOS 9:
-class ViewController: UIViewController, UIGestureRecognizerDelegate { var tapBGGesture: UITapGestureRecognizer! override func viewDidAppear(animated: Bool) { tapBGGesture = UITapGestureRecognizer(target: self, action: &#34;settingsBGTapped:&#34;) tapBGGesture." />
+class ViewController: UIViewController, UIGestureRecognizerDelegate {
+    var tapBGGesture: UITapGestureRecognizer!
+    
+    override func viewDidAppear(animated: Bool) {
+        tapBGGesture = UITapGestureRecognizer(target: self, action: &#34;settingsBGTapped:&#34;)
+        tapBGGesture.delegate = self
+        tapBGGesture.numberOfTapsRequired = 1
+        tapBGGesture.cancelsTouchesInView = false
+        self.view.window!.addGestureRecognizer(tapBGGesture)
+    }
+    
+    func settingsBGTapped(sender: UITapGestureRecognizer) {
+        if sender.state == UIGestureRecognizerState.Ended {
+            guard let presentedView = presentedViewController?.view else {
+                return
+            }
+            
+            if !CGRectContainsPoint(presentedView.bounds, sender.locationInView(presentedView)) {
+                self.dismissViewControllerAnimated(true, completion: { () -&gt; Void in
+                })
+            }
+        }
+    }
+    
+    func gestureRecognizer(gestureRecognizer: UIGestureRecognizer, shouldRecognizeSimultaneouslyWithGestureRecognizer otherGestureRecognizer: UIGestureRecognizer) -&gt; Bool {
+        return true
+    }
+    
+    override func viewWillDisappear(animated: Bool) {
+        self.view.window!.removeGestureRecognizer(tapBGGesture)
+    }
+}
+" />
   <meta name="author" content="Alexander Deplov" />
   
 
@@ -155,21 +188,18 @@ class ViewController: UIViewController, UIGestureRecognizerDelegate { var tapBGG
   <link rel="apple-touch-icon" href="https://alexdeplov.github.io/apple-touch-icon.png" />
 
   
-  <meta name="generator" content="Hugo 0.133.1">
+  <meta name="generator" content="Hugo 0.143.1">
 
   
   
   
   
-  
-
-
   
   
   <meta itemprop="name" content="How to Dismiss Modal View Form Sheet Controller in Swift">
   <meta itemprop="description" content="When storyboard segue presentation mode set to Form Sheet you can add simple code to hide its ViewController tap on background. You don’t need Done button. Of course this trick is for iPad app only, because on iPhone Form Sheet will cover all screen size.
 This code works well in Swift, iOS 9:
-class ViewController: UIViewController, UIGestureRecognizerDelegate { var tapBGGesture: UITapGestureRecognizer! override func viewDidAppear(animated: Bool) { tapBGGesture = UITapGestureRecognizer(target: self, action: &#34;settingsBGTapped:&#34;) tapBGGesture.">
+class ViewController: UIViewController, UIGestureRecognizerDelegate { var tapBGGesture: UITapGestureRecognizer! override func viewDidAppear(animated: Bool) { tapBGGesture = UITapGestureRecognizer(target: self, action: &#34;settingsBGTapped:&#34;) tapBGGesture.delegate = self tapBGGesture.numberOfTapsRequired = 1 tapBGGesture.cancelsTouchesInView = false self.view.window!.addGestureRecognizer(tapBGGesture) } func settingsBGTapped(sender: UITapGestureRecognizer) { if sender.state == UIGestureRecognizerState.Ended { guard let presentedView = presentedViewController?.view else { return } if !CGRectContainsPoint(presentedView.bounds, sender.locationInView(presentedView)) { self.dismissViewControllerAnimated(true, completion: { () -&gt; Void in }) } } } func gestureRecognizer(gestureRecognizer: UIGestureRecognizer, shouldRecognizeSimultaneouslyWithGestureRecognizer otherGestureRecognizer: UIGestureRecognizer) -&gt; Bool { return true } override func viewWillDisappear(animated: Bool) { self.view.window!.removeGestureRecognizer(tapBGGesture) } }">
   <meta itemprop="datePublished" content="2015-11-25T17:01:15+02:00">
   <meta itemprop="dateModified" content="2015-11-25T17:01:15+02:00">
   <meta itemprop="wordCount" content="136">
@@ -179,7 +209,7 @@ class ViewController: UIViewController, UIGestureRecognizerDelegate { var tapBGG
   <meta property="og:title" content="How to Dismiss Modal View Form Sheet Controller in Swift">
   <meta property="og:description" content="When storyboard segue presentation mode set to Form Sheet you can add simple code to hide its ViewController tap on background. You don’t need Done button. Of course this trick is for iPad app only, because on iPhone Form Sheet will cover all screen size.
 This code works well in Swift, iOS 9:
-class ViewController: UIViewController, UIGestureRecognizerDelegate { var tapBGGesture: UITapGestureRecognizer! override func viewDidAppear(animated: Bool) { tapBGGesture = UITapGestureRecognizer(target: self, action: &#34;settingsBGTapped:&#34;) tapBGGesture.">
+class ViewController: UIViewController, UIGestureRecognizerDelegate { var tapBGGesture: UITapGestureRecognizer! override func viewDidAppear(animated: Bool) { tapBGGesture = UITapGestureRecognizer(target: self, action: &#34;settingsBGTapped:&#34;) tapBGGesture.delegate = self tapBGGesture.numberOfTapsRequired = 1 tapBGGesture.cancelsTouchesInView = false self.view.window!.addGestureRecognizer(tapBGGesture) } func settingsBGTapped(sender: UITapGestureRecognizer) { if sender.state == UIGestureRecognizerState.Ended { guard let presentedView = presentedViewController?.view else { return } if !CGRectContainsPoint(presentedView.bounds, sender.locationInView(presentedView)) { self.dismissViewControllerAnimated(true, completion: { () -&gt; Void in }) } } } func gestureRecognizer(gestureRecognizer: UIGestureRecognizer, shouldRecognizeSimultaneouslyWithGestureRecognizer otherGestureRecognizer: UIGestureRecognizer) -&gt; Bool { return true } override func viewWillDisappear(animated: Bool) { self.view.window!.removeGestureRecognizer(tapBGGesture) } }">
   <meta property="og:locale" content="en_us">
   <meta property="og:type" content="article">
     <meta property="article:section" content="posts">
@@ -192,7 +222,7 @@ class ViewController: UIViewController, UIGestureRecognizerDelegate { var tapBGG
   <meta name="twitter:title" content="How to Dismiss Modal View Form Sheet Controller in Swift">
   <meta name="twitter:description" content="When storyboard segue presentation mode set to Form Sheet you can add simple code to hide its ViewController tap on background. You don’t need Done button. Of course this trick is for iPad app only, because on iPhone Form Sheet will cover all screen size.
 This code works well in Swift, iOS 9:
-class ViewController: UIViewController, UIGestureRecognizerDelegate { var tapBGGesture: UITapGestureRecognizer! override func viewDidAppear(animated: Bool) { tapBGGesture = UITapGestureRecognizer(target: self, action: &#34;settingsBGTapped:&#34;) tapBGGesture.">
+class ViewController: UIViewController, UIGestureRecognizerDelegate { var tapBGGesture: UITapGestureRecognizer! override func viewDidAppear(animated: Bool) { tapBGGesture = UITapGestureRecognizer(target: self, action: &#34;settingsBGTapped:&#34;) tapBGGesture.delegate = self tapBGGesture.numberOfTapsRequired = 1 tapBGGesture.cancelsTouchesInView = false self.view.window!.addGestureRecognizer(tapBGGesture) } func settingsBGTapped(sender: UITapGestureRecognizer) { if sender.state == UIGestureRecognizerState.Ended { guard let presentedView = presentedViewController?.view else { return } if !CGRectContainsPoint(presentedView.bounds, sender.locationInView(presentedView)) { self.dismissViewControllerAnimated(true, completion: { () -&gt; Void in }) } } } func gestureRecognizer(gestureRecognizer: UIGestureRecognizer, shouldRecognizeSimultaneouslyWithGestureRecognizer otherGestureRecognizer: UIGestureRecognizer) -&gt; Bool { return true } override func viewWillDisappear(animated: Bool) { self.view.window!.removeGestureRecognizer(tapBGGesture) } }">
 
   
   

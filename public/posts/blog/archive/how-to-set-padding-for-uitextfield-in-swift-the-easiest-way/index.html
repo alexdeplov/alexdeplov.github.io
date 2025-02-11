@@ -62,7 +62,22 @@
   
   
   <meta name="description" content="Of course, you also need to add a top and a bottom paddings, but this can be achieved through autolayout height size of the textfield. Result: left padding for UITextField placeholder and text:
-import UIKit class ViewController: UIViewController { @IBOutlet weak var myTextField: UITextField! override func viewDidLoad() { super.viewDidLoad() let paddingView = UIView(frame: CGRect(x: 0, y: 0, width: 15, height: myTextField.frame.height)) myTextField.leftView = paddingView myTextField.leftViewMode = .always } } We used this technique in our new Taskler app, but without big indent." />
+
+import UIKit
+
+class ViewController: UIViewController {
+
+    @IBOutlet weak var myTextField: UITextField!
+
+    override func viewDidLoad() {
+        super.viewDidLoad()
+
+        let paddingView = UIView(frame: CGRect(x: 0, y: 0, width: 15, height: myTextField.frame.height))
+        myTextField.leftView = paddingView
+        myTextField.leftViewMode = .always 
+    }
+}
+" />
   <meta name="author" content="Alexander Deplov" />
   
 
@@ -154,20 +169,17 @@ import UIKit class ViewController: UIViewController { @IBOutlet weak var myTextF
   <link rel="apple-touch-icon" href="https://alexdeplov.github.io/apple-touch-icon.png" />
 
   
-  <meta name="generator" content="Hugo 0.133.1">
+  <meta name="generator" content="Hugo 0.143.1">
 
   
   
   
   
-  
-
-
   
   
   <meta itemprop="name" content="How to Set Padding for UITextField in Swift, the Easiest Way">
   <meta itemprop="description" content="Of course, you also need to add a top and a bottom paddings, but this can be achieved through autolayout height size of the textfield. Result: left padding for UITextField placeholder and text:
-import UIKit class ViewController: UIViewController { @IBOutlet weak var myTextField: UITextField! override func viewDidLoad() { super.viewDidLoad() let paddingView = UIView(frame: CGRect(x: 0, y: 0, width: 15, height: myTextField.frame.height)) myTextField.leftView = paddingView myTextField.leftViewMode = .always } } We used this technique in our new Taskler app, but without big indent.">
+import UIKit class ViewController: UIViewController { @IBOutlet weak var myTextField: UITextField! override func viewDidLoad() { super.viewDidLoad() let paddingView = UIView(frame: CGRect(x: 0, y: 0, width: 15, height: myTextField.frame.height)) myTextField.leftView = paddingView myTextField.leftViewMode = .always } }">
   <meta itemprop="datePublished" content="2015-02-16T09:11:49+02:00">
   <meta itemprop="dateModified" content="2015-02-16T09:11:49+02:00">
   <meta itemprop="wordCount" content="82">
@@ -176,7 +188,7 @@ import UIKit class ViewController: UIViewController { @IBOutlet weak var myTextF
   <meta property="og:site_name" content="Alexander Deplov – Senior Product Designer Blog">
   <meta property="og:title" content="How to Set Padding for UITextField in Swift, the Easiest Way">
   <meta property="og:description" content="Of course, you also need to add a top and a bottom paddings, but this can be achieved through autolayout height size of the textfield. Result: left padding for UITextField placeholder and text:
-import UIKit class ViewController: UIViewController { @IBOutlet weak var myTextField: UITextField! override func viewDidLoad() { super.viewDidLoad() let paddingView = UIView(frame: CGRect(x: 0, y: 0, width: 15, height: myTextField.frame.height)) myTextField.leftView = paddingView myTextField.leftViewMode = .always } } We used this technique in our new Taskler app, but without big indent.">
+import UIKit class ViewController: UIViewController { @IBOutlet weak var myTextField: UITextField! override func viewDidLoad() { super.viewDidLoad() let paddingView = UIView(frame: CGRect(x: 0, y: 0, width: 15, height: myTextField.frame.height)) myTextField.leftView = paddingView myTextField.leftViewMode = .always } }">
   <meta property="og:locale" content="en_us">
   <meta property="og:type" content="article">
     <meta property="article:section" content="posts">
@@ -188,7 +200,7 @@ import UIKit class ViewController: UIViewController { @IBOutlet weak var myTextF
   <meta name="twitter:card" content="summary">
   <meta name="twitter:title" content="How to Set Padding for UITextField in Swift, the Easiest Way">
   <meta name="twitter:description" content="Of course, you also need to add a top and a bottom paddings, but this can be achieved through autolayout height size of the textfield. Result: left padding for UITextField placeholder and text:
-import UIKit class ViewController: UIViewController { @IBOutlet weak var myTextField: UITextField! override func viewDidLoad() { super.viewDidLoad() let paddingView = UIView(frame: CGRect(x: 0, y: 0, width: 15, height: myTextField.frame.height)) myTextField.leftView = paddingView myTextField.leftViewMode = .always } } We used this technique in our new Taskler app, but without big indent.">
+import UIKit class ViewController: UIViewController { @IBOutlet weak var myTextField: UITextField! override func viewDidLoad() { super.viewDidLoad() let paddingView = UIView(frame: CGRect(x: 0, y: 0, width: 15, height: myTextField.frame.height)) myTextField.leftView = paddingView myTextField.leftViewMode = .always } }">
 
   
   

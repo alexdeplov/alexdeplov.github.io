@@ -61,9 +61,33 @@
   
   
   
-  <meta name="description" content="In class that send the data create protocol: protocol BackButtonActionDelegate { func pressFinished(){} } Inside this class: class BackButton: SKNode { var delegate: BackButtonActionDelegate? } Inside the class send the data, run the delegate message when needed: delegate?.pressFinished() Inside another class, that received data, add delegate:
-class OptionsWindow: SKNode, BackButtonActionDelegate { } Add same function from sender:
-func pressFinished() { print(&#34;delegate triggered&#34;) } Inside another class, that received data, in viewDidLoad() add:" />
+  <meta name="description" content="
+In class that send the data create protocol:
+
+protocol BackButtonActionDelegate {
+    func pressFinished(){}
+}
+
+Inside this class:
+
+class BackButton: SKNode {
+    var delegate: BackButtonActionDelegate?
+}
+
+Inside the class send the data, run the delegate message when needed:
+
+delegate?.pressFinished()
+Inside another class, that received data, add delegate:
+class OptionsWindow: SKNode, BackButtonActionDelegate {
+
+}
+Add same function from sender:
+func pressFinished() {
+    print(&#34;delegate triggered&#34;)
+}
+Inside another class, that received data, in viewDidLoad() add:
+backButton.delegate = self
+Done." />
   <meta name="author" content="Alexander Deplov" />
   
 
@@ -155,21 +179,19 @@ func pressFinished() { print(&#34;delegate triggered&#34;) } Inside another clas
   <link rel="apple-touch-icon" href="https://alexdeplov.github.io/apple-touch-icon.png" />
 
   
-  <meta name="generator" content="Hugo 0.133.1">
+  <meta name="generator" content="Hugo 0.143.1">
 
   
   
   
   
-  
-
-
   
   
   <meta itemprop="name" content="How to Create Delegate in Swift">
   <meta itemprop="description" content="In class that send the data create protocol: protocol BackButtonActionDelegate { func pressFinished(){} } Inside this class: class BackButton: SKNode { var delegate: BackButtonActionDelegate? } Inside the class send the data, run the delegate message when needed: delegate?.pressFinished() Inside another class, that received data, add delegate:
 class OptionsWindow: SKNode, BackButtonActionDelegate { } Add same function from sender:
-func pressFinished() { print(&#34;delegate triggered&#34;) } Inside another class, that received data, in viewDidLoad() add:">
+func pressFinished() { print(&#34;delegate triggered&#34;) } Inside another class, that received data, in viewDidLoad() add:
+backButton.delegate = self Done.">
   <meta itemprop="datePublished" content="2017-05-30T10:42:43+02:00">
   <meta itemprop="dateModified" content="2017-05-30T10:42:43+02:00">
   <meta itemprop="wordCount" content="76">
@@ -179,7 +201,8 @@ func pressFinished() { print(&#34;delegate triggered&#34;) } Inside another clas
   <meta property="og:title" content="How to Create Delegate in Swift">
   <meta property="og:description" content="In class that send the data create protocol: protocol BackButtonActionDelegate { func pressFinished(){} } Inside this class: class BackButton: SKNode { var delegate: BackButtonActionDelegate? } Inside the class send the data, run the delegate message when needed: delegate?.pressFinished() Inside another class, that received data, add delegate:
 class OptionsWindow: SKNode, BackButtonActionDelegate { } Add same function from sender:
-func pressFinished() { print(&#34;delegate triggered&#34;) } Inside another class, that received data, in viewDidLoad() add:">
+func pressFinished() { print(&#34;delegate triggered&#34;) } Inside another class, that received data, in viewDidLoad() add:
+backButton.delegate = self Done.">
   <meta property="og:locale" content="en_us">
   <meta property="og:type" content="article">
     <meta property="article:section" content="posts">
@@ -192,7 +215,8 @@ func pressFinished() { print(&#34;delegate triggered&#34;) } Inside another clas
   <meta name="twitter:title" content="How to Create Delegate in Swift">
   <meta name="twitter:description" content="In class that send the data create protocol: protocol BackButtonActionDelegate { func pressFinished(){} } Inside this class: class BackButton: SKNode { var delegate: BackButtonActionDelegate? } Inside the class send the data, run the delegate message when needed: delegate?.pressFinished() Inside another class, that received data, add delegate:
 class OptionsWindow: SKNode, BackButtonActionDelegate { } Add same function from sender:
-func pressFinished() { print(&#34;delegate triggered&#34;) } Inside another class, that received data, in viewDidLoad() add:">
+func pressFinished() { print(&#34;delegate triggered&#34;) } Inside another class, that received data, in viewDidLoad() add:
+backButton.delegate = self Done.">
 
   
   

@@ -63,7 +63,18 @@
   
   <meta name="description" content="Easiest way to remove UINavigationBar bottom 1px border.
 This trick can be applied to iOS 8 and iOS 7. The UINavigationBar bottom border is an 1px shadow. According to the documentation to remove it you have to provide UIImage. But we’re going to create an empty UIImage.
-In viewDidAppear: override func viewDidAppear(_ animated: Bool) { super.viewDidAppear(animated) let img = UIImage() navigationController?.navigationBar.shadowImage = img navigationController?.navigationBar.setBackgroundImage(img, for: .default) } Result: If you want to change background color to the navigationBar, do this:" />
+In viewDidAppear:
+override func viewDidAppear(_ animated: Bool) {
+    super.viewDidAppear(animated) 
+
+    let img = UIImage()
+    navigationController?.navigationBar.shadowImage = img
+    navigationController?.navigationBar.setBackgroundImage(img, for: .default)
+}
+
+Result:
+
+If you want to change background color to the navigationBar, do this:" />
   <meta name="author" content="Alexander Deplov" />
   
 
@@ -155,15 +166,12 @@ In viewDidAppear: override func viewDidAppear(_ animated: Bool) { super.viewDidA
   <link rel="apple-touch-icon" href="https://alexdeplov.github.io/apple-touch-icon.png" />
 
   
-  <meta name="generator" content="Hugo 0.133.1">
+  <meta name="generator" content="Hugo 0.143.1">
 
   
   
   
   
-  
-
-
   
   
   <meta itemprop="name" content="How to Disable UINavigationBar Shadow in iOS 9 Swift">

@@ -62,7 +62,40 @@
   
   
   <meta name="description" content="Sometimes it’s handy to use HUE properties in apps or games to animate its saturation or brightness or even the color itself. So here is super simple func to convert RGB to HUE.
-let r: CGFloat = 251/255 let g: CGFloat = 94/255 let b: CGFloat = 50/255 func rgbToHue(r: CGFloat, g: CGFloat, b: CGFloat) -&gt; (h: CGFloat, s: CGFloat, b: CGFloat) { let minV: CGFloat = CGFloat(min(r, g, b)) let maxV: CGFloat = CGFloat(max(r, g, b)) let delta: CGFloat = maxV - minV var hue: CGFloat = 0 if delta !" />
+let r: CGFloat = 251/255
+let g: CGFloat = 94/255
+let b: CGFloat = 50/255
+
+func rgbToHue(r: CGFloat, g: CGFloat, b: CGFloat) -&gt; (h: CGFloat, s: CGFloat, b: CGFloat) {
+    let minV: CGFloat = CGFloat(min(r, g, b))
+    let maxV: CGFloat = CGFloat(max(r, g, b))
+    let delta: CGFloat = maxV - minV
+    
+    var hue: CGFloat = 0
+    if delta != 0 {
+        if r == maxV {
+            hue = (g - b) / delta
+        } else if g == maxV {
+            hue = 2 &#43; (b - r) / delta
+        } else {
+            hue = 4 &#43; (r - g) / delta
+        }
+        
+        hue *= 60
+        if hue &lt; 0 {
+            hue &#43;= 360
+        }
+    }
+    
+    let saturation = maxV == 0 ? 0 : (delta / maxV)
+    let brightness = maxV
+    
+    return (h: hue/360, s: saturation, b: brightness)
+}
+
+let hueColor = rgbToHue(r: r, g: g, b: b)
+let finalColor = SKColor(hue: hueColor.h, saturation: hueColor.s, brightness: hueColor.b, alpha: 1)
+" />
   <meta name="author" content="Alexander Deplov" />
   
 
@@ -154,20 +187,17 @@ let r: CGFloat = 251/255 let g: CGFloat = 94/255 let b: CGFloat = 50/255 func rg
   <link rel="apple-touch-icon" href="https://alexdeplov.github.io/apple-touch-icon.png" />
 
   
-  <meta name="generator" content="Hugo 0.133.1">
+  <meta name="generator" content="Hugo 0.143.1">
 
   
   
   
   
-  
-
-
   
   
   <meta itemprop="name" content="How to Convert RGB to HUE Value in Swift">
   <meta itemprop="description" content="Sometimes it’s handy to use HUE properties in apps or games to animate its saturation or brightness or even the color itself. So here is super simple func to convert RGB to HUE.
-let r: CGFloat = 251/255 let g: CGFloat = 94/255 let b: CGFloat = 50/255 func rgbToHue(r: CGFloat, g: CGFloat, b: CGFloat) -&gt; (h: CGFloat, s: CGFloat, b: CGFloat) { let minV: CGFloat = CGFloat(min(r, g, b)) let maxV: CGFloat = CGFloat(max(r, g, b)) let delta: CGFloat = maxV - minV var hue: CGFloat = 0 if delta !">
+let r: CGFloat = 251/255 let g: CGFloat = 94/255 let b: CGFloat = 50/255 func rgbToHue(r: CGFloat, g: CGFloat, b: CGFloat) -&gt; (h: CGFloat, s: CGFloat, b: CGFloat) { let minV: CGFloat = CGFloat(min(r, g, b)) let maxV: CGFloat = CGFloat(max(r, g, b)) let delta: CGFloat = maxV - minV var hue: CGFloat = 0 if delta != 0 { if r == maxV { hue = (g - b) / delta } else if g == maxV { hue = 2 &#43; (b - r) / delta } else { hue = 4 &#43; (r - g) / delta } hue *= 60 if hue &lt; 0 { hue &#43;= 360 } } let saturation = maxV == 0 ? 0 : (delta / maxV) let brightness = maxV return (h: hue/360, s: saturation, b: brightness) } let hueColor = rgbToHue(r: r, g: g, b: b) let finalColor = SKColor(hue: hueColor.h, saturation: hueColor.s, brightness: hueColor.b, alpha: 1)">
   <meta itemprop="datePublished" content="2017-06-22T10:46:05+02:00">
   <meta itemprop="dateModified" content="2017-06-22T10:46:05+02:00">
   <meta itemprop="wordCount" content="192">
@@ -176,7 +206,7 @@ let r: CGFloat = 251/255 let g: CGFloat = 94/255 let b: CGFloat = 50/255 func rg
   <meta property="og:site_name" content="Alexander Deplov – Senior Product Designer Blog">
   <meta property="og:title" content="How to Convert RGB to HUE Value in Swift">
   <meta property="og:description" content="Sometimes it’s handy to use HUE properties in apps or games to animate its saturation or brightness or even the color itself. So here is super simple func to convert RGB to HUE.
-let r: CGFloat = 251/255 let g: CGFloat = 94/255 let b: CGFloat = 50/255 func rgbToHue(r: CGFloat, g: CGFloat, b: CGFloat) -&gt; (h: CGFloat, s: CGFloat, b: CGFloat) { let minV: CGFloat = CGFloat(min(r, g, b)) let maxV: CGFloat = CGFloat(max(r, g, b)) let delta: CGFloat = maxV - minV var hue: CGFloat = 0 if delta !">
+let r: CGFloat = 251/255 let g: CGFloat = 94/255 let b: CGFloat = 50/255 func rgbToHue(r: CGFloat, g: CGFloat, b: CGFloat) -&gt; (h: CGFloat, s: CGFloat, b: CGFloat) { let minV: CGFloat = CGFloat(min(r, g, b)) let maxV: CGFloat = CGFloat(max(r, g, b)) let delta: CGFloat = maxV - minV var hue: CGFloat = 0 if delta != 0 { if r == maxV { hue = (g - b) / delta } else if g == maxV { hue = 2 &#43; (b - r) / delta } else { hue = 4 &#43; (r - g) / delta } hue *= 60 if hue &lt; 0 { hue &#43;= 360 } } let saturation = maxV == 0 ? 0 : (delta / maxV) let brightness = maxV return (h: hue/360, s: saturation, b: brightness) } let hueColor = rgbToHue(r: r, g: g, b: b) let finalColor = SKColor(hue: hueColor.h, saturation: hueColor.s, brightness: hueColor.b, alpha: 1)">
   <meta property="og:locale" content="en_us">
   <meta property="og:type" content="article">
     <meta property="article:section" content="posts">
@@ -188,7 +218,7 @@ let r: CGFloat = 251/255 let g: CGFloat = 94/255 let b: CGFloat = 50/255 func rg
   <meta name="twitter:card" content="summary">
   <meta name="twitter:title" content="How to Convert RGB to HUE Value in Swift">
   <meta name="twitter:description" content="Sometimes it’s handy to use HUE properties in apps or games to animate its saturation or brightness or even the color itself. So here is super simple func to convert RGB to HUE.
-let r: CGFloat = 251/255 let g: CGFloat = 94/255 let b: CGFloat = 50/255 func rgbToHue(r: CGFloat, g: CGFloat, b: CGFloat) -&gt; (h: CGFloat, s: CGFloat, b: CGFloat) { let minV: CGFloat = CGFloat(min(r, g, b)) let maxV: CGFloat = CGFloat(max(r, g, b)) let delta: CGFloat = maxV - minV var hue: CGFloat = 0 if delta !">
+let r: CGFloat = 251/255 let g: CGFloat = 94/255 let b: CGFloat = 50/255 func rgbToHue(r: CGFloat, g: CGFloat, b: CGFloat) -&gt; (h: CGFloat, s: CGFloat, b: CGFloat) { let minV: CGFloat = CGFloat(min(r, g, b)) let maxV: CGFloat = CGFloat(max(r, g, b)) let delta: CGFloat = maxV - minV var hue: CGFloat = 0 if delta != 0 { if r == maxV { hue = (g - b) / delta } else if g == maxV { hue = 2 &#43; (b - r) / delta } else { hue = 4 &#43; (r - g) / delta } hue *= 60 if hue &lt; 0 { hue &#43;= 360 } } let saturation = maxV == 0 ? 0 : (delta / maxV) let brightness = maxV return (h: hue/360, s: saturation, b: brightness) } let hueColor = rgbToHue(r: r, g: g, b: b) let finalColor = SKColor(hue: hueColor.h, saturation: hueColor.s, brightness: hueColor.b, alpha: 1)">
 
   
   
