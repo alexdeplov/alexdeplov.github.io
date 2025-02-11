@@ -33,7 +33,7 @@ My MacBook Pro M1 Pro, which cost around €1800, has the following specs:
 - macOS Sequoia
 
 For this test, I bought a mini PC with the following specs:
-- AMD Ryzen 5 CPU with integrated GPU
+- Mini PC Beelink SER5 5560U, AMD Ryzen 5 with integrated CPU (Cezanne Radeon Vega)
 - 16 GB RAM, DDR4
 - M.2 NVMe SSD
 - FreeBSD 14.0
