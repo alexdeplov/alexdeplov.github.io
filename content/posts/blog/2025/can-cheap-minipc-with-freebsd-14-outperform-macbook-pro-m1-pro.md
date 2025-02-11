@@ -32,8 +32,7 @@ My MacBook Pro M1 Pro, which cost around €1800, has the following specs:
 - SSD hard drive
 - macOS Sequoia
 
-For this test, I bought a [mini PC](https://www.amazon.de/-/en/Beelink-Radeon-Graphics-Desktop-Computer/dp/B09HGMV1ZN/?_encoding=UTF8&pd_rd_w=zmrw1&content-id=amzn1.sym.ff5a60b1-4d45-43d1-be95-6031008f0082&pf_rd_p=ff5a60b1-4d45-43d1-be95-6031008f0082&pf_rd_r=6FGNCXGQ0TYZ17AD6D5F&pd_rd_wg=XaOMh&pd_rd_r=941f947a-76ba-4d28-9921-5b75b2573fc2&ref_=pd_hp_d_atf_dealz_sv_t3)
-with the following specs:
+For this test, I bought a mini PC with the following specs:
 - AMD Ryzen 5 CPU with integrated GPU
 - 16 GB RAM, DDR4
 - M.2 NVMe SSD
