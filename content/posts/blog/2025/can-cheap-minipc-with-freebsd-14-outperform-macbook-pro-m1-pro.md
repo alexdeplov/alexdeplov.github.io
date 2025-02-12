@@ -24,7 +24,7 @@ But I often wonder: how much computing power is enough?
 
 As a longtime Mac user, I decided to look for a cheap alternative by installing FreeBSD to see what I could achieve.
 
-Why FreeBSD? Simply because I have been using it for decades. I understand its principles better than Linux (which has evolved in different directions over time). For me, FreeBSD has always been about efficiency multiplied by customizability. I was aware of the problems with Wi-Fi, but since I mostly use an Ethernet connection, the Wi-Fi issues weren't an obstacle. 
+Why FreeBSD? Simply because I had experience with it in 90s. I understand its principles better than Linux (which has evolved in different directions over time). For me, FreeBSD has always been about efficiency multiplied by customizability. I was aware of the problems with Wi-Fi, but since I mostly use an Ethernet connection, the Wi-Fi issues weren't an obstacle. 
 
 ### €1800 MacBook Pro vs. €300 Mini PC review
 
