@@ -6,8 +6,15 @@
     <description>Recent content in Posts on Alexander Deplov – Senior Product Designer Blog</description>
     <generator>Hugo</generator>
     <language>en-us</language>
-    <lastBuildDate>Wed, 05 Feb 2025 22:25:51 +0100</lastBuildDate>
+    <lastBuildDate>Wed, 12 Feb 2025 21:53:39 +0100</lastBuildDate>
     <atom:link href="https://alexdeplov.github.io/posts/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>How I Automated My Computer Life With Macos Folder Actions</title>
+      <link>https://alexdeplov.github.io/posts/blog/2025/how-i-automated-my-computer-life-with-macos-folder-actions/</link>
+      <pubDate>Wed, 12 Feb 2025 21:53:39 +0100</pubDate>
+      <guid>https://alexdeplov.github.io/posts/blog/2025/how-i-automated-my-computer-life-with-macos-folder-actions/</guid>
+      <description>&lt;p&gt;I&amp;rsquo;ve always believed that computers should handle repetitive tasks better than humans. It frustrates me when something can&amp;rsquo;t be automated the way I want or when simple actions require more effort than they should.&lt;/p&gt;&#xA;&lt;p&gt;Let’s say we want to convert one video format to another. This happens to me often when I need to share a screencast video with colleagues on Slack. By default, macOS records in .MOV format, which is too large for sharing on Slack. Or sometimes, I have another file that I want to reduce in size. Before sending it to someone, I usually convert it to .MP4 to reduce the size.&lt;/p&gt;</description>
+    </item>
     <item>
       <title>Can cheap MiniPC with FreeBSD 14 outperform MacBook Pro M1 Pro?</title>
       <link>https://alexdeplov.github.io/posts/blog/2025/can-cheap-minipc-with-freebsd-14-outperform-macbook-pro-m1-pro/</link>
