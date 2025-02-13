@@ -172,6 +172,6 @@ All saved actions are stored in:
 Macintosh HD / Users / YourName / Library / Workflows / Applications / Folder Actions/
 ```
 
-It’s become so powerful that I’m willing to extend this system to even more actions. Now my desktop is more useful than ever:
+It’s become so powerful that I’m willing to extend this system to even more actions. Because now you can turn a folder to an interface for any CLI app. So now my desktop is more useful than ever:
 
 ![](images/9.webp)
