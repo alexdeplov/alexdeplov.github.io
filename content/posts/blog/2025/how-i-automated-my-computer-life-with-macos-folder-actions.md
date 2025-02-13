@@ -63,7 +63,7 @@ done
 ```
 
 6. Save and exit.
-7. Drag and drop a .MOV file into the folder. If it works, you should see gear icon in the menu bar. When it goes away - it means scrip is finished the task.
+7. Drag and drop a .MOV file into the folder. If it works, you should see gear icon in the menu bar. When it goes away - it means script is finished the task.
 
 ![](images/6.gif)
 
