@@ -20,7 +20,7 @@ Previously, I used a macOS GUI app to convert in .MP4, and the steps from start 
 
 Such a simple need, yet so many manual actions were required.
 
-So I realized that I could use the powerful macOS Folder Actions. I decided to use them as a trigger for my needs—any need. Set it up once, and then reuse it with just a drag and drop. Drop the file in, and the folder action trigger does the job.
+So I realized that I could use the powerful macOS Folder Actions. I decided to use them as a trigger for my needs—any need. Drop the file in, and the folder action trigger does the job.
 
 Here’s a quick demo of how much easier converting .MOV files into .MP4 has become with drag and drop. Drop a file, wait, and it's done. It’s pure magic! 
 
