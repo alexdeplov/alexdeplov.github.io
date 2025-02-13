@@ -8,9 +8,9 @@ author = "Alexander Deplov"
 
 I've always believed that computers should handle repetitive tasks better than humans. It frustrates me when something can't be automated the way I want or when simple actions require more effort than they should.
 
-Let’s say we want to convert one video format to another. This happens to me often when I need to share a screencast video with colleagues on Slack. By default, macOS records in .MOV format, which is too large for sharing on Slack. Or sometimes, I have another file that I want to reduce in size. Before sending it to someone, I usually convert it to .MP4 to reduce the size.
+Let's say we want to convert a video from one format to another. This often happens to me when I need to share a screencast video with colleagues on Slack. By default, macOS records in .MOV format, which is too large to share. Sometimes, I also have another file that I want to shrink for easier sharing in a message.
 
-Previously, I used a macOS GUI app for this, and the steps from start to finish were:
+Previously, I used a macOS GUI app to convert in .MP4, and the steps from start to finish were:
 - Open the video converter app
 - Click a button to select a file
 - Select the output format
@@ -22,19 +22,21 @@ Such a simple need, yet so many manual actions were required.
 
 So I realized that I could use the powerful macOS Folder Actions. I decided to use them as a trigger for my needs—any need. Set it up once, and then reuse it with just a drag and drop. Drop the file in, and the folder action trigger does the job.
 
-Here’s a quick demo of how much easier converting .MOV files into .MP4 has become with drag and drop. Drop a file, wait, and it's done. It’s pure magic! And original file deleted as well.
+Here’s a quick demo of how much easier converting .MOV files into .MP4 has become with drag and drop. Drop a file, wait, and it's done. It’s pure magic! 
 
 ![](images/1.gif)
+
+And original file deleted automatically as well.
 
 ## List of My Folder Actions
 After some time, I created folder actions for various tasks.
 
-Need to convert .JPG or .webp to .WEBP? I have a folder for that.
-Need to download a Twitter video with a nice UI animation that caught my attention? Not a problem—I have a folder for that. And so on.
+Need to convert .JPG to .WEBP? I have a folder for that.<br/>
+Need to download a Twitter video? I have a folder for that.
 
 ![](images/2.webp)
 
-And it’s pretty easy to set up. Here’s how.
+And it’s pretty easy to set up too.
 
 ## How to Set Up macOS Folder Actions
 Please note that once you set up Folder Actions, you can’t change the folder name without breaking the folder actions. If you rename the folder, you must reattach the folder actions again.
@@ -61,8 +63,9 @@ done
 ```
 
 6. Save and exit.
-7. Drag and drop a .MOV file into the folder. If it works, you should see an icon in the menu bar.
-![](images/6.webp)
+7. Drag and drop a .MOV file into the folder. If it works, you should see gear icon in the menu bar. When it goes away - it means scrip is finished the task.
+
+![](images/6.gif)
 
 ## Additional Folder Actions
 ### Convert Video to GIF
