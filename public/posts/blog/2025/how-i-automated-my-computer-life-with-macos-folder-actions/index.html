@@ -167,7 +167,7 @@ Let&rsquo;s say we want to convert a video from one format to another. This ofte
 Let’s say we want to convert a video from one format to another. This often happens to me when I need to share a screencast video with colleagues on Slack. By default, macOS records in .MOV format, which is too large to share. Sometimes, I also have another file that I want to shrink for easier sharing in a message.">
   <meta itemprop="datePublished" content="2025-02-12T21:53:39+01:00">
   <meta itemprop="dateModified" content="2025-02-12T21:53:39+01:00">
-  <meta itemprop="wordCount" content="790">
+  <meta itemprop="wordCount" content="923">
   
   <meta property="og:url" content="https://alexdeplov.github.io/posts/blog/2025/how-i-automated-my-computer-life-with-macos-folder-actions/">
   <meta property="og:site_name" content="Alexander Deplov – Senior Product Designer Blog">
@@ -448,7 +448,45 @@ Need to download a Twitter video? I have a folder for that.</p>
 </span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">fi</span>
 </span></span><span style="display:flex;"><span>
 </span></span><span style="display:flex;"><span><span style="color:#66d9ef">done</span>
-</span></span></code></pre></div><h2 id="folder-actions-tweaking">Folder Actions Tweaking</h2>
+</span></span></code></pre></div><h3 id="convert-youtube-videos-in-mp3-file-directly">Convert YouTube Videos in MP3 File Directly:</h3>
+<ol>
+<li>In Terminal:</li>
+</ol>
+<pre tabindex="0"><code>brew install yt-dlp; brew install ffmpeg
+</code></pre><ol start="2">
+<li>Use this script:</li>
+</ol>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-sh" data-lang="sh"><span style="display:flex;"><span><span style="color:#75715e"># Process each .webloc file</span>
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">for</span> f in <span style="color:#e6db74">&#34;</span>$@<span style="color:#e6db74">&#34;</span>; <span style="color:#66d9ef">do</span>
+</span></span><span style="display:flex;"><span>    echo <span style="color:#e6db74">&#34;Processing file: </span>$f<span style="color:#e6db74">&#34;</span>
+</span></span><span style="display:flex;"><span>    
+</span></span><span style="display:flex;"><span>    <span style="color:#75715e"># Extract URL between &lt;string&gt; tags</span>
+</span></span><span style="display:flex;"><span>    url<span style="color:#f92672">=</span><span style="color:#66d9ef">$(</span>grep -o <span style="color:#e6db74">&#39;&lt;string&gt;.*&lt;/string&gt;&#39;</span> <span style="color:#e6db74">&#34;</span>$f<span style="color:#e6db74">&#34;</span> | sed <span style="color:#e6db74">&#39;s/&lt;string&gt;\(.*\)&lt;\/string&gt;/\1/&#39;</span><span style="color:#66d9ef">)</span>
+</span></span><span style="display:flex;"><span>    echo <span style="color:#e6db74">&#34;Extracted URL: </span>$url<span style="color:#e6db74">&#34;</span>
+</span></span><span style="display:flex;"><span>    
+</span></span><span style="display:flex;"><span>    <span style="color:#75715e"># Check if URL was found</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">if</span> <span style="color:#f92672">[</span> -n <span style="color:#e6db74">&#34;</span>$url<span style="color:#e6db74">&#34;</span> <span style="color:#f92672">]</span>; <span style="color:#66d9ef">then</span>
+</span></span><span style="display:flex;"><span>        echo <span style="color:#e6db74">&#34;Attempting to download from: </span>$url<span style="color:#e6db74">&#34;</span>
+</span></span><span style="display:flex;"><span>        
+</span></span><span style="display:flex;"><span>        <span style="color:#75715e"># Download video using yt-dlp to the Downloads folder</span>
+</span></span><span style="display:flex;"><span>        /opt/homebrew/bin/yt-dlp -x --audio-format mp3 --audio-quality <span style="color:#ae81ff">0</span> --ffmpeg-location /opt/homebrew/bin/ffmpeg -P <span style="color:#e6db74">&#34;~/Downloads&#34;</span> <span style="color:#e6db74">&#34;</span>$url<span style="color:#e6db74">&#34;</span>
+</span></span><span style="display:flex;"><span>        
+</span></span><span style="display:flex;"><span>        <span style="color:#75715e"># Check if the download was successful</span>
+</span></span><span style="display:flex;"><span>        <span style="color:#66d9ef">if</span> <span style="color:#f92672">[</span> $? -eq <span style="color:#ae81ff">0</span> <span style="color:#f92672">]</span>; <span style="color:#66d9ef">then</span>
+</span></span><span style="display:flex;"><span>            echo <span style="color:#e6db74">&#34;Download successful, removing webloc file&#34;</span>
+</span></span><span style="display:flex;"><span>            rm -f <span style="color:#e6db74">&#34;</span>$f<span style="color:#e6db74">&#34;</span>
+</span></span><span style="display:flex;"><span>        <span style="color:#66d9ef">else</span>
+</span></span><span style="display:flex;"><span>            echo <span style="color:#e6db74">&#34;Download failed&#34;</span>
+</span></span><span style="display:flex;"><span>        <span style="color:#66d9ef">fi</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">else</span>
+</span></span><span style="display:flex;"><span>        echo <span style="color:#e6db74">&#34;Error: No URL found in &#39;</span>$f<span style="color:#e6db74">&#39;&#34;</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">fi</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">done</span>
+</span></span></code></pre></div><ol start="3">
+<li>Drop a website URL directly into the folder.</li>
+</ol>
+<h2 id="folder-actions-tweaking">Folder Actions Tweaking</h2>
 <p>If you need to change a folder action, right-click on the folder and select <strong>Folder Action Setup</strong>.
 <img src="images/7.webp" alt=""></p>
 <p>All saved actions are stored in:</p>

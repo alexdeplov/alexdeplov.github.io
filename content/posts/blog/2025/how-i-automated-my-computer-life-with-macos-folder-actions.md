@@ -163,6 +163,47 @@ for f in "$@"; do
 done
 ```
 
+### Convert YouTube Videos in MP3 File Directly:
+1. In Terminal:
+
+```
+brew install yt-dlp; brew install ffmpeg
+```
+
+2. Use this script:
+
+```sh
+# Process each .webloc file
+for f in "$@"; do
+    echo "Processing file: $f"
+    
+    # Extract URL between <string> tags
+    url=$(grep -o '<string>.*</string>' "$f" | sed 's/<string>\(.*\)<\/string>/\1/')
+    echo "Extracted URL: $url"
+    
+    # Check if URL was found
+    if [ -n "$url" ]; then
+        echo "Attempting to download from: $url"
+        
+        # Download video using yt-dlp to the Downloads folder
+        /opt/homebrew/bin/yt-dlp -x --audio-format mp3 --audio-quality 0 --ffmpeg-location /opt/homebrew/bin/ffmpeg -P "~/Downloads" "$url"
+        
+        # Check if the download was successful
+        if [ $? -eq 0 ]; then
+            echo "Download successful, removing webloc file"
+            rm -f "$f"
+        else
+            echo "Download failed"
+        fi
+    else
+        echo "Error: No URL found in '$f'"
+    fi
+
+done
+```
+
+3. Drop a website URL directly into the folder.
+
 ## Folder Actions Tweaking
 If you need to change a folder action, right-click on the folder and select **Folder Action Setup**.
 ![](images/7.webp)
