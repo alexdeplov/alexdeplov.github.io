@@ -163,7 +163,7 @@ for f in "$@"; do
 done
 ```
 
-### Convert YouTube Videos in MP3 File Directly:
+### Convert YouTube Videos to MP3 File Directly:
 1. In Terminal:
 
 ```
