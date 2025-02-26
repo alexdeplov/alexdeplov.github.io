@@ -4,7 +4,7 @@ title = "Alexander Deplov – Senior Product Designer Blog"
 theme = 'paper'
 
 [pagination]
-pagerSize = 100
+pagerSize = 101
 
 [taxonomies]
 tag = "tags"

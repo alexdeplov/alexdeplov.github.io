@@ -11,13 +11,9 @@
 {{ $pages = where site.RegularPages "Type" "in" site.Params.mainSections }}<!---->
 {{ end }}
 
-<!-- Articles -->
-{{ $paginator := .Paginate $pages }} {{ range $index, $page := $paginator.Pages
-}}<!---->
-
-<!-- avatar -->
-{{ if and $.IsHome (eq $paginator.PageNumber 1) (eq $index 0) }}<!---->
-
+<!-- User profile section - only on homepage first page -->
+{{ $paginator := .Paginate $pages }}
+{{ if and $.IsHome (eq $paginator.PageNumber 1) }}
 {{ $avatar_url := $.Scratch.Get "avatar_url" }}<!---->
 {{ if or $avatar_url site.Params.name }}
 <div class="-mt-2 flex items-center flex-col items-start">
@@ -45,29 +41,34 @@
     <img src="/images/hero.webp">
   </div>
 </div>
-{{ end }}<!---->
-  <div class="w-full">
-    <h2 class="opacity-60 m-0">Blog</h2>
-  </div>
-
+{{ end }}
 {{ end }}
 
-<section class="relative mt-8 first-of-type:mt-0 last-of-type:mb-0">
+<!-- Group posts by year -->
+{{ $postsByYear := $paginator.Pages.GroupByDate "2006" }}
+{{ range $postsByYear }}
+<div class="w-full">
+  <h2 class="opacity-60 m-0 pt-12">{{ .Key }}</h2>
+</div>
+
+{{ range .Pages }}
+<section class="relative first-of-type:mt-0 last-of-type:mb-0">
   {{ if gt .Weight 0 }}
   <span
     class="mb-2 ml-px inline-block text-[0.8rem] font-medium uppercase tracking-wider text-[#ff3b2d] opacity-70"
     >Featured</span
   >
   {{ end }}
-<ul class="pl-0 ml-4">
-  <li>
-    <h3 class="!my-0 font-bold flex">
+<ul class="pl-0 ml-4 ">
+  <li class="">
+    <h3 class="!my-0 font-semibold flex">
       {{ partial "featured_icon.html" . }}
-      <a class="!my-0 font-bold flex" href="{{ .Permalink }}">{{ .Title }}</a>
+      <a class="!my-0 font-semibold flex" href="{{ .Permalink }}">{{ .Title }}</a>
     </h3>
   </li>
 </ul>
 </section>
+{{ end }}
 {{ end }}
 
 <!-- Main Nav -->
