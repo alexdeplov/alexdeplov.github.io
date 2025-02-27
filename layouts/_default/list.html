@@ -12,7 +12,7 @@
 {{ end }}
 
 <!-- User profile section - only on homepage first page -->
-{{ $paginator := .Paginate $pages }}
+{{ $paginator := .Paginate $pages 100}}
 {{ if and $.IsHome (eq $paginator.PageNumber 1) }}
 {{ $avatar_url := $.Scratch.Get "avatar_url" }}<!---->
 {{ if or $avatar_url site.Params.name }}
