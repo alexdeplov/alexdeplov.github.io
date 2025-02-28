@@ -1,0 +1,422 @@
+<!doctype html>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<html
+  class="not-ready lg:text-base"
+  style="--bg: #faf8f1"
+  lang="en-us"
+>
+  <head>
+  <meta charset="utf-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <meta
+    name="viewport"
+    content="width=device-width, initial-scale=1, shrink-to-fit=no"
+  />
+
+  
+  <title>Can cheap MiniPC with FreeBSD 14 outperform MacBook Pro M1 Pro? - Alexander Deplov – Senior Product Designer Blog</title>
+
+  
+  <meta name="theme-color" />
+
+  
+  
+  
+  
+  <meta name="description" content="TL;DR
+
+I put my €1800 MacBook Pro M1 Pro head-to-head with a €300 mini PC and found the cheaper option surprisingly fast. While the mini PC couldn&rsquo;t completely replace my Mac for work due to some software and hardware limitations, it made me question the need for expensive purchases. Do we really need the latest and greatest hardware to be productive? Or are we being pushed to constantly upgrade for features we might not even fully utilize?" />
+  <meta name="author" content="Alexander Deplov" />
+  
+
+  
+  
+  
+  
+  
+  
+  <link rel="preload stylesheet" as="style" href="https://alexdeplov.github.io/main.min.css" />
+
+  
+  
+  
+  
+  
+  <link rel="preload" as="image" href="https://alexdeplov.github.io/theme.svg" />
+
+  
+  
+  
+  
+  <link rel="preload" as="image" href="https://gravatar.com/avatar/7a371a2fef36b02d83ee5e65f9a7721d?size=256&amp;cache=1718741543588" />
+  
+  
+
+  
+  
+  <link rel="preload" as="image" href="https://alexdeplov.github.io/mastodon.svg" />
+  
+  <link rel="preload" as="image" href="https://alexdeplov.github.io/rss.svg" />
+  
+  
+
+  
+  
+  <script
+    defer
+    src="https://alexdeplov.github.io/highlight.min.js"
+    onload="hljs.initHighlightingOnLoad();"
+  ></script>
+  
+
+  
+  
+  
+  
+<link
+  rel="stylesheet"
+  href="https://cdn.jsdelivr.net/npm/katex@0.16.7/dist/katex.min.css"
+  integrity="sha384-3UiQGuEI4TTMaFmGIZumfRPtfKQ3trwQE2JgosJxCnGmQpL/lJdjpcHkaaFwHlcI"
+  crossorigin="anonymous"
+/>
+<script
+  defer
+  src="https://cdn.jsdelivr.net/npm/katex@0.16.7/dist/katex.min.js"
+  integrity="sha384-G0zcxDFp5LWZtDuRMnBkk3EphCK1lhEf4UEyEM693ka574TZGwo4IWwS6QLzM/2t"
+  crossorigin="anonymous"
+></script>
+<script
+  defer
+  src="https://cdn.jsdelivr.net/npm/katex@0.16.7/dist/contrib/auto-render.min.js"
+  integrity="sha384-+VBxd3r6XgURycqtZ117nYw44OOcIax56Z4dCRWbxyPt0Koah1uHoK0o4+/RRE05"
+  crossorigin="anonymous"
+></script>
+
+
+<script>
+  document.addEventListener('DOMContentLoaded', () =>
+    renderMathInElement(document.body, {
+      
+      
+      delimiters: [
+        { left: '$$', right: '$$', display: true },
+        { left: '$', right: '$', display: false },
+      ],
+      
+      throwOnError: false,
+    }),
+  );
+</script>
+
+  
+  
+  
+
+  
+  <link rel="icon" href="https://alexdeplov.github.io/favicon.ico" />
+  <link rel="apple-touch-icon" href="https://alexdeplov.github.io/apple-touch-icon.png" />
+
+  
+  <meta name="generator" content="Hugo 0.143.1">
+
+  
+  
+  
+  
+  
+  
+  <meta itemprop="name" content="Can cheap MiniPC with FreeBSD 14 outperform MacBook Pro M1 Pro?">
+  <meta itemprop="description" content="TL;DR I put my €1800 MacBook Pro M1 Pro head-to-head with a €300 mini PC and found the cheaper option surprisingly fast. While the mini PC couldn’t completely replace my Mac for work due to some software and hardware limitations, it made me question the need for expensive purchases. Do we really need the latest and greatest hardware to be productive? Or are we being pushed to constantly upgrade for features we might not even fully utilize?">
+  <meta itemprop="datePublished" content="2025-02-05T22:25:51+01:00">
+  <meta itemprop="dateModified" content="2025-02-05T22:25:51+01:00">
+  <meta itemprop="wordCount" content="1042">
+  
+  <meta property="og:url" content="https://alexdeplov.github.io/posts/blog/2025/can-cheap-minipc-with-freebsd-14-outperform-macbook-pro-m1-pro/">
+  <meta property="og:site_name" content="Alexander Deplov – Senior Product Designer Blog">
+  <meta property="og:title" content="Can cheap MiniPC with FreeBSD 14 outperform MacBook Pro M1 Pro?">
+  <meta property="og:description" content="TL;DR I put my €1800 MacBook Pro M1 Pro head-to-head with a €300 mini PC and found the cheaper option surprisingly fast. While the mini PC couldn’t completely replace my Mac for work due to some software and hardware limitations, it made me question the need for expensive purchases. Do we really need the latest and greatest hardware to be productive? Or are we being pushed to constantly upgrade for features we might not even fully utilize?">
+  <meta property="og:locale" content="en_us">
+  <meta property="og:type" content="article">
+    <meta property="article:section" content="posts">
+    <meta property="article:published_time" content="2025-02-05T22:25:51+01:00">
+    <meta property="article:modified_time" content="2025-02-05T22:25:51+01:00">
+
+  
+  
+  <meta name="twitter:card" content="summary">
+  <meta name="twitter:title" content="Can cheap MiniPC with FreeBSD 14 outperform MacBook Pro M1 Pro?">
+  <meta name="twitter:description" content="TL;DR I put my €1800 MacBook Pro M1 Pro head-to-head with a €300 mini PC and found the cheaper option surprisingly fast. While the mini PC couldn’t completely replace my Mac for work due to some software and hardware limitations, it made me question the need for expensive purchases. Do we really need the latest and greatest hardware to be productive? Or are we being pushed to constantly upgrade for features we might not even fully utilize?">
+
+  
+  
+  
+  <link rel="canonical" href="https://alexdeplov.github.io/posts/blog/2025/can-cheap-minipc-with-freebsd-14-outperform-macbook-pro-m1-pro/" />
+  
+  
+</head>
+
+  <body class="text-black duration-200 ease-out dark:text-white">
+    <header class="mx-auto flex h-[4.5rem] max-w-3xl px-8 lg:justify-center">
+  
+
+  <div class="relative z-50 mr-auto flex items-center">
+    <a
+      class="websiteName -translate-x-[1px] -translate-y-[1px] text-1xl font-semibold"
+      href="https://alexdeplov.github.io/"
+      >Alexander Deplov – Senior Product Designer Blog</a
+    >
+    <div
+      class="btn-dark text-[0] ml-4 h-6 w-6 shrink-0 cursor-pointer [background:url(./theme.svg)_left_center/cover_no-repeat] dark:invert dark:[background-position:right]"
+      role="button"
+      aria-label="Dark"
+    ></div>
+  </div>
+
+  <div
+    class="btn-menu relative z-50 -mr-8 flex h-[4.5rem] w-[5rem] shrink-0 cursor-pointer flex-col items-center justify-center gap-2.5 lg:hidden"
+    role="button"
+    aria-label="Menu"
+  ></div>
+
+  
+
+  <script>
+    
+    const htmlClass = document.documentElement.classList;
+    setTimeout(() => {
+      htmlClass.remove('not-ready');
+    }, 10);
+
+    
+    const btnMenu = document.querySelector('.btn-menu');
+    btnMenu.addEventListener('click', () => {
+      htmlClass.toggle('open');
+    });
+
+    
+    const metaTheme = document.querySelector('meta[name="theme-color"]');
+    const lightBg = '#faf8f1'.replace(/"/g, '');
+    const setDark = (isDark) => {
+      metaTheme.setAttribute('content', isDark ? '#000' : lightBg);
+      htmlClass[isDark ? 'add' : 'remove']('dark');
+      localStorage.setItem('dark', isDark);
+    };
+
+    
+    const darkScheme = window.matchMedia('(prefers-color-scheme: dark)');
+    if (htmlClass.contains('dark')) {
+      setDark(true);
+    } else {
+      const darkVal = localStorage.getItem('dark');
+      setDark(darkVal ? darkVal === 'true' : darkScheme.matches);
+    }
+
+    
+    darkScheme.addEventListener('change', (event) => {
+      setDark(event.matches);
+    });
+
+    
+    const btnDark = document.querySelector('.btn-dark');
+    btnDark.addEventListener('click', () => {
+      setDark(localStorage.getItem('dark') !== 'true');
+    });
+  </script>
+
+  <div
+    class="nav-wrapper fixed inset-x-0 top-full z-40 flex h-full select-none flex-col justify-center pb-16 duration-200 dark:bg-black lg:static lg:h-auto lg:flex-row lg:!bg-transparent lg:pb-0 lg:transition-none"
+  >
+    
+    
+
+    
+    <nav
+      class="mt-12 flex justify-center space-x-10 dark:invert lg:ml-12 lg:mt-0 lg:items-center lg:space-x-6"
+    >
+      
+      <a
+        class="h-8 w-8 text-[0] [background:var(--url)_center_center/cover_no-repeat] lg:h-6 lg:w-6"
+        style="--url: url(./mastodon.svg)"
+        href="https://mastodon.social/@alex_deplov"
+        target="_blank"
+        rel="me"
+      >
+        mastodon
+      </a>
+      
+      <a
+        class="h-8 w-8 text-[0] [background:var(--url)_center_center/cover_no-repeat] lg:h-6 lg:w-6"
+        style="--url: url(./rss.svg)"
+        href="https://alexdeplov.github.io/index.xml"
+        target="_blank"
+        rel="alternate"
+      >
+        rss
+      </a>
+      
+    </nav>
+    
+  </div>
+  
+</header>
+
+    <main
+      class="prose prose-neutral relative mx-auto min-h-[calc(100%-9rem)] max-w-3xl px-8 pb-16 pt-12 dark:prose-invert"
+    >
+      
+
+<article>
+ <header class="mb-16">
+ <meta name="fediverse:creator" content="@alex_deplov@mastodon.social" />
+    <h1 class="mb-2">Can cheap MiniPC with FreeBSD 14 outperform MacBook Pro M1 Pro?</h1> 
+
+    
+    <div class="text-sm antialiased opacity-60">
+      
+      <time>Feb 5, 2025</time>
+      
+      <span class="mx-1">&middot;</span>
+      <span>Alexander Deplov</span>
+      
+    </div>
+    
+  </header>
+
+  <section><h3 id="tldr">TL;DR</h3>
+<blockquote>
+<p>I put my €1800 MacBook Pro M1 Pro head-to-head with a €300 mini PC and found the cheaper option surprisingly fast. While the mini PC couldn&rsquo;t completely replace my Mac for work due to some software and hardware limitations, it made me question the need for expensive purchases. Do we really need the latest and greatest hardware to be productive? Or are we being pushed to constantly upgrade for features we might not even fully utilize?</p></blockquote>
+<h3 id="introduction">Introduction</h3>
+<p>I often wonder how much computing power we need to strike a balance between &ldquo;fast enough to use comfortably&rdquo; and &ldquo;overpowered and overpriced so you never use it to its full potential&rdquo;?</p>
+<p>Slow computer hardware frustrates me. If you can <strong>think faster</strong> than your computer or perform operations quickly, but it takes &ldquo;time to think while showing you a beach ball,&rdquo; you&rsquo;re wasting your time. When a computer takes seconds to think &ldquo;here&rdquo; and another few seconds &ldquo;there,&rdquo; it adds up to hours of wasted time over the years. Additionally, waiting for the computer to finish operations fragments your attention significantly.</p>
+<p>I know this from experience. Growing up with slow dial-up modems in the 90s, I had to wait several seconds, sometimes even dozens of seconds, for a web page with all its images to fully load. Since then, I&rsquo;ve developed a habit of getting distracted by other tasks too often while working.</p>
+<p>For me, having a fast computer is both a way to stay focused and save time.</p>
+<p>But I often wonder: how much computing power is enough?</p>
+<p>As a longtime Mac user, I decided to look for a cheap alternative by installing FreeBSD to see what I could achieve.</p>
+<p>Why FreeBSD? Simply because I had experience with it in 90s. I understand its principles better than Linux (which has evolved in different directions over time). For me, FreeBSD has always been about efficiency multiplied by customizability. I was aware of the problems with Wi-Fi, but since I mostly use an Ethernet connection, the Wi-Fi issues weren&rsquo;t an obstacle.</p>
+<h3 id="1800-macbook-pro-vs-300-mini-pc-review">€1800 MacBook Pro vs. €300 Mini PC review</h3>
+<p>My MacBook Pro M1 Pro, which cost around €1800, has the following specs:</p>
+<ul>
+<li>10 CPU cores (8 performance and 2 efficiency)</li>
+<li>16 GB of RAM, LPDDR5</li>
+<li>SSD hard drive</li>
+<li>macOS Sequoia</li>
+</ul>
+<p>For this test, I bought a mini PC with the following specs:</p>
+<ul>
+<li>Mini PC Beelink SER5 5560U, AMD Ryzen 5 with integrated CPU (Cezanne Radeon Vega)</li>
+<li>16 GB RAM, DDR4</li>
+<li>M.2 NVMe SSD</li>
+<li>FreeBSD 14.0</li>
+</ul>
+<p>I installed FreeBSD 14.0, Xfce, and Firefox.</p>
+<p>After some basic tweaking <a href="https://vermaden.wordpress.com/2018/03/29/freebsd-desktop-part-1-simplified-boot/">using this amazing guide</a>, FreeBSD achieved the same boot time as my expensive MacBook.</p>
+<p><img src="images/1.jpg" alt=""></p>
+<h3 id="the-good">The good</h3>
+<p>Surprisingly, Firefox was able to play YouTube videos faster than on the Mac. It felt as if videos were loading from local storage every time I clicked somewhere on the timeline. The Mac would take a fraction of a second to resume playback with the same version of Firefox. Both machines were connected via Ethernet cable during testing, not Wi-Fi.</p>
+<p>CPU usage on FreeBSD was nearly idle at 0-0.5% across a couple of cores. Impressive! With the same applications on macOS, I typically see about 10-20% usage across several cores when idle.</p>
+<p>I believe macOS is accumulating more and more unnecessary features, each of which occupies memory and uses CPU even when not actively used. Features like video wallpapers, desktop widgets, handoff, photo library analysis, and so on. Some of these are built into macOS, so you can&rsquo;t completely disable them even if you&rsquo;re not using them.</p>
+<p>At one point, I experimented with Motif Window Manager (MWM), which uses no more than 25MB (MB!!) of RAM. On macOS, it&rsquo;s usually 10 times more. Impressive.</p>
+<h3 id="what-i-dont-like-about-freebsd-in-2025">What I don&rsquo;t like about FreeBSD in 2025</h3>
+<ul>
+<li>Fonts. They&rsquo;re not aesthetically pleasing. The font rendering differs from Mac&rsquo;s. Even using the same 1080p monitor, I can see the difference, and I don&rsquo;t prefer it. I changed the system font to SF Pro Display and <a href="https://mastodon.social/@alex_deplov/112894064306391247">adjusted font rendering settings</a> to more closely match macOS.</li>
+<li>Software availability. I couldn&rsquo;t find some of my favorite applications for FreeBSD. Applications like Ableton or Figma are only available for Windows/macOS.</li>
+<li>The <a href="https://ports.freebsd.org/cgi/ports.cgi">packages collection</a> lacks visual previews of applications. This is understandable since it&rsquo;s primarily used from the console, but there&rsquo;s no way to preview applications as you would in the Mac App Store. While there are links to package homepages where you can find screenshots, visiting each homepage is time-consuming. I think GhostBSD has a GUI version for this, but I don&rsquo;t remember it having images either.</li>
+<li>FreeBSD and Wi-Fi drivers remain a persistent challenge. I hope they will <a href="https://freebsdfoundation.org/blog/improving-and-debugging-freebsds-intel-wi-fi-support-cheng-cuis-key-role-in-the-iwlwifi-project/">resolve this soon</a>.</li>
+</ul>
+<h3 id="conclusion">Conclusion</h3>
+<p>After completing the test, I realized that I couldn&rsquo;t completely switch platforms. Without Zoom, Figma, and other specific software, and considering the font rendering issues, I couldn&rsquo;t use the mini-PC running FreeBSD as my main work computer. Figma works fine in Firefox, but I couldn&rsquo;t get it to read local fonts, which was critical for me. And as an Apple developer and iOS/Mac interface designer, I still need to use macOS.</p>
+<p>This experiment showed me the impressive capabilities of low-cost hardware. If you can work with FreeBSD, you don&rsquo;t need to replace your computer every 5 years or so. However, with each macOS update, Apple adds more features, driven primarily by marketing to achieve more sales. In reality, we all — existing and new users — pay for this, as more features require more powerful hardware to run well, forcing us to upgrade. Consequently, Mac users get less value for their money.</p>
+<p>Ultimately, I was pleased to discover that a €300 mini PC can run most basic tasks at the same speed as an €1800 Mac.</p>
+<p><a href="https://www.youtube.com/watch?v=3scLHnwwgn0">This video of FreeBSD running on a white MacBook 2009</a> impressed me. Most applications open almost instantly. Meanwhile, my 2017 MacBook struggles to run its latest supported macOS version smoothly! Remarkably, a 15-year-old white MacBook running FreeBSD performs better than an 8-year-old 2017 MacBook running macOS.</p>
+<p>This indicates we&rsquo;re somewhat locked into Apple&rsquo;s hardware ecosystem, paying more than necessary, and this situation is unlikely to change soon, if ever. I&rsquo;ll continue experimenting with FreeBSD as a side project, hoping that the FreeBSD Foundation will invest more in the desktop experience, as they recently promised.</p>
+</section>
+
+  
+  
+
+  
+  
+
+  
+  
+
+  
+  
+
+  
+
+
+  
+</article>
+
+
+      
+    </main>
+
+    
+<div class="mx-auto flex">
+    <a target="_blank" rel="noopener" class="mx-auto flex text-white linkedInColor text-white font-medium py-2 px-4 mb-16 rounded" href="mailto:dcwrjo84h@mozmail.com?subject=interfacecraft_online" target="_blank">
+    Reply via Email
+    </a>
+</div>
+
+<footer
+  class="opaco mx-auto flex h-[4.5rem] max-w-3xl items-center px-8 text-[0.9em] opacity-60"
+>
+  <div class="mr-auto">
+    &copy; 2025
+    <a class="link" href="https://alexdeplov.github.io/">Alexander Deplov – Senior Product Designer Blog</a>
+  </div>
+
+  </script>
+</footer>
+
+
+
+
+    
+    <script data-goatcounter="https://goatinterface.goatcounter.com/count"
+    async src="//gc.zgo.at/count.js"></script>
+
+    <script src="//instant.page/5.2.0" type="module" integrity="sha384-jnZyxPjiipYXnSU0ygqeac2q7CVYMbh84q0uHVRRxEtvFPiQYbXWUorga2aqZJ0z"></script>
+     
+  </body>
+</html>

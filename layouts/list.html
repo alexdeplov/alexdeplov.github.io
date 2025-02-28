@@ -1,0 +1,50 @@
+{{ define "main" }}
+    <!-- Title section -->
+    {{ if eq .Type "posts" }}
+        <h1 class="text-2xl font-bold mb-8">All Blog Posts</h1>
+    {{ else if and .Title (eq .Type "tags") }}
+        <h1 class="text-2xl font-bold mb-8">#{{ .Title }}</h1>
+    {{ else }}
+        <h1 class="text-2xl font-bold mb-8">{{ .Title }}</h1>
+    {{ end }}
+
+    <!-- User profile section - only on homepage first page -->
+    {{ $paginator := .Paginate .Pages }}
+    {{ if and $.IsHome (eq $paginator.PageNumber 1) }}
+        {{ $avatar_url := $.Scratch.Get "avatar_url" }}
+        {{ if or $avatar_url site.Params.name }}
+            <div class="-mt-2 flex items-start">
+                {{ if $avatar_url }}
+                    <div class="mr-5 shrink-0 rounded-full border-[0.5px] border-black/10 bg-white/50 p-3 shadow dark:bg-white/[15%]">
+                        <img class="my-0 aspect-square w-16 rounded-full !bg-black/5 dark:!bg-black/80"
+                             src="{{ $avatar_url }}"
+                             alt="{{ site.Params.name | default site.Title }}" />
+                    </div>
+                {{ end }}
+                {{ if site.Params.name }}
+                    <div>
+                        <h1 class="mb-2 mt-3 text-[1.6rem] font-bold">{{ site.Params.name }}</h1>
+                        <div class="break-words">
+                            {{ site.Params.bio | default (print `A personal blog by ` site.Params.name) }}
+                        </div>
+                    </div>
+                {{ end }}
+            </div>
+        {{ end }}
+    {{ end }}
+
+    <!-- Use the shared posts-list partial -->
+    {{ partial "posts-list.html" . }}
+
+    <!-- Pagination -->
+    {{ if gt $paginator.TotalPages 1 }}
+        <nav class="mt-16 flex">
+            {{ if $paginator.HasPrev }}
+                <a class="px-4 py-2 bg-gray-200 rounded hover:bg-gray-300" href="{{ $paginator.Prev.URL }}">← Previous</a>
+            {{ end }}
+            {{ if $paginator.HasNext }}
+                <a class="px-4 py-2 bg-gray-200 rounded hover:bg-gray-300 ml-auto" href="{{ $paginator.Next.URL }}">Next →</a>
+            {{ end }}
+        </nav>
+    {{ end }}
+{{ end }}

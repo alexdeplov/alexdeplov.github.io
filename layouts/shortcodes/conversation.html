@@ -1,0 +1,76 @@
+{{/* layouts/shortcodes/conversation.html */}}
+{{ $content := .Inner | string }}
+{{ if eq $content "" }}
+<p>No messages to display</p>
+{{ else }}
+<div class="conversation !my-16">
+  {{ $messages := split .Inner "\n" }}
+  {{ range $index, $message := $messages }}
+    {{ if $message }}
+      {{ $data := $message | unmarshal }}
+      {{ with $data }}
+        {{ $nextIndex := add $index 1 }}
+        {{ $nextMessage := index $messages $nextIndex | unmarshal }}
+        {{ $isLastInGroup := or (not $nextMessage) (ne $nextMessage.sender .sender) }}
+        
+        <div class="message {{ if eq .sender "person2" }}message-right{{ else }}message-left{{ end }}">
+          <div class="message-bubble {{ if eq .sender "person2" }}bubble-blue{{ else }}bubble-grey{{ end }} {{ if $isLastInGroup }}last-in-group{{ end }}">
+            <span class="message-text">{{ .text }}</span>
+          </div>
+        </div>
+      {{ end }}
+    {{ end }}
+  {{ end }}
+</div>
+{{ end }}
+
+<style>
+.conversation {
+  max-width: 600px;
+  margin: 20px auto;
+  font-family: -apple-system, BlinkMacSystemFont, sans-serif;
+}
+
+.message {
+  display: flex;
+  margin: 8px 0;
+}
+
+.message-right {
+  justify-content: flex-end;
+}
+
+.message-bubble {
+  max-width: 70%;
+  padding: 12px 16px;
+  font-size: 16px;
+  font-weight: 500;
+  line-height: 1.4;
+  position: relative;
+}
+
+.bubble-grey {
+  background-color: #e9e9eb;
+  color: #000000;
+  border-radius: 20px;
+}
+
+.bubble-blue {
+  background-color: #0b84ff;
+  color: #ffffff;
+  border-radius: 20px;
+}
+
+.bubble-grey.last-in-group {
+  border-radius: 20px 20px 20px 4px;
+}
+
+.bubble-blue.last-in-group {
+  border-radius: 20px 20px 4px 20px;
+}
+
+.message-text {
+  position: relative;
+  z-index: 2;
+}
+</style>

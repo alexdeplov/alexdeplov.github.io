@@ -1,0 +1,8 @@
+<!-- /layouts/shortcodes/photos-grid-3.html -->
+<div class="grid grid-cols-3 gap-4">
+    {{ range .Params }}
+        <div class="aspect-w-1 aspect-h-1">
+            <img src="{{ . }}" alt="Photo" class="object-cover w-full h-full rounded-lg shadow-md">
+        </div>
+    {{ end }}
+</div>

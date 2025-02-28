@@ -1,0 +1,29 @@
+<!-- posts-list.html partial -->
+<!-- Display posts grouped by year -->
+<div class="list w-full max-w-md mx-auto">
+  {{ $posts := where .Site.RegularPages "Section" "posts" }}
+  {{ if $posts }}
+    <!-- Group posts by year -->
+    {{ $postsByYear := $posts.GroupByDate "2006" }}
+    {{ range $postsByYear }}
+      <h3 class="text-xl font-bold mt-6 mb-3">{{ .Key }}</h3>
+      <ul>
+        {{ range .Pages }}
+          {{ if .Params.featured }}
+          <!-- Green bullet for featured posts -->
+          <li class="mb-2 relative !pl-5 list-none before:content-['•'] before:absolute before:left-0 before:text-green-500 before:text-sm before:top-0 before:font-bold">
+            <a href="{{ .Permalink }}" class="text-blue-600">{{ .Title }}</a>
+          </li>
+          {{ else }}
+          <!-- Standard bullet for regular posts -->
+          <li class="mb-2 ml-4 list-disc text-[#29ADFF]">
+            <a href="{{ .Permalink }}" class="text-blue-600 hover:underline">{{ .Title }}</a>
+          </li>
+          {{ end }}
+        {{ end }}
+      </ul>
+    {{ end }}
+  {{ else }}
+    <p>No posts yet.</p>
+  {{ end }}
+</div>

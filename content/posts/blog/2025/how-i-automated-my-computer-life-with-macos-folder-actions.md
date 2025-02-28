@@ -6,9 +6,9 @@ featured = false
 author = "Alexander Deplov"
 +++
 
-I've always believed that computers should handle repetitive tasks better than humans. It frustrates me when something can't be automated the way I want or when simple actions require more effort than they should.
+> I've always believed that computers should handle repetitive tasks better than humans. It frustrates me when something can't be automated the way I want or when simple actions require more effort than they should.
 
-Let's say we want to convert a video from one format to another. This often happens to me when I need to share a screencast video with colleagues on Slack. By default, macOS records in .MOV format, which is too large to share. Sometimes, I also have another file that I want to shrink for easier sharing in a message.
+Let's say we want to convert a {{% highlighter %}}video from one format to another{{% /highlighter %}}. This often happens to me when I need to share a screencast video with colleagues on Slack. By default, macOS records in {{% highlighter %}}.MOV{{% /highlighter %}} format, which is too large to share. Sometimes, I also have another file that I want to shrink for easier sharing in a message.
 
 Previously, I used a macOS GUI app to convert in .MP4, and the steps from start to finish were:
 - Open the video converter app
@@ -20,7 +20,7 @@ Previously, I used a macOS GUI app to convert in .MP4, and the steps from start 
 
 Such a simple need, yet so many manual actions were required.
 
-So I realized that I could use the powerful macOS Folder Actions. I decided to use them as a trigger for my needs—any need. Drop the file in, and the folder action trigger does the job.
+So I realized that I could use the powerful {{% highlighter %}}macOS Folder Actions{{% /highlighter %}} . I decided to use them as a trigger for my needs—any need. Drop the file in, and the folder action trigger does the job.
 
 Here’s a quick demo of how much easier converting .MOV files into .MP4 has become with drag and drop. Drop a file, wait, and it's done. It’s pure magic! 
 
@@ -31,7 +31,7 @@ And original file deleted automatically as well.
 ## List of My Folder Actions
 After some time, I created folder actions for various tasks.
 
-Need to convert .JPG to .WEBP? I have a folder for that.<br/>
+Need to convert .JPG to .WEBP? I have a folder for that.\
 Need to download a Twitter video? I have a folder for that.
 
 ![](images/2.webp)
@@ -44,7 +44,7 @@ Please note that once you set up Folder Actions, you can’t change the folder n
 ### Steps:
 1. In Terminal: 
 
-```
+```sh
 brew install ffmpeg
 ```
 
@@ -89,7 +89,7 @@ done
 ### Download YouTube Videos:
 1. In Terminal:
 
-```
+```sh
 brew install yt-dlp
 ```
 
@@ -166,8 +166,9 @@ done
 ### Convert YouTube Videos to MP3 File Directly:
 1. In Terminal:
 
-```
+```sh
 brew install yt-dlp; brew install ffmpeg
+
 ```
 
 2. Use this script:
@@ -209,7 +210,7 @@ If you need to change a folder action, right-click on the folder and select **Fo
 ![](images/7.webp)
 
 All saved actions are stored in:
-```
+```sh
 Macintosh HD / Users / YourName / Library / Workflows / Applications / Folder Actions/
 ```
 

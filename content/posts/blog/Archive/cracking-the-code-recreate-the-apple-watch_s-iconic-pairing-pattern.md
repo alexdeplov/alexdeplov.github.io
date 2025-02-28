@@ -4,6 +4,7 @@ date = 2021-03-22T10:27:48+02:00
 draft = false
 featured = false
 author = "Alexander Deplov"
+accentColor = "#7645ff"
 +++
 
 ![](images/0.jpg)

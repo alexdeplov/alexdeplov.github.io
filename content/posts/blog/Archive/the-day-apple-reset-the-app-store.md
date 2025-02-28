@@ -4,6 +4,8 @@ date = 2021-01-14T20:41:08+02:00
 draft = false
 featured = false
 author = "Alexander Deplov"
+accentColor = "#71959f"
+bgColor = "#171b1c"
 +++
 
 ![The day Apple reset the App Store](images/1.webp)

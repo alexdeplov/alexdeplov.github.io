@@ -1,0 +1,64 @@
+/* Define root variables for both light and dark mode */
+:root {
+    /* Light mode variables (default) */
+    --bg-color: #ffffff;
+    --text-color: #333333;
+    --link-color: #0066cc;
+    --heading-color: #222222;
+    --border-color: #dddddd;
+    --accent-color: #4a90e2;
+  }
+  
+  /* Dark mode variables - applied when user's OS is set to dark mode */
+  @media (prefers-color-scheme: dark) {
+    :root {
+      --bg-color: #0C0F24;
+      --text-color: #e0e0e0;
+      --link-color: #64b5f6;
+      --heading-color: #ffffff;
+      --border-color: #444444;
+      --accent-color: #81d4fa;
+    }
+  }
+  
+  /* Apply variables to elements */
+  body {
+    background-color: var(--bg-color);
+    color: var(--text-color);
+    transition: background-color 0.3s ease, color 0.3s ease;
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+    line-height: 1.6;
+    max-width: 800px;
+    margin: 0 auto;
+    padding: 20px;
+  }
+  
+  h1, h2, h3, h4, h5, h6 {
+    color: var(--heading-color);
+  }
+  
+  a {
+    color: var(--link-color);
+    text-decoration: none;
+  }
+  
+  a:hover {
+    text-decoration: underline;
+  }
+  
+  /* Add a subtle border to separate content sections */
+  .content-section {
+    border-bottom: 1px solid var(--border-color);
+    padding-bottom: 20px;
+    margin-bottom: 20px;
+  }
+  
+  /* Optional: Add a theme toggle button styles if you want to implement that */
+  .theme-toggle {
+    background-color: var(--accent-color);
+    color: var(--bg-color);
+    border: none;
+    padding: 8px 16px;
+    border-radius: 4px;
+    cursor: pointer;
+  }
