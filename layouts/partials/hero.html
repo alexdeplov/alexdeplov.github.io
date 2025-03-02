@@ -1,6 +1,123 @@
 <div class="max-w-2xl mx-auto w-full px-4">
-  <img src="/images/hero.webp">
-  <div class="text-center font-medium text-md md:text-xl md:leading-9 text-[#FFCCAA]  italic">
-    I'm a Senior Product Designer with 16 years of experience in tech startups. <span class="text-[#FF6C24]">I specialize in sleep wellness, AI, creative photo filters, and other B2C apps.</span> I lead startup projects from concept to launch.
+  <div class="main-container">
+    <div class="cards-container mb-12 md:mb-24 -mt-8 md:-mt-14" id="cards">
+      <div class="rectangle card" id="card1"></div>
+      <div class="rectangle card" id="card2"></div>
+      <div class="rectangle card" id="card3"></div>
+      <div class="rectangle card" id="card4"></div>
+    </div>
   </div>
-<div>
+  <div class="text-center font-medium text-sm md:text-xl leading-6 md:leading-9 text-[#FFCCAA] italic px-2">
+    I'm a Senior Product Designer with 16 years of experience in tech startups. 
+    <span class="text-[#FF6C24]">I specialize in sleep wellness, AI, creative photo filters, and other B2C apps.</span> 
+    I lead startup projects from concept to launch.
+  </div>
+</div>
+
+<style>
+/* Cards */
+.main-container {
+  display: flex;
+  gap: clamp(10px, 2vw, 20px);
+  width: 100%;
+}
+
+.cards-container {
+  display: flex;
+  justify-content: center;
+  gap: clamp(1px, 0.5vw, 2px);
+  perspective: 206px;
+  flex: 1;
+  flex-wrap: wrap; /* Allow cards to wrap on smaller screens */
+}
+
+.rectangle {
+  width: clamp(100px, 20vw, 132px); /* Responsive width */
+  height: clamp(150px, 32vw, 204px); /* Responsive height */
+  transition: transform 0.2s ease-out;
+  border-radius: 15px;
+  transform: translateY(59px);
+}
+
+/* Individual card transforms */
+#card1 {
+  transform: translateY(59px) rotateX(3deg) rotateY(0deg) rotateZ(-15deg);
+  z-index: -1;
+  background-image: url('/images/image1.png');
+  background-size: cover;
+  background-position: center;
+}
+
+#card2 {
+  transform: translateY(59px) rotateX(3deg) rotateY(0deg) rotateZ(-4deg);
+  z-index: -2;
+  background-image: url('/images/swayRecommendations-1.gif');
+  background-size: cover;
+  background-position: center;
+}
+
+#card3 {
+  transform: translateY(59px) rotateX(3deg) rotateY(0deg) rotateZ(8deg);
+  z-index: -3;
+  background-image: url('/images/image3.png');
+  background-size: cover;
+  background-position: center;
+}
+
+#card4 {
+  transform: translateY(59px) rotateX(3deg) rotateY(0deg) rotateZ(14deg);
+  z-index: -4;
+  background-image: url('/images/image4.png');
+  background-size: cover;
+  
+}
+
+.card {
+  box-shadow: 0 0 10px rgba(0,0,0,0.2);
+}
+
+/* Hover effects only for desktop */
+@media (hover: hover) and (pointer: fine) {
+  .card:hover {
+    
+    z-index: 0 !important;
+  }
+}
+
+/* Media queries for mobile adjustments */
+@media (max-width: 768px) {
+  .cards-container {
+    perspective: 150px; /* Reduced for smaller screens */
+    gap: 4px;
+  }
+
+  .rectangle {
+    transform: translateY(30px); /* Reduced offset for mobile */
+  }
+
+  /* Adjust individual card transforms for mobile */
+  #card1 { transform: translateY(30px) rotateX(2deg) rotateY(0deg) rotateZ(-10deg); }
+  #card2 { transform: translateY(30px) rotateX(2deg) rotateY(0deg) rotateZ(-3deg); }
+  #card3 { transform: translateY(30px) rotateX(2deg) rotateY(0deg) rotateZ(5deg); }
+  #card4 { transform: translateY(30px) rotateX(2deg) rotateY(0deg) rotateZ(10deg); }
+}
+
+@media (max-width: 480px) {
+  .cards-container {
+    flex-direction: column;
+    align-items: center;
+    gap: 10px;
+  }
+
+  .rectangle {
+    width: 70vw;
+    height: 45vw;
+    transform: translateY(0); /* Remove vertical offset when stacked */
+  }
+
+  /* Reset rotations when stacked */
+  #card1, #card2, #card3, #card4 {
+    transform: translateY(0) rotateX(0deg) rotateY(0deg) rotateZ(0deg);
+  }
+}
+</style>
