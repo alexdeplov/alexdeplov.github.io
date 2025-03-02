@@ -7,7 +7,7 @@
       <div class="rectangle card" id="card4" title="Transmission Web. Project is in Archive"></div>
     </div>
   </div>
-  <div class="text-center font-medium text-md md:text-xl leading-6 md:leading-9 text-[#FFCCAA] italic px-2">
+  <div class="md:text-center font-medium text-xl md:text-xl leading-7 md:leading-9 text-[#FFCCAA] italic">
     I'm a Senior Product Designer with 16 years of experience in tech startups. 
     <span class="text-[#FF6C24]">I specialize in sleep wellness, AI, creative photo filters, and other B2C apps.</span> 
     I lead startup projects from concept to launch.
@@ -102,22 +102,5 @@
   #card4 { transform: translateY(30px) rotateX(2deg) rotateY(0deg) rotateZ(10deg); }
 }
 
-@media (max-width: 480px) {
-  .cards-container {
-    flex-direction: column;
-    align-items: center;
-    gap: 10px;
-  }
 
-  .rectangle {
-    width: 70vw;
-    height: 45vw;
-    transform: translateY(0); /* Remove vertical offset when stacked */
-  }
-
-  /* Reset rotations when stacked */
-  #card1, #card2, #card3, #card4 {
-    transform: translateY(0) rotateX(0deg) rotateY(0deg) rotateZ(0deg);
-  }
-}
 </style>
