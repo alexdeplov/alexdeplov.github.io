@@ -6,8 +6,8 @@
     /* Light mode variables (default) */
     --bg-color: #131522;
     --text-color: #e3e3e3;
-    --link-color: #0066cc;
-    --link-visited-color: #5c439f;
+    --link-color: #3171fe;
+    --link-visited-color: #6639dc;
     --heading-color: #d7d7d7;
     --border-color: #dddddd;
     --accent-color: #4a90e2;
@@ -26,6 +26,14 @@ body {
 
 h1, h2, h3, h4, h5, h6 {
     color: var(--heading-color);
+}
+
+.content a{
+    color: var(--link-color);
+}
+
+.content a:visited{
+    color: var(--link-visited-color);
 }
 
 .content h3{
