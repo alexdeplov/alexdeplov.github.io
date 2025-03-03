@@ -6,8 +6,6 @@ featured = false
 author = "Alexander Deplov"
 +++
 
-## Introduction
-
 When working with dark UI and custom colors, you need to think about how the content will appear on the screen, not only from top to bottom, but also from far to near.
 
 Every button, every view you have has a different sense of distance to the viewer. 

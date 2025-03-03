@@ -73,40 +73,40 @@
   
   <div class="content text-[#c4cbd5] text-opacity-90">
     <p>Sometimes it’s handy to use HUE properties in apps or games to animate its saturation or brightness or even the color itself. So here is super simple func to convert RGB to HUE.</p>
-<pre tabindex="0"><code>let r: CGFloat = 251/255
-let g: CGFloat = 94/255
-let b: CGFloat = 50/255
-
-func rgbToHue(r: CGFloat, g: CGFloat, b: CGFloat) -&gt; (h: CGFloat, s: CGFloat, b: CGFloat) {
-    let minV: CGFloat = CGFloat(min(r, g, b))
-    let maxV: CGFloat = CGFloat(max(r, g, b))
-    let delta: CGFloat = maxV - minV
-    
-    var hue: CGFloat = 0
-    if delta != 0 {
-        if r == maxV {
-            hue = (g - b) / delta
-        } else if g == maxV {
-            hue = 2 + (b - r) / delta
-        } else {
-            hue = 4 + (r - g) / delta
-        }
-        
-        hue *= 60
-        if hue &lt; 0 {
-            hue += 360
-        }
-    }
-    
-    let saturation = maxV == 0 ? 0 : (delta / maxV)
-    let brightness = maxV
-    
-    return (h: hue/360, s: saturation, b: brightness)
-}
-
-let hueColor = rgbToHue(r: r, g: g, b: b)
-let finalColor = SKColor(hue: hueColor.h, saturation: hueColor.s, brightness: hueColor.b, alpha: 1)
-</code></pre><p><img src="images/1.webp" alt=""></p>
+<div class="highlight"><pre tabindex="0" style="color:#abb2bf;background-color:#282c34;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-swift" data-lang="swift"><span style="display:flex;"><span><span style="color:#c678dd">let</span> <span style="color:#e06c75">r</span>: <span style="color:#e06c75">CGFloat</span> = <span style="color:#d19a66">251</span><span style="color:#56b6c2">/</span><span style="color:#d19a66">255</span>
+</span></span><span style="display:flex;"><span><span style="color:#c678dd">let</span> <span style="color:#e06c75">g</span>: <span style="color:#e06c75">CGFloat</span> = <span style="color:#d19a66">94</span><span style="color:#56b6c2">/</span><span style="color:#d19a66">255</span>
+</span></span><span style="display:flex;"><span><span style="color:#c678dd">let</span> <span style="color:#e06c75">b</span>: <span style="color:#e06c75">CGFloat</span> = <span style="color:#d19a66">50</span><span style="color:#56b6c2">/</span><span style="color:#d19a66">255</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#c678dd">func</span> <span style="color:#61afef;font-weight:bold">rgbToHue</span>(<span style="color:#e06c75">r</span>: <span style="color:#e06c75">CGFloat</span>, <span style="color:#e06c75">g</span>: <span style="color:#e06c75">CGFloat</span>, <span style="color:#e06c75">b</span>: <span style="color:#e06c75">CGFloat</span>) -&gt; (<span style="color:#e06c75">h</span>: <span style="color:#e06c75">CGFloat</span>, <span style="color:#e06c75">s</span>: <span style="color:#e06c75">CGFloat</span>, <span style="color:#e06c75">b</span>: <span style="color:#e06c75">CGFloat</span>) {
+</span></span><span style="display:flex;"><span>    <span style="color:#c678dd">let</span> <span style="color:#e06c75">minV</span>: <span style="color:#e06c75">CGFloat</span> = <span style="color:#e06c75">CGFloat</span>(<span style="color:#e06c75">min</span>(<span style="color:#e06c75">r</span>, <span style="color:#e06c75">g</span>, <span style="color:#e06c75">b</span>))
+</span></span><span style="display:flex;"><span>    <span style="color:#c678dd">let</span> <span style="color:#e06c75">maxV</span>: <span style="color:#e06c75">CGFloat</span> = <span style="color:#e06c75">CGFloat</span>(<span style="color:#e06c75">max</span>(<span style="color:#e06c75">r</span>, <span style="color:#e06c75">g</span>, <span style="color:#e06c75">b</span>))
+</span></span><span style="display:flex;"><span>    <span style="color:#c678dd">let</span> <span style="color:#e06c75">delta</span>: <span style="color:#e06c75">CGFloat</span> = <span style="color:#e06c75">maxV</span> <span style="color:#56b6c2">-</span> <span style="color:#e06c75">minV</span>
+</span></span><span style="display:flex;"><span>    
+</span></span><span style="display:flex;"><span>    <span style="color:#c678dd">var</span> <span style="color:#e06c75">hue</span>: <span style="color:#e06c75">CGFloat</span> = <span style="color:#d19a66">0</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#c678dd">if</span> <span style="color:#e06c75">delta</span> <span style="color:#56b6c2">!=</span> <span style="color:#d19a66">0</span> {
+</span></span><span style="display:flex;"><span>        <span style="color:#c678dd">if</span> <span style="color:#e06c75">r</span> == <span style="color:#e06c75">maxV</span> {
+</span></span><span style="display:flex;"><span>            <span style="color:#e06c75">hue</span> = (<span style="color:#e06c75">g</span> <span style="color:#56b6c2">-</span> <span style="color:#e06c75">b</span>) <span style="color:#56b6c2">/</span> <span style="color:#e06c75">delta</span>
+</span></span><span style="display:flex;"><span>        } <span style="color:#c678dd">else</span> <span style="color:#c678dd">if</span> <span style="color:#e06c75">g</span> == <span style="color:#e06c75">maxV</span> {
+</span></span><span style="display:flex;"><span>            <span style="color:#e06c75">hue</span> = <span style="color:#d19a66">2</span> <span style="color:#56b6c2">+</span> (<span style="color:#e06c75">b</span> <span style="color:#56b6c2">-</span> <span style="color:#e06c75">r</span>) <span style="color:#56b6c2">/</span> <span style="color:#e06c75">delta</span>
+</span></span><span style="display:flex;"><span>        } <span style="color:#c678dd">else</span> {
+</span></span><span style="display:flex;"><span>            <span style="color:#e06c75">hue</span> = <span style="color:#d19a66">4</span> <span style="color:#56b6c2">+</span> (<span style="color:#e06c75">r</span> <span style="color:#56b6c2">-</span> <span style="color:#e06c75">g</span>) <span style="color:#56b6c2">/</span> <span style="color:#e06c75">delta</span>
+</span></span><span style="display:flex;"><span>        }
+</span></span><span style="display:flex;"><span>        
+</span></span><span style="display:flex;"><span>        <span style="color:#e06c75">hue</span> <span style="color:#56b6c2">*=</span> <span style="color:#d19a66">60</span>
+</span></span><span style="display:flex;"><span>        <span style="color:#c678dd">if</span> <span style="color:#e06c75">hue</span> <span style="color:#56b6c2">&lt;</span> <span style="color:#d19a66">0</span> {
+</span></span><span style="display:flex;"><span>            <span style="color:#e06c75">hue</span> <span style="color:#56b6c2">+=</span> <span style="color:#d19a66">360</span>
+</span></span><span style="display:flex;"><span>        }
+</span></span><span style="display:flex;"><span>    }
+</span></span><span style="display:flex;"><span>    
+</span></span><span style="display:flex;"><span>    <span style="color:#c678dd">let</span> <span style="color:#e06c75">saturation</span> = <span style="color:#e06c75">maxV</span> == <span style="color:#d19a66">0</span> ? <span style="color:#d19a66">0</span> : (<span style="color:#e06c75">delta</span> <span style="color:#56b6c2">/</span> <span style="color:#e06c75">maxV</span>)
+</span></span><span style="display:flex;"><span>    <span style="color:#c678dd">let</span> <span style="color:#e06c75">brightness</span> = <span style="color:#e06c75">maxV</span>
+</span></span><span style="display:flex;"><span>    
+</span></span><span style="display:flex;"><span>    <span style="color:#c678dd">return</span> (<span style="color:#e06c75">h</span>: <span style="color:#e06c75">hue</span><span style="color:#56b6c2">/</span><span style="color:#d19a66">360</span>, <span style="color:#e06c75">s</span>: <span style="color:#e06c75">saturation</span>, <span style="color:#e06c75">b</span>: <span style="color:#e06c75">brightness</span>)
+</span></span><span style="display:flex;"><span>}
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#c678dd">let</span> <span style="color:#e06c75">hueColor</span> = <span style="color:#e06c75">rgbToHue</span>(<span style="color:#e06c75">r</span>: <span style="color:#e06c75">r</span>, <span style="color:#e06c75">g</span>: <span style="color:#e06c75">g</span>, <span style="color:#e06c75">b</span>: <span style="color:#e06c75">b</span>)
+</span></span><span style="display:flex;"><span><span style="color:#c678dd">let</span> <span style="color:#e06c75">finalColor</span> = <span style="color:#e06c75">SKColor</span>(<span style="color:#e06c75">hue</span>: <span style="color:#e06c75">hueColor</span>.<span style="color:#e06c75">h</span>, <span style="color:#e06c75">saturation</span>: <span style="color:#e06c75">hueColor</span>.<span style="color:#e06c75">s</span>, <span style="color:#e06c75">brightness</span>: <span style="color:#e06c75">hueColor</span>.<span style="color:#e06c75">b</span>, <span style="color:#e06c75">alpha</span>: <span style="color:#d19a66">1</span>)
+</span></span></code></pre></div><p><img src="images/1.webp" alt=""></p>
 
   </div>
   

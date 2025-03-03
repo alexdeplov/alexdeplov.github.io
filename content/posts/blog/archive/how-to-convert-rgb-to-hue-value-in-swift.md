@@ -7,7 +7,7 @@ author = "Alexander Deplov"
 +++
 Sometimes it’s handy to use HUE properties in apps or games to animate its saturation or brightness or even the color itself. So here is super simple func to convert RGB to HUE.
 
-```
+```swift
 let r: CGFloat = 251/255
 let g: CGFloat = 94/255
 let b: CGFloat = 50/255

@@ -5,7 +5,6 @@ draft = false
 featured = false
 author = "Alexander Deplov"
 +++
-## Introduction
 
 If you are working on an app interface, you need to know very well how people are using your app.
 
@@ -35,16 +34,16 @@ There are many techniques for using analytics to improve app usage, but I’m go
 
 5. Usually I split numbers into 3 groups: low popularity (red), medium popularity (blue), high popularity (green). You can use ChatGPT and ask to split your numbers into these three categories, so you don’t have to calculate it.
 
-> Ask ChatGPT to take these numbers and split into 3 groups by low amount, medium and max amount
+Ask ChatGPT to take these numbers and split into 3 groups by low amount, medium and max amount
 563, 3.8K, 6.1K, 4.2K, 2K, 5.7K, 2.4K, 6.5K, 5.1K, 7K, 4.3K, 
 6.8K, 2.7K, 3.4K, 5.6K, 6.9K, 4.9K, 5.3K, 6.4K, 3.8K, 6.2K, 
 1.3K, 5.8K, 4.7K, 3.6K, 7K, 3K, 5.2K, 4.1K, 6.5K
 
-> Ask ChatGPT to create rage min/max for each group
+Ask ChatGPT to create rage min/max for each group
 
 ![](images/5.webp)
 
-> Now you have a perfect view of what’s happening on your app’s screen. Now you can analyse and improve app usage, or argue with your team for design changes based on analytics. You can also track the impact over time.
+Now you have a perfect view of what’s happening on your app’s screen. Now you can analyse and improve app usage, or argue with your team for design changes based on analytics. You can also track the impact over time.
 
 ### As a next step, you can ask further questions:
 

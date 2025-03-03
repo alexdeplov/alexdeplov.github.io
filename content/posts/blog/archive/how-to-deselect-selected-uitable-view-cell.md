@@ -8,7 +8,7 @@ author = "Alexander Deplov"
 
 You have UITableView with customized cells style, selection color, etc. When you tap on the cell, slide to another VC and came back, your cell still selected. Really annoing. Here is how to fix that.
 
-```
+```swift
 override func viewWillAppear(_ animated: Bool) {
     super.viewWillAppear(animated)
 

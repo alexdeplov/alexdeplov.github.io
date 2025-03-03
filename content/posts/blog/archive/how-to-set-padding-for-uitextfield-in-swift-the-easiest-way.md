@@ -10,7 +10,7 @@ Of course, you also need to add a top and a bottom paddings, but this can be ach
 
 ![](images/1.jpg)
 
-```
+```swift
 import UIKit
 
 class ViewController: UIViewController {

@@ -8,7 +8,7 @@ author = "Alexander Deplov"
 
 The important part of this code is that every duplicated object has it's own color. Different from the color of the source object.
 
-```
+```swift
 // Import .dae source
 let scene = SCNScene(named: "art.scnassets/chess.dae")!
 

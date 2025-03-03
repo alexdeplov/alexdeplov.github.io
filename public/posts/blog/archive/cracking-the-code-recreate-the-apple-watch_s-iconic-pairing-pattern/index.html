@@ -77,70 +77,70 @@
 <p>I&rsquo;m using PaperJS - a vector graphics scripting framework - because you can export any final shape or pattern to an SVG file.</p>
 <h3 id="start-with-an-ellipse">Start with an ellipse</h3>
 <p>Create an ellipse in <a href="http://sketch.paperjs.org/#V/0.12.15/S/XY/BCsIwEER/ZcmliqGIlYoBT+Jd8OCh7SGNCw2JSUlCC5b+u41VEQ/LMm+GHXYght+RMHJRGERDKBH2FnXHHfjgrMKrvIUGDrApXWniRAu1lq3HCRvs4cxDk55mtBhiBsDLBzIo8pxClu0qOlN4Hz1abR2DpNZcqOTPfDWyX/ENtNbLIK1h0EnsU4EmoIMVFPsthfXcMi4/6binl2qHXLVWmuAJK6rxCQ==">Sketch</a> sandbox:</p>
-<pre tabindex="0"><code>var strokeWidth = 2
-
-var ellipse = new Path.Ellipse({
-  size: [66, 337],
-    strokeColor: &#39;black&#39;,
-    strokeWidth: strokeWidth,
-    position: view.center + [94, 0],
-})
-</code></pre><p>The code is simple and self-explanatory, except for the last line where I move the ellipse away from the center x: 94 and y: 0.</p>
+<div class="highlight"><pre tabindex="0" style="color:#abb2bf;background-color:#282c34;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-js" data-lang="js"><span style="display:flex;"><span><span style="color:#c678dd">var</span> <span style="color:#e06c75">strokeWidth</span> <span style="color:#56b6c2">=</span> <span style="color:#d19a66">2</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#c678dd">var</span> <span style="color:#e06c75">ellipse</span> <span style="color:#56b6c2">=</span> <span style="color:#c678dd">new</span> <span style="color:#e06c75">Path</span>.<span style="color:#e06c75">Ellipse</span>({
+</span></span><span style="display:flex;"><span>  <span style="color:#e06c75">size</span><span style="color:#56b6c2">:</span> [<span style="color:#d19a66">66</span>, <span style="color:#d19a66">337</span>],
+</span></span><span style="display:flex;"><span>    <span style="color:#e06c75">strokeColor</span><span style="color:#56b6c2">:</span> <span style="color:#98c379">&#39;black&#39;</span>,
+</span></span><span style="display:flex;"><span>    <span style="color:#e06c75">strokeWidth</span><span style="color:#56b6c2">:</span> <span style="color:#e06c75">strokeWidth</span>,
+</span></span><span style="display:flex;"><span>    <span style="color:#e06c75">position</span><span style="color:#56b6c2">:</span> <span style="color:#e06c75">view</span>.<span style="color:#e06c75">center</span> <span style="color:#56b6c2">+</span> [<span style="color:#d19a66">94</span>, <span style="color:#d19a66">0</span>],
+</span></span><span style="display:flex;"><span>})
+</span></span></code></pre></div><p>The code is simple and self-explanatory, except for the last line where I move the ellipse away from the center x: 94 and y: 0.</p>
 <p>This will be necessary later when we make copies of this ellipse and rotate them around the center.</p>
 <h3 id="making-multiple-ellipse-clones">Making multiple ellipse clones</h3>
 <p>A simple for loop is used to create 24 clones.</p>
 <p>At the end of the loop, we need to rotate the ellipse by an angle multiplied by the number of clones and rotate it from the center of the view.</p>
 <p>Try yourself: <a href="http://sketch.paperjs.org/#V/0.12.15/S/bVBNa8MwDP0rwpemi8nCUjLmbaex+2CHHdIeXFdbTDw72KaFhfz3WUnDWpjASHrv6cMamJXfyAR77zCqlnGm3IHyo/SgjLMY4BnuNlu/tQRJ+2UwIVVd3s70woToXYcf+hBbqiCY3qfzkBGvE1o+Jvd07pviPF8PkIyE5EmHxug+0AyLJ3iTsS1eZygbFh1Z0D8ooKlrDlV1v+NX3LTLizPOC1jtjVTd6h/BtKy4TK5EvQs6amcFHDWeCoU2ooccmocNh/Jv4rheosWf/1B4F2XEbD7aDWh+2WmqGtPF9x5l1zttY2Ci2Y2/">Sketch​​​​​​​</a></p>
-<pre tabindex="0"><code>var clones = 24
-var angle = 360/clones
-var strokeWidth = 2
-
-for (var i = 0; i &lt; clones; i++){    
-    var ellipse = new Path.Ellipse({
-        size: [66, 337],
-        strokeColor: &#39;black&#39;,
-        strokeWidth: strokeWidth,
-        position: view.center + [94, 0],
-    })
-    
-    ellipse.rotate(angle * i, view.center)
-}
-</code></pre><p>The fun of the code is that you can tweak any number to get fun and interesting results.</p>
+<div class="highlight"><pre tabindex="0" style="color:#abb2bf;background-color:#282c34;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-js" data-lang="js"><span style="display:flex;"><span><span style="color:#c678dd">var</span> <span style="color:#e06c75">clones</span> <span style="color:#56b6c2">=</span> <span style="color:#d19a66">24</span>
+</span></span><span style="display:flex;"><span><span style="color:#c678dd">var</span> <span style="color:#e06c75">angle</span> <span style="color:#56b6c2">=</span> <span style="color:#d19a66">360</span><span style="color:#56b6c2">/</span><span style="color:#e06c75">clones</span>
+</span></span><span style="display:flex;"><span><span style="color:#c678dd">var</span> <span style="color:#e06c75">strokeWidth</span> <span style="color:#56b6c2">=</span> <span style="color:#d19a66">2</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#c678dd">for</span> (<span style="color:#c678dd">var</span> <span style="color:#e06c75">i</span> <span style="color:#56b6c2">=</span> <span style="color:#d19a66">0</span>; <span style="color:#e06c75">i</span> <span style="color:#56b6c2">&lt;</span> <span style="color:#e06c75">clones</span>; <span style="color:#e06c75">i</span><span style="color:#56b6c2">++</span>){    
+</span></span><span style="display:flex;"><span>    <span style="color:#c678dd">var</span> <span style="color:#e06c75">ellipse</span> <span style="color:#56b6c2">=</span> <span style="color:#c678dd">new</span> <span style="color:#e06c75">Path</span>.<span style="color:#e06c75">Ellipse</span>({
+</span></span><span style="display:flex;"><span>        <span style="color:#e06c75">size</span><span style="color:#56b6c2">:</span> [<span style="color:#d19a66">66</span>, <span style="color:#d19a66">337</span>],
+</span></span><span style="display:flex;"><span>        <span style="color:#e06c75">strokeColor</span><span style="color:#56b6c2">:</span> <span style="color:#98c379">&#39;black&#39;</span>,
+</span></span><span style="display:flex;"><span>        <span style="color:#e06c75">strokeWidth</span><span style="color:#56b6c2">:</span> <span style="color:#e06c75">strokeWidth</span>,
+</span></span><span style="display:flex;"><span>        <span style="color:#e06c75">position</span><span style="color:#56b6c2">:</span> <span style="color:#e06c75">view</span>.<span style="color:#e06c75">center</span> <span style="color:#56b6c2">+</span> [<span style="color:#d19a66">94</span>, <span style="color:#d19a66">0</span>],
+</span></span><span style="display:flex;"><span>    })
+</span></span><span style="display:flex;"><span>    
+</span></span><span style="display:flex;"><span>    <span style="color:#e06c75">ellipse</span>.<span style="color:#e06c75">rotate</span>(<span style="color:#e06c75">angle</span> <span style="color:#56b6c2">*</span> <span style="color:#e06c75">i</span>, <span style="color:#e06c75">view</span>.<span style="color:#e06c75">center</span>)
+</span></span><span style="display:flex;"><span>}
+</span></span></code></pre></div><p>The fun of the code is that you can tweak any number to get fun and interesting results.</p>
 <p><img src="images/2.jpg" alt=""></p>
 <h3 id="adding-dials">Adding dials</h3>
 <p>For the dials, we need to write a simple function that creates rectangles based on the parameters of the function. We will use this function twice: to create 12 and 24 dials.</p>
 <p>Try yourself: <a href="http://sketch.paperjs.org/#V/0.12.15/S/jVNNT8MwDP0rUS+0LOq67gNR4DTgjODAodshy7I1apZMSdgkqv134nRl7ZgAS60TPzux32urQJINC7LgrWSWFgEOqFrCfkc0okJJZtADSkczPZMQInItmIsMJ0m/hhvEWK1K9s6XtoAKCMOzUhqFgHMXTe6cuz+e69a9XlQhZ5AIHvKYEHxr4A7J9uiF2CJ+qkNh1eSBGf7JMpRPJhgNhzdz3MF8L1MllM7Q1UIQWl5dSPDNZu1NJ2mrDLdcyQztONvHlEnLNOqh/HaEUXK68RA1q8YfZ4i1ssSysCbtGnHcPslXHb55+pAULkNUM1fzyIkwYU0U9rNGVZulyzo06JIbSyRlz1ptpnXbTpLBuMn5U5Q2DZCnGbVtRV7d3rfQ1eSkC7zxObTiQvwiClhNjdPVEwWnxHsQpp8eufOhgvF1YfupE+PnqN1P4SQOGMzxD1V8YUeetirpyFWNMcpTPEjm0Tk8cK3mYw+532nhkHKruLQmyPL54Qs=">Sketch</a></p>
-<pre tabindex="0"><code>var clones = 24
-var angle = 360/clones
-var strokeWidth = 2
-
-for (var i = 0; i &lt; clones; i++){    
-    var ellipse = new Path.Ellipse({
-        size: [66, 337],
-        strokeColor: &#39;black&#39;,
-        strokeWidth: strokeWidth,
-        position: view.center + [94, 0],
-    })
-    
-    ellipse.rotate(angle * i, view.center)
-}
-
-function createDials(clones, size){
-    var angle = 360/clones
-    var distanceFromCenter = 215
-    for (var i = 0; i &lt; clones; i++){
-        var rect = new Path.Rectangle({
-            size: size,
-            fillColor: &#39;black&#39;,
-            center: [view.size.width/2, view.size.height/2 + distanceFromCenter],
-        })
-        rect.rotate(angle * i, view.center)
-    }
-}
-
-createDials(24 * 5, [2,10])
-createDials(12, [5,10])
-</code></pre><p>In the right corner of the sketch, tap the &ldquo;Save as SVG&rdquo; button to open it in any vector editing tool.</p>
+<div class="highlight"><pre tabindex="0" style="color:#abb2bf;background-color:#282c34;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-js" data-lang="js"><span style="display:flex;"><span><span style="color:#c678dd">var</span> <span style="color:#e06c75">clones</span> <span style="color:#56b6c2">=</span> <span style="color:#d19a66">24</span>
+</span></span><span style="display:flex;"><span><span style="color:#c678dd">var</span> <span style="color:#e06c75">angle</span> <span style="color:#56b6c2">=</span> <span style="color:#d19a66">360</span><span style="color:#56b6c2">/</span><span style="color:#e06c75">clones</span>
+</span></span><span style="display:flex;"><span><span style="color:#c678dd">var</span> <span style="color:#e06c75">strokeWidth</span> <span style="color:#56b6c2">=</span> <span style="color:#d19a66">2</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#c678dd">for</span> (<span style="color:#c678dd">var</span> <span style="color:#e06c75">i</span> <span style="color:#56b6c2">=</span> <span style="color:#d19a66">0</span>; <span style="color:#e06c75">i</span> <span style="color:#56b6c2">&lt;</span> <span style="color:#e06c75">clones</span>; <span style="color:#e06c75">i</span><span style="color:#56b6c2">++</span>){    
+</span></span><span style="display:flex;"><span>    <span style="color:#c678dd">var</span> <span style="color:#e06c75">ellipse</span> <span style="color:#56b6c2">=</span> <span style="color:#c678dd">new</span> <span style="color:#e06c75">Path</span>.<span style="color:#e06c75">Ellipse</span>({
+</span></span><span style="display:flex;"><span>        <span style="color:#e06c75">size</span><span style="color:#56b6c2">:</span> [<span style="color:#d19a66">66</span>, <span style="color:#d19a66">337</span>],
+</span></span><span style="display:flex;"><span>        <span style="color:#e06c75">strokeColor</span><span style="color:#56b6c2">:</span> <span style="color:#98c379">&#39;black&#39;</span>,
+</span></span><span style="display:flex;"><span>        <span style="color:#e06c75">strokeWidth</span><span style="color:#56b6c2">:</span> <span style="color:#e06c75">strokeWidth</span>,
+</span></span><span style="display:flex;"><span>        <span style="color:#e06c75">position</span><span style="color:#56b6c2">:</span> <span style="color:#e06c75">view</span>.<span style="color:#e06c75">center</span> <span style="color:#56b6c2">+</span> [<span style="color:#d19a66">94</span>, <span style="color:#d19a66">0</span>],
+</span></span><span style="display:flex;"><span>    })
+</span></span><span style="display:flex;"><span>    
+</span></span><span style="display:flex;"><span>    <span style="color:#e06c75">ellipse</span>.<span style="color:#e06c75">rotate</span>(<span style="color:#e06c75">angle</span> <span style="color:#56b6c2">*</span> <span style="color:#e06c75">i</span>, <span style="color:#e06c75">view</span>.<span style="color:#e06c75">center</span>)
+</span></span><span style="display:flex;"><span>}
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#c678dd">function</span> <span style="color:#e06c75">createDials</span>(<span style="color:#e06c75">clones</span>, <span style="color:#e06c75">size</span>){
+</span></span><span style="display:flex;"><span>    <span style="color:#c678dd">var</span> <span style="color:#e06c75">angle</span> <span style="color:#56b6c2">=</span> <span style="color:#d19a66">360</span><span style="color:#56b6c2">/</span><span style="color:#e06c75">clones</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#c678dd">var</span> <span style="color:#e06c75">distanceFromCenter</span> <span style="color:#56b6c2">=</span> <span style="color:#d19a66">215</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#c678dd">for</span> (<span style="color:#c678dd">var</span> <span style="color:#e06c75">i</span> <span style="color:#56b6c2">=</span> <span style="color:#d19a66">0</span>; <span style="color:#e06c75">i</span> <span style="color:#56b6c2">&lt;</span> <span style="color:#e06c75">clones</span>; <span style="color:#e06c75">i</span><span style="color:#56b6c2">++</span>){
+</span></span><span style="display:flex;"><span>        <span style="color:#c678dd">var</span> <span style="color:#e06c75">rect</span> <span style="color:#56b6c2">=</span> <span style="color:#c678dd">new</span> <span style="color:#e06c75">Path</span>.<span style="color:#e06c75">Rectangle</span>({
+</span></span><span style="display:flex;"><span>            <span style="color:#e06c75">size</span><span style="color:#56b6c2">:</span> <span style="color:#e06c75">size</span>,
+</span></span><span style="display:flex;"><span>            <span style="color:#e06c75">fillColor</span><span style="color:#56b6c2">:</span> <span style="color:#98c379">&#39;black&#39;</span>,
+</span></span><span style="display:flex;"><span>            <span style="color:#e06c75">center</span><span style="color:#56b6c2">:</span> [<span style="color:#e06c75">view</span>.<span style="color:#e06c75">size</span>.<span style="color:#e06c75">width</span><span style="color:#56b6c2">/</span><span style="color:#d19a66">2</span>, <span style="color:#e06c75">view</span>.<span style="color:#e06c75">size</span>.<span style="color:#e06c75">height</span><span style="color:#56b6c2">/</span><span style="color:#d19a66">2</span> <span style="color:#56b6c2">+</span> <span style="color:#e06c75">distanceFromCenter</span>],
+</span></span><span style="display:flex;"><span>        })
+</span></span><span style="display:flex;"><span>        <span style="color:#e06c75">rect</span>.<span style="color:#e06c75">rotate</span>(<span style="color:#e06c75">angle</span> <span style="color:#56b6c2">*</span> <span style="color:#e06c75">i</span>, <span style="color:#e06c75">view</span>.<span style="color:#e06c75">center</span>)
+</span></span><span style="display:flex;"><span>    }
+</span></span><span style="display:flex;"><span>}
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#e06c75">createDials</span>(<span style="color:#d19a66">24</span> <span style="color:#56b6c2">*</span> <span style="color:#d19a66">5</span>, [<span style="color:#d19a66">2</span>,<span style="color:#d19a66">10</span>])
+</span></span><span style="display:flex;"><span><span style="color:#e06c75">createDials</span>(<span style="color:#d19a66">12</span>, [<span style="color:#d19a66">5</span>,<span style="color:#d19a66">10</span>])
+</span></span></code></pre></div><p>In the right corner of the sketch, tap the &ldquo;Save as SVG&rdquo; button to open it in any vector editing tool.</p>
 <p><img src="images/3.jpg" alt=""></p>
 
   </div>

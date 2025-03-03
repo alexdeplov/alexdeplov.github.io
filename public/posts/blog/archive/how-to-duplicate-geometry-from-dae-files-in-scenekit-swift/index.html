@@ -73,55 +73,55 @@
   
   <div class="content text-[#c4cbd5] text-opacity-90">
     <p>The important part of this code is that every duplicated object has it&rsquo;s own color. Different from the color of the source object.</p>
-<pre tabindex="0"><code>// Import .dae source
-let scene = SCNScene(named: &#34;art.scnassets/chess.dae&#34;)!
-
-// Find layer with &#34;queen&#34; name of the figure
-let queenNode = scene.rootNode.childNodeWithName(&#34;queen&#34;, recursively: true)
-queenNode?.scale = SCNVector3Make(100, 100, 100)
-
-// Set up scene view
-let sceneView = SCNView()
-sceneView.frame = self.view.frame
-sceneView.scene = scene
-sceneView.autoenablesDefaultLighting = true
-sceneView.allowsCameraControl = true
-sceneView.backgroundColor = UIColor(red: 237/255, green: 229/255, blue: 211/255, alpha: 1)
-self.view = sceneView
-
-// Set up camera
-let cameraNode = SCNNode()
-cameraNode.camera = SCNCamera()
-scene.rootNode.addChildNode(cameraNode)
-cameraNode.position = SCNVector3(x: -30, y: 0, z: 100)
-cameraNode.camera?.automaticallyAdjustsZRange = true
-
-// Create simple for loop
-for i in 1...5 {
-    let box2 = queenNode?.clone() as! SCNNode
-    let box2Geometry = box2.geometry?.copy() as! SCNGeometry
-    let box2GeometryNode = SCNNode(geometry: box2Geometry)
-    box2GeometryNode.scale = SCNVector3Make(100, 100, 100)
-    box2GeometryNode.position = SCNVector3(x: -20 * Float(i), y: 0, z: 0)
-    
-    let newMaterial2 = SCNMaterial()
-    newMaterial2.diffuse.contents = UIColor.yellow
-    box2GeometryNode.geometry?.firstMaterial = newMaterial2
-    
-    if i == 2 {
-        newMaterial2.diffuse.contents = UIColor.red
-    } else if i &lt; 2 {
-        newMaterial2.diffuse.contents = UIColor.purple
-        box2GeometryNode.rotation = SCNVector4Make(0, 1, 0, 1.5)
-    } else if i &gt; 3 {
-        newMaterial2.diffuse.contents = UIColor.brown
-    } else if i == 4 {
-        newMaterial2.diffuse.contents = UIColor.blue
-    }
-    
-    scene.rootNode.addChildNode(box2GeometryNode)
-}
-</code></pre><h3 id="result">Result</h3>
+<div class="highlight"><pre tabindex="0" style="color:#abb2bf;background-color:#282c34;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-swift" data-lang="swift"><span style="display:flex;"><span><span style="color:#7f848e">// Import .dae source</span>
+</span></span><span style="display:flex;"><span><span style="color:#c678dd">let</span> <span style="color:#e06c75">scene</span> = <span style="color:#e06c75">SCNScene</span>(<span style="color:#e06c75">named</span>: <span style="color:#98c379">&#34;art.scnassets/chess.dae&#34;</span>)<span style="color:#56b6c2">!</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#7f848e">// Find layer with &#34;queen&#34; name of the figure</span>
+</span></span><span style="display:flex;"><span><span style="color:#c678dd">let</span> <span style="color:#e06c75">queenNode</span> = <span style="color:#e06c75">scene</span>.<span style="color:#e06c75">rootNode</span>.<span style="color:#e06c75">childNodeWithName</span>(<span style="color:#98c379">&#34;queen&#34;</span>, <span style="color:#e06c75">recursively</span>: <span style="color:#e5c07b">true</span>)
+</span></span><span style="display:flex;"><span><span style="color:#e06c75">queenNode</span>?.<span style="color:#e06c75">scale</span> = <span style="color:#e06c75">SCNVector3Make</span>(<span style="color:#d19a66">100</span>, <span style="color:#d19a66">100</span>, <span style="color:#d19a66">100</span>)
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#7f848e">// Set up scene view</span>
+</span></span><span style="display:flex;"><span><span style="color:#c678dd">let</span> <span style="color:#e06c75">sceneView</span> = <span style="color:#e06c75">SCNView</span>()
+</span></span><span style="display:flex;"><span><span style="color:#e06c75">sceneView</span>.<span style="color:#e06c75">frame</span> = <span style="color:#e5c07b">self</span>.<span style="color:#e06c75">view</span>.<span style="color:#e06c75">frame</span>
+</span></span><span style="display:flex;"><span><span style="color:#e06c75">sceneView</span>.<span style="color:#e06c75">scene</span> = <span style="color:#e06c75">scene</span>
+</span></span><span style="display:flex;"><span><span style="color:#e06c75">sceneView</span>.<span style="color:#e06c75">autoenablesDefaultLighting</span> = <span style="color:#e5c07b">true</span>
+</span></span><span style="display:flex;"><span><span style="color:#e06c75">sceneView</span>.<span style="color:#e06c75">allowsCameraControl</span> = <span style="color:#e5c07b">true</span>
+</span></span><span style="display:flex;"><span><span style="color:#e06c75">sceneView</span>.<span style="color:#e06c75">backgroundColor</span> = <span style="color:#e06c75">UIColor</span>(<span style="color:#e06c75">red</span>: <span style="color:#d19a66">237</span><span style="color:#56b6c2">/</span><span style="color:#d19a66">255</span>, <span style="color:#e06c75">green</span>: <span style="color:#d19a66">229</span><span style="color:#56b6c2">/</span><span style="color:#d19a66">255</span>, <span style="color:#e06c75">blue</span>: <span style="color:#d19a66">211</span><span style="color:#56b6c2">/</span><span style="color:#d19a66">255</span>, <span style="color:#e06c75">alpha</span>: <span style="color:#d19a66">1</span>)
+</span></span><span style="display:flex;"><span><span style="color:#e5c07b">self</span>.<span style="color:#e06c75">view</span> = <span style="color:#e06c75">sceneView</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#7f848e">// Set up camera</span>
+</span></span><span style="display:flex;"><span><span style="color:#c678dd">let</span> <span style="color:#e06c75">cameraNode</span> = <span style="color:#e06c75">SCNNode</span>()
+</span></span><span style="display:flex;"><span><span style="color:#e06c75">cameraNode</span>.<span style="color:#e06c75">camera</span> = <span style="color:#e06c75">SCNCamera</span>()
+</span></span><span style="display:flex;"><span><span style="color:#e06c75">scene</span>.<span style="color:#e06c75">rootNode</span>.<span style="color:#e06c75">addChildNode</span>(<span style="color:#e06c75">cameraNode</span>)
+</span></span><span style="display:flex;"><span><span style="color:#e06c75">cameraNode</span>.<span style="color:#e06c75">position</span> = <span style="color:#e06c75">SCNVector3</span>(<span style="color:#e06c75">x</span>: <span style="color:#56b6c2">-</span><span style="color:#d19a66">30</span>, <span style="color:#e06c75">y</span>: <span style="color:#d19a66">0</span>, <span style="color:#e06c75">z</span>: <span style="color:#d19a66">100</span>)
+</span></span><span style="display:flex;"><span><span style="color:#e06c75">cameraNode</span>.<span style="color:#e06c75">camera</span>?.<span style="color:#e06c75">automaticallyAdjustsZRange</span> = <span style="color:#e5c07b">true</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#7f848e">// Create simple for loop</span>
+</span></span><span style="display:flex;"><span><span style="color:#c678dd">for</span> <span style="color:#e06c75">i</span> <span style="color:#c678dd">in</span> <span style="color:#d19a66">1.</span>..<span style="color:#d19a66">5</span> {
+</span></span><span style="display:flex;"><span>    <span style="color:#c678dd">let</span> <span style="color:#e06c75">box2</span> = <span style="color:#e06c75">queenNode</span>?.<span style="color:#e06c75">clone</span>() <span style="color:#c678dd">as</span>! <span style="color:#e06c75">SCNNode</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#c678dd">let</span> <span style="color:#e06c75">box2Geometry</span> = <span style="color:#e06c75">box2</span>.<span style="color:#e06c75">geometry</span>?.<span style="color:#e06c75">copy</span>() <span style="color:#c678dd">as</span>! <span style="color:#e06c75">SCNGeometry</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#c678dd">let</span> <span style="color:#e06c75">box2GeometryNode</span> = <span style="color:#e06c75">SCNNode</span>(<span style="color:#e06c75">geometry</span>: <span style="color:#e06c75">box2Geometry</span>)
+</span></span><span style="display:flex;"><span>    <span style="color:#e06c75">box2GeometryNode</span>.<span style="color:#e06c75">scale</span> = <span style="color:#e06c75">SCNVector3Make</span>(<span style="color:#d19a66">100</span>, <span style="color:#d19a66">100</span>, <span style="color:#d19a66">100</span>)
+</span></span><span style="display:flex;"><span>    <span style="color:#e06c75">box2GeometryNode</span>.<span style="color:#e06c75">position</span> = <span style="color:#e06c75">SCNVector3</span>(<span style="color:#e06c75">x</span>: <span style="color:#56b6c2">-</span><span style="color:#d19a66">20</span> <span style="color:#56b6c2">*</span> <span style="color:#e5c07b">Float</span>(<span style="color:#e06c75">i</span>), <span style="color:#e06c75">y</span>: <span style="color:#d19a66">0</span>, <span style="color:#e06c75">z</span>: <span style="color:#d19a66">0</span>)
+</span></span><span style="display:flex;"><span>    
+</span></span><span style="display:flex;"><span>    <span style="color:#c678dd">let</span> <span style="color:#e06c75">newMaterial2</span> = <span style="color:#e06c75">SCNMaterial</span>()
+</span></span><span style="display:flex;"><span>    <span style="color:#e06c75">newMaterial2</span>.<span style="color:#e06c75">diffuse</span>.<span style="color:#e06c75">contents</span> = <span style="color:#e06c75">UIColor</span>.<span style="color:#e06c75">yellow</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#e06c75">box2GeometryNode</span>.<span style="color:#e06c75">geometry</span>?.<span style="color:#e06c75">firstMaterial</span> = <span style="color:#e06c75">newMaterial2</span>
+</span></span><span style="display:flex;"><span>    
+</span></span><span style="display:flex;"><span>    <span style="color:#c678dd">if</span> <span style="color:#e06c75">i</span> == <span style="color:#d19a66">2</span> {
+</span></span><span style="display:flex;"><span>        <span style="color:#e06c75">newMaterial2</span>.<span style="color:#e06c75">diffuse</span>.<span style="color:#e06c75">contents</span> = <span style="color:#e06c75">UIColor</span>.<span style="color:#e06c75">red</span>
+</span></span><span style="display:flex;"><span>    } <span style="color:#c678dd">else</span> <span style="color:#c678dd">if</span> <span style="color:#e06c75">i</span> <span style="color:#56b6c2">&lt;</span> <span style="color:#d19a66">2</span> {
+</span></span><span style="display:flex;"><span>        <span style="color:#e06c75">newMaterial2</span>.<span style="color:#e06c75">diffuse</span>.<span style="color:#e06c75">contents</span> = <span style="color:#e06c75">UIColor</span>.<span style="color:#e06c75">purple</span>
+</span></span><span style="display:flex;"><span>        <span style="color:#e06c75">box2GeometryNode</span>.<span style="color:#e06c75">rotation</span> = <span style="color:#e06c75">SCNVector4Make</span>(<span style="color:#d19a66">0</span>, <span style="color:#d19a66">1</span>, <span style="color:#d19a66">0</span>, <span style="color:#d19a66">1.5</span>)
+</span></span><span style="display:flex;"><span>    } <span style="color:#c678dd">else</span> <span style="color:#c678dd">if</span> <span style="color:#e06c75">i</span> <span style="color:#56b6c2">&gt;</span> <span style="color:#d19a66">3</span> {
+</span></span><span style="display:flex;"><span>        <span style="color:#e06c75">newMaterial2</span>.<span style="color:#e06c75">diffuse</span>.<span style="color:#e06c75">contents</span> = <span style="color:#e06c75">UIColor</span>.<span style="color:#e06c75">brown</span>
+</span></span><span style="display:flex;"><span>    } <span style="color:#c678dd">else</span> <span style="color:#c678dd">if</span> <span style="color:#e06c75">i</span> == <span style="color:#d19a66">4</span> {
+</span></span><span style="display:flex;"><span>        <span style="color:#e06c75">newMaterial2</span>.<span style="color:#e06c75">diffuse</span>.<span style="color:#e06c75">contents</span> = <span style="color:#e06c75">UIColor</span>.<span style="color:#e06c75">blue</span>
+</span></span><span style="display:flex;"><span>    }
+</span></span><span style="display:flex;"><span>    
+</span></span><span style="display:flex;"><span>    <span style="color:#e06c75">scene</span>.<span style="color:#e06c75">rootNode</span>.<span style="color:#e06c75">addChildNode</span>(<span style="color:#e06c75">box2GeometryNode</span>)
+</span></span><span style="display:flex;"><span>}
+</span></span></code></pre></div><h3 id="result">Result</h3>
 <p><img src="images/1.jpg" alt=""></p>
 
   </div>

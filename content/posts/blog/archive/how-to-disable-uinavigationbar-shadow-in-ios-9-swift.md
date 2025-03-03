@@ -12,7 +12,7 @@ This trick can be applied to iOS 8 and iOS 7. The UINavigationBar bottom border 
 
 ### In viewDidAppear:
 
-```
+```swift
 override func viewDidAppear(_ animated: Bool) {
     super.viewDidAppear(animated) 
 

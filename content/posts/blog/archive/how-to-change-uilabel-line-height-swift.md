@@ -8,7 +8,7 @@ author = "Alexander Deplov"
 
 ![](images/1.jpg)
 
-```
+```swift
 @IBOutlet weak var myLabel: UILabel!
 
 let textForLabel = """

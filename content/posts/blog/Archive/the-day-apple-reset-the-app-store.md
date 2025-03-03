@@ -10,8 +10,6 @@ bgColor = "#171b1c"
 
 ![The day Apple reset the App Store](images/1.webp)
 
-## Introduction
-
 As an indie iOS developer, you’re facing stiff competition on the App Store market. Each year, thousands of apps are added by developers from all around the globe. Each of us wants to dominate that market to capture all the money and attention of users. With more apps on the App Store, there are fewer opportunities for each developer. More effort is needed to gather an audience, improve your ASO for visibility, or pay more for advertising.
 
 Going back to 2008 when the App Store was born, it was easier to release something and capture the attention of the audience since the number of apps on the market was low compared to iPhone owners globally.

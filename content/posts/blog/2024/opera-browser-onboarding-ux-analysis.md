@@ -5,7 +5,7 @@ draft = false
 featured = true
 author = "Alexander Deplov"
 tags = ["case-studies"]
-accentColor = "#acd24a"
+accentColor = "#5020ff"
 bgColor = "#0f0720"
 +++
 

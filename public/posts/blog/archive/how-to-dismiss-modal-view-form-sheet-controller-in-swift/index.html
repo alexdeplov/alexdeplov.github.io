@@ -75,39 +75,39 @@
     <p>When storyboard segue presentation mode set to Form Sheet you can add simple code to hide its ViewController tap on background. You don&rsquo;t need Done button. Of course this trick is for iPad app only, because on iPhone Form Sheet will cover all screen size.</p>
 <p><img src="images/1.jpg" alt=""></p>
 <p>This code works well in Swift, iOS 9:</p>
-<pre tabindex="0"><code>class ViewController: UIViewController, UIGestureRecognizerDelegate {
-    var tapBGGesture: UITapGestureRecognizer!
-    
-    override func viewDidAppear(animated: Bool) {
-        tapBGGesture = UITapGestureRecognizer(target: self, action: &#34;settingsBGTapped:&#34;)
-        tapBGGesture.delegate = self
-        tapBGGesture.numberOfTapsRequired = 1
-        tapBGGesture.cancelsTouchesInView = false
-        self.view.window!.addGestureRecognizer(tapBGGesture)
-    }
-    
-    func settingsBGTapped(sender: UITapGestureRecognizer) {
-        if sender.state == UIGestureRecognizerState.Ended {
-            guard let presentedView = presentedViewController?.view else {
-                return
-            }
-            
-            if !CGRectContainsPoint(presentedView.bounds, sender.locationInView(presentedView)) {
-                self.dismissViewControllerAnimated(true, completion: { () -&gt; Void in
-                })
-            }
-        }
-    }
-    
-    func gestureRecognizer(gestureRecognizer: UIGestureRecognizer, shouldRecognizeSimultaneouslyWithGestureRecognizer otherGestureRecognizer: UIGestureRecognizer) -&gt; Bool {
-        return true
-    }
-    
-    override func viewWillDisappear(animated: Bool) {
-        self.view.window!.removeGestureRecognizer(tapBGGesture)
-    }
-}
-</code></pre>
+<div class="highlight"><pre tabindex="0" style="color:#abb2bf;background-color:#282c34;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-swift" data-lang="swift"><span style="display:flex;"><span><span style="color:#c678dd">class</span> <span style="color:#e5c07b">ViewController</span>: <span style="color:#e06c75">UIViewController</span>, <span style="color:#e06c75">UIGestureRecognizerDelegate</span> {
+</span></span><span style="display:flex;"><span>    <span style="color:#c678dd">var</span> <span style="color:#e06c75">tapBGGesture</span>: <span style="color:#e06c75">UITapGestureRecognizer</span>!
+</span></span><span style="display:flex;"><span>    
+</span></span><span style="display:flex;"><span>    <span style="color:#c678dd">override</span> <span style="color:#c678dd">func</span> <span style="color:#61afef;font-weight:bold">viewDidAppear</span>(<span style="color:#e06c75">animated</span>: <span style="color:#e5c07b">Bool</span>) {
+</span></span><span style="display:flex;"><span>        <span style="color:#e06c75">tapBGGesture</span> = <span style="color:#e06c75">UITapGestureRecognizer</span>(<span style="color:#e06c75">target</span>: <span style="color:#e5c07b">self</span>, <span style="color:#e06c75">action</span>: <span style="color:#98c379">&#34;settingsBGTapped:&#34;</span>)
+</span></span><span style="display:flex;"><span>        <span style="color:#e06c75">tapBGGesture</span>.<span style="color:#e06c75">delegate</span> = <span style="color:#e5c07b">self</span>
+</span></span><span style="display:flex;"><span>        <span style="color:#e06c75">tapBGGesture</span>.<span style="color:#e06c75">numberOfTapsRequired</span> = <span style="color:#d19a66">1</span>
+</span></span><span style="display:flex;"><span>        <span style="color:#e06c75">tapBGGesture</span>.<span style="color:#e06c75">cancelsTouchesInView</span> = <span style="color:#e5c07b">false</span>
+</span></span><span style="display:flex;"><span>        <span style="color:#e5c07b">self</span>.<span style="color:#e06c75">view</span>.<span style="color:#e06c75">window</span>!.<span style="color:#e06c75">addGestureRecognizer</span>(<span style="color:#e06c75">tapBGGesture</span>)
+</span></span><span style="display:flex;"><span>    }
+</span></span><span style="display:flex;"><span>    
+</span></span><span style="display:flex;"><span>    <span style="color:#c678dd">func</span> <span style="color:#61afef;font-weight:bold">settingsBGTapped</span>(<span style="color:#e06c75">sender</span>: <span style="color:#e06c75">UITapGestureRecognizer</span>) {
+</span></span><span style="display:flex;"><span>        <span style="color:#c678dd">if</span> <span style="color:#e06c75">sender</span>.<span style="color:#e06c75">state</span> == <span style="color:#e06c75">UIGestureRecognizerState</span>.<span style="color:#e06c75">Ended</span> {
+</span></span><span style="display:flex;"><span>            <span style="color:#c678dd">guard</span> <span style="color:#c678dd">let</span> <span style="color:#e06c75">presentedView</span> = <span style="color:#e06c75">presentedViewController</span>?.<span style="color:#e06c75">view</span> <span style="color:#c678dd">else</span> {
+</span></span><span style="display:flex;"><span>                <span style="color:#c678dd">return</span>
+</span></span><span style="display:flex;"><span>            }
+</span></span><span style="display:flex;"><span>            
+</span></span><span style="display:flex;"><span>            <span style="color:#c678dd">if</span> <span style="color:#56b6c2">!</span><span style="color:#e06c75">CGRectContainsPoint</span>(<span style="color:#e06c75">presentedView</span>.<span style="color:#e06c75">bounds</span>, <span style="color:#e06c75">sender</span>.<span style="color:#e06c75">locationInView</span>(<span style="color:#e06c75">presentedView</span>)) {
+</span></span><span style="display:flex;"><span>                <span style="color:#e5c07b">self</span>.<span style="color:#e06c75">dismissViewControllerAnimated</span>(<span style="color:#e5c07b">true</span>, <span style="color:#e06c75">completion</span>: { () -&gt; <span style="color:#e5c07b">Void</span> <span style="color:#c678dd">in</span>
+</span></span><span style="display:flex;"><span>                })
+</span></span><span style="display:flex;"><span>            }
+</span></span><span style="display:flex;"><span>        }
+</span></span><span style="display:flex;"><span>    }
+</span></span><span style="display:flex;"><span>    
+</span></span><span style="display:flex;"><span>    <span style="color:#c678dd">func</span> <span style="color:#61afef;font-weight:bold">gestureRecognizer</span>(<span style="color:#e06c75">gestureRecognizer</span>: <span style="color:#e06c75">UIGestureRecognizer</span>, <span style="color:#e06c75">shouldRecognizeSimultaneouslyWithGestureRecognizer</span> <span style="color:#e06c75">otherGestureRecognizer</span>: <span style="color:#e06c75">UIGestureRecognizer</span>) -&gt; <span style="color:#e5c07b">Bool</span> {
+</span></span><span style="display:flex;"><span>        <span style="color:#c678dd">return</span> <span style="color:#e5c07b">true</span>
+</span></span><span style="display:flex;"><span>    }
+</span></span><span style="display:flex;"><span>    
+</span></span><span style="display:flex;"><span>    <span style="color:#c678dd">override</span> <span style="color:#c678dd">func</span> <span style="color:#61afef;font-weight:bold">viewWillDisappear</span>(<span style="color:#e06c75">animated</span>: <span style="color:#e5c07b">Bool</span>) {
+</span></span><span style="display:flex;"><span>        <span style="color:#e5c07b">self</span>.<span style="color:#e06c75">view</span>.<span style="color:#e06c75">window</span>!.<span style="color:#e06c75">removeGestureRecognizer</span>(<span style="color:#e06c75">tapBGGesture</span>)
+</span></span><span style="display:flex;"><span>    }
+</span></span><span style="display:flex;"><span>}
+</span></span></code></pre></div>
   </div>
   
   <div class="mt-12 md:mt-20 mb-16 md:mb-24"> 

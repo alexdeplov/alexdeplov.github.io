@@ -75,14 +75,14 @@
     <p><em>Easiest way to remove UINavigationBar bottom 1px border.</em></p>
 <p>This trick can be applied to iOS 8 and iOS 7. The UINavigationBar bottom border is an 1px shadow. According to the <a href="https://developer.apple.com/library/ios/documentation/UIKit/Reference/UINavigationBar_Class/#//apple_ref/occ/instp/UINavigationBar/shadowImage">documentation</a> to remove it you have to provide UIImage. But we’re going to create an empty UIImage.</p>
 <h3 id="in-viewdidappear">In viewDidAppear:</h3>
-<pre tabindex="0"><code>override func viewDidAppear(_ animated: Bool) {
-    super.viewDidAppear(animated) 
-
-    let img = UIImage()
-    navigationController?.navigationBar.shadowImage = img
-    navigationController?.navigationBar.setBackgroundImage(img, for: .default)
-}
-</code></pre><p><img src="images/1.jpg" alt=""></p>
+<div class="highlight"><pre tabindex="0" style="color:#abb2bf;background-color:#282c34;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-swift" data-lang="swift"><span style="display:flex;"><span><span style="color:#c678dd">override</span> <span style="color:#c678dd">func</span> <span style="color:#61afef;font-weight:bold">viewDidAppear</span>(<span style="color:#e5c07b">_</span> <span style="color:#e06c75">animated</span>: <span style="color:#e5c07b">Bool</span>) {
+</span></span><span style="display:flex;"><span>    <span style="color:#e5c07b">super</span>.<span style="color:#e06c75">viewDidAppear</span>(<span style="color:#e06c75">animated</span>) 
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>    <span style="color:#c678dd">let</span> <span style="color:#e06c75">img</span> = <span style="color:#e06c75">UIImage</span>()
+</span></span><span style="display:flex;"><span>    <span style="color:#e06c75">navigationController</span>?.<span style="color:#e06c75">navigationBar</span>.<span style="color:#e06c75">shadowImage</span> = <span style="color:#e06c75">img</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#e06c75">navigationController</span>?.<span style="color:#e06c75">navigationBar</span>.<span style="color:#e06c75">setBackgroundImage</span>(<span style="color:#e06c75">img</span>, <span style="color:#c678dd">for</span>: .<span style="color:#c678dd">default</span>)
+</span></span><span style="display:flex;"><span>}
+</span></span></code></pre></div><p><img src="images/1.jpg" alt=""></p>
 <h3 id="result">Result:</h3>
 <p><img src="images/2.jpg" alt=""></p>
 <p>If you want to change background color to the navigationBar, do this:</p>

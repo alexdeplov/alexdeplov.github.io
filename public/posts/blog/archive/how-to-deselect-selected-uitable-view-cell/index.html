@@ -73,14 +73,14 @@
   
   <div class="content text-[#c4cbd5] text-opacity-90">
     <p>You have UITableView with customized cells style, selection color, etc. When you tap on the cell, slide to another VC and came back, your cell still selected. Really annoing. Here is how to fix that.</p>
-<pre tabindex="0"><code>override func viewWillAppear(_ animated: Bool) {
-    super.viewWillAppear(animated)
-
-    if let selectedIndexPath = tableView.indexPathForSelectedRow {
-        tableView.deselectRow(at: selectedIndexPath, animated: true)
-    }
-}
-</code></pre><p><img src="images/1.jpg" alt=""></p>
+<div class="highlight"><pre tabindex="0" style="color:#abb2bf;background-color:#282c34;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-swift" data-lang="swift"><span style="display:flex;"><span><span style="color:#c678dd">override</span> <span style="color:#c678dd">func</span> <span style="color:#61afef;font-weight:bold">viewWillAppear</span>(<span style="color:#e5c07b">_</span> <span style="color:#e06c75">animated</span>: <span style="color:#e5c07b">Bool</span>) {
+</span></span><span style="display:flex;"><span>    <span style="color:#e5c07b">super</span>.<span style="color:#e06c75">viewWillAppear</span>(<span style="color:#e06c75">animated</span>)
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>    <span style="color:#c678dd">if</span> <span style="color:#c678dd">let</span> <span style="color:#e06c75">selectedIndexPath</span> = <span style="color:#e06c75">tableView</span>.<span style="color:#e06c75">indexPathForSelectedRow</span> {
+</span></span><span style="display:flex;"><span>        <span style="color:#e06c75">tableView</span>.<span style="color:#e06c75">deselectRow</span>(<span style="color:#e06c75">at</span>: <span style="color:#e06c75">selectedIndexPath</span>, <span style="color:#e06c75">animated</span>: <span style="color:#e5c07b">true</span>)
+</span></span><span style="display:flex;"><span>    }
+</span></span><span style="display:flex;"><span>}
+</span></span></code></pre></div><p><img src="images/1.jpg" alt=""></p>
 
   </div>
   

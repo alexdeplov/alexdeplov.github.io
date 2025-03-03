@@ -17,7 +17,7 @@ I'm using PaperJS - a vector graphics scripting framework - because you can expo
 
 Create an ellipse in [Sketch](http://sketch.paperjs.org/#V/0.12.15/S/XY/BCsIwEER/ZcmliqGIlYoBT+Jd8OCh7SGNCw2JSUlCC5b+u41VEQ/LMm+GHXYght+RMHJRGERDKBH2FnXHHfjgrMKrvIUGDrApXWniRAu1lq3HCRvs4cxDk55mtBhiBsDLBzIo8pxClu0qOlN4Hz1abR2DpNZcqOTPfDWyX/ENtNbLIK1h0EnsU4EmoIMVFPsthfXcMi4/6binl2qHXLVWmuAJK6rxCQ==) sandbox:
 
-```
+```js
 var strokeWidth = 2
 
 var ellipse = new Path.Ellipse({
@@ -40,7 +40,7 @@ At the end of the loop, we need to rotate the ellipse by an angle multiplied by 
 
 Try yourself: [Sketch​​​​​​​](http://sketch.paperjs.org/#V/0.12.15/S/bVBNa8MwDP0rwpemi8nCUjLmbaex+2CHHdIeXFdbTDw72KaFhfz3WUnDWpjASHrv6cMamJXfyAR77zCqlnGm3IHyo/SgjLMY4BnuNlu/tQRJ+2UwIVVd3s70woToXYcf+hBbqiCY3qfzkBGvE1o+Jvd07pviPF8PkIyE5EmHxug+0AyLJ3iTsS1eZygbFh1Z0D8ooKlrDlV1v+NX3LTLizPOC1jtjVTd6h/BtKy4TK5EvQs6amcFHDWeCoU2ooccmocNh/Jv4rheosWf/1B4F2XEbD7aDWh+2WmqGtPF9x5l1zttY2Ci2Y2/)
 
-```
+```js
 var clones = 24
 var angle = 360/clones
 var strokeWidth = 2
@@ -68,7 +68,7 @@ For the dials, we need to write a simple function that creates rectangles based 
 
 Try yourself: [Sketch](http://sketch.paperjs.org/#V/0.12.15/S/jVNNT8MwDP0rUS+0LOq67gNR4DTgjODAodshy7I1apZMSdgkqv134nRl7ZgAS60TPzux32urQJINC7LgrWSWFgEOqFrCfkc0okJJZtADSkczPZMQInItmIsMJ0m/hhvEWK1K9s6XtoAKCMOzUhqFgHMXTe6cuz+e69a9XlQhZ5AIHvKYEHxr4A7J9uiF2CJ+qkNh1eSBGf7JMpRPJhgNhzdz3MF8L1MllM7Q1UIQWl5dSPDNZu1NJ2mrDLdcyQztONvHlEnLNOqh/HaEUXK68RA1q8YfZ4i1ssSysCbtGnHcPslXHb55+pAULkNUM1fzyIkwYU0U9rNGVZulyzo06JIbSyRlz1ptpnXbTpLBuMn5U5Q2DZCnGbVtRV7d3rfQ1eSkC7zxObTiQvwiClhNjdPVEwWnxHsQpp8eufOhgvF1YfupE+PnqN1P4SQOGMzxD1V8YUeetirpyFWNMcpTPEjm0Tk8cK3mYw+532nhkHKruLQmyPL54Qs=)
 
-```
+```js
 var clones = 24
 var angle = 360/clones
 var strokeWidth = 2

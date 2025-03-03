@@ -74,21 +74,21 @@
   <div class="content text-[#c4cbd5] text-opacity-90">
     <p>Of course, you also need to add a top and a bottom paddings, but this can be achieved through autolayout height size of the textfield. Result: left padding for UITextField placeholder and text:</p>
 <p><img src="images/1.jpg" alt=""></p>
-<pre tabindex="0"><code>import UIKit
-
-class ViewController: UIViewController {
-
-    @IBOutlet weak var myTextField: UITextField!
-
-    override func viewDidLoad() {
-        super.viewDidLoad()
-
-        let paddingView = UIView(frame: CGRect(x: 0, y: 0, width: 15, height: myTextField.frame.height))
-        myTextField.leftView = paddingView
-        myTextField.leftViewMode = .always 
-    }
-}
-</code></pre><p><img src="images/2.jpg" alt=""></p>
+<div class="highlight"><pre tabindex="0" style="color:#abb2bf;background-color:#282c34;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-swift" data-lang="swift"><span style="display:flex;"><span><span style="color:#c678dd">import</span> <span style="color:#e5c07b">UIKit</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#c678dd">class</span> <span style="color:#e5c07b">ViewController</span>: <span style="color:#e06c75">UIViewController</span> {
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>    <span style="color:#c678dd">@IBOutlet</span> <span style="color:#c678dd">weak</span> <span style="color:#c678dd">var</span> <span style="color:#e06c75">myTextField</span>: <span style="color:#e06c75">UITextField</span>!
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>    <span style="color:#c678dd">override</span> <span style="color:#c678dd">func</span> <span style="color:#61afef;font-weight:bold">viewDidLoad</span>() {
+</span></span><span style="display:flex;"><span>        <span style="color:#e5c07b">super</span>.<span style="color:#e06c75">viewDidLoad</span>()
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>        <span style="color:#c678dd">let</span> <span style="color:#e06c75">paddingView</span> = <span style="color:#e06c75">UIView</span>(<span style="color:#e06c75">frame</span>: <span style="color:#e06c75">CGRect</span>(<span style="color:#e06c75">x</span>: <span style="color:#d19a66">0</span>, <span style="color:#e06c75">y</span>: <span style="color:#d19a66">0</span>, <span style="color:#e06c75">width</span>: <span style="color:#d19a66">15</span>, <span style="color:#e06c75">height</span>: <span style="color:#e06c75">myTextField</span>.<span style="color:#e06c75">frame</span>.<span style="color:#e06c75">height</span>))
+</span></span><span style="display:flex;"><span>        <span style="color:#e06c75">myTextField</span>.<span style="color:#e06c75">leftView</span> = <span style="color:#e06c75">paddingView</span>
+</span></span><span style="display:flex;"><span>        <span style="color:#e06c75">myTextField</span>.<span style="color:#e06c75">leftViewMode</span> = .<span style="color:#e06c75">always</span> 
+</span></span><span style="display:flex;"><span>    }
+</span></span><span style="display:flex;"><span>}
+</span></span></code></pre></div><p><img src="images/2.jpg" alt=""></p>
 <p>We used this technique in our new Taskler app, but without big indent.</p>
 <p><img src="images/3.jpg" alt=""></p>
 

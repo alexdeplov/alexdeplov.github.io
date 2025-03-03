@@ -11,7 +11,7 @@ When storyboard segue presentation mode set to Form Sheet you can add simple cod
 
 This code works well in Swift, iOS 9:
 
-```
+```swift
 class ViewController: UIViewController, UIGestureRecognizerDelegate {
     var tapBGGesture: UITapGestureRecognizer!
     

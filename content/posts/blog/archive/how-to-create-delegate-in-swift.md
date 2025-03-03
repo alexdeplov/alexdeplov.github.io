@@ -7,7 +7,7 @@ author = "Alexander Deplov"
 +++
 1. In class that send the data create protocol:
 
-```
+```swift
 protocol BackButtonActionDelegate {
     func pressFinished(){}
 }
@@ -15,7 +15,7 @@ protocol BackButtonActionDelegate {
 
 2. Inside this class:
 
-```
+```swift
 class BackButton: SKNode {
     var delegate: BackButtonActionDelegate?
 }
@@ -23,13 +23,13 @@ class BackButton: SKNode {
 
 3. Inside the class send the data, run the delegate message when needed:
 
-```
+```swift
 delegate?.pressFinished()
 ```
 
 Inside another class, that received data, add delegate:
 
-```
+```swift
 class OptionsWindow: SKNode, BackButtonActionDelegate {
 
 }
@@ -37,7 +37,7 @@ class OptionsWindow: SKNode, BackButtonActionDelegate {
 
 Add same function from sender:
 
-```
+```swift
 func pressFinished() {
     print("delegate triggered")
 }
@@ -45,7 +45,7 @@ func pressFinished() {
 
 Inside another class, that received data, in viewDidLoad() add:
 
-```
+```swift
 backButton.delegate = self
 ```
 
