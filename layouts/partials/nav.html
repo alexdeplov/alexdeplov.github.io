@@ -1,8 +1,8 @@
 {{ $accentColor := .Params.accentColor | default "#3B82F6" }}
 
 <nav class="main-nav my-12">
-  <div class="w-full px-4 {{ if .IsHome }}max-w-xl{{ else }}max-w-2xl{{ end }} mx-auto flex flex-col md:flex-row justify-between items-center">
-    <a href="{{ .Site.BaseURL }}" class="underline text-white hover:text-[{{ $accentColor }}] {{ if .IsHome }}active{{ end }}">Alexander Deplov – Senior Product Designer Blog</a>
+  <div class="w-full px-4 {{ if .IsHome }}max-w-md{{ else }}max-w-2xl{{ end }} mx-auto flex flex-col md:flex-row justify-between items-center">
+    <a href="{{ .Site.BaseURL }}" class="underline text-sm text-white hover:text-[{{ $accentColor }}] {{ if .IsHome }}active{{ end }}">Alexander Deplov – Senior Product Designer Blog</a>
     <div class="flex space-x-3 pt-4 md:pt-0">
       <a alt="@alex_deplov on Mastodon" href="https://mastodon.social/@alex_deplov" target="_blank" rel="noopener noreferrer" class="text-[#29ADFF]">
         <!-- Example using an inline SVG for Mastodon -->

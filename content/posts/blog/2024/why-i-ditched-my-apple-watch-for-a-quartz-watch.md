@@ -20,7 +20,7 @@ Apple claims that with Apple Watch you don't need to use your iPhone as often, b
 
 On top of that, Apple decided to make my Apple Watch obsolete. So I can't install the latest watchOS anymore on my device, which is only four years old. It means that Apple can perfectly control sales of the new watches they release on the market. And I feel that I don't truly own the device anymore. 
 
-So I did some research on what watch I could buy, and I started with Seiko first, but I didn't want to buy my grandpa's version. I wanted something new. And at some point, Citizen Promaster Dive, [BN0151-09L](https://www.citizenwatch.com/us/en/product/BN0151-09L.html) grabbed my attention.
+So I did some research on what watch I could buy, and I started with Seiko first, but I didn't want to buy my grandpa's version. I wanted something new. And at some point, Citizen Promaster Dive, BN0151-09L grabbed my attention.
 
 ![](images/6.webp)
 
