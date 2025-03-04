@@ -1,23 +1,23 @@
 /* Content animation */
-.content-animate {
+article .content-animate {
   opacity: 0;
   transform: translateY(20px);
   animation: slideUpFade 0.6s ease forwards;
 }
 
 /* Stagger children animations */
-.content-animate > * {
+article .content-animate > * {
   opacity: 0;
   transform: translateY(20px);
   animation: slideUpFade 0.6s ease forwards;
 }
 
-.content-animate > *:nth-child(1) { animation-delay: 0.1s; }
-.content-animate > *:nth-child(2) { animation-delay: 0.2s; }
-.content-animate > *:nth-child(3) { animation-delay: 0.3s; }
-.content-animate > *:nth-child(4) { animation-delay: 0.4s; }
-.content-animate > *:nth-child(5) { animation-delay: 0.5s; }
-.content-animate > *:nth-child(6) { animation-delay: 0.6s; }
+article .content-animate > *:nth-child(1) { animation-delay: 0.1s; }
+article .content-animate > *:nth-child(2) { animation-delay: 0.2s; }
+article .content-animate > *:nth-child(3) { animation-delay: 0.3s; }
+article .content-animate > *:nth-child(4) { animation-delay: 0.4s; }
+article .content-animate > *:nth-child(5) { animation-delay: 0.5s; }
+article .content-animate > *:nth-child(6) { animation-delay: 0.6s; }
 
 @keyframes slideUpFade {
   0% {
