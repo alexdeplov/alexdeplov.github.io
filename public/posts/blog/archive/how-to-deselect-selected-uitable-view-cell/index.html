@@ -63,15 +63,15 @@
 
 <article class="post w-full md:max-w-2xl mx-auto px-4">
   <header class="mb-8 md:mb-16">
-    <h1 class="text-2xl md:text-4xl font-extrabold mb-2">
+    <h1 class="text-2xl md:text-4xl font-extrabold mb-2 content-animate">
       <a href="https://interfacecraft.online/posts/blog/archive/how-to-deselect-selected-uitable-view-cell/" class="text-[#3B82F6] hover:underline">How to Deselect Selected UITableView Cell</a>
     </h1>
-    <div class="text-xs md:text-sm font-normal text-gray-400 mb-4 md:mb-8 mt-2 md:mt-3">
+    <div class="text-xs md:text-sm font-normal text-gray-400 mb-4 md:mb-8 mt-2 md:mt-3 content-animate">
       Apr 6, 2016 · Alexander Deplov
     </div>
   </header>
   
-  <div class="content text-[#c4cbd5] text-opacity-90">
+  <div class="content text-[#c4cbd5] text-opacity-90 content-animate">
     <p>You have UITableView with customized cells style, selection color, etc. When you tap on the cell, slide to another VC and came back, your cell still selected. Really annoing. Here is how to fix that.</p>
 <div class="highlight"><pre tabindex="0" style="color:#abb2bf;background-color:#282c34;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-swift" data-lang="swift"><span style="display:flex;"><span><span style="color:#c678dd">override</span> <span style="color:#c678dd">func</span> <span style="color:#61afef;font-weight:bold">viewWillAppear</span>(<span style="color:#e5c07b">_</span> <span style="color:#e06c75">animated</span>: <span style="color:#e5c07b">Bool</span>) {
 </span></span><span style="display:flex;"><span>    <span style="color:#e5c07b">super</span>.<span style="color:#e06c75">viewWillAppear</span>(<span style="color:#e06c75">animated</span>)
