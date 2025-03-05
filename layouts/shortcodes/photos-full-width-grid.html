@@ -1,0 +1,49 @@
+<!-- layouts/shortcodes/photos-full-width-grid.html -->
+<div class="image-grid">
+  {{ $columns := .Get "columns" }}
+  {{ range $index, $image := split (.Get "images") "," }}
+    {{ $image = trim $image " " }}
+    <div class="grid-item">
+      <img src="{{ $image }}" alt="Grid image {{ add $index 1 }}">
+    </div>
+  {{ end }}
+</div>
+
+<style>
+.image-grid {
+  display: grid;
+  grid-template-columns: repeat({{ .Get "columns" }}, 1fr); /* Default columns from shortcode */
+  gap: 5px;
+  width: 100%;
+  margin: 0 auto;
+  padding: 20px 0;
+}
+
+.grid-item {
+  width: 100%;
+  justify-content: center;
+  display: flex;
+  aspect-ratio: 1/1;
+  background-color: rgba(255, 255, 255, 0.05);
+  backdrop-filter: blur(10px);
+  border-radius: 10px;
+}
+
+.grid-item img {
+  width: 100%;
+  max-width: 120px;
+  height: auto;
+  object-fit: cover;
+  display: block;
+  margin: auto;
+  justify-content: center;
+  align-self: center;
+}
+
+/* Media query for mobile (2 columns) */
+@media (max-width: 768px) {
+  .image-grid {
+    grid-template-columns: repeat(2, 1fr); /* 2 columns on mobile */
+  }
+}
+</style>
