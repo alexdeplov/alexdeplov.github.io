@@ -1,10 +1,25 @@
 <!-- layouts/shortcodes/photos-full-width-grid.html -->
 <div class="image-grid">
   {{ $columns := .Get "columns" }}
-  {{ range $index, $image := split (.Get "images") "," }}
-    {{ $image = trim $image " " }}
+  {{ $pairs := split (.Get "images") "," }}
+  
+  {{ range $index, $pair := $pairs }}
+    {{ $pair = trim $pair " " }}
+    {{ $parts := split $pair "|" }}
+    {{ $image := trim (index $parts 0) " " }}
+    {{ $url := "" }}
+    {{ if gt (len $parts) 1 }}
+      {{ $url = trim (index $parts 1) " " }}
+    {{ end }}
+    
     <div class="grid-item">
-      <img src="{{ $image }}" alt="Grid image {{ add $index 1 }}">
+      {{ if $url }}
+        <a href="{{ $url }}" target="_blank" rel="noopener noreferrer">
+          <img src="{{ $image }}" alt="Grid image {{ add $index 1 }}">
+        </a>
+      {{ else }}
+        <img src="{{ $image }}" alt="Grid image {{ add $index 1 }}">
+      {{ end }}
     </div>
   {{ end }}
 </div>
@@ -29,7 +44,8 @@
   border-radius: 10px;
 }
 
-.grid-item img {
+.grid-item img,
+.grid-item a {
   width: 100%;
   max-width: 120px;
   height: auto;
@@ -38,6 +54,11 @@
   margin: auto;
   justify-content: center;
   align-self: center;
+  transition: transform 0.2s;
+}
+
+.grid-item a:hover img{
+  transform: scale(1.1);
 }
 
 /* Media query for mobile (2 columns) */
