@@ -5,13 +5,16 @@ draft = false
 featured = true
 author = "Alexander Deplov"
 +++
-## Introduction
 
-While researching old operating systems I decided to try an experiment and re-created old UIs with modern components. Here we have File Viewer from NeXTSTEP operating system (left screenshot).
+While researching old operating systems I decided to try an experiment and re-created old UIs with modern components. Here we have File Viewer from NeXTSTEP operating system.
 
-![](images/1-1.webp)
+### NeXTSTEP window, old layout, old UI components:
 
-### Old layout by modern UI components
+![](images/image1.webp)
+
+### Same layout of the NeXTSTEP, but rebuilt with modern UI components:
+
+![](images/image2.webp)
 
 Here we can quickly notice few problems with old layout :
 
@@ -23,10 +26,16 @@ Here we can quickly notice few problems with old layout :
 
 4. Vertically almost half of the windows is taken by favs and navigation rows
 
-After rebuilding it with modern components (right screenshot), we still have all these problems. Yes, the app icons look interesting, but the whole window is not really usable. It’s fair to say that this approach does nothing to improve the UI.
+After rebuilding it with modern components, we still have all these problems. Yes, the app icons look interesting, but the whole window is not really usable. It’s fair to say that this approach does nothing to improve the UI.
 
-### Modern layout by old UI components
+### Modern layout, modern UI components:
 
-Now I have recreated the modern layout using the old UI components for comparison (right screenshot below). Now it’s clear that this approach works better because we can clearly see where users are currently, where favourites are, a direction for sidebar and content. And the overall use of window space is now better, especially when we need that window into horizontal space of a screen itself.
+![](images/image3.webp)
 
-![](images/2-1.webp)
+### Modern layout, but rebuilt with old UI components: 
+
+![](images/image4.webp)
+
+Now I have recreated the modern layout using the old UI components for comparison. Now it's clear that this approach works better because we can clearly see where users are, where favorites are, a direction for sidebar and content. And the overall use of window space is now better, especially when we need that window in the horizontal space of a screen itself.
+
+This experiment highlights why layout evolution matters just as much as component design in UI development. While modern components can enhance visual appeal, they don’t automatically solve usability issues rooted in outdated layouts. Conversely, applying a modern layout with old components still improves clarity and functionality, proving that thoughtful spatial organization is key to effective UI design. It’s not just about how things look, but how they work together to guide the user intuitively through the interface.

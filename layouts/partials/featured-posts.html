@@ -1,0 +1,16 @@
+{{ $accentColor := .Params.accentColor | default "#3B82F6" }}
+
+<div class="my-16 w-full max-w-md mx-auto px-4 text-center">
+  <h4 class="my-4">Featured Posts:</h4>
+    <ul class="font-semibold text-sm space-y-3">
+        <li class="mb-2 ml-0 flex text-[{{ $accentColor }}]">
+            <a class="m-auto" href="https://interfacecraft.online/posts/blog/2024/ios-app-icons-design/" target="_blank">My iOS & macOS App Icons Design Gallery</a>
+        </li>
+        <li class="mb-2 ml-0 text-[{{ $accentColor }}] flex">
+            <a class="m-auto" href="https://pleeq.com/alexander_deplov_portfolio/" target="_blank">Product Designer / Portfolio</a>
+        </li>
+        <li class="mb-2 ml-0 text-[{{ $accentColor }}] flex">
+            <a class="m-auto" href="https://mastodon.social/@alex_deplov" target="_blank">Mastodon / alex_deplov</a>
+        </li>
+    </ul>
+</div>
