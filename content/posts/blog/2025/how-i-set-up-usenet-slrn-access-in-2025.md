@@ -10,7 +10,7 @@ accentColor = "#0034ff"
 
 In the 90s, before even the Internet existed in our area, I was lucky to be part of Fidonet. It was an amazing experience, that's hard to explain today. Connecting with people across the globe through a network felt like stepping into the future, sharing messages (and sometimes files) at a time when such communication was rare and magical in its own way. All the memories about Fidonet are always warm. The TUI (Text-based user interface) contained everything you needed.
 
-![Animated GIF showing the text-based interface of the slrn Usenet client, displaying a list of messages or groups in a retro, blocky font style reminiscent of early digital communication](usenet_in_slrn.gif)
+![Animated GIF showing the text-based interface of the slrn Usenet client, displaying a list of messages or groups in a retro, blocky font style reminiscent of early digital communication](images/usenet_in_slrn.gif)
 
 The visual style of these interfaces also reminds me of [Teletext](https://som-teletextviewer.sim-technik.de/tius/teletextviewer/desk.php?pagnr=100_02&ttx_select=p7de), it was unique looking, the aesthetics that you don't see much anymore. There was a raw, unpolished charm to it—blocky fonts, ASCII art, and a straightforward layout that didn’t overwhelm you with options. It was like a digital campfire, where people gathered to exchange ideas, software, or just chat about life, all through the hum of a modem and the patience of waiting for a reply that might take hours or days. That simplicity, paired with the thrill of global connection, made Fidonet feel like a secret club for tech pioneers, and I’ll always cherish being a part of it.
 
