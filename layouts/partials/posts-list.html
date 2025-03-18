@@ -1,6 +1,6 @@
 <!-- posts-list.html partial -->
 <!-- Display posts grouped by year -->
-<div class="list w-full max-w-md mx-auto mt-16">
+<div class="list w-full max-w-md mx-auto mt-4 md:mt-16">
   {{ $posts := where .Site.RegularPages "Section" "posts" }}
   {{ if $posts }}
     <!-- Group posts by year -->
