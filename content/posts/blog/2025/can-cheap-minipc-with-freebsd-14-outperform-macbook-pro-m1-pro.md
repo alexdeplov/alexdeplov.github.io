@@ -56,15 +56,6 @@ I believe macOS is accumulating more and more unnecessary features, each of whic
 
 At one point, I experimented with Motif Window Manager (MWM), which uses no more than 25MB (MB!!) of RAM. On macOS, it's usually 10 times more. Impressive.
 
-### What I don't like about FreeBSD in 2025
-
-- Fonts. They're not aesthetically pleasing. The font rendering differs from Mac's. Even using the same 1080p monitor, I can see the difference, and I don't prefer it. I changed the system font to SF Pro Display and [adjusted font rendering settings](https://mastodon.social/@alex_deplov/112894064306391247) to more closely match macOS.
-- Software availability. I couldn't find some of my favorite applications for FreeBSD. Applications like Ableton or Figma are only available for Windows/macOS.
-- The [packages collection](https://ports.freebsd.org/cgi/ports.cgi) lacks visual previews of applications. This is understandable since it's primarily used from the console, but there's no way to preview applications as you would in the Mac App Store. While there are links to package homepages where you can find screenshots, visiting each homepage is time-consuming. I think GhostBSD has a GUI version for this, but I don't remember it having images either.
-- FreeBSD and Wi-Fi drivers remain a persistent challenge. I hope they will [resolve this soon](https://freebsdfoundation.org/blog/improving-and-debugging-freebsds-intel-wi-fi-support-cheng-cuis-key-role-in-the-iwlwifi-project/).
-
-### Conclusion
-
 After completing the test, I realized that I couldn't completely switch platforms. Without Zoom, Figma, and other specific software, and considering the font rendering issues, I couldn't use the mini-PC running FreeBSD as my main work computer. Figma works fine in Firefox, but I couldn't get it to read local fonts, which was critical for me. And as an Apple developer and iOS/Mac interface designer, I still need to use macOS.
 
 This experiment showed me the impressive capabilities of low-cost hardware. If you can work with FreeBSD, you don't need to replace your computer every 5 years or so. However, with each macOS update, Apple adds more features, driven primarily by marketing to achieve more sales. In reality, we all — existing and new users — pay for this, as more features require more powerful hardware to run well, forcing us to upgrade. Consequently, Mac users get less value for their money.
