@@ -66,7 +66,10 @@
     <span class="text-[#FF6C24]">I specialize in sleep wellness, AI, creative photo filters, and other B2C apps.</span> 
     I lead startup projects from concept to launch.
   </div>
-  <img class="w-full max-w-md mt-4 md:mt-12 rounded-lg scale-100 md:scale-125" src="/images/hero2.webp" />
+  <video class="w-full max-w-md mt-4 md:mt-12 rounded-lg scale-100 md:scale-125" autoplay loop muted>
+    <source src="/images/hero.mp4" type="video/mp4">
+    Your browser does not support the video tag.
+  </video>
 </div>
 
 <style>
@@ -76,6 +79,12 @@
   font-style: normal;
 }
 </style>
+
+<script>
+  
+  const video = document.querySelector('video');
+  video.playbackRate = 0.5;
+</script>
 
 
 <div class="mt-8 w-full max-w-md mx-auto px-4">
