@@ -6,20 +6,20 @@
     <!-- Group posts by year -->
     {{ $postsByYear := $posts.GroupByDate "2006" }}
     {{ range $postsByYear }}
-      <h3 class="text-xl font-bold mt-6 mb-3">
-        {{ $currentYear := now.Year }}
-        {{ if eq (int .Key) $currentYear }}
+      {{ if eq .Key (now.Format "2006") }}
+        <h3 class="text-xl font-bold mt-6 mb-3">
           Blog / {{ .Key }}
-        {{ else }}
+        </h3>
+      {{ else }}
+        <h6 class="mt-6 mb-3">
           {{ .Key }}
-        {{ end }}
-      </h3>
+        </h6>
+      {{ end }}
       <ul>
         {{ range .Pages }}
           <li class="mb-2 ml-4 list-disc text-[#29ADFF]">
             <a href="{{ .Permalink }}" class="text-blue-500 hover:underline">{{ .Title }}</a>
           </li>
-          
         {{ end }}
       </ul>
     {{ end }}

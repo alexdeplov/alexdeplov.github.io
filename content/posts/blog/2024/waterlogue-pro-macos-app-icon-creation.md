@@ -28,7 +28,7 @@ I decided to start working with vector wave shapes first, to use as the basis fo
 
 ![Vector waves shapes](images/3.jpg)
 
-I used a circular golden ratio grid to make sure the waves and tail fit perfectly in a balanced composition. 
+I used a [circular golden ratio](https://interfacecraft.online/golden-ratio-svg-generator/) grid to make sure the waves and tail fit perfectly in a balanced composition. 
 
 ![Circular golden ratio](images/4.jpg)
 
