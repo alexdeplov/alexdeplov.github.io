@@ -8,23 +8,17 @@
     <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32.png">
     <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16.png">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <style>
-        body {
-            /* Default page background */
-            background-color: #131522;
-            color: #e2e8f0;
-        }
-        
-        .linkedInColor {
-            background-color: #0077b5;
-        }
-    </style>
 </head>
+
 <body class="w-inherit" style="background-color: {{ if .Params.bgColor }}{{ .Params.bgColor }}{{ else }}#131522{{ end }};">
 {{ block "main" . }}{{ end }}
 
 <!-- Privacy-first goatcounter, no cookies -->
-    <script data-goatcounter="https://goatinterface.goatcounter.com/count"
+<script data-goatcounter="https://goatinterface.goatcounter.com/count"
     async src="//gc.zgo.at/count.js"></script>
+
+<!-- Author attribution -->
+<meta name="fediverse:creator" content="@alex_deplov@mastodon.social">
+
 </body>
 </html>
