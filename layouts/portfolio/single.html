@@ -1,0 +1,28 @@
+{{ define "main" }}
+<!-- Your existing portfolio content -->
+<section class="portfolio w-full md:max-w-4xl mx-auto px-4">
+  <h1 class="text-3xl font-bold mb-4">{{ .Title }}</h1>
+  <div class="portfolio-content">
+    {{ .Content }}
+  </div>
+  <div class="portfolio-gallery">
+    <p>Custom portfolio section (e.g., images, projects, etc.)</p>
+    <img src="../../portfolio/1.jpg" alt="Portfolio Image 1" class="w-full h-auto mb-4">
+    <br/>
+    <img src="../../portfolio/2.jpg" alt="Portfolio Image 1" class="w-full h-auto mb-4">
+  </div>
+
+
+  <!-- Inject custom CSS to override the background image -->
+<style>
+  body {
+    background-image: none !important;
+  }
+</style>
+
+
+
+</section>
+{{ end }}
+
+
