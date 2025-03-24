@@ -272,8 +272,9 @@
     </div>
 
     <script>
-        const listItems = document.querySelectorAll('#fileList li');
         const container = document.querySelector('.container');
+        const fileList = document.getElementById('fileList');
+        let listItems = document.querySelectorAll('#fileList li');
         const actionModal = document.getElementById('actionModal');
         const actionMenuItems = document.querySelectorAll('#actionMenu li');
         let selectedIndex = 0;
@@ -322,14 +323,23 @@
             }
         });
 
-        // Select button functionality: toggle yellow text
+        // Select button functionality: toggle yellow text and move to next item
         document.getElementById('select').addEventListener('click', () => {
+            if (listItems.length === 0) return; // Do nothing if the list is empty
+
             const currentItem = listItems[selectedIndex];
             if (currentItem.classList.contains('marked')) {
                 currentItem.classList.remove('marked'); // Unmark if already marked
             } else {
                 currentItem.classList.add('marked'); // Mark with yellow text
             }
+
+            // Move to the next item
+            let newIndex = selectedIndex + 1;
+            if (newIndex >= listItems.length) {
+                newIndex = 0; // Wrap around to the first item if at the end
+            }
+            updateSelection(newIndex);
         });
 
         // Action button functionality: show the modal
@@ -379,13 +389,50 @@
 
         // Handle menu actions
         function handleMenuAction() {
-            const selectedItem = listItems[selectedIndex].textContent;
+            const selectedItem = listItems[selectedIndex];
             const action = actionMenuItems[menuSelectedIndex].textContent.trim();
 
             if (action === '[ Move ]') {
-                alert(`Moving: ${selectedItem}`);
+                alert(`Moving: ${selectedItem.textContent}`);
             } else if (action === '[ Delete ]') {
-                alert(`Deleting: ${selectedItem}`);
+                // Collect all items to delete (marked items and the currently selected item)
+                const itemsToDelete = new Set();
+
+                // Add all marked items
+                listItems.forEach((item, index) => {
+                    if (item.classList.contains('marked')) {
+                        itemsToDelete.add(item);
+                    }
+                });
+
+                // Add the currently selected item if not already marked
+                if (!selectedItem.classList.contains('marked')) {
+                    itemsToDelete.add(selectedItem);
+                }
+
+                // Remove all items in the set
+                itemsToDelete.forEach(item => {
+                    fileList.removeChild(item);
+                });
+
+                // Update the listItems NodeList after removal
+                listItems = document.querySelectorAll('#fileList li');
+
+                // Adjust the selectedIndex
+                if (listItems.length === 0) {
+                    // If the list is empty, reset selectedIndex
+                    selectedIndex = 0;
+                } else {
+                    // Find the new index of the item that should be selected
+                    if (selectedIndex >= listItems.length) {
+                        selectedIndex = listItems.length - 1;
+                    }
+                }
+
+                // Update the selection if there are still items in the list
+                if (listItems.length > 0) {
+                    updateSelection(selectedIndex);
+                }
             }
 
             // Close the modal
