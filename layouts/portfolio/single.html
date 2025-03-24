@@ -1,28 +1,181 @@
 {{ define "main" }}
-<!-- Your existing portfolio content -->
-<section class="portfolio w-full md:max-w-4xl mx-auto px-4">
-  <h1 class="text-3xl font-bold mb-4">{{ .Title }}</h1>
-  <div class="portfolio-content">
-    {{ .Content }}
-  </div>
-  <div class="portfolio-gallery">
-    <p>Custom portfolio section (e.g., images, projects, etc.)</p>
-    <img src="../../portfolio/1.jpg" alt="Portfolio Image 1" class="w-full h-auto mb-4">
-    <br/>
-    <img src="../../portfolio/2.jpg" alt="Portfolio Image 1" class="w-full h-auto mb-4">
-  </div>
 
+<div class="flex" style="min-height: 100vh;">
+    <nav class="xl:block hidden fixed z-10">
+      <ul class="nav-list">
+        <li data-project="1">Project 1</li>
+        <li data-project="2">Project 2</li>
+        <li data-project="3">Project 3</li>
+        <li data-project="4">Project 4</li>
+        <li data-project="5">Project 5</li>
+        <li data-project="6">Project 6</li>
+        <li data-project="7">Project 7</li>
+        <li data-project="8">Project 8</li>
+        <li data-project="9">Project 9</li>
+        <li data-project="10">Project 10</li>
+      </ul>
+    </nav>
+    <div class="absolute m-auto w-full flex">
+      <div class="project mx-auto">
+        <div class="project-item" data-project="1">
+          <img src="../../portfolio/1.jpg" alt="" data-img="1">
+          <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
+        </div>
+        <div class="project-item" data-project="2">
+          <img src="../../portfolio/2.jpg" alt="" data-img="2">
+          <p>Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</p>
+        </div>
+        <div class="project-item" data-project="3">
+          <img src="../../portfolio/2.jpg" alt="" data-img="3">
+          <p>Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.</p>
+        </div>
+        <div class="project-item" data-project="4">
+          <img src="../../portfolio/2.jpg" alt="" data-img="4">
+          <p>Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
+        </div>
+        <div class="project-item" data-project="5">
+          <img src="../../portfolio/2.jpg" alt="" data-img="5">
+          <p>Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium.</p>
+        </div>
+        <div class="project-item" data-project="6">
+          <img src="../../portfolio/2.jpg" alt="" data-img="6">
+          <p>Nemo enim ipsam voluptatem quia voluptas sit aspernatur aut odit aut fugit.</p>
+        </div>
+        <div class="project-item" data-project="7">
+          <img src="../../portfolio/2.jpg" alt="" data-img="7">
+          <p>Neque porro quisquam est, qui dolorem ipsum quia dolor sit amet, consectetur, adipisci velit.</p>
+        </div>
+        <div class="project-item" data-project="8">
+          <img src="../../portfolio/2.jpg" alt="" data-img="8">
+          <p>Quis autem vel eum iure reprehenderit qui in ea voluptate velit esse quam nihil molestiae consequatur.</p>
+        </div>
+        <div class="project-item" data-project="9">
+          <img src="../../portfolio/2.jpg" alt="" data-img="9">
+          <p>At vero eos et accusamus et iusto odio dignissimos ducimus qui blanditiis praesentium voluptatum.</p>
+        </div>
+        <div class="project-item" data-project="10">
+          <img src="../../portfolio/2.jpg" alt="" data-img="10">
+          <p>Et harum quidem rerum facilis est et expedita distinctio. Nam libero tempore, cum soluta nobis est eligendi.</p>
+        </div>
+      </div>
+    </div>
+</div>
 
-  <!-- Inject custom CSS to override the background image -->
 <style>
-  body {
-    background-image: none !important;
-  }
+body {
+  box-sizing: border-box;
+  background-color: rgb(17, 17, 18) !important;
+  background-image: none !important;
+  margin: 0;
+  padding: 0;
+}
+
+nav {
+  top: 50%;
+  left: 0;
+  transform: translateY(-50%);
+  width: 200px; /* Adjust as needed */
+}
+
+.nav-list {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  font-size: 0.7rem;
+  font-weight: 500;
+}
+
+.nav-list li {
+  padding: 10px 20px;
+  color: #666;
+  cursor: pointer;
+  transform-origin: left center;
+  transition: all 0.6s ease;
+}
+
+  // .nav-list li:hover {
+  //   background-color: rgba(255, 255, 255, 0.05);
+  // }
+
+.nav-list li.active {
+  color: #fff;
+  transform: scale(1.1); 
+  
+  transition: all 0.3s ease;
+}
+
+.project img {
+  width: 100%;
+  max-width: 800px;
+  display: block;
+}
+
+.project-item {
+  margin-bottom: 20px;
+}
+
+.project-item p {
+  color: #fff;
+  max-width: 800px;
+  margin: 10px 0 0 0;
+}
 </style>
 
+<script>
+document.addEventListener('DOMContentLoaded', () => {
+  const navItems = document.querySelectorAll('.nav-list li');
+  const projectItems = document.querySelectorAll('.project-item');
+  let activeProject = null;
+
+  // Click event for navigation items
+  navItems.forEach(item => {
+    item.addEventListener('click', () => {
+      const projectId = item.getAttribute('data-project');
+      const targetProject = document.querySelector(`.project-item[data-project="${projectId}"]`);
+      
+      if (targetProject) {
+        targetProject.scrollIntoView({
+          behavior: 'smooth',
+          block: 'center'
+        });
+        
+        setTimeout(() => {
+          updateActiveNav(projectId);
+        }, 300); // Small delay to ensure highlighting is smooth
+      }
+    });
+  });
+
+  function updateActiveNav(projectId) {
+    navItems.forEach(nav => nav.classList.remove('active'));
+    const activeItem = document.querySelector(`.nav-list li[data-project="${projectId}"]`);
+    if (activeItem) {
+      activeItem.classList.add('active');
+    }
+  }
+
+  // Use Intersection Observer for better tracking
+  const observer = new IntersectionObserver(entries => {
+    let visibleProject = null;
+
+    entries.forEach(entry => {
+      if (entry.isIntersecting) {
+        visibleProject = entry.target.getAttribute('data-project');
+      }
+    });
+
+    if (visibleProject && visibleProject !== activeProject) {
+      activeProject = visibleProject;
+      updateActiveNav(activeProject);
+    }
+  }, {
+    root: null, // Observe within the viewport
+    threshold: 0.6 // Adjust how much of the element must be visible
+  });
+
+  projectItems.forEach(item => observer.observe(item));
+});
+</script>
 
 
-</section>
 {{ end }}
-
-

@@ -2,17 +2,17 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>Case-Studies on Alexander Deplov – Senior Product Designer Blog</title>
-    <link>http://localhost:1313/tags/case-studies/</link>
+    <link>https://interfacecraft.online/tags/case-studies/</link>
     <description>Recent content in Case-Studies on Alexander Deplov – Senior Product Designer Blog</description>
     <generator>Hugo</generator>
     <language>en-us</language>
     <lastBuildDate>Fri, 01 Nov 2024 16:28:45 +0100</lastBuildDate>
-    <atom:link href="http://localhost:1313/tags/case-studies/index.xml" rel="self" type="application/rss+xml" />
+    <atom:link href="https://interfacecraft.online/tags/case-studies/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>Opera Browser Onboarding UX Analysis</title>
-      <link>http://localhost:1313/posts/blog/2024/opera-browser-onboarding-ux-analysis/</link>
+      <link>https://interfacecraft.online/posts/blog/2024/opera-browser-onboarding-ux-analysis/</link>
       <pubDate>Fri, 01 Nov 2024 16:28:45 +0100</pubDate>
-      <guid>http://localhost:1313/posts/blog/2024/opera-browser-onboarding-ux-analysis/</guid>
+      <guid>https://interfacecraft.online/posts/blog/2024/opera-browser-onboarding-ux-analysis/</guid>
       <description>&lt;iframe src=&#34;https://docs.google.com/presentation/d/e/2PACX-1vQlk_bUStpNmEc5hiQs7nGSU7qHR1J5z4bi4TDNpvF4pSI5bCRIlzCHPKMvLY21Cg/embed?start=false&amp;loop=false&amp;delayms=3000&#34; frameborder=&#34;0&#34; width=&#34;100%&#34; allowfullscreen=&#34;true&#34; mozallowfullscreen=&#34;true&#34; webkitallowfullscreen=&#34;true&#34; style=&#34;width: 100%; aspect-ratio: 16/10&#34; autofocus&gt;&lt;/iframe&gt;&#xA;&lt;p&gt;Inspired by the &lt;a href=&#34;https://growth.design/course&#34;&gt;Product Psychology Masterclass&lt;/a&gt;, I did an analysis of the Opera browser onboarding to find the peaks and valleys in the journey.&lt;/p&gt;&#xA;&lt;p&gt;Each step will increase or decrease the psych level marked with 🟢 for up or 🔻 for down.&lt;/p&gt;&#xA;&lt;p&gt;The Opera website has a nice claim about browser features. Faster, safer and smarter than standard browsers. I was excited to try something new, so my psych level was high 🟢:&lt;/p&gt;</description>
     </item>
   </channel>

@@ -1,10 +1,9 @@
 {{ $accentColor := .Params.accentColor | default "#3B82F6" }}
 
 <div class="max-w-md mx-auto w-full px-4">
-  <div id="bio" class="mt-4 md:mt-6 font-medium text-xl md:text-2xl leading-7 md:leading-8 text-[#FFCCAA] italic">
-    I'm a Senior Product Designer with 16 years of experience in tech startups. 
+  <div id="bio" class="mt-4 md:mt-6 text-[#FFCCAA]">
+    I'm a designer with 16 years of experience in tech startups. 
     <span class="text-[#FF6C24]">I specialize in sleep wellness, AI, creative photo filters, and other B2C apps.</span> 
-    I lead startup projects from concept to launch.
   </div>
   <video class="w-full max-w-md mt-4 md:mt-12 rounded-lg scale-100 md:scale-125" autoplay loop muted playsinline>
     <source src="/images/hero.mp4" type="video/mp4">
@@ -36,8 +35,10 @@
 
 <style>
 #bio {
-  font-family: "Instrument Serif", serif;
-  font-weight: 400;
+  // font-family: "Playfair Display", serif;
+  font-optical-sizing: auto;
+  font-weight: 500;
+  font-size: 1.2rem;
   font-style: normal;
 }
 </style>
