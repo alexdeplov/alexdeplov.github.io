@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>File List with Buttons</title>
+    <title>File List with Native Scroll</title>
     <style>
         body {
             margin: 0;
@@ -50,12 +50,6 @@
             color: yellow !important; /* Override the default color */
         }
 
-        /* Center the selected item */
-        .center-selected {
-            scroll-snap-type: y mandatory;
-            scroll-snap-align: center;
-        }
-
         /* Button container styling */
         .button-container {
             position: fixed;
@@ -95,10 +89,66 @@
             border-bottom-color: #ffffff;
             border-right-color: #ffffff;
         }
+
+        /* Modal styling */
+        .modal {
+            display: none; /* Hidden by default */
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0, 0, 0, 0.5); /* Semi-transparent background */
+            z-index: 1000;
+        }
+
+        .modal-content {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            background-color: #c0c0c0; /* Gray background */
+            padding: 20px;
+            border: 2px solid;
+            border-top-color: #ffffff; /* White top border */
+            border-left-color: #ffffff; /* White left border */
+            border-bottom-color: #808080; /* Dark gray bottom border */
+            border-right-color: #808080; /* Dark gray right border */
+            width: 300px;
+            text-align: center;
+        }
+
+        .modal-content h3 {
+            margin: 0 0 20px 0;
+            font-size: 16px;
+            text-decoration: underline;
+        }
+
+        .modal-content ul {
+            padding: 0;
+            margin: 0 0 20px 0;
+            list-style: none;
+            line-height: 1.5em;
+        }
+
+        .modal-content li {
+            padding: 5px;
+            cursor: pointer;
+        }
+
+        .modal-content li:hover {
+            background-color: cyan; /* Highlight on hover */
+            color: black;
+        }
+
+        .modal-content li.selected {
+            background-color: cyan; /* Highlight selected item */
+            color: black;
+        }
     </style>
 </head>
 <body>
-    <div class="container center-selected" id="listContainer">
+    <div class="container" id="listContainer">
         <ul id="fileList">
             <!-- Repeated file names to reach ~100 lines -->
             <li>ICACLIENT-3.0</li>
@@ -209,25 +259,38 @@
         <button class="retro-button" id="action">Action</button>
     </div>
 
+    <!-- Modal for Action menu -->
+    <div class="modal" id="actionModal">
+        <div class="modal-content">
+            <h3>Action Menu</h3>
+            <ul id="actionMenu">
+                <li>[ Move ]</li>
+                <li>[ Delete ]</li>
+                <li>[ Cancel ]</li>
+            </ul>
+        </div>
+    </div>
+
     <script>
         const listItems = document.querySelectorAll('#fileList li');
         const container = document.querySelector('.container');
+        const actionModal = document.getElementById('actionModal');
+        const actionMenuItems = document.querySelectorAll('#actionMenu li');
         let selectedIndex = 0;
+        let menuSelectedIndex = 0;
 
-        // Set initial selection
+        // Set initial selection for the file list
         listItems[selectedIndex].classList.add('selected');
 
-        // Function to update selection
+        // Function to update file list selection without scrolling
         function updateSelection(newIndex) {
             listItems[selectedIndex].classList.remove('selected');
             selectedIndex = newIndex;
             listItems[selectedIndex].classList.add('selected');
-
-            // Scroll to the selected item, keeping it centered
-            listItems[selectedIndex].scrollIntoView({ block: 'center', behavior: 'smooth' });
+            // Removed scrollIntoView to prevent automatic scrolling
         }
 
-        // Handle scroll to change selection
+        // Handle scroll to change file list selection
         container.addEventListener('scroll', () => {
             const containerHeight = container.clientHeight;
             const scrollTop = container.scrollTop;
@@ -250,10 +313,12 @@
             }
         });
 
-        // Prevent arrow key navigation (only scrolling allowed)
+        // Prevent arrow key navigation for file list (only scrolling allowed)
         document.addEventListener('keydown', (e) => {
             if (e.key === 'ArrowUp' || e.key === 'ArrowDown') {
-                e.preventDefault();
+                if (!actionModal.style.display || actionModal.style.display === 'none') {
+                    e.preventDefault();
+                }
             }
         });
 
@@ -267,10 +332,65 @@
             }
         });
 
-        // Action button functionality (for demonstration)
+        // Action button functionality: show the modal
         document.getElementById('action').addEventListener('click', () => {
-            alert(`Action on: ${listItems[selectedIndex].textContent}`);
+            actionModal.style.display = 'block';
+            menuSelectedIndex = 0; // Reset menu selection to the first item
+            updateMenuSelection();
         });
+
+        // Function to update menu selection
+        function updateMenuSelection() {
+            actionMenuItems.forEach((item, index) => {
+                if (index === menuSelectedIndex) {
+                    item.classList.add('selected');
+                } else {
+                    item.classList.remove('selected');
+                }
+            });
+        }
+
+        // Handle menu navigation with arrow keys
+        document.addEventListener('keydown', (e) => {
+            if (actionModal.style.display === 'block') {
+                if (e.key === 'ArrowUp') {
+                    e.preventDefault();
+                    menuSelectedIndex = Math.max(0, menuSelectedIndex - 1);
+                    updateMenuSelection();
+                } else if (e.key === 'ArrowDown') {
+                    e.preventDefault();
+                    menuSelectedIndex = Math.min(actionMenuItems.length - 1, menuSelectedIndex + 1);
+                    updateMenuSelection();
+                } else if (e.key === 'Enter') {
+                    e.preventDefault();
+                    handleMenuAction();
+                }
+            }
+        });
+
+        // Handle menu item clicks
+        actionMenuItems.forEach((item, index) => {
+            item.addEventListener('click', () => {
+                menuSelectedIndex = index;
+                updateMenuSelection();
+                handleMenuAction();
+            });
+        });
+
+        // Handle menu actions
+        function handleMenuAction() {
+            const selectedItem = listItems[selectedIndex].textContent;
+            const action = actionMenuItems[menuSelectedIndex].textContent.trim();
+
+            if (action === '[ Move ]') {
+                alert(`Moving: ${selectedItem}`);
+            } else if (action === '[ Delete ]') {
+                alert(`Deleting: ${selectedItem}`);
+            }
+
+            // Close the modal
+            actionModal.style.display = 'none';
+        }
     </script>
 </body>
 </html>
