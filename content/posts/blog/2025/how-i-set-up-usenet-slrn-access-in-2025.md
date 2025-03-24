@@ -4,8 +4,9 @@ date = 2025-03-13T17:19:30+01:00
 draft = false
 featured = false
 author = "Alexander Deplov"
-bgColor = "#030406"
+bgColor = "#050607"
 accentColor = "#0034ff"
+backgroundPattern = false
 +++
 
 In the 90s, before even the Internet existed in our area, I was lucky to be part of Fidonet. It was an amazing experience, that's hard to explain today. Connecting with people across the globe through a network felt like stepping into the future, sharing messages (and sometimes files) at a time when such communication was rare and magical in its own way. All the memories about Fidonet are always warm. The TUI (Text-based user interface) contained everything you needed.
