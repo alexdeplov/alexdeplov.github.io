@@ -1,7 +1,7 @@
 +++
 title = "iOS Apps Icon Corner Radius Formula"
 date = 2025-03-24T11:06:19+01:00
-draft = true
+draft = false
 author = "Alexander Deplov"
 accentColor = "#5c53ff"
 +++
