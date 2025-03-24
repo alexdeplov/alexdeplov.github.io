@@ -1,0 +1,276 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>File List with Buttons</title>
+    <style>
+        body {
+            margin: 0;
+            padding: 0;
+            background-color: #000080; /* Dark blue background like in the screenshot */
+            font-family: 'Courier New', Courier, monospace; /* Monospace font for terminal-like look */
+            color: white;
+            overflow: hidden; /* Prevent default body scrolling */
+        }
+
+        .container {
+            height: calc(100vh - 60px); /* Adjust height to leave space for buttons at the bottom */
+            overflow-y: scroll; /* Enable vertical scrolling */
+            scrollbar-width: none; /* Hide scrollbar for Firefox */
+            -ms-overflow-style: none; /* Hide scrollbar for IE/Edge */
+        }
+
+        .container::-webkit-scrollbar {
+            display: none; /* Hide scrollbar for Chrome/Safari */
+        }
+
+        ul {
+            list-style: none;
+            padding: 0;
+            margin: 0;
+            line-height: 1.5em; /* Line spacing similar to screenshot */
+            padding-top: 50vh; /* Half the viewport height for top empty space */
+            padding-bottom: 50vh; /* Half the viewport height for bottom empty space */
+        }
+
+        li {
+            padding: 2px 10px;
+            white-space: nowrap; /* Prevent text wrapping */
+        }
+
+        /* Selected item styling */
+        li.selected {
+            background-color: cyan;
+            color: black;
+        }
+
+        /* Yellow text for marked items */
+        li.marked {
+            color: yellow !important; /* Override the default color */
+        }
+
+        /* Center the selected item */
+        .center-selected {
+            scroll-snap-type: y mandatory;
+            scroll-snap-align: center;
+        }
+
+        /* Button container styling */
+        .button-container {
+            position: fixed;
+            bottom: 10px;
+            left: 50%;
+            transform: translateX(-50%);
+            display: flex;
+            gap: 20px; /* Space between buttons */
+            background-color: #c0c0c0; /* Gray background like the dialog */
+            padding: 10px;
+            border: 2px solid;
+            border-top-color: #ffffff; /* White top border for 3D effect */
+            border-left-color: #ffffff; /* White left border for 3D effect */
+            border-bottom-color: #808080; /* Dark gray bottom border */
+            border-right-color: #808080; /* Dark gray right border */
+        }
+
+        /* Button styling */
+        .retro-button {
+            background-color: #c0c0c0; /* Gray background */
+            border: 2px solid;
+            border-top-color: #ffffff; /* White top border */
+            border-left-color: #ffffff; /* White left border */
+            border-bottom-color: #808080; /* Dark gray bottom border */
+            border-right-color: #808080; /* Dark gray right border */
+            padding: 5px 15px;
+            font-family: 'Courier New', Courier, monospace;
+            font-size: 14px;
+            color: black;
+            cursor: pointer;
+            text-align: center;
+        }
+
+        .retro-button:active {
+            border-top-color: #808080; /* Invert borders on click for pressed effect */
+            border-left-color: #808080;
+            border-bottom-color: #ffffff;
+            border-right-color: #ffffff;
+        }
+    </style>
+</head>
+<body>
+    <div class="container center-selected" id="listContainer">
+        <ul id="fileList">
+            <!-- Repeated file names to reach ~100 lines -->
+            <li>ICACLIENT-3.0</li>
+            <li>WAIDA-2.1.1</li>
+            <li>AMBER-6.0</li>
+            <li>AMBER-7.0p</li>
+            <li>AMBER-8</li>
+            <li>ANASYS1</li>
+            <li>ANT-1.6</li>
+            <li>APACHE-1.3.27</li>
+            <li>APACHE-1.3.33</li>
+            <li>AUTOCONF-2.57</li>
+            <li>AUTODOCK-305</li>
+            <li>ICACLIENT-3.0</li>
+            <li>WAIDA-2.1.1</li>
+            <li>AMBER-6.0</li>
+            <li>AMBER-7.0p</li>
+            <li>AMBER-8</li>
+            <li>ANASYS1</li>
+            <li>ANT-1.6</li>
+            <li>APACHE-1.3.27</li>
+            <li>APACHE-1.3.33</li>
+            <li>AUTOCONF-2.57</li>
+            <li>AUTODOCK-305</li>
+            <li>ICACLIENT-3.0</li>
+            <li>WAIDA-2.1.1</li>
+            <li>AMBER-6.0</li>
+            <li>AMBER-7.0p</li>
+            <li>AMBER-8</li>
+            <li>ANASYS1</li>
+            <li>ANT-1.6</li>
+            <li>APACHE-1.3.27</li>
+            <li>APACHE-1.3.33</li>
+            <li>AUTOCONF-2.57</li>
+            <li>AUTODOCK-305</li>
+            <li>ICACLIENT-3.0</li>
+            <li>WAIDA-2.1.1</li>
+            <li>AMBER-6.0</li>
+            <li>AMBER-7.0p</li>
+            <li>AMBER-8</li>
+            <li>ANASYS1</li>
+            <li>ANT-1.6</li>
+            <li>APACHE-1.3.27</li>
+            <li>APACHE-1.3.33</li>
+            <li>AUTOCONF-2.57</li>
+            <li>AUTODOCK-305</li>
+            <li>ICACLIENT-3.0</li>
+            <li>WAIDA-2.1.1</li>
+            <li>AMBER-6.0</li>
+            <li>AMBER-7.0p</li>
+            <li>AMBER-8</li>
+            <li>ANASYS1</li>
+            <li>ANT-1.6</li>
+            <li>APACHE-1.3.27</li>
+            <li>APACHE-1.3.33</li>
+            <li>AUTOCONF-2.57</li>
+            <li>AUTODOCK-305</li>
+            <li>ICACLIENT-3.0</li>
+            <li>WAIDA-2.1.1</li>
+            <li>AMBER-6.0</li>
+            <li>AMBER-7.0p</li>
+            <li>AMBER-8</li>
+            <li>ANASYS1</li>
+            <li>ANT-1.6</li>
+            <li>APACHE-1.3.27</li>
+            <li>APACHE-1.3.33</li>
+            <li>AUTOCONF-2.57</li>
+            <li>AUTODOCK-305</li>
+            <li>ICACLIENT-3.0</li>
+            <li>WAIDA-2.1.1</li>
+            <li>AMBER-6.0</li>
+            <li>AMBER-7.0p</li>
+            <li>AMBER-8</li>
+            <li>ANASYS1</li>
+            <li>ANT-1.6</li>
+            <li>APACHE-1.3.27</li>
+            <li>APACHE-1.3.33</li>
+            <li>AUTOCONF-2.57</li>
+            <li>AUTODOCK-305</li>
+            <li>ICACLIENT-3.0</li>
+            <li>WAIDA-2.1.1</li>
+            <li>AMBER-6.0</li>
+            <li>AMBER-7.0p</li>
+            <li>AMBER-8</li>
+            <li>ANASYS1</li>
+            <li>ANT-1.6</li>
+            <li>APACHE-1.3.27</li>
+            <li>APACHE-1.3.33</li>
+            <li>AUTOCONF-2.57</li>
+            <li>AUTODOCK-305</li>
+            <li>ICACLIENT-3.0</li>
+            <li>WAIDA-2.1.1</li>
+            <li>AMBER-6.0</li>
+            <li>AMBER-7.0p</li>
+            <li>AMBER-8</li>
+            <li>ANASYS1</li>
+            <li>ANT-1.6</li>
+            <li>APACHE-1.3.27</li>
+            <li>APACHE-1.3.33</li>
+            <li>AUTOCONF-2.57</li>
+            <li>AUTODOCK-305</li>
+        </ul>
+    </div>
+
+    <!-- Button container -->
+    <div class="button-container">
+        <button class="retro-button" id="select">Select</button>
+        <button class="retro-button" id="action">Action</button>
+    </div>
+
+    <script>
+        const listItems = document.querySelectorAll('#fileList li');
+        const container = document.querySelector('.container');
+        let selectedIndex = 0;
+
+        // Set initial selection
+        listItems[selectedIndex].classList.add('selected');
+
+        // Function to update selection
+        function updateSelection(newIndex) {
+            listItems[selectedIndex].classList.remove('selected');
+            selectedIndex = newIndex;
+            listItems[selectedIndex].classList.add('selected');
+
+            // Scroll to the selected item, keeping it centered
+            listItems[selectedIndex].scrollIntoView({ block: 'center', behavior: 'smooth' });
+        }
+
+        // Handle scroll to change selection
+        container.addEventListener('scroll', () => {
+            const containerHeight = container.clientHeight;
+            const scrollTop = container.scrollTop;
+
+            // Adjust for the padding at the top
+            const paddingTop = containerHeight / 2; // Matches the padding-top in CSS
+            const adjustedScrollTop = scrollTop - paddingTop;
+
+            // Calculate the index of the item in the center
+            const centerOffset = adjustedScrollTop + containerHeight / 2;
+            const itemHeight = listItems[0].offsetHeight;
+            let newIndex = Math.floor(centerOffset / itemHeight);
+
+            // Clamp the index to valid range
+            if (newIndex < 0) newIndex = 0;
+            if (newIndex >= listItems.length) newIndex = listItems.length - 1;
+
+            if (newIndex !== selectedIndex) {
+                updateSelection(newIndex);
+            }
+        });
+
+        // Prevent arrow key navigation (only scrolling allowed)
+        document.addEventListener('keydown', (e) => {
+            if (e.key === 'ArrowUp' || e.key === 'ArrowDown') {
+                e.preventDefault();
+            }
+        });
+
+        // Select button functionality: toggle yellow text
+        document.getElementById('select').addEventListener('click', () => {
+            const currentItem = listItems[selectedIndex];
+            if (currentItem.classList.contains('marked')) {
+                currentItem.classList.remove('marked'); // Unmark if already marked
+            } else {
+                currentItem.classList.add('marked'); // Mark with yellow text
+            }
+        });
+
+        // Action button functionality (for demonstration)
+        document.getElementById('action').addEventListener('click', () => {
+            alert(`Action on: ${listItems[selectedIndex].textContent}`);
+        });
+    </script>
+</body>
+</html>
