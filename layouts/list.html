@@ -25,7 +25,7 @@
                     <div>
                         <h1 class="mb-2 mt-3 text-[1.6rem] font-bold">{{ site.Params.name }}</h1>
                         <div class="break-words">
-                            {{ site.Params.bio | default (print `A personal blog by ` site.Params.name) }}
+                            {{ site.Params.bio | default (print 'A personal blog by ' site.Params.name) }}
                         </div>
                     </div>
                 {{ end }}

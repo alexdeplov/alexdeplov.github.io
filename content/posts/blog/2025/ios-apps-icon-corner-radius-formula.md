@@ -1,5 +1,5 @@
 +++
-title = "iOS Apps Icon Corner Radius Formula"
+title = "iOS apps icon corner radius formula"
 date = 2025-03-24T11:06:19+01:00
 draft = false
 author = "Alexander Deplov"
