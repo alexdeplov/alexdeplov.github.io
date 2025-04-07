@@ -1,62 +1,28 @@
 <!-- posts-list.html partial -->
-<!-- Display posts grouped by year with "Show More" button -->
+<!-- Display posts grouped by year -->
 <div class="list w-full max-w-md mx-auto mt-4 md:mt-16">
   {{ $posts := where .Site.RegularPages "Section" "posts" }}
   {{ if $posts }}
     <!-- Group posts by year -->
     {{ $postsByYear := $posts.GroupByDate "2006" }}
-    
-    <!-- First show only 2025 posts -->
     {{ range $postsByYear }}
-      {{ if eq .Key "2025" }}
+      {{ if eq .Key (now.Format "2006") }}
         <h3 class="text-xl font-bold mt-6 mb-3">
           Blog / {{ .Key }}
         </h3>
-        <ul>
-          {{ range .Pages }}
-            <li class="mb-2 ml-4 list-disc text-[#29ADFF]">
-              <a href="{{ .Permalink }}" class="text-blue-500 hover:underline">{{ .Title }}</a>
-            </li>
-          {{ end }}
-        </ul>
+      {{ else }}
+        <h6 class="mt-6 mb-3">
+          {{ .Key }}
+        </h6>
       {{ end }}
-    {{ end }}
-    
-    <!-- "Show More" button -->
-    <div id="showMoreBtnContainer" class="ml-4 mt-6">
-      <button id="showMoreBtn" class="hover:underline">
-        Show more posts
-      </button>
-    </div>
-    
-    <!-- Hidden content (older posts) -->
-    <div id="olderPosts" class="hidden">
-      {{ range $postsByYear }}
-        {{ if ne .Key "2025" }}
-          <h6 class="mt-6 mb-3">
-            {{ .Key }}
-          </h6>
-          <ul>
-            {{ range .Pages }}
-              <li class="mb-2 ml-4 list-disc text-[#29ADFF]">
-                <a href="{{ .Permalink }}" class="text-blue-500 hover:underline">{{ .Title }}</a>
-              </li>
-            {{ end }}
-          </ul>
+      <ul>
+        {{ range .Pages }}
+          <li class="mb-2 ml-4 list-disc text-[#29ADFF]">
+            <a href="{{ .Permalink }}" class="text-blue-500 hover:underline">{{ .Title }}</a>
+          </li>
         {{ end }}
-      {{ end }}
-    </div>
-    
-    <!-- JavaScript to toggle visibility -->
-    <script>
-      document.getElementById('showMoreBtn').addEventListener('click', function() {
-        var olderPosts = document.getElementById('olderPosts');
-        var buttonContainer = document.getElementById('showMoreBtnContainer');
-        
-        olderPosts.classList.remove('hidden');
-        buttonContainer.classList.add('hidden');
-      });
-    </script>
+      </ul>
+    {{ end }}
   {{ else }}
     <p>No posts yet.</p>
   {{ end }}

@@ -1,5 +1,5 @@
 +++
-title = "How I automated my computer routine with macOS folder actions"
+title = "How I Automated My Computer Routine With macOS Folder Actions"
 date = 2025-02-12T21:53:39+01:00
 draft = false
 featured = false
