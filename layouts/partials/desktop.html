@@ -1,0 +1,50 @@
+{{ $accentColor := .Params.accentColor | default "#3B82F6" }}
+
+<div class="max-w-md mx-auto w-full px-4">
+  <div id="bio" class="mt-4 md:mt-6 text-[#FFCCAA]">
+    I'm a designer with 16 years of experience in tech startups. 
+    <span class="text-[#FF6C24]">I specialize in sleep wellness, AI, creative photo filters, and other B2C apps.</span> 
+  </div>
+  <video class="w-full max-w-md mt-4 md:mt-12 rounded-lg scale-100 md:scale-125" autoplay loop muted playsinline>
+    <source src="/images/hero.mp4" type="video/mp4">
+    Your browser does not support the video tag.
+  </video>
+
+  <ul class="mt-12">
+    <li class="mb-2 ml-0 text-[{{ $accentColor }}] flex w-full">
+        <span class="mr-2">
+            <svg width="20" height="21" viewBox="0 0 20 21" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <rect y="0.738037" width="20" height="20" rx="6" fill="#27272F"/>
+            <path d="M5.92114 6.65918C5.92114 5.53283 6.83423 4.61975 7.96057 4.61975H10V8.69861H7.96057C6.83423 8.69861 5.92114 7.78553 5.92114 6.65918V6.65918Z" fill="#FF0229"/>
+            <path d="M5.92114 10.738C5.92114 9.61169 6.83423 8.69861 7.96057 8.69861H10V12.7775H7.96057C6.83423 12.7775 5.92114 11.8644 5.92114 10.738V10.738Z" fill="#9251FF"/>
+            <path d="M5.92114 14.8169C5.92114 13.6905 6.83423 12.7775 7.96057 12.7775H10V14.8169C10 15.9432 9.08692 16.8563 7.96057 16.8563V16.8563C6.83423 16.8563 5.92114 15.9432 5.92114 14.8169V14.8169Z" fill="#00BF5F"/>
+            <rect x="10" y="8.69861" width="4.07886" height="4.07886" rx="2.03943" fill="#00B0F8"/>
+            <path d="M14.0789 6.65918C14.0789 5.53283 13.1658 4.61975 12.0394 4.61975H10V8.69861H12.0394C13.1658 8.69861 14.0789 7.78553 14.0789 6.65918V6.65918Z" fill="#FF610E"/>
+            </svg>
+        </span>
+        <a href="https://pleeq.com/alexander_deplov_portfolio/" target="_blank" rel="nofollow">Product Designer / Portfolio</a>
+          <span class="inline-block ml-1">
+            <svg width="12" height="12" viewBox="0 0 12 12" fill="none" xmlns="http://www.w3.org/2000/svg" class="inline-block ml-1">
+              <path d="M2 10 L10 2 M10 2 H3 M10 2 V9" stroke="{{ $accentColor }}" stroke-width="1.75" stroke-linecap="round"/>
+            </svg>
+          <span>
+        </a>
+    </li>
+  </ul>
+</div>
+
+<style>
+#bio {
+  // font-family: "Playfair Display", serif;
+  font-optical-sizing: auto;
+  font-weight: 500;
+  font-size: 1.2rem;
+  font-style: normal;
+}
+</style>
+
+<script>
+  // Select the video element and set playback speed to 0.5x (slower)
+  const video = document.querySelector('video');
+  video.playbackRate = 0.5;
+</script>
