@@ -5,8 +5,6 @@ draft = false
 featured = true
 author = "Alexander Deplov"
 tags = ["case-studies"]
-accentColor = "#5020ff"
-bgColor = "#0f0720"
 +++
 
 <iframe src="https://docs.google.com/presentation/d/e/2PACX-1vQlk_bUStpNmEc5hiQs7nGSU7qHR1J5z4bi4TDNpvF4pSI5bCRIlzCHPKMvLY21Cg/embed?start=false&loop=false&delayms=3000" frameborder="0" width="100%" allowfullscreen="true" mozallowfullscreen="true" webkitallowfullscreen="true" style="width: 100%; aspect-ratio: 16/10" autofocus></iframe>

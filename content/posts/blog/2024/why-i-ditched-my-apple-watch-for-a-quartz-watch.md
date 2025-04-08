@@ -4,8 +4,6 @@ date = 2024-11-20T21:37:37+01:00
 draft = false
 featured = false
 author = "Alexander Deplov"
-accentColor = "#f6a43b"
-bgColor = "#100e15"
 +++
 
 I have always been a {{% highlighter %}}HUGE{{% /highlighter %}} Apple Watch fan. I used this device day and night, but at some point, after couple of years usage, I realized that I don't like it anymore. The biggest issue was that the battery drained too fast, so I had to charge it three times a day. I should add that I was wearing it at night to see the time if I woke up in the middle of the night.

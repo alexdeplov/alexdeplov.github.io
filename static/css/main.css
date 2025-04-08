@@ -6,14 +6,26 @@
 /* Define root variables for both light and dark mode */
 :root {
     /* Light mode variables (default) */
-    --bg-color: #131522;
-    --text-color: #e3e3e3;
-    --link-color: #3171fe;
+    --bg-color: #ffffff;
+    --text-color: #131522;
+    --link-color: #6639dc;
     --link-visited-color: #6639dc;
-    --heading-color: #d7d7d7;
+    --heading-color: #1a1a1a;
     --border-color: #dddddd;
     --accent-color: #4a90e2;
-}
+  }
+  
+  @media (prefers-color-scheme: dark) {
+    :root {
+      --bg-color: #18181c;
+      --text-color: #e3e3e3;
+      --link-color: #6639dc;
+      --link-visited-color: #6639dc;
+      --heading-color: #d7d7d7;
+      --border-color: #444444;
+      --accent-color: #4a90e2;
+    }
+  }
 
 /* Apply variables to elements */
 body {
@@ -34,6 +46,20 @@ h1, h2, h3, h4, h5, h6 {
 
 .content a:visited{
     color: var(--link-visited-color);
+}
+
+.content p{
+    color: #43474F;
+}
+
+@media (prefers-color-scheme: dark) {
+    .content p {
+        color: #d6dbe1;
+    }   
+}
+
+#replyViaEmail{
+    color: var(--bg-color);
 }
 
 .content h3{
@@ -74,7 +100,17 @@ h1, h2, h3, h4, h5, h6 {
 .content h2{
     font-size: 1.5rem;
     margin-top: 2rem;
-    color: white;
+    
+}
+
+.content h2{
+    color: #222;
+}
+
+@media (prefers-color-scheme: dark) {
+    .content h2 {
+        color: white;
+    }
 }
 
 .content img{
@@ -86,17 +122,30 @@ h1, h2, h3, h4, h5, h6 {
     margin-top: 2rem;
     margin-bottom: 2rem;
     padding: 0.5rem 1rem;
-    background-color: #1F1F31;
+    background-color: #eceff489 !important;
     border-left: 0.3rem solid #8C52FF;
     border-radius: 0.3rem; 
 }
 
+@media (prefers-color-scheme: dark) {
+    .content blockquote {
+        background-color: #1F1F31 !important;
+    }
+}
+
 .content .highlighter {
-    background-color: #2d2d2d; /* Dark background */
-    color: #ff8c00; /* Orange text */
+    background-color:#2d2d2d10; 
+    color: #ff6200;
     font-family: 'Plus Jakarta Sans', system-ui, -apple-system, monospace;
     padding: 0.2em 0.4em;
     border-radius: 4px;
+}
+
+@media (prefers-color-scheme: dark) {
+    .content .highlighter {
+        background-color:  #2d2d2d; 
+        color: #ff8c00;
+    }
 }
 
 a {
@@ -108,7 +157,7 @@ a:hover {
 }
 
 .list a:visited{
-    color: var(--link-visited-color);
+    /* color: var(--link-visited-color); */
 }
 
 .list li::marker{
@@ -129,12 +178,18 @@ nav a{
     max-width: 100%;           /* Prevents overflow beyond container */
     padding: 1.5em;              /* Optional: Adds padding for readability */
     box-sizing: border-box;    /* Ensures padding doesn’t cause overflow */
-    background-color: hsl(232, 20.3%, 6.4%) !important;
+    background-color: #eceff489 !important;
     margin: 1em 0;
     border-radius: .5rem;
     font-family: "IBM Plex Mono", monospace;
     font-weight: normal !important;
     font-size: 0.8rem;
+}
+
+@media (prefers-color-scheme: dark) {
+    .highlight pre {
+        background-color: hsl(232, 20.3%, 6.4%) !important;
+    }
 }
 
 .highlight code {

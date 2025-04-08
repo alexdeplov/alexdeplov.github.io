@@ -5,8 +5,6 @@ draft = false
 featured = false
 author = "Alexander Deplov"
 tags = ["portfolio"]
-accentColor = "#a6c015"
-bgColor = "#1a1716"
 +++
 
 ![Hero](images/1.jpg)

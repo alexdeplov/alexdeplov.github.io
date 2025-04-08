@@ -4,8 +4,6 @@ date = 2024-09-24T17:02:50+02:00
 draft = false
 featured = false
 author = "Alexander Deplov"
-accentColor = "#6e856c"
-bgColor = "#0e1b17"
 +++
 
 With the latest release of iOS 18, Apple continues to emphasize design harmony throughout the operating system with Dark Mode for app icons. It provides a sleek and modern aesthetic that many users have come to love. Unfortunately, if your app doesn't conform to this visual paradigm, users are more likely **to remove it from the Home Screen** to get rid of an app icon that doesn't fit. 

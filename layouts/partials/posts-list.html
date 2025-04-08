@@ -1,28 +1,29 @@
+{{ $accentColor := .Params.accentColor | default "#3B82F6" }}
+
 <!-- posts-list.html partial -->
-<!-- Display posts grouped by year -->
 <div class="list w-full max-w-md mx-auto mt-4 md:mt-16">
   {{ $posts := where .Site.RegularPages "Section" "posts" }}
   {{ if $posts }}
-    <!-- Group posts by year -->
-    {{ $postsByYear := $posts.GroupByDate "2006" }}
-    {{ range $postsByYear }}
-      {{ if eq .Key (now.Format "2006") }}
-        <h3 class="text-xl font-bold mt-6 mb-3">
-          Blog / {{ .Key }}
-        </h3>
-      {{ else }}
-        <h6 class="mt-6 mb-3">
-          {{ .Key }}
-        </h6>
+    <h6 class="mt-6 mb-3">Blog</h6>
+    <div>
+      {{ range $posts }}
+        <a href="{{ .Permalink }}" class="
+        text-[{{ $accentColor }}] 
+        font-[600]
+        border-b  
+        dark:border-gray-800
+        py-4 
+        px-2
+        -ml-2
+        w-full 
+        block
+        hover:bg-gray-100
+        dark:hover:bg-gray-800
+        hover:no-underline
+      ">{{ .Title }}</a>
+
       {{ end }}
-      <ul>
-        {{ range .Pages }}
-          <li class="mb-2 ml-4 list-disc text-[#29ADFF]">
-            <a href="{{ .Permalink }}" class="text-blue-500 hover:underline">{{ .Title }}</a>
-          </li>
-        {{ end }}
-      </ul>
-    {{ end }}
+    </div>
   {{ else }}
     <p>No posts yet.</p>
   {{ end }}

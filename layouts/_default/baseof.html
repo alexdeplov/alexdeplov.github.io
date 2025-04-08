@@ -10,7 +10,10 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 </head>
 
-<body class="w-inherit" style="background-color: {{ if .Params.bgColor }}{{ .Params.bgColor }}{{ else }}#131522{{ end }};">
+<body class="w-inherit" >
+
+<!-- style="background-color: {{ if .Params.bgColor }}{{ .Params.bgColor }}{{ else }}#131522{{ end }};" -->
+
 {{ block "main" . }}{{ end }}
 
 <!-- Privacy-first goatcounter, no cookies -->

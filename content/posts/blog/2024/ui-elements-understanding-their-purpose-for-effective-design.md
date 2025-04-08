@@ -4,8 +4,6 @@ date = 2024-09-10T14:08:34+02:00
 draft = false
 featured = false
 author = "Alexander Deplov"
-bgColor = "#100e15"
-accentColor = "#f65e3b"
 +++
 
 Once I was reading a tutorial about color and the article was about "there are a bunch of color schemes, like monochromatic, analogous, complementary, etc.", with all the description how to create each one. But at the end they wrote "Use them!" This confuses me. How is the reader supposed to learn how to use them? In my opinion, we need to understand the underlying purpose of each tool we can use, as well as an outcome. If we agreed that color is a tool.

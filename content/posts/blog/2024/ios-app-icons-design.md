@@ -5,8 +5,6 @@ draft = false
 featured = false
 author = "Alexander Deplov"
 tags = ["portfolio"]
-accentColor = "#00B543"
-bgColor = "#101C1F"
 +++
 
 Throughout my career, I have created several iOS app icons. The biggest challenge is to express the idea of the app through simple graphics. At the same time, the icon should be unique and attractive.

@@ -3,7 +3,6 @@ title = "iOS Apps Icon Corner Radius Formula"
 date = 2025-03-24T11:06:19+01:00
 draft = false
 author = "Alexander Deplov"
-accentColor = "#5c53ff"
 +++
 
 If you need to create an iOS app icon design or a mockup with various app icon size and want to ensure the corner radius is accurate, use this simple formula: 
