@@ -1,5 +1,5 @@
 +++
-title = 'How to set up Usenet access in 2025'
+title = 'How to Set Up Usenet Access in 2025'
 date = 2025-03-13T17:19:30+01:00
 draft = false
 featured = false

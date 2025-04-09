@@ -4,11 +4,12 @@
 <div class="list w-full max-w-md mx-auto mt-4 md:mt-16">
   {{ $posts := where .Site.RegularPages "Section" "posts" }}
   {{ if $posts }}
-    <h6 class="mt-6 mb-3">Blog</h6>
+    <h6 class="mt-6 mb-3 text-[#f46c04]">Blog</h6>
     <div>
       {{ range $posts }}
+      
         <a href="{{ .Permalink }}" class="
-        text-[{{ $accentColor }}] 
+       
         font-[600]
         border-b  
         dark:border-gray-800

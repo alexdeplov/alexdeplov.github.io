@@ -16,7 +16,7 @@
       <description>&lt;p&gt;If you need to create an iOS app icon design or a mockup with various app icon size and want to ensure the corner radius is accurate, use this simple formula:&lt;/p&gt;&#xA;&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;color:#abb2bf;background-color:#282c34;-moz-tab-size:4;-o-tab-size:4;tab-size:4;&#34;&gt;&lt;code class=&#34;language-swift&#34; data-lang=&#34;swift&#34;&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#e06c75&#34;&gt;corner&lt;/span&gt; &lt;span style=&#34;color:#e06c75&#34;&gt;radius&lt;/span&gt; = &lt;span style=&#34;color:#e06c75&#34;&gt;icon&lt;/span&gt; &lt;span style=&#34;color:#e06c75&#34;&gt;width&lt;/span&gt; × &lt;span style=&#34;color:#d19a66&#34;&gt;2&lt;/span&gt;&lt;span style=&#34;color:#56b6c2&#34;&gt;/&lt;/span&gt;&lt;span style=&#34;color:#d19a66&#34;&gt;9&lt;/span&gt;&#xA;&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;&lt;img src=&#34;ios-app-icon-radius-based-on-size.webp&#34; alt=&#34;&#34;&gt;&lt;/p&gt;&#xA;&lt;p&gt;For example, for a 1024x1024 px icon (the standard size for iOS app icons), the corner radius would be approximately 229 px.&lt;/p&gt;</description>
     </item>
     <item>
-      <title>How to set up Usenet access in 2025</title>
+      <title>How to Set Up Usenet Access in 2025</title>
       <link>https://interfacecraft.online/posts/blog/2025/how-i-set-up-usenet-slrn-access-in-2025/</link>
       <pubDate>Thu, 13 Mar 2025 17:19:30 +0100</pubDate>
       <guid>https://interfacecraft.online/posts/blog/2025/how-i-set-up-usenet-slrn-access-in-2025/</guid>

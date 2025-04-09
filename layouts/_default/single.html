@@ -5,9 +5,9 @@
 <article class="post w-full md:max-w-2xl mx-auto px-4">
   <header class="mb-8 md:mb-16">
     <h1 class="text-2xl md:text-4xl font-extrabold mb-2 content-animate">
-      <a href="{{ .Permalink }}" class="text-[{{ $accentColor }}] hover:underline">{{ .Title }}</a>
+      <a href="{{ .Permalink }}" class="hover:underline">{{ .Title }}</a>
     </h1>
-    <div class="text-xs md:text-sm font-normal mb-4 md:mb-8 mt-2 md:mt-3 content-animate">
+    <div class="text-[#f46c04] text-xs md:text-sm font-normal mb-4 md:mb-8 mt-2 md:mt-3 content-animate">
       {{ .Date.Format "Jan 2, 2006" }} · {{ .Params.author }}
     </div>
   </header>
@@ -18,7 +18,7 @@
   
   <div class="mt-12 md:mt-20 mb-16 md:mb-24"> 
     <div class="mx-auto flex mb-6 justify-center">
-      <a id="replyViaEmail" style="background-color: {{ $accentColor }};" 
+      <a id="replyViaEmail" 
          target="_blank" 
          rel="noopener" 
          class="mx-auto font-bold py-2 px-6 md:px-12 rounded-xl hover:no-underline hover:-translate-y-2 transition-transform duration-300 ease-in-out" 
@@ -28,7 +28,7 @@
     </div>
 
     <div class="mx-auto flex justify-center">
-      <a style="color: {{ $accentColor }};" 
+      <a id="allArticles" style="" 
          class="mx-auto flex space-x-2 font-bold" 
          href="/">
         <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">

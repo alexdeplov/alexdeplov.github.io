@@ -1,9 +1,8 @@
-{{ $accentColor := .Params.accentColor | default "#3B82F6" }}
 
 <div class="max-w-md mx-auto w-full px-4">
-  <div id="bio" class="mt-4 md:mt-6 text-[#FFCCAA]">
+  <div id="bio" class="mt-4 md:mt-6 text-[#f46c04]">
     I'm a designer with 16 years of experience in tech startups. 
-    <span class="text-[#FF6C24]">I specialize in sleep wellness, AI, creative photo filters, and other B2C apps.</span> 
+    <p class=" inline">I specialize in sleep wellness, AI, creative photo filters, and other B2C apps.</p> 
   </div>
   <video class="w-full max-w-xs mt-6 rounded-lg" autoplay loop muted playsinline>
     <source src="/images/chatGPT-to-video.mp4" type="video/mp4">
@@ -11,7 +10,7 @@
   </video>
 
   <ul class="mt-12">
-    <li class="mb-2 ml-0 text-[{{ $accentColor }}] flex w-full">
+    <li class="mb-2 ml-0 flex w-full">
         <span class="mr-2">
             <svg width="20" height="21" viewBox="0 0 20 21" fill="none" xmlns="http://www.w3.org/2000/svg">
             <rect y="0.738037" width="20" height="20" rx="6" fill="#27272F"/>
@@ -25,7 +24,7 @@
         <a href="https://pleeq.com/alexander_deplov_portfolio/" target="_blank" rel="nofollow">Product Designer / Portfolio</a>
           <span class="inline-block ml-1">
             <svg width="12" height="12" viewBox="0 0 12 12" fill="none" xmlns="http://www.w3.org/2000/svg" class="inline-block ml-1">
-              <path d="M2 10 L10 2 M10 2 H3 M10 2 V9" stroke="{{ $accentColor }}" stroke-width="1.75" stroke-linecap="round"/>
+              <path d="M2 10 L10 2 M10 2 H3 M10 2 V9" stroke="{{ "black" }}" stroke-width="1.75" stroke-linecap="round"/>
             </svg>
           <span>
         </a>
@@ -37,9 +36,19 @@
 #bio {
   // font-family: "Playfair Display", serif;
   font-optical-sizing: auto;
-  font-weight: 500;
-  font-size: 1.2rem;
-  font-style: normal;
+  font-size: 1.15rem;
+  font-weight: 600;
+  letter-spacing: -0.01rem;
+}
+
+#bio p{
+  color: black
+}
+
+@media (prefers-color-scheme: dark) {
+  #bio p{
+    color: white
+  }
 }
 </style>
 
