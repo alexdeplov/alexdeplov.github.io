@@ -1,0 +1,26 @@
+{{ define "main" }}
+{{ partial "nav" . }}
+<main class="max-w-2xl mx-auto px-4 py-12">
+    <header class="mb-12">
+        <h1 class="text-4xl font-bold mb-4">Blog</h1>
+        <p class="text-lg font-normal opacity-50">Thoughts, ideas, and explorations.</p>
+    </header>
+
+    <div class="space-y-12">
+        {{ range .Pages }}
+        <article class="group">
+            <a class="" href="{{ .RelPermalink }}" class="block hover:no-underline">
+                <div class="">
+                    <h2 class="text-2xl font-bold mb-2">{{ .Title }}</h2>
+                    
+                    
+                </div>
+            </a>
+            <div class="text-sm mb-3" style="color: var(--accent-orange);">
+                        {{ .Date.Format "January 2, 2006" }}
+                    </div>
+        </article>
+        {{ end }}
+    </div>
+</main>
+{{ end }} 

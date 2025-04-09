@@ -2,21 +2,19 @@
 {{ $accentColor := .Params.accentColor | default "#3B82F6" }}
 {{ partial "nav.html" . }}
 
-<article class="post w-full md:max-w-2xl mx-auto px-4">
-  <header class="mb-8 md:mb-16">
-    <h1 class="text-2xl md:text-4xl font-extrabold mb-2 content-animate">
-      <a href="{{ .Permalink }}" class="hover:underline">{{ .Title }}</a>
-    </h1>
-    <div class="text-[#f46c04] text-xs md:text-sm font-normal mb-4 md:mb-8 mt-2 md:mt-3 content-animate">
-      {{ .Date.Format "Jan 2, 2006" }} · {{ .Params.author }}
+<article class="max-w-2xl mx-auto px-4 py-8">
+  <header class="mb-8">
+    <h1 class="text-5xl font-bold mb-2">{{ .Title }}</h1>
+    <div class="text-sm" style="color: var(--accent-orange);">
+      {{ .Date.Format "January 2, 2006" }}
     </div>
   </header>
-  
-  <div class="content content-animate">
+
+  <div class="content">
     {{ .Content }}
   </div>
   
-  <div class="mt-12 md:mt-20 mb-16 md:mb-24"> 
+  <div class="mt-12 md:mt-20 mb-12 md:mb-12"> 
     <div class="mx-auto flex mb-6 justify-center">
       <a id="replyViaEmail" 
          target="_blank" 

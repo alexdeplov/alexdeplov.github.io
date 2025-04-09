@@ -1,0 +1,11 @@
+[[redirects]]
+  from = "/posts/blog/*"
+  to = "/blog/:splat"
+  status = 301
+  force = true
+
+[[redirects]]
+  from = "/posts/blog"
+  to = "/blog/"
+  status = 301
+  force = true 

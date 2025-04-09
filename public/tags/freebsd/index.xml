@@ -10,6 +10,13 @@
     <atom:link href="http://localhost:1313/tags/freebsd/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>Loader Configuration File (loader.conf) Structure in FreeBSD</title>
+      <link>http://localhost:1313/blog/2024/freebsd-loader-configuration-file-loader-conf-structure/</link>
+      <pubDate>Mon, 15 Jul 2024 16:42:44 +0200</pubDate>
+      <guid>http://localhost:1313/blog/2024/freebsd-loader-configuration-file-loader-conf-structure/</guid>
+      <description>&lt;p&gt;FreeBSD manages system settings using default files and separate customization files. This allows users to modify settings without directly editing the default configurations, ensuring compatibility during upgrades and providing a clear way to view and customize system options.&lt;/p&gt;&#xA;&lt;p&gt;&lt;img src=&#34;images/0.webp&#34; alt=&#34;&#34;&gt;&lt;/p&gt;&#xA;&lt;p&gt;User edited /boot/loader.conf, but full version of config file, default one located at /boot/defaults/loader.conf&lt;/p&gt;&#xA;&lt;pre tabindex=&#34;0&#34;&gt;&lt;code&gt;cat /boot/defaults/loader.conf | more&#xA;&lt;/code&gt;&lt;/pre&gt;&lt;h2 id=&#34;basic-configuration-options&#34;&gt;Basic configuration options&lt;/h2&gt;&#xA;&lt;p&gt;These settings control fundamental aspects of the system boot process, such as where to find the kernel, what configuration files to load, and how much detail to display during startup.&lt;/p&gt;</description>
+    </item>
+    <item>
+      <title>Loader Configuration File (loader.conf) Structure in FreeBSD</title>
       <link>http://localhost:1313/posts/blog/2024/freebsd-loader-configuration-file-loader-conf-structure/</link>
       <pubDate>Mon, 15 Jul 2024 16:42:44 +0200</pubDate>
       <guid>http://localhost:1313/posts/blog/2024/freebsd-loader-configuration-file-loader-conf-structure/</guid>

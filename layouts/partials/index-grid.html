@@ -1,0 +1,19 @@
+<div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4 auto-rows-auto">
+    {{ range .Pages }}
+    <div class="w-full">
+        <a href="{{ .RelPermalink }}" class="block h-full hover:no-underline group">
+            <div class="p-4 rounded-lg transition-all duration-200 h-full hover:bg-[#eceff41a] dark:hover:bg-[#1F1F31]">
+                {{ with .Params.thumbnail }}
+                <div class="aspect-w-16 aspect-h-9 mb-4">
+                    <img src="{{ . }}" alt="{{ $.Title }}" class="object-cover w-full h-full rounded-lg">
+                </div>
+                {{ end }}
+                <h3 class="text-lg font-medium mb-2">{{ .Title }}</h3>
+                {{ with .Description }}
+                <p class="text-sm text-secondary">{{ . }}</p>
+                {{ end }}
+            </div>
+        </a>
+    </div>
+    {{ end }}
+</div>
