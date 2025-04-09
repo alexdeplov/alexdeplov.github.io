@@ -1,19 +1,46 @@
-<div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4 auto-rows-auto">
-    {{ range .Pages }}
-    <div class="w-full">
-        <a href="{{ .RelPermalink }}" class="block h-full hover:no-underline group">
-            <div class="p-4 rounded-lg transition-all duration-200 h-full hover:bg-[#eceff41a] dark:hover:bg-[#1F1F31]">
-                {{ with .Params.thumbnail }}
-                <div class="aspect-w-16 aspect-h-9 mb-4">
-                    <img src="{{ . }}" alt="{{ $.Title }}" class="object-cover w-full h-full rounded-lg">
-                </div>
-                {{ end }}
-                <h3 class="text-lg font-medium mb-2">{{ .Title }}</h3>
-                {{ with .Description }}
-                <p class="text-sm text-secondary">{{ . }}</p>
-                {{ end }}
-            </div>
-        </a>
-    </div>
-    {{ end }}
+<div class="columns-1 md:columns-3 lg:columns-4 gap-4 space-y-4 md:p-10 p-4">
+  <div class="break-inside-avoid rounded-xl overflow-hidden">
+    <video class="" autoplay loop muted playsinline title="ChatGPT to Video">
+        <source src="/images/chatGPT-to-video.mp4" type="video/mp4">
+        Your browser does not support the video tag.
+    </video>
+  </div>
+  <div class="break-inside-avoid rounded-xl overflow-hidden" title="New Firefox icon made in ChatGPT">
+    <img class="w-full" src="/images/firefox.png">
+  </div>
+  <div class="break-inside-avoid rounded-xl overflow-hidden" title="New Contacts app icon made in ChatGPT">
+    <img class="w-full" src="/images/contacts.png">
+  </div>
+  <div class="break-inside-avoid rounded-xl overflow-hidden" title="Sports TV app icon made in ChatGPT">
+    <img class="w-full" src="/images/sports-tv.png">
+  </div>
+  <div class="break-inside-avoid rounded-xl overflow-hidden" title="closeup of beautiful young woman's angry mouth biting a wide wide roll of 100dollars money with angry expressions, Tight bite , braces on teeths, darkpink lipstick, frontal perspective, roll of money between teeth, gritty Exaggerated expressive expressions, tattoo, gangstarap theme, 90's album covers ascethic, striking colors">
+    <img class="w-full" src="/images/money-in-the-mouth.jpg">
+  </div>
+  <div class="break-inside-avoid rounded-xl overflow-hidden" title="Lion with coffee in pink costume made in LLM">
+    <img class="w-full" src="/images/lion.jpg">
+  </div>
+  <div class="break-inside-avoid rounded-xl overflow-hidden" title="Canon 24-70mm, focal point, wide angle, fish eye lenses, beautiful stylish Greek interior design living room with wooden retro commode, white walls and ceiling, 4K resolution, tropical plants with wide leaves in rattan pots, chairs, baskets and elegant personal accessories, enormously huge tv playing tennis channel. incredible home decoration">
+    <img class="w-full" src="/images/interior.jpg">
+  </div>
+  <div class="break-inside-avoid rounded-xl overflow-hidden" title="Golden icons for iOS app made in ChatGPT">
+    <img class="w-full" src="/images/golden-icons.png">
+  </div>
+  <div class="break-inside-avoid rounded-xl overflow-hidden" title="photo made on GoPRO, full body shot of luxury white teeth Statue of Liberty green face she, mate lipstick, saturated mascara, contrasted mascara, day light, she’s as a surfer riding the waves amidst the azure ocean, professional composition, top camera angle">
+    <img class="w-full" src="/images/surf-GoPRO-Statue-of-Liberty.jpg">
+  </div>
+  <div class="break-inside-avoid rounded-xl overflow-hidden" title="female with style of sims, solid background, luxury looking face, angry">
+    <img class="w-full" src="/images/sims-angry.jpg">
+  </div>
+  <div class="break-inside-avoid rounded-xl overflow-hidden">
+    <video class="" autoplay loop muted playsinline title="sport body full body shoot, neck tattoo dragon, Vogue or GIVENCHY full body spring summer clothing photoshoot portrait of luxury female full body shoot, luxury car white interior with rainbow neon light, luxury white teeth smile, golden dress, white neon tube choker, text LOVE made with yellow neon tube on background">
+        <source src="/images/vogue-fashion.mp4" type="video/mp4">
+        Your browser does not support the video tag.
+    </video>
+  </div>
+
+  
+
+
+  
 </div>
