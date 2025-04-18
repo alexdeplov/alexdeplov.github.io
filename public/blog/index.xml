@@ -177,13 +177,6 @@
       <description>&lt;p&gt;&lt;img src=&#34;images/0.jpg&#34; alt=&#34;&#34;&gt;&lt;/p&gt;&#xA;&lt;p&gt;Apple Watch itself is so beautiful, but also its pairing screen. I feel that this pattern is too complicated to be made by hand, so it seems that it was made by using code. It turns out that Apple made it based on 24 ovals, each representing 24 hours in a day. Each oval is offset from the center. So we can easily recreate it in code.&lt;/p&gt;&#xA;&lt;p&gt;I&amp;rsquo;m using PaperJS - a vector graphics scripting framework - because you can export any final shape or pattern to an SVG file.&lt;/p&gt;</description>
     </item>
     <item>
-      <title>The Day Apple Reset the App Store</title>
-      <link>https://interfacecraft.online/blog/archive/the-day-apple-reset-the-app-store/</link>
-      <pubDate>Thu, 14 Jan 2021 20:41:08 +0200</pubDate>
-      <guid>https://interfacecraft.online/blog/archive/the-day-apple-reset-the-app-store/</guid>
-      <description>&lt;p&gt;&lt;img src=&#34;images/1.webp&#34; alt=&#34;The day Apple reset the App Store&#34;&gt;&lt;/p&gt;&#xA;&lt;p&gt;As an indie iOS developer, you’re facing stiff competition on the App Store market. Each year, thousands of apps are added by developers from all around the globe. Each of us wants to dominate that market to capture all the money and attention of users. With more apps on the App Store, there are fewer opportunities for each developer. More effort is needed to gather an audience, improve your ASO for visibility, or pay more for advertising.&lt;/p&gt;</description>
-    </item>
-    <item>
       <title>iOS App Pricing Doesn&#39;t Have to Be Low</title>
       <link>https://interfacecraft.online/blog/archive/ios-app-pricing-doesn-t-have-to-be-low/</link>
       <pubDate>Fri, 30 Jun 2017 18:46:57 +0200</pubDate>
