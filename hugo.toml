@@ -1,6 +1,6 @@
 baseURL = 'https://interfacecraft.online'
 languageCode = 'en-us'
-title = 'Alexander Deplov, visual AI artist, product designer'
+title = 'Alexander Deplov, AI artist, product designer'
 
 # Important: Define which sections should appear on the homepage
 [params]

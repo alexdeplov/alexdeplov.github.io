@@ -1,35 +1,153 @@
-<div class="bg-red-100 rounded-xl p-6 min-h-[200px] relative">
-  <div class="absolute top-6 left-6 text-sm font-semibold"> 
-    ai music
-  </div>
+<div class="audio-player text-black rounded-xl p-6 min-h-[200px] relative overflow-hidden" data-audio-src="{{ .src }}" 
+    {{ if .img }}style="background-image: url('{{ .img }}'); background-size: cover; background-position: center;"{{ end }}>
   
-  <div class="absolute bottom-6 flex justify-between align-center items-center left-6 right-6">
-    <div class="cursor-pointer bg-blue-50 block rounded-full w-12 h-12 flex justify-center items-center transition-transform duration-300 ease-in-out hover:scale-110 group">
-      <div class="flex  transition-transform duration-100 ease-in-out group-hover:scale-110">
-        <svg class="ml-0.5" width="23" height="24" viewBox="0 0 23 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-        <g filter="url(#filter0_d_168_397)">
-        <path d="M4.86328 17.0763V5.73008C4.86328 4.67612 5.98644 4.00223 6.9164 4.49821L17.5535 10.1713C18.539 10.6969 18.539 12.1095 17.5535 12.6351L6.9164 18.3082C5.98643 18.8042 4.86328 18.1303 4.86328 17.0763Z" fill="black"/>
-        </g>
-        <defs>
-        <filter id="filter0_d_168_397" x="0.209546" y="0.515968" width="22.7369" height="23.4481" filterUnits="userSpaceOnUse" color-interpolation-filters="sRGB">
-        <feFlood flood-opacity="0" result="BackgroundImageFix"/>
-        <feColorMatrix in="SourceAlpha" type="matrix" values="0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 127 0" result="hardAlpha"/>
-        <feOffset dy="0.837672"/>
-        <feGaussianBlur stdDeviation="2.32687"/>
-        <feComposite in2="hardAlpha" operator="out"/>
-        <feColorMatrix type="matrix" values="0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0.08 0"/>
-        <feBlend mode="normal" in2="BackgroundImageFix" result="effect1_dropShadow_168_397"/>
-        <feBlend mode="normal" in="SourceGraphic" in2="effect1_dropShadow_168_397" result="shape"/>
-        </filter>
-        </defs>
-        </svg>
-      </div>
-    </div>
+  {{ if .img }}
+  <div class="absolute inset-0 bg-black bg-opacity-30"></div>
+  {{ end }}
+  
+  <div class="absolute top-6 left-6 text-sm font-semibold {{ if .img }}text-white z-10{{ end }}"> 
+    AI music
+  </div>
 
-    <div class="flex-1 text-left ml-4 text-2sm font-semibold leading-[1.2]">
-      track name trackme track
-        
+  <!-- Hidden audio player -->
+  <audio class="audio-element hidden">
+    <source src="{{ .src }}" type="audio/mpeg">
+    Your browser does not support the audio element.
+  </audio>
+
+  <div class="absolute bottom-6 flex justify-between align-center items-center left-6 right-6 {{ if .img }}z-10{{ end }}">
+    <!-- Custom Play Button with Circular Progress -->
+    <div class="mb-6 flex">
+      <div class="play-button-container relative w-12 h-12 backdrop-blur-md rounded-full">
+        <!-- Circular Progress SVG -->
+        <svg class="circular-progress backdrop-blur-md absolute top-0 left-0 w-12 h-12 -rotate-90" viewBox="0 0 100 100">
+          <!-- Background circle -->
+          <circle 
+            class="progress-bg"
+            cx="50" 
+            cy="50" 
+            r="46" 
+            stroke="{{ if .img }}rgba(255, 255, 255, 0.2){{ else }}rgba(0, 0, 0, 0.1){{ end }}" 
+            stroke-width="4"
+            fill="none"
+          />
+          <!-- Progress circle -->
+          <circle 
+            class="progress-indicator backdrop-blur-md"
+            cx="50" 
+            cy="50" 
+            r="46" 
+            stroke="{{ if .img }}white{{ else }}#3B82F6{{ end }}" 
+            stroke-width="4"
+            stroke-dasharray="289.027"
+            stroke-dashoffset="289.027"
+            fill="none"
+          />
+        </svg>
+
+        <!-- Play Button -->
+        <div class="play-button cursor-pointer {{ if .img }}bg-white bg-opacity-20 hover:bg-opacity-40{{ else }}bg-blue-50{{ end }} rounded-full w-12 h-12 flex justify-center items-center transition-transform duration-300 ease-in-out hover:scale-110 group z-10 relative">
+          <div class="flex transition-transform duration-100 ease-in-out group-hover:scale-110">
+            <svg class="play-icon ml-0.5" width="23" height="24" viewBox="0 0 23 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <path d="M4.86328 17.0763V5.73008C4.86328 4.67612 5.98644 4.00223 6.9164 4.49821L17.5535 10.1713C18.539 10.6969 18.539 12.1095 17.5535 12.6351L6.9164 18.3082C5.98643 18.8042 4.86328 18.1303 4.86328 17.0763Z" fill="{{ if .img }}white{{ else }}black{{ end }}"/>
+            </svg>
+
+            <div class="flex transition-transform duration-100 ease-in-out group-hover:scale-110">
+              <svg class="pause-icon hidden" width="14" height="25" viewBox="0 0 24 25" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <path d="M4.78357 0.535156C5.95923 0.535156 6.54733 0.534895 6.99646 0.763672C7.39159 0.965003 7.7131 1.28651 7.91443 1.68164C8.14331 2.13085 8.14294 2.71942 8.14294 3.89551V21.1748C8.14294 22.3509 8.14331 22.9395 7.91443 23.3887C7.71311 23.7837 7.39146 24.1044 6.99646 24.3057C6.54731 24.5345 5.95936 24.5352 4.78357 24.5352H3.70349C2.5274 24.5352 1.93883 24.5345 1.48962 24.3057C1.09466 24.1044 0.772953 23.7836 0.571655 23.3887C0.342772 22.9395 0.34314 22.3509 0.34314 21.1748V3.89551C0.34314 2.71947 0.342806 2.13084 0.571655 1.68164C0.772987 1.28651 1.09449 0.965003 1.48962 0.763672C1.93883 0.534803 2.52742 0.535156 3.70349 0.535156H4.78357ZM19.7015 0.535156C20.8772 0.535156 21.4653 0.534925 21.9144 0.763672C22.3096 0.964998 22.6311 1.28652 22.8324 1.68164C23.0613 2.13085 23.0609 2.71941 23.0609 3.89551V21.1748C23.0609 22.3509 23.0613 22.9395 22.8324 23.3887C22.6311 23.7837 22.3094 24.1044 21.9144 24.3057C21.4653 24.5345 20.8774 24.5352 19.7015 24.5352H18.6215C17.4454 24.5352 16.8568 24.5345 16.4076 24.3057C16.0126 24.1043 15.6909 23.7836 15.4896 23.3887C15.2607 22.9395 15.2611 22.3509 15.2611 21.1748V3.89551C15.2611 2.7195 15.2608 2.13084 15.4896 1.68164C15.6909 1.28652 16.0125 0.965005 16.4076 0.763672C16.8568 0.534789 17.4454 0.535156 18.6215 0.535156H19.7015Z" fill="{{ if .img }}white{{ else }}black{{ end }}"/>
+              </svg>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="flex-1 text-left ml-4 text-2sm font-semibold leading-[1.2] content-center {{ if .img }}text-white{{ end }}">
+        {{ .src | path.Base }}
+      </div>
+
     </div>
   </div> 
 
+  <div class="absolute bottom-0 left-0 right-0 top-0 bg-black bg-opacity-5 bg-gradient-to-b from-black/0 to-black/80">
+  </div>
 </div>
+
+<!-- Script for audio player initialization -->
+<script>
+  (function() {
+    // Find the most recently added audio player
+    const players = document.querySelectorAll('.audio-player');
+    const player = players[players.length - 1];
+    
+    const audio = player.querySelector('.audio-element');
+    const playBtn = player.querySelector('.play-button');
+    const playIcon = player.querySelector('.play-icon');
+    const pauseIcon = player.querySelector('.pause-icon');
+    const progressIndicator = player.querySelector('.progress-indicator');
+    
+    // Calculate the circumference of the progress circle
+    const radius = parseFloat(progressIndicator.getAttribute('r'));
+    const circumference = 2 * Math.PI * radius;
+    
+    // Set the dash array to the circumference
+    progressIndicator.style.strokeDasharray = circumference;
+    progressIndicator.style.strokeDashoffset = circumference;
+
+    function toggleIcons(isPlaying) {
+      if (isPlaying) {
+        playIcon.classList.add('hidden');
+        pauseIcon.classList.remove('hidden');
+      } else {
+        pauseIcon.classList.add('hidden');
+        playIcon.classList.remove('hidden');
+      }
+    }
+
+    function updateProgress(percent) {
+      const offset = circumference - (percent / 100) * circumference;
+      progressIndicator.style.strokeDashoffset = offset;
+    }
+
+    playBtn.addEventListener('click', () => {
+      if (audio.paused) {
+        // Pause all other audio elements first
+        document.querySelectorAll('.audio-element').forEach(a => {
+          if (a !== audio && !a.paused) {
+            a.pause();
+            // Reset icons for all other players
+            const otherPlayer = a.closest('.audio-player');
+            const otherPlayIcon = otherPlayer.querySelector('.play-icon');
+            const otherPauseIcon = otherPlayer.querySelector('.pause-icon');
+            otherPauseIcon.classList.add('hidden');
+            otherPlayIcon.classList.remove('hidden');
+            
+            // Reset progress for other players
+            const otherProgressIndicator = otherPlayer.querySelector('.progress-indicator');
+            if (otherProgressIndicator) {
+              const otherRadius = parseFloat(otherProgressIndicator.getAttribute('r'));
+              const otherCircumference = 2 * Math.PI * otherRadius;
+              otherProgressIndicator.style.strokeDashoffset = otherCircumference;
+            }
+          }
+        });
+        audio.play();
+      } else {
+        audio.pause();
+      }
+    });
+
+    audio.addEventListener('play', () => toggleIcons(true));
+    audio.addEventListener('pause', () => toggleIcons(false));
+    audio.addEventListener('ended', () => {
+      toggleIcons(false);
+      updateProgress(0);
+    });
+
+    audio.addEventListener('timeupdate', () => {
+      if (audio.duration) {
+        const percent = (audio.currentTime / audio.duration) * 100;
+        updateProgress(percent);
+      }
+    });
+  })();
+</script>
