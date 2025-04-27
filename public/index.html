@@ -194,6 +194,14 @@
           }
         });
         audio.play();
+        
+        if (window.goatcounter) {
+          window.goatcounter.count({
+            path: 'click-play-music',
+            title: 'Music Play Button Pressed',
+            event: true,
+          });
+        }
       } else {
         audio.pause();
       }
@@ -349,6 +357,14 @@
           }
         });
         audio.play();
+        
+        if (window.goatcounter) {
+          window.goatcounter.count({
+            path: 'click-play-music',
+            title: 'Music Play Button Pressed',
+            event: true,
+          });
+        }
       } else {
         audio.pause();
       }
@@ -504,6 +520,14 @@
           }
         });
         audio.play();
+        
+        if (window.goatcounter) {
+          window.goatcounter.count({
+            path: 'click-play-music',
+            title: 'Music Play Button Pressed',
+            event: true,
+          });
+        }
       } else {
         audio.pause();
       }
