@@ -1,0 +1,24 @@
+{{ define "main" }}
+{{ partial "nav" . }}
+<main class="max-w-2xl mx-auto px-4 py-12">
+    <header class="mb-12">
+        <h1 class="text-4xl font-bold mb-4">Tools</h1>
+        <p class="text-lg font-normal opacity-50">Custom made tools for designers.</p>
+    </header>
+
+    <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
+        {{ range .Pages }}
+        <article class="group">
+            <a href="{{ .RelPermalink }}" class="block hover:no-underline">
+                <div class="p-6 rounded-lg transition-all duration-200 hover:bg-[#eceff41a] dark:hover:bg-[#1F1F31]">
+                    <h2 class="text-xl font-bold mb-2">{{ .Title }}</h2>
+                    {{ with .Description }}
+                    <p class="text-sm text-secondary">{{ . }}</p>
+                    {{ end }}
+                </div>
+            </a>
+        </article>
+        {{ end }}
+    </div>
+</main>
+{{ end }} 
