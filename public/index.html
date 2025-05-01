@@ -196,9 +196,10 @@
         audio.play();
         
         if (window.goatcounter) {
+          const trackName = audio.currentSrc.split('/').pop(); 
           window.goatcounter.count({
-            path: 'click-play-music',
-            title: 'Music Play Button Pressed',
+            path: `click-play-music/${trackName}`,
+            title: `Music Play Button Pressed - ${trackName}`,
             event: true,
           });
         }
@@ -359,9 +360,10 @@
         audio.play();
         
         if (window.goatcounter) {
+          const trackName = audio.currentSrc.split('/').pop(); 
           window.goatcounter.count({
-            path: 'click-play-music',
-            title: 'Music Play Button Pressed',
+            path: `click-play-music/${trackName}`,
+            title: `Music Play Button Pressed - ${trackName}`,
             event: true,
           });
         }
@@ -522,9 +524,10 @@
         audio.play();
         
         if (window.goatcounter) {
+          const trackName = audio.currentSrc.split('/').pop(); 
           window.goatcounter.count({
-            path: 'click-play-music',
-            title: 'Music Play Button Pressed',
+            path: `click-play-music/${trackName}`,
+            title: `Music Play Button Pressed - ${trackName}`,
             event: true,
           });
         }

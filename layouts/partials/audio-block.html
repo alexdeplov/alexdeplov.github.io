@@ -133,9 +133,10 @@
         audio.play();
         // GoatCounter event tracking
         if (window.goatcounter) {
+          const trackName = audio.currentSrc.split('/').pop(); // or use any other method to get the track name
           window.goatcounter.count({
-            path: 'click-play-music',
-            title: 'Music Play Button Pressed',
+            path: `click-play-music/${trackName}`,
+            title: `Music Play Button Pressed - ${trackName}`,
             event: true,
           });
         }
