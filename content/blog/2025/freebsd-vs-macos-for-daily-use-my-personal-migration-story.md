@@ -111,6 +111,8 @@ Before I begin, here are my quick tests for both systems. I'm running mostly app
   </tbody>
 </table>
 
+When I tell people that a $300 AMD mini PC can keep up with an $2000 M1 Pro MacBook in daily use, the first reaction is disbelief. How is this even possible? The answer lies in the efficiency of FreeBSD and the lack of unnecessary background processes. Unlike macOS, which runs a lot of services in the background (some of which can’t even be disabled), FreeBSD gives you full control. You only run what you need. Combined with lightweight desktop environments like MATE and compiled apps optimized for your specific hardware, the system feels snappy—even on budget CPUs. It’s not magic; it’s just smart, minimal computing.
+
 ### Resources
 
 FreeBSD, htop:
