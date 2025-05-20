@@ -168,8 +168,10 @@ To achive that add this:
 
   Set Smoothing to Grayscale and Hinting to None (I also set font size to be 10 and DPI to 95):
 
-   ![](./fonts-smoothing.png)
+  ![](./fonts-smoothing.png)
 
+  Results. Fonts in macOS vs in MATE:
+  ![](./fonts.jpg)
 
 
   3. For console I'm using <a href="https://github.com/supercomputra/SF-Mono-Font" target="_blank">SF Mono.</a>
