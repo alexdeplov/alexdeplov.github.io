@@ -2,286 +2,265 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
   xmlns:xhtml="http://www.w3.org/1999/xhtml">
   <url>
-    <loc>http://localhost:1313/</loc>
+    <loc>https://interfacecraft.online/</loc>
     <lastmod>2025-05-19T22:15:36+02:00</lastmod>
   </url><url>
-    <loc>http://localhost:1313/blog/</loc>
+    <loc>https://interfacecraft.online/blog/</loc>
     <lastmod>2025-05-19T22:15:36+02:00</lastmod>
   </url><url>
-    <loc>http://localhost:1313/blog/2025/freebsd-vs-macos-for-daily-use-my-personal-migration-story/</loc>
+    <loc>https://interfacecraft.online/blog/2025/freebsd-vs-macos-for-daily-use-my-personal-migration-story/</loc>
     <lastmod>2025-05-19T22:15:36+02:00</lastmod>
   </url><url>
-    <loc>http://localhost:1313/blog/2025/pc-wallpapers-inspired-by-2000s/</loc>
+    <loc>https://interfacecraft.online/blog/2025/pc-wallpapers-inspired-by-2000s/</loc>
     <lastmod>2025-04-29T11:06:19+01:00</lastmod>
   </url><url>
-    <loc>http://localhost:1313/blog/2025/ios-apps-icon-corner-radius-formula/</loc>
+    <loc>https://interfacecraft.online/blog/2025/ios-apps-icon-corner-radius-formula/</loc>
     <lastmod>2025-03-24T11:06:19+01:00</lastmod>
   </url><url>
-    <loc>http://localhost:1313/posts/blog/2025/ios-apps-icon-corner-radius-formula/</loc>
+    <loc>https://interfacecraft.online/posts/blog/2025/ios-apps-icon-corner-radius-formula/</loc>
     <lastmod>2025-03-24T11:06:19+01:00</lastmod>
   </url><url>
-    <loc>http://localhost:1313/posts/</loc>
+    <loc>https://interfacecraft.online/posts/</loc>
     <lastmod>2025-03-24T11:06:19+01:00</lastmod>
   </url><url>
-    <loc>http://localhost:1313/blog/2025/how-i-set-up-usenet-slrn-access-in-2025/</loc>
+    <loc>https://interfacecraft.online/blog/2025/how-i-set-up-usenet-slrn-access-in-2025/</loc>
     <lastmod>2025-03-13T17:19:30+01:00</lastmod>
   </url><url>
-    <loc>http://localhost:1313/posts/blog/2025/how-i-set-up-usenet-slrn-access-in-2025/</loc>
+    <loc>https://interfacecraft.online/posts/blog/2025/how-i-set-up-usenet-slrn-access-in-2025/</loc>
     <lastmod>2025-03-13T17:19:30+01:00</lastmod>
   </url><url>
-    <loc>http://localhost:1313/blog/2025/how-i-automated-my-computer-life-with-macos-folder-actions/</loc>
+    <loc>https://interfacecraft.online/blog/2025/how-i-automated-my-computer-life-with-macos-folder-actions/</loc>
     <lastmod>2025-02-12T21:53:39+01:00</lastmod>
   </url><url>
-    <loc>http://localhost:1313/posts/blog/2025/how-i-automated-my-computer-life-with-macos-folder-actions/</loc>
+    <loc>https://interfacecraft.online/posts/blog/2025/how-i-automated-my-computer-life-with-macos-folder-actions/</loc>
     <lastmod>2025-02-12T21:53:39+01:00</lastmod>
   </url><url>
-    <loc>http://localhost:1313/blog/2025/can-cheap-minipc-with-freebsd-14-outperform-macbook-pro-m1-pro/</loc>
+    <loc>https://interfacecraft.online/blog/2025/can-cheap-minipc-with-freebsd-14-outperform-macbook-pro-m1-pro/</loc>
     <lastmod>2025-02-05T22:25:51+01:00</lastmod>
   </url><url>
-    <loc>http://localhost:1313/posts/blog/2025/can-cheap-minipc-with-freebsd-14-outperform-macbook-pro-m1-pro/</loc>
+    <loc>https://interfacecraft.online/posts/blog/2025/can-cheap-minipc-with-freebsd-14-outperform-macbook-pro-m1-pro/</loc>
     <lastmod>2025-02-05T22:25:51+01:00</lastmod>
   </url><url>
-    <loc>http://localhost:1313/blog/2025/interface_has_conversations_with_user/</loc>
-    <lastmod>2025-02-05T22:25:51+01:00</lastmod>
-  </url><url>
-    <loc>http://localhost:1313/posts/blog/2025/interface_has_conversations_with_user/</loc>
-    <lastmod>2025-02-05T22:25:51+01:00</lastmod>
-  </url><url>
-    <loc>http://localhost:1313/blog/2024/why-i-ditched-my-apple-watch-for-a-quartz-watch/</loc>
+    <loc>https://interfacecraft.online/blog/2024/why-i-ditched-my-apple-watch-for-a-quartz-watch/</loc>
     <lastmod>2024-11-20T21:37:37+01:00</lastmod>
   </url><url>
-    <loc>http://localhost:1313/posts/blog/2024/why-i-ditched-my-apple-watch-for-a-quartz-watch/</loc>
+    <loc>https://interfacecraft.online/posts/blog/2024/why-i-ditched-my-apple-watch-for-a-quartz-watch/</loc>
     <lastmod>2024-11-20T21:37:37+01:00</lastmod>
   </url><url>
-    <loc>http://localhost:1313/tags/case-studies/</loc>
+    <loc>https://interfacecraft.online/tags/case-studies/</loc>
     <lastmod>2024-11-01T16:28:45+01:00</lastmod>
   </url><url>
-    <loc>http://localhost:1313/blog/2024/opera-browser-onboarding-ux-analysis/</loc>
+    <loc>https://interfacecraft.online/blog/2024/opera-browser-onboarding-ux-analysis/</loc>
     <lastmod>2024-11-01T16:28:45+01:00</lastmod>
   </url><url>
-    <loc>http://localhost:1313/posts/blog/2024/opera-browser-onboarding-ux-analysis/</loc>
+    <loc>https://interfacecraft.online/posts/blog/2024/opera-browser-onboarding-ux-analysis/</loc>
     <lastmod>2024-11-01T16:28:45+01:00</lastmod>
   </url><url>
-    <loc>http://localhost:1313/tags/</loc>
+    <loc>https://interfacecraft.online/tags/</loc>
     <lastmod>2024-11-01T16:28:45+01:00</lastmod>
   </url><url>
-    <loc>http://localhost:1313/blog/2024/the-best-way-to-create-ios-screenshots-titles/</loc>
+    <loc>https://interfacecraft.online/blog/2024/the-best-way-to-create-ios-screenshots-titles/</loc>
     <lastmod>2024-10-25T11:08:10+02:00</lastmod>
   </url><url>
-    <loc>http://localhost:1313/posts/blog/2024/the-best-way-to-create-ios-screenshots-titles/</loc>
+    <loc>https://interfacecraft.online/posts/blog/2024/the-best-way-to-create-ios-screenshots-titles/</loc>
     <lastmod>2024-10-25T11:08:10+02:00</lastmod>
   </url><url>
-    <loc>http://localhost:1313/blog/2024/ios-app-icons-design/</loc>
+    <loc>https://interfacecraft.online/blog/2024/ios-app-icons-design/</loc>
     <lastmod>2024-10-23T21:44:06+02:00</lastmod>
   </url><url>
-    <loc>http://localhost:1313/posts/blog/2024/ios-app-icons-design/</loc>
+    <loc>https://interfacecraft.online/posts/blog/2024/ios-app-icons-design/</loc>
     <lastmod>2024-10-23T21:44:06+02:00</lastmod>
   </url><url>
-    <loc>http://localhost:1313/tags/portfolio/</loc>
+    <loc>https://interfacecraft.online/tags/portfolio/</loc>
     <lastmod>2024-10-23T21:44:06+02:00</lastmod>
   </url><url>
-    <loc>http://localhost:1313/blog/2024/with-ios18-your-app-needs-dark-app-icon-more-than-ever/</loc>
+    <loc>https://interfacecraft.online/blog/2024/with-ios18-your-app-needs-dark-app-icon-more-than-ever/</loc>
     <lastmod>2024-09-24T17:02:50+02:00</lastmod>
   </url><url>
-    <loc>http://localhost:1313/posts/blog/2024/with-ios18-your-app-needs-dark-app-icon-more-than-ever/</loc>
+    <loc>https://interfacecraft.online/posts/blog/2024/with-ios18-your-app-needs-dark-app-icon-more-than-ever/</loc>
     <lastmod>2024-09-24T17:02:50+02:00</lastmod>
   </url><url>
-    <loc>http://localhost:1313/blog/2024/ui-elements-understanding-their-purpose-for-effective-design/</loc>
+    <loc>https://interfacecraft.online/blog/2024/ui-elements-understanding-their-purpose-for-effective-design/</loc>
     <lastmod>2024-09-10T14:08:34+02:00</lastmod>
   </url><url>
-    <loc>http://localhost:1313/posts/blog/2024/ui-elements-understanding-their-purpose-for-effective-design/</loc>
+    <loc>https://interfacecraft.online/posts/blog/2024/ui-elements-understanding-their-purpose-for-effective-design/</loc>
     <lastmod>2024-09-10T14:08:34+02:00</lastmod>
   </url><url>
-    <loc>http://localhost:1313/blog/2024/two-data-driven-methods-to-identify-your-target-audience-age-as-a-product-designer/</loc>
+    <loc>https://interfacecraft.online/blog/2024/two-data-driven-methods-to-identify-your-target-audience-age-as-a-product-designer/</loc>
     <lastmod>2024-07-29T13:13:53+02:00</lastmod>
   </url><url>
-    <loc>http://localhost:1313/posts/blog/2024/two-data-driven-methods-to-identify-your-target-audience-age-as-a-product-designer/</loc>
+    <loc>https://interfacecraft.online/posts/blog/2024/two-data-driven-methods-to-identify-your-target-audience-age-as-a-product-designer/</loc>
     <lastmod>2024-07-29T13:13:53+02:00</lastmod>
   </url><url>
-    <loc>http://localhost:1313/tags/freebsd/</loc>
-    <lastmod>2024-07-15T16:42:44+02:00</lastmod>
-  </url><url>
-    <loc>http://localhost:1313/blog/2024/freebsd-loader-configuration-file-loader-conf-structure/</loc>
-    <lastmod>2024-07-15T16:42:44+02:00</lastmod>
-  </url><url>
-    <loc>http://localhost:1313/posts/blog/2024/freebsd-loader-configuration-file-loader-conf-structure/</loc>
-    <lastmod>2024-07-15T16:42:44+02:00</lastmod>
-  </url><url>
-    <loc>http://localhost:1313/blog/2024/asc-product-page-optimization-anchor-pointer-app/</loc>
-    <lastmod>2024-07-14T13:24:09+02:00</lastmod>
-  </url><url>
-    <loc>http://localhost:1313/posts/blog/2024/asc-product-page-optimization-anchor-pointer-app/</loc>
-    <lastmod>2024-07-14T13:24:09+02:00</lastmod>
-  </url><url>
-    <loc>http://localhost:1313/blog/2024/navigating_success_11_years_of_innovation_with_anchor_pointer_gps_compass/</loc>
+    <loc>https://interfacecraft.online/blog/2024/navigating_success_11_years_of_innovation_with_anchor_pointer_gps_compass/</loc>
     <lastmod>2024-07-04T21:52:14+02:00</lastmod>
   </url><url>
-    <loc>http://localhost:1313/posts/blog/2024/navigating_success_11_years_of_innovation_with_anchor_pointer_gps_compass/</loc>
+    <loc>https://interfacecraft.online/posts/blog/2024/navigating_success_11_years_of_innovation_with_anchor_pointer_gps_compass/</loc>
     <lastmod>2024-07-04T21:52:14+02:00</lastmod>
   </url><url>
-    <loc>http://localhost:1313/blog/2024/how-to-shake-up-zero-downloads-on-app-store/</loc>
+    <loc>https://interfacecraft.online/blog/2024/how-to-shake-up-zero-downloads-on-app-store/</loc>
     <lastmod>2024-06-30T14:54:59+02:00</lastmod>
   </url><url>
-    <loc>http://localhost:1313/posts/blog/2024/how-to-shake-up-zero-downloads-on-app-store/</loc>
+    <loc>https://interfacecraft.online/posts/blog/2024/how-to-shake-up-zero-downloads-on-app-store/</loc>
     <lastmod>2024-06-30T14:54:59+02:00</lastmod>
   </url><url>
-    <loc>http://localhost:1313/blog/2024/making-mobile-game-for-toddlers/</loc>
+    <loc>https://interfacecraft.online/blog/2024/making-mobile-game-for-toddlers/</loc>
     <lastmod>2024-06-26T12:08:12+02:00</lastmod>
   </url><url>
-    <loc>http://localhost:1313/posts/blog/2024/making-mobile-game-for-toddlers/</loc>
+    <loc>https://interfacecraft.online/posts/blog/2024/making-mobile-game-for-toddlers/</loc>
     <lastmod>2024-06-26T12:08:12+02:00</lastmod>
   </url><url>
-    <loc>http://localhost:1313/blog/2024/waterlogue-pro-macos-app-icon-creation/</loc>
+    <loc>https://interfacecraft.online/blog/2024/waterlogue-pro-macos-app-icon-creation/</loc>
     <lastmod>2024-06-24T17:31:08+02:00</lastmod>
   </url><url>
-    <loc>http://localhost:1313/posts/blog/2024/waterlogue-pro-macos-app-icon-creation/</loc>
+    <loc>https://interfacecraft.online/posts/blog/2024/waterlogue-pro-macos-app-icon-creation/</loc>
     <lastmod>2024-06-24T17:31:08+02:00</lastmod>
   </url><url>
-    <loc>http://localhost:1313/blog/2024/personal-computer-crisis/</loc>
+    <loc>https://interfacecraft.online/blog/2024/personal-computer-crisis/</loc>
     <lastmod>2024-06-22T16:30:18+02:00</lastmod>
   </url><url>
-    <loc>http://localhost:1313/posts/blog/2024/personal-computer-crisis/</loc>
+    <loc>https://interfacecraft.online/posts/blog/2024/personal-computer-crisis/</loc>
     <lastmod>2024-06-22T16:30:18+02:00</lastmod>
   </url><url>
-    <loc>http://localhost:1313/blog/2024/ui-depth-and-color-the-hidden-hierarchy/</loc>
+    <loc>https://interfacecraft.online/blog/2024/ui-depth-and-color-the-hidden-hierarchy/</loc>
     <lastmod>2024-06-20T20:38:00+02:00</lastmod>
   </url><url>
-    <loc>http://localhost:1313/posts/blog/2024/ui-depth-and-color-the-hidden-hierarchy/</loc>
+    <loc>https://interfacecraft.online/posts/blog/2024/ui-depth-and-color-the-hidden-hierarchy/</loc>
     <lastmod>2024-06-20T20:38:00+02:00</lastmod>
   </url><url>
-    <loc>http://localhost:1313/blog/2024/why-the-fear-of-ai-taking-on-humans-is-a-nonsense/</loc>
+    <loc>https://interfacecraft.online/blog/2024/why-the-fear-of-ai-taking-on-humans-is-a-nonsense/</loc>
     <lastmod>2024-03-23T20:05:56+02:00</lastmod>
   </url><url>
-    <loc>http://localhost:1313/posts/blog/2024/why-the-fear-of-ai-taking-on-humans-is-a-nonsense/</loc>
+    <loc>https://interfacecraft.online/posts/blog/2024/why-the-fear-of-ai-taking-on-humans-is-a-nonsense/</loc>
     <lastmod>2024-03-23T20:05:56+02:00</lastmod>
   </url><url>
-    <loc>http://localhost:1313/blog/2023/how-to-boost-mobile-app-usage-with-a-simple-analytics-analysis/</loc>
+    <loc>https://interfacecraft.online/blog/2023/how-to-boost-mobile-app-usage-with-a-simple-analytics-analysis/</loc>
     <lastmod>2023-09-21T20:41:08+02:00</lastmod>
   </url><url>
-    <loc>http://localhost:1313/posts/blog/2023/how-to-boost-mobile-app-usage-with-a-simple-analytics-analysis/</loc>
+    <loc>https://interfacecraft.online/posts/blog/2023/how-to-boost-mobile-app-usage-with-a-simple-analytics-analysis/</loc>
     <lastmod>2023-09-21T20:41:08+02:00</lastmod>
   </url><url>
-    <loc>http://localhost:1313/blog/2023/how-to-use-strings-method-to-improve-any-ui-design/</loc>
+    <loc>https://interfacecraft.online/blog/2023/how-to-use-strings-method-to-improve-any-ui-design/</loc>
     <lastmod>2023-08-15T20:41:08+02:00</lastmod>
   </url><url>
-    <loc>http://localhost:1313/posts/blog/2023/how-to-use-strings-method-to-improve-any-ui-design/</loc>
+    <loc>https://interfacecraft.online/posts/blog/2023/how-to-use-strings-method-to-improve-any-ui-design/</loc>
     <lastmod>2023-08-15T20:41:08+02:00</lastmod>
   </url><url>
-    <loc>http://localhost:1313/blog/2023/how-text-affects-the-meaning-of-ui-icons/</loc>
+    <loc>https://interfacecraft.online/blog/2023/how-text-affects-the-meaning-of-ui-icons/</loc>
     <lastmod>2023-08-13T20:41:08+02:00</lastmod>
   </url><url>
-    <loc>http://localhost:1313/posts/blog/2023/how-text-affects-the-meaning-of-ui-icons/</loc>
+    <loc>https://interfacecraft.online/posts/blog/2023/how-text-affects-the-meaning-of-ui-icons/</loc>
     <lastmod>2023-08-13T20:41:08+02:00</lastmod>
   </url><url>
-    <loc>http://localhost:1313/blog/2023/what-works-better-than-three-click-rule/</loc>
+    <loc>https://interfacecraft.online/blog/2023/what-works-better-than-three-click-rule/</loc>
     <lastmod>2023-08-11T20:41:08+02:00</lastmod>
   </url><url>
-    <loc>http://localhost:1313/posts/blog/2023/what-works-better-than-three-click-rule/</loc>
+    <loc>https://interfacecraft.online/posts/blog/2023/what-works-better-than-three-click-rule/</loc>
     <lastmod>2023-08-11T20:41:08+02:00</lastmod>
   </url><url>
-    <loc>http://localhost:1313/blog/2023/why-layout-evolution-matters-in-ui-design/</loc>
+    <loc>https://interfacecraft.online/blog/2023/why-layout-evolution-matters-in-ui-design/</loc>
     <lastmod>2023-02-08T20:41:08+02:00</lastmod>
   </url><url>
-    <loc>http://localhost:1313/posts/blog/2023/why-layout-evolution-matters-in-ui-design/</loc>
+    <loc>https://interfacecraft.online/posts/blog/2023/why-layout-evolution-matters-in-ui-design/</loc>
     <lastmod>2023-02-08T20:41:08+02:00</lastmod>
   </url><url>
-    <loc>http://localhost:1313/blog/archive/cracking-the-code-recreate-the-apple-watch_s-iconic-pairing-pattern/</loc>
+    <loc>https://interfacecraft.online/blog/archive/cracking-the-code-recreate-the-apple-watch_s-iconic-pairing-pattern/</loc>
     <lastmod>2021-03-22T10:27:48+02:00</lastmod>
   </url><url>
-    <loc>http://localhost:1313/posts/blog/archive/cracking-the-code-recreate-the-apple-watch_s-iconic-pairing-pattern/</loc>
+    <loc>https://interfacecraft.online/posts/blog/archive/cracking-the-code-recreate-the-apple-watch_s-iconic-pairing-pattern/</loc>
     <lastmod>2021-03-22T10:27:48+02:00</lastmod>
   </url><url>
-    <loc>http://localhost:1313/posts/blog/archive/the-day-apple-reset-the-app-store/</loc>
+    <loc>https://interfacecraft.online/posts/blog/archive/the-day-apple-reset-the-app-store/</loc>
     <lastmod>2021-01-14T20:41:08+02:00</lastmod>
   </url><url>
-    <loc>http://localhost:1313/blog/archive/ios-app-pricing-doesn-t-have-to-be-low/</loc>
+    <loc>https://interfacecraft.online/blog/archive/ios-app-pricing-doesn-t-have-to-be-low/</loc>
     <lastmod>2017-06-30T18:46:57+02:00</lastmod>
   </url><url>
-    <loc>http://localhost:1313/posts/blog/archive/ios-app-pricing-doesn-t-have-to-be-low/</loc>
+    <loc>https://interfacecraft.online/posts/blog/archive/ios-app-pricing-doesn-t-have-to-be-low/</loc>
     <lastmod>2017-06-30T18:46:57+02:00</lastmod>
   </url><url>
-    <loc>http://localhost:1313/blog/archive/how-to-convert-rgb-to-hue-value-in-swift/</loc>
+    <loc>https://interfacecraft.online/blog/archive/how-to-convert-rgb-to-hue-value-in-swift/</loc>
     <lastmod>2017-06-22T10:46:05+02:00</lastmod>
   </url><url>
-    <loc>http://localhost:1313/posts/blog/archive/how-to-convert-rgb-to-hue-value-in-swift/</loc>
+    <loc>https://interfacecraft.online/posts/blog/archive/how-to-convert-rgb-to-hue-value-in-swift/</loc>
     <lastmod>2017-06-22T10:46:05+02:00</lastmod>
   </url><url>
-    <loc>http://localhost:1313/blog/archive/how-to-create-delegate-in-swift/</loc>
+    <loc>https://interfacecraft.online/blog/archive/how-to-create-delegate-in-swift/</loc>
     <lastmod>2017-05-30T10:42:43+02:00</lastmod>
   </url><url>
-    <loc>http://localhost:1313/posts/blog/archive/how-to-create-delegate-in-swift/</loc>
+    <loc>https://interfacecraft.online/posts/blog/archive/how-to-create-delegate-in-swift/</loc>
     <lastmod>2017-05-30T10:42:43+02:00</lastmod>
   </url><url>
-    <loc>http://localhost:1313/blog/archive/taskmoji-simplified-to-do-app-for-people-who-hate-to-do-apps/</loc>
+    <loc>https://interfacecraft.online/blog/archive/taskmoji-simplified-to-do-app-for-people-who-hate-to-do-apps/</loc>
     <lastmod>2016-09-07T10:53:16+02:00</lastmod>
   </url><url>
-    <loc>http://localhost:1313/posts/blog/archive/taskmoji-simplified-to-do-app-for-people-who-hate-to-do-apps/</loc>
+    <loc>https://interfacecraft.online/posts/blog/archive/taskmoji-simplified-to-do-app-for-people-who-hate-to-do-apps/</loc>
     <lastmod>2016-09-07T10:53:16+02:00</lastmod>
   </url><url>
-    <loc>http://localhost:1313/blog/archive/the-future-of-icons-is-no-shapes/</loc>
+    <loc>https://interfacecraft.online/blog/archive/the-future-of-icons-is-no-shapes/</loc>
     <lastmod>2016-07-16T20:41:08+02:00</lastmod>
   </url><url>
-    <loc>http://localhost:1313/posts/blog/archive/the-future-of-icons-is-no-shapes/</loc>
+    <loc>https://interfacecraft.online/posts/blog/archive/the-future-of-icons-is-no-shapes/</loc>
     <lastmod>2016-07-16T20:41:08+02:00</lastmod>
   </url><url>
-    <loc>http://localhost:1313/blog/archive/new-app-release-newspaper-for-ipad/</loc>
+    <loc>https://interfacecraft.online/blog/archive/new-app-release-newspaper-for-ipad/</loc>
     <lastmod>2016-04-12T09:51:03+02:00</lastmod>
   </url><url>
-    <loc>http://localhost:1313/posts/blog/archive/new-app-release-newspaper-for-ipad/</loc>
+    <loc>https://interfacecraft.online/posts/blog/archive/new-app-release-newspaper-for-ipad/</loc>
     <lastmod>2016-04-12T09:51:03+02:00</lastmod>
   </url><url>
-    <loc>http://localhost:1313/blog/archive/how-to-deselect-selected-uitable-view-cell/</loc>
+    <loc>https://interfacecraft.online/blog/archive/how-to-deselect-selected-uitable-view-cell/</loc>
     <lastmod>2016-04-06T12:22:56+02:00</lastmod>
   </url><url>
-    <loc>http://localhost:1313/posts/blog/archive/how-to-deselect-selected-uitable-view-cell/</loc>
+    <loc>https://interfacecraft.online/posts/blog/archive/how-to-deselect-selected-uitable-view-cell/</loc>
     <lastmod>2016-04-06T12:22:56+02:00</lastmod>
   </url><url>
-    <loc>http://localhost:1313/blog/archive/how-to-change-uilabel-line-height-swift/</loc>
+    <loc>https://interfacecraft.online/blog/archive/how-to-change-uilabel-line-height-swift/</loc>
     <lastmod>2016-03-30T16:53:11+02:00</lastmod>
   </url><url>
-    <loc>http://localhost:1313/posts/blog/archive/how-to-change-uilabel-line-height-swift/</loc>
+    <loc>https://interfacecraft.online/posts/blog/archive/how-to-change-uilabel-line-height-swift/</loc>
     <lastmod>2016-03-30T16:53:11+02:00</lastmod>
   </url><url>
-    <loc>http://localhost:1313/blog/archive/how-to-dismiss-modal-view-form-sheet-controller-in-swift/</loc>
+    <loc>https://interfacecraft.online/blog/archive/how-to-dismiss-modal-view-form-sheet-controller-in-swift/</loc>
     <lastmod>2015-11-25T17:01:15+02:00</lastmod>
   </url><url>
-    <loc>http://localhost:1313/posts/blog/archive/how-to-dismiss-modal-view-form-sheet-controller-in-swift/</loc>
+    <loc>https://interfacecraft.online/posts/blog/archive/how-to-dismiss-modal-view-form-sheet-controller-in-swift/</loc>
     <lastmod>2015-11-25T17:01:15+02:00</lastmod>
   </url><url>
-    <loc>http://localhost:1313/blog/archive/how-to-use-pdfs-as-icons-source-in-xcode/</loc>
+    <loc>https://interfacecraft.online/blog/archive/how-to-use-pdfs-as-icons-source-in-xcode/</loc>
     <lastmod>2015-10-30T09:47:22+02:00</lastmod>
   </url><url>
-    <loc>http://localhost:1313/posts/blog/archive/how-to-use-pdfs-as-icons-source-in-xcode/</loc>
+    <loc>https://interfacecraft.online/posts/blog/archive/how-to-use-pdfs-as-icons-source-in-xcode/</loc>
     <lastmod>2015-10-30T09:47:22+02:00</lastmod>
   </url><url>
-    <loc>http://localhost:1313/blog/archive/how-to-make-custom-uinavigationcontroller-back-button-image-without-title-swift/</loc>
+    <loc>https://interfacecraft.online/blog/archive/how-to-make-custom-uinavigationcontroller-back-button-image-without-title-swift/</loc>
     <lastmod>2015-07-21T09:39:55+02:00</lastmod>
   </url><url>
-    <loc>http://localhost:1313/posts/blog/archive/how-to-make-custom-uinavigationcontroller-back-button-image-without-title-swift/</loc>
+    <loc>https://interfacecraft.online/posts/blog/archive/how-to-make-custom-uinavigationcontroller-back-button-image-without-title-swift/</loc>
     <lastmod>2015-07-21T09:39:55+02:00</lastmod>
   </url><url>
-    <loc>http://localhost:1313/blog/archive/how-to-disable-uinavigationbar-shadow-in-ios-9-swift/</loc>
+    <loc>https://interfacecraft.online/blog/archive/how-to-disable-uinavigationbar-shadow-in-ios-9-swift/</loc>
     <lastmod>2015-07-21T09:31:28+02:00</lastmod>
   </url><url>
-    <loc>http://localhost:1313/posts/blog/archive/how-to-disable-uinavigationbar-shadow-in-ios-9-swift/</loc>
+    <loc>https://interfacecraft.online/posts/blog/archive/how-to-disable-uinavigationbar-shadow-in-ios-9-swift/</loc>
     <lastmod>2015-07-21T09:31:28+02:00</lastmod>
   </url><url>
-    <loc>http://localhost:1313/blog/archive/how-to-set-padding-for-uitextfield-in-swift-the-easiest-way/</loc>
+    <loc>https://interfacecraft.online/blog/archive/how-to-set-padding-for-uitextfield-in-swift-the-easiest-way/</loc>
     <lastmod>2015-02-16T09:11:49+02:00</lastmod>
   </url><url>
-    <loc>http://localhost:1313/posts/blog/archive/how-to-set-padding-for-uitextfield-in-swift-the-easiest-way/</loc>
+    <loc>https://interfacecraft.online/posts/blog/archive/how-to-set-padding-for-uitextfield-in-swift-the-easiest-way/</loc>
     <lastmod>2015-02-16T09:11:49+02:00</lastmod>
   </url><url>
-    <loc>http://localhost:1313/blog/archive/how-to-duplicate-geometry-from-dae-files-in-scenekit-swift/</loc>
+    <loc>https://interfacecraft.online/blog/archive/how-to-duplicate-geometry-from-dae-files-in-scenekit-swift/</loc>
     <lastmod>2015-01-11T08:56:17+02:00</lastmod>
   </url><url>
-    <loc>http://localhost:1313/posts/blog/archive/how-to-duplicate-geometry-from-dae-files-in-scenekit-swift/</loc>
+    <loc>https://interfacecraft.online/posts/blog/archive/how-to-duplicate-geometry-from-dae-files-in-scenekit-swift/</loc>
     <lastmod>2015-01-11T08:56:17+02:00</lastmod>
   </url><url>
-    <loc>http://localhost:1313/categories/</loc>
+    <loc>https://interfacecraft.online/categories/</loc>
   </url><url>
-    <loc>http://localhost:1313/tools/example-tool/</loc>
+    <loc>https://interfacecraft.online/tools/example-tool/</loc>
   </url><url>
-    <loc>http://localhost:1313/tools/</loc>
+    <loc>https://interfacecraft.online/tools/</loc>
   </url>
 </urlset>

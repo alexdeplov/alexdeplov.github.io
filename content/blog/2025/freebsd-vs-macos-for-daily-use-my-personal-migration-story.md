@@ -208,7 +208,17 @@ ui.key.menuAccessKeyFocuses: false
 
 In order to achieve better performance, I'm using the [ports compilation to my hardware method](https://docs.freebsd.org/en/books/handbook/ports/#ports-using) (make clean) instead of installing from packages (pkg install), inspired by this video:
 
-<iframe width="560" height="315" src="https://www.youtube.com/embed/zboBAUOhyws?si=Bqwdt2f3IoYotwo8" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+<div class="relative w-full pt-[56.25%]">
+  <iframe
+    class="absolute top-0 left-0 w-full h-full"
+    src="https://www.youtube.com/embed/zboBAUOhyws?si=Bqwdt2f3IoYotwo8"
+    title="YouTube video player"
+    allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+    referrerpolicy="strict-origin-when-cross-origin"
+    allowfullscreen>
+  </iframe>
+</div>
+
 
 I also started using the [Synth app](https://man.freebsd.org/cgi/man.cgi?query=synth&sektion=1&manpath=freebsd-release-ports) for that.
 
