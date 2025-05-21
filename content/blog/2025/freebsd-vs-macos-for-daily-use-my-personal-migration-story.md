@@ -25,8 +25,8 @@ I had some experience with FreeBSD 4.5 on my old 486 IBM PC, but after 20 years,
 ## In this experiment, I switched from macOS to FreeBSD to achieve the following goals:
 
 - To compare the performance of both systems for desktop usage. This is important because Macs are expensive. What hardware will we need to comfortably use a desktop in 2025? For this comparison, I pitted a $1800 MacBook Pro with an M1 Pro processor against a $300 Mini PC.
-- I tweaked FreeBSD to closely match the macOS look and feel so that when I switch from my working computer to FreeBSD, the experience is similar.
-- Show my friends and the world that there is a good alternative to macOS besides Windows or Linux.
+- To tweak FreeBSD to closely match the macOS look and feel so that when I switch from my working computer to FreeBSD, the experience is similar.
+- To show my friends and the world that there is a good alternative to macOS besides Windows or Linux.
 
 Before I begin, here are my quick test results for both operating systems. I ran desktop apps on each operating system to see how quickly they could be launched and how responsive they felt during initial and subsequent usage.
 
