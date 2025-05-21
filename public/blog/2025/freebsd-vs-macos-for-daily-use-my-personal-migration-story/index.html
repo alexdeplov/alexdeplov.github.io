@@ -68,27 +68,27 @@
   </header>
 
   <div class="content">
-    <p>As a designer I&rsquo;ve been using macOS since 2005, but with each new update, I dislike where Apple is going. They add unnecessary features that use system resources and can&rsquo;t be turned off. If your Mac can&rsquo;t handle macOS, the only solution is to buy a more powerful Mac. This is probably okay; people upgrade their hardware from time to time, and this is part of the evolution of the field. However, Apple can abandon any five-year-old Mac as obsolete. In my opinion, though, a five-year-old computer can still handle many things and should have enough power to be fast enough. That would be true if macOS didn&rsquo;t outgrow the hardware so quickly.</p>
-<p>To make macOS last longer and remove unnecessary features from the system, I decided to learn more about how macOS works. To my surprise, I found that it was very similar to my past FreeBSD experience.</p>
+    <p>As a designer I&rsquo;ve been using macOS since 2005, but with each new update, I dislike the direction Apple is heading in. They add unnecessary features that use system resources and can&rsquo;t be disabled. My seven-year-old MacBook Pro with an Intel processor became so slow and unresponsive with the latest macOS version that I can&rsquo;t use it at all anymore. If your Mac can&rsquo;t handle the latest macOS version, the only solution is to buy a more powerful Mac. This is probably fine, people upgrade their hardware from time to time, and this is part of the evolution of the field. However, Apple can deem any five-year-old Mac obsolete. It seems like they have more control over your computer than you do.</p>
+<p>In order to optimize macOS and turn off unnecessary system services, I decided to learn deeply about how macOS works. I was surprised to find that it was very similar to my past experience with FreeBSD:</p>
 <ul>
-<li>Both Unix</li>
+<li>Both Unix or Unix-like.</li>
 <li>macOS has many terminal apps that I&rsquo;ve seen before, such as top, ps, and ifconfig.</li>
 <li>Bash, Zsh, and Tcsh.</li>
 <li>As we know, Apple only uses <a href="https://youtu.be/ton0ZaGKOsc?si=k0AB804p5UVxevEz">part of FreeBSD in their kernel</a>.</li>
-<li>Services called &ldquo;daemons&rdquo; are also present, just like in FreeBSD.</li>
+<li>Services called &ldquo;daemons&rdquo;.</li>
 <li>macOS and FreeBSD share a similar file system hierarchy: ~/ for the user folder, ~/Desktop, ~/Downlods and so on.</li>
 <li>System directories such as /etc, /bin, /usr, etc.</li>
-<li>The man page is very similar to FreeBSD.</li>
+<li>The man page.</li>
 </ul>
-<p>After discovering all these similarities, I started thinking that, instead of trying to do something with macOS (which is closed and restrictive), it might make more sense to focus on FreeBSD, where I have full control and can change how things work.</p>
+<p>After discovering all these similarities, I started thinking that it might make more sense to focus on FreeBSD than on macOS, which is closed and highly restrictive. With FreeBSD, I have full control and can change how things work.</p>
 <p>I had some experience with FreeBSD 4.5 on my old 486 IBM PC, but after 20 years, I decided to refresh my knowledge and see how far I could go.</p>
 <h2 id="in-this-experiment-i-switched-from-macos-to-freebsd-to-achieve-the-following-goals">In this experiment, I switched from macOS to FreeBSD to achieve the following goals:</h2>
 <ul>
-<li>To compare the performance of both systems for desktop usage. This is important because Macs are expensive. What hardware will be needed to comfortably use one in 2025? In this comparison, I pit a $2,000 MacBook Pro M1 Pro against a $300 MiniPC. As you may recall, the introduction of the M1 processor was a significant event for Apple, marking the beginning of a new era of speed an optimization.</li>
-<li>I wanted to tweak FreeBSD to match macOS as closely as possible so that, when switching from a working computer to FreeBSD, I would have a similar experience.</li>
-<li>To show my friends and the world that there is a good alternative to macOS that is not Windows or Linux.</li>
+<li>To compare the performance of both systems for desktop usage. This is important because Macs are expensive. What hardware will we need to comfortably use a desktop in 2025? For this comparison, I pitted a $2,000 MacBook Pro with an M1 Pro processor against a $300 Mini PC.</li>
+<li>I tweaked FreeBSD to closely match the macOS look and feel so that when I switch from my working computer to FreeBSD, the experience is similar.</li>
+<li>Show my friends and the world that there is a good alternative to macOS besides Windows or Linux.</li>
 </ul>
-<p>Before I begin, here are my quick tests for both systems. I&rsquo;m running mostly apps that I&rsquo;ve used before to see how quickly each one can be run and how responsive they feel during the initial launch and subsequent usage.</p>
+<p>Before I begin, here are my quick test results for both operating systems. I ran desktop apps on each operating system to see how quickly they could be launched and how responsive they felt during initial and subsequent usage.</p>
 <h2 id="youtube-video-loading-in-firefox-on-freebsd-vs-macos">YouTube video loading in Firefox on FreeBSD vs macOS</h2>
 <div class="break-inside-avoid rounded-md overflow-hidden mt-5" title="YouTube video loading in Firefox on FreeBSD vs macOS">
 <video class="" loop muted playsinline controls>
@@ -164,7 +164,8 @@
     </tr>
   </tbody>
 </table>
-<p>When I tell people that a $300 AMD mini PC can keep up with an $2000 M1 Pro MacBook in daily use, the first reaction is disbelief. How is this even possible? The answer lies in the efficiency of FreeBSD and the lack of unnecessary background processes. Unlike macOS, which runs a lot of services in the background (some of which can’t even be disabled), FreeBSD gives you full control. You only run what you need. Combined with lightweight desktop environments like MATE and compiled apps optimized for your specific hardware, the system feels snappy—even on budget CPUs. It’s not magic; it’s just smart, minimal computing.</p>
+<p>When I tell people that a $300 AMD mini PC can keep up with an $2000 M1 Pro MacBook in daily use, the first reaction is disbelief. How is this even possible? As you may recall, the introduction of the M1 processor was a significant event for Apple, marking the beginning of a new era of speed an optimization.</p>
+<p>I guess the answer lies in the efficiency of FreeBSD and the lack of unnecessary background processes. Unlike macOS, which runs a lot of services (daemons) in the background, some of which can’t even be disabled, FreeBSD gives you full control. Combined with lightweight desktop environments like MATE and compiled apps optimized for your specific hardware, the system feels snappy—even on budget CPUs.</p>
 <h3 id="resources">Resources</h3>
 <p>FreeBSD, htop:
 <img src="./htop-freebsd.png" alt=""></p>
@@ -185,6 +186,7 @@
 </span></span><span style="display:flex;"><span>    Option <span style="color:#98c379">&#34;TearFree&#34;</span> <span style="color:#98c379">&#34;true&#34;</span>
 </span></span><span style="display:flex;"><span>EndSection
 </span></span></code></pre></div><h2 id="replaced-mates-ui-fonts-to-sf-pro-display">Replaced MATE&rsquo;s UI fonts to SF Pro Display</h2>
+<p>I found that the topic of matching macOS-style font rendering on X Server is a major point of debate online. I decided to use another approach: compare both screenshots to see how to achive closer look by tweaking X Server font rendering settings.</p>
 <ol>
 <li>Install <a href="https://github.com/sahibjotsaggu/San-Francisco-Pro-Fonts" target="_blank">SF Pro Display, Regular</a> and set it as default in MATE&rsquo;s UI.</p></li>
 <li>To set MATE&rsquo;s font rendering similar to macOS I connected both computers to my 1080p monitor and made screenshots on both operating systems, then step by step I tried to achieve similarity <strong>as close as possible</strong> by using Figma and zoom tool and different FreeType font rendering settings. Here is result that I achieved:</li>
@@ -206,7 +208,7 @@
 <li>For console I&rsquo;m using <a href="https://github.com/supercomputra/SF-Mono-Font" target="_blank">SF Mono.</a></li>
 </ol>
 </details>
-<h2 id="mate-settings">Mate Settings</h2>
+<h2 id="mates-settings">MATE&rsquo;s Settings</h2>
 <p>Then I changed MATE&rsquo;s most common shortcuts to:</p>
 <ul>
 <li>CMD + Tab to app switch</li>
@@ -237,7 +239,7 @@
 <h2 id="macos-wallpapers">macOS Wallpapers</h2>
 <p><img src="./freebsd-desktop.png" alt=""></p>
 <p>My favorite wallpapers are from <a href="https://512pixels.net/projects/default-mac-wallpapers-in-5k/">macOS Sequoia and macOS Ventura</a>.</p>
-<h2 id="mate-theme--icons--cursors">Mate Theme &amp; Icons &amp; Cursors</h2>
+<h2 id="mates-theme--icons--cursors">MATE&rsquo;s Theme &amp; Icons &amp; Cursors</h2>
 <p>Will be added soon.</p>
 <h2 id="dock">Dock</h2>
 <p>Will be added soon.</p>
