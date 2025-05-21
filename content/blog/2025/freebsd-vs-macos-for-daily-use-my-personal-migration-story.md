@@ -69,7 +69,7 @@ Before I begin, here are my quick test results for both operating systems. I ran
   <thead class="">
     <tr>
       <th class="border px-4 py-2"></th>
-      <th class="border px-4 py-2">FreeBSD System on mini PC</th>
+      <th class="border px-4 py-2">FreeBSD on Mini PC, Beelink SER5 5560U</th>
       <th class="border px-4 py-2">MacBook Pro M1 Pro</th>
     </tr>
   </thead>
@@ -121,7 +121,11 @@ When I tell people that a $300 AMD mini PC can keep up with an $1800 M1 Pro MacB
 
 I guess the answer lies in the efficiency of FreeBSD and the lack of unnecessary background processes, also on fast SSD. Unlike macOS, which runs a lot of services (daemons) in the background, some of which can’t even be disabled, FreeBSD gives you full control. Combined with lightweight desktop environments like MATE and compiled apps optimized for your specific hardware, the system feels snappy—even on budget CPUs.
 
-### Resources
+### Where Performance Declines
+
+My budget mini PC isn’t perfect for everything. One clear limitation is graphics performance. The integrated Radeon Vega GPU is not very powerful by today’s standards, and that becomes noticeable in GPU-intensive applications like Blender. While basic 3D previews and light modeling work are possible, rendering times are much longer compared to macOS on the M1 Pro, and viewport performance can lag when working with complex scenes. If you're doing serious 3D work or GPU-heavy tasks, this setup quickly shows its limits.
+
+### Resource Usage When No Apps Are Open
 
 FreeBSD, htop:
 ![](./htop-freebsd.png)
@@ -146,7 +150,7 @@ If you already have FreeBSD installed, you can follow my approach to make it loo
 /usr/local/etc/X11/xorg.conf.d/20-amdgpu.conf 
 
 Section "Device"
-    Identifier "AMD Graphics"
+    Identifier "AMD"
     Driver "amdgpu"
     Option "TearFree" "true"
 EndSection
@@ -155,34 +159,34 @@ EndSection
 ## Replaced MATE's UI fonts to SF Pro Display
 I found that the topic of matching macOS-style font rendering on X Server is a major point of debate online. I decided to use another approach: compare both screenshots to see how to achive closer look by tweaking X Server font rendering settings. 
 
-  1. Install <a href="https://github.com/sahibjotsaggu/San-Francisco-Pro-Fonts" target="_blank">SF Pro Display, Regular</a> and set it as default in MATE's UI.</p>
-  2. To set MATE's font rendering similar to macOS I connected both computers to my 1080p monitor and made screenshots on both operating systems, then step by step I tried to achieve similarity **as close as possible** by using Figma and zoom tool and different FreeType font rendering settings. Here is result that I achieved:
-  
-  ![](./font-rendering-results.png)
+1. Install <a href="https://github.com/sahibjotsaggu/San-Francisco-Pro-Fonts" target="_blank">SF Pro Display, Regular</a> and set it as default in MATE's UI.</p>
+2. To set MATE's font rendering similar to macOS I connected both computers to my 1080p monitor and made screenshots on both operating systems, then step by step I tried to achieve similarity **as close as possible** by using Figma and zoom tool and different FreeType font rendering settings. Here is result that I achieved:
 
-  <video class="mb-5" autoplay loop muted playsinline>
-    <source src="fonts-compare.mp4" type="video/mp4">
-    Your browser does not support the video tag.
-  </video>    
+![](./font-rendering-results.png)
+
+<video class="mb-5" autoplay loop muted playsinline>
+  <source src="fonts-compare.mp4" type="video/mp4">
+  Your browser does not support the video tag.
+</video>    
 
 To achive that add this:
 
-  ```sh
-    ~/.profile
+```sh
+  ~/.profile
 
-    export FREETYPE_PROPERTIES="cff:no-stem-darkening=0.0 autofitter:no-stem-darkening=0.0"
-  ```
+  export FREETYPE_PROPERTIES="cff:no-stem-darkening=0.0 autofitter:no-stem-darkening=0.0"
+```
 
-  Set Smoothing to Grayscale and Hinting to None (I also set font size to be 10 and DPI to 95):
+Set Smoothing to Grayscale and Hinting to None (I also set font size to be 10 and DPI to 95):
 
-  ![](./fonts-smoothing.png)
+![](./fonts-smoothing.png)
 
-  Results: Fonts in macOS on the left versus MATE on the right. You might notice that fonts in macOS appear bolder, not only because Apple often uses semibold and bold in UI, but also because of how macOS renders them. Apple also doesn't use subpixel smoothing. With the settings I provided, you can achieve a pretty similar look. It won't be exactly the same because MATE and macOS render letters, spacing, and other details differently, but it will be very close, especially compared to MATE's default settings:
+Results: Fonts in macOS on the left versus MATE on the right. You might notice that fonts in macOS appear bolder, not only because Apple often uses semibold and bold in UI, but also because of how macOS renders them. Apple also doesn't use subpixel smoothing. With the settings I provided, you can achieve a pretty similar look. It won't be exactly the same because MATE and macOS render letters, spacing, and other details differently, but it will be very close, especially compared to MATE's default settings:
 
-  ![](./fonts.jpg)
+![](./fonts.jpg)
 
 
-  3. For console I'm using <a href="https://github.com/supercomputra/SF-Mono-Font" target="_blank">SF Mono.</a>
+3. For console I'm using <a href="https://github.com/supercomputra/SF-Mono-Font" target="_blank">SF Mono.</a>
 
 </details>
 
@@ -210,9 +214,9 @@ To disable the ability to open the menu by pressing Alt (since it's often presse
 ui.key.menuAccessKeyFocuses: false
 ```
 
-## Apps Performance 
+## Apps Performance
 
-In order to achieve better performance, I'm using the [ports compilation to my hardware method](https://docs.freebsd.org/en/books/handbook/ports/#ports-using) (make clean) instead of installing from packages (pkg install), inspired by this video:
+Inspired by this video, I tried using [ports](https://docs.freebsd.org/en/books/handbook/ports/#ports-using), but I can't say for sure if they provide any performance improvements compared to installing from packages (pkg install). 
 
 <div class="relative w-full pt-[56.25%]">
   <iframe
@@ -224,9 +228,6 @@ In order to achieve better performance, I'm using the [ports compilation to my h
     allowfullscreen>
   </iframe>
 </div>
-
-
-I also started using the [Synth app](https://man.freebsd.org/cgi/man.cgi?query=synth&sektion=1&manpath=freebsd-release-ports) for that.
 
 ## macOS Wallpapers
 

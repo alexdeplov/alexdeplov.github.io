@@ -122,7 +122,7 @@
   <thead class="">
     <tr>
       <th class="border px-4 py-2"></th>
-      <th class="border px-4 py-2">FreeBSD System on mini PC</th>
+      <th class="border px-4 py-2">FreeBSD on Mini PC, Beelink SER5 5560U</th>
       <th class="border px-4 py-2">MacBook Pro M1 Pro</th>
     </tr>
   </thead>
@@ -171,7 +171,9 @@
 </table>
 <p>When I tell people that a $300 AMD mini PC can keep up with an $1800 M1 Pro MacBook in daily use, the first reaction is disbelief. How is this even possible? As you may recall, the introduction of the M1 processor was a significant event for Apple, marking the beginning of a new era of speed an optimization.</p>
 <p>I guess the answer lies in the efficiency of FreeBSD and the lack of unnecessary background processes, also on fast SSD. Unlike macOS, which runs a lot of services (daemons) in the background, some of which can’t even be disabled, FreeBSD gives you full control. Combined with lightweight desktop environments like MATE and compiled apps optimized for your specific hardware, the system feels snappy—even on budget CPUs.</p>
-<h3 id="resources">Resources</h3>
+<h3 id="where-performance-declines">Where Performance Declines</h3>
+<p>My budget mini PC isn’t perfect for everything. One clear limitation is graphics performance. The integrated Radeon Vega GPU is not very powerful by today’s standards, and that becomes noticeable in GPU-intensive applications like Blender. While basic 3D previews and light modeling work are possible, rendering times are much longer compared to macOS on the M1 Pro, and viewport performance can lag when working with complex scenes. If you&rsquo;re doing serious 3D work or GPU-heavy tasks, this setup quickly shows its limits.</p>
+<h3 id="resource-usage-when-no-apps-are-open">Resource Usage When No Apps Are Open</h3>
 <p>FreeBSD, htop:
 <img src="./htop-freebsd.png" alt=""></p>
 <p>macOS, htop:
@@ -186,7 +188,7 @@
 <div class="highlight"><pre tabindex="0" style="color:#abb2bf;background-color:#282c34;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-sh" data-lang="sh"><span style="display:flex;"><span>/usr/local/etc/X11/xorg.conf.d/20-amdgpu.conf 
 </span></span><span style="display:flex;"><span>
 </span></span><span style="display:flex;"><span>Section <span style="color:#98c379">&#34;Device&#34;</span>
-</span></span><span style="display:flex;"><span>    Identifier <span style="color:#98c379">&#34;AMD Graphics&#34;</span>
+</span></span><span style="display:flex;"><span>    Identifier <span style="color:#98c379">&#34;AMD&#34;</span>
 </span></span><span style="display:flex;"><span>    Driver <span style="color:#98c379">&#34;amdgpu&#34;</span>
 </span></span><span style="display:flex;"><span>    Option <span style="color:#98c379">&#34;TearFree&#34;</span> <span style="color:#98c379">&#34;true&#34;</span>
 </span></span><span style="display:flex;"><span>EndSection
@@ -197,10 +199,10 @@
 <li>To set MATE&rsquo;s font rendering similar to macOS I connected both computers to my 1080p monitor and made screenshots on both operating systems, then step by step I tried to achieve similarity <strong>as close as possible</strong> by using Figma and zoom tool and different FreeType font rendering settings. Here is result that I achieved:</li>
 </ol>
 <p><img src="./font-rendering-results.png" alt=""></p>
-  <video class="mb-5" autoplay loop muted playsinline>
-    <source src="fonts-compare.mp4" type="video/mp4">
-    Your browser does not support the video tag.
-  </video>    
+<video class="mb-5" autoplay loop muted playsinline>
+  <source src="fonts-compare.mp4" type="video/mp4">
+  Your browser does not support the video tag.
+</video>    
 <p>To achive that add this:</p>
 <div class="highlight"><pre tabindex="0" style="color:#abb2bf;background-color:#282c34;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-sh" data-lang="sh"><span style="display:flex;"><span>  ~/.profile
 </span></span><span style="display:flex;"><span>
@@ -228,7 +230,7 @@
 </span></span></code></pre></div><p>To disable the ability to open the menu by pressing Alt (since it&rsquo;s often pressed accidentally), add the following in about:config:</p>
 <div class="highlight"><pre tabindex="0" style="color:#abb2bf;background-color:#282c34;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-sh" data-lang="sh"><span style="display:flex;"><span>ui.key.menuAccessKeyFocuses: <span style="color:#e5c07b">false</span>
 </span></span></code></pre></div><h2 id="apps-performance">Apps Performance</h2>
-<p>In order to achieve better performance, I&rsquo;m using the <a href="https://docs.freebsd.org/en/books/handbook/ports/#ports-using">ports compilation to my hardware method</a> (make clean) instead of installing from packages (pkg install), inspired by this video:</p>
+<p>Inspired by this video, I tried using <a href="https://docs.freebsd.org/en/books/handbook/ports/#ports-using">ports</a>, but I can&rsquo;t say for sure if they provide any performance improvements compared to installing from packages (pkg install).</p>
 <div class="relative w-full pt-[56.25%]">
   <iframe
     class="absolute top-0 left-0 w-full h-full"
@@ -239,7 +241,6 @@
     allowfullscreen>
   </iframe>
 </div>
-<p>I also started using the <a href="https://man.freebsd.org/cgi/man.cgi?query=synth&amp;sektion=1&amp;manpath=freebsd-release-ports">Synth app</a> for that.</p>
 <h2 id="macos-wallpapers">macOS Wallpapers</h2>
 <p><img src="./freebsd-desktop.png" alt=""></p>
 <p>My favorite wallpapers are from <a href="https://512pixels.net/projects/default-mac-wallpapers-in-5k/">macOS Sequoia and macOS Ventura</a>.</p>
