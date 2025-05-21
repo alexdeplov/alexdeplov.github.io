@@ -84,7 +84,7 @@
 <p>I had some experience with FreeBSD 4.5 on my old 486 IBM PC, but after 20 years, I decided to refresh my knowledge and see how far I could go.</p>
 <h2 id="in-this-experiment-i-switched-from-macos-to-freebsd-to-achieve-the-following-goals">In this experiment, I switched from macOS to FreeBSD to achieve the following goals:</h2>
 <ul>
-<li>To compare the performance of both systems for desktop usage. This is important because Macs are expensive. What hardware will we need to comfortably use a desktop in 2025? For this comparison, I pitted a $2,000 MacBook Pro with an M1 Pro processor against a $300 Mini PC.</li>
+<li>To compare the performance of both systems for desktop usage. This is important because Macs are expensive. What hardware will we need to comfortably use a desktop in 2025? For this comparison, I pitted a $1800 MacBook Pro with an M1 Pro processor against a $300 Mini PC.</li>
 <li>I tweaked FreeBSD to closely match the macOS look and feel so that when I switch from my working computer to FreeBSD, the experience is similar.</li>
 <li>Show my friends and the world that there is a good alternative to macOS besides Windows or Linux.</li>
 </ul>
@@ -145,12 +145,12 @@
     <tr>
       <td class="border px-4 py-2">Storage</td>
       <td class="border px-4 py-2"><a href="https://www.amazon.de/dp/B0C58GBT93?ref=ppx_yo2ov_dt_b_fed_asin_title&th=1" target="_blank">512 GB M.2 NVMe SSD, 7200 MB/s Read, 6600 MB/s Write</a></td>
-      <td class="border px-4 py-2">Built-in SSD 512 GB</td>
+      <td class="border px-4 py-2">Built-in SSD 512 GB (5500 MB/s Read, 5000 MB/s Write)</td>
     </tr>
     <tr>
       <td class="border px-4 py-2">Network</td>
       <td class="border px-4 py-2">Realtek RTL8111/8168</td>
-      <td class="border px-4 py-2">Built-in Ethernet (via adapter)</td>
+      <td class="border px-4 py-2">Ethernet via adapter</td>
     </tr>
     <tr>
       <td class="border px-4 py-2">Wi-Fi</td>
@@ -162,10 +162,15 @@
       <td class="border px-4 py-2">MATE on FreeBSD</td>
       <td class="border px-4 py-2">macOS Sequoia 15.4.1</td>
     </tr>
+    <tr>
+      <td class="border px-4 py-2">Price</td>
+      <td class="border px-4 py-2">€299 mini PC, €50 SSD</td>
+      <td class="border px-4 py-2">$1800</td>
+    </tr>
   </tbody>
 </table>
-<p>When I tell people that a $300 AMD mini PC can keep up with an $2000 M1 Pro MacBook in daily use, the first reaction is disbelief. How is this even possible? As you may recall, the introduction of the M1 processor was a significant event for Apple, marking the beginning of a new era of speed an optimization.</p>
-<p>I guess the answer lies in the efficiency of FreeBSD and the lack of unnecessary background processes. Unlike macOS, which runs a lot of services (daemons) in the background, some of which can’t even be disabled, FreeBSD gives you full control. Combined with lightweight desktop environments like MATE and compiled apps optimized for your specific hardware, the system feels snappy—even on budget CPUs.</p>
+<p>When I tell people that a $300 AMD mini PC can keep up with an $1800 M1 Pro MacBook in daily use, the first reaction is disbelief. How is this even possible? As you may recall, the introduction of the M1 processor was a significant event for Apple, marking the beginning of a new era of speed an optimization.</p>
+<p>I guess the answer lies in the efficiency of FreeBSD and the lack of unnecessary background processes, also on fast SSD. Unlike macOS, which runs a lot of services (daemons) in the background, some of which can’t even be disabled, FreeBSD gives you full control. Combined with lightweight desktop environments like MATE and compiled apps optimized for your specific hardware, the system feels snappy—even on budget CPUs.</p>
 <h3 id="resources">Resources</h3>
 <p>FreeBSD, htop:
 <img src="./htop-freebsd.png" alt=""></p>
@@ -202,8 +207,8 @@
 </span></span><span style="display:flex;"><span>  <span style="color:#e5c07b">export</span> <span style="color:#e06c75">FREETYPE_PROPERTIES</span><span style="color:#56b6c2">=</span><span style="color:#98c379">&#34;cff:no-stem-darkening=0.0 autofitter:no-stem-darkening=0.0&#34;</span>
 </span></span></code></pre></div><p>Set Smoothing to Grayscale and Hinting to None (I also set font size to be 10 and DPI to 95):</p>
 <p><img src="./fonts-smoothing.png" alt=""></p>
-<p>Results. Fonts in macOS vs in MATE:
-<img src="./fonts.jpg" alt=""></p>
+<p>Results: Fonts in macOS on the left versus MATE on the right. You might notice that fonts in macOS appear bolder, not only because Apple often uses semibold and bold in UI, but also because of how macOS renders them. Apple also doesn&rsquo;t use subpixel smoothing. With the settings I provided, you can achieve a pretty similar look. It won&rsquo;t be exactly the same because MATE and macOS render letters, spacing, and other details differently, but it will be very close, especially compared to MATE&rsquo;s default settings:</p>
+<p><img src="./fonts.jpg" alt=""></p>
 <ol start="3">
 <li>For console I&rsquo;m using <a href="https://github.com/supercomputra/SF-Mono-Font" target="_blank">SF Mono.</a></li>
 </ol>
@@ -217,7 +222,6 @@
 <li>CMD + W to close tabs</li>
 <li>CMD + H to hide apps</li>
 </ul>
-<p>I decided not to use <a href="https://www.freshports.org/x11-wm/picom/">Picom</a> because I wanted to achieve better performance.</p>
 <h2 id="firefox-settings">Firefox Settings</h2>
 <p>To change CTRL to CMD in Firefox go to about:profiles, find the Default Profile (marked &ldquo;Yes&rdquo;), open that folder, and create a user.js file with the following content:</p>
 <div class="highlight"><pre tabindex="0" style="color:#abb2bf;background-color:#282c34;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-sh" data-lang="sh"><span style="display:flex;"><span>user_pref<span style="color:#56b6c2">(</span><span style="color:#98c379">&#34;ui.key.accelKey&#34;</span>, 224<span style="color:#56b6c2">)</span>;

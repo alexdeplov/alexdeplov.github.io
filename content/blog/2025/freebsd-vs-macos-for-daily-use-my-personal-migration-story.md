@@ -24,7 +24,7 @@ I had some experience with FreeBSD 4.5 on my old 486 IBM PC, but after 20 years,
 
 ## In this experiment, I switched from macOS to FreeBSD to achieve the following goals:
 
-- To compare the performance of both systems for desktop usage. This is important because Macs are expensive. What hardware will we need to comfortably use a desktop in 2025? For this comparison, I pitted a $2,000 MacBook Pro with an M1 Pro processor against a $300 Mini PC.
+- To compare the performance of both systems for desktop usage. This is important because Macs are expensive. What hardware will we need to comfortably use a desktop in 2025? For this comparison, I pitted a $1800 MacBook Pro with an M1 Pro processor against a $300 Mini PC.
 - I tweaked FreeBSD to closely match the macOS look and feel so that when I switch from my working computer to FreeBSD, the experience is similar.
 - Show my friends and the world that there is a good alternative to macOS besides Windows or Linux.
 
@@ -92,12 +92,12 @@ Before I begin, here are my quick test results for both operating systems. I ran
     <tr>
       <td class="border px-4 py-2">Storage</td>
       <td class="border px-4 py-2"><a href="https://www.amazon.de/dp/B0C58GBT93?ref=ppx_yo2ov_dt_b_fed_asin_title&th=1" target="_blank">512 GB M.2 NVMe SSD, 7200 MB/s Read, 6600 MB/s Write</a></td>
-      <td class="border px-4 py-2">Built-in SSD 512 GB</td>
+      <td class="border px-4 py-2">Built-in SSD 512 GB (5500 MB/s Read, 5000 MB/s Write)</td>
     </tr>
     <tr>
       <td class="border px-4 py-2">Network</td>
       <td class="border px-4 py-2">Realtek RTL8111/8168</td>
-      <td class="border px-4 py-2">Built-in Ethernet (via adapter)</td>
+      <td class="border px-4 py-2">Ethernet via adapter</td>
     </tr>
     <tr>
       <td class="border px-4 py-2">Wi-Fi</td>
@@ -109,12 +109,17 @@ Before I begin, here are my quick test results for both operating systems. I ran
       <td class="border px-4 py-2">MATE on FreeBSD</td>
       <td class="border px-4 py-2">macOS Sequoia 15.4.1</td>
     </tr>
+    <tr>
+      <td class="border px-4 py-2">Price</td>
+      <td class="border px-4 py-2">€299 mini PC, €50 SSD</td>
+      <td class="border px-4 py-2">$1800</td>
+    </tr>
   </tbody>
 </table>
 
-When I tell people that a $300 AMD mini PC can keep up with an $2000 M1 Pro MacBook in daily use, the first reaction is disbelief. How is this even possible? As you may recall, the introduction of the M1 processor was a significant event for Apple, marking the beginning of a new era of speed an optimization.
+When I tell people that a $300 AMD mini PC can keep up with an $1800 M1 Pro MacBook in daily use, the first reaction is disbelief. How is this even possible? As you may recall, the introduction of the M1 processor was a significant event for Apple, marking the beginning of a new era of speed an optimization.
 
-I guess the answer lies in the efficiency of FreeBSD and the lack of unnecessary background processes. Unlike macOS, which runs a lot of services (daemons) in the background, some of which can’t even be disabled, FreeBSD gives you full control. Combined with lightweight desktop environments like MATE and compiled apps optimized for your specific hardware, the system feels snappy—even on budget CPUs.
+I guess the answer lies in the efficiency of FreeBSD and the lack of unnecessary background processes, also on fast SSD. Unlike macOS, which runs a lot of services (daemons) in the background, some of which can’t even be disabled, FreeBSD gives you full control. Combined with lightweight desktop environments like MATE and compiled apps optimized for your specific hardware, the system feels snappy—even on budget CPUs.
 
 ### Resources
 
@@ -172,7 +177,8 @@ To achive that add this:
 
   ![](./fonts-smoothing.png)
 
-  Results. Fonts in macOS vs in MATE:
+  Results: Fonts in macOS on the left versus MATE on the right. You might notice that fonts in macOS appear bolder, not only because Apple often uses semibold and bold in UI, but also because of how macOS renders them. Apple also doesn't use subpixel smoothing. With the settings I provided, you can achieve a pretty similar look. It won't be exactly the same because MATE and macOS render letters, spacing, and other details differently, but it will be very close, especially compared to MATE's default settings:
+
   ![](./fonts.jpg)
 
 
@@ -189,8 +195,6 @@ Then I changed MATE's most common shortcuts to:
 - CMD + Q to close app
 - CMD + W to close tabs
 - CMD + H to hide apps
-
-I decided not to use [Picom](https://www.freshports.org/x11-wm/picom/) because I wanted to achieve better performance.
 
 ## Firefox Settings
 
