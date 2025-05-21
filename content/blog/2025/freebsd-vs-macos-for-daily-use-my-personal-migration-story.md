@@ -91,7 +91,7 @@ Before I begin, here are my quick test results for both operating systems. I ran
     </tr>
     <tr>
       <td class="border px-4 py-2">Storage</td>
-      <td class="border px-4 py-2">512 GB M.2 NVMe SSD</td>
+      <td class="border px-4 py-2"><a href="https://www.amazon.de/dp/B0C58GBT93?ref=ppx_yo2ov_dt_b_fed_asin_title&th=1" target="_blank">512 GB M.2 NVMe SSD, 7200 MB/s Read, 6600 MB/s Write</a></td>
       <td class="border px-4 py-2">Built-in SSD 512 GB</td>
     </tr>
     <tr>
@@ -131,12 +131,11 @@ macOS, top:
 ![](./top-macos.png)
 
 
-
 ## FreeBSD Settings to Match macOS Behavior
 
 If you already have FreeBSD installed, you can follow my approach to make it look and operate more like macOS. I'm using MATE because it runs faster than Xfce on my computer.
 
-## Enable vsync
+## Enable TrearFree
 
 ```sh
 /usr/local/etc/X11/xorg.conf.d/20-amdgpu.conf 
