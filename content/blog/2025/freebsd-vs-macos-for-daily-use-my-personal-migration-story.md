@@ -10,7 +10,7 @@ As a designer I've been using macOS since 2005, but with each new update, I disl
 In order to optimize macOS and turn off unnecessary system services, I decided to learn deeply about how macOS works. I was surprised to find that it was very similar to my past experience with FreeBSD:
 
 - Both Unix or Unix-like.
-- macOS has many terminal apps that I've seen before, such as top, ps, and ifconfig.
+- macOS has many terminal apps that I've seen before, such as top, ps, dmesg, and ifconfig.
 - Bash, Zsh, and Tcsh.
 - As we know, Apple only uses [part of FreeBSD in their kernel](https://youtu.be/ton0ZaGKOsc?si=k0AB804p5UVxevEz). 
 - Services called "daemons".
