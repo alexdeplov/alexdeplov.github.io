@@ -38,9 +38,8 @@ keyrate="fast"
 Verify with:
 
 ```sh
-# id alex
+# id username
 ```
-
 
 ### 4. Install DRM Kernel Module for AMD
 
@@ -60,7 +59,7 @@ At this point, the graphical driver should kick in, and you’ll notice a change
 # startx
 ```
 
-Should work fine.
+It should display the X server without any errors.
 
 
 ### 6. Install AMD X11 Driver

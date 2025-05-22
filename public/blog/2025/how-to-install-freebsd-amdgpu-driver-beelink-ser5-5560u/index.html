@@ -80,7 +80,7 @@
 <div class="highlight"><pre tabindex="0" style="color:#abb2bf;background-color:#282c34;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-sh" data-lang="sh"><span style="display:flex;"><span><span style="color:#7f848e"># pw groupmod video -m username</span>
 </span></span><span style="display:flex;"><span><span style="color:#7f848e"># pw groupmod wheel -m username</span>
 </span></span></code></pre></div><p>Verify with:</p>
-<div class="highlight"><pre tabindex="0" style="color:#abb2bf;background-color:#282c34;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-sh" data-lang="sh"><span style="display:flex;"><span><span style="color:#7f848e"># id alex</span>
+<div class="highlight"><pre tabindex="0" style="color:#abb2bf;background-color:#282c34;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-sh" data-lang="sh"><span style="display:flex;"><span><span style="color:#7f848e"># id username</span>
 </span></span></code></pre></div><h3 id="4-install-drm-kernel-module-for-amd">4. Install DRM Kernel Module for AMD</h3>
 <div class="highlight"><pre tabindex="0" style="color:#abb2bf;background-color:#282c34;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-sh" data-lang="sh"><span style="display:flex;"><span><span style="color:#7f848e"># pkg install -y drm-kmod</span>
 </span></span><span style="display:flex;"><span><span style="color:#7f848e"># sysrc kld_list+=amdgpu</span>
@@ -88,7 +88,7 @@
 <p>At this point, the graphical driver should kick in, and you’ll notice a change in console resolution.</p>
 <h3 id="5-start-x-and-test">5. Start X and Test</h3>
 <div class="highlight"><pre tabindex="0" style="color:#abb2bf;background-color:#282c34;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-sh" data-lang="sh"><span style="display:flex;"><span><span style="color:#7f848e"># startx</span>
-</span></span></code></pre></div><p>Should work fine.</p>
+</span></span></code></pre></div><p>It should display the X server without any errors.</p>
 <h3 id="6-install-amd-x11-driver">6. Install AMD X11 Driver</h3>
 <div class="highlight"><pre tabindex="0" style="color:#abb2bf;background-color:#282c34;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-sh" data-lang="sh"><span style="display:flex;"><span><span style="color:#7f848e"># pkg install x11-drivers/xf86-video-amdgpu</span>
 </span></span><span style="display:flex;"><span><span style="color:#7f848e"># X -configure</span>
