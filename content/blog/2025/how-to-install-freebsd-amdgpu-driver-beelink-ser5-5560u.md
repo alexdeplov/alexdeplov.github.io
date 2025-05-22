@@ -6,7 +6,7 @@ draft: false
 
 After installing FreeBSD 14.2 fresh on my Beelink SER5 5560U, I installed the GPU driver and enabled the TearFree option for better desktop usage by following these steps:
 
-![](./Beelink-SER5-5560u.webp)
+![](./Beelink-SER5-5560U.webp)
 
 ### 1. Speed Up Keyboard Repeat Rate
 
