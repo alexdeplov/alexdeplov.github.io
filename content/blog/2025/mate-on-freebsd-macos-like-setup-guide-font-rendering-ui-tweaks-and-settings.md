@@ -198,6 +198,12 @@ I'm using <a href="https://www.freshports.org/x11/plank/" target="_blank">x11/pl
 <a href="./plank-freebsd-dock-2.png">![](./plank-freebsd-dock-2.png)</a>
 <a href="./plank-freebsd-dock-3.png">![](./plank-freebsd-dock-3.png)</a>
 
+## Hide Desktop Icons
+
+Open dconf-editor and turn off the system icons on the desktop, including the trash bin, since we have them in the Dock anyway. Org > Mate > Caja > Desktop > volumes-visible:
+
+![](./mate-hide-desktop-icons-freebsd.png)
+
 ---
 
 ## macOS-like Shadow by Using Picom
