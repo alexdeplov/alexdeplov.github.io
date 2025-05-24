@@ -172,7 +172,12 @@
 <h2 id="hide-desktop-icons">Hide Desktop Icons</h2>
 <p>Open dconf-editor and turn off the system icons on the desktop, including the trash bin, since we have them in the Dock anyway. Org &gt; Mate &gt; Caja &gt; Desktop &gt; volumes-visible:</p>
 <p><img src="./mate-hide-desktop-icons-freebsd.png" alt=""></p>
-<hr>
+<h2 id="firefox-settings">Firefox Settings</h2>
+<p>To change CTRL to CMD in Firefox go to about:profiles, find the Default Profile (marked &ldquo;Yes&rdquo;), open that folder, and create a <strong>user.js</strong> file with the following content:</p>
+<div class="highlight"><pre tabindex="0" style="color:#abb2bf;background-color:#282c34;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-sh" data-lang="sh"><span style="display:flex;"><span>user_pref<span style="color:#56b6c2">(</span><span style="color:#98c379">&#34;ui.key.accelKey&#34;</span>, 224<span style="color:#56b6c2">)</span>;
+</span></span></code></pre></div><p>To disable the ability to open the menu by pressing Alt (since it&rsquo;s often pressed accidentally), add the following in about:config:</p>
+<div class="highlight"><pre tabindex="0" style="color:#abb2bf;background-color:#282c34;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-sh" data-lang="sh"><span style="display:flex;"><span>ui.key.menuAccessKeyFocuses: <span style="color:#e5c07b">false</span>
+</span></span></code></pre></div><hr>
 <h2 id="macos-like-shadow-by-using-picom">macOS-like Shadow by Using Picom</h2>
 <p>WIP: Method for comparing Picom settings 1:1 to the macOS window shadow.</p>
 <hr>

@@ -204,6 +204,21 @@ Open dconf-editor and turn off the system icons on the desktop, including the tr
 
 ![](./mate-hide-desktop-icons-freebsd.png)
 
+
+## Firefox Settings
+
+To change CTRL to CMD in Firefox go to about:profiles, find the Default Profile (marked "Yes"), open that folder, and create a **user.js** file with the following content:
+
+```sh
+user_pref("ui.key.accelKey", 224);
+```
+
+To disable the ability to open the menu by pressing Alt (since it's often pressed accidentally), add the following in about:config:
+
+```sh
+ui.key.menuAccessKeyFocuses: false
+```
+
 ---
 
 ## macOS-like Shadow by Using Picom
