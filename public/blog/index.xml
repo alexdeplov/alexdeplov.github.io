@@ -6,8 +6,15 @@
     <description>Recent content in Blog on Alexander Deplov, AI artist, product designer</description>
     <generator>Hugo</generator>
     <language>en-us</language>
-    <lastBuildDate>Thu, 22 May 2025 22:45:11 +0200</lastBuildDate>
+    <lastBuildDate>Fri, 23 May 2025 20:38:13 +0200</lastBuildDate>
     <atom:link href="https://interfacecraft.online/blog/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>MATE on FreeBSD: macOS-Like Setup Guide: Font Rendering, UI Tweaks, and Settings</title>
+      <link>https://interfacecraft.online/blog/2025/mate-on-freebsd-macos-like-setup-guide-font-rendering-ui-tweaks-and-settings/</link>
+      <pubDate>Fri, 23 May 2025 20:38:13 +0200</pubDate>
+      <guid>https://interfacecraft.online/blog/2025/mate-on-freebsd-macos-like-setup-guide-font-rendering-ui-tweaks-and-settings/</guid>
+      <description>&lt;p&gt;&lt;a href=&#34;#fonts&#34;&gt;Font rendering settings&lt;/a&gt;&lt;br/&gt;&#xA;&lt;a href=&#34;#keyboard_and_mouse&#34;&gt;Keyboard and mouse settings&lt;/a&gt;&lt;br/&gt;&#xA;&lt;a href=&#34;#interface&#34;&gt;Interface settings&lt;/a&gt;&lt;br/&gt;&#xA;&lt;a href=&#34;#tearing&#34;&gt;Turn on TearFree&lt;/a&gt;&lt;br/&gt;&#xA;&lt;a href=&#34;#wallpapers&#34;&gt;Wallpapers&lt;/a&gt;&lt;br/&gt;&#xA;&lt;a href=&#34;#mate_theme&#34;&gt;macOS theme for Mate&lt;/a&gt;&lt;/p&gt;&#xA;&lt;p&gt;As I mentioned earlier, I noticed similarities between FreeBSD and macOS—after 20 years of using macOS, working with FreeBSD feels like coming home. But I don’t like the font rendering used in non-macOS systems. Partly because Apple did it very well — &lt;a href=&#34;https://www.typeroom.eu/steve-jobs-calligraphy-apple-typography-legacy&#34; target=&#34;_blank&#34; rel=&#34;nofollow&#34;&gt;Steve Jobs had a great understanding of typography&lt;/a&gt; — and partly because I’m just used to it.&lt;/p&gt;</description>
+    </item>
     <item>
       <title>How to Install the FreeBSD AMDGPU Driver on a Beelink SER5 5560U</title>
       <link>https://interfacecraft.online/blog/2025/how-to-install-freebsd-amdgpu-driver-beelink-ser5-5560u/</link>

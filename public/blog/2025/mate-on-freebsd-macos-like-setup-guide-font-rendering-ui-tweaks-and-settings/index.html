@@ -1,0 +1,224 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>MATE on FreeBSD: macOS-Like Setup Guide: Font Rendering, UI Tweaks, and Settings – Alexander Deplov</title>
+    <link rel="stylesheet" href="/css/main.css">
+    
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16.png">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+</head>
+
+<body class="w-inherit" >
+
+
+
+
+
+
+
+<nav class="main-nav my-12">
+  <div class="w-full px-4 max-w-2xl mx-auto flex flex-col sm:flex-row justify-between">
+    <div class="flex flex-col sm:flex-row sm:items-center sm:space-x-1">
+      <a href="https://interfacecraft.online/" class="text-sm " title="AI artist, product designer">Alexander Deplov</a>
+      
+    </div>
+    <div class="flex space-x-3 pt-4 sm:pt-0 items-center">
+    
+      <a href="/blog/" class="text-sm  ">Blog</a>
+      <a alt="@alex_deplov on Mastodon" href="https://mastodon.social/@alex_deplov" target="_blank" rel="noopener noreferrer" class="text-[#29ADFF]">
+        
+        <svg width="20" height="21" viewBox="0 0 20 21" fill="none" xmlns="http://www.w3.org/2000/svg">
+        <path d="M19.3087 5.16589C19.0196 3.01705 17.1467 1.32344 14.9265 0.995371C14.5519 0.939923 13.1328 0.738037 9.84517 0.738037H9.82062C6.5321 0.738037 5.82665 0.939923 5.45208 0.995371C3.29366 1.31437 1.32251 2.83608 0.844321 5.01042C0.614281 6.08124 0.589764 7.26847 0.632542 8.35744C0.693346 9.91915 0.705234 11.4781 0.847098 13.0334C0.945156 14.0665 1.11619 15.0914 1.35891 16.1004C1.81348 17.9638 3.65372 19.5146 5.45658 20.1473C7.38685 20.8071 9.46264 20.9166 11.4516 20.4637C11.6699 20.4129 11.8861 20.3537 12.0998 20.2864C12.5835 20.1328 13.15 19.961 13.5664 19.6591C13.5721 19.6549 13.5768 19.6495 13.58 19.6432C13.5834 19.6369 13.5853 19.6299 13.5855 19.6228V18.1157C13.5853 18.109 13.5837 18.1025 13.5808 18.0965C13.5779 18.0905 13.5737 18.0853 13.5684 18.0812C13.5632 18.0771 13.5571 18.0743 13.5506 18.0729C13.5441 18.0714 13.5374 18.0714 13.5309 18.0729C12.2566 18.3773 10.9508 18.5299 9.64059 18.5275C7.38578 18.5275 6.77942 17.4576 6.6058 17.0122C6.46619 16.6273 6.37752 16.2257 6.34206 15.8178C6.34154 15.8074 6.3447 15.7972 6.35098 15.789C6.35725 15.7807 6.36624 15.775 6.37635 15.7727C6.38311 15.7714 6.39 15.7715 6.39661 15.7732C7.64972 16.0755 8.93427 16.228 10.2233 16.2277C10.5334 16.2277 10.8425 16.2277 11.1525 16.2194C12.449 16.1831 13.8155 16.1167 15.091 15.8676C15.1229 15.8614 15.1547 15.8559 15.182 15.8478C17.1939 15.4613 19.1087 14.2487 19.3033 11.1781C19.3105 11.0572 19.3287 9.9118 19.3287 9.78644C19.3296 9.3601 19.466 6.76213 19.3087 5.16589Z" fill="url(#paint0_linear_242_54)"/>
+        <path d="M16.1209 7.58021V12.9189H14.0053V7.73744C14.0053 6.64663 13.5507 6.09028 12.6261 6.09028C11.6095 6.09028 11.1004 6.7485 11.1004 8.0483V10.8844H8.99758V8.0483C8.99758 6.7485 8.48753 6.09028 7.47102 6.09028C6.55183 6.09028 6.09273 6.64663 6.09273 7.73744V12.9189H3.97803V7.58021C3.97803 6.4894 4.25655 5.62277 4.81349 4.98036C5.3881 4.33958 6.1418 4.0105 7.07737 4.0105C8.16016 4.0105 8.97842 4.42682 9.52394 5.25853L10.0504 6.14213L10.5777 5.25853C11.1232 4.42682 11.9415 4.0105 13.0224 4.0105C13.957 4.0105 14.7107 4.33958 15.2872 4.98036C15.8436 5.62219 16.1215 6.48882 16.1209 7.58021Z" fill="white"/>
+        <defs>
+        <linearGradient id="paint0_linear_242_54" x1="9.81909" y1="0.738154" x2="9.81909" y2="20.5611" gradientUnits="userSpaceOnUse">
+        <stop stop-color="#6364FF"/>
+        <stop offset="1" stop-color="#563ACC"/>
+        </linearGradient>
+        </defs>
+        </svg>
+      </a>
+      <a class="" alt="RSS Feed" href="/index.xml" target="_blank" rel="noopener noreferrer">
+      <svg width="20" height="21" viewBox="0 0 20 21" fill="none" xmlns="http://www.w3.org/2000/svg">
+        <g clip-path="url(#clip0_242_84)">
+        <rect y="0.738037" width="20" height="20" rx="6" fill="#FF6E59" fill-opacity="0.15"/>
+        <circle cx="4.68182" cy="16.415" r="1.93036" fill="#FD7F44"/>
+        <circle cx="4.68205" cy="16.415" r="6.56633" stroke="#FD7F44" stroke-width="2.5"/>
+        <circle cx="4.6817" cy="16.415" r="12.4634" stroke="#FD7F44" stroke-width="2.5"/>
+        </g>
+        <defs>
+        <clipPath id="clip0_242_84">
+        <rect y="0.738037" width="20" height="20" rx="6" fill="white"/>
+        </clipPath>
+        </defs>
+      </svg>
+      </a>
+    </div>
+  </div>
+</nav>
+
+<article class="max-w-2xl mx-auto px-4 py-8">
+  <header class="mb-8">
+    <h1 class="text-5xl font-bold mb-2">MATE on FreeBSD: macOS-Like Setup Guide: Font Rendering, UI Tweaks, and Settings</h1>
+    <div class="text-sm" style="color: var(--accent-orange);">
+      May 23, 2025
+    </div>
+  </header>
+
+  <div class="content">
+    <p><a href="#fonts">Font rendering settings</a><br/>
+<a href="#keyboard_and_mouse">Keyboard and mouse settings</a><br/>
+<a href="#interface">Interface settings</a><br/>
+<a href="#tearing">Turn on TearFree</a><br/>
+<a href="#wallpapers">Wallpapers</a><br/>
+<a href="#mate_theme">macOS theme for Mate</a></p>
+<p>As I mentioned earlier, I noticed similarities between FreeBSD and macOS—after 20 years of using macOS, working with FreeBSD feels like coming home. But I don’t like the font rendering used in non-macOS systems. Partly because Apple did it very well — <a href="https://www.typeroom.eu/steve-jobs-calligraphy-apple-typography-legacy" target="_blank" rel="nofollow">Steve Jobs had a great understanding of typography</a> — and partly because I’m just used to it.</p>
+<p>In this article, I’ll share my method for configuring MATE on FreeBSD to resemble macOS in appearance, behavior, and usability. This makes the transition from a MacBook to a FreeBSD machine smoother, eliminating the need to relearn shortcuts or adjust to a completely different interface. Here&rsquo;s what my FreeBSD setup looks like right now:</p>
+<p><a href="./freebsd-desktop-to-match-macos.png"><img src="./freebsd-desktop-to-match-macos.png" alt=""></a></p>
+<p>I assume you already have FreeBSD and MATE installed. This is how I set it up on my Mac. Your preferences may differ.</p>
+<h2 id="fonts">Tweaking MATE's UI Fonts</h2>
+<p>The topic of replicating macOS-style font rendering on X Server is widely debated online. I chose a different approach: instead of relying solely on discussion, I compared screenshots from both macOS and X Server to fine-tune the font rendering settings for a closer match.</p>
+<p>To make MATE&rsquo;s font rendering resemble macOS, I connected both systems to a 1080p monitor and captured screenshots. Then, using Figma’s zoom tool, I adjusted various FreeType settings step by step to get as close a match as possible.</p>
+<p><a href="./figma.png"><img src="./figma.png" alt=""></a></p>
+<p>Let’s compare the results. They’re not identical, but this is the closest I could achieve:</p>
+<video class="mb-5" autoplay loop muted playsinline>
+  <source src="fonts-compare.mp4" type="video/mp4">
+  Your browser does not support the video tag.
+</video> 
+<p><a href="./mate-on-freebsd-font-rendering-tweak-results-to-match-macos-1.png"><img src="./mate-on-freebsd-font-rendering-tweak-results-to-match-macos-1.png" alt=""></a></p>
+<p>The font <strong>SF Pro Display</strong> works better than <strong>SF Pro</strong>:</p>
+<p><a href="./mate-on-freebsd-font-rendering-tweak-results-to-match-macos-3.png"><img src="./mate-on-freebsd-font-rendering-tweak-results-to-match-macos-3.png" alt=""></a></p>
+<video class="mb-5" autoplay loop muted playsinline>
+  <source src="./mate-on-freebsd-font-rendering-tweak-results-to-match-macos-2.mp4" type="video/mp4">
+  Your browser does not support the video tag.
+</video> 
+<p>Replaced MATE’s UI fonts to <a href="https://github.com/sahibjotsaggu/San-Francisco-Pro-Fonts">SF Pro Display</a>. Put <strong>SF Pro Display, Regular</strong> and <strong>SF Pro Display, Bold</strong> to ~/.fonts folder and set it up in MATE&rsquo;s settings. Add <a href="https://github.com/supercomputra/SF-Mono-Font">SF Mono</a>, for Fixed width fonts too:</p>
+<p><img src="./mate-ui-font-to-match-macos-on-freebsd.png" alt=""></p>
+<p>Font <a href="https://freetype.org/freetype2/docs/reference/ft2-properties.html#no-stem-darkening">rendering</a> needs to be tweaked. In ~/.profile add:</p>
+<div class="highlight"><pre tabindex="0" style="color:#abb2bf;background-color:#282c34;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-sh" data-lang="sh"><span style="display:flex;"><span><span style="color:#e5c07b">export</span> <span style="color:#e06c75">FREETYPE_PROPERTIES</span><span style="color:#56b6c2">=</span><span style="color:#98c379">&#34;cff:no-stem-darkening=0.0 autofitter:no-stem-darkening=0.0&#34;</span>
+</span></span></code></pre></div><p>Set Smoothing to <strong>Grayscale</strong> and <strong>Hinting to None</strong> (I also set font size to be 10 and DPI to 95):</p>
+<p><img src="./mate-ui-font-to-match-macos-on-freebsd-smoothing.png" alt=""></p>
+<p>Fonts in macOS (left) vs. MATE (right). You may notice that fonts in macOS appear bolder—not just because Apple often uses semibold and bold weights in the UI, but also due to how macOS renders text. With the settings I provide, you can achieve a look that’s quite similar. It won’t be an exact match, as MATE and macOS handle letter rendering, letters spacing, text color and other typographic details differently, but it will be much closer than MATE’s default appearance:</p>
+<p><a href="./macos-vs-mate-on-freebsd-fonts-to-compare-1.jpg"><img src="./macos-vs-mate-on-freebsd-fonts-to-compare-1.jpg" alt=""></a></p>
+<p><a href="./macos-vs-mate-on-freebsd-fonts-to-compare-2.jpg"><img src="./macos-vs-mate-on-freebsd-fonts-to-compare-2.jpg" alt=""></a></p>
+<p>In the Appearance settings hide icons from menu and buttons:</p>
+<p><img src="./mate-interface-settings-freebsd.png" alt=""></p>
+<hr>
+<h2 id="keyboard_and_mouse">Change Keyboard Shortcuts</h2>
+<p><img src="./mate-keyboard-shortcuts-freebsd-1.png" alt="">
+<img src="./mate-keyboard-shortcuts-freebsd-2.png" alt="">
+<img src="./mate-keyboard-shortcuts-freebsd-3.png" alt=""></p>
+<h2 id="change-keyboard-preferences">Change Keyboard Preferences</h2>
+<p><img src="./mate-keyboard-preferences-freebsd-1.png" alt="">
+<img src="./mate-keyboard-preferences-freebsd-2.png" alt=""></p>
+<h2 id="change-mouse-settings">Change Mouse Settings</h2>
+<p><img src="./mate-mouse-settings-freebsd.png" alt=""></p>
+<h2 id="change-mate-terminal-shortcuts">Change MATE Terminal Shortcuts</h2>
+<p><img src="./mate-terminal-shortcuts-freebsd.png" alt=""></p>
+<hr>
+<h2 id="interface">Interface settings</h2>
+<p><img src="./mate-window-preferences-to-match-macos-on-freebsd.png" alt="">
+<img src="./mate-window-preferences-titlebar-buttons-position-to-match-macos-on-freebsd.png" alt=""></p>
+<h2 id="my-etcrcconf">My /etc/rc.conf</h2>
+<div class="highlight"><pre tabindex="0" style="color:#abb2bf;background-color:#282c34;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-sh" data-lang="sh"><span style="display:flex;"><span><span style="color:#e06c75">dbus_enable</span><span style="color:#56b6c2">=</span><span style="color:#98c379">&#34;YES&#34;</span> 
+</span></span><span style="display:flex;"><span><span style="color:#e06c75">keyrate</span><span style="color:#56b6c2">=</span><span style="color:#98c379">&#34;fast&#34;</span> 
+</span></span><span style="display:flex;"><span><span style="color:#e06c75">moused_enable</span><span style="color:#56b6c2">=</span><span style="color:#98c379">&#34;YES&#34;</span> 
+</span></span><span style="display:flex;"><span><span style="color:#e06c75">powerd_enable</span><span style="color:#56b6c2">=</span><span style="color:#98c379">&#34;YES&#34;</span>
+</span></span><span style="display:flex;"><span><span style="color:#e06c75">kld_list</span><span style="color:#56b6c2">=</span><span style="color:#98c379">&#34;amdgpu&#34;</span>
+</span></span></code></pre></div><hr>
+<h2 id="tearing">Turn on TearFree</h2>
+<p>Check to see if it supports it. It should show &ldquo;TearFree&rdquo;: &ldquo;auto, on, off:</p>
+<div class="highlight"><pre tabindex="0" style="color:#abb2bf;background-color:#282c34;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-sh" data-lang="sh"><span style="display:flex;"><span>xrandr —props
+</span></span></code></pre></div><p>In /usr/local/etc/X11/xorg.conf.d/10-amdgpu.conf:</p>
+<div class="highlight"><pre tabindex="0" style="color:#abb2bf;background-color:#282c34;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-sh" data-lang="sh"><span style="display:flex;"><span>Section <span style="color:#98c379">&#34;OutputClass&#34;</span>
+</span></span><span style="display:flex;"><span>    Identifier <span style="color:#98c379">&#34;AMDgpu&#34;</span>
+</span></span><span style="display:flex;"><span>    MatchDriver <span style="color:#98c379">&#34;amdgpu&#34;</span>
+</span></span><span style="display:flex;"><span>    Driver <span style="color:#98c379">&#34;amdgpu&#34;</span>
+</span></span><span style="display:flex;"><span>    Option <span style="color:#98c379">&#34;TearFree&#34;</span> <span style="color:#98c379">&#34;true&#34;</span>
+</span></span><span style="display:flex;"><span>EndSection
+</span></span></code></pre></div><p>Then, use this command again to see if TearFree is enabled. It should show TearFree: On:</p>
+<div class="highlight"><pre tabindex="0" style="color:#abb2bf;background-color:#282c34;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-sh" data-lang="sh"><span style="display:flex;"><span>xrandr —props
+</span></span></code></pre></div><hr>
+<h2 id="wallpapers">Wallpapers</h2>
+<p>My favorite wallpapers are from <a href="https://512pixels.net/projects/default-mac-wallpapers-in-5k/">macOS Sequoia and macOS Ventura</a>.</p>
+<p><a href="https://512pixels.net/projects/default-mac-wallpapers-in-5k/"><img src="./freebsd-desktop-macos-wallpapers-in-mate.png" alt=""></a></p>
+<hr>
+<h2 id="mate_theme">MATE’s Theme & Icons & Cursors</h2>
+<p>Download <a href="https://www.pling.com/p/1403328/" target="_blank">WhiteSur-Dark.tar.xz</a> file and unpack it in the ~/.themes, then select in Appearance Preferences:</p>
+<p><img src="./freebsd-desktop-to-match-macos-mate-theme.png" alt=""></p>
+<p>Download the <a href="https://www.pling.com/p/1355701/" target="_blank">01-WhiteSur.tar.xz</a> file and unpack it in the ~/.icons folder. Important note: Rename the unpacked folder to <strong>WhiteSur-Dark</strong> with a capital &ldquo;D&rdquo; for &ldquo;Dark.&rdquo; Otherwise, the WhiteSur-Dark theme will not recognize it.</p>
+<p><img src="./freebsd-desktop-to-match-macos-mate-theme-icons.png" alt=""></p>
+<p>Unpack <a href="https://www.pling.com/p/1355701/" target="_blank">cursors</a> to the ~/.icons.</p>
+<h2 id="dock">Dock</h2>
+<p>Will be added soon.</p>
+<hr>
+<h2 id="file-manager">File Manager</h2>
+<p>I changed the default file manager from Caja to <a href="https://www.freshports.org/x11-fm/thunar/" target="_blank">Thunar</a> because Thunar is visually cleaner and allows you to right-click on categories in the sidebar to change them.</p>
+<p><a href="./caja-vs-thunar.jpg"><img src="./caja-vs-thunar.jpg" alt=""></a></p>
+<video class="mb-5" autoplay loop muted playsinline>
+  <source src="thunar-edit-menu-in-sidebar.mp4" type="video/mp4">
+  Your browser does not support the video tag.
+</video> 
+<p>Set Thunar in Mate Settings &gt; Prefrered Applications &gt; System &gt; File Manager:</p>
+<p><img src="./mate-thunar-file-manager.png" alt=""></p>
+<hr>
+<h2 id="dock-1">Dock</h2>
+<p>I&rsquo;m using <a href="https://www.freshports.org/x11/plank/" target="_blank">x11/plank</a> with GTK+ theme:</p>
+<p><a href="./plank-freebsd-dock-1.png"><img src="./plank-freebsd-dock-1.png" alt=""></a>
+<a href="./plank-freebsd-dock-2.png"><img src="./plank-freebsd-dock-2.png" alt=""></a>
+<a href="./plank-freebsd-dock-3.png"><img src="./plank-freebsd-dock-3.png" alt=""></a></p>
+<hr>
+<h2 id="macos-like-shadow-by-using-picom">macOS-like Shadow by Using Picom</h2>
+<p>WIP: Method for comparing Picom settings 1:1 to the macOS window shadow.</p>
+<hr>
+<h2 id="similar-articles">Similar Articles</h2>
+<ul>
+<li><a href="https://interfacecraft.online/blog/2025/freebsd-vs-macos-for-daily-use-my-personal-migration-story/">Comparing Performance of MacBook Pro M1 Pro to mini PC on FreeBSD</a></li>
+</ul>
+
+  </div>
+  
+  <div class="mt-12 md:mt-20 mb-12 md:mb-12"> 
+    <div class="mx-auto flex mb-6 justify-center">
+      <a id="replyViaEmail" 
+         target="_blank" 
+         rel="noopener" 
+         class="mx-auto font-bold py-2 px-6 md:px-12 rounded-xl hover:no-underline hover:-translate-y-2 transition-transform duration-300 ease-in-out" 
+         href="mailto:dcwrjo84h@mozmail.com?subject=interfacecraft_online">
+        Reply via Email
+      </a>
+    </div>
+
+    <div class="mx-auto flex justify-center">
+      <a id="allArticles" style="" 
+         class="mx-auto flex space-x-2 font-bold" 
+         href="/blog/">
+          <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <rect x="4" y="4" width="16" height="16" rx="2" ry="2" />
+            <line x1="8" y1="8" x2="16" y2="8" />
+            <line x1="8" y1="12" x2="16" y2="12" />
+            <line x1="8" y1="16" x2="12" y2="16" />
+          </svg>
+        <span>All Articles</span>
+      </a>
+    </div>
+  </div>
+</article>
+
+<footer class="w-full mx-auto opacity-70 font-normal text-center text-xs my-14 px-4">
+  © 2025 Alexander Deplov, AI artist, product designer.
+</footer>
+
+
+
+
+<script data-goatcounter="https://goatinterface.goatcounter.com/count"
+    async src="//gc.zgo.at/count.js"></script>
+
+
+<meta name="fediverse:creator" content="@alex_deplov@mastodon.social">
+
+</body>
+</html>

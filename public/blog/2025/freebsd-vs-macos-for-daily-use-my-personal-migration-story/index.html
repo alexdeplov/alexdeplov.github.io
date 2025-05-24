@@ -192,7 +192,7 @@
 </span></span><span style="display:flex;"><span>    Driver <span style="color:#98c379">&#34;amdgpu&#34;</span>
 </span></span><span style="display:flex;"><span>    Option <span style="color:#98c379">&#34;TearFree&#34;</span> <span style="color:#98c379">&#34;true&#34;</span>
 </span></span><span style="display:flex;"><span>EndSection
-</span></span></code></pre></div><h2 id="replaced-mates-ui-fonts-to-sf-pro-display">Replaced MATE&rsquo;s UI fonts to SF Pro Display</h2>
+</span></span></code></pre></div><h2 id="replace-mates-ui-fonts-to-sf-pro-display">Replace MATE&rsquo;s UI fonts to SF Pro Display</h2>
 <p>I found that the topic of matching macOS-style font rendering on X Server is a major point of debate online. I decided to use another approach: compare both screenshots to see how to achive closer look by tweaking X Server font rendering settings.</p>
 <ol>
 <li>Install <a href="https://github.com/sahibjotsaggu/San-Francisco-Pro-Fonts" target="_blank">SF Pro Display, Regular</a> and set it as default in MATE&rsquo;s UI.</p></li>
@@ -230,7 +230,7 @@
 </span></span></code></pre></div><p>To disable the ability to open the menu by pressing Alt (since it&rsquo;s often pressed accidentally), add the following in about:config:</p>
 <div class="highlight"><pre tabindex="0" style="color:#abb2bf;background-color:#282c34;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-sh" data-lang="sh"><span style="display:flex;"><span>ui.key.menuAccessKeyFocuses: <span style="color:#e5c07b">false</span>
 </span></span></code></pre></div><h2 id="apps-performance">Apps Performance</h2>
-<p>Inspired by this video, I tried using <a href="https://docs.freebsd.org/en/books/handbook/ports/#ports-using">ports</a>, but I can&rsquo;t say for sure if they provide any performance improvements compared to installing from packages (pkg install).</p>
+<p>Inspired by this video, I tried using <a href="https://docs.freebsd.org/en/books/handbook/ports/#ports-using">ports</a>, but I can&rsquo;t say for sure if they provide any performance improvements compared to installing from packages (pkg install). If you know the answer for sure, please send me a message at the bottom of the article.</p>
 <div class="relative w-full pt-[56.25%]">
   <iframe
     class="absolute top-0 left-0 w-full h-full"

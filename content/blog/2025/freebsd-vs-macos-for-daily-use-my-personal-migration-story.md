@@ -156,7 +156,7 @@ Section "Device"
 EndSection
 ```
 
-## Replaced MATE's UI fonts to SF Pro Display
+## Replace MATE's UI fonts to SF Pro Display
 I found that the topic of matching macOS-style font rendering on X Server is a major point of debate online. I decided to use another approach: compare both screenshots to see how to achive closer look by tweaking X Server font rendering settings. 
 
 1. Install <a href="https://github.com/sahibjotsaggu/San-Francisco-Pro-Fonts" target="_blank">SF Pro Display, Regular</a> and set it as default in MATE's UI.</p>
@@ -216,7 +216,7 @@ ui.key.menuAccessKeyFocuses: false
 
 ## Apps Performance
 
-Inspired by this video, I tried using [ports](https://docs.freebsd.org/en/books/handbook/ports/#ports-using), but I can't say for sure if they provide any performance improvements compared to installing from packages (pkg install). 
+Inspired by this video, I tried using [ports](https://docs.freebsd.org/en/books/handbook/ports/#ports-using), but I can't say for sure if they provide any performance improvements compared to installing from packages (pkg install). If you know the answer for sure, please send me a message at the bottom of the article.
 
 <div class="relative w-full pt-[56.25%]">
   <iframe

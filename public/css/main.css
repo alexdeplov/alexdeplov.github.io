@@ -42,6 +42,23 @@ h1, h2, h3, h4, h5, h6 {
     color: var(--heading-color);
 }
 
+article h1{
+    line-height: 120% !important;
+    padding-bottom: 0.5rem;
+}
+
+hr{
+    margin: 4rem 0 !important;
+    position: relative;
+    border-color: rgba(0,0,0,.15);
+}
+@media (prefers-color-scheme: dark) {
+    hr {
+        border-color: rgba(255,255,255,.15);
+        
+    }   
+}
+
 .content a{
     color: var(--link-color);
 }
@@ -53,10 +70,18 @@ h1, h2, h3, h4, h5, h6 {
 .content p{
     color: #43474F;
 }
-
 @media (prefers-color-scheme: dark) {
     .content p {
-        color: #d6dbe1;
+        color: #b4b4b4;
+    }   
+}
+
+.content strong{
+    color: black;
+}
+@media (prefers-color-scheme: dark) {
+    .content strong {
+        color: white;
     }   
 }
 
@@ -121,7 +146,8 @@ h1, h2, h3, h4, h5, h6 {
     }
 }
 
-.content img{
+.content img, 
+.content video{
     margin-top: 1rem;
     border-radius: 0.3rem;
 }
