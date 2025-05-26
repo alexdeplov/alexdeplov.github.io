@@ -51,6 +51,11 @@ Replaced MATE’s UI fonts to <a href="https://github.com/sahibjotsaggu/San-Fran
 
 ![](./mate-ui-font-to-match-macos-on-freebsd.png)
 
+If you're using dark appearance, set semibold version of SF Pro Display, becase in <a href="https://mastodon.social/@alex_deplov/114573131846455250" target="_blank">macOS Apple uses bolder fonts for dark appearances</a>: 
+
+![](./mate-ui-font-to-match-macos-on-freebsd-dark.png)
+
+
 Font <a href="https://freetype.org/freetype2/docs/reference/ft2-properties.html#no-stem-darkening">rendering</a> needs to be tweaked. In ~/.profile add:
 
 ```sh
@@ -70,6 +75,10 @@ Fonts in macOS (left) vs. MATE (right). You may notice that fonts in macOS appea
 In the Appearance settings hide icons from menu and buttons:
 
 ![](./mate-interface-settings-freebsd.png)
+
+Optional change Firefox fonts in the settings, for Serifs use <a href="https://github.com/yell0wsuit/New-York-fonts" target="_blank">Apple's New York Medium font</a>:
+
+![](./freebsd-desktop-to-match-macos-firefox-fonts.png)
 
 
 ---
@@ -121,7 +130,7 @@ kld_list="amdgpu"
 Check to see if it supports it. It should show "TearFree": "auto, on, off:
 
 ```sh
-xrandr —props
+xrandr --props
 ```
 
 In /usr/local/etc/X11/xorg.conf.d/10-amdgpu.conf:
@@ -138,7 +147,7 @@ EndSection
 Then, use this command again to see if TearFree is enabled. It should show TearFree: On:
 
 ```sh
-xrandr —props
+xrandr --props
 ```
 
 
@@ -156,19 +165,17 @@ My favorite wallpapers are from <a href="https://512pixels.net/projects/default-
 
 <h2 id="mate_theme">MATE’s Theme & Icons & Cursors</h2>
 
-Download <a href="https://www.pling.com/p/1403328/" target="_blank">WhiteSur-Dark.tar.xz</a> file and unpack it in the ~/.themes, then select in Appearance Preferences:
+Download <a href="https://www.mate-look.org/p/1403328" target="_blank">WhiteSur-Dark.tar.xz</a> file and unpack it in the ~/.themes, then select in Appearance Preferences:
 
 ![](./freebsd-desktop-to-match-macos-mate-theme.png)
 
-Download the <a href="https://www.pling.com/p/1355701/" target="_blank">01-WhiteSur.tar.xz</a> file and unpack it in the ~/.icons folder. Important note: Rename the unpacked folder to **WhiteSur-Dark** with a capital "D" for "Dark." Otherwise, the WhiteSur-Dark theme will not recognize it.
+Download icons <a href="https://www.opendesktop.org/p/1661983/" target="_blank">Colloid-Dark</a> file and unpack it in the ~/.icons folder:
 
 ![](./freebsd-desktop-to-match-macos-mate-theme-icons.png)
 
-Unpack <a href="https://www.pling.com/p/1355701/" target="_blank">cursors</a> to the ~/.icons.
+Unpack cursors <a href="https://www.pling.com/p/1408466" target="_blank">macOS.tar.xz</a> to the ~/.icons:
 
-## Dock
-
-Will be added soon.
+![](./freebsd-desktop-to-match-macos-mate-theme-cursors.png)
 
 
 ---
@@ -188,9 +195,17 @@ Set Thunar in Mate Settings > Prefrered Applications > System > File Manager:
 
 ![](./mate-thunar-file-manager.png)
 
+Change Thunar shortcuts to macOS-like:
+
+![](./thunar-macos-shortcuts-on-freebsd.png)
+
 ---
 
 ## Dock
+
+```sh
+pkg install -y plank 
+```
 
 I'm using <a href="https://www.freshports.org/x11/plank/" target="_blank">x11/plank</a> with GTK+ theme:
 

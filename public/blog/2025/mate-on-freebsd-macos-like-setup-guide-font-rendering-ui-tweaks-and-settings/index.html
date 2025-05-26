@@ -96,6 +96,8 @@
 </video> 
 <p>Replaced MATE’s UI fonts to <a href="https://github.com/sahibjotsaggu/San-Francisco-Pro-Fonts">SF Pro Display</a>. Put <strong>SF Pro Display, Regular</strong> and <strong>SF Pro Display, Bold</strong> to ~/.fonts folder and set it up in MATE&rsquo;s settings. Add <a href="https://github.com/supercomputra/SF-Mono-Font">SF Mono</a>, for Fixed width fonts too:</p>
 <p><img src="./mate-ui-font-to-match-macos-on-freebsd.png" alt=""></p>
+<p>If you&rsquo;re using dark appearance, set semibold version of SF Pro Display, becase in <a href="https://mastodon.social/@alex_deplov/114573131846455250" target="_blank">macOS Apple uses bolder fonts for dark appearances</a>:</p>
+<p><img src="./mate-ui-font-to-match-macos-on-freebsd-dark.png" alt=""></p>
 <p>Font <a href="https://freetype.org/freetype2/docs/reference/ft2-properties.html#no-stem-darkening">rendering</a> needs to be tweaked. In ~/.profile add:</p>
 <div class="highlight"><pre tabindex="0" style="color:#abb2bf;background-color:#282c34;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-sh" data-lang="sh"><span style="display:flex;"><span><span style="color:#e5c07b">export</span> <span style="color:#e06c75">FREETYPE_PROPERTIES</span><span style="color:#56b6c2">=</span><span style="color:#98c379">&#34;cff:no-stem-darkening=0.0 autofitter:no-stem-darkening=0.0&#34;</span>
 </span></span></code></pre></div><p>Set Smoothing to <strong>Grayscale</strong> and <strong>Hinting to None</strong> (I also set font size to be 10 and DPI to 95):</p>
@@ -105,6 +107,8 @@
 <p><a href="./macos-vs-mate-on-freebsd-fonts-to-compare-2.jpg"><img src="./macos-vs-mate-on-freebsd-fonts-to-compare-2.jpg" alt=""></a></p>
 <p>In the Appearance settings hide icons from menu and buttons:</p>
 <p><img src="./mate-interface-settings-freebsd.png" alt=""></p>
+<p>Optional change Firefox fonts in the settings, for Serifs use <a href="https://github.com/yell0wsuit/New-York-fonts" target="_blank">Apple&rsquo;s New York Medium font</a>:</p>
+<p><img src="./freebsd-desktop-to-match-macos-firefox-fonts.png" alt=""></p>
 <hr>
 <h2 id="keyboard_and_mouse">Change Keyboard Shortcuts</h2>
 <p><img src="./mate-keyboard-shortcuts-freebsd-1.png" alt="">
@@ -130,7 +134,7 @@
 </span></span></code></pre></div><hr>
 <h2 id="tearing">Turn on TearFree</h2>
 <p>Check to see if it supports it. It should show &ldquo;TearFree&rdquo;: &ldquo;auto, on, off:</p>
-<div class="highlight"><pre tabindex="0" style="color:#abb2bf;background-color:#282c34;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-sh" data-lang="sh"><span style="display:flex;"><span>xrandr —props
+<div class="highlight"><pre tabindex="0" style="color:#abb2bf;background-color:#282c34;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-sh" data-lang="sh"><span style="display:flex;"><span>xrandr --props
 </span></span></code></pre></div><p>In /usr/local/etc/X11/xorg.conf.d/10-amdgpu.conf:</p>
 <div class="highlight"><pre tabindex="0" style="color:#abb2bf;background-color:#282c34;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-sh" data-lang="sh"><span style="display:flex;"><span>Section <span style="color:#98c379">&#34;OutputClass&#34;</span>
 </span></span><span style="display:flex;"><span>    Identifier <span style="color:#98c379">&#34;AMDgpu&#34;</span>
@@ -139,20 +143,19 @@
 </span></span><span style="display:flex;"><span>    Option <span style="color:#98c379">&#34;TearFree&#34;</span> <span style="color:#98c379">&#34;true&#34;</span>
 </span></span><span style="display:flex;"><span>EndSection
 </span></span></code></pre></div><p>Then, use this command again to see if TearFree is enabled. It should show TearFree: On:</p>
-<div class="highlight"><pre tabindex="0" style="color:#abb2bf;background-color:#282c34;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-sh" data-lang="sh"><span style="display:flex;"><span>xrandr —props
+<div class="highlight"><pre tabindex="0" style="color:#abb2bf;background-color:#282c34;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-sh" data-lang="sh"><span style="display:flex;"><span>xrandr --props
 </span></span></code></pre></div><hr>
 <h2 id="wallpapers">Wallpapers</h2>
 <p>My favorite wallpapers are from <a href="https://512pixels.net/projects/default-mac-wallpapers-in-5k/">macOS Sequoia and macOS Ventura</a>.</p>
 <p><a href="https://512pixels.net/projects/default-mac-wallpapers-in-5k/"><img src="./freebsd-desktop-macos-wallpapers-in-mate.png" alt=""></a></p>
 <hr>
 <h2 id="mate_theme">MATE’s Theme & Icons & Cursors</h2>
-<p>Download <a href="https://www.pling.com/p/1403328/" target="_blank">WhiteSur-Dark.tar.xz</a> file and unpack it in the ~/.themes, then select in Appearance Preferences:</p>
+<p>Download <a href="https://www.mate-look.org/p/1403328" target="_blank">WhiteSur-Dark.tar.xz</a> file and unpack it in the ~/.themes, then select in Appearance Preferences:</p>
 <p><img src="./freebsd-desktop-to-match-macos-mate-theme.png" alt=""></p>
-<p>Download the <a href="https://www.pling.com/p/1355701/" target="_blank">01-WhiteSur.tar.xz</a> file and unpack it in the ~/.icons folder. Important note: Rename the unpacked folder to <strong>WhiteSur-Dark</strong> with a capital &ldquo;D&rdquo; for &ldquo;Dark.&rdquo; Otherwise, the WhiteSur-Dark theme will not recognize it.</p>
+<p>Download icons <a href="https://www.opendesktop.org/p/1661983/" target="_blank">Colloid-Dark</a> file and unpack it in the ~/.icons folder:</p>
 <p><img src="./freebsd-desktop-to-match-macos-mate-theme-icons.png" alt=""></p>
-<p>Unpack <a href="https://www.pling.com/p/1355701/" target="_blank">cursors</a> to the ~/.icons.</p>
-<h2 id="dock">Dock</h2>
-<p>Will be added soon.</p>
+<p>Unpack cursors <a href="https://www.pling.com/p/1408466" target="_blank">macOS.tar.xz</a> to the ~/.icons:</p>
+<p><img src="./freebsd-desktop-to-match-macos-mate-theme-cursors.png" alt=""></p>
 <hr>
 <h2 id="file-manager">File Manager</h2>
 <p>I changed the default file manager from Caja to <a href="https://www.freshports.org/x11-fm/thunar/" target="_blank">Thunar</a> because Thunar is visually cleaner and allows you to right-click on categories in the sidebar to change them.</p>
@@ -163,9 +166,12 @@
 </video> 
 <p>Set Thunar in Mate Settings &gt; Prefrered Applications &gt; System &gt; File Manager:</p>
 <p><img src="./mate-thunar-file-manager.png" alt=""></p>
+<p>Change Thunar shortcuts to macOS-like:</p>
+<p><img src="./thunar-macos-shortcuts-on-freebsd.png" alt=""></p>
 <hr>
-<h2 id="dock-1">Dock</h2>
-<p>I&rsquo;m using <a href="https://www.freshports.org/x11/plank/" target="_blank">x11/plank</a> with GTK+ theme:</p>
+<h2 id="dock">Dock</h2>
+<div class="highlight"><pre tabindex="0" style="color:#abb2bf;background-color:#282c34;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-sh" data-lang="sh"><span style="display:flex;"><span>pkg install -y plank 
+</span></span></code></pre></div><p>I&rsquo;m using <a href="https://www.freshports.org/x11/plank/" target="_blank">x11/plank</a> with GTK+ theme:</p>
 <p><a href="./plank-freebsd-dock-1.png"><img src="./plank-freebsd-dock-1.png" alt=""></a>
 <a href="./plank-freebsd-dock-2.png"><img src="./plank-freebsd-dock-2.png" alt=""></a>
 <a href="./plank-freebsd-dock-3.png"><img src="./plank-freebsd-dock-3.png" alt=""></a></p>
