@@ -51,7 +51,7 @@ Replaced MATE’s UI fonts to <a href="https://github.com/sahibjotsaggu/San-Fran
 
 ![](./mate-ui-font-to-match-macos-on-freebsd.png)
 
-If you're using dark appearance, set semibold version of SF Pro Display, becase in <a href="https://mastodon.social/@alex_deplov/114573131846455250" target="_blank">macOS Apple uses bolder fonts for dark appearances</a>: 
+If you're using dark appearance, set medium version of SF Pro Display, becase in <a href="https://mastodon.social/@alex_deplov/114573131846455250" target="_blank">macOS Apple uses bolder fonts for dark appearances</a>: 
 
 ![](./mate-ui-font-to-match-macos-on-freebsd-dark.png)
 

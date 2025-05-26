@@ -96,7 +96,7 @@
 </video> 
 <p>Replaced MATE’s UI fonts to <a href="https://github.com/sahibjotsaggu/San-Francisco-Pro-Fonts">SF Pro Display</a>. Put <strong>SF Pro Display, Regular</strong> and <strong>SF Pro Display, Bold</strong> to ~/.fonts folder and set it up in MATE&rsquo;s settings. Add <a href="https://github.com/supercomputra/SF-Mono-Font">SF Mono</a>, for Fixed width fonts too:</p>
 <p><img src="./mate-ui-font-to-match-macos-on-freebsd.png" alt=""></p>
-<p>If you&rsquo;re using dark appearance, set semibold version of SF Pro Display, becase in <a href="https://mastodon.social/@alex_deplov/114573131846455250" target="_blank">macOS Apple uses bolder fonts for dark appearances</a>:</p>
+<p>If you&rsquo;re using dark appearance, set medium version of SF Pro Display, becase in <a href="https://mastodon.social/@alex_deplov/114573131846455250" target="_blank">macOS Apple uses bolder fonts for dark appearances</a>:</p>
 <p><img src="./mate-ui-font-to-match-macos-on-freebsd-dark.png" alt=""></p>
 <p>Font <a href="https://freetype.org/freetype2/docs/reference/ft2-properties.html#no-stem-darkening">rendering</a> needs to be tweaked. In ~/.profile add:</p>
 <div class="highlight"><pre tabindex="0" style="color:#abb2bf;background-color:#282c34;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-sh" data-lang="sh"><span style="display:flex;"><span><span style="color:#e5c07b">export</span> <span style="color:#e06c75">FREETYPE_PROPERTIES</span><span style="color:#56b6c2">=</span><span style="color:#98c379">&#34;cff:no-stem-darkening=0.0 autofitter:no-stem-darkening=0.0&#34;</span>
