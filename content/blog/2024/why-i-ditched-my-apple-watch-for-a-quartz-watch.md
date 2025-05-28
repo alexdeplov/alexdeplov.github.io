@@ -22,7 +22,7 @@ So I did some research on what watch I could buy, and I started with Seiko first
 
 ![](images/6.webp)
 
-Citizen watches use Eco-Drive technology, which converts any light source into energy to recharge the battery—not just sunlight, but also electrical light. This means no more battery changes, practically ever! It's a sustainable and convenient feature that immediately appealed to me. They hide that solar cell behind the watch face. And somehow light can pass through it.
+Citizen watches use Eco-Drive technology, which converts any light source into energy to recharge the battery—not just sunlight, but also electrical light. This means no more battery charge, practically ever! It's a sustainable and convenient feature that immediately appealed to me. They hide that solar cell behind the watch face. And somehow light can pass through it.
 
 ![](images/7.webp)
 
