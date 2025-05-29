@@ -57,7 +57,7 @@ brew install ffmpeg
 
 ```sh
 for f in "$@"; do
-    /opt/homebrew/bin/ffmpeg -n -loglevel error -i "$f" -vcodec libx264 -crf 23 -preset ultrafast -tune film "/Users/alexander/Library/Mobile\ Documents/com\~apple\~CloudDocs/Downloads/$(date +"%Y_%m_%d_%I_%M_%p_%s").mp4";
+    /opt/homebrew/bin/ffmpeg -n -loglevel error -i "$f" -vcodec libx264 -crf 23 -preset ultrafast -tune film "$HOME/Library/Mobile\ Documents/com\~apple\~CloudDocs/Downloads/$(date +"%Y_%m_%d_%I_%M_%p_%s").mp4";
     rm -f "$f"
 done
 ```
@@ -72,16 +72,24 @@ done
 
 ```sh
 for f in "$@"; do
-    /opt/homebrew/bin/ffmpeg -n -loglevel error -i "$f" -vf "fps=18,scale=720:-1:flags=lanczos" "/Users/alexander/Library/Mobile Documents/com~apple~CloudDocs/Downloads/$(date +"%Y_%m_%d_%I_%M_%p_%s").gif";
+    /opt/homebrew/bin/ffmpeg -n -loglevel error -i "$f" -vf "fps=18,scale=720:-1:flags=lanczos" "$HOME/Library/Mobile Documents/com~apple~CloudDocs/Downloads/$(date +"%Y_%m_%d_%I_%M_%p_%s").gif";
     rm -f "$f"
 done
 ```
 
 ### Convert Image to WEBP:
 
+First, install <a href="http://www.graphicsmagick.org/" target="_blank">GraphicsMagick</a>. GM is more efficient than ImageMagick so it gets the job done faster using fewer resources. GM is much smaller and lighter than ImageMagick (3-5X smaller installation footprint). 
+
+```sh
+brew install GraphicsMagick
+```
+
+Then use this code in Automator:
+
 ```sh
 for f in "$@"; do
-    /opt/homebrew/bin/cwebp -q 70 "$f" -o "/Users/alexander/Library/Mobile Documents/com~apple~CloudDocs/Downloads/$(date +"%Y_%m_%d_%I_%M_%p_%s").webp";
+    /opt/homebrew/bin/gm convert "$f" -quality 70 "$HOME/Library/Mobile Documents/com~apple~CloudDocs/Downloads/Convert to WEBP$(date +"%Y_%m_%d_%I_%M_%p_%s").webp"
     rm -f "$f"
 done
 ```
