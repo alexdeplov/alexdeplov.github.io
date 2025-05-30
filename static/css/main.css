@@ -115,7 +115,7 @@ hr{
 .content ul{
     list-style-type: disc;
     margin-top: 1rem;
-    padding-left: 1.625em;
+    /* padding-left: 1.625em; */
 }
 .content li{
     margin-left: 1rem;
@@ -199,7 +199,7 @@ a:hover {
 }
 
 .list li{
-    padding-left: 0.25rem;
+    /* padding-left: 0.25rem; */
 }
 
 
