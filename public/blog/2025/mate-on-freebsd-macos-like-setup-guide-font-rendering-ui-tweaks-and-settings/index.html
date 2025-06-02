@@ -73,7 +73,8 @@
 <a href="#interface">Interface settings</a><br/>
 <a href="#tearing">Turn on TearFree</a><br/>
 <a href="#wallpapers">Wallpapers</a><br/>
-<a href="#mate_theme">macOS theme for Mate</a></p>
+<a href="#mate_theme">macOS theme for Mate</a><br/>
+<a href="#mate_spotlight">Spotlight replacement</a></p>
 <p>As I mentioned earlier, I noticed similarities between FreeBSD and macOS—after 20 years of using macOS, working with FreeBSD feels like coming home. But I don’t like the font rendering used in non-macOS systems. Partly because Apple did it very well — <a href="https://www.typeroom.eu/steve-jobs-calligraphy-apple-typography-legacy" target="_blank" rel="nofollow">Steve Jobs had a great understanding of typography</a> — and partly because I’m just used to it.</p>
 <p>In this article, I’ll share my method for configuring MATE on FreeBSD to resemble macOS in appearance, behavior, and usability. This makes the transition from a MacBook to a FreeBSD machine smoother, eliminating the need to relearn shortcuts or adjust to a completely different interface. Here&rsquo;s what my FreeBSD setup looks like right now:</p>
 <p><a href="./freebsd-desktop-to-match-macos.png"><img src="./freebsd-desktop-to-match-macos.png" alt=""></a></p>
@@ -184,6 +185,24 @@
 </span></span></code></pre></div><p>To disable the ability to open the menu by pressing Alt (since it&rsquo;s often pressed accidentally), add the following in about:config:</p>
 <div class="highlight"><pre tabindex="0" style="color:#abb2bf;background-color:#282c34;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-sh" data-lang="sh"><span style="display:flex;"><span>ui.key.menuAccessKeyFocuses: <span style="color:#e5c07b">false</span>
 </span></span></code></pre></div><hr>
+<h2 id="mate_spotlight">Spotlight replacement</h2>
+<p>You can use Rofi window switcher and launcher. Download <a href="https://github.com/newmanls/rofi-themes-collection?tab=readme-ov-file">Spotlight theme</a>.</p>
+<div class="highlight"><pre tabindex="0" style="color:#abb2bf;background-color:#282c34;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-sh" data-lang="sh"><span style="display:flex;"><span>pkg install x11/rofi
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>mkdir -p ~/.local/share/rofi/themes/
+</span></span></code></pre></div><p>Copy Spotlight theme to ~/.local/share/rofi/themes.</p>
+<p>In the ~/.config/rofi/config.rasi:</p>
+<div class="highlight"><pre tabindex="0" style="color:#abb2bf;background-color:#282c34;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-sh" data-lang="sh"><span style="display:flex;"><span>configuration <span style="color:#56b6c2">{</span>
+</span></span><span style="display:flex;"><span>  modes: <span style="color:#56b6c2">[</span> combi <span style="color:#56b6c2">]</span>;
+</span></span><span style="display:flex;"><span>  combi-modes: <span style="color:#56b6c2">[</span> window, drun, run <span style="color:#56b6c2">]</span>;
+</span></span><span style="display:flex;"><span><span style="color:#56b6c2">}</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>@theme <span style="color:#98c379">&#34;spotlight&#34;</span>
+</span></span></code></pre></div><p>And then MATE &gt; Control Center &gt; Keyboard Shortcut &gt; Add:</p>
+<div class="highlight"><pre tabindex="0" style="color:#abb2bf;background-color:#282c34;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-sh" data-lang="sh"><span style="display:flex;"><span>rofi -show run -show-icons 
+</span></span></code></pre></div><p><img src="./mate-custom-shortcut.png" alt=""></p>
+<p>And set shortcut to Option + Space or any desired.</p>
+<hr>
 <h2 id="macos-like-shadow-by-using-picom">macOS-like Shadow by Using Picom</h2>
 <p>WIP: Method for comparing Picom settings 1:1 to the macOS window shadow.</p>
 <hr>

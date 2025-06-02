@@ -10,7 +10,8 @@ author: "Alexander Deplov"
 <a href="#interface">Interface settings</a><br/>
 <a href="#tearing">Turn on TearFree</a><br/>
 <a href="#wallpapers">Wallpapers</a><br/>
-<a href="#mate_theme">macOS theme for Mate</a>
+<a href="#mate_theme">macOS theme for Mate</a><br/>
+<a href="#mate_spotlight">Spotlight replacement</a>
 
 
 As I mentioned earlier, I noticed similarities between FreeBSD and macOS—after 20 years of using macOS, working with FreeBSD feels like coming home. But I don’t like the font rendering used in non-macOS systems. Partly because Apple did it very well — <a href="https://www.typeroom.eu/steve-jobs-calligraphy-apple-typography-legacy" target="_blank" rel="nofollow">Steve Jobs had a great understanding of typography</a> — and partly because I’m just used to it.
@@ -236,6 +237,43 @@ ui.key.menuAccessKeyFocuses: false
 
 ---
 
+<h2 id="mate_spotlight">Spotlight replacement</h2>
+
+You can use Rofi window switcher and launcher. Download [Spotlight theme](https://github.com/newmanls/rofi-themes-collection?tab=readme-ov-file). 
+
+```sh
+pkg install x11/rofi
+
+mkdir -p ~/.local/share/rofi/themes/
+
+```
+
+Copy Spotlight theme to ~/.local/share/rofi/themes.
+
+In the ~/.config/rofi/config.rasi:
+
+```sh
+configuration {
+  modes: [ combi ];
+  combi-modes: [ window, drun, run ];
+}
+
+@theme "spotlight"
+
+```
+And then MATE > Control Center > Keyboard Shortcut > Add:
+
+```sh
+rofi -show run -show-icons 
+```
+
+![](./mate-custom-shortcut.png)
+
+And set shortcut to Option + Space or any desired.
+
+
+---
+
 ## macOS-like Shadow by Using Picom
 
 WIP: Method for comparing Picom settings 1:1 to the macOS window shadow.
@@ -246,3 +284,4 @@ WIP: Method for comparing Picom settings 1:1 to the macOS window shadow.
 ## Similar Articles
 
 - [Comparing Performance of MacBook Pro M1 Pro to mini PC on FreeBSD](https://interfacecraft.online/blog/2025/freebsd-vs-macos-for-daily-use-my-personal-migration-story/)
+
