@@ -1,7 +1,7 @@
 ---
 title: "I Accidentally Discovered Consciousness"
 date: 2025-06-07T13:13:16+02:00
-draft: true
+draft: false
 ---
 
 My grandpa passed away many years ago, but I remember spending time with him fixing a broken chair. The chair was 80 years old and had been gifted to my mom by her grandpa, so we wanted to save and restore it.
