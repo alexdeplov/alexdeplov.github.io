@@ -124,6 +124,15 @@ I guess the answer lies in the efficiency of FreeBSD and the lack of unnecessary
 
 My budget mini PC isn’t perfect for everything. One clear limitation is graphics performance. The integrated Radeon Vega GPU is not very powerful by today’s standards, and that becomes noticeable in GPU-intensive applications like Blender. While basic 3D previews and light modeling work are possible, rendering times are much longer compared to macOS on the M1 Pro, and viewport performance can lag when working with complex scenes. If you're doing serious 3D work or GPU-heavy tasks, this setup quickly shows its limits.
 
+Here is a comparison between the two.
+mini PC Benchmark Web 3.0:
+![](./mini-pc-amd-dyzen-5-5560u-benchmark-web-3.0.webp)
+
+MacBook Pro M1 Pro Benchmark Web 3.0:
+![](./macbook-pro-m1-pro-benchmark-web-3.0.webp)
+
+As you can see, the MacBook has a much more powerful GPU—almost six times more performant. So I basically paid six times more for that computer, but it turns out I'm not using that performance to its full potential.
+
 ### Resource Usage When No Apps Are Open
 
 FreeBSD, htop:
