@@ -13,3 +13,9 @@ title = 'Alexander Deplov, AI artist, product designer'
   [markup.highlight]
     style = "onedark"  # Syntax highlighting style
     lineNos = false    # No line numbers
+
+[module]
+  [[module.mounts]]
+    source = "static"
+    target = "static"
+enableRobotsTXT = true

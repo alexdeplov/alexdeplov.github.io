@@ -42,9 +42,11 @@ h1, h2, h3, h4, h5, h6 {
     color: var(--heading-color);
 }
 
-article h1{
-    line-height: 120% !important;
+article h1,
+header h1{
+    line-height: 100% !important;
     padding-bottom: 0.5rem;
+    font-weight: 800 !important;
 }
 
 hr{

@@ -1,0 +1,9 @@
+User-agent: Yandex
+User-agent: YandexBot
+User-agent: YandexImages
+User-agent: YandexNews
+User-agent: YandexMarket
+Disallow: /
+
+User-agent: *
+Allow: /

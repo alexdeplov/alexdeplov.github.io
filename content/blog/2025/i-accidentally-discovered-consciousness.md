@@ -12,7 +12,7 @@ While discussing how to fix the chair, I asked my grandpa,
 His answer was:
 "What do you mean?"
 
-I repeated my idea with more detail, and he said,
+I repeated my idea with more details, and he said,
 "Yes, now I understand what you mean."
 
 I was immediately struck by this reply: What just happened? Why did his brain switch from "I don't understand" to "I understand" after I added details?
