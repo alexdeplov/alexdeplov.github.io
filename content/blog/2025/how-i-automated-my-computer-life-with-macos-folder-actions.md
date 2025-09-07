@@ -213,6 +213,54 @@ done
 
 3. Drop a website URL directly into the folder.
 
+
+### Convert .mov file to .mp4 and change the speed to 1.5x:
+
+Change the output folder from /Users/alexander/Downloads/ to your user.
+Change atempo=1.5 to any other speed you need.
+
+1. In Terminal:
+
+```sh
+brew install ffmpeg
+
+```
+
+2. Use this script:
+
+```sh
+#!/bin/bash
+
+# Process each input file
+for f in "$@"; do
+    echo "Processing file: $f"
+    
+    # Check if file is an MP4 or MOV
+    if [[ "$f" == *.mp4 || "$f" == *.mov ]]; then
+        # Generate output filename with current date (e.g., video_20250808.mp4)
+        output_file="/Users/alexander/Downloads/video_$(date +%Y%m%d).mp4"
+        
+        echo "Converting $f to $output_file with 1.5x speed"
+        
+        # Run ffmpeg to speed up video and audio by 1.5x, converting to MP4
+        /opt/homebrew/bin/ffmpeg -i "$f" -filter:v "setpts=0.666667*PTS" -filter:a "atempo=1.5" -c:v libx264 -c:a aac "$output_file"
+        
+        # Check if ffmpeg conversion was successful
+        if [ $? -eq 0 ]; then
+            echo "Conversion successful, removing original file: $f"
+            rm -f "$f"
+        else
+            echo "Conversion failed for $f"
+        fi
+    else
+        echo "Error: $f is not an MP4 or MOV file"
+    fi
+done
+```
+
+3. Drop a website URL directly into the folder.
+
+
 ## Folder Actions Tweaking
 If you need to change a folder action, right-click on the folder and select **Folder Action Setup**.
 ![](images/7.webp)

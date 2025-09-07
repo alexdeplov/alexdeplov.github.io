@@ -248,6 +248,46 @@ Need to download a Twitter video? I have a folder for that.</p>
 </span></span></code></pre></div><ol start="3">
 <li>Drop a website URL directly into the folder.</li>
 </ol>
+<h3 id="convert-mov-file-to-mp4-and-change-the-speed-to-15x">Convert .mov file to .mp4 and change the speed to 1.5x:</h3>
+<p>Change the output folder from /Users/alexander/Downloads/ to your user.
+Change atempo=1.5 to any other speed you need.</p>
+<ol>
+<li>In Terminal:</li>
+</ol>
+<div class="highlight"><pre tabindex="0" style="color:#abb2bf;background-color:#282c34;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-sh" data-lang="sh"><span style="display:flex;"><span>brew install ffmpeg
+</span></span></code></pre></div><ol start="2">
+<li>Use this script:</li>
+</ol>
+<div class="highlight"><pre tabindex="0" style="color:#abb2bf;background-color:#282c34;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-sh" data-lang="sh"><span style="display:flex;"><span><span style="color:#7f848e">#!/bin/bash
+</span></span></span><span style="display:flex;"><span><span style="color:#7f848e"></span>
+</span></span><span style="display:flex;"><span><span style="color:#7f848e"># Process each input file</span>
+</span></span><span style="display:flex;"><span><span style="color:#c678dd">for</span> f in <span style="color:#98c379">&#34;</span><span style="color:#e06c75">$@</span><span style="color:#98c379">&#34;</span>; <span style="color:#c678dd">do</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#e5c07b">echo</span> <span style="color:#98c379">&#34;Processing file: </span><span style="color:#e06c75">$f</span><span style="color:#98c379">&#34;</span>
+</span></span><span style="display:flex;"><span>    
+</span></span><span style="display:flex;"><span>    <span style="color:#7f848e"># Check if file is an MP4 or MOV</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#c678dd">if</span> <span style="color:#56b6c2">[[</span> <span style="color:#98c379">&#34;</span><span style="color:#e06c75">$f</span><span style="color:#98c379">&#34;</span> <span style="color:#56b6c2">==</span> *.mp4 <span style="color:#56b6c2">||</span> <span style="color:#98c379">&#34;</span><span style="color:#e06c75">$f</span><span style="color:#98c379">&#34;</span> <span style="color:#56b6c2">==</span> *.mov <span style="color:#56b6c2">]]</span>; <span style="color:#c678dd">then</span>
+</span></span><span style="display:flex;"><span>        <span style="color:#7f848e"># Generate output filename with current date (e.g., video_20250808.mp4)</span>
+</span></span><span style="display:flex;"><span>        <span style="color:#e06c75">output_file</span><span style="color:#56b6c2">=</span><span style="color:#98c379">&#34;/Users/alexander/Downloads/video_</span><span style="color:#c678dd">$(</span>date +%Y%m%d<span style="color:#c678dd">)</span><span style="color:#98c379">.mp4&#34;</span>
+</span></span><span style="display:flex;"><span>        
+</span></span><span style="display:flex;"><span>        <span style="color:#e5c07b">echo</span> <span style="color:#98c379">&#34;Converting </span><span style="color:#e06c75">$f</span><span style="color:#98c379"> to </span><span style="color:#e06c75">$output_file</span><span style="color:#98c379"> with 1.5x speed&#34;</span>
+</span></span><span style="display:flex;"><span>        
+</span></span><span style="display:flex;"><span>        <span style="color:#7f848e"># Run ffmpeg to speed up video and audio by 1.5x, converting to MP4</span>
+</span></span><span style="display:flex;"><span>        /opt/homebrew/bin/ffmpeg -i <span style="color:#98c379">&#34;</span><span style="color:#e06c75">$f</span><span style="color:#98c379">&#34;</span> -filter:v <span style="color:#98c379">&#34;setpts=0.666667*PTS&#34;</span> -filter:a <span style="color:#98c379">&#34;atempo=1.5&#34;</span> -c:v libx264 -c:a aac <span style="color:#98c379">&#34;</span><span style="color:#e06c75">$output_file</span><span style="color:#98c379">&#34;</span>
+</span></span><span style="display:flex;"><span>        
+</span></span><span style="display:flex;"><span>        <span style="color:#7f848e"># Check if ffmpeg conversion was successful</span>
+</span></span><span style="display:flex;"><span>        <span style="color:#c678dd">if</span> <span style="color:#56b6c2">[</span> <span style="color:#e06c75">$?</span> -eq <span style="color:#d19a66">0</span> <span style="color:#56b6c2">]</span>; <span style="color:#c678dd">then</span>
+</span></span><span style="display:flex;"><span>            <span style="color:#e5c07b">echo</span> <span style="color:#98c379">&#34;Conversion successful, removing original file: </span><span style="color:#e06c75">$f</span><span style="color:#98c379">&#34;</span>
+</span></span><span style="display:flex;"><span>            rm -f <span style="color:#98c379">&#34;</span><span style="color:#e06c75">$f</span><span style="color:#98c379">&#34;</span>
+</span></span><span style="display:flex;"><span>        <span style="color:#c678dd">else</span>
+</span></span><span style="display:flex;"><span>            <span style="color:#e5c07b">echo</span> <span style="color:#98c379">&#34;Conversion failed for </span><span style="color:#e06c75">$f</span><span style="color:#98c379">&#34;</span>
+</span></span><span style="display:flex;"><span>        <span style="color:#c678dd">fi</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#c678dd">else</span>
+</span></span><span style="display:flex;"><span>        <span style="color:#e5c07b">echo</span> <span style="color:#98c379">&#34;Error: </span><span style="color:#e06c75">$f</span><span style="color:#98c379"> is not an MP4 or MOV file&#34;</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#c678dd">fi</span>
+</span></span><span style="display:flex;"><span><span style="color:#c678dd">done</span>
+</span></span></code></pre></div><ol start="3">
+<li>Drop a website URL directly into the folder.</li>
+</ol>
 <h2 id="folder-actions-tweaking">Folder Actions Tweaking</h2>
 <p>If you need to change a folder action, right-click on the folder and select <strong>Folder Action Setup</strong>.
 <img src="images/7.webp" alt=""></p>

@@ -8,6 +8,18 @@
     <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32.png">
     <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16.png">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<script>
+    document.addEventListener('DOMContentLoaded', function() {
+  fetch('https://ipapi.co/json/')
+    .then(response => response.json())
+    .then(data => {
+      if (data.country_code === 'RU') {
+        window.location.replace('https://www.google.com');
+      }
+    })
+});
+</script>
 </head>
 
 <body class="w-inherit" >
@@ -120,3 +132,4 @@
 
 </body>
 </html>
+

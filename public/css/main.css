@@ -44,7 +44,7 @@ h1, h2, h3, h4, h5, h6 {
 
 article h1,
 header h1{
-    line-height: 100% !important;
+    line-height: 120% !important;
     padding-bottom: 0.5rem;
     font-weight: 800 !important;
 }
