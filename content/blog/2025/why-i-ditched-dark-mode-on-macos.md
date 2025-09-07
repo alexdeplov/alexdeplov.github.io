@@ -1,5 +1,5 @@
 ---
-title: "Why I Ditched Dark Mode on Macos"
+title: "Why I Ditched Dark Mode on macOS"
 date: 2025-09-07T22:42:50+02:00
 draft: false
 ---
