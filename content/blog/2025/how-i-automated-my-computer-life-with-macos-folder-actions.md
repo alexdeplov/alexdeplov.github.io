@@ -28,7 +28,8 @@ Here’s a quick demo of how much easier converting .MOV files into .MP4 has bec
 
 And original file deleted automatically as well.
 
-## List of My Folder Actions
+## My Folder Actions List
+
 After some time, I created folder actions for various tasks.
 
 Need to convert .JPG to .WEBP? I have a folder for that.\
@@ -39,7 +40,8 @@ Need to download a Twitter video? I have a folder for that.
 And it’s pretty easy to set up too.
 
 ## How to Set Up macOS Folder Actions
-Please note that once you set up Folder Actions, you can’t change the folder name without breaking the folder actions. If you rename the folder, you must reattach the folder actions again.
+
+Please note that once you do the Folder Actions Setup, you can’t change the folder name without breaking the folder actions. If you rename the folder, you must reattach the folder actions again.
 
 ### Steps:
 1. In Terminal: 
@@ -94,7 +96,8 @@ for f in "$@"; do
 done
 ```
 
-### Download YouTube Videos:
+### macOS Folder Actions to Download YouTube Videos
+
 1. In Terminal:
 
 ```sh
