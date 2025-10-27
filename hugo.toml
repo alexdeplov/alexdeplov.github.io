@@ -4,7 +4,7 @@ title = 'Alexander Deplov, AI artist, product designer'
 
 # Important: Define which sections should appear on the homepage
 [params]
-  mainSections = ["posts", "portfolio"]
+  mainSections = ["blog", "portfolio"]
 
 [markup]
   [markup.goldmark]
