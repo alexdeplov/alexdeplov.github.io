@@ -8,33 +8,19 @@
   <script>
     (function() {
       var path = window.location.pathname || '';
-      var newPath = '';
-      var newUrl = '';
-
-      // Redirect 1: /posts/blog/... → /blog/...
+      // Match any path that starts with /posts/blog/
       if (path.indexOf('/posts/blog/') === 0) {
-        newPath = path.replace(/^\/posts\/blog\//, '/blog/');
-        newUrl = window.location.origin + newPath + (window.location.search || '') + (window.location.hash || '');
+        // Replace the prefix /posts/blog/ with /blog/
+        var newPath = path.replace(/^\/posts\/blog\//, '/blog/');
+        var newUrl = window.location.origin + newPath + (window.location.search || '') + (window.location.hash || '');
 
+        // Set canonical link to the new destination URL
         var link = document.createElement('link');
         link.setAttribute('rel', 'canonical');
         link.setAttribute('href', newUrl);
         document.head.appendChild(link);
 
-        window.location.replace(newUrl);
-        return;
-      }
-
-      // Redirect 2: /ai-hot-news/... → /is-ai-taking-over-jobs/...
-      if (path.indexOf('/ai-hot-news/') === 0) {
-        newPath = path.replace(/^\/ai-hot-news\//, '/is-ai-taking-over-jobs/');
-        newUrl = window.location.origin + newPath + (window.location.search || '') + (window.location.hash || '');
-
-        var link = document.createElement('link');
-        link.setAttribute('rel', 'canonical');
-        link.setAttribute('href', newUrl);
-        document.head.appendChild(link);
-
+        // Perform the redirect using replace() to avoid keeping the 404 in history
         window.location.replace(newUrl);
       }
     })();
@@ -51,38 +37,26 @@
 <body>
   <div class="wrap">
     <h1>Page not found</h1>
-    <p>If you were looking for blog posts, they have moved under <code>/blog/</code>.</p>
-    <p>If you were looking for AI Hot News articles, they have moved under <code>/is-ai-taking-over-jobs/</code>.</p>
+    <p>All blog articles previously located under <code>/posts/blog/</code> have been moved to <code>/blog/</code>.</p>
     <p>
       <noscript>
-        JavaScript is required to redirect automatically. Please try one of the new URLs:
+        JavaScript is required for automatic redirection. Please use the updated URL:
         <br>
-        <a id="fallback-blog-link" href="/blog/">/blog/</a> (for blog posts)
-        <br>
-        <a id="fallback-ai-link" href="/is-ai-taking-over-jobs/">/is-ai-taking-over-jobs/</a> (for AI Hot News)
+        <a id="fallback-link" href="/blog/">/blog/</a>
         <script>
-          // Update fallback links based on current path when JS is initially disabled
+          // Fallback link update when JavaScript is initially disabled
           (function() {
             var path = window.location.pathname || '';
-            var blogLink = document.getElementById('fallback-blog-link');
-            var aiLink = document.getElementById('fallback-ai-link');
-
-            if (path.indexOf('/posts/blog/') === 0 && blogLink) {
+            if (path.indexOf('/posts/blog/') === 0) {
               var newPath = path.replace(/^\/posts\/blog\//, '/blog/');
-              blogLink.href = newPath;
-              blogLink.textContent = newPath;
-            }
-
-            if (path.indexOf('/ai-hot-news/') === 0 && aiLink) {
-              var newPath = path.replace(/^\/ai-hot-news\//, '/is-ai-taking-over-jobs/');
-              aiLink.href = newPath;
-              aiLink.textContent = newPath;
+              var link = document.getElementById('fallback-link');
+              if (link) link.href = newPath;
             }
           })();
         </script>
       </noscript>
     </p>
-    <p><a href="/">Go to homepage</a></p>
+    <p><a href="https://interfacecraft.online/blog/">Go to Blog page</a></p>
   </div>
 </body>
 </html>
