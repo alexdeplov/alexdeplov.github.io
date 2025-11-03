@@ -1,6 +1,7 @@
 +++
 title = 'Waterlogue Pro macOS App Icon Creation'
 date = 2024-06-24T17:31:08+02:00
+aliases = ["/posts/blog/2024/waterlogue-pro-macos-app-icon-creation/"]
 draft = false
 featured = false
 author = "Alexander Deplov"

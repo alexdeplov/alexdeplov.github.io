@@ -2,6 +2,8 @@
 title: "Why I Ditched Dark Mode on macOS"
 date: 2025-09-07T22:42:50+02:00
 draft: false
+aliases:
+  - /posts/blog/2025/why-i-ditched-dark-mode-on-macos/
 ---
 
 ![](image.webp)

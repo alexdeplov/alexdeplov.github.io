@@ -1,6 +1,7 @@
 +++
 title = 'Why the Fear of AI Taking on Humans s a Nonsense'
 date = 2024-03-23T20:05:56+02:00
+aliases = ["/posts/blog/2024/why-the-fear-of-ai-taking-on-humans-is-a-nonsense/"]
 draft = false
 featured = false
 author = "Alexander Deplov"

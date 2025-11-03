@@ -1,6 +1,7 @@
 +++
 title = "The Best Way to Create iOS Screenshots Titles"
 date = 2024-10-25T11:08:10+02:00
+aliases = ["/posts/blog/2024/the-best-way-to-create-ios-screenshots-titles/"]
 draft = false
 featured = false
 author = "Alexander Deplov"

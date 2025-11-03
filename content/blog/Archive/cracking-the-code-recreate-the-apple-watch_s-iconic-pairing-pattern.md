@@ -1,6 +1,7 @@
 +++
 title = "Recreate the Apple Watch's Iconic Pairing Pattern in Vector"
 date = 2021-03-22T10:27:48+02:00
+aliases = ["/posts/blog/archive/cracking-the-code-recreate-the-apple-watch_s-iconic-pairing-pattern/"]
 draft = false
 featured = false
 author = "Alexander Deplov"

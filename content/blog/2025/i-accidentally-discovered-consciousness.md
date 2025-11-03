@@ -1,6 +1,8 @@
 ---
 title: "I Accidentally Discovered Consciousness"
 date: 2025-06-07T13:13:16+02:00
+aliases:
+  - /posts/blog/2025/i-accidentally-discovered-consciousness/
 draft: false
 ---
 

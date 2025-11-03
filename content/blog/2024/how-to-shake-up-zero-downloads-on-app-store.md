@@ -1,6 +1,7 @@
 +++
 title = "How to Shake Up Zero Downloads on App Store"
 date = 2024-06-30T14:54:59+02:00
+aliases = ["/posts/blog/2024/how-to-shake-up-zero-downloads-on-app-store/"]
 draft = false
 featured = false
 author = "Alexander Deplov"

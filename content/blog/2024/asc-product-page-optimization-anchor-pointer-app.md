@@ -1,6 +1,7 @@
 +++
 title = "Product Page Optimization Anchor Pointer App"
 date = 2024-07-14T13:24:09+02:00
+aliases = ["/posts/blog/2024/asc-product-page-optimization-anchor-pointer-app/"]
 draft = true
 featured = false
 author = "Alexander Deplov"

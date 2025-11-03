@@ -3,6 +3,7 @@ title = "My iOS & macOS App Icons Design Gallery"
 date = 2024-10-23T21:44:06+02:00
 draft = false
 featured = false
+aliases = ["/posts/blog/2024/ios-app-icons-design/"]
 author = "Alexander Deplov"
 tags = ["portfolio"]
 +++

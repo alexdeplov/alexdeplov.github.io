@@ -1,6 +1,7 @@
 +++
 title = 'How to Boost Mobile App Usage With a Simple Analytics Analysis'
 date = 2023-09-21T20:41:08+02:00
+aliases = ["/posts/blog/2023/how-to-boost-mobile-app-usage-with-a-simple-analytics-analysis/"]
 draft = false
 featured = false
 author = "Alexander Deplov"

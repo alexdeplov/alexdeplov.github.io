@@ -1,6 +1,8 @@
 ---
 title: "MATE on FreeBSD: macOS-Like Setup Guide: Font Rendering, UI Tweaks, and Settings"
 date: 2025-05-23T20:38:13+02:00
+aliases:
+  - /posts/blog/2025/mate-on-freebsd-macos-like-setup-guide-font-rendering-ui-tweaks-and-settings/
 draft: false
 author: "Alexander Deplov"
 ---

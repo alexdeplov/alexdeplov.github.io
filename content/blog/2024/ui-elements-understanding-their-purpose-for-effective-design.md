@@ -1,6 +1,7 @@
 +++
 title = "UI Elements: Understanding Their Purpose for Effective Design"
 date = 2024-09-10T14:08:34+02:00
+aliases = ["/posts/blog/2024/ui-elements-understanding-their-purpose-for-effective-design/"]
 draft = false
 featured = false
 author = "Alexander Deplov"

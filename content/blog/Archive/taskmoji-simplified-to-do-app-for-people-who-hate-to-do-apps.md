@@ -1,6 +1,7 @@
 +++
 title = "Taskmoji: Simplified To-Do App for People Who Hate To-Do Apps"
 date = 2016-09-07T10:53:16+02:00
+aliases = ["/posts/blog/archive/taskmoji-simplified-to-do-app-for-people-who-hate-to-do-apps/"]
 draft = false
 featured = false
 author = "Alexander Deplov"

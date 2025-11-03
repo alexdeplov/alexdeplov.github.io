@@ -1,6 +1,7 @@
 +++
 title = "iOS App Pricing Doesn't Have to Be Low"
 date = 2017-06-30T18:46:57+02:00
+aliases = ["/posts/blog/archive/ios-app-pricing-doesn-t-have-to-be-low/"]
 draft = false
 featured = false
 author = "Alexander Deplov"

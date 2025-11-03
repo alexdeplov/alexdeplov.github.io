@@ -1,6 +1,7 @@
 +++
 title = "Navigating Success: 11 Years of Innovation with Anchor Pointer GPS Compass"
 date = 2024-07-04T21:52:14+02:00
+aliases = ["/posts/blog/2024/navigating_success_11_years_of_innovation_with_anchor_pointer_gps_compass/"]
 draft = false
 featured = true
 author = "Alexander Deplov"

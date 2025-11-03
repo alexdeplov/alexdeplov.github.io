@@ -1,6 +1,7 @@
 +++
 title = "Why I Ditched My Apple Watch for a Quartz Watch—and Never Looked Back"
 date = 2024-11-20T21:37:37+01:00
+aliases = ["/posts/blog/2024/why-i-ditched-my-apple-watch-for-a-quartz-watch/"]
 draft = false
 featured = false
 author = "Alexander Deplov"

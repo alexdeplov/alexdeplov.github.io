@@ -1,6 +1,7 @@
 +++
 title = 'How to Set Up Usenet Access in 2025'
 date = 2025-03-13T17:19:30+01:00
+aliases = ["/posts/blog/2025/how-i-set-up-usenet-slrn-access-in-2025/"]
 draft = false
 featured = false
 author = "Alexander Deplov"

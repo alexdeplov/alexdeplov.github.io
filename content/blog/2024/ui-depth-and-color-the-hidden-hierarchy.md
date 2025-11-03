@@ -1,6 +1,7 @@
 +++
 title = 'Dark UI Depth – The Hidden Hierarchy'
 date = 2024-06-20T20:38:00+02:00
+aliases = ["/posts/blog/2024/ui-depth-and-color-the-hidden-hierarchy/"]
 draft = false
 featured = false
 author = "Alexander Deplov"

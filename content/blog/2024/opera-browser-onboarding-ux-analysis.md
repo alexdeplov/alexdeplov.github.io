@@ -1,6 +1,7 @@
 +++
 title = "Opera Browser Onboarding UX Analysis"
 date = 2024-11-01T16:28:45+01:00
+aliases = ["/posts/blog/2024/opera-browser-onboarding-ux-analysis/"]
 draft = false
 featured = true
 author = "Alexander Deplov"

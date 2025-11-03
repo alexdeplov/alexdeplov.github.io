@@ -1,6 +1,7 @@
 +++
 title = 'What Works Better Than a Three-Click Rule?'
 date = 2023-08-11T20:41:08+02:00
+aliases = ["/posts/blog/2023/what-works-better-than-three-click-rule/"]
 draft = false
 featured = false
 author = "Alexander Deplov"

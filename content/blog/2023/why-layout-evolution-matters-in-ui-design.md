@@ -1,6 +1,7 @@
 +++
 title = 'Why Layout Evolution Matters in UI Design'
 date = 2023-02-08T20:41:08+02:00
+aliases = ["/posts/blog/2023/why-layout-evolution-matters-in-ui-design/"]
 draft = false
 featured = true
 author = "Alexander Deplov"

@@ -1,6 +1,7 @@
 +++
 title = 'The Future of Icons is No Shapes?'
 date = 2016-07-16T20:41:08+02:00
+aliases = ["/posts/blog/archive/the-future-of-icons-is-no-shapes/"]
 draft = false
 featured = false
 author = "Alexander Deplov"

@@ -1,6 +1,7 @@
 +++
 title = 'How Text Affects the Meaning of UI Icons'
 date = 2023-08-13T20:41:08+02:00
+aliases = ["/posts/blog/2023/how-text-affects-the-meaning-of-ui-icons/"]
 draft = false
 featured = false
 author = "Alexander Deplov"

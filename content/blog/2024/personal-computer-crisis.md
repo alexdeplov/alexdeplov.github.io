@@ -1,6 +1,7 @@
 +++
 title = 'Personal Computer Crisis'
 date = 2024-06-22T16:30:18+02:00
+aliases = ["/posts/blog/2024/personal-computer-crisis/"]
 draft = false
 featured = true
 author = "Alexander Deplov"

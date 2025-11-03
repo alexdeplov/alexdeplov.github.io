@@ -1,6 +1,7 @@
 +++
 title = "Two Data-Driven Methods to Identify Your Target Audience Age"
 date = 2024-07-29T13:13:53+02:00
+aliases = ["/posts/blog/2024/two-data-driven-methods-to-identify-your-target-audience-age-as-a-product-designer/"]
 draft = false
 featured = false
 author = "Alexander Deplov"
