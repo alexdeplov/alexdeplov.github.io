@@ -6,8 +6,15 @@
     <description>Recent content in Blog on Alexander Deplov, AI artist, product designer</description>
     <generator>Hugo</generator>
     <language>en-us</language>
-    <lastBuildDate>Sun, 07 Sep 2025 22:42:50 +0200</lastBuildDate>
+    <lastBuildDate>Wed, 12 Nov 2025 14:33:35 +0100</lastBuildDate>
     <atom:link href="https://interfacecraft.online/blog/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Automatically Disable Wifi When Ethernet Is Plugged in Macos</title>
+      <link>https://interfacecraft.online/blog/2025/automatically-disable-wifi-when-ethernet-is-plugged-in-macos/</link>
+      <pubDate>Wed, 12 Nov 2025 14:33:35 +0100</pubDate>
+      <guid>https://interfacecraft.online/blog/2025/automatically-disable-wifi-when-ethernet-is-plugged-in-macos/</guid>
+      <description>&lt;p&gt;macOS has a long-standing bug that persists in macOS Tahoe. When I connect my MacBook to an external dongle with an Ethernet internet connection, it prioritizes the Wi-Fi connection. My Wi-Fi is very unstable, so even when connected to Ethernet, macOS refuses to use it. I set the Service Order to put Ethernet on top, but macOS ignores it.&lt;/p&gt;&#xA;&lt;p&gt;It&amp;rsquo;s so annoying that I ended up making a script to automate it:&lt;/p&gt;</description>
+    </item>
     <item>
       <title>Why I Ditched Dark Mode on macOS</title>
       <link>https://interfacecraft.online/blog/2025/why-i-ditched-dark-mode-on-macos/</link>
