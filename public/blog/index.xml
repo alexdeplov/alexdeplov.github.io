@@ -6,8 +6,15 @@
     <description>Recent content in Blog on Alexander Deplov, AI artist, product designer</description>
     <generator>Hugo</generator>
     <language>en-us</language>
-    <lastBuildDate>Wed, 12 Nov 2025 14:33:35 +0100</lastBuildDate>
+    <lastBuildDate>Tue, 25 Nov 2025 12:55:15 +0100</lastBuildDate>
     <atom:link href="https://interfacecraft.online/blog/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>How to match FreeBSD’s YouTube loading speed on macOS</title>
+      <link>https://interfacecraft.online/blog/2025/how-i-match-freebsd-youtube-speed-on-macos/</link>
+      <pubDate>Tue, 25 Nov 2025 12:55:15 +0100</pubDate>
+      <guid>https://interfacecraft.online/blog/2025/how-i-match-freebsd-youtube-speed-on-macos/</guid>
+      <description>&lt;p&gt;I watch a lot of YouTube videos, and I noticed something interesting. On FreeBSD, when I skip to any part of a video, it starts playing instantly. On macOS, however, it takes a couple of seconds to load.&lt;/p&gt;&#xA;&lt;p&gt;I wanted to fix that delay, so with help from an LLM, I changed some network settings on macOS to match FreeBSD’s behavior — and it worked perfectly! YouTube now loads just as fast as on FreeBSD.&lt;/p&gt;</description>
+    </item>
     <item>
       <title>Automatically Disable Wifi When Ethernet Is Plugged in Macos</title>
       <link>https://interfacecraft.online/blog/2025/automatically-disable-wifi-when-ethernet-is-plugged-in-macos/</link>
