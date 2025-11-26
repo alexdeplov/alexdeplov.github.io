@@ -4,7 +4,7 @@ date: 2025-11-25T12:55:15+01:00
 draft: false
 ---
 
-Update: After experimenting with it for a while, I found that the initial setup prevents the Safari and Mail apps from accessing the internet. I changed the settings so that YouTube remains fast and the other apps work well.
+**Update:** After experimenting with it for a while, I found that the initial setup prevents the Safari and Mail apps from accessing the internet. I changed the settings so that YouTube remains fast and the other apps work well.
 
 I watch a lot of YouTube videos, and I noticed something interesting. On FreeBSD, when I skip to any part of a video, it starts playing instantly. On macOS, however, it takes a couple of seconds to load.
 

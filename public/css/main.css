@@ -1,6 +1,3 @@
-@import url('https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:ital,wght@0,200..800;1,200..800&display=swap');
-@import url('https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;1,100;1,200;1,300;1,400;1,500;1,600;1,700&family=Plus+Jakarta+Sans:ital,wght@0,800;1,800&display=swap');
-@import url('https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400..900;1,400..900&display=swap');
 @import 'animation.css';
 
 /* Define root variables for both light and dark mode */
@@ -14,131 +11,142 @@
     --border-color: #dddddd;
     --accent-color: #4a90e2;
     --accent-orange: #f46c04;
-  }
-  
-  @media (prefers-color-scheme: dark) {
+}
+
+@media (prefers-color-scheme: dark) {
     :root {
-      --bg-color: #18181c;
-      --text-color: #e3e3e3;
-      --link-color: #6639dc;
-      --link-visited-color: #6639dc;
-      --heading-color: #d7d7d7;
-      --border-color: #444444;
-      --accent-color: #4a90e2;
-      --accent-orange: #f46c04;
+        --bg-color: #18181c;
+        --text-color: #e3e3e3;
+        --link-color: #6639dc;
+        --link-visited-color: #6639dc;
+        --heading-color: #d7d7d7;
+        --border-color: #444444;
+        --accent-color: #4a90e2;
+        --accent-orange: #f46c04;
     }
-  }
+}
 
 /* Apply variables to elements */
 body {
     background-color: var(--bg-color);
     color: var(--text-color);
-    font-family: 'Plus Jakarta Sans', system-ui, -apple-system, sans-serif;
+    font-family: "SF Pro Text", "SF Pro Icons", "Helvetica Neue", "Helvetica", "Arial", sans-serif;
     font-weight: 700;
     line-height: 1.6;
 }
 
-h1, h2, h3, h4, h5, h6 {
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
     color: var(--heading-color);
 }
 
 article h1,
-header h1{
+header h1 {
     line-height: 120% !important;
     padding-bottom: 0.5rem;
     font-weight: 800 !important;
+    letter-spacing: -0.8px;
 }
 
-hr{
+hr {
     margin: 4rem 0 !important;
     position: relative;
-    border-color: rgba(0,0,0,.15);
-}
-@media (prefers-color-scheme: dark) {
-    hr {
-        border-color: rgba(255,255,255,.15);
-        
-    }   
+    border-color: rgba(0, 0, 0, .15);
 }
 
-.content a{
+@media (prefers-color-scheme: dark) {
+    hr {
+        border-color: rgba(255, 255, 255, .15);
+
+    }
+}
+
+.content a {
     color: var(--link-color);
 }
 
-.content a:visited{
+.content a:visited {
     color: var(--link-visited-color);
 }
 
-.content p{
-    color: #43474F;
-}
-@media (prefers-color-scheme: dark) {
-    .content p {
-        color: #b4b4b4;
-    }   
+.content p,
+.content ul,
+.content ol {
+    color: #1d1f21;
+    margin-top: 20px;
 }
 
-.content strong{
+@media (prefers-color-scheme: dark) {
+
+    .content p,
+    .content ul,
+    .content ol {
+        color: #b4b4b4;
+    }
+}
+
+.content strong {
     color: black;
 }
+
 @media (prefers-color-scheme: dark) {
     .content strong {
         color: white;
-    }   
+    }
 }
 
-#replyViaEmail{
+#replyViaEmail {
     color: var(--bg-color);
     background-color: var(--accent-orange);
 }
 
-#allArticles{
+#allArticles {
     color: var(--accent-orange);
 }
 
-.content h3{
+.content h3 {
     font-size: 1.25em;
     margin-top: 1.5em;
 }
 
-.content p{
-    margin-top: 1.25em;
-    margin-bottom: 1.25em;
-}
 
 .content p,
-.content ul{
-    font-weight: 500;
-    margin-top: 1rem;
-    font-size: 1.05rem;
-    line-height: 2rem;
+.content ul,
+.content ol {
+    font-weight: 400;
+    font-size: 18px;
+
 }
 
-.content ul{
+.content ul {
     list-style-type: disc;
-    margin-top: 1rem;
-    /* padding-left: 1.625em; */
+    margin-top: 0.5rem;
 }
-.content li{
+
+.content li {
     margin-left: 1rem;
     margin-top: 0.5rem;
     margin-bottom: 0.5rem;
     font-weight: 500;
 }
 
-.content ol{
+.content ol {
     list-style-type: decimal;
     font-weight: normal;
-    margin-top: 1rem;
+    margin-top: 0.5rem;
 }
 
-.content h2{
+.content h2 {
     font-size: 1.5rem;
     margin-top: 2rem;
-    
+
 }
 
-.content h2{
+.content h2 {
     color: #222;
 }
 
@@ -148,19 +156,19 @@ hr{
     }
 }
 
-.content img, 
-.content video{
+.content img,
+.content video {
     margin-top: 1rem;
     border-radius: 0.3rem;
 }
 
-.content blockquote{
+.content blockquote {
     margin-top: 2rem;
     margin-bottom: 2rem;
     padding: 0.5rem 1rem;
     background-color: #eceff489 !important;
     border-left: 0.3rem solid #8C52FF;
-    border-radius: 0.3rem; 
+    border-radius: 0.3rem;
 }
 
 @media (prefers-color-scheme: dark) {
@@ -170,7 +178,7 @@ hr{
 }
 
 .content .highlighter {
-    background-color:#2d2d2d10; 
+    background-color: #2d2d2d10;
     color: #ff6200;
     font-family: 'Plus Jakarta Sans', system-ui, -apple-system, monospace;
     padding: 0.2em 0.4em;
@@ -179,7 +187,7 @@ hr{
 
 @media (prefers-color-scheme: dark) {
     .content .highlighter {
-        background-color:  #2d2d2d; 
+        background-color: #2d2d2d;
         color: #ff8c00;
     }
 }
@@ -188,29 +196,35 @@ a {
     color: var(--link-color);
     text-decoration: none;
 }
+
 a:hover {
     text-decoration: underline;
 }
 
-.list a:visited{
+.list a:visited {
     /* color: var(--link-visited-color); */
 }
 
-.list li::marker{
+.list li::marker {
     color: var(--link-visited-color) !important;
 }
 
-.list li{
+.list li {
     /* padding-left: 0.25rem; */
 }
 
 
 .highlight pre {
-    overflow-x: auto;          /* Enables horizontal scrolling */
-    white-space: pre;          /* Preserves whitespace and line breaks */
-    max-width: 100%;           /* Prevents overflow beyond container */
-    padding: 1.5em;              /* Optional: Adds padding for readability */
-    box-sizing: border-box;    /* Ensures padding doesn’t cause overflow */
+    overflow-x: auto;
+    /* Enables horizontal scrolling */
+    white-space: pre;
+    /* Preserves whitespace and line breaks */
+    max-width: 100%;
+    /* Prevents overflow beyond container */
+    padding: 1.5em;
+    /* Optional: Adds padding for readability */
+    box-sizing: border-box;
+    /* Ensures padding doesn’t cause overflow */
     background-color: #eceff489 !important;
     margin: 1em 0;
     border-radius: .5rem;
@@ -226,12 +240,12 @@ a:hover {
 }
 
 .highlight code {
-    display: block;            /* Ensures code takes full width */
-    white-space: pre;          /* Preserves formatting */
+    display: block;
+    /* Ensures code takes full width */
+    white-space: pre;
+    /* Preserves formatting */
 }
 
 div.highlight pre {
     overflow-x: auto !important;
 }
-
-
