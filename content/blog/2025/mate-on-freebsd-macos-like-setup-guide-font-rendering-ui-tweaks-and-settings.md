@@ -187,7 +187,11 @@ Unpack cursors <a href="https://www.pling.com/p/1408466" target="_blank">macOS.t
 
 I changed the default file manager from Caja to <a href="https://www.freshports.org/x11-fm/thunar/" target="_blank">Thunar</a> because Thunar is visually cleaner and allows you to right-click on categories in the sidebar to change them.
 
+Caja on top (visually noisy to me), Thunar at the bottom (clean):
+
 <a href="./caja-vs-thunar.jpg">![](./caja-vs-thunar.jpg)</a>
+
+
 
 <video class="mb-5" autoplay loop muted playsinline>
   <source src="thunar-edit-menu-in-sidebar.mp4" type="video/mp4">
