@@ -2,9 +2,9 @@
 {{ $accentColor := .Params.accentColor | default "#3B82F6" }}
 {{ partial "nav.html" . }}
 
-<article class="max-w-2xl mx-auto px-4 py-8">
+<article class="max-w-3xl mx-auto px-4 py-8">
   <header class="mb-8">
-    <h1 class="text-5xl font-bold mb-2">{{ .Title }}</h1>
+    <h1 class="font-bold mb-2" style="font-size: 2rem;">{{ .Title }}</h1>
     <div class="text-sm" style="color: var(--accent-orange);">
       {{ .Date.Format "January 2, 2006" }}
     </div>
