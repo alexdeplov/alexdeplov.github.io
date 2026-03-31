@@ -89,9 +89,9 @@
 <p>The visual style of these interfaces also reminds me of <a href="https://som-teletextviewer.sim-technik.de/tius/teletextviewer/desk.php?pagnr=100_02&amp;ttx_select=p7de">Teletext</a>, it was unique looking, the aesthetics that you don&rsquo;t see much anymore. There was a raw, unpolished charm to it—blocky fonts, ASCII art, and a straightforward layout that didn’t overwhelm you with options. It was like a digital campfire, where people gathered to exchange ideas, software, or just chat about life, all through the hum of a modem and the patience of waiting for a reply that might take hours or days. That simplicity, paired with the thrill of global connection, made Fidonet feel like a secret club for tech pioneers, and I’ll always cherish being a part of it.</p>
 <p>Some time ago I discover a Usenet. I never used it before. I was excited to try Usenet in 2025, since it gives very similar experince to good old Fidonet days. In this post I&rsquo;m going to share how to install it on modern macOS.</p>
 <p>But first you need to create an account at <a href="https://news.eternal-september.org/RegisterNewsAccount.php?language=en">news.eternal-september.org</a>. These credentials will be used later to enter the Usenet.</p>
-<div class="highlight"><pre tabindex="0" style="color:#abb2bf;background-color:#282c34;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-js" data-lang="js"><span style="display:flex;"><span><span style="color:#56b6c2">%</span> <span style="color:#e06c75">brew</span> <span style="color:#e06c75">install</span> <span style="color:#e06c75">slrn</span>
+<div class="highlight"><pre tabindex="0" style="color:#abb2bf;background-color:#282c34;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"><code class="language-js" data-lang="js"><span style="display:flex;"><span><span style="color:#56b6c2">%</span> <span style="color:#e06c75">brew</span> <span style="color:#e06c75">install</span> <span style="color:#e06c75">slrn</span>
 </span></span></code></pre></div><p>Then I added to the .jnewsrc some groups, all others can be found online:</p>
-<div class="highlight"><pre tabindex="0" style="color:#abb2bf;background-color:#282c34;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-sh" data-lang="sh"><span style="display:flex;"><span>nano ~/.jnewsrc
+<div class="highlight"><pre tabindex="0" style="color:#abb2bf;background-color:#282c34;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"><code class="language-sh" data-lang="sh"><span style="display:flex;"><span>nano ~/.jnewsrc
 </span></span><span style="display:flex;"><span>
 </span></span><span style="display:flex;"><span>comp.unix.bsd.freebsd.announce:
 </span></span><span style="display:flex;"><span>comp.unix.bsd.freebsd.misc:
@@ -103,11 +103,11 @@
 </span></span><span style="display:flex;"><span>comp.unix.shell:
 </span></span><span style="display:flex;"><span>comp.unix.misc:
 </span></span></code></pre></div><p>As a next step I should just run</p>
-<div class="highlight"><pre tabindex="0" style="color:#abb2bf;background-color:#282c34;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-js" data-lang="js"><span style="display:flex;"><span><span style="color:#56b6c2">%</span> <span style="color:#e06c75">slrn</span>
+<div class="highlight"><pre tabindex="0" style="color:#abb2bf;background-color:#282c34;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"><code class="language-js" data-lang="js"><span style="display:flex;"><span><span style="color:#56b6c2">%</span> <span style="color:#e06c75">slrn</span>
 </span></span></code></pre></div><p>But it requires to enter login/password every time, even though I added it to slrnpull.conf, according to the <a href="https://www.slrn.org/docs/slrnpull/SETUP">documentation</a>.</p>
 <p>So I made a stupid but simple trick that allows me to avoid manual login/password typing every time. This is a simple shell script that does the job using a timer. Just replace login/pass with your own, from the registration email sent to you by news.eternal-september.org. Here is my run_slrn.sh scipt:</p>
-<div class="highlight"><pre tabindex="0" style="color:#abb2bf;background-color:#282c34;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-sh" data-lang="sh"><span style="display:flex;"><span><span style="color:#7f848e">#!/bin/bash
-</span></span></span><span style="display:flex;"><span><span style="color:#7f848e"></span>
+<div class="highlight"><pre tabindex="0" style="color:#abb2bf;background-color:#282c34;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"><code class="language-sh" data-lang="sh"><span style="display:flex;"><span><span style="color:#7f848e">#!/bin/bash
+</span></span></span><span style="display:flex;"><span>
 </span></span><span style="display:flex;"><span><span style="color:#7f848e"># Launch slrn in Terminal</span>
 </span></span><span style="display:flex;"><span>osascript -e <span style="color:#98c379">&#39;tell application &#34;Terminal&#34; to activate&#39;</span> -e <span style="color:#98c379">&#39;tell application &#34;Te$
 </span></span></span><span style="display:flex;"><span><span style="color:#98c379">
@@ -122,7 +122,7 @@
 </span></span><span style="display:flex;"><span>
 </span></span><span style="display:flex;"><span><span style="color:#7f848e"># Type &#34;pcgtsecwr&#34; and press Enter</span>
 </span></span><span style="display:flex;"><span>osascript -e <span style="color:#98c379">&#39;tell application &#34;System Events&#34; to keystroke &#34;YOURPASSWORD&#34;&#39;</span> -e &#39;te$
-</span></span></code></pre></div><div class="highlight"><pre tabindex="0" style="color:#abb2bf;background-color:#282c34;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-sh" data-lang="sh"><span style="display:flex;"><span>% ~/run_slrn.sh
+</span></span></code></pre></div><div class="highlight"><pre tabindex="0" style="color:#abb2bf;background-color:#282c34;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"><code class="language-sh" data-lang="sh"><span style="display:flex;"><span>% ~/run_slrn.sh
 </span></span></code></pre></div><p>As a result I have the acces to Usenet:</p>
 <p><img src="images/image1.webp" alt="Screenshot of the slrn Usenet client running on macOS, displaying a list of Usenet groups">
 <img src="images/image2.webp" alt="Screenshot of the slrn Usenet client on macOS, showing a detailed view of a message, highlighting the text-based interface in action"></p>

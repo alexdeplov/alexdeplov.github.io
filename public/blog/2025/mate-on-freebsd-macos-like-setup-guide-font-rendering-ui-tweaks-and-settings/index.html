@@ -116,7 +116,7 @@
 <p>If you&rsquo;re using dark appearance, set medium version of SF Pro Display, becase in <a href="https://mastodon.social/@alex_deplov/114573131846455250" target="_blank">macOS Apple uses bolder fonts for dark appearances</a>:</p>
 <p><img src="./mate-ui-font-to-match-macos-on-freebsd-dark.png" alt=""></p>
 <p>Font <a href="https://freetype.org/freetype2/docs/reference/ft2-properties.html#no-stem-darkening">rendering</a> needs to be tweaked. In ~/.profile add:</p>
-<div class="highlight"><pre tabindex="0" style="color:#abb2bf;background-color:#282c34;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-sh" data-lang="sh"><span style="display:flex;"><span><span style="color:#e5c07b">export</span> <span style="color:#e06c75">FREETYPE_PROPERTIES</span><span style="color:#56b6c2">=</span><span style="color:#98c379">&#34;cff:no-stem-darkening=0.0 autofitter:no-stem-darkening=0.0&#34;</span>
+<div class="highlight"><pre tabindex="0" style="color:#abb2bf;background-color:#282c34;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"><code class="language-sh" data-lang="sh"><span style="display:flex;"><span><span style="color:#e5c07b">export</span> <span style="color:#e06c75">FREETYPE_PROPERTIES</span><span style="color:#56b6c2">=</span><span style="color:#98c379">&#34;cff:no-stem-darkening=0.0 autofitter:no-stem-darkening=0.0&#34;</span>
 </span></span></code></pre></div><p>Set Smoothing to <strong>Grayscale</strong> and <strong>Hinting to None</strong> (I also set font size to be 10 and DPI to 95):</p>
 <p><img src="./mate-ui-font-to-match-macos-on-freebsd-smoothing.png" alt=""></p>
 <p>Fonts in macOS (left) vs. MATE (right). You may notice that fonts in macOS appear bolder—not just because Apple often uses semibold and bold weights in the UI, but also due to how macOS renders text. With the settings I provide, you can achieve a look that’s quite similar. It won’t be an exact match, as MATE and macOS handle letter rendering, letters spacing, text color and other typographic details differently, but it will be much closer than MATE’s default appearance:</p>
@@ -143,7 +143,7 @@
 <p><img src="./mate-window-preferences-to-match-macos-on-freebsd.png" alt="">
 <img src="./mate-window-preferences-titlebar-buttons-position-to-match-macos-on-freebsd.png" alt=""></p>
 <h2 id="my-etcrcconf">My /etc/rc.conf</h2>
-<div class="highlight"><pre tabindex="0" style="color:#abb2bf;background-color:#282c34;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-sh" data-lang="sh"><span style="display:flex;"><span><span style="color:#e06c75">dbus_enable</span><span style="color:#56b6c2">=</span><span style="color:#98c379">&#34;YES&#34;</span> 
+<div class="highlight"><pre tabindex="0" style="color:#abb2bf;background-color:#282c34;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"><code class="language-sh" data-lang="sh"><span style="display:flex;"><span><span style="color:#e06c75">dbus_enable</span><span style="color:#56b6c2">=</span><span style="color:#98c379">&#34;YES&#34;</span> 
 </span></span><span style="display:flex;"><span><span style="color:#e06c75">keyrate</span><span style="color:#56b6c2">=</span><span style="color:#98c379">&#34;fast&#34;</span> 
 </span></span><span style="display:flex;"><span><span style="color:#e06c75">moused_enable</span><span style="color:#56b6c2">=</span><span style="color:#98c379">&#34;YES&#34;</span> 
 </span></span><span style="display:flex;"><span><span style="color:#e06c75">powerd_enable</span><span style="color:#56b6c2">=</span><span style="color:#98c379">&#34;YES&#34;</span>
@@ -151,16 +151,16 @@
 </span></span></code></pre></div><hr>
 <h2 id="tearing">Turn on TearFree</h2>
 <p>Check to see if it supports it. It should show &ldquo;TearFree&rdquo;: &ldquo;auto, on, off:</p>
-<div class="highlight"><pre tabindex="0" style="color:#abb2bf;background-color:#282c34;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-sh" data-lang="sh"><span style="display:flex;"><span>xrandr --props
+<div class="highlight"><pre tabindex="0" style="color:#abb2bf;background-color:#282c34;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"><code class="language-sh" data-lang="sh"><span style="display:flex;"><span>xrandr --props
 </span></span></code></pre></div><p>In /usr/local/etc/X11/xorg.conf.d/10-amdgpu.conf:</p>
-<div class="highlight"><pre tabindex="0" style="color:#abb2bf;background-color:#282c34;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-sh" data-lang="sh"><span style="display:flex;"><span>Section <span style="color:#98c379">&#34;OutputClass&#34;</span>
+<div class="highlight"><pre tabindex="0" style="color:#abb2bf;background-color:#282c34;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"><code class="language-sh" data-lang="sh"><span style="display:flex;"><span>Section <span style="color:#98c379">&#34;OutputClass&#34;</span>
 </span></span><span style="display:flex;"><span>    Identifier <span style="color:#98c379">&#34;AMDgpu&#34;</span>
 </span></span><span style="display:flex;"><span>    MatchDriver <span style="color:#98c379">&#34;amdgpu&#34;</span>
 </span></span><span style="display:flex;"><span>    Driver <span style="color:#98c379">&#34;amdgpu&#34;</span>
 </span></span><span style="display:flex;"><span>    Option <span style="color:#98c379">&#34;TearFree&#34;</span> <span style="color:#98c379">&#34;true&#34;</span>
 </span></span><span style="display:flex;"><span>EndSection
 </span></span></code></pre></div><p>Then, use this command again to see if TearFree is enabled. It should show TearFree: On:</p>
-<div class="highlight"><pre tabindex="0" style="color:#abb2bf;background-color:#282c34;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-sh" data-lang="sh"><span style="display:flex;"><span>xrandr --props
+<div class="highlight"><pre tabindex="0" style="color:#abb2bf;background-color:#282c34;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"><code class="language-sh" data-lang="sh"><span style="display:flex;"><span>xrandr --props
 </span></span></code></pre></div><hr>
 <h2 id="wallpapers">Wallpapers</h2>
 <p>My favorite wallpapers are from <a href="https://512pixels.net/projects/default-mac-wallpapers-in-5k/">macOS Sequoia and macOS Ventura</a>.</p>
@@ -188,7 +188,7 @@
 <p><img src="./thunar-macos-shortcuts-on-freebsd.png" alt=""></p>
 <hr>
 <h2 id="dock">Dock</h2>
-<div class="highlight"><pre tabindex="0" style="color:#abb2bf;background-color:#282c34;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-sh" data-lang="sh"><span style="display:flex;"><span>pkg install -y plank 
+<div class="highlight"><pre tabindex="0" style="color:#abb2bf;background-color:#282c34;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"><code class="language-sh" data-lang="sh"><span style="display:flex;"><span>pkg install -y plank 
 </span></span></code></pre></div><p>I&rsquo;m using <a href="https://www.freshports.org/x11/plank/" target="_blank">x11/plank</a> with GTK+ theme:</p>
 <p><a href="./plank-freebsd-dock-1.png"><img src="./plank-freebsd-dock-1.png" alt=""></a>
 <a href="./plank-freebsd-dock-2.png"><img src="./plank-freebsd-dock-2.png" alt=""></a>
@@ -198,25 +198,25 @@
 <p><img src="./mate-hide-desktop-icons-freebsd.png" alt=""></p>
 <h2 id="firefox-settings">Firefox Settings</h2>
 <p>To change CTRL to CMD in Firefox go to about:profiles, find the Default Profile (marked &ldquo;Yes&rdquo;), open that folder, and create a <strong>user.js</strong> file with the following content:</p>
-<div class="highlight"><pre tabindex="0" style="color:#abb2bf;background-color:#282c34;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-sh" data-lang="sh"><span style="display:flex;"><span>user_pref<span style="color:#56b6c2">(</span><span style="color:#98c379">&#34;ui.key.accelKey&#34;</span>, 224<span style="color:#56b6c2">)</span>;
+<div class="highlight"><pre tabindex="0" style="color:#abb2bf;background-color:#282c34;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"><code class="language-sh" data-lang="sh"><span style="display:flex;"><span>user_pref<span style="color:#56b6c2">(</span><span style="color:#98c379">&#34;ui.key.accelKey&#34;</span>, 224<span style="color:#56b6c2">)</span>;
 </span></span></code></pre></div><p>To disable the ability to open the menu by pressing Alt (since it&rsquo;s often pressed accidentally), add the following in about:config:</p>
-<div class="highlight"><pre tabindex="0" style="color:#abb2bf;background-color:#282c34;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-sh" data-lang="sh"><span style="display:flex;"><span>ui.key.menuAccessKeyFocuses: <span style="color:#e5c07b">false</span>
+<div class="highlight"><pre tabindex="0" style="color:#abb2bf;background-color:#282c34;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"><code class="language-sh" data-lang="sh"><span style="display:flex;"><span>ui.key.menuAccessKeyFocuses: <span style="color:#e5c07b">false</span>
 </span></span></code></pre></div><hr>
 <h2 id="mate_spotlight">Spotlight replacement</h2>
 <p>You can use Rofi window switcher and launcher. Download <a href="https://github.com/newmanls/rofi-themes-collection?tab=readme-ov-file">Spotlight theme</a>.</p>
-<div class="highlight"><pre tabindex="0" style="color:#abb2bf;background-color:#282c34;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-sh" data-lang="sh"><span style="display:flex;"><span>pkg install x11/rofi
+<div class="highlight"><pre tabindex="0" style="color:#abb2bf;background-color:#282c34;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"><code class="language-sh" data-lang="sh"><span style="display:flex;"><span>pkg install x11/rofi
 </span></span><span style="display:flex;"><span>
 </span></span><span style="display:flex;"><span>mkdir -p ~/.local/share/rofi/themes/
 </span></span></code></pre></div><p>Copy Spotlight theme to ~/.local/share/rofi/themes.</p>
 <p>In the ~/.config/rofi/config.rasi:</p>
-<div class="highlight"><pre tabindex="0" style="color:#abb2bf;background-color:#282c34;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-sh" data-lang="sh"><span style="display:flex;"><span>configuration <span style="color:#56b6c2">{</span>
+<div class="highlight"><pre tabindex="0" style="color:#abb2bf;background-color:#282c34;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"><code class="language-sh" data-lang="sh"><span style="display:flex;"><span>configuration <span style="color:#56b6c2">{</span>
 </span></span><span style="display:flex;"><span>  modes: <span style="color:#56b6c2">[</span> combi <span style="color:#56b6c2">]</span>;
 </span></span><span style="display:flex;"><span>  combi-modes: <span style="color:#56b6c2">[</span> window, drun, run <span style="color:#56b6c2">]</span>;
 </span></span><span style="display:flex;"><span><span style="color:#56b6c2">}</span>
 </span></span><span style="display:flex;"><span>
 </span></span><span style="display:flex;"><span>@theme <span style="color:#98c379">&#34;spotlight&#34;</span>
 </span></span></code></pre></div><p>And then MATE &gt; Control Center &gt; Keyboard Shortcut &gt; Add:</p>
-<div class="highlight"><pre tabindex="0" style="color:#abb2bf;background-color:#282c34;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-sh" data-lang="sh"><span style="display:flex;"><span>rofi -show run -show-icons 
+<div class="highlight"><pre tabindex="0" style="color:#abb2bf;background-color:#282c34;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"><code class="language-sh" data-lang="sh"><span style="display:flex;"><span>rofi -show run -show-icons 
 </span></span></code></pre></div><p><img src="./mate-custom-shortcut.png" alt=""></p>
 <p>And set shortcut to Option + Space or any desired.</p>
 <hr>

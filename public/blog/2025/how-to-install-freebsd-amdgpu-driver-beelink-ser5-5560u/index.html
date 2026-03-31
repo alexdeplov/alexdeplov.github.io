@@ -87,44 +87,44 @@
     <p>After installing FreeBSD 14.2 fresh on my Beelink SER5 5560U, I installed the GPU driver and enabled the TearFree option for better desktop usage by following these steps:</p>
 <p><img src="./Beelink-SER5-5560U.webp" alt=""></p>
 <h3 id="1-speed-up-keyboard-repeat-rate">1. Speed Up Keyboard Repeat Rate</h3>
-<div class="highlight"><pre tabindex="0" style="color:#abb2bf;background-color:#282c34;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-sh" data-lang="sh"><span style="display:flex;"><span><span style="color:#7f848e"># kbdcontrol -r fast</span>
+<div class="highlight"><pre tabindex="0" style="color:#abb2bf;background-color:#282c34;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"><code class="language-sh" data-lang="sh"><span style="display:flex;"><span><span style="color:#7f848e"># kbdcontrol -r fast</span>
 </span></span></code></pre></div><p>Edit <code>/etc/rc.conf</code>:</p>
-<div class="highlight"><pre tabindex="0" style="color:#abb2bf;background-color:#282c34;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-sh" data-lang="sh"><span style="display:flex;"><span><span style="color:#e06c75">keyrate</span><span style="color:#56b6c2">=</span><span style="color:#98c379">&#34;fast&#34;</span>
+<div class="highlight"><pre tabindex="0" style="color:#abb2bf;background-color:#282c34;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"><code class="language-sh" data-lang="sh"><span style="display:flex;"><span><span style="color:#e06c75">keyrate</span><span style="color:#56b6c2">=</span><span style="color:#98c379">&#34;fast&#34;</span>
 </span></span></code></pre></div><h3 id="2-install-xorg">2. Install Xorg</h3>
-<div class="highlight"><pre tabindex="0" style="color:#abb2bf;background-color:#282c34;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-sh" data-lang="sh"><span style="display:flex;"><span><span style="color:#7f848e"># pkg install -y xorg</span>
+<div class="highlight"><pre tabindex="0" style="color:#abb2bf;background-color:#282c34;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"><code class="language-sh" data-lang="sh"><span style="display:flex;"><span><span style="color:#7f848e"># pkg install -y xorg</span>
 </span></span></code></pre></div><h3 id="3-add-user-to-necessary-groups">3. Add User to Necessary Groups</h3>
-<div class="highlight"><pre tabindex="0" style="color:#abb2bf;background-color:#282c34;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-sh" data-lang="sh"><span style="display:flex;"><span><span style="color:#7f848e"># pw groupmod video -m username</span>
+<div class="highlight"><pre tabindex="0" style="color:#abb2bf;background-color:#282c34;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"><code class="language-sh" data-lang="sh"><span style="display:flex;"><span><span style="color:#7f848e"># pw groupmod video -m username</span>
 </span></span><span style="display:flex;"><span><span style="color:#7f848e"># pw groupmod wheel -m username</span>
 </span></span></code></pre></div><p>Verify with:</p>
-<div class="highlight"><pre tabindex="0" style="color:#abb2bf;background-color:#282c34;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-sh" data-lang="sh"><span style="display:flex;"><span><span style="color:#7f848e"># id username</span>
+<div class="highlight"><pre tabindex="0" style="color:#abb2bf;background-color:#282c34;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"><code class="language-sh" data-lang="sh"><span style="display:flex;"><span><span style="color:#7f848e"># id username</span>
 </span></span></code></pre></div><h3 id="4-install-drm-kernel-module-for-amd">4. Install DRM Kernel Module for AMD</h3>
-<div class="highlight"><pre tabindex="0" style="color:#abb2bf;background-color:#282c34;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-sh" data-lang="sh"><span style="display:flex;"><span><span style="color:#7f848e"># pkg install -y drm-kmod</span>
+<div class="highlight"><pre tabindex="0" style="color:#abb2bf;background-color:#282c34;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"><code class="language-sh" data-lang="sh"><span style="display:flex;"><span><span style="color:#7f848e"># pkg install -y drm-kmod</span>
 </span></span><span style="display:flex;"><span><span style="color:#7f848e"># sysrc kld_list+=amdgpu</span>
 </span></span></code></pre></div><p>Now <strong>reboot</strong>.</p>
 <p>At this point, the graphical driver should kick in, and you’ll notice a change in console resolution.</p>
 <h3 id="5-start-x-and-test">5. Start X and Test</h3>
-<div class="highlight"><pre tabindex="0" style="color:#abb2bf;background-color:#282c34;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-sh" data-lang="sh"><span style="display:flex;"><span><span style="color:#7f848e"># startx</span>
+<div class="highlight"><pre tabindex="0" style="color:#abb2bf;background-color:#282c34;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"><code class="language-sh" data-lang="sh"><span style="display:flex;"><span><span style="color:#7f848e"># startx</span>
 </span></span></code></pre></div><p>It should display the X server without any errors.</p>
 <h3 id="6-install-amd-x11-driver">6. Install AMD X11 Driver</h3>
-<div class="highlight"><pre tabindex="0" style="color:#abb2bf;background-color:#282c34;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-sh" data-lang="sh"><span style="display:flex;"><span><span style="color:#7f848e"># pkg install x11-drivers/xf86-video-amdgpu</span>
+<div class="highlight"><pre tabindex="0" style="color:#abb2bf;background-color:#282c34;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"><code class="language-sh" data-lang="sh"><span style="display:flex;"><span><span style="color:#7f848e"># pkg install x11-drivers/xf86-video-amdgpu</span>
 </span></span><span style="display:flex;"><span><span style="color:#7f848e"># X -configure</span>
 </span></span></code></pre></div><p>This will generate the file:</p>
-<div class="highlight"><pre tabindex="0" style="color:#abb2bf;background-color:#282c34;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-sh" data-lang="sh"><span style="display:flex;"><span>/usr/local/share/X11/xorg.conf.d/10-amdgpu.conf
+<div class="highlight"><pre tabindex="0" style="color:#abb2bf;background-color:#282c34;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"><code class="language-sh" data-lang="sh"><span style="display:flex;"><span>/usr/local/share/X11/xorg.conf.d/10-amdgpu.conf
 </span></span></code></pre></div><p>Edit it to include TearFree:</p>
-<div class="highlight"><pre tabindex="0" style="color:#abb2bf;background-color:#282c34;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-sh" data-lang="sh"><span style="display:flex;"><span>Section <span style="color:#98c379">&#34;OutputClass&#34;</span>
+<div class="highlight"><pre tabindex="0" style="color:#abb2bf;background-color:#282c34;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"><code class="language-sh" data-lang="sh"><span style="display:flex;"><span>Section <span style="color:#98c379">&#34;OutputClass&#34;</span>
 </span></span><span style="display:flex;"><span>    Identifier <span style="color:#98c379">&#34;AMDgpu&#34;</span>
 </span></span><span style="display:flex;"><span>    MatchDriver <span style="color:#98c379">&#34;amdgpu&#34;</span>
 </span></span><span style="display:flex;"><span>    Driver <span style="color:#98c379">&#34;amdgpu&#34;</span>
 </span></span><span style="display:flex;"><span>    Option <span style="color:#98c379">&#34;TearFree&#34;</span> <span style="color:#98c379">&#34;true&#34;</span>
 </span></span><span style="display:flex;"><span>EndSection
 </span></span></code></pre></div><h3 id="7-check-if-tearfree-is-enabled">7. Check if TearFree is Enabled</h3>
-<div class="highlight"><pre tabindex="0" style="color:#abb2bf;background-color:#282c34;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-sh" data-lang="sh"><span style="display:flex;"><span><span style="color:#7f848e"># startx</span>
+<div class="highlight"><pre tabindex="0" style="color:#abb2bf;background-color:#282c34;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"><code class="language-sh" data-lang="sh"><span style="display:flex;"><span><span style="color:#7f848e"># startx</span>
 </span></span><span style="display:flex;"><span><span style="color:#7f848e"># xrandr --props</span>
 </span></span></code></pre></div><p>Look for, to see if it&rsquo;s on:</p>
-<div class="highlight"><pre tabindex="0" style="color:#abb2bf;background-color:#282c34;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-sh" data-lang="sh"><span style="display:flex;"><span>DisplayPort-2 connected
+<div class="highlight"><pre tabindex="0" style="color:#abb2bf;background-color:#282c34;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"><code class="language-sh" data-lang="sh"><span style="display:flex;"><span>DisplayPort-2 connected
 </span></span><span style="display:flex;"><span>    TearFree: on
 </span></span></code></pre></div><h3 id="8-install-sddm-firefox-and-mate">8. Install SDDM, Firefox, and MATE</h3>
-<div class="highlight"><pre tabindex="0" style="color:#abb2bf;background-color:#282c34;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-sh" data-lang="sh"><span style="display:flex;"><span><span style="color:#7f848e"># pkg install sddm firefox x11/mate</span>
+<div class="highlight"><pre tabindex="0" style="color:#abb2bf;background-color:#282c34;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"><code class="language-sh" data-lang="sh"><span style="display:flex;"><span><span style="color:#7f848e"># pkg install sddm firefox x11/mate</span>
 </span></span></code></pre></div><p>Everything should be up and running now. Proceed with further desktop and app configuration.</p>
 
   </div>

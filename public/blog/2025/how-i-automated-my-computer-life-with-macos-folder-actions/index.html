@@ -114,7 +114,7 @@ Need to download a Twitter video? I have a folder for that.</p>
 <ol>
 <li>In Terminal:</li>
 </ol>
-<div class="highlight"><pre tabindex="0" style="color:#abb2bf;background-color:#282c34;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-sh" data-lang="sh"><span style="display:flex;"><span>brew install ffmpeg
+<div class="highlight"><pre tabindex="0" style="color:#abb2bf;background-color:#282c34;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"><code class="language-sh" data-lang="sh"><span style="display:flex;"><span>brew install ffmpeg
 </span></span></code></pre></div><ol start="2">
 <li>Create and name a folder.</li>
 <li>Open Automator and create a new <strong>Folder Action</strong> project.
@@ -123,7 +123,7 @@ Need to download a Twitter video? I have a folder for that.</p>
 <img src="images/5.webp" alt=""></li>
 <li>To convert .MOV to .MP4, enter the following shell script (in all privided scripts you need to change file output path to yours):</li>
 </ol>
-<div class="highlight"><pre tabindex="0" style="color:#abb2bf;background-color:#282c34;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-sh" data-lang="sh"><span style="display:flex;"><span><span style="color:#c678dd">for</span> f in <span style="color:#98c379">&#34;</span><span style="color:#e06c75">$@</span><span style="color:#98c379">&#34;</span>; <span style="color:#c678dd">do</span>
+<div class="highlight"><pre tabindex="0" style="color:#abb2bf;background-color:#282c34;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"><code class="language-sh" data-lang="sh"><span style="display:flex;"><span><span style="color:#c678dd">for</span> f in <span style="color:#98c379">&#34;</span><span style="color:#e06c75">$@</span><span style="color:#98c379">&#34;</span>; <span style="color:#c678dd">do</span>
 </span></span><span style="display:flex;"><span>    /opt/homebrew/bin/ffmpeg -n -loglevel error -i <span style="color:#98c379">&#34;</span><span style="color:#e06c75">$f</span><span style="color:#98c379">&#34;</span> -vcodec libx264 -crf <span style="color:#d19a66">23</span> -preset ultrafast -tune film <span style="color:#98c379">&#34;</span><span style="color:#e06c75">$HOME</span><span style="color:#98c379">/Library/Mobile\ Documents/com\~apple\~CloudDocs/Downloads/</span><span style="color:#c678dd">$(</span>date +<span style="color:#98c379">&#34;%Y_%m_%d_%I_%M_%p_%s&#34;</span><span style="color:#c678dd">)</span><span style="color:#98c379">.mp4&#34;</span>;
 </span></span><span style="display:flex;"><span>    rm -f <span style="color:#98c379">&#34;</span><span style="color:#e06c75">$f</span><span style="color:#98c379">&#34;</span>
 </span></span><span style="display:flex;"><span><span style="color:#c678dd">done</span>
@@ -134,15 +134,15 @@ Need to download a Twitter video? I have a folder for that.</p>
 <p><img src="images/6.gif" alt=""></p>
 <h2 id="additional-folder-actions">Additional Folder Actions</h2>
 <h3 id="convert-video-to-gif">Convert Video to GIF</h3>
-<div class="highlight"><pre tabindex="0" style="color:#abb2bf;background-color:#282c34;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-sh" data-lang="sh"><span style="display:flex;"><span><span style="color:#c678dd">for</span> f in <span style="color:#98c379">&#34;</span><span style="color:#e06c75">$@</span><span style="color:#98c379">&#34;</span>; <span style="color:#c678dd">do</span>
+<div class="highlight"><pre tabindex="0" style="color:#abb2bf;background-color:#282c34;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"><code class="language-sh" data-lang="sh"><span style="display:flex;"><span><span style="color:#c678dd">for</span> f in <span style="color:#98c379">&#34;</span><span style="color:#e06c75">$@</span><span style="color:#98c379">&#34;</span>; <span style="color:#c678dd">do</span>
 </span></span><span style="display:flex;"><span>    /opt/homebrew/bin/ffmpeg -n -loglevel error -i <span style="color:#98c379">&#34;</span><span style="color:#e06c75">$f</span><span style="color:#98c379">&#34;</span> -vf <span style="color:#98c379">&#34;fps=18,scale=720:-1:flags=lanczos&#34;</span> <span style="color:#98c379">&#34;</span><span style="color:#e06c75">$HOME</span><span style="color:#98c379">/Library/Mobile Documents/com~apple~CloudDocs/Downloads/</span><span style="color:#c678dd">$(</span>date +<span style="color:#98c379">&#34;%Y_%m_%d_%I_%M_%p_%s&#34;</span><span style="color:#c678dd">)</span><span style="color:#98c379">.gif&#34;</span>;
 </span></span><span style="display:flex;"><span>    rm -f <span style="color:#98c379">&#34;</span><span style="color:#e06c75">$f</span><span style="color:#98c379">&#34;</span>
 </span></span><span style="display:flex;"><span><span style="color:#c678dd">done</span>
 </span></span></code></pre></div><h3 id="convert-image-to-webp">Convert Image to WEBP:</h3>
 <p>First, install <a href="http://www.graphicsmagick.org/" target="_blank">GraphicsMagick</a>. GM is more efficient than ImageMagick so it gets the job done faster using fewer resources. GM is much smaller and lighter than ImageMagick (3-5X smaller installation footprint).</p>
-<div class="highlight"><pre tabindex="0" style="color:#abb2bf;background-color:#282c34;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-sh" data-lang="sh"><span style="display:flex;"><span>brew install GraphicsMagick
+<div class="highlight"><pre tabindex="0" style="color:#abb2bf;background-color:#282c34;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"><code class="language-sh" data-lang="sh"><span style="display:flex;"><span>brew install GraphicsMagick
 </span></span></code></pre></div><p>Then use this code in Automator:</p>
-<div class="highlight"><pre tabindex="0" style="color:#abb2bf;background-color:#282c34;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-sh" data-lang="sh"><span style="display:flex;"><span><span style="color:#c678dd">for</span> f in <span style="color:#98c379">&#34;</span><span style="color:#e06c75">$@</span><span style="color:#98c379">&#34;</span>; <span style="color:#c678dd">do</span>
+<div class="highlight"><pre tabindex="0" style="color:#abb2bf;background-color:#282c34;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"><code class="language-sh" data-lang="sh"><span style="display:flex;"><span><span style="color:#c678dd">for</span> f in <span style="color:#98c379">&#34;</span><span style="color:#e06c75">$@</span><span style="color:#98c379">&#34;</span>; <span style="color:#c678dd">do</span>
 </span></span><span style="display:flex;"><span>    /opt/homebrew/bin/gm convert <span style="color:#98c379">&#34;</span><span style="color:#e06c75">$f</span><span style="color:#98c379">&#34;</span> -quality <span style="color:#d19a66">70</span> <span style="color:#98c379">&#34;</span><span style="color:#e06c75">$HOME</span><span style="color:#98c379">/Library/Mobile Documents/com~apple~CloudDocs/Downloads/Convert to WEBP</span><span style="color:#c678dd">$(</span>date +<span style="color:#98c379">&#34;%Y_%m_%d_%I_%M_%p_%s&#34;</span><span style="color:#c678dd">)</span><span style="color:#98c379">.webp&#34;</span>
 </span></span><span style="display:flex;"><span>    rm -f <span style="color:#98c379">&#34;</span><span style="color:#e06c75">$f</span><span style="color:#98c379">&#34;</span>
 </span></span><span style="display:flex;"><span><span style="color:#c678dd">done</span>
@@ -150,11 +150,11 @@ Need to download a Twitter video? I have a folder for that.</p>
 <ol>
 <li>In Terminal:</li>
 </ol>
-<div class="highlight"><pre tabindex="0" style="color:#abb2bf;background-color:#282c34;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-sh" data-lang="sh"><span style="display:flex;"><span>brew install yt-dlp
+<div class="highlight"><pre tabindex="0" style="color:#abb2bf;background-color:#282c34;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"><code class="language-sh" data-lang="sh"><span style="display:flex;"><span>brew install yt-dlp
 </span></span></code></pre></div><ol start="2">
 <li>Use this script:</li>
 </ol>
-<div class="highlight"><pre tabindex="0" style="color:#abb2bf;background-color:#282c34;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-sh" data-lang="sh"><span style="display:flex;"><span><span style="color:#7f848e"># Process each .webloc file</span>
+<div class="highlight"><pre tabindex="0" style="color:#abb2bf;background-color:#282c34;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"><code class="language-sh" data-lang="sh"><span style="display:flex;"><span><span style="color:#7f848e"># Process each .webloc file</span>
 </span></span><span style="display:flex;"><span><span style="color:#c678dd">for</span> f in <span style="color:#98c379">&#34;</span><span style="color:#e06c75">$@</span><span style="color:#98c379">&#34;</span>; <span style="color:#c678dd">do</span>
 </span></span><span style="display:flex;"><span>    <span style="color:#e5c07b">echo</span> <span style="color:#98c379">&#34;Processing file: </span><span style="color:#e06c75">$f</span><span style="color:#98c379">&#34;</span>
 </span></span><span style="display:flex;"><span>    
@@ -186,8 +186,8 @@ Need to download a Twitter video? I have a folder for that.</p>
 <li>Drop a website URL directly into the folder.</li>
 </ol>
 <h3 id="download-twitter-videos">Download Twitter Videos:</h3>
-<div class="highlight"><pre tabindex="0" style="color:#abb2bf;background-color:#282c34;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-sh" data-lang="sh"><span style="display:flex;"><span><span style="color:#7f848e">#!/bin/bash
-</span></span></span><span style="display:flex;"><span><span style="color:#7f848e"></span>
+<div class="highlight"><pre tabindex="0" style="color:#abb2bf;background-color:#282c34;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"><code class="language-sh" data-lang="sh"><span style="display:flex;"><span><span style="color:#7f848e">#!/bin/bash
+</span></span></span><span style="display:flex;"><span>
 </span></span><span style="display:flex;"><span><span style="color:#7f848e"># Process each .webloc file</span>
 </span></span><span style="display:flex;"><span><span style="color:#c678dd">for</span> f in <span style="color:#98c379">&#34;</span><span style="color:#e06c75">$@</span><span style="color:#98c379">&#34;</span>; <span style="color:#c678dd">do</span>
 </span></span><span style="display:flex;"><span>    <span style="color:#e5c07b">echo</span> <span style="color:#98c379">&#34;Processing file: </span><span style="color:#e06c75">$f</span><span style="color:#98c379">&#34;</span>
@@ -219,11 +219,11 @@ Need to download a Twitter video? I have a folder for that.</p>
 <ol>
 <li>In Terminal:</li>
 </ol>
-<div class="highlight"><pre tabindex="0" style="color:#abb2bf;background-color:#282c34;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-sh" data-lang="sh"><span style="display:flex;"><span>brew install yt-dlp; brew install ffmpeg
+<div class="highlight"><pre tabindex="0" style="color:#abb2bf;background-color:#282c34;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"><code class="language-sh" data-lang="sh"><span style="display:flex;"><span>brew install yt-dlp; brew install ffmpeg
 </span></span></code></pre></div><ol start="2">
 <li>Use this script:</li>
 </ol>
-<div class="highlight"><pre tabindex="0" style="color:#abb2bf;background-color:#282c34;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-sh" data-lang="sh"><span style="display:flex;"><span><span style="color:#7f848e"># Process each .webloc file</span>
+<div class="highlight"><pre tabindex="0" style="color:#abb2bf;background-color:#282c34;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"><code class="language-sh" data-lang="sh"><span style="display:flex;"><span><span style="color:#7f848e"># Process each .webloc file</span>
 </span></span><span style="display:flex;"><span><span style="color:#c678dd">for</span> f in <span style="color:#98c379">&#34;</span><span style="color:#e06c75">$@</span><span style="color:#98c379">&#34;</span>; <span style="color:#c678dd">do</span>
 </span></span><span style="display:flex;"><span>    <span style="color:#e5c07b">echo</span> <span style="color:#98c379">&#34;Processing file: </span><span style="color:#e06c75">$f</span><span style="color:#98c379">&#34;</span>
 </span></span><span style="display:flex;"><span>    
@@ -259,12 +259,12 @@ Change atempo=1.5 to any other speed you need.</p>
 <ol>
 <li>In Terminal:</li>
 </ol>
-<div class="highlight"><pre tabindex="0" style="color:#abb2bf;background-color:#282c34;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-sh" data-lang="sh"><span style="display:flex;"><span>brew install ffmpeg
+<div class="highlight"><pre tabindex="0" style="color:#abb2bf;background-color:#282c34;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"><code class="language-sh" data-lang="sh"><span style="display:flex;"><span>brew install ffmpeg
 </span></span></code></pre></div><ol start="2">
 <li>Use this script:</li>
 </ol>
-<div class="highlight"><pre tabindex="0" style="color:#abb2bf;background-color:#282c34;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-sh" data-lang="sh"><span style="display:flex;"><span><span style="color:#7f848e">#!/bin/bash
-</span></span></span><span style="display:flex;"><span><span style="color:#7f848e"></span>
+<div class="highlight"><pre tabindex="0" style="color:#abb2bf;background-color:#282c34;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"><code class="language-sh" data-lang="sh"><span style="display:flex;"><span><span style="color:#7f848e">#!/bin/bash
+</span></span></span><span style="display:flex;"><span>
 </span></span><span style="display:flex;"><span><span style="color:#7f848e"># Process each input file</span>
 </span></span><span style="display:flex;"><span><span style="color:#c678dd">for</span> f in <span style="color:#98c379">&#34;</span><span style="color:#e06c75">$@</span><span style="color:#98c379">&#34;</span>; <span style="color:#c678dd">do</span>
 </span></span><span style="display:flex;"><span>    <span style="color:#e5c07b">echo</span> <span style="color:#98c379">&#34;Processing file: </span><span style="color:#e06c75">$f</span><span style="color:#98c379">&#34;</span>
@@ -297,7 +297,7 @@ Change atempo=1.5 to any other speed you need.</p>
 <p>If you need to change a folder action, right-click on the folder and select <strong>Folder Action Setup</strong>.
 <img src="images/7.webp" alt=""></p>
 <p>All saved actions are stored in:</p>
-<div class="highlight"><pre tabindex="0" style="color:#abb2bf;background-color:#282c34;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-sh" data-lang="sh"><span style="display:flex;"><span>Macintosh HD / Users / YourName / Library / Workflows / Applications / Folder Actions/
+<div class="highlight"><pre tabindex="0" style="color:#abb2bf;background-color:#282c34;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"><code class="language-sh" data-lang="sh"><span style="display:flex;"><span>Macintosh HD / Users / YourName / Library / Workflows / Applications / Folder Actions/
 </span></span></code></pre></div><p>It’s become so powerful that I’m willing to extend this system to even more actions. Because now you can turn a folder to an interface for any conmmand line app. So now my desktop is more useful than ever:</p>
 <p><img src="images/9.webp" alt=""></p>
 
