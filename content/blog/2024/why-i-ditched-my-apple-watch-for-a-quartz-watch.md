@@ -70,9 +70,9 @@ I like that my new Citizen watch has these characteristics:
 - Provides a simple, reliable timekeeping experience without technological complexity
 - Most importantly, I am the true owner of the watch; it will become obsolete only when I decide, not when Apple decides. So potential lifetime is indefinite.
 
-If you're thinking to try to replace your smart watch with something more classical, consider what truly matters to you in a timepiece. For me, the journey from a high-tech Apple Watch to a classic Citizen Promaster Dive was about rediscovering simplicity, sustainability, and genuine utility. It's not just about telling time, but about finding a device that seamlessly integrates into your life without constant demands for charging or attention.
-
-
-
+## Update
+As it turns out, I’m not the only one:
+- https://www.reddit.com/r/apple/comments/10kw4ke/people_in_the_apple_ecosystem_who_got_rid_of/
+![](https://cdn.thewirecutter.com/wp-content/media/2023/06/20230606_fitnesstrackerupdate_1024px@2x.png?auto=webp&quality=60&width=570&dpr=2)
 
 
