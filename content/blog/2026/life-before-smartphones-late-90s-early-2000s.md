@@ -24,7 +24,7 @@ If you didn’t have any money but had an agreement with your parents, you could
 ### Internet
 
 - Modems and dial-up defined the online experience. 
-- FidoNet. For me, it was a network of people I knew personally. Later, when we abandoned it in favour of the Internet, I found it a bit strange that I had to communicate with strangers. 
+- FidoNet. For me, it was a network of people I knew personally. Later, when we abandoned it in favour of the Internet, I found it a bit strange that I had to communicate with strangers. It was also a big surprise that the majority of Internet network users had no technical skills compared to the FidoNet audience. 
 - Internet access was sometimes bought with prepaid cards and traffic limits.
 - Email clients had an offline mode because being connected constantly was expensive or impossible.
 - Most of the images online loaded line by line, from top to bottom.
@@ -132,9 +132,9 @@ Some phone calls had amazing sound quality. I remember being on the phone to my 
 
 ### Internet and mobility
 
-- Mobile internet was not widespread.
+- Mobile Internet was not widespread.
 - There were no cloud ecosystems or seamless syncing.
-- Going outside often meant losing internet access completely. You had no connection to anyone. If you needed to meet someone, you first had to call them to agree a time and place.
+- Going outside often meant losing Internet access completely. You had no connection to anyone. If you needed to meet someone, you first had to call them to agree a time and place.
 - It could also mean having no immediate way to contact someone.
 - Maps were usually paper-based.
 
