@@ -1,0 +1,20 @@
+<meta property="og:title" content="{{ .Title }}">
+<meta property="og:url" content="{{ .Permalink }}">
+<meta property="og:site_name" content="{{ .Site.Title }}">
+<meta property="og:type" content="{{ if .IsPage }}article{{ else }}website{{ end }}">
+{{ with .Params.image }}
+    {{- $image := . -}}
+    {{- $imageURL := $image -}}
+    {{- if not (or (hasPrefix $image "http://") (hasPrefix $image "https://")) -}}
+        {{- if hasPrefix $image "/" -}}
+            {{- $imageURL = absURL (strings.TrimPrefix "/" $image) -}}
+        {{- else if hasPrefix $image "./" -}}
+            {{- $imageURL = printf "%s%s" $.Permalink (strings.TrimPrefix "./" $image) -}}
+        {{- else -}}
+            {{- $imageURL = printf "%s%s" $.Permalink $image -}}
+        {{- end -}}
+    {{- end }}
+<meta property="og:image" content="{{ $imageURL }}">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:image" content="{{ $imageURL }}">
+{{ end }}

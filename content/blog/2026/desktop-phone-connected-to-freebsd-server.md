@@ -17,20 +17,20 @@ The basic flow looks like this:
 
 ```sh
 [Panasonic KX-T2315 analog phone]
-        |
-        | FXS phone cable
-        v
+		|
+		| FXS phone cable
+		v
 [Grandstream HT801]
-        |
-        | SIP + RTP
-        v
+		|
+		| SIP + RTP
+		v
 [FreeBSD 14 + Asterisk]
-        |
-        | AGI
-        v
+		|
+		| AGI
+		v
 [Python dispatcher]
-        |
-        v
+		|
+		v
 [Whitelisted local scripts]
 ```
 
@@ -38,29 +38,29 @@ The basic flow looks like this:
 
 For this project, I bought a Panasonic KX-T2315 on eBay. It is an analog desk phone. It arrived heavily yellowed, which is typical for old plastic.
 
-![](images/Panasonic-KX-T2315-cleaning-up-0.jpg)
+![Panasonic KX-T2315 desk phone in yellowed condition before restoration](images/Panasonic-KX-T2315-cleaning-up-0.jpg)
 
 To clean it up, I disassembled the case, applied [Oxycreme](https://www.amazon.de/dp/B07P9YD5Y7?ref=ppx_yo2ov_dt_b_fed_asin_title), placed the plastic parts in a transparent zip-lock bag, and left them in the sun for a couple of hours, following what I learned from [this video](https://www.youtube.com/watch?v=cpHc0QHdWMQ).
 
 Afterward, I washed everything thoroughly.
 
-![](images/Panasonic-KX-T2315-cleaning-up-1.jpg)
-![](images/Panasonic-KX-T2315-cleaning-up-2.jpg)
-![](images/Panasonic-KX-T2315-cleaning-up-3.jpg)
-![](images/Panasonic-KX-T2315-cleaning-up-4.jpg)
+![Panasonic phone parts during restoration process](images/Panasonic-KX-T2315-cleaning-up-1.jpg)
+![Panasonic phone restoration step showing cleaned plastic components](images/Panasonic-KX-T2315-cleaning-up-2.jpg)
+![Panasonic phone parts continuing to be cleaned and restored](images/Panasonic-KX-T2315-cleaning-up-3.jpg)
+![Further progress in restoring the Panasonic phone components](images/Panasonic-KX-T2315-cleaning-up-4.jpg)
 <br/>
 Turns out you can flip over an old paper card and find a fresh, clean white surface inside:
-![](images/Panasonic-KX-T2315-cleaning-up-5.jpg)
-![](images/Panasonic-KX-T2315-cleaning-up-6.jpg)
-![](images/Panasonic-KX-T2315-cleaning-up-7.jpg)
-![](images/Panasonic-KX-T2315-cleaning-up-8.jpg)
+![Panasonic phone with flipped label card showing fresh white surface](images/Panasonic-KX-T2315-cleaning-up-5.jpg)
+![Restored Panasonic phone showing cleaned exterior surfaces](images/Panasonic-KX-T2315-cleaning-up-6.jpg)
+![Panasonic phone with new gray curly handset cable installed](images/Panasonic-KX-T2315-cleaning-up-7.jpg)
+![Fully restored Panasonic phone with all cleaning complete](images/Panasonic-KX-T2315-cleaning-up-8.jpg)
 <br/>
 
  Then I replaced the handset wire with a [new one](https://www.amazon.de/dp/B0DYXS8K39?ref=ppx_yo2ov_dt_b_fed_asin_title). I accidentally ordered gray curly phone cable instead of a white, but decided to keep it anyway.
 
 ## Before And After
 
-![](images/Panasonic-KX-T2315-before-and-after.jpg)
+![Side-by-side comparison showing yellowed Panasonic phone before and restored after cleaning](images/Panasonic-KX-T2315-before-and-after.jpg)
 
 Restoration note: The Oxycreme worked well on the yellowed plastic, but it left a strong hydrogen peroxide smell mixed with fragrance. If you try this, avoid applying too much cream, rinse the parts thoroughly, and let them air out for a couple of days.
 
@@ -69,7 +69,7 @@ Restoration note: The Oxycreme worked well on the yellowed plastic, but it left 
 
 To connect the phone to the FreeBSD server, I used a Grandstream HT801V2 analog telephone adapter. 
 
-![](images/HT801.jpg)
+![Grandstream HT801V2 analog telephone adapter device](images/HT801.jpg)
 
 The HT801 provides an FXS port for the phone and registers with Asterisk over SIP. In fact, the HT801 can give a second life to a [rotary phone](https://www.youtube.com/watch?v=gLAtuarq2Ks) as well. It works with analog telephony devices, not digital/IP phones.
 
@@ -78,7 +78,7 @@ This setup allows a FreeBSD host to accept SIP registration from the HT801 and r
 The interaction is simple:
 
 1. Pick up the handset.
-2. The HT801 automatically dials extension `7000`.
+2. The HT801 automatically dials a private menu extension.
 3. Asterisk answers and waits for one DTMF digit.
 4. Press `1`, `2`, `3`, or `4`.
 5. A Python AGI dispatcher maps that digit to a fixed local action.
@@ -92,15 +92,15 @@ Important settings:
 
 ```sh
 - Primary SIP Server: server IP address, VPN IP address, or hostname
-- SIP User ID: 801
-- Authenticate ID: 801
+- SIP User ID: YOUR_SIP_USER_ID
+- Authenticate ID: YOUR_SIP_USER_ID
 - Authenticate Password: the same secret from pjsip.conf
 - SIP Transport: UDP
 - NAT Traversal: Keep-Alive
 - SIP registration: enabled
 - Enable SIP OPTIONS/NOTIFY Keep Alive: OPTIONS
 - Preferred DTMF: RFC2833
-- Offhook Auto-Dial: 7000
+- Offhook Auto-Dial: YOUR_MENU_EXTENSION
 - Offhook Auto-Dial Delay: 0
 ```
 
@@ -115,6 +115,32 @@ pkg install -y asterisk20 python311
 
 The implementation uses Asterisk with PJSIP, a Lua dialplan in extensions.lua, and a small Python AGI dispatcher.
 
+The main files for this setup were:
+
+```sh
+/usr/local/etc/asterisk/pjsip.conf
+/usr/local/etc/asterisk/extensions.lua
+/usr/local/etc/asterisk/rtp.conf
+/usr/local/phone-actions/phone_action_dispatcher.py
+```
+
+Asterisk also needs to be enabled and started:
+
+```sh
+sysrc asterisk_enable=YES
+service asterisk start
+```
+
+After changing the configuration, either restart Asterisk or reload the relevant parts from the Asterisk CLI:
+
+```sh
+asterisk -rvvv
+pjsip reload
+dialplan reload
+```
+
+Because this example uses `extensions.lua`, the `pbx_lua` module needs to be loaded. On this FreeBSD package it was the active dialplan module for my setup. If your system is using the traditional dialplan instead, you would put the same call logic in `extensions.conf`.
+
 The SIP endpoint is a single authenticated user. One detail that matters in Asterisk PJSIP is that the SIP username, endpoint name, and AOR name need to match for inbound registration. Inbound registration matches the `To` user in the SIP `REGISTER` request against the AOR name.
 
 This is the important part of my `pjsip.conf`:
@@ -123,29 +149,29 @@ This is the important part of my `pjsip.conf`:
 [transport-udp]
 type=transport
 protocol=udp
-bind=0.0.0.0:5060
-local_net=192.168.0.0/16
+bind=YOUR_ASTERISK_LISTEN_ADDRESS:5060
+local_net=YOUR_LAN_CIDR
 
-[801-auth]
+[YOUR_SIP_USER_ID-auth]
 type=auth
 auth_type=userpass
-username=801
+username=YOUR_SIP_USER_ID
 password=CHANGE_ME_STRONG_SECRET
 
-[801]
+[YOUR_SIP_USER_ID]
 type=aor
 max_contacts=1
 remove_existing=yes
 qualify_frequency=60
 
-[801]
+[YOUR_SIP_USER_ID]
 type=endpoint
 context=phone-actions
 transport=transport-udp
 disallow=all
 allow=ulaw,alaw
-auth=801-auth
-aors=801
+auth=YOUR_SIP_USER_ID-auth
+aors=YOUR_SIP_USER_ID
 dtmf_mode=rfc4733
 direct_media=no
 rtp_symmetric=yes
@@ -156,13 +182,23 @@ language=en
 
 The NAT-related settings were needed because the HT801 was registering from outside the server's local network. `force_rport` and `rewrite_contact` help Asterisk reply to the address and port the ATA is actually using, and `rtp_symmetric` helps RTP audio flow back through the same NAT path. If your adapter and server are on the same LAN or VPN, you can usually make this tighter.
 
-SIP is not the only network traffic involved. The phone call signaling uses UDP 5060 here, but the audio path uses RTP as well. If you run a firewall, you need to allow the Asterisk RTP port range only from trusted addresses. A better setup is to keep SIP and RTP reachable only over LAN or VPN.
+SIP is not the only network traffic involved. The phone call signaling uses UDP 5060 here, but the audio path uses RTP as well. The RTP range is configured in `rtp.conf`. If you run a firewall, allow SIP and the Asterisk RTP port range only from trusted addresses, such as your LAN, VPN, or the ATA address. A better setup is to keep SIP and RTP reachable only over LAN or VPN rather than exposing UDP 5060 to the public internet.
+
+To check whether the ATA registered successfully, I used the Asterisk CLI:
+
+```sh
+asterisk -rvvv
+pjsip show contacts
+pjsip show endpoints
+```
+
+The SIP password should be a long, unique random value. Do not reuse a Unix account password, router password, or any password from another service. `YOUR_SIP_USER_ID` is only the SIP endpoint name used by the ATA and Asterisk; it is not a FreeBSD user account.
 
 ## Dialplan
 
 On this FreeBSD Asterisk package, the active dialplan was `pbx_lua`, so the call logic lives in `extensions.lua` rather than `extensions.conf`.
 
-The dialplan answers extension `7000`, reads one digit, calls the AGI dispatcher with that digit, and then plays the result selected by the dispatcher.
+The dialplan answers the private menu extension, reads one digit, calls the AGI dispatcher with that digit, and then plays the result selected by the dispatcher.
 
 Here is a shortened version:
 
@@ -220,7 +256,7 @@ end
 
 extensions = {
 	["phone-actions"] = {
-		["7000"] = action_menu;
+		["YOUR_MENU_EXTENSION"] = action_menu;
 	};
 }
 ```
@@ -239,58 +275,66 @@ The dispatcher is a Python script launched by Asterisk. Its job is deliberately 
 The important safety choice is the whitelist. I do not build a command from keypad input. This shortened example shows the two simplest actions; my full dispatcher also handles `3` for voice message recordings and `4` for the news reader.
 
 ```python
+#!/usr/bin/env python3.11
+
 SCRIPT_DIR = Path("/usr/local/phone-actions")
 
 ACTION_MAP = {
-    "1": SCRIPT_DIR / "one.py",
-    "2": SCRIPT_DIR / "two.py",
+	"1": SCRIPT_DIR / "one.py",
+	"2": SCRIPT_DIR / "two.py",
 }
 
 def run_action_script(digit: str) -> int:
-    script_path = ACTION_MAP.get(digit)
-    if script_path is None:
-        LOGGER.warning("Rejected unmapped digit '%s'", digit)
-        set_channel_variable("ACTION_STATUS", "fail")
-        return 1
+	script_path = ACTION_MAP.get(digit)
+	if script_path is None:
+		LOGGER.warning("Rejected unmapped digit '%s'", digit)
+		set_channel_variable("ACTION_STATUS", "fail")
+		return 1
 
-    if not script_path.is_file():
-        LOGGER.error("Mapped script for digit %s does not exist: %s", digit, script_path)
-        set_channel_variable("ACTION_STATUS", "fail")
-        return 1
+	if not script_path.is_file():
+		LOGGER.error("Mapped script for digit %s does not exist: %s", digit, script_path)
+		set_channel_variable("ACTION_STATUS", "fail")
+		return 1
 
-    completed = subprocess.run(
-        [str(script_path)],
-        check=False,
-        capture_output=True,
-        text=True,
-        timeout=30,
-    )
+	completed = subprocess.run(
+		[str(script_path)],
+		check=False,
+		capture_output=True,
+		text=True,
+		timeout=30,
+	)
 
-    if completed.returncode == 0:
-        set_channel_variable("ACTION_STATUS", "ok")
-    else:
-        set_channel_variable("ACTION_STATUS", "fail")
+	if completed.returncode == 0:
+		set_channel_variable("ACTION_STATUS", "ok")
+	else:
+		set_channel_variable("ACTION_STATUS", "fail")
 
-    return completed.returncode
+	return completed.returncode
 ```
 
 Passing a list to `subprocess.run()` and leaving `shell=False` as the default means the digit cannot become shell syntax. The timeout also matters: if a script hangs, the AGI process should not wait forever.
 
-For the news action, I use an OpenAI API key from a root-readable config file rather than hard-coding it in the script. 
+The dispatcher itself has to be executable by the Asterisk service user, while the directory and scripts should be writable only by a trusted admin account. In other words, Asterisk needs enough permission to run the dispatcher and action scripts, but it should not need broad write access to the directory that contains them.
+
+When an AGI script talks back to Asterisk, it must write valid AGI commands to standard output. In the full dispatcher, `set_channel_variable()` prints `SET VARIABLE` commands and reads the Asterisk response before returning control to the Lua dialplan.
+
+For prompts, Asterisk `Playback()` uses sound names rather than full filenames with extensions. Generated audio may also need to be converted to a telephony-friendly format that your Asterisk installation can play, depending on which format modules are installed.
+
+For the news action, I use an OpenAI API key from a root-readable config file rather than hard-coding it in the script.
 
 
 Once the ATA successfully registered, lifting the handset immediately entered the action menu.
 
 ## Results
 
-![](images/og-image-desktop-phone-connected-to-freebsd-server.jpg)
+![Desktop phone connected to FreeBSD server system setup](images/og-image-desktop-phone-connected-to-freebsd-server.jpg)
 
 The final result is a phone-driven control interface:
 
 1. Pick up the handset.
 2. Press a digit.
 3. Trigger a script on the FreeBSD server.
-4. Right now, button `4` runs a script that reads the latest FreeBSD news and generates a text-to-speech MP3 file which is played back at 1.2× speed. Take a listen:
+4. Right now, button `4` runs a script that reads the latest FreeBSD news and generates a text-to-speech audio file which is played back at 1.2× speed. Take a listen:
 
 
 <audio controls>
@@ -307,3 +351,7 @@ Second, I want to build a local LLM so I can talk to the server by voice. The pr
 I'm currently working on a system that allows me to call the system and then press a button to start recording a voice message. Then, the local LLM converts it to text and sends it back to me via email when it's ready. 
 
 Long term, I want to bring my late grandfather back as an LLM-powered personality, so I can call and talk with him again.
+
+## Full Config
+
+<a href="/downloads/freebsd-phone/phone-action-controller-setup-schema.md" download>Download all configs in .md file format.</a>

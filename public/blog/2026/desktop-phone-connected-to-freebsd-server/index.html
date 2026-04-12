@@ -12,6 +12,16 @@
     <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16.png">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="canonical" href="http://localhost:1313/blog/2026/desktop-phone-connected-to-freebsd-server/">
+    <meta property="og:title" content="I Connected a Desktop Phone to a FreeBSD Server, So Now I Can Call It">
+<meta property="og:url" content="http://localhost:1313/blog/2026/desktop-phone-connected-to-freebsd-server/">
+<meta property="og:site_name" content="Alexander Deplov, AI artist, product designer">
+<meta property="og:type" content="article">
+
+<meta property="og:image" content="http://localhost:1313/blog/2026/desktop-phone-connected-to-freebsd-server/images/og-image-desktop-phone-connected-to-freebsd-server.jpg">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:image" content="http://localhost:1313/blog/2026/desktop-phone-connected-to-freebsd-server/images/og-image-desktop-phone-connected-to-freebsd-server.jpg">
+
+
 
 <script>
     document.addEventListener('DOMContentLoaded', function() {
@@ -79,7 +89,7 @@
   <header class="mb-8">
     <h1 class="font-bold mb-2" style="font-size: 2rem;">I Connected a Desktop Phone to a FreeBSD Server, So Now I Can Call It</h1>
     <div class="text-sm" style="color: var(--accent-orange);">
-      April 11, 2026
+      April 12, 2026
     </div>
   </header>
 
@@ -91,50 +101,50 @@
 </ul>
 <p>The basic flow looks like this:</p>
 <div class="highlight"><pre tabindex="0" style="color:#abb2bf;background-color:#282c34;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"><code class="language-sh" data-lang="sh"><span style="display:flex;"><span><span style="color:#56b6c2">[</span>Panasonic KX-T2315 analog phone<span style="color:#56b6c2">]</span>
-</span></span><span style="display:flex;"><span>        |
-</span></span><span style="display:flex;"><span>        | FXS phone cable
-</span></span><span style="display:flex;"><span>        v
+</span></span><span style="display:flex;"><span>		|
+</span></span><span style="display:flex;"><span>		| FXS phone cable
+</span></span><span style="display:flex;"><span>		v
 </span></span><span style="display:flex;"><span><span style="color:#56b6c2">[</span>Grandstream HT801<span style="color:#56b6c2">]</span>
-</span></span><span style="display:flex;"><span>        |
-</span></span><span style="display:flex;"><span>        | SIP + RTP
-</span></span><span style="display:flex;"><span>        v
+</span></span><span style="display:flex;"><span>		|
+</span></span><span style="display:flex;"><span>		| SIP + RTP
+</span></span><span style="display:flex;"><span>		v
 </span></span><span style="display:flex;"><span><span style="color:#56b6c2">[</span>FreeBSD <span style="color:#d19a66">14</span> + Asterisk<span style="color:#56b6c2">]</span>
-</span></span><span style="display:flex;"><span>        |
-</span></span><span style="display:flex;"><span>        | AGI
-</span></span><span style="display:flex;"><span>        v
+</span></span><span style="display:flex;"><span>		|
+</span></span><span style="display:flex;"><span>		| AGI
+</span></span><span style="display:flex;"><span>		v
 </span></span><span style="display:flex;"><span><span style="color:#56b6c2">[</span>Python dispatcher<span style="color:#56b6c2">]</span>
-</span></span><span style="display:flex;"><span>        |
-</span></span><span style="display:flex;"><span>        v
+</span></span><span style="display:flex;"><span>		|
+</span></span><span style="display:flex;"><span>		v
 </span></span><span style="display:flex;"><span><span style="color:#56b6c2">[</span>Whitelisted <span style="color:#e5c07b">local</span> scripts<span style="color:#56b6c2">]</span>
 </span></span></code></pre></div><h2 id="old-phone-new-life">Old Phone, New Life</h2>
 <p>For this project, I bought a Panasonic KX-T2315 on eBay. It is an analog desk phone. It arrived heavily yellowed, which is typical for old plastic.</p>
-<p><img src="images/Panasonic-KX-T2315-cleaning-up-0.jpg" alt=""></p>
+<p><img src="images/Panasonic-KX-T2315-cleaning-up-0.jpg" alt="Panasonic KX-T2315 desk phone in yellowed condition before restoration"></p>
 <p>To clean it up, I disassembled the case, applied <a href="https://www.amazon.de/dp/B07P9YD5Y7?ref=ppx_yo2ov_dt_b_fed_asin_title">Oxycreme</a>, placed the plastic parts in a transparent zip-lock bag, and left them in the sun for a couple of hours, following what I learned from <a href="https://www.youtube.com/watch?v=cpHc0QHdWMQ">this video</a>.</p>
 <p>Afterward, I washed everything thoroughly.</p>
-<p><img src="images/Panasonic-KX-T2315-cleaning-up-1.jpg" alt="">
-<img src="images/Panasonic-KX-T2315-cleaning-up-2.jpg" alt="">
-<img src="images/Panasonic-KX-T2315-cleaning-up-3.jpg" alt="">
-<img src="images/Panasonic-KX-T2315-cleaning-up-4.jpg" alt="">
+<p><img src="images/Panasonic-KX-T2315-cleaning-up-1.jpg" alt="Panasonic phone parts during restoration process">
+<img src="images/Panasonic-KX-T2315-cleaning-up-2.jpg" alt="Panasonic phone restoration step showing cleaned plastic components">
+<img src="images/Panasonic-KX-T2315-cleaning-up-3.jpg" alt="Panasonic phone parts continuing to be cleaned and restored">
+<img src="images/Panasonic-KX-T2315-cleaning-up-4.jpg" alt="Further progress in restoring the Panasonic phone components">
 <br/>
 Turns out you can flip over an old paper card and find a fresh, clean white surface inside:
-<img src="images/Panasonic-KX-T2315-cleaning-up-5.jpg" alt="">
-<img src="images/Panasonic-KX-T2315-cleaning-up-6.jpg" alt="">
-<img src="images/Panasonic-KX-T2315-cleaning-up-7.jpg" alt="">
-<img src="images/Panasonic-KX-T2315-cleaning-up-8.jpg" alt="">
+<img src="images/Panasonic-KX-T2315-cleaning-up-5.jpg" alt="Panasonic phone with flipped label card showing fresh white surface">
+<img src="images/Panasonic-KX-T2315-cleaning-up-6.jpg" alt="Restored Panasonic phone showing cleaned exterior surfaces">
+<img src="images/Panasonic-KX-T2315-cleaning-up-7.jpg" alt="Panasonic phone with new gray curly handset cable installed">
+<img src="images/Panasonic-KX-T2315-cleaning-up-8.jpg" alt="Fully restored Panasonic phone with all cleaning complete">
 <br/></p>
 <p>Then I replaced the handset wire with a <a href="https://www.amazon.de/dp/B0DYXS8K39?ref=ppx_yo2ov_dt_b_fed_asin_title">new one</a>. I accidentally ordered gray curly phone cable instead of a white, but decided to keep it anyway.</p>
 <h2 id="before-and-after">Before And After</h2>
-<p><img src="images/Panasonic-KX-T2315-before-and-after.jpg" alt=""></p>
+<p><img src="images/Panasonic-KX-T2315-before-and-after.jpg" alt="Side-by-side comparison showing yellowed Panasonic phone before and restored after cleaning"></p>
 <p>Restoration note: The Oxycreme worked well on the yellowed plastic, but it left a strong hydrogen peroxide smell mixed with fragrance. If you try this, avoid applying too much cream, rinse the parts thoroughly, and let them air out for a couple of days.</p>
 <h2 id="ht801-phone-action-controller">HT801 Phone Action Controller</h2>
 <p>To connect the phone to the FreeBSD server, I used a Grandstream HT801V2 analog telephone adapter.</p>
-<p><img src="images/HT801.jpg" alt=""></p>
+<p><img src="images/HT801.jpg" alt="Grandstream HT801V2 analog telephone adapter device"></p>
 <p>The HT801 provides an FXS port for the phone and registers with Asterisk over SIP. In fact, the HT801 can give a second life to a <a href="https://www.youtube.com/watch?v=gLAtuarq2Ks">rotary phone</a> as well. It works with analog telephony devices, not digital/IP phones.</p>
 <p>This setup allows a FreeBSD host to accept SIP registration from the HT801 and run scripts when digits are sent from the connected analog phone.</p>
 <p>The interaction is simple:</p>
 <ol>
 <li>Pick up the handset.</li>
-<li>The HT801 automatically dials extension <code>7000</code>.</li>
+<li>The HT801 automatically dials a private menu extension.</li>
 <li>Asterisk answers and waits for one DTMF digit.</li>
 <li>Press <code>1</code>, <code>2</code>, <code>3</code>, or <code>4</code>.</li>
 <li>A Python AGI dispatcher maps that digit to a fixed local action.</li>
@@ -144,48 +154,61 @@ Turns out you can flip over an old paper card and find a fresh, clean white surf
 <p>The HT801 was configured through its web UI.</p>
 <p>Important settings:</p>
 <div class="highlight"><pre tabindex="0" style="color:#abb2bf;background-color:#282c34;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"><code class="language-sh" data-lang="sh"><span style="display:flex;"><span>- Primary SIP Server: server IP address, VPN IP address, or hostname
-</span></span><span style="display:flex;"><span>- SIP User ID: <span style="color:#d19a66">801</span>
-</span></span><span style="display:flex;"><span>- Authenticate ID: <span style="color:#d19a66">801</span>
+</span></span><span style="display:flex;"><span>- SIP User ID: YOUR_SIP_USER_ID
+</span></span><span style="display:flex;"><span>- Authenticate ID: YOUR_SIP_USER_ID
 </span></span><span style="display:flex;"><span>- Authenticate Password: the same secret from pjsip.conf
 </span></span><span style="display:flex;"><span>- SIP Transport: UDP
 </span></span><span style="display:flex;"><span>- NAT Traversal: Keep-Alive
 </span></span><span style="display:flex;"><span>- SIP registration: enabled
 </span></span><span style="display:flex;"><span>- Enable SIP OPTIONS/NOTIFY Keep Alive: OPTIONS
 </span></span><span style="display:flex;"><span>- Preferred DTMF: RFC2833
-</span></span><span style="display:flex;"><span>- Offhook Auto-Dial: <span style="color:#d19a66">7000</span>
+</span></span><span style="display:flex;"><span>- Offhook Auto-Dial: YOUR_MENU_EXTENSION
 </span></span><span style="display:flex;"><span>- Offhook Auto-Dial Delay: <span style="color:#d19a66">0</span>
 </span></span></code></pre></div><h2 id="asterisk-configuration">Asterisk Configuration</h2>
 <p>The FreeBSD 14 server used these packages:</p>
 <div class="highlight"><pre tabindex="0" style="color:#abb2bf;background-color:#282c34;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"><code class="language-sh" data-lang="sh"><span style="display:flex;"><span>pkg install -y asterisk20 python311
 </span></span></code></pre></div><p>The implementation uses Asterisk with PJSIP, a Lua dialplan in extensions.lua, and a small Python AGI dispatcher.</p>
+<p>The main files for this setup were:</p>
+<div class="highlight"><pre tabindex="0" style="color:#abb2bf;background-color:#282c34;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"><code class="language-sh" data-lang="sh"><span style="display:flex;"><span>/usr/local/etc/asterisk/pjsip.conf
+</span></span><span style="display:flex;"><span>/usr/local/etc/asterisk/extensions.lua
+</span></span><span style="display:flex;"><span>/usr/local/etc/asterisk/rtp.conf
+</span></span><span style="display:flex;"><span>/usr/local/phone-actions/phone_action_dispatcher.py
+</span></span></code></pre></div><p>Asterisk also needs to be enabled and started:</p>
+<div class="highlight"><pre tabindex="0" style="color:#abb2bf;background-color:#282c34;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"><code class="language-sh" data-lang="sh"><span style="display:flex;"><span>sysrc <span style="color:#e06c75">asterisk_enable</span><span style="color:#56b6c2">=</span>YES
+</span></span><span style="display:flex;"><span>service asterisk start
+</span></span></code></pre></div><p>After changing the configuration, either restart Asterisk or reload the relevant parts from the Asterisk CLI:</p>
+<div class="highlight"><pre tabindex="0" style="color:#abb2bf;background-color:#282c34;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"><code class="language-sh" data-lang="sh"><span style="display:flex;"><span>asterisk -rvvv
+</span></span><span style="display:flex;"><span>pjsip reload
+</span></span><span style="display:flex;"><span>dialplan reload
+</span></span></code></pre></div><p>Because this example uses <code>extensions.lua</code>, the <code>pbx_lua</code> module needs to be loaded. On this FreeBSD package it was the active dialplan module for my setup. If your system is using the traditional dialplan instead, you would put the same call logic in <code>extensions.conf</code>.</p>
 <p>The SIP endpoint is a single authenticated user. One detail that matters in Asterisk PJSIP is that the SIP username, endpoint name, and AOR name need to match for inbound registration. Inbound registration matches the <code>To</code> user in the SIP <code>REGISTER</code> request against the AOR name.</p>
 <p>This is the important part of my <code>pjsip.conf</code>:</p>
 <div class="highlight"><pre tabindex="0" style="color:#abb2bf;background-color:#282c34;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"><code class="language-ini" data-lang="ini"><span style="display:flex;"><span><span style="color:#c678dd">[transport-udp]</span>
 </span></span><span style="display:flex;"><span><span style="color:#e06c75">type</span><span style="color:#56b6c2">=</span><span style="color:#98c379">transport</span>
 </span></span><span style="display:flex;"><span><span style="color:#e06c75">protocol</span><span style="color:#56b6c2">=</span><span style="color:#98c379">udp</span>
-</span></span><span style="display:flex;"><span><span style="color:#e06c75">bind</span><span style="color:#56b6c2">=</span><span style="color:#98c379">0.0.0.0:5060</span>
-</span></span><span style="display:flex;"><span><span style="color:#e06c75">local_net</span><span style="color:#56b6c2">=</span><span style="color:#98c379">192.168.0.0/16</span>
+</span></span><span style="display:flex;"><span><span style="color:#e06c75">bind</span><span style="color:#56b6c2">=</span><span style="color:#98c379">YOUR_ASTERISK_LISTEN_ADDRESS:5060</span>
+</span></span><span style="display:flex;"><span><span style="color:#e06c75">local_net</span><span style="color:#56b6c2">=</span><span style="color:#98c379">YOUR_LAN_CIDR</span>
 </span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span><span style="color:#c678dd">[801-auth]</span>
+</span></span><span style="display:flex;"><span><span style="color:#c678dd">[YOUR_SIP_USER_ID-auth]</span>
 </span></span><span style="display:flex;"><span><span style="color:#e06c75">type</span><span style="color:#56b6c2">=</span><span style="color:#98c379">auth</span>
 </span></span><span style="display:flex;"><span><span style="color:#e06c75">auth_type</span><span style="color:#56b6c2">=</span><span style="color:#98c379">userpass</span>
-</span></span><span style="display:flex;"><span><span style="color:#e06c75">username</span><span style="color:#56b6c2">=</span><span style="color:#98c379">801</span>
+</span></span><span style="display:flex;"><span><span style="color:#e06c75">username</span><span style="color:#56b6c2">=</span><span style="color:#98c379">YOUR_SIP_USER_ID</span>
 </span></span><span style="display:flex;"><span><span style="color:#e06c75">password</span><span style="color:#56b6c2">=</span><span style="color:#98c379">CHANGE_ME_STRONG_SECRET</span>
 </span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span><span style="color:#c678dd">[801]</span>
+</span></span><span style="display:flex;"><span><span style="color:#c678dd">[YOUR_SIP_USER_ID]</span>
 </span></span><span style="display:flex;"><span><span style="color:#e06c75">type</span><span style="color:#56b6c2">=</span><span style="color:#98c379">aor</span>
 </span></span><span style="display:flex;"><span><span style="color:#e06c75">max_contacts</span><span style="color:#56b6c2">=</span><span style="color:#98c379">1</span>
 </span></span><span style="display:flex;"><span><span style="color:#e06c75">remove_existing</span><span style="color:#56b6c2">=</span><span style="color:#98c379">yes</span>
 </span></span><span style="display:flex;"><span><span style="color:#e06c75">qualify_frequency</span><span style="color:#56b6c2">=</span><span style="color:#98c379">60</span>
 </span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span><span style="color:#c678dd">[801]</span>
+</span></span><span style="display:flex;"><span><span style="color:#c678dd">[YOUR_SIP_USER_ID]</span>
 </span></span><span style="display:flex;"><span><span style="color:#e06c75">type</span><span style="color:#56b6c2">=</span><span style="color:#98c379">endpoint</span>
 </span></span><span style="display:flex;"><span><span style="color:#e06c75">context</span><span style="color:#56b6c2">=</span><span style="color:#98c379">phone-actions</span>
 </span></span><span style="display:flex;"><span><span style="color:#e06c75">transport</span><span style="color:#56b6c2">=</span><span style="color:#98c379">transport-udp</span>
 </span></span><span style="display:flex;"><span><span style="color:#e06c75">disallow</span><span style="color:#56b6c2">=</span><span style="color:#98c379">all</span>
 </span></span><span style="display:flex;"><span><span style="color:#e06c75">allow</span><span style="color:#56b6c2">=</span><span style="color:#98c379">ulaw,alaw</span>
-</span></span><span style="display:flex;"><span><span style="color:#e06c75">auth</span><span style="color:#56b6c2">=</span><span style="color:#98c379">801-auth</span>
-</span></span><span style="display:flex;"><span><span style="color:#e06c75">aors</span><span style="color:#56b6c2">=</span><span style="color:#98c379">801</span>
+</span></span><span style="display:flex;"><span><span style="color:#e06c75">auth</span><span style="color:#56b6c2">=</span><span style="color:#98c379">YOUR_SIP_USER_ID-auth</span>
+</span></span><span style="display:flex;"><span><span style="color:#e06c75">aors</span><span style="color:#56b6c2">=</span><span style="color:#98c379">YOUR_SIP_USER_ID</span>
 </span></span><span style="display:flex;"><span><span style="color:#e06c75">dtmf_mode</span><span style="color:#56b6c2">=</span><span style="color:#98c379">rfc4733</span>
 </span></span><span style="display:flex;"><span><span style="color:#e06c75">direct_media</span><span style="color:#56b6c2">=</span><span style="color:#98c379">no</span>
 </span></span><span style="display:flex;"><span><span style="color:#e06c75">rtp_symmetric</span><span style="color:#56b6c2">=</span><span style="color:#98c379">yes</span>
@@ -193,10 +216,15 @@ Turns out you can flip over an old paper card and find a fresh, clean white surf
 </span></span><span style="display:flex;"><span><span style="color:#e06c75">rewrite_contact</span><span style="color:#56b6c2">=</span><span style="color:#98c379">yes</span>
 </span></span><span style="display:flex;"><span><span style="color:#e06c75">language</span><span style="color:#56b6c2">=</span><span style="color:#98c379">en</span>
 </span></span></code></pre></div><p>The NAT-related settings were needed because the HT801 was registering from outside the server&rsquo;s local network. <code>force_rport</code> and <code>rewrite_contact</code> help Asterisk reply to the address and port the ATA is actually using, and <code>rtp_symmetric</code> helps RTP audio flow back through the same NAT path. If your adapter and server are on the same LAN or VPN, you can usually make this tighter.</p>
-<p>SIP is not the only network traffic involved. The phone call signaling uses UDP 5060 here, but the audio path uses RTP as well. If you run a firewall, you need to allow the Asterisk RTP port range only from trusted addresses. A better setup is to keep SIP and RTP reachable only over LAN or VPN.</p>
+<p>SIP is not the only network traffic involved. The phone call signaling uses UDP 5060 here, but the audio path uses RTP as well. The RTP range is configured in <code>rtp.conf</code>. If you run a firewall, allow SIP and the Asterisk RTP port range only from trusted addresses, such as your LAN, VPN, or the ATA address. A better setup is to keep SIP and RTP reachable only over LAN or VPN rather than exposing UDP 5060 to the public internet.</p>
+<p>To check whether the ATA registered successfully, I used the Asterisk CLI:</p>
+<div class="highlight"><pre tabindex="0" style="color:#abb2bf;background-color:#282c34;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"><code class="language-sh" data-lang="sh"><span style="display:flex;"><span>asterisk -rvvv
+</span></span><span style="display:flex;"><span>pjsip show contacts
+</span></span><span style="display:flex;"><span>pjsip show endpoints
+</span></span></code></pre></div><p>The SIP password should be a long, unique random value. Do not reuse a Unix account password, router password, or any password from another service. <code>YOUR_SIP_USER_ID</code> is only the SIP endpoint name used by the ATA and Asterisk; it is not a FreeBSD user account.</p>
 <h2 id="dialplan">Dialplan</h2>
 <p>On this FreeBSD Asterisk package, the active dialplan was <code>pbx_lua</code>, so the call logic lives in <code>extensions.lua</code> rather than <code>extensions.conf</code>.</p>
-<p>The dialplan answers extension <code>7000</code>, reads one digit, calls the AGI dispatcher with that digit, and then plays the result selected by the dispatcher.</p>
+<p>The dialplan answers the private menu extension, reads one digit, calls the AGI dispatcher with that digit, and then plays the result selected by the dispatcher.</p>
 <p>Here is a shortened version:</p>
 <div class="highlight"><pre tabindex="0" style="color:#abb2bf;background-color:#282c34;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"><code class="language-lua" data-lang="lua"><span style="display:flex;"><span><span style="color:#c678dd">local</span> <span style="color:#e06c75">valid_digits</span> <span style="color:#56b6c2">=</span> {
 </span></span><span style="display:flex;"><span>	[<span style="color:#98c379">&#34;1&#34;</span>] <span style="color:#56b6c2">=</span> <span style="color:#e5c07b">true</span>,
@@ -251,7 +279,7 @@ Turns out you can flip over an old paper card and find a fresh, clean white surf
 </span></span><span style="display:flex;"><span>
 </span></span><span style="display:flex;"><span><span style="color:#e06c75">extensions</span> <span style="color:#56b6c2">=</span> {
 </span></span><span style="display:flex;"><span>	[<span style="color:#98c379">&#34;phone-actions&#34;</span>] <span style="color:#56b6c2">=</span> {
-</span></span><span style="display:flex;"><span>		[<span style="color:#98c379">&#34;7000&#34;</span>] <span style="color:#56b6c2">=</span> <span style="color:#e06c75">action_menu</span>;
+</span></span><span style="display:flex;"><span>		[<span style="color:#98c379">&#34;YOUR_MENU_EXTENSION&#34;</span>] <span style="color:#56b6c2">=</span> <span style="color:#e06c75">action_menu</span>;
 </span></span><span style="display:flex;"><span>	};
 </span></span><span style="display:flex;"><span>}
 </span></span></code></pre></div><h2 id="agi-dispatcher">AGI Dispatcher</h2>
@@ -265,50 +293,55 @@ Turns out you can flip over an old paper card and find a fresh, clean white surf
 <li>log the action result</li>
 </ul>
 <p>The important safety choice is the whitelist. I do not build a command from keypad input. This shortened example shows the two simplest actions; my full dispatcher also handles <code>3</code> for voice message recordings and <code>4</code> for the news reader.</p>
-<div class="highlight"><pre tabindex="0" style="color:#abb2bf;background-color:#282c34;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"><code class="language-python" data-lang="python"><span style="display:flex;"><span><span style="color:#e06c75">SCRIPT_DIR</span> <span style="color:#56b6c2">=</span> <span style="color:#e06c75">Path</span>(<span style="color:#98c379">&#34;/usr/local/phone-actions&#34;</span>)
+<div class="highlight"><pre tabindex="0" style="color:#abb2bf;background-color:#282c34;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"><code class="language-python" data-lang="python"><span style="display:flex;"><span><span style="color:#7f848e">#!/usr/bin/env python3.11</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#e06c75">SCRIPT_DIR</span> <span style="color:#56b6c2">=</span> <span style="color:#e06c75">Path</span>(<span style="color:#98c379">&#34;/usr/local/phone-actions&#34;</span>)
 </span></span><span style="display:flex;"><span>
 </span></span><span style="display:flex;"><span><span style="color:#e06c75">ACTION_MAP</span> <span style="color:#56b6c2">=</span> {
-</span></span><span style="display:flex;"><span>    <span style="color:#98c379">&#34;1&#34;</span>: <span style="color:#e06c75">SCRIPT_DIR</span> <span style="color:#56b6c2">/</span> <span style="color:#98c379">&#34;one.py&#34;</span>,
-</span></span><span style="display:flex;"><span>    <span style="color:#98c379">&#34;2&#34;</span>: <span style="color:#e06c75">SCRIPT_DIR</span> <span style="color:#56b6c2">/</span> <span style="color:#98c379">&#34;two.py&#34;</span>,
+</span></span><span style="display:flex;"><span>	<span style="color:#98c379">&#34;1&#34;</span>: <span style="color:#e06c75">SCRIPT_DIR</span> <span style="color:#56b6c2">/</span> <span style="color:#98c379">&#34;one.py&#34;</span>,
+</span></span><span style="display:flex;"><span>	<span style="color:#98c379">&#34;2&#34;</span>: <span style="color:#e06c75">SCRIPT_DIR</span> <span style="color:#56b6c2">/</span> <span style="color:#98c379">&#34;two.py&#34;</span>,
 </span></span><span style="display:flex;"><span>}
 </span></span><span style="display:flex;"><span>
 </span></span><span style="display:flex;"><span><span style="color:#c678dd">def</span> <span style="color:#61afef;font-weight:bold">run_action_script</span>(<span style="color:#e06c75">digit</span>: <span style="color:#e5c07b">str</span>) <span style="color:#56b6c2">-&gt;</span> <span style="color:#e5c07b">int</span>:
-</span></span><span style="display:flex;"><span>    <span style="color:#e06c75">script_path</span> <span style="color:#56b6c2">=</span> <span style="color:#e06c75">ACTION_MAP</span><span style="color:#56b6c2">.</span><span style="color:#e06c75">get</span>(<span style="color:#e06c75">digit</span>)
-</span></span><span style="display:flex;"><span>    <span style="color:#c678dd">if</span> <span style="color:#e06c75">script_path</span> <span style="color:#56b6c2">is</span> <span style="color:#e5c07b">None</span>:
-</span></span><span style="display:flex;"><span>        <span style="color:#e06c75">LOGGER</span><span style="color:#56b6c2">.</span><span style="color:#e06c75">warning</span>(<span style="color:#98c379">&#34;Rejected unmapped digit &#39;</span><span style="color:#98c379">%s</span><span style="color:#98c379">&#39;&#34;</span>, <span style="color:#e06c75">digit</span>)
-</span></span><span style="display:flex;"><span>        <span style="color:#e06c75">set_channel_variable</span>(<span style="color:#98c379">&#34;ACTION_STATUS&#34;</span>, <span style="color:#98c379">&#34;fail&#34;</span>)
-</span></span><span style="display:flex;"><span>        <span style="color:#c678dd">return</span> <span style="color:#d19a66">1</span>
+</span></span><span style="display:flex;"><span>	<span style="color:#e06c75">script_path</span> <span style="color:#56b6c2">=</span> <span style="color:#e06c75">ACTION_MAP</span><span style="color:#56b6c2">.</span><span style="color:#e06c75">get</span>(<span style="color:#e06c75">digit</span>)
+</span></span><span style="display:flex;"><span>	<span style="color:#c678dd">if</span> <span style="color:#e06c75">script_path</span> <span style="color:#56b6c2">is</span> <span style="color:#e5c07b">None</span>:
+</span></span><span style="display:flex;"><span>		<span style="color:#e06c75">LOGGER</span><span style="color:#56b6c2">.</span><span style="color:#e06c75">warning</span>(<span style="color:#98c379">&#34;Rejected unmapped digit &#39;</span><span style="color:#98c379">%s</span><span style="color:#98c379">&#39;&#34;</span>, <span style="color:#e06c75">digit</span>)
+</span></span><span style="display:flex;"><span>		<span style="color:#e06c75">set_channel_variable</span>(<span style="color:#98c379">&#34;ACTION_STATUS&#34;</span>, <span style="color:#98c379">&#34;fail&#34;</span>)
+</span></span><span style="display:flex;"><span>		<span style="color:#c678dd">return</span> <span style="color:#d19a66">1</span>
 </span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span>    <span style="color:#c678dd">if</span> <span style="color:#56b6c2">not</span> <span style="color:#e06c75">script_path</span><span style="color:#56b6c2">.</span><span style="color:#e06c75">is_file</span>():
-</span></span><span style="display:flex;"><span>        <span style="color:#e06c75">LOGGER</span><span style="color:#56b6c2">.</span><span style="color:#e06c75">error</span>(<span style="color:#98c379">&#34;Mapped script for digit </span><span style="color:#98c379">%s</span><span style="color:#98c379"> does not exist: </span><span style="color:#98c379">%s</span><span style="color:#98c379">&#34;</span>, <span style="color:#e06c75">digit</span>, <span style="color:#e06c75">script_path</span>)
-</span></span><span style="display:flex;"><span>        <span style="color:#e06c75">set_channel_variable</span>(<span style="color:#98c379">&#34;ACTION_STATUS&#34;</span>, <span style="color:#98c379">&#34;fail&#34;</span>)
-</span></span><span style="display:flex;"><span>        <span style="color:#c678dd">return</span> <span style="color:#d19a66">1</span>
+</span></span><span style="display:flex;"><span>	<span style="color:#c678dd">if</span> <span style="color:#56b6c2">not</span> <span style="color:#e06c75">script_path</span><span style="color:#56b6c2">.</span><span style="color:#e06c75">is_file</span>():
+</span></span><span style="display:flex;"><span>		<span style="color:#e06c75">LOGGER</span><span style="color:#56b6c2">.</span><span style="color:#e06c75">error</span>(<span style="color:#98c379">&#34;Mapped script for digit </span><span style="color:#98c379">%s</span><span style="color:#98c379"> does not exist: </span><span style="color:#98c379">%s</span><span style="color:#98c379">&#34;</span>, <span style="color:#e06c75">digit</span>, <span style="color:#e06c75">script_path</span>)
+</span></span><span style="display:flex;"><span>		<span style="color:#e06c75">set_channel_variable</span>(<span style="color:#98c379">&#34;ACTION_STATUS&#34;</span>, <span style="color:#98c379">&#34;fail&#34;</span>)
+</span></span><span style="display:flex;"><span>		<span style="color:#c678dd">return</span> <span style="color:#d19a66">1</span>
 </span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span>    <span style="color:#e06c75">completed</span> <span style="color:#56b6c2">=</span> <span style="color:#e06c75">subprocess</span><span style="color:#56b6c2">.</span><span style="color:#e06c75">run</span>(
-</span></span><span style="display:flex;"><span>        [<span style="color:#e5c07b">str</span>(<span style="color:#e06c75">script_path</span>)],
-</span></span><span style="display:flex;"><span>        <span style="color:#e06c75">check</span><span style="color:#56b6c2">=</span><span style="color:#e5c07b">False</span>,
-</span></span><span style="display:flex;"><span>        <span style="color:#e06c75">capture_output</span><span style="color:#56b6c2">=</span><span style="color:#e5c07b">True</span>,
-</span></span><span style="display:flex;"><span>        <span style="color:#e06c75">text</span><span style="color:#56b6c2">=</span><span style="color:#e5c07b">True</span>,
-</span></span><span style="display:flex;"><span>        <span style="color:#e06c75">timeout</span><span style="color:#56b6c2">=</span><span style="color:#d19a66">30</span>,
-</span></span><span style="display:flex;"><span>    )
+</span></span><span style="display:flex;"><span>	<span style="color:#e06c75">completed</span> <span style="color:#56b6c2">=</span> <span style="color:#e06c75">subprocess</span><span style="color:#56b6c2">.</span><span style="color:#e06c75">run</span>(
+</span></span><span style="display:flex;"><span>		[<span style="color:#e5c07b">str</span>(<span style="color:#e06c75">script_path</span>)],
+</span></span><span style="display:flex;"><span>		<span style="color:#e06c75">check</span><span style="color:#56b6c2">=</span><span style="color:#e5c07b">False</span>,
+</span></span><span style="display:flex;"><span>		<span style="color:#e06c75">capture_output</span><span style="color:#56b6c2">=</span><span style="color:#e5c07b">True</span>,
+</span></span><span style="display:flex;"><span>		<span style="color:#e06c75">text</span><span style="color:#56b6c2">=</span><span style="color:#e5c07b">True</span>,
+</span></span><span style="display:flex;"><span>		<span style="color:#e06c75">timeout</span><span style="color:#56b6c2">=</span><span style="color:#d19a66">30</span>,
+</span></span><span style="display:flex;"><span>	)
 </span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span>    <span style="color:#c678dd">if</span> <span style="color:#e06c75">completed</span><span style="color:#56b6c2">.</span><span style="color:#e06c75">returncode</span> <span style="color:#56b6c2">==</span> <span style="color:#d19a66">0</span>:
-</span></span><span style="display:flex;"><span>        <span style="color:#e06c75">set_channel_variable</span>(<span style="color:#98c379">&#34;ACTION_STATUS&#34;</span>, <span style="color:#98c379">&#34;ok&#34;</span>)
-</span></span><span style="display:flex;"><span>    <span style="color:#c678dd">else</span>:
-</span></span><span style="display:flex;"><span>        <span style="color:#e06c75">set_channel_variable</span>(<span style="color:#98c379">&#34;ACTION_STATUS&#34;</span>, <span style="color:#98c379">&#34;fail&#34;</span>)
+</span></span><span style="display:flex;"><span>	<span style="color:#c678dd">if</span> <span style="color:#e06c75">completed</span><span style="color:#56b6c2">.</span><span style="color:#e06c75">returncode</span> <span style="color:#56b6c2">==</span> <span style="color:#d19a66">0</span>:
+</span></span><span style="display:flex;"><span>		<span style="color:#e06c75">set_channel_variable</span>(<span style="color:#98c379">&#34;ACTION_STATUS&#34;</span>, <span style="color:#98c379">&#34;ok&#34;</span>)
+</span></span><span style="display:flex;"><span>	<span style="color:#c678dd">else</span>:
+</span></span><span style="display:flex;"><span>		<span style="color:#e06c75">set_channel_variable</span>(<span style="color:#98c379">&#34;ACTION_STATUS&#34;</span>, <span style="color:#98c379">&#34;fail&#34;</span>)
 </span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span>    <span style="color:#c678dd">return</span> <span style="color:#e06c75">completed</span><span style="color:#56b6c2">.</span><span style="color:#e06c75">returncode</span>
+</span></span><span style="display:flex;"><span>	<span style="color:#c678dd">return</span> <span style="color:#e06c75">completed</span><span style="color:#56b6c2">.</span><span style="color:#e06c75">returncode</span>
 </span></span></code></pre></div><p>Passing a list to <code>subprocess.run()</code> and leaving <code>shell=False</code> as the default means the digit cannot become shell syntax. The timeout also matters: if a script hangs, the AGI process should not wait forever.</p>
+<p>The dispatcher itself has to be executable by the Asterisk service user, while the directory and scripts should be writable only by a trusted admin account. In other words, Asterisk needs enough permission to run the dispatcher and action scripts, but it should not need broad write access to the directory that contains them.</p>
+<p>When an AGI script talks back to Asterisk, it must write valid AGI commands to standard output. In the full dispatcher, <code>set_channel_variable()</code> prints <code>SET VARIABLE</code> commands and reads the Asterisk response before returning control to the Lua dialplan.</p>
+<p>For prompts, Asterisk <code>Playback()</code> uses sound names rather than full filenames with extensions. Generated audio may also need to be converted to a telephony-friendly format that your Asterisk installation can play, depending on which format modules are installed.</p>
 <p>For the news action, I use an OpenAI API key from a root-readable config file rather than hard-coding it in the script.</p>
 <p>Once the ATA successfully registered, lifting the handset immediately entered the action menu.</p>
 <h2 id="results">Results</h2>
-<p><img src="images/og-image-desktop-phone-connected-to-freebsd-server.jpg" alt=""></p>
+<p><img src="images/og-image-desktop-phone-connected-to-freebsd-server.jpg" alt="Desktop phone connected to FreeBSD server system setup"></p>
 <p>The final result is a phone-driven control interface:</p>
 <ol>
 <li>Pick up the handset.</li>
 <li>Press a digit.</li>
 <li>Trigger a script on the FreeBSD server.</li>
-<li>Right now, button <code>4</code> runs a script that reads the latest FreeBSD news and generates a text-to-speech MP3 file which is played back at 1.2× speed. Take a listen:</li>
+<li>Right now, button <code>4</code> runs a script that reads the latest FreeBSD news and generates a text-to-speech audio file which is played back at 1.2× speed. Take a listen:</li>
 </ol>
 <audio controls>
   <source src="images/call-to-freebsd-server-to-listen-news.mp3" type="audio/mpeg">
@@ -318,6 +351,8 @@ Turns out you can flip over an old paper card and find a fresh, clean white surf
 <p>Second, I want to build a local LLM so I can talk to the server by voice. The privacy advantage is that the phone starts listening <strong>only after</strong> I pick up the handset. That is very different from a smart speaker that is always waiting for a wake word and who knows what else is being sent to a remote server.</p>
 <p>I&rsquo;m currently working on a system that allows me to call the system and then press a button to start recording a voice message. Then, the local LLM converts it to text and sends it back to me via email when it&rsquo;s ready.</p>
 <p>Long term, I want to bring my late grandfather back as an LLM-powered personality, so I can call and talk with him again.</p>
+<h2 id="full-config">Full Config</h2>
+<p><a href="/downloads/freebsd-phone/phone-action-controller-setup-schema.md" download>Download all configs in .md file format.</a></p>
 
   </div>
 
@@ -364,4 +399,3 @@ Turns out you can flip over an old paper card and find a fresh, clean white surf
 
 </body>
 </html>
-
