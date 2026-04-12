@@ -1,0 +1,367 @@
+<!DOCTYPE html>
+<html>
+<head><script src="/livereload.js?mindelay=10&amp;v=2&amp;port=1313&amp;path=livereload" data-no-instant defer></script>
+    <title>I Connected a Desktop Phone to a FreeBSD Server, So Now I Can Call It – Alexander Deplov</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Source+Serif+4:ital,opsz,wght@0,8..60,200..900;1,8..60,200..900&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="/css/main.css">
+    
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16.png">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="canonical" href="http://localhost:1313/blog/2026/desktop-phone-connected-to-freebsd-server/">
+
+<script>
+    document.addEventListener('DOMContentLoaded', function() {
+  fetch('https://ipapi.co/json/')
+    .then(response => response.json())
+    .then(data => {
+      if (data.country_code === 'RU') {
+        window.location.replace('https://www.google.com');
+      }
+    })
+});
+</script>
+</head>
+
+<body class="w-inherit" >
+
+
+
+
+
+
+
+<nav class="main-nav my-12">
+  <div class="w-full px-4 max-w-3xl mx-auto flex flex-col sm:flex-row justify-between">
+    <div class="flex flex-col sm:flex-row sm:items-center sm:space-x-1">
+      <a href="http://localhost:1313/" class="text-sm " title="AI artist, product designer">Alexander Deplov</a>
+      
+    </div>
+    <div class="flex space-x-3 pt-4 sm:pt-0 items-center">
+    
+      <a href="/blog/" class="text-sm  ">Blog</a>
+      <a alt="@alex_deplov on Mastodon" href="https://mastodon.social/@alex_deplov" target="_blank" rel="noopener noreferrer" class="text-[#29ADFF]">
+        
+        <svg width="20" height="21" viewBox="0 0 20 21" fill="none" xmlns="http://www.w3.org/2000/svg">
+        <path d="M19.3087 5.16589C19.0196 3.01705 17.1467 1.32344 14.9265 0.995371C14.5519 0.939923 13.1328 0.738037 9.84517 0.738037H9.82062C6.5321 0.738037 5.82665 0.939923 5.45208 0.995371C3.29366 1.31437 1.32251 2.83608 0.844321 5.01042C0.614281 6.08124 0.589764 7.26847 0.632542 8.35744C0.693346 9.91915 0.705234 11.4781 0.847098 13.0334C0.945156 14.0665 1.11619 15.0914 1.35891 16.1004C1.81348 17.9638 3.65372 19.5146 5.45658 20.1473C7.38685 20.8071 9.46264 20.9166 11.4516 20.4637C11.6699 20.4129 11.8861 20.3537 12.0998 20.2864C12.5835 20.1328 13.15 19.961 13.5664 19.6591C13.5721 19.6549 13.5768 19.6495 13.58 19.6432C13.5834 19.6369 13.5853 19.6299 13.5855 19.6228V18.1157C13.5853 18.109 13.5837 18.1025 13.5808 18.0965C13.5779 18.0905 13.5737 18.0853 13.5684 18.0812C13.5632 18.0771 13.5571 18.0743 13.5506 18.0729C13.5441 18.0714 13.5374 18.0714 13.5309 18.0729C12.2566 18.3773 10.9508 18.5299 9.64059 18.5275C7.38578 18.5275 6.77942 17.4576 6.6058 17.0122C6.46619 16.6273 6.37752 16.2257 6.34206 15.8178C6.34154 15.8074 6.3447 15.7972 6.35098 15.789C6.35725 15.7807 6.36624 15.775 6.37635 15.7727C6.38311 15.7714 6.39 15.7715 6.39661 15.7732C7.64972 16.0755 8.93427 16.228 10.2233 16.2277C10.5334 16.2277 10.8425 16.2277 11.1525 16.2194C12.449 16.1831 13.8155 16.1167 15.091 15.8676C15.1229 15.8614 15.1547 15.8559 15.182 15.8478C17.1939 15.4613 19.1087 14.2487 19.3033 11.1781C19.3105 11.0572 19.3287 9.9118 19.3287 9.78644C19.3296 9.3601 19.466 6.76213 19.3087 5.16589Z" fill="url(#paint0_linear_242_54)"/>
+        <path d="M16.1209 7.58021V12.9189H14.0053V7.73744C14.0053 6.64663 13.5507 6.09028 12.6261 6.09028C11.6095 6.09028 11.1004 6.7485 11.1004 8.0483V10.8844H8.99758V8.0483C8.99758 6.7485 8.48753 6.09028 7.47102 6.09028C6.55183 6.09028 6.09273 6.64663 6.09273 7.73744V12.9189H3.97803V7.58021C3.97803 6.4894 4.25655 5.62277 4.81349 4.98036C5.3881 4.33958 6.1418 4.0105 7.07737 4.0105C8.16016 4.0105 8.97842 4.42682 9.52394 5.25853L10.0504 6.14213L10.5777 5.25853C11.1232 4.42682 11.9415 4.0105 13.0224 4.0105C13.957 4.0105 14.7107 4.33958 15.2872 4.98036C15.8436 5.62219 16.1215 6.48882 16.1209 7.58021Z" fill="white"/>
+        <defs>
+        <linearGradient id="paint0_linear_242_54" x1="9.81909" y1="0.738154" x2="9.81909" y2="20.5611" gradientUnits="userSpaceOnUse">
+        <stop stop-color="#6364FF"/>
+        <stop offset="1" stop-color="#563ACC"/>
+        </linearGradient>
+        </defs>
+        </svg>
+      </a>
+      <a class="" alt="RSS Feed" href="/index.xml" target="_blank" rel="noopener noreferrer">
+      <svg width="20" height="21" viewBox="0 0 20 21" fill="none" xmlns="http://www.w3.org/2000/svg">
+        <g clip-path="url(#clip0_242_84)">
+        <rect y="0.738037" width="20" height="20" rx="6" fill="#FF6E59" fill-opacity="0.15"/>
+        <circle cx="4.68182" cy="16.415" r="1.93036" fill="#FD7F44"/>
+        <circle cx="4.68205" cy="16.415" r="6.56633" stroke="#FD7F44" stroke-width="2.5"/>
+        <circle cx="4.6817" cy="16.415" r="12.4634" stroke="#FD7F44" stroke-width="2.5"/>
+        </g>
+        <defs>
+        <clipPath id="clip0_242_84">
+        <rect y="0.738037" width="20" height="20" rx="6" fill="white"/>
+        </clipPath>
+        </defs>
+      </svg>
+      </a>
+    </div>
+  </div>
+</nav>
+
+<article class="max-w-3xl mx-auto px-4 py-8">
+  <header class="mb-8">
+    <h1 class="font-bold mb-2" style="font-size: 2rem;">I Connected a Desktop Phone to a FreeBSD Server, So Now I Can Call It</h1>
+    <div class="text-sm" style="color: var(--accent-orange);">
+      April 11, 2026
+    </div>
+  </header>
+
+  <div class="content">
+    <h2 id="why">Why?</h2>
+<ul>
+<li>I wanted to turn a 90s desk phone into a physical interface for my FreeBSD server.</li>
+<li>The goal was not traditional VoIP calling. I wanted to pick up the handset, press a digit, and trigger a local script on the FreeBSD side.</li>
+</ul>
+<p>The basic flow looks like this:</p>
+<div class="highlight"><pre tabindex="0" style="color:#abb2bf;background-color:#282c34;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"><code class="language-sh" data-lang="sh"><span style="display:flex;"><span><span style="color:#56b6c2">[</span>Panasonic KX-T2315 analog phone<span style="color:#56b6c2">]</span>
+</span></span><span style="display:flex;"><span>        |
+</span></span><span style="display:flex;"><span>        | FXS phone cable
+</span></span><span style="display:flex;"><span>        v
+</span></span><span style="display:flex;"><span><span style="color:#56b6c2">[</span>Grandstream HT801<span style="color:#56b6c2">]</span>
+</span></span><span style="display:flex;"><span>        |
+</span></span><span style="display:flex;"><span>        | SIP + RTP
+</span></span><span style="display:flex;"><span>        v
+</span></span><span style="display:flex;"><span><span style="color:#56b6c2">[</span>FreeBSD <span style="color:#d19a66">14</span> + Asterisk<span style="color:#56b6c2">]</span>
+</span></span><span style="display:flex;"><span>        |
+</span></span><span style="display:flex;"><span>        | AGI
+</span></span><span style="display:flex;"><span>        v
+</span></span><span style="display:flex;"><span><span style="color:#56b6c2">[</span>Python dispatcher<span style="color:#56b6c2">]</span>
+</span></span><span style="display:flex;"><span>        |
+</span></span><span style="display:flex;"><span>        v
+</span></span><span style="display:flex;"><span><span style="color:#56b6c2">[</span>Whitelisted <span style="color:#e5c07b">local</span> scripts<span style="color:#56b6c2">]</span>
+</span></span></code></pre></div><h2 id="old-phone-new-life">Old Phone, New Life</h2>
+<p>For this project, I bought a Panasonic KX-T2315 on eBay. It is an analog desk phone. It arrived heavily yellowed, which is typical for old plastic.</p>
+<p><img src="images/Panasonic-KX-T2315-cleaning-up-0.jpg" alt=""></p>
+<p>To clean it up, I disassembled the case, applied <a href="https://www.amazon.de/dp/B07P9YD5Y7?ref=ppx_yo2ov_dt_b_fed_asin_title">Oxycreme</a>, placed the plastic parts in a transparent zip-lock bag, and left them in the sun for a couple of hours, following what I learned from <a href="https://www.youtube.com/watch?v=cpHc0QHdWMQ">this video</a>.</p>
+<p>Afterward, I washed everything thoroughly.</p>
+<p><img src="images/Panasonic-KX-T2315-cleaning-up-1.jpg" alt="">
+<img src="images/Panasonic-KX-T2315-cleaning-up-2.jpg" alt="">
+<img src="images/Panasonic-KX-T2315-cleaning-up-3.jpg" alt="">
+<img src="images/Panasonic-KX-T2315-cleaning-up-4.jpg" alt="">
+<br/>
+Turns out you can flip over an old paper card and find a fresh, clean white surface inside:
+<img src="images/Panasonic-KX-T2315-cleaning-up-5.jpg" alt="">
+<img src="images/Panasonic-KX-T2315-cleaning-up-6.jpg" alt="">
+<img src="images/Panasonic-KX-T2315-cleaning-up-7.jpg" alt="">
+<img src="images/Panasonic-KX-T2315-cleaning-up-8.jpg" alt="">
+<br/></p>
+<p>Then I replaced the handset wire with a <a href="https://www.amazon.de/dp/B0DYXS8K39?ref=ppx_yo2ov_dt_b_fed_asin_title">new one</a>. I accidentally ordered gray curly phone cable instead of a white, but decided to keep it anyway.</p>
+<h2 id="before-and-after">Before And After</h2>
+<p><img src="images/Panasonic-KX-T2315-before-and-after.jpg" alt=""></p>
+<p>Restoration note: The Oxycreme worked well on the yellowed plastic, but it left a strong hydrogen peroxide smell mixed with fragrance. If you try this, avoid applying too much cream, rinse the parts thoroughly, and let them air out for a couple of days.</p>
+<h2 id="ht801-phone-action-controller">HT801 Phone Action Controller</h2>
+<p>To connect the phone to the FreeBSD server, I used a Grandstream HT801V2 analog telephone adapter.</p>
+<p><img src="images/HT801.jpg" alt=""></p>
+<p>The HT801 provides an FXS port for the phone and registers with Asterisk over SIP. In fact, the HT801 can give a second life to a <a href="https://www.youtube.com/watch?v=gLAtuarq2Ks">rotary phone</a> as well. It works with analog telephony devices, not digital/IP phones.</p>
+<p>This setup allows a FreeBSD host to accept SIP registration from the HT801 and run scripts when digits are sent from the connected analog phone.</p>
+<p>The interaction is simple:</p>
+<ol>
+<li>Pick up the handset.</li>
+<li>The HT801 automatically dials extension <code>7000</code>.</li>
+<li>Asterisk answers and waits for one DTMF digit.</li>
+<li>Press <code>1</code>, <code>2</code>, <code>3</code>, or <code>4</code>.</li>
+<li>A Python AGI dispatcher maps that digit to a fixed local action.</li>
+<li>Asterisk plays a confirmation prompt or audio result.</li>
+</ol>
+<h2 id="ht801-configuration">HT801 Configuration</h2>
+<p>The HT801 was configured through its web UI.</p>
+<p>Important settings:</p>
+<div class="highlight"><pre tabindex="0" style="color:#abb2bf;background-color:#282c34;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"><code class="language-sh" data-lang="sh"><span style="display:flex;"><span>- Primary SIP Server: server IP address, VPN IP address, or hostname
+</span></span><span style="display:flex;"><span>- SIP User ID: <span style="color:#d19a66">801</span>
+</span></span><span style="display:flex;"><span>- Authenticate ID: <span style="color:#d19a66">801</span>
+</span></span><span style="display:flex;"><span>- Authenticate Password: the same secret from pjsip.conf
+</span></span><span style="display:flex;"><span>- SIP Transport: UDP
+</span></span><span style="display:flex;"><span>- NAT Traversal: Keep-Alive
+</span></span><span style="display:flex;"><span>- SIP registration: enabled
+</span></span><span style="display:flex;"><span>- Enable SIP OPTIONS/NOTIFY Keep Alive: OPTIONS
+</span></span><span style="display:flex;"><span>- Preferred DTMF: RFC2833
+</span></span><span style="display:flex;"><span>- Offhook Auto-Dial: <span style="color:#d19a66">7000</span>
+</span></span><span style="display:flex;"><span>- Offhook Auto-Dial Delay: <span style="color:#d19a66">0</span>
+</span></span></code></pre></div><h2 id="asterisk-configuration">Asterisk Configuration</h2>
+<p>The FreeBSD 14 server used these packages:</p>
+<div class="highlight"><pre tabindex="0" style="color:#abb2bf;background-color:#282c34;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"><code class="language-sh" data-lang="sh"><span style="display:flex;"><span>pkg install -y asterisk20 python311
+</span></span></code></pre></div><p>The implementation uses Asterisk with PJSIP, a Lua dialplan in extensions.lua, and a small Python AGI dispatcher.</p>
+<p>The SIP endpoint is a single authenticated user. One detail that matters in Asterisk PJSIP is that the SIP username, endpoint name, and AOR name need to match for inbound registration. Inbound registration matches the <code>To</code> user in the SIP <code>REGISTER</code> request against the AOR name.</p>
+<p>This is the important part of my <code>pjsip.conf</code>:</p>
+<div class="highlight"><pre tabindex="0" style="color:#abb2bf;background-color:#282c34;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"><code class="language-ini" data-lang="ini"><span style="display:flex;"><span><span style="color:#c678dd">[transport-udp]</span>
+</span></span><span style="display:flex;"><span><span style="color:#e06c75">type</span><span style="color:#56b6c2">=</span><span style="color:#98c379">transport</span>
+</span></span><span style="display:flex;"><span><span style="color:#e06c75">protocol</span><span style="color:#56b6c2">=</span><span style="color:#98c379">udp</span>
+</span></span><span style="display:flex;"><span><span style="color:#e06c75">bind</span><span style="color:#56b6c2">=</span><span style="color:#98c379">0.0.0.0:5060</span>
+</span></span><span style="display:flex;"><span><span style="color:#e06c75">local_net</span><span style="color:#56b6c2">=</span><span style="color:#98c379">192.168.0.0/16</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#c678dd">[801-auth]</span>
+</span></span><span style="display:flex;"><span><span style="color:#e06c75">type</span><span style="color:#56b6c2">=</span><span style="color:#98c379">auth</span>
+</span></span><span style="display:flex;"><span><span style="color:#e06c75">auth_type</span><span style="color:#56b6c2">=</span><span style="color:#98c379">userpass</span>
+</span></span><span style="display:flex;"><span><span style="color:#e06c75">username</span><span style="color:#56b6c2">=</span><span style="color:#98c379">801</span>
+</span></span><span style="display:flex;"><span><span style="color:#e06c75">password</span><span style="color:#56b6c2">=</span><span style="color:#98c379">CHANGE_ME_STRONG_SECRET</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#c678dd">[801]</span>
+</span></span><span style="display:flex;"><span><span style="color:#e06c75">type</span><span style="color:#56b6c2">=</span><span style="color:#98c379">aor</span>
+</span></span><span style="display:flex;"><span><span style="color:#e06c75">max_contacts</span><span style="color:#56b6c2">=</span><span style="color:#98c379">1</span>
+</span></span><span style="display:flex;"><span><span style="color:#e06c75">remove_existing</span><span style="color:#56b6c2">=</span><span style="color:#98c379">yes</span>
+</span></span><span style="display:flex;"><span><span style="color:#e06c75">qualify_frequency</span><span style="color:#56b6c2">=</span><span style="color:#98c379">60</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#c678dd">[801]</span>
+</span></span><span style="display:flex;"><span><span style="color:#e06c75">type</span><span style="color:#56b6c2">=</span><span style="color:#98c379">endpoint</span>
+</span></span><span style="display:flex;"><span><span style="color:#e06c75">context</span><span style="color:#56b6c2">=</span><span style="color:#98c379">phone-actions</span>
+</span></span><span style="display:flex;"><span><span style="color:#e06c75">transport</span><span style="color:#56b6c2">=</span><span style="color:#98c379">transport-udp</span>
+</span></span><span style="display:flex;"><span><span style="color:#e06c75">disallow</span><span style="color:#56b6c2">=</span><span style="color:#98c379">all</span>
+</span></span><span style="display:flex;"><span><span style="color:#e06c75">allow</span><span style="color:#56b6c2">=</span><span style="color:#98c379">ulaw,alaw</span>
+</span></span><span style="display:flex;"><span><span style="color:#e06c75">auth</span><span style="color:#56b6c2">=</span><span style="color:#98c379">801-auth</span>
+</span></span><span style="display:flex;"><span><span style="color:#e06c75">aors</span><span style="color:#56b6c2">=</span><span style="color:#98c379">801</span>
+</span></span><span style="display:flex;"><span><span style="color:#e06c75">dtmf_mode</span><span style="color:#56b6c2">=</span><span style="color:#98c379">rfc4733</span>
+</span></span><span style="display:flex;"><span><span style="color:#e06c75">direct_media</span><span style="color:#56b6c2">=</span><span style="color:#98c379">no</span>
+</span></span><span style="display:flex;"><span><span style="color:#e06c75">rtp_symmetric</span><span style="color:#56b6c2">=</span><span style="color:#98c379">yes</span>
+</span></span><span style="display:flex;"><span><span style="color:#e06c75">force_rport</span><span style="color:#56b6c2">=</span><span style="color:#98c379">yes</span>
+</span></span><span style="display:flex;"><span><span style="color:#e06c75">rewrite_contact</span><span style="color:#56b6c2">=</span><span style="color:#98c379">yes</span>
+</span></span><span style="display:flex;"><span><span style="color:#e06c75">language</span><span style="color:#56b6c2">=</span><span style="color:#98c379">en</span>
+</span></span></code></pre></div><p>The NAT-related settings were needed because the HT801 was registering from outside the server&rsquo;s local network. <code>force_rport</code> and <code>rewrite_contact</code> help Asterisk reply to the address and port the ATA is actually using, and <code>rtp_symmetric</code> helps RTP audio flow back through the same NAT path. If your adapter and server are on the same LAN or VPN, you can usually make this tighter.</p>
+<p>SIP is not the only network traffic involved. The phone call signaling uses UDP 5060 here, but the audio path uses RTP as well. If you run a firewall, you need to allow the Asterisk RTP port range only from trusted addresses. A better setup is to keep SIP and RTP reachable only over LAN or VPN.</p>
+<h2 id="dialplan">Dialplan</h2>
+<p>On this FreeBSD Asterisk package, the active dialplan was <code>pbx_lua</code>, so the call logic lives in <code>extensions.lua</code> rather than <code>extensions.conf</code>.</p>
+<p>The dialplan answers extension <code>7000</code>, reads one digit, calls the AGI dispatcher with that digit, and then plays the result selected by the dispatcher.</p>
+<p>Here is a shortened version:</p>
+<div class="highlight"><pre tabindex="0" style="color:#abb2bf;background-color:#282c34;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"><code class="language-lua" data-lang="lua"><span style="display:flex;"><span><span style="color:#c678dd">local</span> <span style="color:#e06c75">valid_digits</span> <span style="color:#56b6c2">=</span> {
+</span></span><span style="display:flex;"><span>	[<span style="color:#98c379">&#34;1&#34;</span>] <span style="color:#56b6c2">=</span> <span style="color:#e5c07b">true</span>,
+</span></span><span style="display:flex;"><span>	[<span style="color:#98c379">&#34;2&#34;</span>] <span style="color:#56b6c2">=</span> <span style="color:#e5c07b">true</span>,
+</span></span><span style="display:flex;"><span>	[<span style="color:#98c379">&#34;3&#34;</span>] <span style="color:#56b6c2">=</span> <span style="color:#e5c07b">true</span>,
+</span></span><span style="display:flex;"><span>	[<span style="color:#98c379">&#34;4&#34;</span>] <span style="color:#56b6c2">=</span> <span style="color:#e5c07b">true</span>,
+</span></span><span style="display:flex;"><span>}
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#c678dd">local</span> <span style="color:#c678dd">function</span> <span style="color:#61afef;font-weight:bold">execute_selection</span>(<span style="color:#e06c75">selection</span>)
+</span></span><span style="display:flex;"><span>	<span style="color:#c678dd">if</span> <span style="color:#56b6c2">not</span> <span style="color:#e06c75">valid_digits</span>[<span style="color:#e06c75">selection</span>] <span style="color:#c678dd">then</span>
+</span></span><span style="display:flex;"><span>		<span style="color:#e06c75">app.playback</span>(<span style="color:#98c379">&#34;invalid&#34;</span>)
+</span></span><span style="display:flex;"><span>		<span style="color:#c678dd">return</span> <span style="color:#e5c07b">false</span>
+</span></span><span style="display:flex;"><span>	<span style="color:#c678dd">end</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>	<span style="color:#e06c75">app.answer</span>()
+</span></span><span style="display:flex;"><span>	<span style="color:#e06c75">app.agi</span>(<span style="color:#98c379">&#34;/usr/local/phone-actions/phone_action_dispatcher.py&#34;</span>, <span style="color:#e06c75">selection</span>)
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>	<span style="color:#c678dd">local</span> <span style="color:#e06c75">status</span> <span style="color:#56b6c2">=</span> <span style="color:#e06c75">channel.ACTION_STATUS</span>:<span style="color:#e06c75">get</span>()
+</span></span><span style="display:flex;"><span>	<span style="color:#c678dd">if</span> <span style="color:#e06c75">status</span> <span style="color:#56b6c2">==</span> <span style="color:#98c379">&#34;ok&#34;</span> <span style="color:#c678dd">then</span>
+</span></span><span style="display:flex;"><span>		<span style="color:#c678dd">local</span> <span style="color:#e06c75">prompt</span> <span style="color:#56b6c2">=</span> <span style="color:#e06c75">channel.ACTION_PROMPT</span>:<span style="color:#e06c75">get</span>()
+</span></span><span style="display:flex;"><span>		<span style="color:#c678dd">if</span> <span style="color:#e06c75">prompt</span> <span style="color:#56b6c2">~=</span> <span style="color:#e5c07b">nil</span> <span style="color:#56b6c2">and</span> <span style="color:#e06c75">prompt</span> <span style="color:#56b6c2">~=</span> <span style="color:#98c379">&#34;&#34;</span> <span style="color:#c678dd">then</span>
+</span></span><span style="display:flex;"><span>			<span style="color:#e06c75">app.playback</span>(<span style="color:#e06c75">prompt</span>)
+</span></span><span style="display:flex;"><span>		<span style="color:#c678dd">else</span>
+</span></span><span style="display:flex;"><span>			<span style="color:#e06c75">app.playback</span>(<span style="color:#98c379">&#34;beep&#34;</span>)
+</span></span><span style="display:flex;"><span>		<span style="color:#c678dd">end</span>
+</span></span><span style="display:flex;"><span>		<span style="color:#e06c75">app.hangup</span>()
+</span></span><span style="display:flex;"><span>		<span style="color:#c678dd">return</span> <span style="color:#e5c07b">true</span>
+</span></span><span style="display:flex;"><span>	<span style="color:#c678dd">end</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>	<span style="color:#e06c75">app.playback</span>(<span style="color:#98c379">&#34;invalid&#34;</span>)
+</span></span><span style="display:flex;"><span>	<span style="color:#c678dd">return</span> <span style="color:#e5c07b">false</span>
+</span></span><span style="display:flex;"><span><span style="color:#c678dd">end</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#c678dd">local</span> <span style="color:#c678dd">function</span> <span style="color:#61afef;font-weight:bold">action_menu</span>()
+</span></span><span style="display:flex;"><span>	<span style="color:#e06c75">app.answer</span>()
+</span></span><span style="display:flex;"><span>	<span style="color:#e06c75">channel.TIMEOUT</span>(<span style="color:#98c379">&#34;response&#34;</span>):<span style="color:#e06c75">set</span>(<span style="color:#d19a66">5</span>)
+</span></span><span style="display:flex;"><span>	<span style="color:#e06c75">app.read</span>(<span style="color:#98c379">&#34;SELECTION&#34;</span>, <span style="color:#98c379">&#34;beep&#34;</span>, <span style="color:#d19a66">1</span>, <span style="color:#98c379">&#34;&#34;</span>, <span style="color:#d19a66">1</span>, <span style="color:#d19a66">5</span>)
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>	<span style="color:#c678dd">local</span> <span style="color:#e06c75">selection</span> <span style="color:#56b6c2">=</span> <span style="color:#e06c75">channel.SELECTION</span>:<span style="color:#e06c75">get</span>()
+</span></span><span style="display:flex;"><span>	<span style="color:#c678dd">if</span> <span style="color:#e06c75">selection</span> <span style="color:#56b6c2">==</span> <span style="color:#e5c07b">nil</span> <span style="color:#56b6c2">or</span> <span style="color:#e06c75">selection</span> <span style="color:#56b6c2">==</span> <span style="color:#98c379">&#34;&#34;</span> <span style="color:#c678dd">then</span>
+</span></span><span style="display:flex;"><span>		<span style="color:#e06c75">app.playback</span>(<span style="color:#98c379">&#34;vm-goodbye&#34;</span>)
+</span></span><span style="display:flex;"><span>		<span style="color:#e06c75">app.hangup</span>()
+</span></span><span style="display:flex;"><span>		<span style="color:#c678dd">return</span>
+</span></span><span style="display:flex;"><span>	<span style="color:#c678dd">end</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>	<span style="color:#c678dd">if</span> <span style="color:#e06c75">execute_selection</span>(<span style="color:#e06c75">selection</span>) <span style="color:#c678dd">then</span>
+</span></span><span style="display:flex;"><span>		<span style="color:#c678dd">return</span>
+</span></span><span style="display:flex;"><span>	<span style="color:#c678dd">end</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>	<span style="color:#c678dd">return</span> <span style="color:#e06c75">action_menu</span>()
+</span></span><span style="display:flex;"><span><span style="color:#c678dd">end</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#e06c75">extensions</span> <span style="color:#56b6c2">=</span> {
+</span></span><span style="display:flex;"><span>	[<span style="color:#98c379">&#34;phone-actions&#34;</span>] <span style="color:#56b6c2">=</span> {
+</span></span><span style="display:flex;"><span>		[<span style="color:#98c379">&#34;7000&#34;</span>] <span style="color:#56b6c2">=</span> <span style="color:#e06c75">action_menu</span>;
+</span></span><span style="display:flex;"><span>	};
+</span></span><span style="display:flex;"><span>}
+</span></span></code></pre></div><h2 id="agi-dispatcher">AGI Dispatcher</h2>
+<p>The dispatcher is a Python script launched by Asterisk. Its job is deliberately narrow:</p>
+<ul>
+<li>accept exactly one digit</li>
+<li>reject anything that is not a single digit</li>
+<li>map allowed digits to fixed actions</li>
+<li>run scripts without shell interpolation</li>
+<li>set Asterisk channel variables so the dialplan knows what to play next</li>
+<li>log the action result</li>
+</ul>
+<p>The important safety choice is the whitelist. I do not build a command from keypad input. This shortened example shows the two simplest actions; my full dispatcher also handles <code>3</code> for voice message recordings and <code>4</code> for the news reader.</p>
+<div class="highlight"><pre tabindex="0" style="color:#abb2bf;background-color:#282c34;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"><code class="language-python" data-lang="python"><span style="display:flex;"><span><span style="color:#e06c75">SCRIPT_DIR</span> <span style="color:#56b6c2">=</span> <span style="color:#e06c75">Path</span>(<span style="color:#98c379">&#34;/usr/local/phone-actions&#34;</span>)
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#e06c75">ACTION_MAP</span> <span style="color:#56b6c2">=</span> {
+</span></span><span style="display:flex;"><span>    <span style="color:#98c379">&#34;1&#34;</span>: <span style="color:#e06c75">SCRIPT_DIR</span> <span style="color:#56b6c2">/</span> <span style="color:#98c379">&#34;one.py&#34;</span>,
+</span></span><span style="display:flex;"><span>    <span style="color:#98c379">&#34;2&#34;</span>: <span style="color:#e06c75">SCRIPT_DIR</span> <span style="color:#56b6c2">/</span> <span style="color:#98c379">&#34;two.py&#34;</span>,
+</span></span><span style="display:flex;"><span>}
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#c678dd">def</span> <span style="color:#61afef;font-weight:bold">run_action_script</span>(<span style="color:#e06c75">digit</span>: <span style="color:#e5c07b">str</span>) <span style="color:#56b6c2">-&gt;</span> <span style="color:#e5c07b">int</span>:
+</span></span><span style="display:flex;"><span>    <span style="color:#e06c75">script_path</span> <span style="color:#56b6c2">=</span> <span style="color:#e06c75">ACTION_MAP</span><span style="color:#56b6c2">.</span><span style="color:#e06c75">get</span>(<span style="color:#e06c75">digit</span>)
+</span></span><span style="display:flex;"><span>    <span style="color:#c678dd">if</span> <span style="color:#e06c75">script_path</span> <span style="color:#56b6c2">is</span> <span style="color:#e5c07b">None</span>:
+</span></span><span style="display:flex;"><span>        <span style="color:#e06c75">LOGGER</span><span style="color:#56b6c2">.</span><span style="color:#e06c75">warning</span>(<span style="color:#98c379">&#34;Rejected unmapped digit &#39;</span><span style="color:#98c379">%s</span><span style="color:#98c379">&#39;&#34;</span>, <span style="color:#e06c75">digit</span>)
+</span></span><span style="display:flex;"><span>        <span style="color:#e06c75">set_channel_variable</span>(<span style="color:#98c379">&#34;ACTION_STATUS&#34;</span>, <span style="color:#98c379">&#34;fail&#34;</span>)
+</span></span><span style="display:flex;"><span>        <span style="color:#c678dd">return</span> <span style="color:#d19a66">1</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>    <span style="color:#c678dd">if</span> <span style="color:#56b6c2">not</span> <span style="color:#e06c75">script_path</span><span style="color:#56b6c2">.</span><span style="color:#e06c75">is_file</span>():
+</span></span><span style="display:flex;"><span>        <span style="color:#e06c75">LOGGER</span><span style="color:#56b6c2">.</span><span style="color:#e06c75">error</span>(<span style="color:#98c379">&#34;Mapped script for digit </span><span style="color:#98c379">%s</span><span style="color:#98c379"> does not exist: </span><span style="color:#98c379">%s</span><span style="color:#98c379">&#34;</span>, <span style="color:#e06c75">digit</span>, <span style="color:#e06c75">script_path</span>)
+</span></span><span style="display:flex;"><span>        <span style="color:#e06c75">set_channel_variable</span>(<span style="color:#98c379">&#34;ACTION_STATUS&#34;</span>, <span style="color:#98c379">&#34;fail&#34;</span>)
+</span></span><span style="display:flex;"><span>        <span style="color:#c678dd">return</span> <span style="color:#d19a66">1</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>    <span style="color:#e06c75">completed</span> <span style="color:#56b6c2">=</span> <span style="color:#e06c75">subprocess</span><span style="color:#56b6c2">.</span><span style="color:#e06c75">run</span>(
+</span></span><span style="display:flex;"><span>        [<span style="color:#e5c07b">str</span>(<span style="color:#e06c75">script_path</span>)],
+</span></span><span style="display:flex;"><span>        <span style="color:#e06c75">check</span><span style="color:#56b6c2">=</span><span style="color:#e5c07b">False</span>,
+</span></span><span style="display:flex;"><span>        <span style="color:#e06c75">capture_output</span><span style="color:#56b6c2">=</span><span style="color:#e5c07b">True</span>,
+</span></span><span style="display:flex;"><span>        <span style="color:#e06c75">text</span><span style="color:#56b6c2">=</span><span style="color:#e5c07b">True</span>,
+</span></span><span style="display:flex;"><span>        <span style="color:#e06c75">timeout</span><span style="color:#56b6c2">=</span><span style="color:#d19a66">30</span>,
+</span></span><span style="display:flex;"><span>    )
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>    <span style="color:#c678dd">if</span> <span style="color:#e06c75">completed</span><span style="color:#56b6c2">.</span><span style="color:#e06c75">returncode</span> <span style="color:#56b6c2">==</span> <span style="color:#d19a66">0</span>:
+</span></span><span style="display:flex;"><span>        <span style="color:#e06c75">set_channel_variable</span>(<span style="color:#98c379">&#34;ACTION_STATUS&#34;</span>, <span style="color:#98c379">&#34;ok&#34;</span>)
+</span></span><span style="display:flex;"><span>    <span style="color:#c678dd">else</span>:
+</span></span><span style="display:flex;"><span>        <span style="color:#e06c75">set_channel_variable</span>(<span style="color:#98c379">&#34;ACTION_STATUS&#34;</span>, <span style="color:#98c379">&#34;fail&#34;</span>)
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>    <span style="color:#c678dd">return</span> <span style="color:#e06c75">completed</span><span style="color:#56b6c2">.</span><span style="color:#e06c75">returncode</span>
+</span></span></code></pre></div><p>Passing a list to <code>subprocess.run()</code> and leaving <code>shell=False</code> as the default means the digit cannot become shell syntax. The timeout also matters: if a script hangs, the AGI process should not wait forever.</p>
+<p>For the news action, I use an OpenAI API key from a root-readable config file rather than hard-coding it in the script.</p>
+<p>Once the ATA successfully registered, lifting the handset immediately entered the action menu.</p>
+<h2 id="results">Results</h2>
+<p><img src="images/og-image-desktop-phone-connected-to-freebsd-server.jpg" alt=""></p>
+<p>The final result is a phone-driven control interface:</p>
+<ol>
+<li>Pick up the handset.</li>
+<li>Press a digit.</li>
+<li>Trigger a script on the FreeBSD server.</li>
+<li>Right now, button <code>4</code> runs a script that reads the latest FreeBSD news and generates a text-to-speech MP3 file which is played back at 1.2× speed. Take a listen:</li>
+</ol>
+<audio controls>
+  <source src="images/call-to-freebsd-server-to-listen-news.mp3" type="audio/mpeg">
+</audio>
+<h2 id="further-plans">Further Plans</h2>
+<p>First, I want to set up FreeBSD to call me back. I am thinking about connecting a calendar to the server so it can call me and tell me what the meeting is about and what I need to prepare. The same idea could work for other alerts from the server itself.</p>
+<p>Second, I want to build a local LLM so I can talk to the server by voice. The privacy advantage is that the phone starts listening <strong>only after</strong> I pick up the handset. That is very different from a smart speaker that is always waiting for a wake word and who knows what else is being sent to a remote server.</p>
+<p>I&rsquo;m currently working on a system that allows me to call the system and then press a button to start recording a voice message. Then, the local LLM converts it to text and sends it back to me via email when it&rsquo;s ready.</p>
+<p>Long term, I want to bring my late grandfather back as an LLM-powered personality, so I can call and talk with him again.</p>
+
+  </div>
+
+  <div class="mt-12 md:mt-20 mb-12 md:mb-12">
+    <div class="mx-auto flex mb-6 justify-center">
+      <a id="replyViaEmail" target="_blank" rel="noopener"
+        class="mx-auto font-bold py-2 px-6 md:px-12 rounded-xl hover:no-underline hover:-translate-y-2 transition-transform duration-300 ease-in-out"
+        href="mailto:dcwrjo84h@mozmail.com?subject=interfacecraft_online">
+        Reply via Email
+      </a>
+    </div>
+
+    <div class="mx-auto flex justify-center">
+      <a id="allArticles" class="mx-auto flex space-x-2 font-bold" href="/blog/">
+        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none"
+          stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+          <rect x="4" y="4" width="16" height="16" rx="2" ry="2" />
+          <line x1="8" y1="8" x2="16" y2="8" />
+          <line x1="8" y1="12" x2="16" y2="12" />
+          <line x1="8" y1="16" x2="12" y2="16" />
+        </svg>
+        <span>All Articles</span>
+      </a>
+    </div>
+  </div>
+</article>
+
+
+
+<footer class="w-full mx-auto opacity-70 font-normal text-center text-xs my-14 px-4">
+  © 2025 Alexander Deplov, AI artist, product designer.
+</footer>
+
+
+
+
+<script data-goatcounter="https://goatinterface.goatcounter.com/count"
+    async src="//gc.zgo.at/count.js"></script>
+
+
+<meta name="fediverse:creator" content="@alex_deplov@mastodon.social">
+
+<script src="/js/copyright.js" defer></script>
+
+</body>
+</html>
+
