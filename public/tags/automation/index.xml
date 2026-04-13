@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Automation on Alexander Deplov, AI artist, product designer</title>
+    <link>https://interfacecraft.online/tags/automation/</link>
+    <description>Recent content in Automation on Alexander Deplov, AI artist, product designer</description>
+    <generator>Hugo</generator>
+    <language>en-us</language>
+    <lastBuildDate>Wed, 12 Nov 2025 14:33:35 +0100</lastBuildDate>
+    <atom:link href="https://interfacecraft.online/tags/automation/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Automatically Disable Wi-Fi When Ethernet Is Plugged in macOS</title>
+      <link>https://interfacecraft.online/blog/2025/automatically-disable-wifi-when-ethernet-is-plugged-in-macos/</link>
+      <pubDate>Wed, 12 Nov 2025 14:33:35 +0100</pubDate>
+      <guid>https://interfacecraft.online/blog/2025/automatically-disable-wifi-when-ethernet-is-plugged-in-macos/</guid>
+      <description>&lt;p&gt;macOS has a long-standing bug that persists in macOS Tahoe. When I connect my MacBook to an external dongle with an Ethernet internet connection, it prioritizes the Wi-Fi connection. My Wi-Fi is very unstable, so even when connected to Ethernet, macOS refuses to use it. I set the Service Order to put Ethernet on top, but macOS ignores it.&lt;/p&gt;&#xA;&lt;p&gt;It&amp;rsquo;s so annoying that I ended up making a script to automate it:&lt;/p&gt;</description>
+    </item>
+    <item>
+      <title>How I Automated My Computer Routine with macOS Folder Actions</title>
+      <link>https://interfacecraft.online/blog/2025/how-i-automated-my-computer-life-with-macos-folder-actions/</link>
+      <pubDate>Wed, 12 Feb 2025 21:53:39 +0100</pubDate>
+      <guid>https://interfacecraft.online/blog/2025/how-i-automated-my-computer-life-with-macos-folder-actions/</guid>
+      <description>&lt;blockquote&gt;&#xA;&lt;p&gt;I&amp;rsquo;ve always believed that computers should handle repetitive tasks better than humans. It frustrates me when something can&amp;rsquo;t be automated the way I want or when simple actions require more effort than they should.&lt;/p&gt;&#xA;&lt;/blockquote&gt;&#xA;&lt;p&gt;Let&amp;rsquo;s say we want to convert a &lt;span class=&#34;highlighter&#34;&gt;video from one format to another&lt;/span&gt;. This often happens to me when I need to share a screencast video with colleagues on Slack. By default, macOS records in &lt;span class=&#34;highlighter&#34;&gt;.MOV&lt;/span&gt; format, which is too large to share. Sometimes, I also have another file that I want to shrink for easier sharing in a message.&lt;/p&gt;</description>
+    </item>
+  </channel>
+</rss>

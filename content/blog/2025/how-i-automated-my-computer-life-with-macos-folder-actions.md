@@ -1,10 +1,11 @@
 +++
-title = "How I Automated My Computer Routine With macOS Folder Actions"
+title = "How I Automated My Computer Routine with macOS Folder Actions"
 date = 2025-02-12T21:53:39+01:00
 draft = false
 aliases = ["/posts/blog/2025/how-i-automated-my-computer-life-with-macos-folder-actions/"]
-featured = false
+featured = true
 author = "Alexander Deplov"
+tags = ["macOS", "automation"]
 +++
 
 > I've always believed that computers should handle repetitive tasks better than humans. It frustrates me when something can't be automated the way I want or when simple actions require more effort than they should.

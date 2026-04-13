@@ -4,6 +4,7 @@ date = 2025-03-24T11:06:19+01:00
 aliases = ["/posts/blog/2025/ios-apps-icon-corner-radius-formula/"]
 draft = false
 author = "Alexander Deplov"
+tags = ["iOS", "design"]
 +++
 
 If you need to create an iOS app icon design or a mockup with various app icon size and want to ensure the corner radius is accurate, use this simple formula: 

@@ -1,26 +1,47 @@
 <?xml version="1.0" encoding="utf-8" standalone="yes"?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
-    <title>Freebsd on Alexander Deplov, AI artist, product designer</title>
-    <link>http://localhost:1313/tags/freebsd/</link>
-    <description>Recent content in Freebsd on Alexander Deplov, AI artist, product designer</description>
+    <title>FreeBSD on Alexander Deplov, AI artist, product designer</title>
+    <link>https://interfacecraft.online/tags/freebsd/</link>
+    <description>Recent content in FreeBSD on Alexander Deplov, AI artist, product designer</description>
     <generator>Hugo</generator>
     <language>en-us</language>
-    <lastBuildDate>Mon, 15 Jul 2024 16:42:44 +0200</lastBuildDate>
-    <atom:link href="http://localhost:1313/tags/freebsd/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Tue, 25 Nov 2025 12:55:15 +0100</lastBuildDate>
+    <atom:link href="https://interfacecraft.online/tags/freebsd/index.xml" rel="self" type="application/rss+xml" />
     <item>
-      <title>Loader Configuration File (loader.conf) Structure in FreeBSD</title>
-      <link>http://localhost:1313/blog/2024/freebsd-loader-configuration-file-loader-conf-structure/</link>
-      <pubDate>Mon, 15 Jul 2024 16:42:44 +0200</pubDate>
-      <guid>http://localhost:1313/blog/2024/freebsd-loader-configuration-file-loader-conf-structure/</guid>
-      <description>&lt;p&gt;FreeBSD manages system settings using default files and separate customization files. This allows users to modify settings without directly editing the default configurations, ensuring compatibility during upgrades and providing a clear way to view and customize system options.&lt;/p&gt;&#xA;&lt;p&gt;&lt;img src=&#34;images/0.webp&#34; alt=&#34;&#34;&gt;&lt;/p&gt;&#xA;&lt;p&gt;User edited /boot/loader.conf, but full version of config file, default one located at /boot/defaults/loader.conf&lt;/p&gt;&#xA;&lt;pre tabindex=&#34;0&#34;&gt;&lt;code&gt;cat /boot/defaults/loader.conf | more&#xA;&lt;/code&gt;&lt;/pre&gt;&lt;h2 id=&#34;basic-configuration-options&#34;&gt;Basic configuration options&lt;/h2&gt;&#xA;&lt;p&gt;These settings control fundamental aspects of the system boot process, such as where to find the kernel, what configuration files to load, and how much detail to display during startup.&lt;/p&gt;</description>
+      <title>How to Match FreeBSD’s YouTube Loading Speed on macOS</title>
+      <link>https://interfacecraft.online/blog/2025/how-i-match-freebsd-youtube-speed-on-macos/</link>
+      <pubDate>Tue, 25 Nov 2025 12:55:15 +0100</pubDate>
+      <guid>https://interfacecraft.online/blog/2025/how-i-match-freebsd-youtube-speed-on-macos/</guid>
+      <description>&lt;p&gt;&lt;strong&gt;Update:&lt;/strong&gt; After experimenting with it for a while, I found that the initial setup prevents the Safari and Mail apps from accessing the internet. I changed the settings so that YouTube remains fast and the other apps work well.&lt;/p&gt;&#xA;&lt;p&gt;I watch a lot of YouTube videos, and I noticed something interesting. On FreeBSD, when I skip to any part of a video, it starts playing instantly. On macOS, however, it takes a couple of seconds to load.&lt;/p&gt;</description>
     </item>
     <item>
-      <title>Loader Configuration File (loader.conf) Structure in FreeBSD</title>
-      <link>http://localhost:1313/posts/blog/2024/freebsd-loader-configuration-file-loader-conf-structure/</link>
-      <pubDate>Mon, 15 Jul 2024 16:42:44 +0200</pubDate>
-      <guid>http://localhost:1313/posts/blog/2024/freebsd-loader-configuration-file-loader-conf-structure/</guid>
-      <description>&lt;p&gt;FreeBSD manages system settings using default files and separate customization files. This allows users to modify settings without directly editing the default configurations, ensuring compatibility during upgrades and providing a clear way to view and customize system options.&lt;/p&gt;&#xA;&lt;p&gt;&lt;img src=&#34;images/0.webp&#34; alt=&#34;&#34;&gt;&lt;/p&gt;&#xA;&lt;p&gt;User edited /boot/loader.conf, but full version of config file, default one located at /boot/defaults/loader.conf&lt;/p&gt;&#xA;&lt;pre tabindex=&#34;0&#34;&gt;&lt;code&gt;cat /boot/defaults/loader.conf | more&#xA;&lt;/code&gt;&lt;/pre&gt;&lt;h2 id=&#34;basic-configuration-options&#34;&gt;Basic configuration options&lt;/h2&gt;&#xA;&lt;p&gt;These settings control fundamental aspects of the system boot process, such as where to find the kernel, what configuration files to load, and how much detail to display during startup.&lt;/p&gt;</description>
+      <title>MATE on FreeBSD: macOS-Like Setup Guide: Font Rendering, UI Tweaks, and Settings</title>
+      <link>https://interfacecraft.online/blog/2025/mate-on-freebsd-macos-like-setup-guide-font-rendering-ui-tweaks-and-settings/</link>
+      <pubDate>Fri, 23 May 2025 20:38:13 +0200</pubDate>
+      <guid>https://interfacecraft.online/blog/2025/mate-on-freebsd-macos-like-setup-guide-font-rendering-ui-tweaks-and-settings/</guid>
+      <description>&lt;p&gt;&lt;a href=&#34;#fonts&#34;&gt;Font rendering settings&lt;/a&gt;&lt;br/&gt;&#xA;&lt;a href=&#34;#keyboard_and_mouse&#34;&gt;Keyboard and mouse settings&lt;/a&gt;&lt;br/&gt;&#xA;&lt;a href=&#34;#interface&#34;&gt;Interface settings&lt;/a&gt;&lt;br/&gt;&#xA;&lt;a href=&#34;#tearing&#34;&gt;Turn on TearFree&lt;/a&gt;&lt;br/&gt;&#xA;&lt;a href=&#34;#wallpapers&#34;&gt;Wallpapers&lt;/a&gt;&lt;br/&gt;&#xA;&lt;a href=&#34;#mate_theme&#34;&gt;macOS theme for Mate&lt;/a&gt;&lt;br/&gt;&#xA;&lt;a href=&#34;#mate_spotlight&#34;&gt;Spotlight replacement&lt;/a&gt;&lt;/p&gt;&#xA;&lt;p&gt;As I mentioned earlier, I noticed similarities between FreeBSD and macOS—after 20 years of using macOS, returning to FreeBSD feels like coming home. But I don’t like the font rendering used in non-macOS systems. Partly because Apple did it very well — &lt;a href=&#34;https://www.typeroom.eu/steve-jobs-calligraphy-apple-typography-legacy&#34; target=&#34;_blank&#34; rel=&#34;nofollow&#34;&gt;Steve Jobs had a great understanding of typography&lt;/a&gt; — and partly because I’m just used to it.&lt;/p&gt;</description>
+    </item>
+    <item>
+      <title>How to Install the FreeBSD AMDGPU Driver on a Beelink SER5 5560U</title>
+      <link>https://interfacecraft.online/blog/2025/how-to-install-freebsd-amdgpu-driver-beelink-ser5-5560u/</link>
+      <pubDate>Thu, 22 May 2025 22:45:11 +0200</pubDate>
+      <guid>https://interfacecraft.online/blog/2025/how-to-install-freebsd-amdgpu-driver-beelink-ser5-5560u/</guid>
+      <description>&lt;p&gt;After installing FreeBSD 14.2 fresh on my Beelink SER5 5560U, I installed the GPU driver and enabled the TearFree option for better desktop usage by following these steps:&lt;/p&gt;&#xA;&lt;p&gt;&lt;img src=&#34;./Beelink-SER5-5560U.webp&#34; alt=&#34;&#34;&gt;&lt;/p&gt;&#xA;&lt;h3 id=&#34;1-speed-up-keyboard-repeat-rate&#34;&gt;1. Speed Up Keyboard Repeat Rate&lt;/h3&gt;&#xA;&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;color:#abb2bf;background-color:#282c34;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;&#34;&gt;&lt;code class=&#34;language-sh&#34; data-lang=&#34;sh&#34;&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#7f848e&#34;&gt;# kbdcontrol -r fast&lt;/span&gt;&#xA;&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;Edit &lt;code&gt;/etc/rc.conf&lt;/code&gt;:&lt;/p&gt;&#xA;&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;color:#abb2bf;background-color:#282c34;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;&#34;&gt;&lt;code class=&#34;language-sh&#34; data-lang=&#34;sh&#34;&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#e06c75&#34;&gt;keyrate&lt;/span&gt;&lt;span style=&#34;color:#56b6c2&#34;&gt;=&lt;/span&gt;&lt;span style=&#34;color:#98c379&#34;&gt;&amp;#34;fast&amp;#34;&lt;/span&gt;&#xA;&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;h3 id=&#34;2-install-xorg&#34;&gt;2. Install Xorg&lt;/h3&gt;&#xA;&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;color:#abb2bf;background-color:#282c34;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;&#34;&gt;&lt;code class=&#34;language-sh&#34; data-lang=&#34;sh&#34;&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#7f848e&#34;&gt;# pkg install -y xorg&lt;/span&gt;&#xA;&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;h3 id=&#34;3-add-user-to-necessary-groups&#34;&gt;3. Add User to Necessary Groups&lt;/h3&gt;&#xA;&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;color:#abb2bf;background-color:#282c34;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;&#34;&gt;&lt;code class=&#34;language-sh&#34; data-lang=&#34;sh&#34;&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#7f848e&#34;&gt;# pw groupmod video -m username&lt;/span&gt;&#xA;&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#7f848e&#34;&gt;# pw groupmod wheel -m username&lt;/span&gt;&#xA;&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;Verify with:&lt;/p&gt;</description>
+    </item>
+    <item>
+      <title>Comparing Performance of MacBook Pro M1 Pro to Mini PC on FreeBSD</title>
+      <link>https://interfacecraft.online/blog/2025/freebsd-vs-macos-for-daily-use-my-personal-migration-story/</link>
+      <pubDate>Mon, 19 May 2025 22:15:36 +0200</pubDate>
+      <guid>https://interfacecraft.online/blog/2025/freebsd-vs-macos-for-daily-use-my-personal-migration-story/</guid>
+      <description>&lt;p&gt;As a designer I&amp;rsquo;ve been using macOS since 2005, but with each new update, I dislike the direction Apple is heading in. They add unnecessary features that use system resources and can&amp;rsquo;t be disabled. My seven-year-old MacBook Pro with an Intel processor became so slow and unresponsive with the latest macOS version that I can&amp;rsquo;t use it at all anymore. If your Mac can&amp;rsquo;t handle the latest macOS version, the only solution is to buy a more powerful Mac. This is probably fine, people upgrade their hardware from time to time, and this is part of the evolution of the field. However, Apple can deem any five-year-old Mac obsolete. It seems like they have more control over your computer than you do.&lt;/p&gt;</description>
+    </item>
+    <item>
+      <title>Can Cheap MiniPC with FreeBSD 14 Outperform MacBook Pro M1 Pro?</title>
+      <link>https://interfacecraft.online/blog/2025/can-cheap-minipc-with-freebsd-14-outperform-macbook-pro-m1-pro/</link>
+      <pubDate>Wed, 05 Feb 2025 22:25:51 +0100</pubDate>
+      <guid>https://interfacecraft.online/blog/2025/can-cheap-minipc-with-freebsd-14-outperform-macbook-pro-m1-pro/</guid>
+      <description>&lt;h3 id=&#34;tldr&#34;&gt;TL;DR&lt;/h3&gt;&#xA;&lt;blockquote&gt;&#xA;&lt;p&gt;I put my €1800 MacBook Pro M1 Pro head-to-head with a €300 mini PC and found the cheaper option surprisingly fast. While the mini PC couldn&amp;rsquo;t completely replace my Mac for work due to some software and hardware limitations, it made me question the need for expensive purchases. Do we really need the latest and greatest hardware to be productive? Or are we being pushed to constantly upgrade for features we might not even fully utilize?&lt;/p&gt;</description>
     </item>
   </channel>
 </rss>

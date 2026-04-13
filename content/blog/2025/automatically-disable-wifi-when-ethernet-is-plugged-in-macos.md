@@ -1,7 +1,8 @@
 ---
-title: "Automatically Disable Wifi When Ethernet Is Plugged in Macos"
+title: "Automatically Disable Wi-Fi When Ethernet Is Plugged in macOS"
 date: 2025-11-12T14:33:35+01:00
 draft: false
+tags: ["macOS", "automation"]
 ---
 
 macOS has a long-standing bug that persists in macOS Tahoe. When I connect my MacBook to an external dongle with an Ethernet internet connection, it prioritizes the Wi-Fi connection. My Wi-Fi is very unstable, so even when connected to Ethernet, macOS refuses to use it. I set the Service Order to put Ethernet on top, but macOS ignores it.

@@ -4,7 +4,9 @@ date: 2025-05-23T20:38:13+02:00
 aliases:
   - /posts/blog/2025/mate-on-freebsd-macos-like-setup-guide-font-rendering-ui-tweaks-and-settings/
 draft: false
+featured: true
 author: "Alexander Deplov"
+tags: ["FreeBSD", "macOS"]
 ---
 
 <a href="#fonts">Font rendering settings</a><br/>

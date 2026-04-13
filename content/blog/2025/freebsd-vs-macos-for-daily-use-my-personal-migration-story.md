@@ -1,9 +1,10 @@
 ---
-title: "Comparing Performance of MacBook Pro M1 Pro to mini PC on FreeBSD"
+title: "Comparing Performance of MacBook Pro M1 Pro to Mini PC on FreeBSD"
 date: 2025-05-19T22:15:36+02:00
 aliases:
   - /posts/blog/2025/freebsd-vs-macos-for-daily-use-my-personal-migration-story/
 draft: false
+tags: ["FreeBSD", "macOS"]
 ---
 
 As a designer I've been using macOS since 2005, but with each new update, I dislike the direction Apple is heading in. They add unnecessary features that use system resources and can't be disabled. My seven-year-old MacBook Pro with an Intel processor became so slow and unresponsive with the latest macOS version that I can't use it at all anymore. If your Mac can't handle the latest macOS version, the only solution is to buy a more powerful Mac. This is probably fine, people upgrade their hardware from time to time, and this is part of the evolution of the field. However, Apple can deem any five-year-old Mac obsolete. It seems like they have more control over your computer than you do.

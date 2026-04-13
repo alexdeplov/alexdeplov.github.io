@@ -1,10 +1,11 @@
 +++
-title = "I Connected a Desktop Phone to a FreeBSD Server, So Now I Can Call It"
+title = "I Connected a Desktop Phone to a FreeBSD Server, so Now I Can Call It"
 date = 2026-04-15T09:00:00-04:00
 aliases = ["/posts/blog/2026/life-before-smartphones-late-90s-early-2000s/"]
 draft = false
 featured = true
 author = "Alexander Deplov"
+tags = ["FreeBSD", "hardware"]
 image = "images/og-image-desktop-phone-connected-to-freebsd-server.jpg"
 +++
 

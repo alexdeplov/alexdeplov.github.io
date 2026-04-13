@@ -4,6 +4,7 @@ date: 2025-05-22T22:45:11+02:00
 aliases:
   - /posts/blog/2025/how-to-install-freebsd-amdgpu-driver-beelink-ser5-5560u/
 draft: false
+tags: ["FreeBSD", "hardware"]
 ---
 
 After installing FreeBSD 14.2 fresh on my Beelink SER5 5560U, I installed the GPU driver and enabled the TearFree option for better desktop usage by following these steps:

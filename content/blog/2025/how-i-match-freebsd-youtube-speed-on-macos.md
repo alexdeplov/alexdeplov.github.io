@@ -1,7 +1,8 @@
 ---
-title: "How to match FreeBSD’s YouTube loading speed on macOS"
+title: "How to Match FreeBSD’s YouTube Loading Speed on macOS"
 date: 2025-11-25T12:55:15+01:00
 draft: false
+tags: ["FreeBSD", "macOS"]
 ---
 
 **Update:** After experimenting with it for a while, I found that the initial setup prevents the Safari and Mail apps from accessing the internet. I changed the settings so that YouTube remains fast and the other apps work well.

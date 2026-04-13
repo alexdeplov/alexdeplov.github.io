@@ -1,5 +1,13 @@
+{{ define "headExtra" }}
+<link rel="canonical" href="{{ .Site.BaseURL }}blog/">
+<meta http-equiv="refresh" content="0; url=/blog/">
+{{ end }}
+
 {{ define "main" }}
+<script>window.location.replace('/blog/');</script>
+<!--
 {{ partial "nav.html" . }}
 {{ partial "index-grid.html" . }}
 {{ partial "footer.html" . }}
+-->
 {{ end }}

@@ -4,6 +4,7 @@ date = 2025-04-29T11:06:19+01:00
 aliases = ["/posts/blog/2025/pc-wallpapers-inspired-by-2000s/"]
 draft = false
 author = "Alexander Deplov"
+tags = ["nostalgia", "design"]
 +++
 <style>
 #grid a:nth-child(1) img {

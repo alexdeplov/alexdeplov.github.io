@@ -1,10 +1,11 @@
 +++
-title = "Life Before Smartphones: Late 90s and Early 2000s"
+title = "Life before Smartphones: Late 90s and Early 2000s"
 date = 2026-03-31T12:00:00+02:00
 aliases = ["/posts/blog/2026/life-before-smartphones-late-90s-early-2000s/"]
 draft = false
 featured = false
 author = "Alexander Deplov"
+tags = ["nostalgia", "technology"]
 +++
 
 Before the advent of smartphones, constant connectivity simply did not exist. The late '90s and early '00s had their own rhythm: a slower, more physical and more local one. In this post, I want to document my memories of life before the iPhone changed everything, so that these moments are not forgotten. Even if the post is a bit chaotic. 
