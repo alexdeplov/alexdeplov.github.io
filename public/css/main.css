@@ -6,7 +6,7 @@
     --bg-color: #fcfbf8;
     --text-color: #131522;
     --link-color: #6639dc;
-    --link-visited-color: #6639dc;
+
     --heading-color: #1a1a1a;
     --border-color: #dddddd;
     --accent-color: #4a90e2;
@@ -18,7 +18,7 @@
         --bg-color: #18181c;
         --text-color: #e3e3e3;
         --link-color: #6639dc;
-        --link-visited-color: #6639dc;
+
         --heading-color: #d7d7d7;
         --border-color: #444444;
         --accent-color: #4a90e2;
@@ -66,12 +66,9 @@ hr {
 }
 
 .content a {
-    color: var(--link-color);
+    color: var(--accent-orange);
 }
 
-.content a:visited {
-    color: var(--link-visited-color);
-}
 
 .content p,
 .content ul,
@@ -199,14 +196,22 @@ a {
 
 a:hover {
     text-decoration: underline;
+    text-decoration-color: currentColor;
 }
 
-.list a:visited {
-    /* color: var(--link-visited-color); */
+.post-title-link:hover {
+    text-decoration-color: black;
 }
 
-.list li::marker {
-    color: var(--link-visited-color) !important;
+.article-author {
+    color: #71717a;
+    font-weight: 600;
+    text-decoration: none;
+}
+
+.article-author:hover {
+    color: #000;
+    text-decoration: underline;
 }
 
 .list li {

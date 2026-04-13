@@ -44,7 +44,6 @@
       <div class="shrink-0 rounded-md overflow-hidden h-32 cursor-pointer" data-lb-src="/images/midnight-commander-mc-for-ios.jpg" data-lb-type="image"><img class="h-full w-auto pointer-events-none" src="/images/midnight-commander-mc-for-ios.jpg"></div>
       <div class="shrink-0 rounded-md overflow-hidden h-32 cursor-pointer" data-lb-src="/images/chatGPT-to-video.mp4" data-lb-type="video"><video class="h-full w-auto pointer-events-none" autoplay loop muted playsinline><source src="/images/chatGPT-to-video.mp4" type="video/mp4"></video></div>
       <div class="shrink-0 rounded-md overflow-hidden h-32 cursor-pointer" data-lb-src="/images/lion-in-a-pink-suit.mp4" data-lb-type="video"><video class="h-full w-auto pointer-events-none" autoplay loop muted playsinline><source src="/images/lion-in-a-pink-suit.mp4" type="video/mp4"></video></div>
-      <div class="shrink-0 rounded-md overflow-hidden h-32 cursor-pointer" data-lb-src="/images/glasses-glow-head-ai.mp4" data-lb-type="video"><video class="h-full w-auto pointer-events-none" autoplay loop muted playsinline><source src="/images/glasses-glow-head-ai.mp4" type="video/mp4"></video></div>
       <div class="shrink-0 rounded-md overflow-hidden h-32 cursor-pointer" data-lb-src="/images/invisible-people-1.mp4" data-lb-type="video"><video class="h-full w-auto pointer-events-none" autoplay loop muted playsinline><source src="/images/invisible-people-1.mp4" type="video/mp4"></video></div>
             <div class="shrink-0 rounded-md overflow-hidden h-32 cursor-pointer" data-lb-src="/images/invisible-people-2.mp4"
                 data-lb-type="video"><video class="h-full w-auto pointer-events-none" autoplay loop muted playsinline>
@@ -108,7 +107,7 @@
           {{ with (index (.Resources.ByType "image") 0) }}{{ $img = .RelPermalink }}{{ end }}
         {{ end }}
         <article class="group">
-            <a class="" href="{{ .RelPermalink }}" class="block hover:no-underline" {{ if $img }}data-hover-image="{{ $img }}"{{ end }}>
+            <a href="{{ .RelPermalink }}" class="post-title-link block" {{ if $img }}data-hover-image="{{ $img }}"{{ end }}>
                 <div class="">
                     <h2 class="text-xl font-bold mb-1">{{ if .Params.featured }}<span style="color:var(--accent-orange);">★</span> {{ end }}{{ .Title }}</h2>
                 </div>
