@@ -9,18 +9,17 @@
       {{ range $posts }}
       
         <a href="{{ .Permalink }}" class="
-       
+
         font-[600]
-        border-b  
+        border-b
         dark:border-gray-800
-        py-4 
+        py-4
         px-2
         -ml-2
-        w-full 
+        w-full
         block
         hover:bg-gray-100
         dark:hover:bg-gray-800
-        hover:no-underline
       ">{{ .Title }}</a>
 
       {{ end }}
