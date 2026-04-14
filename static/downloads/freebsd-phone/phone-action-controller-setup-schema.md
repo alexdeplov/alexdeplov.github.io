@@ -673,4 +673,4 @@ Firewall rules for UDP 5060 and RTP
 Whether the HT801 can reach YOUR_REMOTE_ASTERISK_HOSTNAME_OR_IP
 ```
 
-Made by Alex Deplov. Product designer, FreeBSD hobbist: https://interfacecraft.online/blog/
+Alex Deplov. Product designer, FreeBSD hobbist: https://interfacecraft.online/blog/
