@@ -349,9 +349,7 @@ First, I want to set up FreeBSD to call me back. I am thinking about connecting 
 
 Second, I want to build a local LLM so I can talk to the server by voice. The privacy advantage is that the phone starts listening **only after** I pick up the handset. That is very different from a smart speaker that is always waiting for a wake word and who knows what else is being sent to a remote server.
 
-I'm currently working on a system that allows me to call the system and then press a button to start recording a voice message. Then, the local LLM converts it to text and sends it back to me via email when it's ready. 
-
-Long term, I want to bring my late grandfather back as an LLM-powered personality, so I can call and talk with him again.
+And I just finished working on a system that allows me to call, then press a button to start recording a voice message. Then, the local LLM converts it to text and sends it back to me via email when it's ready. 
 
 ## Full Config
 
