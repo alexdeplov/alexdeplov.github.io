@@ -143,12 +143,27 @@ hr {
 
 }
 
+.content details {
+    margin-top: 2rem;
+}
+
+.content details > summary {
+    color: #222;
+    cursor: pointer;
+    font-size: 1.5rem;
+    font-weight: 700;
+}
+
 .content h2 {
     color: #222;
 }
 
 @media (prefers-color-scheme: dark) {
     .content h2 {
+        color: white;
+    }
+
+    .content details > summary {
         color: white;
     }
 }
@@ -201,6 +216,20 @@ a:hover {
 
 .post-title-link:hover {
     text-decoration-color: black;
+}
+
+#cursor-preview img {
+    background-color: var(--bg-color);
+}
+
+.blog-post-star {
+    color: var(--accent-orange);
+    display: inline-block;
+    font-size: 0.8em;
+    line-height: 1;
+    margin-left: 0.35rem;
+    position: relative;
+    top: -1px;
 }
 
 .article-author {

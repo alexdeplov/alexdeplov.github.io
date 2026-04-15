@@ -103,7 +103,7 @@
         <article class="group">
             <a href="{{ .RelPermalink }}" class="post-title-link block" {{ if $img }}data-hover-image="{{ $img }}"{{ end }}>
                 <div class="">
-                    <h2 class="text-xl font-bold mb-1">{{ if .Params.featured }}<span style="color:var(--accent-orange);">★</span> {{ end }}{{ .Title }}</h2>
+                    <h2 class="text-xl font-bold mb-1">{{ .Title }}{{ if .Params.featured }}<span class="blog-post-star" aria-hidden="true">★</span>{{ end }}</h2>
                 </div>
             </a>
             <div class="text-sm mb-3 font-normal text-zinc-400" >
@@ -126,13 +126,38 @@
 (function() {
     const preview = document.getElementById('cursor-preview');
     const img = preview.querySelector('img');
+    let lastPointer = { clientX: 0, clientY: 0 };
+
+    img.addEventListener('load', function() {
+        if (preview.style.display === 'block') {
+            positionPreview(lastPointer);
+        }
+    });
+
+    function positionPreview(e) {
+        var cursorGap = 10;
+        var edgeGap = 8;
+        var rect = img.getBoundingClientRect();
+        var width = rect.width || Math.min(img.naturalWidth || 200, 200);
+        var height = rect.height || Math.min(img.naturalHeight || 200, 200);
+        var x = e.clientX + cursorGap;
+        var y = e.clientY + cursorGap;
+        if (x + width + edgeGap > window.innerWidth) x = e.clientX - width - cursorGap;
+        if (y + height + edgeGap > window.innerHeight) y = e.clientY - height - cursorGap;
+        x = Math.max(edgeGap, Math.min(x, window.innerWidth - width - edgeGap));
+        y = Math.max(edgeGap, Math.min(y, window.innerHeight - height - edgeGap));
+        preview.style.left = x + 'px';
+        preview.style.top = y + 'px';
+    }
 
     document.querySelectorAll('a[data-hover-image]').forEach(function(article) {
         var src = article.dataset.hoverImage;
 
-        article.addEventListener('mouseenter', function() {
+        article.addEventListener('mouseenter', function(e) {
+            lastPointer = { clientX: e.clientX, clientY: e.clientY };
             img.src = src;
             preview.style.display = 'block';
+            positionPreview(lastPointer);
         });
 
         article.addEventListener('mouseleave', function() {
@@ -141,15 +166,10 @@
         });
 
         article.addEventListener('mousemove', function(e) {
-            var offset = 24;
-            var x = e.clientX + offset;
-            var y = e.clientY + offset;
-            if (x + 200 > window.innerWidth) x = e.clientX - 200 - offset;
-            if (y + 200 > window.innerHeight) y = e.clientY - 200 - offset;
-            preview.style.left = x + 'px';
-            preview.style.top = y + 'px';
+            lastPointer = { clientX: e.clientX, clientY: e.clientY };
+            positionPreview(lastPointer);
         });
     });
 })();
 </script>
-{{ end }} 
+{{ end }}

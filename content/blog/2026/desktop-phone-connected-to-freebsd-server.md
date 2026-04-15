@@ -9,10 +9,7 @@ tags = ["FreeBSD", "hardware"]
 image = "images/og-image-desktop-phone-connected-to-freebsd-server.jpg"
 +++
 
-## Why?
-
-- I wanted to turn a 90s desk phone into a physical interface for my FreeBSD server.
-- The goal was not traditional VoIP calling. I wanted to pick up the handset, press a digit, and trigger a local script on the FreeBSD side.
+I turned a Panasonic KX-T2315 desk phone into a physical menu for my FreeBSD server. When I pick up the handset, the phone adapter calls Asterisk, waits for one digit, and triggers a predefined script on the FreeBSD server. This post covers the phone restoration, HT801 setup, Asterisk configuration, Lua dialplan, Python AGI dispatcher, and the full config download.
 
 The basic flow looks like this:
 
@@ -32,8 +29,12 @@ The basic flow looks like this:
 [Python dispatcher]
 		|
 		v
-[Whitelisted local scripts]
+[Predefined server-side scripts]
 ```
+
+## What It Does Now
+
+Right now, the phone works as a small command menu for the server. Button `4` fetches the latest FreeBSD news, generates a text-to-speech audio file, and plays it back through the handset at 1.2x speed. Other buttons can run predefined server-side scripts from the same allowlist, so keypad input never becomes shell input.
 
 ## Old Phone, New Life
 
@@ -66,7 +67,7 @@ Turns out you can flip over an old paper card and find a fresh, clean white surf
 Restoration note: The Oxycreme worked well on the yellowed plastic, but it left a strong hydrogen peroxide smell mixed with fragrance. If you try this, avoid applying too much cream, rinse the parts thoroughly, and let them air out for a couple of days.
 
 
-## HT801 Phone Action Controller
+## HT801 Phone Action Controller and Technical Setup
 
 To connect the phone to the FreeBSD server, I used a Grandstream HT801V2 analog telephone adapter. 
 
@@ -82,10 +83,11 @@ The interaction is simple:
 2. The HT801 automatically dials a private menu extension.
 3. Asterisk answers and waits for one DTMF digit.
 4. Press `1`, `2`, `3`, or `4`.
-5. A Python AGI dispatcher maps that digit to a fixed local action.
+5. A Python AGI dispatcher maps that digit to a predefined server-side action.
 6. Asterisk plays a confirmation prompt or audio result.
 
-## HT801 Configuration
+<details>
+<summary>Technical Setup: HT801, Asterisk, Dialplan, and AGI Dispatcher</summary>
 
 The HT801 was configured through its web UI.
 
@@ -105,7 +107,7 @@ Important settings:
 - Offhook Auto-Dial Delay: 0
 ```
 
-## Asterisk Configuration
+### Asterisk Configuration
 
 
 The FreeBSD 14 server used these packages:
@@ -195,7 +197,7 @@ pjsip show endpoints
 
 The SIP password should be a long, unique random value. Do not reuse a Unix account password, router password, or any password from another service. `YOUR_SIP_USER_ID` is only the SIP endpoint name used by the ATA and Asterisk; it is not a FreeBSD user account.
 
-## Dialplan
+### Dialplan
 
 On this FreeBSD Asterisk package, the active dialplan was `pbx_lua`, so the call logic lives in `extensions.lua` rather than `extensions.conf`.
 
@@ -262,7 +264,7 @@ extensions = {
 }
 ```
 
-## AGI Dispatcher
+### AGI Dispatcher
 
 The dispatcher is a Python script launched by Asterisk. Its job is deliberately narrow:
 
@@ -326,6 +328,8 @@ For the news action, I use an OpenAI API key from a root-readable config file ra
 
 Once the ATA successfully registered, lifting the handset immediately entered the action menu.
 
+</details>
+
 ## Results
 
 ![Desktop phone connected to FreeBSD server system setup](images/og-image-desktop-phone-connected-to-freebsd-server.jpg)
@@ -335,8 +339,11 @@ The final result is a phone-driven control interface:
 1. Pick up the handset.
 2. Press a digit.
 3. Trigger a script on the FreeBSD server.
-4. Right now, button `4` runs a script that reads the latest FreeBSD news and generates a text-to-speech audio file which is played back at 1.2× speed. Take a listen:
+4. Right now, button `4` runs a script that reads the latest FreeBSD news and generates a text-to-speech audio file which is played back at 1.2× speed. 
 
+![Panasonic phone keypad with button 4 highlighted](images/phone-button-4-news-action-highlight.jpg)
+
+Take a listen:
 
 <audio controls>
   <source src="images/call-to-freebsd-server-to-listen-news.mp3" type="audio/mpeg">
@@ -353,4 +360,6 @@ And I just finished working on a system that allows me to call, then press a but
 
 ## Full Config
 
-<a href="/downloads/freebsd-phone/phone-action-controller-setup-schema.md" download>Download all configs in .md file format.</a>
+The complete Markdown config file includes the HT801 settings, Asterisk setup, Lua dialplan, and Python dispatcher notes in one place.
+
+<a href="/downloads/freebsd-phone/phone-action-controller-setup-schema.md" download onclick="if (window.goatcounter) { window.goatcounter.count({ path: 'desktop-phone-freebsd-configs-md-download', title: 'desktop-phone-freebsd-configs-md-download', event: true }); }">Download the full FreeBSD phone action controller config as a .md file.</a>
