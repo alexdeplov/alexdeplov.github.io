@@ -32,6 +32,8 @@ The basic flow looks like this:
 [Predefined server-side scripts]
 ```
 
+![](images/Panasonic-KX-T2315-connected-to-FreeBSD-schema.jpg)
+
 ## What It Does Now
 
 Right now, the phone works as a small command menu for the server. Button `4` fetches the latest FreeBSD news, generates a text-to-speech audio file, and plays it back through the handset at 1.2x speed. Other buttons can run predefined server-side scripts from the same allowlist, so keypad input never becomes shell input.
