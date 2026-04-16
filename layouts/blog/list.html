@@ -124,7 +124,12 @@
 
 <script>
 (function() {
+    var canHover = window.matchMedia && window.matchMedia('(hover: hover) and (pointer: fine)').matches;
     const preview = document.getElementById('cursor-preview');
+    if (!canHover || !preview) {
+        if (preview) preview.remove();
+        return;
+    }
     const img = preview.querySelector('img');
     let lastPointer = { clientX: 0, clientY: 0 };
 
