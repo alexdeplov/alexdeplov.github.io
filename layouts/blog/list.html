@@ -93,15 +93,8 @@
 
     <div class="space-y-8">
         {{ range .RegularPages }}
-        {{ $img := "" }}
-        {{ if .Params.image }}
-          {{ with .Resources.GetMatch .Params.image }}{{ $img = .RelPermalink }}{{ end }}
-        {{ end }}
-        {{ if not $img }}
-          {{ with (index (.Resources.ByType "image") 0) }}{{ $img = .RelPermalink }}{{ end }}
-        {{ end }}
         <article class="group">
-            <a href="{{ .RelPermalink }}" class="post-title-link block" {{ if $img }}data-hover-image="{{ $img }}"{{ end }}>
+            <a href="{{ .RelPermalink }}" class="post-title-link block">
                 <div class="">
                     <h2 class="text-xl font-bold mb-1">{{ .Title }}{{ if .Params.featured }}<span class="blog-post-star" aria-hidden="true">★</span>{{ end }}</h2>
                 </div>
@@ -117,64 +110,4 @@
         <a href="/blog/archive/" class="text-sm text-zinc-500 hover:text-zinc-300">Archive</a>
     </div>
 </main>
-
-<div id="cursor-preview" style="display:none;position:fixed;pointer-events:none;z-index:1000;">
-    <img style="max-width:200px;max-height:200px;object-fit:cover;border-radius:6px;box-shadow:0 4px 20px rgba(0,0,0,0.4);" src="" alt="">
-</div>
-
-<script>
-(function() {
-    var canHover = window.matchMedia && window.matchMedia('(hover: hover) and (pointer: fine)').matches;
-    const preview = document.getElementById('cursor-preview');
-    if (!canHover || !preview) {
-        if (preview) preview.remove();
-        return;
-    }
-    const img = preview.querySelector('img');
-    let lastPointer = { clientX: 0, clientY: 0 };
-
-    img.addEventListener('load', function() {
-        if (preview.style.display === 'block') {
-            positionPreview(lastPointer);
-        }
-    });
-
-    function positionPreview(e) {
-        var cursorGap = 10;
-        var edgeGap = 8;
-        var rect = img.getBoundingClientRect();
-        var width = rect.width || Math.min(img.naturalWidth || 200, 200);
-        var height = rect.height || Math.min(img.naturalHeight || 200, 200);
-        var x = e.clientX + cursorGap;
-        var y = e.clientY + cursorGap;
-        if (x + width + edgeGap > window.innerWidth) x = e.clientX - width - cursorGap;
-        if (y + height + edgeGap > window.innerHeight) y = e.clientY - height - cursorGap;
-        x = Math.max(edgeGap, Math.min(x, window.innerWidth - width - edgeGap));
-        y = Math.max(edgeGap, Math.min(y, window.innerHeight - height - edgeGap));
-        preview.style.left = x + 'px';
-        preview.style.top = y + 'px';
-    }
-
-    document.querySelectorAll('a[data-hover-image]').forEach(function(article) {
-        var src = article.dataset.hoverImage;
-
-        article.addEventListener('mouseenter', function(e) {
-            lastPointer = { clientX: e.clientX, clientY: e.clientY };
-            img.src = src;
-            preview.style.display = 'block';
-            positionPreview(lastPointer);
-        });
-
-        article.addEventListener('mouseleave', function() {
-            preview.style.display = 'none';
-            img.src = '';
-        });
-
-        article.addEventListener('mousemove', function(e) {
-            lastPointer = { clientX: e.clientX, clientY: e.clientY };
-            positionPreview(lastPointer);
-        });
-    });
-})();
-</script>
 {{ end }}
