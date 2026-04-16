@@ -38,16 +38,22 @@
     </header>
 
     <div class="flex gap-1 overflow-x-auto pb-3 mb-16 -mx-4 px-4 scrollbar-none">
-      <div class="shrink-0 rounded-md overflow-hidden h-32 cursor-pointer" data-lb-src="/images/firefox.png" data-lb-type="image"><img class="h-full w-auto pointer-events-none" src="/images/firefox.png"></div>
-      <div class="shrink-0 rounded-md overflow-hidden h-32 cursor-pointer" data-lb-src="/images/surf-GoPRO-Statue-of-Liberty.mp4" data-lb-type="video"><video class="h-full w-auto pointer-events-none" autoplay loop muted playsinline><source src="/images/surf-GoPRO-Statue-of-Liberty.mp4" type="video/mp4"></video></div>
-      <div class="shrink-0 rounded-md overflow-hidden h-32 cursor-pointer" data-lb-src="/images/midnight-commander-mc-for-ios.jpg" data-lb-type="image"><img class="h-full w-auto pointer-events-none" src="/images/midnight-commander-mc-for-ios.jpg"></div>
-      <div class="shrink-0 rounded-md overflow-hidden h-32 cursor-pointer" data-lb-src="/images/lion-in-a-pink-suit.mp4" data-lb-type="video"><video class="h-full w-auto pointer-events-none" autoplay loop muted playsinline><source src="/images/lion-in-a-pink-suit.mp4" type="video/mp4"></video></div>
+      <div class="shrink-0 rounded-md overflow-hidden h-32 cursor-pointer" data-lb-src="/images/firefox.webp" data-lb-type="image"><img class="h-full w-auto pointer-events-none" src="/images/firefox.webp" alt="Firefox concept icon" width="600" height="705" decoding="async"></div>
+      <div class="shrink-0 rounded-md overflow-hidden h-32 cursor-pointer relative bg-zinc-900" data-lb-src="/images/surf-GoPRO-Statue-of-Liberty.mp4" data-lb-type="video">
+        <img class="h-full w-auto pointer-events-none" src="/images/surf-GoPRO-Statue-of-Liberty.webp" alt="Surf video preview" width="736" height="736" decoding="async">
+        <video class="absolute inset-0 h-full w-auto pointer-events-none opacity-0 transition-opacity duration-150" data-preview-src="/images/surf-GoPRO-Statue-of-Liberty.mp4" loop muted playsinline preload="none" aria-hidden="true"></video>
+      </div>
+      <div class="shrink-0 rounded-md overflow-hidden h-32 cursor-pointer" data-lb-src="/images/midnight-commander-mc-for-ios.webp" data-lb-type="image"><img class="h-full w-auto pointer-events-none" src="/images/midnight-commander-mc-for-ios.webp" alt="Midnight Commander iOS app preview" width="720" height="825" decoding="async"></div>
+      <div class="shrink-0 rounded-md overflow-hidden h-32 cursor-pointer relative bg-zinc-900" data-lb-src="/images/lion-in-a-pink-suit.mp4" data-lb-type="video">
+        <img class="h-full w-auto pointer-events-none" src="/images/lion.webp" alt="Lion video preview" width="736" height="1104" decoding="async">
+        <video class="absolute inset-0 h-full w-auto pointer-events-none opacity-0 transition-opacity duration-150" data-preview-src="/images/lion-in-a-pink-suit.mp4" loop muted playsinline preload="none" aria-hidden="true"></video>
+      </div>
 
-                <div class="shrink-0 rounded-md overflow-hidden h-32 cursor-pointer"
-                    data-lb-src="/videos/askii-whirlwind-animation-purple.mp4" data-lb-type="video"><video
-                        class="h-full w-auto pointer-events-none" autoplay loop muted playsinline>
-                        <source src="/videos/askii-whirlwind-animation-purple.mp4" type="video/mp4">
-                    </video></div>
+                <div class="shrink-0 rounded-md overflow-hidden h-32 cursor-pointer relative bg-zinc-900"
+                    data-lb-src="/videos/askii-whirlwind-animation-purple.mp4" data-lb-type="video">
+                    <img class="h-full w-auto pointer-events-none" src="/videos/askii-whirlwind-animation-purple-poster.webp" alt="Whirlwind animation preview" width="600" height="494" decoding="async">
+                    <video class="absolute inset-0 h-full w-auto pointer-events-none opacity-0 transition-opacity duration-150" data-preview-src="/videos/askii-whirlwind-animation-purple.mp4" loop muted playsinline preload="none" aria-hidden="true"></video>
+                </div>
     </div>
 
     <div id="lightbox" style="display:none;position:fixed;inset:0;z-index:2000;background:rgba(0,0,0,0.9);cursor:pointer;" onclick="closeLightbox()">
@@ -60,6 +66,25 @@
     <script>
     (function() {
       document.querySelectorAll('[data-lb-src]').forEach(function(el) {
+        var preview = el.querySelector('video[data-preview-src]');
+        if (preview) {
+          var loadPreview = function() {
+            if (!preview.src) {
+              preview.src = preview.dataset.previewSrc;
+            }
+            preview.play().catch(function() {});
+            preview.classList.remove('opacity-0');
+          };
+          var pausePreview = function() {
+            preview.pause();
+            preview.classList.add('opacity-0');
+          };
+          el.addEventListener('mouseenter', loadPreview);
+          el.addEventListener('focusin', loadPreview);
+          el.addEventListener('mouseleave', pausePreview);
+          el.addEventListener('focusout', pausePreview);
+        }
+
         el.addEventListener('click', function() {
           var src = el.dataset.lbSrc;
           var type = el.dataset.lbType;

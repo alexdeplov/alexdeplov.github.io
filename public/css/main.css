@@ -218,6 +218,12 @@ a:hover {
     text-decoration-color: black;
 }
 
+@media (prefers-color-scheme: dark) {
+    .post-title-link:hover {
+        text-decoration-color: white;
+    }
+}
+
 .blog-post-star {
     color: var(--accent-orange);
     display: inline-block;

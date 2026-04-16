@@ -92,55 +92,55 @@
 <a href="#mate_spotlight">Spotlight replacement</a></p>
 <p>As I mentioned earlier, I noticed similarities between FreeBSD and macOS—after 20 years of using macOS, returning to FreeBSD feels like coming home. But I don’t like the font rendering used in non-macOS systems. Partly because Apple did it very well — <a href="https://www.typeroom.eu/steve-jobs-calligraphy-apple-typography-legacy" target="_blank" rel="nofollow">Steve Jobs had a great understanding of typography</a> — and partly because I’m just used to it.</p>
 <p>In this article, I’ll share my method for configuring MATE on FreeBSD to resemble macOS in appearance, behavior, and usability. This makes the transition from a MacBook to a FreeBSD machine smoother, eliminating the need to relearn shortcuts or adjust to a completely different interface. Here&rsquo;s what my FreeBSD setup looks like right now:</p>
-<p><a href="./freebsd-desktop-to-match-macos.png"><img src="./freebsd-desktop-to-match-macos.png" alt=""></a></p>
+<p><a href="./freebsd-desktop-to-match-macos.png"><img src="/blog/2025/mate-on-freebsd-macos-like-setup-guide-font-rendering-ui-tweaks-and-settings/freebsd-desktop-to-match-macos.webp" alt="" width="1920" height="1200" loading="lazy" decoding="async"></a></p>
 <p>I assume you already have FreeBSD and MATE installed. This is how I set it up on my Mac. Your preferences may differ.</p>
 <h2 id="fonts">Tweaking MATE's UI Fonts</h2>
 <p>The topic of replicating macOS-style font rendering on X Server is widely debated online. I chose a different approach: instead of relying solely on discussion, I compared screenshots from both macOS and X Server to fine-tune the font rendering settings for a closer match.</p>
 <p>To make MATE&rsquo;s font rendering resemble macOS, I connected both systems to a 1080p monitor and captured screenshots. Then, using Figma’s zoom tool, I adjusted various FreeType settings step by step to get as close a match as possible.</p>
-<p><a href="./figma.png"><img src="./figma.png" alt=""></a></p>
+<p><a href="./figma.png"><img src="/blog/2025/mate-on-freebsd-macos-like-setup-guide-font-rendering-ui-tweaks-and-settings/figma.webp" alt="" width="2524" height="1254" loading="lazy" decoding="async"></a></p>
 <p>Let’s compare the results. They’re not identical, but this is the closest I could achieve:</p>
 <video class="mb-5" autoplay loop muted playsinline>
   <source src="fonts-compare.mp4" type="video/mp4">
   Your browser does not support the video tag.
 </video> 
-<p><a href="./mate-on-freebsd-font-rendering-tweak-results-to-match-macos-1.png"><img src="./mate-on-freebsd-font-rendering-tweak-results-to-match-macos-1.png" alt=""></a></p>
+<p><a href="./mate-on-freebsd-font-rendering-tweak-results-to-match-macos-1.png"><img src="/blog/2025/mate-on-freebsd-macos-like-setup-guide-font-rendering-ui-tweaks-and-settings/mate-on-freebsd-font-rendering-tweak-results-to-match-macos-1.webp" alt="" width="1290" height="394" loading="lazy" decoding="async"></a></p>
 <p>The font <strong>SF Pro Display</strong> works better than <strong>SF Pro</strong>:</p>
-<p><a href="./mate-on-freebsd-font-rendering-tweak-results-to-match-macos-3.png"><img src="./mate-on-freebsd-font-rendering-tweak-results-to-match-macos-3.png" alt=""></a></p>
+<p><a href="./mate-on-freebsd-font-rendering-tweak-results-to-match-macos-3.png"><img src="/blog/2025/mate-on-freebsd-macos-like-setup-guide-font-rendering-ui-tweaks-and-settings/mate-on-freebsd-font-rendering-tweak-results-to-match-macos-3.webp" alt="" width="1492" height="330" loading="lazy" decoding="async"></a></p>
 <video class="mb-5" autoplay loop muted playsinline>
   <source src="./mate-on-freebsd-font-rendering-tweak-results-to-match-macos-2.mp4" type="video/mp4">
   Your browser does not support the video tag.
 </video> 
 <p>Replaced MATE’s UI fonts to <a href="https://github.com/sahibjotsaggu/San-Francisco-Pro-Fonts">SF Pro Display</a>. Put <strong>SF Pro Display, Regular</strong> and <strong>SF Pro Display, Bold</strong> to ~/.fonts folder and set it up in MATE&rsquo;s settings. Add <a href="https://github.com/supercomputra/SF-Mono-Font">SF Mono</a>, for Fixed width fonts too:</p>
-<p><img src="./mate-ui-font-to-match-macos-on-freebsd.png" alt=""></p>
+<p><img src="/blog/2025/mate-on-freebsd-macos-like-setup-guide-font-rendering-ui-tweaks-and-settings/mate-ui-font-to-match-macos-on-freebsd.webp" alt="" width="818" height="622" loading="lazy" decoding="async"></p>
 <p>If you&rsquo;re using dark appearance, set medium version of SF Pro Display, becase in <a href="https://mastodon.social/@alex_deplov/114573131846455250" target="_blank">macOS Apple uses bolder fonts for dark appearances</a>:</p>
-<p><img src="./mate-ui-font-to-match-macos-on-freebsd-dark.png" alt=""></p>
+<p><img src="/blog/2025/mate-on-freebsd-macos-like-setup-guide-font-rendering-ui-tweaks-and-settings/mate-ui-font-to-match-macos-on-freebsd-dark.webp" alt="" width="812" height="611" loading="lazy" decoding="async"></p>
 <p>Font <a href="https://freetype.org/freetype2/docs/reference/ft2-properties.html#no-stem-darkening">rendering</a> needs to be tweaked. In ~/.profile add:</p>
 <div class="highlight"><pre tabindex="0" style="color:#abb2bf;background-color:#282c34;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"><code class="language-sh" data-lang="sh"><span style="display:flex;"><span><span style="color:#e5c07b">export</span> <span style="color:#e06c75">FREETYPE_PROPERTIES</span><span style="color:#56b6c2">=</span><span style="color:#98c379">&#34;cff:no-stem-darkening=0.0 autofitter:no-stem-darkening=0.0&#34;</span>
 </span></span></code></pre></div><p>Set Smoothing to <strong>Grayscale</strong> and <strong>Hinting to None</strong> (I also set font size to be 10 and DPI to 95):</p>
-<p><img src="./mate-ui-font-to-match-macos-on-freebsd-smoothing.png" alt=""></p>
+<p><img src="/blog/2025/mate-on-freebsd-macos-like-setup-guide-font-rendering-ui-tweaks-and-settings/mate-ui-font-to-match-macos-on-freebsd-smoothing.webp" alt="" width="954" height="947" loading="lazy" decoding="async"></p>
 <p>Fonts in macOS (left) vs. MATE (right). You may notice that fonts in macOS appear bolder—not just because Apple often uses semibold and bold weights in the UI, but also due to how macOS renders text. With the settings I provide, you can achieve a look that’s quite similar. It won’t be an exact match, as MATE and macOS handle letter rendering, letters spacing, text color and other typographic details differently, but it will be much closer than MATE’s default appearance:</p>
-<p><a href="./macos-vs-mate-on-freebsd-fonts-to-compare-1.jpg"><img src="./macos-vs-mate-on-freebsd-fonts-to-compare-1.jpg" alt=""></a></p>
-<p><a href="./macos-vs-mate-on-freebsd-fonts-to-compare-2.jpg"><img src="./macos-vs-mate-on-freebsd-fonts-to-compare-2.jpg" alt=""></a></p>
+<p><a href="./macos-vs-mate-on-freebsd-fonts-to-compare-1.jpg"><img src="/blog/2025/mate-on-freebsd-macos-like-setup-guide-font-rendering-ui-tweaks-and-settings/macos-vs-mate-on-freebsd-fonts-to-compare-1_hu_93f87a9e59c654ba.webp" srcset="/blog/2025/mate-on-freebsd-macos-like-setup-guide-font-rendering-ui-tweaks-and-settings/macos-vs-mate-on-freebsd-fonts-to-compare-1_hu_6c8b1711c4428a22.webp 480w, /blog/2025/mate-on-freebsd-macos-like-setup-guide-font-rendering-ui-tweaks-and-settings/macos-vs-mate-on-freebsd-fonts-to-compare-1_hu_6118d2092e7e772b.webp 768w, /blog/2025/mate-on-freebsd-macos-like-setup-guide-font-rendering-ui-tweaks-and-settings/macos-vs-mate-on-freebsd-fonts-to-compare-1_hu_93f87a9e59c654ba.webp 1200w" sizes="(min-width: 768px) 768px, calc(100vw - 2rem)" alt="" width="1200" height="584" loading="lazy" decoding="async"></a></p>
+<p><a href="./macos-vs-mate-on-freebsd-fonts-to-compare-2.jpg"><img src="/blog/2025/mate-on-freebsd-macos-like-setup-guide-font-rendering-ui-tweaks-and-settings/macos-vs-mate-on-freebsd-fonts-to-compare-2_hu_ab50f992deb72d7a.webp" srcset="/blog/2025/mate-on-freebsd-macos-like-setup-guide-font-rendering-ui-tweaks-and-settings/macos-vs-mate-on-freebsd-fonts-to-compare-2_hu_16c4223a0e394fc9.webp 480w, /blog/2025/mate-on-freebsd-macos-like-setup-guide-font-rendering-ui-tweaks-and-settings/macos-vs-mate-on-freebsd-fonts-to-compare-2_hu_e2905607561731ea.webp 768w, /blog/2025/mate-on-freebsd-macos-like-setup-guide-font-rendering-ui-tweaks-and-settings/macos-vs-mate-on-freebsd-fonts-to-compare-2_hu_ab50f992deb72d7a.webp 1200w" sizes="(min-width: 768px) 768px, calc(100vw - 2rem)" alt="" width="1200" height="638" loading="lazy" decoding="async"></a></p>
 <p>In the Appearance settings hide icons from menu and buttons:</p>
-<p><img src="./mate-interface-settings-freebsd.png" alt=""></p>
+<p><img src="/blog/2025/mate-on-freebsd-macos-like-setup-guide-font-rendering-ui-tweaks-and-settings/mate-interface-settings-freebsd.webp" alt="" width="818" height="622" loading="lazy" decoding="async"></p>
 <p>Optional change Firefox fonts in the settings, for Serifs use <a href="https://github.com/yell0wsuit/New-York-fonts" target="_blank">Apple&rsquo;s New York Medium font</a>:</p>
-<p><img src="./freebsd-desktop-to-match-macos-firefox-fonts.png" alt=""></p>
+<p><img src="/blog/2025/mate-on-freebsd-macos-like-setup-guide-font-rendering-ui-tweaks-and-settings/freebsd-desktop-to-match-macos-firefox-fonts.webp" alt="" width="1338" height="859" loading="lazy" decoding="async"></p>
 <hr>
 <h2 id="keyboard_and_mouse">Change Keyboard Shortcuts</h2>
-<p><img src="./mate-keyboard-shortcuts-freebsd-1.png" alt="">
-<img src="./mate-keyboard-shortcuts-freebsd-2.png" alt="">
-<img src="./mate-keyboard-shortcuts-freebsd-3.png" alt=""></p>
+<p><img src="/blog/2025/mate-on-freebsd-macos-like-setup-guide-font-rendering-ui-tweaks-and-settings/mate-keyboard-shortcuts-freebsd-1.webp" alt="" width="657" height="727" loading="lazy" decoding="async">
+<img src="/blog/2025/mate-on-freebsd-macos-like-setup-guide-font-rendering-ui-tweaks-and-settings/mate-keyboard-shortcuts-freebsd-2.webp" alt="" width="657" height="1170" loading="lazy" decoding="async">
+<img src="/blog/2025/mate-on-freebsd-macos-like-setup-guide-font-rendering-ui-tweaks-and-settings/mate-keyboard-shortcuts-freebsd-3.webp" alt="" width="657" height="1170" loading="lazy" decoding="async"></p>
 <h2 id="change-keyboard-preferences">Change Keyboard Preferences</h2>
-<p><img src="./mate-keyboard-preferences-freebsd-1.png" alt="">
-<img src="./mate-keyboard-preferences-freebsd-2.png" alt=""></p>
+<p><img src="/blog/2025/mate-on-freebsd-macos-like-setup-guide-font-rendering-ui-tweaks-and-settings/mate-keyboard-preferences-freebsd-1.webp" alt="" width="520" height="598" loading="lazy" decoding="async">
+<img src="/blog/2025/mate-on-freebsd-macos-like-setup-guide-font-rendering-ui-tweaks-and-settings/mate-keyboard-preferences-freebsd-2.webp" alt="" width="627" height="512" loading="lazy" decoding="async"></p>
 <h2 id="change-mouse-settings">Change Mouse Settings</h2>
-<p><img src="./mate-mouse-settings-freebsd.png" alt=""></p>
+<p><img src="/blog/2025/mate-on-freebsd-macos-like-setup-guide-font-rendering-ui-tweaks-and-settings/mate-mouse-settings-freebsd.webp" alt="" width="534" height="759" loading="lazy" decoding="async"></p>
 <h2 id="change-mate-terminal-shortcuts">Change MATE Terminal Shortcuts</h2>
-<p><img src="./mate-terminal-shortcuts-freebsd.png" alt=""></p>
+<p><img src="/blog/2025/mate-on-freebsd-macos-like-setup-guide-font-rendering-ui-tweaks-and-settings/mate-terminal-shortcuts-freebsd.webp" alt="" width="497" height="1051" loading="lazy" decoding="async"></p>
 <hr>
 <h2 id="interface">Interface settings</h2>
-<p><img src="./mate-window-preferences-to-match-macos-on-freebsd.png" alt="">
-<img src="./mate-window-preferences-titlebar-buttons-position-to-match-macos-on-freebsd.png" alt=""></p>
+<p><img src="/blog/2025/mate-on-freebsd-macos-like-setup-guide-font-rendering-ui-tweaks-and-settings/mate-window-preferences-to-match-macos-on-freebsd.webp" alt="" width="485" height="490" loading="lazy" decoding="async">
+<img src="/blog/2025/mate-on-freebsd-macos-like-setup-guide-font-rendering-ui-tweaks-and-settings/mate-window-preferences-titlebar-buttons-position-to-match-macos-on-freebsd.webp" alt="" width="485" height="490" loading="lazy" decoding="async"></p>
 <h2 id="my-etcrcconf">My /etc/rc.conf</h2>
 <div class="highlight"><pre tabindex="0" style="color:#abb2bf;background-color:#282c34;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"><code class="language-sh" data-lang="sh"><span style="display:flex;"><span><span style="color:#e06c75">dbus_enable</span><span style="color:#56b6c2">=</span><span style="color:#98c379">&#34;YES&#34;</span> 
 </span></span><span style="display:flex;"><span><span style="color:#e06c75">keyrate</span><span style="color:#56b6c2">=</span><span style="color:#98c379">&#34;fast&#34;</span> 
@@ -163,38 +163,38 @@
 </span></span></code></pre></div><hr>
 <h2 id="wallpapers">Wallpapers</h2>
 <p>My favorite wallpapers are from <a href="https://512pixels.net/projects/default-mac-wallpapers-in-5k/">macOS Sequoia and macOS Ventura</a>.</p>
-<p><a href="https://512pixels.net/projects/default-mac-wallpapers-in-5k/"><img src="./freebsd-desktop-macos-wallpapers-in-mate.png" alt=""></a></p>
+<p><a href="https://512pixels.net/projects/default-mac-wallpapers-in-5k/"><img src="/blog/2025/mate-on-freebsd-macos-like-setup-guide-font-rendering-ui-tweaks-and-settings/freebsd-desktop-macos-wallpapers-in-mate.webp" alt="" width="1920" height="1200" loading="lazy" decoding="async"></a></p>
 <hr>
 <h2 id="mate_theme">MATE’s Theme & Icons & Cursors</h2>
 <p>Download <a href="https://www.mate-look.org/p/1403328" target="_blank">WhiteSur-Dark.tar.xz</a> file and unpack it in the ~/.themes, then select in Appearance Preferences:</p>
-<p><img src="./freebsd-desktop-to-match-macos-mate-theme.png" alt=""></p>
+<p><img src="/blog/2025/mate-on-freebsd-macos-like-setup-guide-font-rendering-ui-tweaks-and-settings/freebsd-desktop-to-match-macos-mate-theme.webp" alt="" width="812" height="610" loading="lazy" decoding="async"></p>
 <p>Download icons <a href="https://www.opendesktop.org/p/1661983/" target="_blank">Colloid-Dark</a> file and unpack it in the ~/.icons folder:</p>
-<p><img src="./freebsd-desktop-to-match-macos-mate-theme-icons.png" alt=""></p>
+<p><img src="/blog/2025/mate-on-freebsd-macos-like-setup-guide-font-rendering-ui-tweaks-and-settings/freebsd-desktop-to-match-macos-mate-theme-icons.webp" alt="" width="378" height="501" loading="lazy" decoding="async"></p>
 <p>Unpack cursors <a href="https://www.pling.com/p/1408466" target="_blank">macOS.tar.xz</a> to the ~/.icons:</p>
-<p><img src="./freebsd-desktop-to-match-macos-mate-theme-cursors.png" alt=""></p>
+<p><img src="/blog/2025/mate-on-freebsd-macos-like-setup-guide-font-rendering-ui-tweaks-and-settings/freebsd-desktop-to-match-macos-mate-theme-cursors.webp" alt="" width="378" height="501" loading="lazy" decoding="async"></p>
 <hr>
 <h2 id="file-manager">File Manager</h2>
 <p>I changed the default file manager from Caja to <a href="https://www.freshports.org/x11-fm/thunar/" target="_blank">Thunar</a> because Thunar is visually cleaner and allows you to right-click on categories in the sidebar to change them.</p>
 <p>Caja on top (visually noisy to me), Thunar at the bottom (clean):</p>
-<p><a href="./caja-vs-thunar.jpg"><img src="./caja-vs-thunar.jpg" alt=""></a></p>
+<p><a href="./caja-vs-thunar.jpg"><img src="/blog/2025/mate-on-freebsd-macos-like-setup-guide-font-rendering-ui-tweaks-and-settings/caja-vs-thunar_hu_87684091fb07bbe5.webp" srcset="/blog/2025/mate-on-freebsd-macos-like-setup-guide-font-rendering-ui-tweaks-and-settings/caja-vs-thunar_hu_9263788cfbcba329.webp 480w, /blog/2025/mate-on-freebsd-macos-like-setup-guide-font-rendering-ui-tweaks-and-settings/caja-vs-thunar_hu_ead6f457ee4d1cc3.webp 768w" sizes="(min-width: 768px) 768px, calc(100vw - 2rem)" alt="" width="1118" height="1488" loading="lazy" decoding="async"></a></p>
 <video class="mb-5" autoplay loop muted playsinline>
   <source src="thunar-edit-menu-in-sidebar.mp4" type="video/mp4">
   Your browser does not support the video tag.
 </video> 
 <p>Set Thunar in Mate Settings &gt; Prefrered Applications &gt; System &gt; File Manager:</p>
-<p><img src="./mate-thunar-file-manager.png" alt=""></p>
+<p><img src="/blog/2025/mate-on-freebsd-macos-like-setup-guide-font-rendering-ui-tweaks-and-settings/mate-thunar-file-manager.webp" alt="" width="389" height="422" loading="lazy" decoding="async"></p>
 <p>Change Thunar shortcuts to macOS-like:</p>
-<p><img src="./thunar-macos-shortcuts-on-freebsd.png" alt=""></p>
+<p><img src="/blog/2025/mate-on-freebsd-macos-like-setup-guide-font-rendering-ui-tweaks-and-settings/thunar-macos-shortcuts-on-freebsd.webp" alt="" width="510" height="636" loading="lazy" decoding="async"></p>
 <hr>
 <h2 id="dock">Dock</h2>
 <div class="highlight"><pre tabindex="0" style="color:#abb2bf;background-color:#282c34;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"><code class="language-sh" data-lang="sh"><span style="display:flex;"><span>pkg install -y plank 
 </span></span></code></pre></div><p>I&rsquo;m using <a href="https://www.freshports.org/x11/plank/" target="_blank">x11/plank</a> with GTK+ theme:</p>
-<p><a href="./plank-freebsd-dock-1.png"><img src="./plank-freebsd-dock-1.png" alt=""></a>
-<a href="./plank-freebsd-dock-2.png"><img src="./plank-freebsd-dock-2.png" alt=""></a>
-<a href="./plank-freebsd-dock-3.png"><img src="./plank-freebsd-dock-3.png" alt=""></a></p>
+<p><a href="./plank-freebsd-dock-1.png"><img src="/blog/2025/mate-on-freebsd-macos-like-setup-guide-font-rendering-ui-tweaks-and-settings/plank-freebsd-dock-1.webp" alt="" width="1920" height="1200" loading="lazy" decoding="async"></a>
+<a href="./plank-freebsd-dock-2.png"><img src="/blog/2025/mate-on-freebsd-macos-like-setup-guide-font-rendering-ui-tweaks-and-settings/plank-freebsd-dock-2.webp" alt="" width="1920" height="1200" loading="lazy" decoding="async"></a>
+<a href="./plank-freebsd-dock-3.png"><img src="/blog/2025/mate-on-freebsd-macos-like-setup-guide-font-rendering-ui-tweaks-and-settings/plank-freebsd-dock-3.webp" alt="" width="1920" height="1200" loading="lazy" decoding="async"></a></p>
 <h2 id="hide-desktop-icons">Hide Desktop Icons</h2>
 <p>Open dconf-editor and turn off the system icons on the desktop, including the trash bin, since we have them in the Dock anyway. Org &gt; Mate &gt; Caja &gt; Desktop &gt; volumes-visible:</p>
-<p><img src="./mate-hide-desktop-icons-freebsd.png" alt=""></p>
+<p><img src="/blog/2025/mate-on-freebsd-macos-like-setup-guide-font-rendering-ui-tweaks-and-settings/mate-hide-desktop-icons-freebsd.webp" alt="" width="630" height="840" loading="lazy" decoding="async"></p>
 <h2 id="firefox-settings">Firefox Settings</h2>
 <p>To change CTRL to CMD in Firefox go to about:profiles, find the Default Profile (marked &ldquo;Yes&rdquo;), open that folder, and create a <strong>user.js</strong> file with the following content:</p>
 <div class="highlight"><pre tabindex="0" style="color:#abb2bf;background-color:#282c34;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"><code class="language-sh" data-lang="sh"><span style="display:flex;"><span>user_pref<span style="color:#56b6c2">(</span><span style="color:#98c379">&#34;ui.key.accelKey&#34;</span>, 224<span style="color:#56b6c2">)</span>;
@@ -216,7 +216,7 @@
 </span></span><span style="display:flex;"><span>@theme <span style="color:#98c379">&#34;spotlight&#34;</span>
 </span></span></code></pre></div><p>And then MATE &gt; Control Center &gt; Keyboard Shortcut &gt; Add:</p>
 <div class="highlight"><pre tabindex="0" style="color:#abb2bf;background-color:#282c34;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"><code class="language-sh" data-lang="sh"><span style="display:flex;"><span>rofi -show run -show-icons 
-</span></span></code></pre></div><p><img src="./mate-custom-shortcut.png" alt=""></p>
+</span></span></code></pre></div><p><img src="/blog/2025/mate-on-freebsd-macos-like-setup-guide-font-rendering-ui-tweaks-and-settings/mate-custom-shortcut.webp" alt="" width="428" height="166" loading="lazy" decoding="async"></p>
 <p>And set shortcut to Option + Space or any desired.</p>
 <hr>
 <h2 id="macos-like-shadow-by-using-picom">macOS-like Shadow by Using Picom</h2>
