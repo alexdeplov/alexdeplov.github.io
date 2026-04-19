@@ -51,7 +51,7 @@
     <div class="mx-auto flex mb-6 justify-center">
       <a id="replyViaEmail" target="_blank" rel="noopener"
         class="mx-auto font-bold py-2 px-6 md:px-12 rounded-xl hover:no-underline hover:-translate-y-2 transition-transform duration-300 ease-in-out"
-        href="mailto:dcwrjo84h@mozmail.com?subject=interfacecraft_online: {{ .Title | urlquery }}">
+        href="{{ printf "mailto:dcwrjo84h@mozmail.com?subject=%s" (replace (urlquery (printf "interfacecraft_online: %s" .Title)) "+" "%20") | safeURL }}">
         Reply via Email
       </a>
     </div>
