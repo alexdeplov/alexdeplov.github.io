@@ -1,5 +1,6 @@
 +++
 title = "UI Elements: Understanding Their Purpose for Effective Design"
+short_title = "UI Elements and Purpose"
 date = 2024-09-10T14:08:34+02:00
 aliases = ["/posts/blog/2024/ui-elements-understanding-their-purpose-for-effective-design/"]
 draft = false

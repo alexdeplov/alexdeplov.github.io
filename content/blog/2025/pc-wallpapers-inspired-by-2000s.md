@@ -1,5 +1,6 @@
 +++
 title = "PC Wallpapers Inspired by 2000s"
+short_title = "2000s PC Wallpapers"
 date = 2025-04-29T11:06:19+01:00
 aliases = ["/posts/blog/2025/pc-wallpapers-inspired-by-2000s/"]
 draft = false

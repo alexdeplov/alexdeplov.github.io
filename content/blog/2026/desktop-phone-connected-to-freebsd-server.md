@@ -1,5 +1,6 @@
 +++
 title = "I Connected a Desktop Phone to a FreeBSD Server, so Now I Can Call It"
+short_title = "Desktop Phone on FreeBSD"
 date = 2026-04-14T09:00:00-04:00
 aliases = ["/posts/blog/2026/life-before-smartphones-late-90s-early-2000s/"]
 draft = false

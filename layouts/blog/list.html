@@ -121,7 +121,7 @@
         <article class="group">
             <a href="{{ .RelPermalink }}" class="post-title-link block">
                 <div class="">
-                    <h2 class="text-xl font-bold mb-1">{{ .Title }}{{ if .Params.featured }}<span class="blog-post-star" aria-hidden="true">★</span>{{ end }}</h2>
+                    <h2 class="text-xl font-bold mb-1">{{ with .Params.short_title }}{{ . }}{{ else }}{{ .Title }}{{ end }}{{ if .Params.featured }}<span class="blog-post-star" aria-hidden="true">★</span>{{ end }}</h2>
                 </div>
             </a>
             <div class="text-sm mb-3 font-normal text-zinc-400" >

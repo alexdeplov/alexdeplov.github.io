@@ -1,5 +1,6 @@
 +++
 title = "Can Cheap MiniPC with FreeBSD 14 Outperform MacBook Pro M1 Pro?"
+short_title = "FreeBSD Mini PC Benchmark"
 date = 2025-02-05T22:25:51+01:00  
 aliases = ["/posts/blog/2025/can-cheap-minipc-with-freebsd-14-outperform-macbook-pro-m1-pro/"]
 draft = false

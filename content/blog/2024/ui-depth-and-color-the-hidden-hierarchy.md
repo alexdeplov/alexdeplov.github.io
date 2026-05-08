@@ -1,5 +1,6 @@
 +++
 title = 'Dark UI Depth – The Hidden Hierarchy'
+short_title = "Dark UI Depth"
 date = 2024-06-20T20:38:00+02:00
 aliases = ["/posts/blog/2024/ui-depth-and-color-the-hidden-hierarchy/"]
 draft = false
@@ -33,7 +34,6 @@ If you have multiple layers of surfaces, you can remove another layer to check t
 ![](images/3.jpg)
 
 If you have a noisy, chaotic structure, your foundation is not well done and should be improved, because users will feel it, they will scan it, and it takes more cognitive energy to do that. 
-
 
 
 

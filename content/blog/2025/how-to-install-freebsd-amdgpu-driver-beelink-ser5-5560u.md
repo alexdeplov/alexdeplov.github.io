@@ -1,5 +1,6 @@
 ---
 title: "How to Install the FreeBSD AMDGPU Driver on a Beelink SER5 5560U"
+short_title: "FreeBSD AMDGPU Driver"
 date: 2025-05-22T22:45:11+02:00
 aliases:
   - /posts/blog/2025/how-to-install-freebsd-amdgpu-driver-beelink-ser5-5560u/
@@ -112,4 +113,3 @@ DisplayPort-2 connected
 ```
 
 Everything should be up and running now. Proceed with further desktop and app configuration.
-

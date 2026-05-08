@@ -1,5 +1,6 @@
 ---
 title: "MATE on FreeBSD: macOS-Like Setup Guide: Font Rendering, UI Tweaks, and Settings"
+short_title: "MATE on FreeBSD"
 date: 2025-05-23T20:38:13+02:00
 aliases:
   - /posts/blog/2025/mate-on-freebsd-macos-like-setup-guide-font-rendering-ui-tweaks-and-settings/
@@ -292,4 +293,3 @@ WIP: Method for comparing Picom settings 1:1 to the macOS window shadow.
 ## Similar Articles
 
 - [Comparing Performance of MacBook Pro M1 Pro to mini PC on FreeBSD](https://interfacecraft.online/blog/2025/freebsd-vs-macos-for-daily-use-my-personal-migration-story/)
-

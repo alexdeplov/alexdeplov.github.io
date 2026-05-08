@@ -1,5 +1,6 @@
 +++
 title = "My iOS & macOS App Icons Design Gallery"
+short_title = "App Icons Gallery"
 date = 2024-10-23T21:44:06+02:00
 draft = false
 featured = false

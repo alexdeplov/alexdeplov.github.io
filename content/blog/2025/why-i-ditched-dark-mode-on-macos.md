@@ -1,5 +1,6 @@
 ---
 title: "Why I Ditched Dark Mode on macOS"
+short_title: "Ditching Dark Mode"
 date: 2025-09-07T22:42:50+02:00
 draft: false
 tags: ["macOS", "design"]

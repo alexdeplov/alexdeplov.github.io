@@ -1,5 +1,6 @@
 +++
 title = 'Making Mobile Game for Toddlers'
+short_title = "Toddler Game"
 date = 2024-06-26T12:08:12+02:00
 aliases = ["/posts/blog/2024/making-mobile-game-for-toddlers/"]
 draft = false

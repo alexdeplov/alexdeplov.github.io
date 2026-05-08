@@ -1,5 +1,6 @@
 ---
 title: "How to Match FreeBSD’s YouTube Loading Speed on macOS"
+short_title: "FreeBSD YouTube Speed"
 date: 2025-11-25T12:55:15+01:00
 draft: false
 tags: ["FreeBSD", "macOS"]
@@ -85,4 +86,3 @@ sudo sysctl -w kern.ipc.somaxconn=128
 
 ```
 Or erase /etc/sysctl.conf and reboot. 
-

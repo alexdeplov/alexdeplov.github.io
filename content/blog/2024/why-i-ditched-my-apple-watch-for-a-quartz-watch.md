@@ -1,5 +1,6 @@
 +++
 title = "Why I Ditched My Apple Watch for a Quartz Watch—and Never Looked Back"
+short_title = "Apple Watch to Quartz Watch"
 date = 2024-11-20T21:37:37+01:00
 aliases = ["/posts/blog/2024/why-i-ditched-my-apple-watch-for-a-quartz-watch/"]
 draft = false
@@ -74,5 +75,4 @@ I like that my new Citizen watch has these characteristics:
 As it turns out, I’m not the only one:
 - https://www.reddit.com/r/apple/comments/10kw4ke/people_in_the_apple_ecosystem_who_got_rid_of/
 ![](https://cdn.thewirecutter.com/wp-content/media/2023/06/20230606_fitnesstrackerupdate_1024px@2x.png?auto=webp&quality=60&width=570&dpr=2)
-
 

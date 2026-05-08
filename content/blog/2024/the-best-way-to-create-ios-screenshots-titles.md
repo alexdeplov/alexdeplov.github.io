@@ -1,5 +1,6 @@
 +++
 title = "The Best Way to Create iOS Screenshots Titles"
+short_title = "iOS Screenshot Titles"
 date = 2024-10-25T11:08:10+02:00
 aliases = ["/posts/blog/2024/the-best-way-to-create-ios-screenshots-titles/"]
 draft = false
@@ -50,4 +51,3 @@ Screenshot 2:
 1. Start with text first; don't rely on screenshots initially. People usually read the text first anyway.
 2. Focus on benefits from the perspective of "Here's what you can do with our product."
 3. Assume the user has no context. Make each statement clear so the user doesn't have to ask, "Why? Why would I need to do that?"
-

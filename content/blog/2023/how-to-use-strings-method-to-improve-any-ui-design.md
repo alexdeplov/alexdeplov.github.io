@@ -1,5 +1,6 @@
 +++
 title = 'How to Use Strings Method to Improve Any App UI Design'
+short_title = "Strings Method for UI Design"
 date = 2023-08-15T20:41:08+02:00
 aliases = ["/posts/blog/2023/how-to-use-strings-method-to-improve-any-ui-design/"]
 draft = false

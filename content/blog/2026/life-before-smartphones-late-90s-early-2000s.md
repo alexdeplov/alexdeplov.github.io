@@ -1,5 +1,6 @@
 +++
 title = "Life before Smartphones: Late 90s and Early 2000s"
+short_title = "Before Smartphones"
 date = 2026-03-31T12:00:00+02:00
 aliases = ["/posts/blog/2026/life-before-smartphones-late-90s-early-2000s/"]
 draft = false
@@ -152,5 +153,4 @@ Some phone calls had amazing sound quality. I remember being on the phone to my 
 ### Media and culture
 
 Movies and games already looked modern by the standards of the time, but today many of them feel strangely naive in a good way. The atmosphere of that era is still strongly associated with titles like *The Matrix*, *Fight Club*, *Terminator 2*, *RoboCop*, *Alien*, and *The Animatrix*.
-
 

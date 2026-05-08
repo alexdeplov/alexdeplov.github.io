@@ -1,5 +1,6 @@
 ---
 title: "Comparing Performance of MacBook Pro M1 Pro to Mini PC on FreeBSD"
+short_title: "FreeBSD Mini PC vs MacBook Pro"
 date: 2025-05-19T22:15:36+02:00
 aliases:
   - /posts/blog/2025/freebsd-vs-macos-for-daily-use-my-personal-migration-story/
