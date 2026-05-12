@@ -25,14 +25,17 @@ It recommends next settings:
 # Increase max socket buffer sizes (yours are fine)
 sudo sysctl -w net.inet.tcp.sendspace=1048576
 sudo sysctl -w net.inet.tcp.recvspace=2097152
+```
 
-# These actually work on macOS:
+These actually work on macOS:
+
+```js
 sudo sysctl -w net.inet.tcp.win_scale_factor=8
-sudo sysctl -w net.inet.tcp.delayed_ack=0       # disable delayed ACK — helps s$
+sudo sysctl -w net.inet.tcp.delayed_ack=0       # disable delayed ACK — helps seeking feel more instant
 sudo sysctl -w net.inet.tcp.mssdflt=1440        # safe MSS for most connections
 sudo sysctl -w net.inet.tcp.doautorcvbuf=1      # enable auto receive buffer
 sudo sysctl -w net.inet.tcp.doautosndbuf=1      # enable auto send buffer
-sudo sysctl -w kern.ipc.maxsockbuf=8388608      # kernel max socket buffer — im$
+sudo sysctl -w kern.ipc.maxsockbuf=8388608      # kernel max socket buffer — important for larger TCP buffers
 sudo sysctl -w kern.ipc.somaxconn=1024
 
 ```
@@ -51,22 +54,25 @@ media.cache_resume_threshold = 60
 
 To make it permanent:
 
-sudo nano /etc/sysctl.conf:
+```sh
+sudo nano /etc/sysctl.conf
+```
 
-```js
+Put only the sysctl values in that file:
 
-# Increase max socket buffer sizes (yours are fine)
-sudo sysctl -w net.inet.tcp.sendspace=1048576
-sudo sysctl -w net.inet.tcp.recvspace=2097152
+```sh
+# Increase max socket buffer sizes
+net.inet.tcp.sendspace=1048576
+net.inet.tcp.recvspace=2097152
 
-# These actually work on macOS:
-sudo sysctl -w net.inet.tcp.win_scale_factor=8
-sudo sysctl -w net.inet.tcp.delayed_ack=0       # disable delayed ACK — helps s$
-sudo sysctl -w net.inet.tcp.mssdflt=1440        # safe MSS for most connections
-sudo sysctl -w net.inet.tcp.doautorcvbuf=1      # enable auto receive buffer
-sudo sysctl -w net.inet.tcp.doautosndbuf=1      # enable auto send buffer
-sudo sysctl -w kern.ipc.maxsockbuf=8388608      # kernel max socket buffer — im$
-sudo sysctl -w kern.ipc.somaxconn=1024
+# These actually work on macOS
+net.inet.tcp.win_scale_factor=8
+net.inet.tcp.delayed_ack=0       # disable delayed ACK — helps seeking feel more instant
+net.inet.tcp.mssdflt=1440        # safe MSS for most connections
+net.inet.tcp.doautorcvbuf=1      # enable auto receive buffer
+net.inet.tcp.doautosndbuf=1      # enable auto send buffer
+kern.ipc.maxsockbuf=8388608      # kernel max socket buffer — important for larger TCP buffers
+kern.ipc.somaxconn=1024
 
 ```
 
