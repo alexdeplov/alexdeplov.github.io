@@ -172,15 +172,6 @@ $(document).ready(function () {
     var cnvCornerLbl = document.getElementById('cnv-corner-lbl')
     var cnvRotateLbl = document.getElementById('cnv-rotate-lbl')
     var cnvStrokeLbl = document.getElementById('cnv-stroke-lbl')
-    var canvasToggle = document.getElementById('canvas-controls-toggle')
-    var canvasToggleLabel = document.getElementById('canvas-controls-toggle-label')
-    var canvasPanel = document.getElementById('canvas-controls-panel')
-
-    canvasToggle.addEventListener('change', function () {
-        canvasPanel.style.display = this.checked ? 'block' : 'none'
-        canvasToggleLabel.classList.toggle('active', this.checked)
-    })
-
     cnvScale.oninput = function () {
         scale = this.value
         createPath()

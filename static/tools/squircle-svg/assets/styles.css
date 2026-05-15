@@ -247,44 +247,6 @@ header{
   z-index: 0;
 }
 
-/* Canvas controls toggle */
-#canvas-controls-toggle-label {
-  position: absolute;
-  top: 12px;
-  left: 12px;
-  z-index: 10;
-  cursor: pointer;
-  width: 32px;
-  height: 32px;
-  background: var(--roundedButtonBeigeBackground);
-  border-radius: 8px;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  box-shadow: 0 2px 8px rgba(0,0,0,0.1);
-  color: #aaa;
-  transition: color 0.2s, box-shadow 0.2s, background 0.2s;
-}
-
-#canvas-controls-toggle-label:hover {
-  background: var(--roundedButtonBeigeBackgroundFocus);
-  box-shadow: 0 3px 12px rgba(0,0,0,0.16);
-  color: #888;
-}
-
-#canvas-controls-toggle {
-  display: none;
-}
-
-#canvas-controls-toggle:checked ~ * {
-  /* handled via JS */
-}
-
-#canvas-controls-toggle-label.active {
-  color: var(--accentBlue);
-  box-shadow: 0 3px 12px rgba(0, 26, 255, 0.2);
-}
-
 /* Canvas overlay panel */
 #canvas-controls-panel {
   display: none;
