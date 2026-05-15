@@ -1,0 +1,627 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>WebGL Horizontal Slice & Shift - Linked Controls</title>
+    <style>
+        body {
+            margin: 0;
+            padding: 0;
+            display: flex;
+            height: 100vh;
+            background-color: #0d0d0d;
+            color: #ececec;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            overflow: hidden;
+        }
+
+        #controls {
+            width: 340px;
+            background-color: #1a1a1a;
+            padding: 20px;
+            box-shadow: 2px 0 10px rgba(0, 0, 0, 0.5);
+            overflow-y: auto;
+            display: flex;
+            flex-direction: column;
+            gap: 15px;
+            z-index: 10;
+        }
+
+        h2 {
+            margin-top: 0;
+            font-size: 18px;
+            border-bottom: 1px solid #333;
+            padding-bottom: 10px;
+        }
+
+        .control-group {
+            display: flex;
+            flex-direction: column;
+            border-bottom: 1px solid #2a2a2a;
+            padding-bottom: 10px;
+        }
+
+        .control-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 5px;
+        }
+
+        .control-label {
+            font-size: 13px;
+            flex-grow: 1;
+        }
+
+        .control-label span {
+            color: #4CAF50;
+            font-weight: bold;
+        }
+
+        .link-tools {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            margin-left: 10px;
+        }
+
+        .link-tools label {
+            font-size: 10px;
+            color: #888;
+            display: flex;
+            align-items: center;
+            gap: 2px;
+        }
+
+        input[type="range"] {
+            width: 100%;
+            cursor: pointer;
+        }
+
+        button {
+            padding: 10px;
+            background-color: #4CAF50;
+            color: white;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+            font-size: 14px;
+            font-weight: bold;
+            transition: background-color 0.2s;
+            margin-top: 5px;
+        }
+
+        button:hover {
+            background-color: #45a049;
+        }
+
+        .btn-secondary {
+            background-color: #2196F3;
+        }
+
+        #canvas-container {
+            flex-grow: 1;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            padding: 20px;
+            overflow: hidden;
+        }
+
+        canvas {
+            max-width: 100%;
+            max-height: 100%;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.8);
+            background: #000;
+        }
+
+        /* Checkbox styling */
+        input[type="checkbox"] {
+            cursor: pointer;
+            accent-color: #4CAF50;
+        }
+
+
+        .toggle-row {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            font-size: 13px;
+            color: #ccc;
+            cursor: pointer;
+            user-select: none;
+        }
+    </style>
+</head>
+
+<body>
+    <div id="controls">
+        <h2>Advanced Horizontal Shift</h2>
+
+        <input type="file" id="imageUpload" accept="image/*">
+
+        <div class="control-group" data-id="sliceWidth">
+            <div class="control-header">
+                <div class="control-label">Slice Width <span id="sliceWidthVal">0.078</span></div>
+                <div class="link-tools">
+                    <label title="Link Slider"><input type="checkbox" class="link-check">🔗</label>
+                    <label title="Invert Logic"><input type="checkbox" class="invert-check">+/-</label>
+                </div>
+            </div>
+            <input type="range" id="sliceWidth" min="0.001" max="0.5" step="0.001" value="0.078">
+        </div>
+
+        <div class="control-group" data-id="spacing">
+            <div class="control-header">
+                <div class="control-label">Slice Spacing <span id="spacingVal">0.000</span></div>
+                <div class="link-tools">
+                    <label><input type="checkbox" class="link-check">🔗</label>
+                    <label><input type="checkbox" class="invert-check">+/-</label>
+                </div>
+            </div>
+            <input type="range" id="spacing" min="0.0" max="0.5" step="0.001" value="0.000">
+        </div>
+
+        <div class="control-group" data-id="start">
+            <div class="control-header">
+                <div class="control-label">Region Start (X) <span id="startVal">0.00</span></div>
+                <div class="link-tools">
+                    <label><input type="checkbox" class="link-check">🔗</label>
+                    <label><input type="checkbox" class="invert-check">+/-</label>
+                </div>
+            </div>
+            <input type="range" id="start" min="0" max="1" step="0.01" value="0.00">
+        </div>
+
+        <div class="control-group" data-id="end">
+            <div class="control-header">
+                <div class="control-label">Region End (X) <span id="endVal">1.0</span></div>
+                <div class="link-tools">
+                    <label><input type="checkbox" class="link-check">🔗</label>
+                    <label><input type="checkbox" class="invert-check">+/-</label>
+                </div>
+            </div>
+            <input type="range" id="end" min="0" max="1" step="0.01" value="0.54">
+        </div>
+
+        <div class="control-group" data-id="shift">
+            <div class="control-header">
+                <div class="control-label">Incremental Shift <span id="shiftVal">0.04</span></div>
+                <div class="link-tools">
+                    <label><input type="checkbox" class="link-check">🔗</label>
+                    <label><input type="checkbox" class="invert-check">+/-</label>
+                </div>
+            </div>
+            <input type="range" id="shift" min="-1" max="1" step="0.01" value="0.04">
+        </div>
+
+        <div class="control-group" data-id="shiftCurve">
+            <div class="control-header">
+                <div class="control-label">Shift Curve <span id="shiftCurveVal">1.0</span></div>
+                <div class="link-tools">
+                    <label><input type="checkbox" class="link-check">🔗</label>
+                    <label><input type="checkbox" class="invert-check">+/-</label>
+                </div>
+            </div>
+            <input type="range" id="shiftCurve" min="-10" max="10" step="0.1" value="1.0">
+        </div>
+
+
+        <div class="control-group" data-id="texx">
+            <div class="control-header">
+                <div class="control-label">Texture Base X <span id="texxVal">0.04</span></div>
+                <div class="link-tools">
+                    <label><input type="checkbox" class="link-check">🔗</label>
+                    <label><input type="checkbox" class="invert-check">+/-</label>
+                </div>
+            </div>
+            <input type="range" id="texx" min="-1" max="1" step="0.01" value="0.04">
+        </div>
+
+        <div class="control-group" data-id="texScaleX">
+            <div class="control-header">
+                <div class="control-label">Texture Scale (X) <span id="texScaleXVal">0.74</span></div>
+                <div class="link-tools">
+                    <label><input type="checkbox" class="link-check">🔗</label>
+                    <label><input type="checkbox" class="invert-check">+/-</label>
+                </div>
+            </div>
+            <input type="range" id="texScaleX" min="0.1" max="3.0" step="0.01" value="0.74">
+        </div>
+
+        <div class="control-group" data-id="sliceInnerScale">
+            <div class="control-header">
+                <div class="control-label">Inner Compression <span id="sliceInnerScaleVal">5.00</span></div>
+                <div class="link-tools">
+                    <label><input type="checkbox" class="link-check">🔗</label>
+                    <label><input type="checkbox" class="invert-check">+/-</label>
+                </div>
+            </div>
+            <input type="range" id="sliceInnerScale" min="-10.0" max="10.0" step="0.01" value="5">
+        </div>
+
+        <div class="control-group" data-id="sliceInnerCurve">
+            <div class="control-header">
+                <div class="control-label">Inner Curve <span id="sliceInnerCurveVal">5.0</span></div>
+                <div class="link-tools">
+                    <label><input type="checkbox" class="link-check">🔗</label>
+                    <label><input type="checkbox" class="invert-check">+/-</label>
+                </div>
+            </div>
+            <input type="range" id="sliceInnerCurve" min="-10" max="10" step="0.1" value="5.0">
+        </div>
+
+        <div class="control-group" data-id="centerSliceScale">
+            <div class="control-header">
+                <div class="control-label">Scale Slices From Center <span id="centerSliceScaleVal">Off</span></div>
+            </div>
+            <label class="toggle-row" title="When enabled, Inner Curve and Inner Compression are calculated outward from each slice center.">
+                <input type="checkbox" id="centerSliceScale">
+                Use center as scale/multiply origin
+            </label>
+        </div>
+
+        <hr style="border-color: #333; width: 100%; margin: 5px 0;">
+        <button id="setSliceCountBtn" class="btn-secondary">Set Exact Slice Amount</button>
+        <button id="exportBtn">Export as PNG</button>
+    </div>
+
+    <div id="canvas-container">
+        <canvas id="webgl-canvas"></canvas>
+    </div>
+
+    <script>
+        const canvas = document.getElementById('webgl-canvas');
+        const gl = canvas.getContext('webgl', { preserveDrawingBuffer: true }) || canvas.getContext('experimental-webgl', { preserveDrawingBuffer: true });
+
+        // Vertex Shader
+        const vertexShaderSource = `
+            attribute vec2 a_position;
+            attribute vec2 a_texCoord;
+            varying vec2 v_texCoord;
+            void main() {
+                gl_Position = vec4(a_position, 0.0, 1.0);
+                v_texCoord = a_texCoord;
+            }
+        `;
+
+        // Fragment Shader (Your original logic)
+        const fragmentShaderSource = `
+            precision mediump float;
+            varying vec2 v_texCoord;
+            uniform sampler2D u_image;
+            uniform float u_sliceWidth;
+            uniform float u_spacing;
+            uniform float u_start;
+            uniform float u_end;
+            uniform float u_shift;
+            uniform float u_shiftCurve;
+            uniform float u_texX;
+            uniform float u_texScaleX;
+            uniform float u_sliceInnerScale; 
+            uniform float u_sliceInnerCurve;
+            uniform float u_centerSliceScale;
+
+            void main() {
+                vec2 uv = v_texCoord;
+                float totalShift = 0.0;
+                float innerDistortion = 0.0; 
+                bool isGap = false;
+
+                if (uv.x >= u_start && uv.x <= u_end && u_start < u_end) {
+                    float cellWidth = max(u_sliceWidth + u_spacing, 0.0001);
+                    float offsetX = uv.x - u_start;
+                    float sliceIndex = floor(offsetX / cellWidth);
+                    float localX = mod(offsetX, cellWidth);
+                    
+                    if (localX > u_sliceWidth) {
+                        isGap = true; 
+                    } else {
+                        float totalPossibleSlices = floor((u_end - u_start) / cellWidth);
+                        float progress = (totalPossibleSlices > 1.0) ? sliceIndex / (totalPossibleSlices - 1.0) : 0.0;
+                        float curvedProgress = pow(progress, u_shiftCurve);
+                        totalShift = curvedProgress * u_shift;
+                        float localX_norm = localX / u_sliceWidth;
+                        float target_norm;
+
+                        if (u_centerSliceScale > 0.5) {
+                            // Center-based mode: curve and compression/multiplication expand from the slice center.
+                            float centered = (localX_norm - 0.5) * 2.0;
+                            float centerSign = sign(centered);
+                            float centerDistance = max(abs(centered), 0.0001);
+                            float curvedCentered = centerSign * pow(centerDistance, u_sliceInnerCurve);
+                            target_norm = 0.5 + (curvedCentered * 0.5 * u_sliceInnerScale);
+                        } else {
+                            // Original mode: curve starts from the slice's left edge, then scales around center.
+                            target_norm = pow(localX_norm, u_sliceInnerCurve);
+                            target_norm = ((target_norm - 0.5) * u_sliceInnerScale) + 0.5;
+                        }
+
+                        float targetGlobalX = u_start + sliceIndex * cellWidth + (target_norm * u_sliceWidth);
+                        innerDistortion = targetGlobalX - uv.x;
+                    }
+                }
+
+                uv.x = ((uv.x + innerDistortion - totalShift - u_texX - 0.5) * u_texScaleX) + 0.5;
+
+                if (isGap || uv.x < 0.0 || uv.x > 1.0 || uv.y < 0.0 || uv.y > 1.0) {
+                    gl_FragColor = vec4(0.0, 0.0, 0.0, 0.0);
+                } else {
+                    gl_FragColor = texture2D(u_image, uv);
+                }
+            }
+        `;
+
+        function compileShader(type, source) {
+            const shader = gl.createShader(type);
+            gl.shaderSource(shader, source);
+            gl.compileShader(shader);
+            return shader;
+        }
+
+        const vertexShader = compileShader(gl.VERTEX_SHADER, vertexShaderSource);
+        const fragmentShader = compileShader(gl.FRAGMENT_SHADER, fragmentShaderSource);
+        const program = gl.createProgram();
+        gl.attachShader(program, vertexShader);
+        gl.attachShader(program, fragmentShader);
+        gl.linkProgram(program);
+        gl.useProgram(program);
+
+        // Buffers
+        const positions = new Float32Array([-1, -1, 1, -1, -1, 1, -1, 1, 1, -1, 1, 1]);
+        const texCoords = new Float32Array([0, 1, 1, 1, 0, 0, 0, 0, 1, 1, 1, 0]);
+
+        const positionBuffer = gl.createBuffer();
+        gl.bindBuffer(gl.ARRAY_BUFFER, positionBuffer);
+        gl.bufferData(gl.ARRAY_BUFFER, positions, gl.STATIC_DRAW);
+        const positionLocation = gl.getAttribLocation(program, "a_position");
+        gl.enableVertexAttribArray(positionLocation);
+        gl.vertexAttribPointer(positionLocation, 2, gl.FLOAT, false, 0, 0);
+
+        const texCoordBuffer = gl.createBuffer();
+        gl.bindBuffer(gl.ARRAY_BUFFER, texCoordBuffer);
+        gl.bufferData(gl.ARRAY_BUFFER, texCoords, gl.STATIC_DRAW);
+        const texCoordLocation = gl.getAttribLocation(program, "a_texCoord");
+        gl.enableVertexAttribArray(texCoordLocation);
+        gl.vertexAttribPointer(texCoordLocation, 2, gl.FLOAT, false, 0, 0);
+
+        const locations = {
+            sliceWidth: gl.getUniformLocation(program, "u_sliceWidth"),
+            spacing: gl.getUniformLocation(program, "u_spacing"),
+            start: gl.getUniformLocation(program, "u_start"),
+            end: gl.getUniformLocation(program, "u_end"),
+            shift: gl.getUniformLocation(program, "u_shift"),
+            shiftCurve: gl.getUniformLocation(program, "u_shiftCurve"),
+            texX: gl.getUniformLocation(program, "u_texX"),
+            texScaleX: gl.getUniformLocation(program, "u_texScaleX"),
+            sliceInnerScale: gl.getUniformLocation(program, "u_sliceInnerScale"),
+            sliceInnerCurve: gl.getUniformLocation(program, "u_sliceInnerCurve"),
+            centerSliceScale: gl.getUniformLocation(program, "u_centerSliceScale")
+        };
+
+        const texture = gl.createTexture();
+        gl.bindTexture(gl.TEXTURE_2D, texture);
+        gl.texParameteri(gl.TEXTURE_2D, gl.TEXTURE_WRAP_S, gl.CLAMP_TO_EDGE);
+        gl.texParameteri(gl.TEXTURE_2D, gl.TEXTURE_WRAP_T, gl.CLAMP_TO_EDGE);
+        gl.texParameteri(gl.TEXTURE_2D, gl.TEXTURE_MIN_FILTER, gl.LINEAR);
+
+        function updateTexture(imageSource) {
+            canvas.width = imageSource.width;
+            canvas.height = imageSource.height;
+            gl.viewport(0, 0, gl.canvas.width, gl.canvas.height);
+            gl.bindTexture(gl.TEXTURE_2D, texture);
+            gl.texImage2D(gl.TEXTURE_2D, 0, gl.RGBA, gl.RGBA, gl.UNSIGNED_BYTE, imageSource);
+            draw();
+        }
+
+        function draw() {
+            gl.clearColor(0, 0, 0, 0);
+            gl.clear(gl.COLOR_BUFFER_BIT);
+            Object.keys(locations).forEach(key => {
+                const el = document.getElementById(key === 'texx' ? 'texx' : key);
+                if (el) {
+                    const value = el.type === 'checkbox' ? (el.checked ? 1.0 : 0.0) : parseFloat(el.value);
+                    gl.uniform1f(locations[key], value);
+                }
+            });
+            gl.drawArrays(gl.TRIANGLES, 0, 6);
+        }
+
+        // --- LINKING LOGIC ---
+
+        const sliders = Array.from(document.querySelectorAll('input[type="range"]'));
+        const sliderState = {};       // Current normalized 0-1 values.
+        let linkDragSnapshot = null;  // Values captured at the start of a drag.
+        let activeLinkedSlider = null;
+        let isUpdatingLinkedSliders = false;
+
+        function clamp(value, min = 0, max = 1) {
+            return Math.max(min, Math.min(max, value));
+        }
+
+        function getNormalizedValue(el) {
+            const min = parseFloat(el.min);
+            const max = parseFloat(el.max);
+            if (max === min) return 0;
+            return clamp((parseFloat(el.value) - min) / (max - min));
+        }
+
+        function getStepDecimals(el) {
+            const step = el.step || "0.01";
+            if (step === "any" || !step.includes('.')) return 0;
+            return step.split('.')[1].length;
+        }
+
+        function updateValueLabel(el) {
+            const label = document.getElementById(el.id + 'Val');
+            if (!label) return;
+            label.innerText = parseFloat(el.value).toFixed(getStepDecimals(el));
+        }
+
+        function setFromNormalizedValue(el, norm) {
+            const min = parseFloat(el.min);
+            const max = parseFloat(el.max);
+            const step = parseFloat(el.step);
+            let val = clamp(norm) * (max - min) + min;
+
+            // Snap to the slider's step so the displayed value and real value stay aligned.
+            if (!Number.isNaN(step) && step > 0) {
+                val = Math.round((val - min) / step) * step + min;
+            }
+
+            val = Math.max(min, Math.min(max, val));
+            el.value = val;
+            updateValueLabel(el);
+            sliderState[el.id] = getNormalizedValue(el);
+        }
+
+        function getLinkedRangeGroups() {
+            return Array.from(document.querySelectorAll('.control-group'))
+                .map(group => ({
+                    group,
+                    slider: group.querySelector('input[type="range"]'),
+                    link: group.querySelector('.link-check'),
+                    invert: group.querySelector('.invert-check')
+                }))
+                .filter(item => item.slider && item.link);
+        }
+
+        function refreshSliderState() {
+            sliders.forEach(slider => {
+                sliderState[slider.id] = getNormalizedValue(slider);
+            });
+        }
+
+        function startLinkedDrag(activeSlider) {
+            activeLinkedSlider = activeSlider;
+            refreshSliderState();
+            linkDragSnapshot = {};
+            sliders.forEach(slider => {
+                linkDragSnapshot[slider.id] = sliderState[slider.id];
+            });
+        }
+
+        function finishLinkedDrag() {
+            refreshSliderState();
+            linkDragSnapshot = null;
+            activeLinkedSlider = null;
+        }
+
+        function applyLinkedSliderMove(activeSlider) {
+            if (!linkDragSnapshot || activeLinkedSlider !== activeSlider) {
+                startLinkedDrag(activeSlider);
+            }
+
+            const activeGroup = activeSlider.closest('.control-group');
+            const activeLink = activeGroup && activeGroup.querySelector('.link-check');
+            const activeInvert = activeGroup && activeGroup.querySelector('.invert-check');
+            const activeIsLinked = activeLink && activeLink.checked;
+            const activeSign = activeInvert && activeInvert.checked ? -1 : 1;
+
+            // Use the drag-start snapshot as the source of truth. This avoids compounded drift
+            // when many linked sliders update each other across multiple input events.
+            const activeNorm = getNormalizedValue(activeSlider);
+            const activeStartNorm = linkDragSnapshot[activeSlider.id];
+            const signedDelta = (activeNorm - activeStartNorm) * activeSign;
+
+            updateValueLabel(activeSlider);
+            sliderState[activeSlider.id] = activeNorm;
+
+            if (!activeIsLinked) return;
+
+            isUpdatingLinkedSliders = true;
+            getLinkedRangeGroups().forEach(({ slider, link, invert }) => {
+                if (slider === activeSlider || !link.checked) return;
+
+                const targetSign = invert && invert.checked ? -1 : 1;
+                const targetStartNorm = linkDragSnapshot[slider.id];
+                const targetNorm = targetStartNorm + (signedDelta * targetSign);
+                setFromNormalizedValue(slider, targetNorm);
+            });
+            isUpdatingLinkedSliders = false;
+        }
+
+        // Initialize state and handlers.
+        refreshSliderState();
+        sliders.forEach(input => {
+            input.addEventListener('pointerdown', () => startLinkedDrag(input));
+            input.addEventListener('touchstart', () => startLinkedDrag(input), { passive: true });
+            input.addEventListener('keydown', () => startLinkedDrag(input));
+
+            input.addEventListener('input', (e) => {
+                if (isUpdatingLinkedSliders) return;
+                applyLinkedSliderMove(e.target);
+                refreshSliderState();
+                draw();
+            });
+        });
+
+        window.addEventListener('pointerup', finishLinkedDrag);
+        window.addEventListener('touchend', finishLinkedDrag);
+        window.addEventListener('keyup', finishLinkedDrag);
+
+        document.getElementById('centerSliceScale').addEventListener('change', (e) => {
+            document.getElementById('centerSliceScaleVal').innerText = e.target.checked ? 'On' : 'Off';
+            draw();
+        });
+
+        // --- REST OF ORIGINAL HANDLERS ---
+
+        document.getElementById('exportBtn').addEventListener('click', () => {
+            draw();
+            const link = document.createElement('a');
+            link.download = 'sliced_image_export.png';
+            link.href = canvas.toDataURL('image/png');
+            link.click();
+        });
+
+        document.getElementById('setSliceCountBtn').addEventListener('click', () => {
+            const countStr = prompt("Enter desired number of slices:");
+            const count = parseInt(countStr, 10);
+            if (isNaN(count) || count <= 0) return;
+
+            const startPos = parseFloat(document.getElementById('start').value);
+            const endPos = parseFloat(document.getElementById('end').value);
+            const spacing = parseFloat(document.getElementById('spacing').value);
+            const regionWidth = endPos - startPos;
+            const newSliceWidth = (regionWidth - ((count - 1) * spacing)) / count;
+
+            if (newSliceWidth < 0.001) { alert("Too many slices for this spacing!"); return; }
+
+            const swInput = document.getElementById('sliceWidth');
+            if (newSliceWidth > parseFloat(swInput.max)) swInput.max = newSliceWidth.toFixed(3);
+            swInput.value = newSliceWidth.toFixed(3);
+            document.getElementById('sliceWidthVal').innerText = newSliceWidth.toFixed(3);
+            draw();
+        });
+
+        document.getElementById('imageUpload').addEventListener('change', function (e) {
+            const file = e.target.files[0];
+            if (!file) return;
+            const reader = new FileReader();
+            reader.onload = (event) => {
+                const img = new Image();
+                img.onload = () => updateTexture(img);
+                img.src = event.target.result;
+            };
+            reader.readAsDataURL(file);
+        });
+
+        // Placeholder
+        const tempCanvas = document.createElement('canvas');
+        tempCanvas.width = 800; tempCanvas.height = 600;
+        const ctx = tempCanvas.getContext('2d');
+        for (let i = 0; i < 800; i += 40) {
+            for (let j = 0; j < 600; j += 40) {
+                ctx.fillStyle = ((i + j) % 80 === 0) ? '#e67a1a' : '#0a422b';
+                ctx.fillRect(i, j, 40, 40);
+            }
+        }
+        updateTexture(tempCanvas);
+
+    </script>
+</body>
+
+</html>

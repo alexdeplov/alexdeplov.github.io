@@ -1,0 +1,635 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<meta http-equiv="X-UA-Compatible" content="ie=edge" />
+<title>Color Maker Pro by @alex_deplov</title>
+<meta name="description" content="An interactive color palette generator built with Paper.js. Create, blend, and explore beautiful color combinations on a canvas.">
+<meta name="author" content="Alexander Deplov">
+<link rel="canonical" href="https://interfacecraft.online/tools/color-maker/">
+
+<!-- Open Graph -->
+<meta property="og:type" content="website">
+<meta property="og:url" content="https://interfacecraft.online/tools/color-maker/">
+<meta property="og:title" content="Color Maker Pro by @alex_deplov">
+<meta property="og:description" content="An interactive color palette generator built with Paper.js. Create, blend, and explore beautiful color combinations on a canvas.">
+<meta property="og:locale" content="en_US">
+
+<!-- Twitter -->
+<meta name="twitter:card" content="summary_large_image">
+<meta property="twitter:domain" content="interfacecraft.online">
+<meta property="twitter:url" content="https://interfacecraft.online/tools/color-maker/">
+<meta name="twitter:title" content="Color Maker Pro by @alex_deplov">
+<meta name="twitter:description" content="An interactive color palette generator built with Paper.js. Create, blend, and explore beautiful color combinations on a canvas.">
+
+<link rel="stylesheet" href="./PaperJSEngine/style.css" >
+<link rel="stylesheet" href="./style.css" >
+<link rel="stylesheet" href="/tools/nav.css">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Manrope:wght@700;800&display=swap" rel="stylesheet">
+<script type="text/javascript" src="./PaperJSEngine/paper-full.js"></script>
+<script type"text/javscript" src="./UIElements.js"></script>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+<script type="text/paperscript" canvas="canvas">
+
+var addColorButton = document.getElementById('addColorButton')
+addColorButton.addEventListener("click", addColorButtonClick)
+function addColorButtonClick(event){
+  event.preventDefault()
+  createCard(generateRandomPositionInsideACircle(activeObject.position, 80), 20)
+  addColorButton.style.color = labelColorArray[activeBGcolorIndex]
+}
+
+var changeBackgroundButton = document.getElementById('changeBackgroundButton')
+changeBackgroundButton.addEventListener("click", changeBackgroundClick)
+function changeBackgroundClick(event){
+  event.preventDefault()
+  changeBackgroundColor()
+}
+
+
+var canvas = document.getElementById('canvas')
+var count = 0.5
+var scrollStep = 0.02
+var horisontalMovement = 0.5
+var padding = 200
+var cellSize = 90
+
+var activeObject, activePaletteColor, activePaletteCell
+var allElementsArray = []
+var activeBGcolorIndex = 0
+var bgColorsArray = ['white', '#f5f5dc', '#3d3d3d', 'black']
+var borderColorArray = ['#333', '#666', '#999', 'white']
+var labelColorArray = ['black', 'black', '#E2E2E2', '#999']
+
+var rootGroup = new Group()
+var paletteGroup = new Group()
+var saturationGroup = new Group()
+var bgColorGroup = new Group()
+var labelsGroup = new Group()
+var gridOfHUEsGroup = new Group()
+
+var dict = {}
+
+
+function createCard(point, squircleRadius){
+
+  var name = 'id' + (new Date()).getTime()
+
+  var path = new Path.Rectangle({
+    size: [cellSize],
+    position: point,
+    applyMatrix: false,
+    parent: rootGroup,
+    opacity: 0,
+    name: name
+  })
+
+  allElementsArray.push(path.name)
+
+  squircleCornerRadius(path, squircleRadius)
+
+  var color = convertCoordinateToColor(path.position)
+  var lightness = color.lightness
+
+  addOrUpdateColor(name, color, lightness, path.position.x, path.position.y)
+
+  activeObject = path
+
+  path.fillColor = color
+  path.rotation = rotateObject(path.position)
+  path.position = [view.center.x, view.size.height - 100]
+
+  path.tweenTo({
+    'position': point,
+    'easing': 'easeOut',
+    'opacity': 1,
+  }, 200)
+
+  var paletteCell = new Group()
+  var paletteColor = new Path.Rectangle({
+    size: [70, 40],
+    radius: 5,
+    fillColor: path.fillColor,
+    center: [view.center.x, view.size.height - 60],
+    parent: paletteCell,
+    applyMatrix: false,
+    name: name
+  })
+  squircleCornerRadius(paletteColor, 5)
+  var paletteLabel = createLabel(paletteColor.fillColor.toCSS('hex'), paletteCell.position + new Point(-25, -25), 'center', 12, '400')
+  paletteLabel.name = name
+  paletteCell.addChild(paletteLabel)
+  paletteCell.name = 'paletteCell ' + name
+  paletteGroup.addChild(paletteCell)
+
+  var plusIcon = createPlusIcon(paletteColor.position, 12, 45)
+  plusIcon.insertAbove(paletteColor)
+
+  // PLUS ICON FOR PALETTECOLOR:
+  paletteColor.onMouseEnter = function(event){
+    this.opacity = 0.1
+    this.tweenTo({
+      'scaling.x': 1.1,
+      'scaling.y': 1.2,
+      'saturation': 0
+    }, 150)
+
+  }
+  paletteColor.onMouseLeave = function(event){
+    this.opacity = 1
+    this.tweenTo({
+      'scaling': 1
+    }, 150)
+  }
+
+  paletteColor.onMouseUp = function(event){
+    var tween = path.tweenTo({
+      'scaling': 1.2
+    }, 100)
+
+    tween.then(function(){
+      path.tweenTo({
+        'rotation': '-360',
+        'scaling': 0
+      }, 250)
+    })
+
+    setTimeout(function() {
+      path.remove()
+      paletteCell.remove()
+    }, 1000)
+
+    paletteColor.remove()
+    plusIcon.remove()
+    paletteLabel.remove()
+    paletteCell.remove()
+
+    centerPaletteColorsRow()
+
+    //If there is no color left, highlight 'add' button:
+    allElementsArray.pop()
+    if(allElementsArray.length == 0){
+      document.getElementById("addColorButton").style.color = "#FF5A74"
+    }
+  }
+
+  activePaletteColor = paletteColor
+  activePaletteCell = paletteCell
+
+  centerPaletteColorsRow()
+
+  path.onMouseDrag = function(event){
+
+    //Set:
+    activeObject = path
+    activePaletteColor = paletteColor
+    activePaletteCell = paletteCell
+
+    //Modify:
+    this.position += event.delta  //cool * 1.5
+    if (this.position.x > view.size.width - padding/2){
+      this.position.x = view.size.width - padding/2
+    }
+    if (this.position.x < padding/2){
+      this.position.x = padding/2
+    }
+    if (this.position.y > view.size.height - (padding/2 + 100)){
+      this.position.y = view.size.height - (padding/2 + 100)
+    }
+    if (this.position.y < padding/2){
+      this.position.y = padding/2
+    }
+    this.fillColor = convertCoordinateToColor(this.position)
+    this.fillColor.lightness = dict[activeObject.name].lightness
+    paletteColor.fillColor = this.fillColor
+
+    this.bringToFront()
+    this.rotation = rotateObject(this.position)
+    paletteCell.lastChild.content = paletteColor.fillColor.toCSS('hex')
+
+    var color = new Color(activeObject.fillColor)
+    color.saturation = 0.3
+    color.lightness = 0.4
+    document.getElementById("title").style.color = color.toCSS()
+
+    //Show grid color on move:
+    for (var i = 0; i < gridObjectsArray.length; i++){
+        var object = gridObjectsArray[i]
+        var distance = this.position.getDistance(object.position)
+        object.fillColor = convertCoordinateToColor(object.position)
+
+        if (distance < cellSize * 1.2){
+            object.opacity = 1
+            object.scaling = 1
+
+         var tween = object.tweenTo({
+              opacity: 0,
+             scaling: 0,
+          }, Math.floor(4 * distance))
+
+        } else{
+            object.opacity = 0
+            object.scaling = 0.01
+        }
+    }
+
+  }
+
+
+  path.onMouseDown = function(event){
+    this.bringToFront()
+    activeObject = path
+    activePaletteColor = paletteColor
+    activePaletteCell = paletteCell
+  }
+
+}
+
+function addOrUpdateColor(name, color, lightness, x, y){
+  dict[name] = {
+    name: name,
+    color: color,
+    lightness: lightness,
+    x: x,
+    y: y
+  }
+}
+
+$("#canvas" ).on( 'wheel', function(event) {
+
+  event.preventDefault()
+
+  if (activeObject == undefined){
+    activeObject = rootGroup.lastChild
+  }
+
+  //Read:
+  var name = activeObject.name
+  var delta = Math.floor(event.originalEvent.wheelDeltaY) / 4000
+  var tempLightness = dict[name].lightness
+  var tempPoint = activeObject.position
+
+  //Modify:
+  tempLightness -= delta
+
+  if (tempLightness > 1){
+    tempLightness = 1
+  }
+  if (tempLightness < 0){
+    tempLightness = 0
+  }
+
+  //Write:
+  dict[name].lightness = tempLightness
+
+  //Use:
+  activeObject.fillColor.lightness = dict[name].lightness
+  activePaletteColor.fillColor = activeObject.fillColor
+  activePaletteCell.lastChild.content = activePaletteColor.fillColor.toCSS('hex')
+})
+
+
+var bordersAround
+function createBordersAround(){
+  if (bordersAround){
+    bordersAround.remove()
+  }
+
+  bordersAround = new Path.Rectangle({
+    size: view.size - new Point(100, 260),
+    strokeColor: borderColorArray[activeBGcolorIndex],
+    strokeWidth: 0.1,
+    position: view.center,
+  })
+    bordersAround.position.y -= 20
+  squircleCornerRadius(bordersAround, 20)
+  bordersAround.sendToBack()
+}
+createBordersAround()
+
+createCard(generateRandomPositionInsideACircle(view.center, 80), 20)
+createCard(generateRandomPositionInsideACircle(view.center, 80), 20)
+createCard(generateRandomPositionInsideACircle(view.center, 80), 20)
+
+createGridOfColorHUEs()
+
+var amountX = 100
+var amountY = 50
+var spacingX = 0.07
+var spacingY = 0.1
+var radius = 4
+var gridObjectsArray = []
+
+//Saturation Line:
+var saturationLine = new Path.Line({
+  from: [padding, view.center.y],
+  to: [view.size.width - padding, view.center.y],
+  strokeColor: '#999',
+  strokeWidth: 0.2,
+  opacity: 0.8
+})
+saturationLine.sendToBack()
+
+var hueText = new PointText({
+    point: [bordersAround.position.x, bordersAround.bounds.size.height + padding/2 - 10],
+    content: 'Drag by X to change the HUE. Move up from center to desaturate. Use scroll to apply B/W.',
+    fontWeight: '400',
+    fontSize: 14,
+    justification: 'center'
+})
+hueText.sendToBack()
+
+
+//Grid:
+
+for (var x = 0; x < amountX; x++){
+    for (var y = 0; y < amountY; y++){
+
+      var xPos = x * 40
+      var yPos = y * 40
+
+      if (xPos < view.size.width && yPos < view.size.height){
+        var circle = new Path.Circle({
+            radius: radius,
+            fillColor: 'blue',
+            position: [xPos, yPos],
+            applyMatrix: false,
+            opacity: 0
+        })
+
+        if (x % 2 == 0){
+            circle.position.y += 20
+        }
+
+        circle.scaling = 0.2
+        circle.sendToBack()
+        gridObjectsArray.push(circle)
+      }
+
+    }
+}
+
+//Background Color:
+var bg = new Path.Rectangle({
+  size: view.size,
+  fillColor: bgColorsArray.firstChild,
+  position: view.center
+})
+
+//Functions:
+function createLabel(text, position, justification, fontSize, fontWeight){
+  var label = new PointText({
+      content: text,
+      fillColor: labelColorArray[activeBGcolorIndex],
+      fontSize: fontSize,
+      fontWeight: fontWeight,
+      parent: labelsGroup,
+      justification: justification,
+  })
+  label.position.y = 60 + position.y
+  label.position.x = 0 + label.bounds.width/2 + position.x
+
+  return label
+}
+
+function rotateObject(point){
+  return bordersAround.position.x / (bordersAround.bounds.size.width / (bordersAround.bounds.center.x - point.x)) / 1.2
+}
+
+var compoundPathOfPlusIcon
+function createPlusIcon(position, size, rotateAngle){
+
+  compoundPathOfPlusIcon = new CompoundPath({
+      opacity: 0.42,
+      strokeColor: borderColorArray[0],
+      strokeWidth: 2,
+      strokeCap: 'round',
+  })
+
+  var plusH = new Path.Line({
+    from: [0, size],
+    to: size,
+    position: position,
+    locked: true,
+  })
+  var plusV = plusH.clone()
+  plusV.rotate(90)
+  compoundPathOfPlusIcon.addChild(plusH)
+  compoundPathOfPlusIcon.addChild(plusV)
+  compoundPathOfPlusIcon.rotate(rotateAngle)
+
+  return compoundPathOfPlusIcon
+}
+
+function centerPaletteColorsRow(){
+  for (var i = 0; i < paletteGroup.children.length; i++){
+    var paletteCell = paletteGroup.children[i]
+    paletteCell.position.x = view.center.x + i * 75
+  }
+  paletteGroup.position.x = view.center.x
+}
+
+function convertCoordinateToColor(point){
+
+  var color = new Color(1, 0, 0)
+  color.hue = 360 / ((bordersAround.bounds.size.width - padding) / point.x)
+  var yCoordinate = (Math.abs(point.y - padding/2)) / ((bordersAround.bounds.size.height - (padding) ) / 2)
+
+  if (point.y < padding/2){
+    yCoordinate = 0
+  }
+
+  color.saturation = yCoordinate
+
+  return color
+}
+
+function createGridOfColorHUEs(){
+  var max = 20
+  var pointLeft = new Point(50, 0)
+  var pointRight = new Point(view.size.width - 50, 0)
+  var pintsInBetween = (pointRight.x - pointLeft.x)
+
+  var stepX = (view.size.width - padding) / max
+
+  //HUE
+  for (var i = 0; i < max + 1; i++){
+    var path = new Path.Rectangle({
+      size: 5,
+      radius: 2.5,
+      center: [padding/2 + stepX * i, view.center.y],
+      parent: gridOfHUEsGroup
+    })
+    path.sendToBack()
+    path.fillColor = convertCoordinateToColor(path.position)
+  }
+
+  //Saturation:
+  var maxY = 7
+  var stepY = (view.size.height - padding) / maxY
+  for (var i = 0; i < maxY + 1; i++){
+    var path = new Path.Circle({
+      radius: 2.5,
+      center: [view.center.x, padding/2 + stepY/2 * i],
+      parent: saturationGroup,
+      applyMatrix: false
+    })
+    path.fillColor = convertCoordinateToColor(path.position)
+    path.sendToBack()
+
+  }
+  saturationGroup.sendToBack()
+  gridOfHUEsGroup.sendToBack()
+  saturationGroup.visible = false
+  gridOfHUEsGroup.visible = false
+}
+
+function generateRandomPositionInsideACircle(point, radius){
+  var r = radius * Math.sqrt(Math.random() * 2)
+  var theta = Math.random() * 2 * Math.PI
+  var x = point.x + r * Math.cos(theta)
+  var y = point.y + r * Math.sin(theta)
+  if (x < padding){
+    x = padding
+  }
+  if (x > view.size.width - padding){
+    x = view.size.width - padding
+  }
+  if (y < 0){
+    y = padding
+  }
+  if (y > view.size.height - padding){
+    y = view.size.height - padding
+  }
+
+  return new Point(x,y)
+}
+
+function squircleCornerRadius(path, radius) {
+
+  var segments = path.segments.slice(0)
+  path.removeSegments()
+
+  for(var i = 0, l = segments.length; i < l; i++) {
+    var curPoint = segments[i].point
+    var nextPoint = segments[i + 1 == l ? 0 : i + 1].point
+    var prevPoint = segments[i - 1 < 0 ? segments.length - 1 : i - 1].point
+    var nextDelta = curPoint.subtract(nextPoint)
+    var prevDelta = curPoint.subtract(prevPoint)
+
+    nextDelta.length = radius
+    prevDelta.length = radius
+
+    path.add(
+      new paper.Segment(
+        curPoint.subtract(prevDelta),
+        null,
+        prevDelta.divide(1.5)
+      )
+    )
+
+    path.add(
+      new paper.Segment(
+        curPoint.subtract(nextDelta),
+        nextDelta.divide(1.5),
+        null
+      )
+    )
+  }
+  path.closed = true
+  return path
+}
+
+function onResize(event){
+
+  if (bg){
+    bg.bounds = view.size
+  }
+
+}
+
+function changeBackgroundColor(){
+  activeBGcolorIndex += 1
+  if (activeBGcolorIndex == bgColorsArray.length){
+    activeBGcolorIndex = 0
+  }
+  bg.fillColor = bgColorsArray[activeBGcolorIndex]
+  bordersAround.strokeColor = borderColorArray[activeBGcolorIndex]
+
+  for (var i = 0; i < paletteGroup.children.length; i++){
+    paletteGroup.children[i].lastChild.fillColor = labelColorArray[activeBGcolorIndex]
+  }
+
+  hueText.fillColor = labelColorArray[activeBGcolorIndex]
+
+  document.getElementById('title').style.color = labelColorArray[activeBGcolorIndex]
+  document.getElementById('subtitle').style.color = labelColorArray[activeBGcolorIndex]
+  document.getElementById('addColorButton').style.color = labelColorArray[activeBGcolorIndex]
+  document.getElementById('changeBackgroundButton').style.color = labelColorArray[activeBGcolorIndex]
+  document.getElementById('infoButton').style.color = labelColorArray[activeBGcolorIndex]
+
+}
+
+function onKeyUp(event) {
+  console.log(event.key)
+  if (event.key == 'a'){
+    createCard(generateRandomPositionInsideACircle(activeObject.position, 80), 20)
+  }
+  if (event.key == 'c'){
+    changeBackgroundColor()
+  }
+}
+
+bg.sendToBack()
+
+
+</script>
+</head>
+<body>
+
+<nav>
+    <ul>
+        <li>
+            <a href="/tools/squircle-svg/" title="Create Squircle SVG">
+                <div><img src="/tools/golden-ratio/assets/images/sircle-svg-icon.svg"></div>
+                <div class="websiteName">Squircle SVG</div>
+            </a>
+        </li>
+        <li>
+            <a href="/tools/golden-ratio/" title="Calculate Golden Ratio">
+                <div><img src="/tools/golden-ratio/assets/images/golden-ratio-icon.svg"></div>
+                <div class="websiteName">Golden Ratio</div>
+            </a>
+        </li>
+        <li>
+            <a class="active" href="/tools/color-maker/" title="Color Maker Pro">
+                <div><img src="/tools/golden-ratio/assets/images/colorMakerPro.svg"></div>
+                <div class="websiteName">Color Maker Pro</div>
+            </a>
+        </li>
+    </ul>
+</nav>
+
+<div>
+
+  <div id="toolbar">
+    <h1 id="title">Color Maker Pro</h1>
+    <h5 id="subtitle">Create a color palette without dealing with sliders.</h5>
+  </div>
+
+  <div id="bottomTipsBox" class="flexSide">
+    <div id="bottomTips">
+      <div id="addColorButton" class="button"><span>[A]</span> – add color</div>
+      <div id="changeBackgroundButton" class="button"><span>[C]</span> – change background</div>
+    </div>
+  </div>
+
+</div>
+
+<canvas id="canvas" hidpi='on' resize></canvas>
+<script data-goatcounter="https://goatinterface.goatcounter.com/count" async src="//gc.zgo.at/count.js"></script>
+</body>
+</html>

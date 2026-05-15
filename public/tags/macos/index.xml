@@ -2,52 +2,52 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>MacOS on Alexander Deplov, AI artist, product designer</title>
-    <link>https://interfacecraft.online/tags/macos/</link>
+    <link>http://localhost:1313/tags/macos/</link>
     <description>Recent content in MacOS on Alexander Deplov, AI artist, product designer</description>
     <generator>Hugo</generator>
     <language>en-us</language>
     <lastBuildDate>Tue, 25 Nov 2025 12:55:15 +0100</lastBuildDate>
-    <atom:link href="https://interfacecraft.online/tags/macos/index.xml" rel="self" type="application/rss+xml" />
+    <atom:link href="http://localhost:1313/tags/macos/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>How to Match FreeBSD’s YouTube Loading Speed on macOS</title>
-      <link>https://interfacecraft.online/blog/2025/how-i-match-freebsd-youtube-speed-on-macos/</link>
+      <link>http://localhost:1313/blog/2025/how-i-match-freebsd-youtube-speed-on-macos/</link>
       <pubDate>Tue, 25 Nov 2025 12:55:15 +0100</pubDate>
-      <guid>https://interfacecraft.online/blog/2025/how-i-match-freebsd-youtube-speed-on-macos/</guid>
+      <guid>http://localhost:1313/blog/2025/how-i-match-freebsd-youtube-speed-on-macos/</guid>
       <description>&lt;p&gt;&lt;strong&gt;Update:&lt;/strong&gt; After experimenting with it for a while, I found that the initial setup prevents the Safari and Mail apps from accessing the internet. I changed the settings so that YouTube remains fast and the other apps work well.&lt;/p&gt;&#xA;&lt;p&gt;I watch a lot of YouTube videos, and I noticed something interesting. On FreeBSD, when I skip to any part of a video, it starts playing instantly. On macOS, however, it takes a couple of seconds to load.&lt;/p&gt;</description>
     </item>
     <item>
       <title>Automatically Disable Wi-Fi When Ethernet Is Plugged in macOS</title>
-      <link>https://interfacecraft.online/blog/archive/automatically-disable-wifi-when-ethernet-is-plugged-in-macos/</link>
+      <link>http://localhost:1313/blog/archive/automatically-disable-wifi-when-ethernet-is-plugged-in-macos/</link>
       <pubDate>Wed, 12 Nov 2025 14:33:35 +0100</pubDate>
-      <guid>https://interfacecraft.online/blog/archive/automatically-disable-wifi-when-ethernet-is-plugged-in-macos/</guid>
+      <guid>http://localhost:1313/blog/archive/automatically-disable-wifi-when-ethernet-is-plugged-in-macos/</guid>
       <description>&lt;p&gt;macOS has a long-standing bug that persists in macOS Tahoe. When I connect my MacBook to an external dongle with an Ethernet internet connection, it prioritizes the Wi-Fi connection. My Wi-Fi is very unstable, so even when connected to Ethernet, macOS refuses to use it. I set the Service Order to put Ethernet on top, but macOS ignores it.&lt;/p&gt;&#xA;&lt;p&gt;It&amp;rsquo;s so annoying that I ended up making a script to automate it:&lt;/p&gt;</description>
     </item>
     <item>
       <title>Why I Ditched Dark Mode on macOS</title>
-      <link>https://interfacecraft.online/blog/2025/why-i-ditched-dark-mode-on-macos/</link>
+      <link>http://localhost:1313/blog/2025/why-i-ditched-dark-mode-on-macos/</link>
       <pubDate>Sun, 07 Sep 2025 22:42:50 +0200</pubDate>
-      <guid>https://interfacecraft.online/blog/2025/why-i-ditched-dark-mode-on-macos/</guid>
-      <description>&lt;p&gt;&lt;img src=&#34;https://interfacecraft.online/blog/2025/why-i-ditched-dark-mode-on-macos/image.webp&#34; alt=&#34;&#34; width=&#34;956&#34; height=&#34;282&#34; loading=&#34;lazy&#34; decoding=&#34;async&#34;&gt;&lt;/p&gt;&#xA;&lt;p&gt;I stopped using dark mode on my macOS. I don&amp;rsquo;t need it anymore. It actually creates more problems than it solves.&lt;/p&gt;&#xA;&lt;p&gt;The original idea was good: with dark mode in the operating system, you can use your computer at night without damaging your eyes with high brightness. Dark mode was first introduced in macOS Mojave in 2018. Then web community realized the same need. In 2019, the CSS Working Group added new specifications for prefers-color-scheme. This means that any website can specify colors for dark mode.&lt;/p&gt;</description>
+      <guid>http://localhost:1313/blog/2025/why-i-ditched-dark-mode-on-macos/</guid>
+      <description>&lt;p&gt;&lt;img src=&#34;http://localhost:1313/blog/2025/why-i-ditched-dark-mode-on-macos/image.webp&#34; alt=&#34;&#34; width=&#34;956&#34; height=&#34;282&#34; loading=&#34;lazy&#34; decoding=&#34;async&#34;&gt;&lt;/p&gt;&#xA;&lt;p&gt;I stopped using dark mode on my macOS. I don&amp;rsquo;t need it anymore. It actually creates more problems than it solves.&lt;/p&gt;&#xA;&lt;p&gt;The original idea was good: with dark mode in the operating system, you can use your computer at night without damaging your eyes with high brightness. Dark mode was first introduced in macOS Mojave in 2018. Then web community realized the same need. In 2019, the CSS Working Group added new specifications for prefers-color-scheme. This means that any website can specify colors for dark mode.&lt;/p&gt;</description>
     </item>
     <item>
       <title>MATE on FreeBSD: macOS-Like Setup Guide: Font Rendering, UI Tweaks, and Settings</title>
-      <link>https://interfacecraft.online/blog/2025/mate-on-freebsd-macos-like-setup-guide-font-rendering-ui-tweaks-and-settings/</link>
+      <link>http://localhost:1313/blog/2025/mate-on-freebsd-macos-like-setup-guide-font-rendering-ui-tweaks-and-settings/</link>
       <pubDate>Fri, 23 May 2025 20:38:13 +0200</pubDate>
-      <guid>https://interfacecraft.online/blog/2025/mate-on-freebsd-macos-like-setup-guide-font-rendering-ui-tweaks-and-settings/</guid>
+      <guid>http://localhost:1313/blog/2025/mate-on-freebsd-macos-like-setup-guide-font-rendering-ui-tweaks-and-settings/</guid>
       <description>&lt;p&gt;&lt;a href=&#34;#fonts&#34;&gt;Font rendering settings&lt;/a&gt;&lt;br/&gt;&#xA;&lt;a href=&#34;#keyboard_and_mouse&#34;&gt;Keyboard and mouse settings&lt;/a&gt;&lt;br/&gt;&#xA;&lt;a href=&#34;#interface&#34;&gt;Interface settings&lt;/a&gt;&lt;br/&gt;&#xA;&lt;a href=&#34;#tearing&#34;&gt;Turn on TearFree&lt;/a&gt;&lt;br/&gt;&#xA;&lt;a href=&#34;#wallpapers&#34;&gt;Wallpapers&lt;/a&gt;&lt;br/&gt;&#xA;&lt;a href=&#34;#mate_theme&#34;&gt;macOS theme for Mate&lt;/a&gt;&lt;br/&gt;&#xA;&lt;a href=&#34;#mate_spotlight&#34;&gt;Spotlight replacement&lt;/a&gt;&lt;/p&gt;&#xA;&lt;p&gt;As I mentioned earlier, I noticed similarities between FreeBSD and macOS—after 20 years of using macOS, returning to FreeBSD feels like coming home. But I don’t like the font rendering used in non-macOS systems. Partly because Apple did it very well — &lt;a href=&#34;https://www.typeroom.eu/steve-jobs-calligraphy-apple-typography-legacy&#34; target=&#34;_blank&#34; rel=&#34;nofollow&#34;&gt;Steve Jobs had a great understanding of typography&lt;/a&gt; — and partly because I’m just used to it.&lt;/p&gt;</description>
     </item>
     <item>
       <title>Comparing Performance of MacBook Pro M1 Pro to Mini PC on FreeBSD</title>
-      <link>https://interfacecraft.online/blog/2025/freebsd-vs-macos-for-daily-use-my-personal-migration-story/</link>
+      <link>http://localhost:1313/blog/2025/freebsd-vs-macos-for-daily-use-my-personal-migration-story/</link>
       <pubDate>Mon, 19 May 2025 22:15:36 +0200</pubDate>
-      <guid>https://interfacecraft.online/blog/2025/freebsd-vs-macos-for-daily-use-my-personal-migration-story/</guid>
+      <guid>http://localhost:1313/blog/2025/freebsd-vs-macos-for-daily-use-my-personal-migration-story/</guid>
       <description>&lt;p&gt;As a designer I&amp;rsquo;ve been using macOS since 2005, but with each new update, I dislike the direction Apple is heading in. They add unnecessary features that use system resources and can&amp;rsquo;t be disabled. My seven-year-old MacBook Pro with an Intel processor became so slow and unresponsive with the latest macOS version that I can&amp;rsquo;t use it at all anymore. If your Mac can&amp;rsquo;t handle the latest macOS version, the only solution is to buy a more powerful Mac. This is probably fine, people upgrade their hardware from time to time, and this is part of the evolution of the field. However, Apple can deem any five-year-old Mac obsolete. It seems like they have more control over your computer than you do.&lt;/p&gt;</description>
     </item>
     <item>
       <title>How I Automated My Computer Routine with macOS Folder Actions</title>
-      <link>https://interfacecraft.online/blog/2025/how-i-automated-my-computer-life-with-macos-folder-actions/</link>
+      <link>http://localhost:1313/blog/2025/how-i-automated-my-computer-life-with-macos-folder-actions/</link>
       <pubDate>Wed, 12 Feb 2025 21:53:39 +0100</pubDate>
-      <guid>https://interfacecraft.online/blog/2025/how-i-automated-my-computer-life-with-macos-folder-actions/</guid>
+      <guid>http://localhost:1313/blog/2025/how-i-automated-my-computer-life-with-macos-folder-actions/</guid>
       <description>&lt;blockquote&gt;&#xA;&lt;p&gt;I&amp;rsquo;ve always believed that computers should handle repetitive tasks better than humans. It frustrates me when something can&amp;rsquo;t be automated the way I want or when simple actions require more effort than they should.&lt;/p&gt;&#xA;&lt;/blockquote&gt;&#xA;&lt;p&gt;Let&amp;rsquo;s say we want to convert a &lt;span class=&#34;highlighter&#34;&gt;video from one format to another&lt;/span&gt;. This often happens to me when I need to share a screencast video with colleagues on Slack. By default, macOS records in &lt;span class=&#34;highlighter&#34;&gt;.MOV&lt;/span&gt; format, which is too large to share. Sometimes, I also have another file that I want to shrink for easier sharing in a message.&lt;/p&gt;</description>
     </item>
   </channel>

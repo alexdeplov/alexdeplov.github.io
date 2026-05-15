@@ -1,0 +1,79 @@
+*{
+  box-sizing: border-box;
+}
+
+body{
+  font-family: 'Manrope', sans-serif;
+  font-weight: 600;
+  font-size: 16px;
+  letter-spacing: -0.02em;
+  color: '#555';
+}
+
+#toolbar{
+  width: 100%;
+  position: fixed;
+  padding: 30px 80px 20px;
+  justify-content: space-between;
+  pointer-events: none;
+}
+
+#toolbar h1{
+  margin-bottom: 3px;
+}
+
+#toolbar h5{
+  margin: 0;
+  text-align: center;
+}
+
+.button{
+  padding: 10px 15px;
+  margin: 0 5px;
+  cursor: pointer;
+  font-size: 14px;
+  /* background-color: blue; */
+}
+
+.button:hover{
+  color: #FF5A74 !important;
+}
+
+::selection {
+  background-color: transparent;
+}
+
+h1{
+  margin: 0;
+  padding: 0;
+  margin-right: auto;
+  margin-left: auto;
+  text-align: center;
+  font-family: 'Manrope', sans-serif;
+  margin-top: -7px;
+  font-weight: 800;
+}
+
+.flexSide{
+  flex-grow: 1;
+  flex-basis: 0;
+  display: flex;
+}
+
+.flexRight{
+  justify-content: flex-end;
+}
+
+#bottomTipsBox{
+  position: fixed;
+  bottom: 100px;
+  left: 0;
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+#bottomTips{
+  display: flex;
+}

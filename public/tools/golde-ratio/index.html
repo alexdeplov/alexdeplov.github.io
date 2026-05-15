@@ -1,0 +1,650 @@
+<!doctype html>
+
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap" rel="stylesheet">
+
+
+    <!-- HTML Meta Tags -->
+    <title>Golden Ratio Calculator by @alex_deplov</title>
+    <meta name="description" content="Calculate the golden ratio with easy. Download as SVG.">
+
+    <!-- Facebook Meta Tags -->
+    <meta property="og:url" content="https://alexdeplov.github.io/golden-ratio-svg-generator/">
+    <meta property="og:type" content="website">
+    <meta property="og:title" content="Golden Ratio Calculator by @alex_deplov">
+    <meta property="og:description" content="Calculate the golden ratio with easy. Download as SVG.">
+    <meta property="og:image" content="https://alexdeplov.github.io/golden-ratio-svg-generator/assets/images/websiteThumbnail.jpg">
+
+    <!-- Twitter Meta Tags -->
+    <meta name="twitter:card" content="summary_large_image">
+    <meta property="twitter:url" content="https://alexdeplov.github.io/golden-ratio-svg-generator/">
+    <meta name="twitter:title" content="Golden Ratio Calculator by @alex_deplov">
+    <meta name="twitter:description" content="Calculate the golden ratio with easy. Download as SVG.">
+    <meta name="twitter:image" content="https://alexdeplov.github.io/golden-ratio-svg-generator/assets/images/websiteThumbnail.jpg">
+
+    <!-- Meta Tags Generated via https://www.opengraph.xyz -->
+
+    <link rel="apple-touch-icon" sizes="180x180" href="./assets/favicon_package_v0.16/apple-touch-icon.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="./assets/favicon_package_v0.16/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="./assets/favicon_package_v0.16/favicon-16x16.png">
+    <link rel="manifest" href="./assets/favicon_package_v0.16/site.webmanifest">
+    <link rel="mask-icon" href="./assets/favicon_package_v0.16/safari-pinned-tab.svg" color="#5bbad5">
+    <meta name="msapplication-TileColor" content="#da532c">
+    <meta name="theme-color" content="#ffffff">
+
+
+    <meta name="author" content="Alexander Deplov">
+    <link rel="stylesheet" href="./assets/styles/styles.css">
+    <link rel="stylesheet" href="./assets/PaperJSEngine/style.css" />
+    <script type="text/javascript" src="./assets/PaperJSEngine/paper-full.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+</head>
+
+<body>
+
+    <nav>
+        <ul>
+            <li>
+                <a href="https://alexdeplov.github.io/squircle-svg-generator/" title="Create Squircle SVG">
+                    <div><img src="./assets/images/sircle-svg-icon.svg"></div>
+                    <div class="websiteName">Squircle SVG</div>
+                </a>
+            </li>
+            <li>
+                <a class="active" href="https://alexdeplov.github.io/golden-ratio-svg-generator/" title="Calculate Golden Ratio">
+                    <div><img src="./assets/images/golden-ratio-icon.svg"></div>
+                    <div class="websiteName">Golden Ratio</div>
+                </a>
+            </li>
+            <li>
+                <a class="" href="https://alexdeplov.github.io/colorMakerPro/" title="Calculate Golden Ratio">
+                    <div><img src="./assets/images/colorMakerPro.svg"></div>
+                    <div class="websiteName">Color Maker Pro</div>
+                </a>
+            </li>
+        </ul>
+    </nav>
+    <div class="wrapper content header">
+        <h2>
+            The Golden Ratio is a mathematical ratio that's commonly found in nature. It can be used to create
+            visually-pleasing, organic-looking compositions in your design.
+        </h2>
+        <div id="mainInputBox" class="squircleBox bigShadow">
+            <div class="sf-white">
+                <div class="squircle ss-3">
+                    <div class="squircleLeft">
+                        <svg class="cornerSVG" width="60" height="60" viewBox="0 0 60 60" fill="none"
+                            xmlns="http://www.w3.org/2000/svg">
+                            <path fill-rule="evenodd" clip-rule="evenodd"
+                                d="M0.0107422 60C0.101562 35.6855 0.926758 22.582 8.46094 13.4517C9.96191 11.6328 11.6328 9.96191 13.4512 8.46094C22.582 0.927246 35.6855 0.101562 60 0.0112305V60H0.0107422Z"
+                                fill="white" />
+                        </svg>
+                    </div>
+                    <div class="squircleCenter"></div>
+                    <div class="squircleRight">
+                        <svg class="cornerSVG" width="60" height="60" viewBox="0 0 60 60" fill="none"
+                            xmlns="http://www.w3.org/2000/svg">
+                            <path fill-rule="evenodd" clip-rule="evenodd"
+                                d="M0.0107422 60C0.101562 35.6855 0.926758 22.582 8.46094 13.4517C9.96191 11.6328 11.6328 9.96191 13.4512 8.46094C22.582 0.927246 35.6855 0.101562 60 0.0112305V60H0.0107422Z"
+                                fill="white" />
+                        </svg>
+                    </div>
+                </div>
+            </div>
+
+            <img srcset="./assets/images/hand.png,
+                         ./assets/images/hand@2x.png 2x" src="./assets/images/hand.png" alt="Golden Ratio Calculator">
+
+            <div class="squircleMiddle">
+                <h1>
+                    Calculate Golden Ratio.
+                </h1>
+                <div>
+                    <input id="numberInput" type="text" placeholder="120">
+                    <!-- autofocus -->
+                </div>
+            </div>
+
+            <div class="sf-white">
+                <div class="squircle squircleUpToBottom ss-3">
+                    <div class="squircleLeft">
+                        <svg class="cornerSVG" width="60" height="60" viewBox="0 0 60 60" fill="none"
+                            xmlns="http://www.w3.org/2000/svg">
+                            <path fill-rule="evenodd" clip-rule="evenodd"
+                                d="M0.0107422 60C0.101562 35.6855 0.926758 22.582 8.46094 13.4517C9.96191 11.6328 11.6328 9.96191 13.4512 8.46094C22.582 0.927246 35.6855 0.101562 60 0.0112305V60H0.0107422Z"
+                                fill="white" />
+                        </svg>
+                    </div>
+                    <div class="squircleCenter"></div>
+                    <div class="squircleRight">
+                        <svg class="cornerSVG" width="60" height="60" viewBox="0 0 60 60" fill="none"
+                            xmlns="http://www.w3.org/2000/svg">
+                            <path fill-rule="evenodd" clip-rule="evenodd"
+                                d="M0.0107422 60C0.101562 35.6855 0.926758 22.582 8.46094 13.4517C9.96191 11.6328 11.6328 9.96191 13.4512 8.46094C22.582 0.927246 35.6855 0.101562 60 0.0112305V60H0.0107422Z"
+                                fill="white" />
+                        </svg>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div id="resultBox">
+            <div id="increasing">
+                <h3>
+                    <span>Increasing</span>
+                    <svg style="top: -5px; position: relative;" width="28" height="28" viewBox="0 0 28 28" fill="none"
+                        xmlns="http://www.w3.org/2000/svg">
+                        <path fill-rule="evenodd" clip-rule="evenodd"
+                            d="M14 28C21.732 28 28 21.732 28 14C28 6.26801 21.732 0 14 0C6.26801 0 0 6.26801 0 14C0 21.732 6.26801 28 14 28ZM6.08582 11.5858L12.5858 5.08582C13.3668 4.30475 14.6332 4.30475 15.4142 5.08582L21.9142 11.5858C22.6953 12.3668 22.6953 13.6332 21.9142 14.4142C21.1332 15.1953 19.8668 15.1953 19.0858 14.4142L16 11.3284V20C16 21.1046 15.1046 22 14 22C12.8954 22 12 21.1046 12 20V11.3284L8.91418 14.4142C8.13318 15.1953 6.86682 15.1953 6.08582 14.4142C5.30475 13.6332 5.30475 12.3668 6.08582 11.5858Z"
+                            fill="#32B706" />
+                    </svg>
+                </h3>
+
+                <div class="sf-green">
+                    <div class="squircle ss-1">
+                        <div class="squircleLeft">
+                            <svg class="cornerSVG" width="60" height="60" viewBox="0 0 60 60" fill="none"
+                                xmlns="http://www.w3.org/2000/svg">
+                                <path fill-rule="evenodd" clip-rule="evenodd"
+                                    d="M0.0107422 60C0.101562 35.6855 0.926758 22.582 8.46094 13.4517C9.96191 11.6328 11.6328 9.96191 13.4512 8.46094C22.582 0.927246 35.6855 0.101562 60 0.0112305V60H0.0107422Z"
+                                    fill="white" />
+                            </svg>
+                        </div>
+                        <div class="squircleCenter"></div>
+                        <div class="squircleRight">
+                            <svg class="cornerSVG" width="60" height="60" viewBox="0 0 60 60" fill="none"
+                                xmlns="http://www.w3.org/2000/svg">
+                                <path fill-rule="evenodd" clip-rule="evenodd"
+                                    d="M0.0107422 60C0.101562 35.6855 0.926758 22.582 8.46094 13.4517C9.96191 11.6328 11.6328 9.96191 13.4512 8.46094C22.582 0.927246 35.6855 0.101562 60 0.0112305V60H0.0107422Z"
+                                    fill="white" />
+                            </svg>
+                        </div>
+                    </div>
+                </div>
+                <ul id="increasingUL">
+                    <li>
+                        <div class="resultNumber">194.164</div>
+                        <div class="copy">COPY</div>
+                    </li>
+                    <li>
+                        <div class="resultNumber">314.164</div>
+                        <div class="copy">COPY</div>
+                    </li>
+                    <li>
+                        <div class="resultNumber">508.328</div>
+                        <div class="copy">COPY</div>
+                    </li>
+                    <li>
+                        <div class="resultNumber">822.492</div>
+                        <div class="copy">COPY</div>
+                    </li>
+                    <li>
+                        <div class="resultNumber">1330.820</div>
+                        <div class="copy">COPY</div>
+                    </li>
+                    <li>
+                        <div class="resultNumber">2153.313</div>
+                        <div class="copy">COPY</div>
+                    </li>
+                    <li>
+                        <div class="resultNumber">3484.133</div>
+                        <div class="copy">COPY</div>
+                    </li>
+                </ul>
+                <div class="sf-green">
+                    <div class="squircle squircleUpToBottom ss-1">
+                        <div class="squircleLeft">
+                            <svg class="cornerSVG" width="60" height="60" viewBox="0 0 60 60" fill="none"
+                                xmlns="http://www.w3.org/2000/svg">
+                                <path fill-rule="evenodd" clip-rule="evenodd"
+                                    d="M0.0107422 60C0.101562 35.6855 0.926758 22.582 8.46094 13.4517C9.96191 11.6328 11.6328 9.96191 13.4512 8.46094C22.582 0.927246 35.6855 0.101562 60 0.0112305V60H0.0107422Z"
+                                    fill="white" />
+                            </svg>
+                        </div>
+                        <div class="squircleCenter"></div>
+                        <div class="squircleRight">
+                            <svg class="cornerSVG" width="60" height="60" viewBox="0 0 60 60" fill="none"
+                                xmlns="http://www.w3.org/2000/svg">
+                                <path fill-rule="evenodd" clip-rule="evenodd"
+                                    d="M0.0107422 60C0.101562 35.6855 0.926758 22.582 8.46094 13.4517C9.96191 11.6328 11.6328 9.96191 13.4512 8.46094C22.582 0.927246 35.6855 0.101562 60 0.0112305V60H0.0107422Z"
+                                    fill="white" />
+                            </svg>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div id="decreasing">
+                <h3>
+                    <span>Decreasing</span>
+                    <svg style="bottom: -15px; position: relative;" width="28" height="28" viewBox="0 0 28 28"
+                        fill="none" xmlns="http://www.w3.org/2000/svg">
+                        <path fill-rule="evenodd" clip-rule="evenodd"
+                            d="M14 0C21.732 0 28 6.26801 28 14C28 21.732 21.732 28 14 28C6.26801 28 0 21.732 0 14C0 6.26801 6.26801 0 14 0ZM6.08582 16.4142L12.5858 22.9142C13.3668 23.6953 14.6332 23.6953 15.4142 22.9142L21.9142 16.4142C22.6953 15.6332 22.6953 14.3668 21.9142 13.5858C21.1332 12.8047 19.8668 12.8047 19.0858 13.5858L16 16.6716V8C16 6.89545 15.1046 6 14 6C12.8954 6 12 6.89545 12 8V16.6716L8.91418 13.5858C8.13318 12.8047 6.86682 12.8047 6.08582 13.5858C5.30475 14.3668 5.30475 15.6332 6.08582 16.4142Z"
+                            fill="#661AE0" />
+                    </svg>
+
+                </h3>
+
+
+                <div class="sf-purple">
+                    <div class="squircle ss-1">
+                        <div class="squircleLeft">
+                            <svg class="cornerSVG" width="60" height="60" viewBox="0 0 60 60" fill="none"
+                                xmlns="http://www.w3.org/2000/svg">
+                                <path fill-rule="evenodd" clip-rule="evenodd"
+                                    d="M0.0107422 60C0.101562 35.6855 0.926758 22.582 8.46094 13.4517C9.96191 11.6328 11.6328 9.96191 13.4512 8.46094C22.582 0.927246 35.6855 0.101562 60 0.0112305V60H0.0107422Z"
+                                    fill="white" />
+                            </svg>
+                        </div>
+                        <div class="squircleCenter"></div>
+                        <div class="squircleRight">
+                            <svg class="cornerSVG" width="60" height="60" viewBox="0 0 60 60" fill="none"
+                                xmlns="http://www.w3.org/2000/svg">
+                                <path fill-rule="evenodd" clip-rule="evenodd"
+                                    d="M0.0107422 60C0.101562 35.6855 0.926758 22.582 8.46094 13.4517C9.96191 11.6328 11.6328 9.96191 13.4512 8.46094C22.582 0.927246 35.6855 0.101562 60 0.0112305V60H0.0107422Z"
+                                    fill="white" />
+                            </svg>
+                        </div>
+                    </div>
+                </div>
+
+                <ul id="decreasingUL">
+                    <li class="clickToCopy">
+                        <div class="resultNumber">74.164</div>
+                        <div class=" copy">COPY</div>
+                    </li>
+                    <li class="clickToCopy">
+                        <div class="resultNumber">45.836</div>
+                        <div class="copy">COPY</div>
+                    </li>
+                    <li class="clickToCopy">
+                        <div class="resultNumber">28.328</div>
+                        <div class="copy">COPY</div>
+                    </li>
+                    <li>
+                        <div class="resultNumber">17.508</div>
+                        <div class="copy">COPY</div>
+                    </li>
+                    <li>
+                        <div class="resultNumber">10.820</div>
+                        <div class="copy">COPY</div>
+                    </li>
+                    <li>
+                        <div class="resultNumber">6.687</div>
+                        <div class="copy">COPY</div>
+                    </li>
+                    <li>
+                        <div class="resultNumber">4.133</div>
+                        <div class="copy">COPY</div>
+                    </li>
+                </ul>
+
+                <div class="sf-purple">
+                    <div class="squircle squircleUpToBottom ss-1">
+                        <div class="squircleLeft">
+                            <svg class="cornerSVG" width="60" height="60" viewBox="0 0 60 60" fill="none"
+                                xmlns="http://www.w3.org/2000/svg">
+                                <path fill-rule="evenodd" clip-rule="evenodd"
+                                    d="M0.0107422 60C0.101562 35.6855 0.926758 22.582 8.46094 13.4517C9.96191 11.6328 11.6328 9.96191 13.4512 8.46094C22.582 0.927246 35.6855 0.101562 60 0.0112305V60H0.0107422Z"
+                                    fill="white" />
+                            </svg>
+                        </div>
+                        <div class="squircleCenter"></div>
+                        <div class="squircleRight">
+                            <svg class="cornerSVG" width="60" height="60" viewBox="0 0 60 60" fill="none"
+                                xmlns="http://www.w3.org/2000/svg">
+                                <path fill-rule="evenodd" clip-rule="evenodd"
+                                    d="M0.0107422 60C0.101562 35.6855 0.926758 22.582 8.46094 13.4517C9.96191 11.6328 11.6328 9.96191 13.4512 8.46094C22.582 0.927246 35.6855 0.101562 60 0.0112305V60H0.0107422Z"
+                                    fill="white" />
+                            </svg>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+    <!-- LINES CANVAS -->
+    <section id="lineGoldenRatio">
+
+        <div class="wrapper">
+            <div class="sf-white">
+                <div class="squircle ss-2">
+                    <div class="squircleLeft">
+                        <svg class="cornerSVG" width="60" height="60" viewBox="0 0 60 60" fill="none"
+                            xmlns="http://www.w3.org/2000/svg">
+                            <path fill-rule="evenodd" clip-rule="evenodd"
+                                d="M0.0107422 60C0.101562 35.6855 0.926758 22.582 8.46094 13.4517C9.96191 11.6328 11.6328 9.96191 13.4512 8.46094C22.582 0.927246 35.6855 0.101562 60 0.0112305V60H0.0107422Z"
+                                fill="white" />
+                        </svg>
+                    </div>
+                    <div class="squircleCenter"></div>
+                    <div class="squircleRight">
+                        <svg class="cornerSVG" width="60" height="60" viewBox="0 0 60 60" fill="none"
+                            xmlns="http://www.w3.org/2000/svg">
+                            <path fill-rule="evenodd" clip-rule="evenodd"
+                                d="M0.0107422 60C0.101562 35.6855 0.926758 22.582 8.46094 13.4517C9.96191 11.6328 11.6328 9.96191 13.4512 8.46094C22.582 0.927246 35.6855 0.101562 60 0.0112305V60H0.0107422Z"
+                                fill="white" />
+                        </svg>
+                    </div>
+                </div>
+            </div>
+
+            <div id="linesCenter" class="bigShadow">
+                <h1>Lines Grid.</h1>
+                <h3>Golden ratio made by <span>7</span> lines.</h3>
+                <div>
+                    <input id="linesInput" class="numberRoundedInput" type="range" min="2" max="12" value="7">
+                </div>
+
+                <div class="canvasBox">
+                    <canvas id="canvas_1"></canvas>
+                </div>
+
+                <div>
+                    <button id="downloadLines" class="downloadButton bg-blue bh-2">Download as SVG</button>
+                </div>
+            </div>
+
+            <div class="sf-white">
+                <div class="squircle squircleUpToBottom ss-2">
+                    <div class="squircleLeft">
+                        <svg class="cornerSVG" width="60" height="60" viewBox="0 0 60 60" fill="none"
+                            xmlns="http://www.w3.org/2000/svg">
+                            <path fill-rule="evenodd" clip-rule="evenodd"
+                                d="M0.0107422 60C0.101562 35.6855 0.926758 22.582 8.46094 13.4517C9.96191 11.6328 11.6328 9.96191 13.4512 8.46094C22.582 0.927246 35.6855 0.101562 60 0.0112305V60H0.0107422Z"
+                                fill="white" />
+                        </svg>
+                    </div>
+                    <div class="squircleCenter"></div>
+                    <div class="squircleRight">
+                        <svg class="cornerSVG" width="60" height="60" viewBox="0 0 60 60" fill="none"
+                            xmlns="http://www.w3.org/2000/svg">
+                            <path fill-rule="evenodd" clip-rule="evenodd"
+                                d="M0.0107422 60C0.101562 35.6855 0.926758 22.582 8.46094 13.4517C9.96191 11.6328 11.6328 9.96191 13.4512 8.46094C22.582 0.927246 35.6855 0.101562 60 0.0112305V60H0.0107422Z"
+                                fill="white" />
+                        </svg>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+
+    <!-- RADIAL CANVAS -->
+    <section id="radialGoldenRatio">
+
+        <div class="wrapper">
+            <div class="sf-white">
+                <div class="squircle ss-2">
+                    <div class="squircleLeft">
+                        <svg class="cornerSVG" width="60" height="60" viewBox="0 0 60 60" fill="none"
+                            xmlns="http://www.w3.org/2000/svg">
+                            <path fill-rule="evenodd" clip-rule="evenodd"
+                                d="M0.0107422 60C0.101562 35.6855 0.926758 22.582 8.46094 13.4517C9.96191 11.6328 11.6328 9.96191 13.4512 8.46094C22.582 0.927246 35.6855 0.101562 60 0.0112305V60H0.0107422Z"
+                                fill="white" />
+                        </svg>
+                    </div>
+                    <div class="squircleCenter"></div>
+                    <div class="squircleRight">
+                        <svg class="cornerSVG" width="60" height="60" viewBox="0 0 60 60" fill="none"
+                            xmlns="http://www.w3.org/2000/svg">
+                            <path fill-rule="evenodd" clip-rule="evenodd"
+                                d="M0.0107422 60C0.101562 35.6855 0.926758 22.582 8.46094 13.4517C9.96191 11.6328 11.6328 9.96191 13.4512 8.46094C22.582 0.927246 35.6855 0.101562 60 0.0112305V60H0.0107422Z"
+                                fill="white" />
+                        </svg>
+                    </div>
+                </div>
+            </div>
+
+            <div id="radialCenter" class="bigShadow">
+                <h1>Circles Grid.</h1>
+                <h3>Golden ratio made by <span>4</span> circles.</h3>
+                <div>
+                    <input id="radialInput" class="numberRoundedInput" type="range" min="2" max="12" value="5">
+                </div>
+
+                <div class="canvasBox">
+                    <!-- <canvas id="canvasCircles" hidpi="on" resize></canvas> -->
+                    <canvas id="canvas_2"></canvas>
+                </div>
+
+                <div>
+                    <button id="downloadCircles" class="downloadButton bg-blue bh-2">Download as SVG</button>
+                </div>
+            </div>
+
+            <div class="sf-white">
+                <div class="squircle squircleUpToBottom ss-2">
+                    <div class="squircleLeft">
+                        <svg class="cornerSVG" width="60" height="60" viewBox="0 0 60 60" fill="none"
+                            xmlns="http://www.w3.org/2000/svg">
+                            <path fill-rule="evenodd" clip-rule="evenodd"
+                                d="M0.0107422 60C0.101562 35.6855 0.926758 22.582 8.46094 13.4517C9.96191 11.6328 11.6328 9.96191 13.4512 8.46094C22.582 0.927246 35.6855 0.101562 60 0.0112305V60H0.0107422Z"
+                                fill="white" />
+                        </svg>
+                    </div>
+                    <div class="squircleCenter"></div>
+                    <div class="squircleRight">
+                        <svg class="cornerSVG" width="60" height="60" viewBox="0 0 60 60" fill="none"
+                            xmlns="http://www.w3.org/2000/svg">
+                            <path fill-rule="evenodd" clip-rule="evenodd"
+                                d="M0.0107422 60C0.101562 35.6855 0.926758 22.582 8.46094 13.4517C9.96191 11.6328 11.6328 9.96191 13.4512 8.46094C22.582 0.927246 35.6855 0.101562 60 0.0112305V60H0.0107422Z"
+                                fill="white" />
+                        </svg>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+
+    <!-- RECTS CANVAS -->
+    <section id="rectanglesGoldenRatio">
+
+        <div class="wrapper">
+            <div class="sf-white">
+                <div class="squircle ss-2">
+                    <div class="squircleLeft">
+                        <svg class="cornerSVG" width="60" height="60" viewBox="0 0 60 60" fill="none"
+                            xmlns="http://www.w3.org/2000/svg">
+                            <path fill-rule="evenodd" clip-rule="evenodd"
+                                d="M0.0107422 60C0.101562 35.6855 0.926758 22.582 8.46094 13.4517C9.96191 11.6328 11.6328 9.96191 13.4512 8.46094C22.582 0.927246 35.6855 0.101562 60 0.0112305V60H0.0107422Z"
+                                fill="white" />
+                        </svg>
+                    </div>
+                    <div class="squircleCenter"></div>
+                    <div class="squircleRight">
+                        <svg class="cornerSVG" width="60" height="60" viewBox="0 0 60 60" fill="none"
+                            xmlns="http://www.w3.org/2000/svg">
+                            <path fill-rule="evenodd" clip-rule="evenodd"
+                                d="M0.0107422 60C0.101562 35.6855 0.926758 22.582 8.46094 13.4517C9.96191 11.6328 11.6328 9.96191 13.4512 8.46094C22.582 0.927246 35.6855 0.101562 60 0.0112305V60H0.0107422Z"
+                                fill="white" />
+                        </svg>
+                    </div>
+                </div>
+            </div>
+
+            <div id="radialCenter" class="bigShadow">
+                <h1>Rectangles Grid.</h1>
+                <h3>Golden ratio made by <span>5</span> rectangles.</h3>
+                <div>
+                    <input id="rectanglesInput" class="numberRoundedInput" type="range" min="3" max="9" value="6">
+                </div>
+
+                <div class="canvasBox">
+                    <canvas id="canvas_3"></canvas>
+                </div>
+
+                <div>
+                    <button id="downloadRectangles" class="downloadButton bg-blue bh-2">Download as SVG</button>
+                </div>
+            </div>
+
+            <div class="sf-white">
+                <div class="squircle squircleUpToBottom ss-2">
+                    <div class="squircleLeft">
+                        <svg class="cornerSVG" width="60" height="60" viewBox="0 0 60 60" fill="none"
+                            xmlns="http://www.w3.org/2000/svg">
+                            <path fill-rule="evenodd" clip-rule="evenodd"
+                                d="M0.0107422 60C0.101562 35.6855 0.926758 22.582 8.46094 13.4517C9.96191 11.6328 11.6328 9.96191 13.4512 8.46094C22.582 0.927246 35.6855 0.101562 60 0.0112305V60H0.0107422Z"
+                                fill="white" />
+                        </svg>
+                    </div>
+                    <div class="squircleCenter"></div>
+                    <div class="squircleRight">
+                        <svg class="cornerSVG" width="60" height="60" viewBox="0 0 60 60" fill="none"
+                            xmlns="http://www.w3.org/2000/svg">
+                            <path fill-rule="evenodd" clip-rule="evenodd"
+                                d="M0.0107422 60C0.101562 35.6855 0.926758 22.582 8.46094 13.4517C9.96191 11.6328 11.6328 9.96191 13.4512 8.46094C22.582 0.927246 35.6855 0.101562 60 0.0112305V60H0.0107422Z"
+                                fill="white" />
+                        </svg>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <svg id="rectanglesSVG" style="display: none" width="198" height="124" viewBox="0 0 198 124" fill="none"
+            xmlns="http://www.w3.org/2000/svg">
+            <path d="M122 1.82715H2V121.827H122V1.82715Z" stroke="#001AFF" stroke-width="30" />
+            <path d="M196.164 47.8271H122V121.991H196.164V47.8271Z" stroke="#001AFF" stroke-width="3" />
+            <path d="M196.164 1.82715H150.164V47.8273H196.164V1.82715Z" stroke="#001AFF" stroke-width="3" />
+            <path d="M150.164 1.82715H122V29.991H150.164V1.82715Z" stroke="#001AFF" stroke-width="3" />
+            <path d="M122 47.8271H139.469V29.991L122 29.991V47.8271Z" stroke="#001AFF" stroke-width="3" />
+            <path d="M139.469 47.8271H150.164V37.1318H139.469V47.8271Z" stroke="#001AFF" stroke-width="3" />
+            <path d="M150.165 29.9912H143.531V37.1318H150.165V29.9912Z" stroke="#001AFF" stroke-width="3" />
+            <path d="M143.53 29.9912H139.469V34.0528H143.53V29.9912Z" stroke="#001AFF" stroke-width="3" />
+        </svg>
+    </section>
+
+
+
+
+    <!-- TRIANGLES -->
+    <section id="trianglesGoldenRatio">
+        <div class="wrapper">
+            <div class="sf-white">
+                <div class="squircle ss-2">
+                    <div class="squircleLeft">
+                        <svg class="cornerSVG" width="60" height="60" viewBox="0 0 60 60" fill="none"
+                            xmlns="http://www.w3.org/2000/svg">
+                            <path fill-rule="evenodd" clip-rule="evenodd"
+                                d="M0.0107422 60C0.101562 35.6855 0.926758 22.582 8.46094 13.4517C9.96191 11.6328 11.6328 9.96191 13.4512 8.46094C22.582 0.927246 35.6855 0.101562 60 0.0112305V60H0.0107422Z"
+                                fill="white" />
+                        </svg>
+                    </div>
+                    <div class="squircleCenter"></div>
+                    <div class="squircleRight">
+                        <svg class="cornerSVG" width="60" height="60" viewBox="0 0 60 60" fill="none"
+                            xmlns="http://www.w3.org/2000/svg">
+                            <path fill-rule="evenodd" clip-rule="evenodd"
+                                d="M0.0107422 60C0.101562 35.6855 0.926758 22.582 8.46094 13.4517C9.96191 11.6328 11.6328 9.96191 13.4512 8.46094C22.582 0.927246 35.6855 0.101562 60 0.0112305V60H0.0107422Z"
+                                fill="white" />
+                        </svg>
+                    </div>
+                </div>
+            </div>
+
+            <div id="triangleCenter" class="bigShadow">
+                <h1>Triangles Grid.</h1>
+                <h3>Golden ratio made by <span>7</span> triangles.</h3>
+                <div>
+                    <input id="trianglesInput" class="numberRoundedInput" type="range" min="2" max="12" value="7">
+                </div>
+
+                <div class="canvasBox">
+                    <canvas id="canvas_4"></canvas>
+                </div>
+
+                <div>
+                    <button id="downloadTriangles" class="downloadButton bg-blue bh-2">Download as SVG</button>
+                </div>
+            </div>
+
+            <div class="sf-white">
+                <div class="squircle squircleUpToBottom ss-2">
+                    <div class="squircleLeft">
+                        <svg class="cornerSVG" width="60" height="60" viewBox="0 0 60 60" fill="none"
+                            xmlns="http://www.w3.org/2000/svg">
+                            <path fill-rule="evenodd" clip-rule="evenodd"
+                                d="M0.0107422 60C0.101562 35.6855 0.926758 22.582 8.46094 13.4517C9.96191 11.6328 11.6328 9.96191 13.4512 8.46094C22.582 0.927246 35.6855 0.101562 60 0.0112305V60H0.0107422Z"
+                                fill="white" />
+                        </svg>
+                    </div>
+                    <div class="squircleCenter"></div>
+                    <div class="squircleRight">
+                        <svg class="cornerSVG" width="60" height="60" viewBox="0 0 60 60" fill="none"
+                            xmlns="http://www.w3.org/2000/svg">
+                            <path fill-rule="evenodd" clip-rule="evenodd"
+                                d="M0.0107422 60C0.101562 35.6855 0.926758 22.582 8.46094 13.4517C9.96191 11.6328 11.6328 9.96191 13.4512 8.46094C22.582 0.927246 35.6855 0.101562 60 0.0112305V60H0.0107422Z"
+                                fill="white" />
+                        </svg>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+
+        <svg id="trianglesSVG" style="display: none;" data-name="Layer 1" xmlns="http://www.w3.org/2000/svg"
+            viewBox="0 0 228.906 365.181">
+            <polygon class="cls-1" points="114.453 0.5 0.5 364.681 228.406 364.681 114.453 0.5" />
+            <polygon class="cls-1" points="0.5 364.681 44.047 225.571 228.406 364.681 0.5 364.681" />
+            <polygon class="cls-1" points="0.5 364.681 114.453 278.72 44.047 225.571 0.5 364.681" />
+            <polygon class="cls-1" points="44.047 225.571 70.941 311.567 114.453 278.72 44.047 225.571" />
+            <polygon class="cls-1" points="114.453 278.72 60.665 278.72 70.941 311.567 114.453 278.72" />
+            <polygon class="cls-1" points="70.941 311.567 81.217 278.72 60.665 278.72 70.941 311.567" />
+            <polygon class="cls-1" points="60.665 278.72 77.283 291.264 81.217 278.72 60.665 278.72" />
+            <polygon class="cls-1" points="70.941 286.48 81.217 278.72 77.283 291.264 70.941 286.48" />
+            <polygon class="cls-1" points="77.283 291.264 74.874 283.504 70.941 286.48 77.283 291.264" />
+            <polygon class="cls-1" points="70.941 286.48 75.795 286.48 74.874 283.504 70.941 286.48" />
+        </svg>
+
+    </section>
+
+
+
+
+
+
+    <section id="info" class="wrapper">
+        <h2>What is a Golden Ratio?</h2>
+        <p>A golden ratio is a number of a line divided into two segments. The ratio of the whole is the same to the
+            larger segment
+            as the larger segment is to the shorter segment. A golden ratio is an irrational number, which means a
+            number that never
+            ends. Mathematically the golden ratio can be written as (1 + sqrt(5)) / 2 = 1.61803398875…
+        </p>
+        <br />
+        <p>Other names for the golden ratios are the golden section, golden mean, divine proportion, mean ratio,
+            proportionally
+            divided, continuous proportion, goldene schnitt or a golden number.
+        </p>
+
+        <h2>How to Make a Golden Ratio?</h2>
+        <p>This website allows you to create golden ratio relationships based on the entered number. Except that you can
+            calculate a
+            golden ratio lines, golden ratio circles, golden ratio rectangles, or golden ratio triangles. The result can
+            be exported as an SVG file and can be used in any
+            vector editor
+            like Adobe Illustrator, Sketch, Figma, etc.
+        </p>
+
+        <div id="avatarBox">
+            <a href="https://www.linkedin.com/in/alexander-deplov/"><img srcset="./assets/images/avatar.png,
+                                ./assets/images/avatar@2x.png 2x" src="./assets/images/avatar.png"
+                    alt="Alexander Deplov" /></a>
+            Made by <a href="https://www.linkedin.com/in/alexander-deplov/">Alexander Deplov</a>
+        </div>
+
+
+    </section>
+
+    <script src="./assets/script.js"></script>
+    
+</body>
+
+</html>

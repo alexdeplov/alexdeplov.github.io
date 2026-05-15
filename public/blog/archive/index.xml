@@ -2,116 +2,116 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>Archive on Alexander Deplov, AI artist, product designer</title>
-    <link>https://interfacecraft.online/blog/archive/</link>
+    <link>http://localhost:1313/blog/archive/</link>
     <description>Recent content in Archive on Alexander Deplov, AI artist, product designer</description>
     <generator>Hugo</generator>
     <language>en-us</language>
     <lastBuildDate>Wed, 12 Nov 2025 14:33:35 +0100</lastBuildDate>
-    <atom:link href="https://interfacecraft.online/blog/archive/index.xml" rel="self" type="application/rss+xml" />
+    <atom:link href="http://localhost:1313/blog/archive/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>Automatically Disable Wi-Fi When Ethernet Is Plugged in macOS</title>
-      <link>https://interfacecraft.online/blog/archive/automatically-disable-wifi-when-ethernet-is-plugged-in-macos/</link>
+      <link>http://localhost:1313/blog/archive/automatically-disable-wifi-when-ethernet-is-plugged-in-macos/</link>
       <pubDate>Wed, 12 Nov 2025 14:33:35 +0100</pubDate>
-      <guid>https://interfacecraft.online/blog/archive/automatically-disable-wifi-when-ethernet-is-plugged-in-macos/</guid>
+      <guid>http://localhost:1313/blog/archive/automatically-disable-wifi-when-ethernet-is-plugged-in-macos/</guid>
       <description>&lt;p&gt;macOS has a long-standing bug that persists in macOS Tahoe. When I connect my MacBook to an external dongle with an Ethernet internet connection, it prioritizes the Wi-Fi connection. My Wi-Fi is very unstable, so even when connected to Ethernet, macOS refuses to use it. I set the Service Order to put Ethernet on top, but macOS ignores it.&lt;/p&gt;&#xA;&lt;p&gt;It&amp;rsquo;s so annoying that I ended up making a script to automate it:&lt;/p&gt;</description>
     </item>
     <item>
       <title>I Accidentally Discovered Consciousness</title>
-      <link>https://interfacecraft.online/blog/archive/i-accidentally-discovered-consciousness/</link>
+      <link>http://localhost:1313/blog/archive/i-accidentally-discovered-consciousness/</link>
       <pubDate>Sat, 07 Jun 2025 13:13:16 +0200</pubDate>
-      <guid>https://interfacecraft.online/blog/archive/i-accidentally-discovered-consciousness/</guid>
+      <guid>http://localhost:1313/blog/archive/i-accidentally-discovered-consciousness/</guid>
       <description>&lt;p&gt;My grandpa passed away many years ago, but I remember spending time with him fixing a broken chair. The chair was 80 years old and had been gifted to my mom by her grandpa, so we wanted to save and restore it.&lt;/p&gt;&#xA;&lt;p&gt;While discussing how to fix the chair, I asked my grandpa,&#xA;&amp;ldquo;Hey, what if we add a screw here at this angle?&amp;rdquo;&lt;/p&gt;&#xA;&lt;p&gt;His answer was:&#xA;&amp;ldquo;What do you mean?&amp;rdquo;&lt;/p&gt;</description>
     </item>
     <item>
       <title>Opera Browser Onboarding UX Analysis</title>
-      <link>https://interfacecraft.online/blog/archive/opera-browser-onboarding-ux-analysis/</link>
+      <link>http://localhost:1313/blog/archive/opera-browser-onboarding-ux-analysis/</link>
       <pubDate>Fri, 01 Nov 2024 16:28:45 +0100</pubDate>
-      <guid>https://interfacecraft.online/blog/archive/opera-browser-onboarding-ux-analysis/</guid>
+      <guid>http://localhost:1313/blog/archive/opera-browser-onboarding-ux-analysis/</guid>
       <description>&lt;iframe src=&#34;https://docs.google.com/presentation/d/e/2PACX-1vQlk_bUStpNmEc5hiQs7nGSU7qHR1J5z4bi4TDNpvF4pSI5bCRIlzCHPKMvLY21Cg/embed?start=false&amp;loop=false&amp;delayms=3000&#34; frameborder=&#34;0&#34; width=&#34;100%&#34; allowfullscreen=&#34;true&#34; mozallowfullscreen=&#34;true&#34; webkitallowfullscreen=&#34;true&#34; style=&#34;width: 100%; aspect-ratio: 16/10&#34; autofocus&gt;&lt;/iframe&gt;&#xA;&lt;p&gt;Inspired by the &lt;a href=&#34;https://growth.design/course&#34;&gt;Product Psychology Masterclass&lt;/a&gt;, I did an analysis of the Opera browser onboarding to find the peaks and valleys in the journey.&lt;/p&gt;&#xA;&lt;p&gt;Each step will increase or decrease the psych level marked with 🟢 for up or 🔻 for down.&lt;/p&gt;&#xA;&lt;p&gt;The Opera website has a nice claim about browser features. Faster, safer and smarter than standard browsers. I was excited to try something new, so my psych level was high 🟢:&lt;/p&gt;</description>
     </item>
     <item>
       <title>With iOS 18 Your App Needs Dark App Icon More Than Ever</title>
-      <link>https://interfacecraft.online/blog/archive/with-ios18-your-app-needs-dark-app-icon-more-than-ever/</link>
+      <link>http://localhost:1313/blog/archive/with-ios18-your-app-needs-dark-app-icon-more-than-ever/</link>
       <pubDate>Tue, 24 Sep 2024 17:02:50 +0200</pubDate>
-      <guid>https://interfacecraft.online/blog/archive/with-ios18-your-app-needs-dark-app-icon-more-than-ever/</guid>
-      <description>&lt;p&gt;With the latest release of iOS 18, Apple continues to emphasize design harmony throughout the operating system with Dark Mode for app icons. It provides a sleek and modern aesthetic that many users have come to love. Unfortunately, if your app doesn&amp;rsquo;t conform to this visual paradigm, users are more likely &lt;strong&gt;to remove it from the Home Screen&lt;/strong&gt; to get rid of an app icon that doesn&amp;rsquo;t fit.&lt;/p&gt;&#xA;&lt;p&gt;&lt;img src=&#34;https://interfacecraft.online/blog/archive/with-ios18-your-app-needs-dark-app-icon-more-than-ever/images/1.webp&#34; alt=&#34;&#34; width=&#34;3182&#34; height=&#34;1878&#34; loading=&#34;lazy&#34; decoding=&#34;async&#34;&gt;&lt;/p&gt;&#xA;&lt;p&gt;When an iOS 18 user enables Dark Mode on their device, the operating system automatically switches to a dark theme for all apps. However, not every app has been updated to reflect this change. As a result, your beautifully designed app will appear out of place among the other dark-themed icons on the home screen.&lt;/p&gt;</description>
+      <guid>http://localhost:1313/blog/archive/with-ios18-your-app-needs-dark-app-icon-more-than-ever/</guid>
+      <description>&lt;p&gt;With the latest release of iOS 18, Apple continues to emphasize design harmony throughout the operating system with Dark Mode for app icons. It provides a sleek and modern aesthetic that many users have come to love. Unfortunately, if your app doesn&amp;rsquo;t conform to this visual paradigm, users are more likely &lt;strong&gt;to remove it from the Home Screen&lt;/strong&gt; to get rid of an app icon that doesn&amp;rsquo;t fit.&lt;/p&gt;&#xA;&lt;p&gt;&lt;img src=&#34;http://localhost:1313/blog/archive/with-ios18-your-app-needs-dark-app-icon-more-than-ever/images/1.webp&#34; alt=&#34;&#34; width=&#34;3182&#34; height=&#34;1878&#34; loading=&#34;lazy&#34; decoding=&#34;async&#34;&gt;&lt;/p&gt;&#xA;&lt;p&gt;When an iOS 18 user enables Dark Mode on their device, the operating system automatically switches to a dark theme for all apps. However, not every app has been updated to reflect this change. As a result, your beautifully designed app will appear out of place among the other dark-themed icons on the home screen.&lt;/p&gt;</description>
     </item>
     <item>
       <title>Two Data-Driven Methods to Identify Your Target Audience Age</title>
-      <link>https://interfacecraft.online/blog/archive/two-data-driven-methods-to-identify-your-target-audience-age-as-a-product-designer/</link>
+      <link>http://localhost:1313/blog/archive/two-data-driven-methods-to-identify-your-target-audience-age-as-a-product-designer/</link>
       <pubDate>Mon, 29 Jul 2024 13:13:53 +0200</pubDate>
-      <guid>https://interfacecraft.online/blog/archive/two-data-driven-methods-to-identify-your-target-audience-age-as-a-product-designer/</guid>
+      <guid>http://localhost:1313/blog/archive/two-data-driven-methods-to-identify-your-target-audience-age-as-a-product-designer/</guid>
       <description>&lt;p&gt;Knowing your target audience is critical to creating a product that truly resonates with your users. By understanding their age (as an example), you can tailor the user experience, features, and even your marketing messages to their specific needs and preferences. This personalization not only increases engagement, but also contributes to the overall success of your product.&lt;/p&gt;&#xA;&lt;p&gt;As a product designer, if you can&amp;rsquo;t define your users, it&amp;rsquo;s like trying to shoot a target blindfolded. You need to know their ages, preferences, and behaviors in order to design a product that fits them like a glove.&lt;/p&gt;</description>
     </item>
     <item>
       <title>Navigating Success: 11 Years of Innovation with Anchor Pointer GPS Compass</title>
-      <link>https://interfacecraft.online/blog/archive/navigating_success_11_years_of_innovation_with_anchor_pointer_gps_compass/</link>
+      <link>http://localhost:1313/blog/archive/navigating_success_11_years_of_innovation_with_anchor_pointer_gps_compass/</link>
       <pubDate>Thu, 04 Jul 2024 21:52:14 +0200</pubDate>
-      <guid>https://interfacecraft.online/blog/archive/navigating_success_11_years_of_innovation_with_anchor_pointer_gps_compass/</guid>
-      <description>&lt;p&gt;As a product designer with a passion for innovation, I embarked on a journey to create my own product. This led to the birth of the &lt;a href=&#34;https://apps.apple.com/us/app/find-car-anchor-pointer/id791684332&#34;&gt;Anchor Pointer GPS Compass&lt;/a&gt;, an iOS app designed to provide reliable navigation without an internet connection.&lt;/p&gt;&#xA;&lt;p&gt;Total downloads 732K, latest 5 years:&lt;/p&gt;&#xA;&lt;p&gt;&lt;img src=&#34;https://interfacecraft.online/blog/archive/navigating_success_11_years_of_innovation_with_anchor_pointer_gps_compass/images/1_hu_358ed0f5d2f96f4f.webp&#34; srcset=&#34;https://interfacecraft.online/blog/archive/navigating_success_11_years_of_innovation_with_anchor_pointer_gps_compass/images/1_hu_ddcebc25e20e787b.webp 480w, https://interfacecraft.online/blog/archive/navigating_success_11_years_of_innovation_with_anchor_pointer_gps_compass/images/1_hu_45f4180c9cfd9a90.webp 768w, https://interfacecraft.online/blog/archive/navigating_success_11_years_of_innovation_with_anchor_pointer_gps_compass/images/1_hu_358ed0f5d2f96f4f.webp 1200w&#34; sizes=&#34;(min-width: 768px) 768px, calc(100vw - 2rem)&#34; alt=&#34;&#34; width=&#34;1200&#34; height=&#34;785&#34; loading=&#34;lazy&#34; decoding=&#34;async&#34;&gt;&lt;/p&gt;&#xA;&lt;h3 id=&#34;project-goal&#34;&gt;Project goal&lt;/h3&gt;&#xA;&lt;p&gt;In 2013 I decided to release my first iOS app. On this way I asked my brother-developer to help me with this project. The goal was to try to create a unique navigation app using GPS as a core technology with one big advantage, it can work without internet connection by reading GPS signal directly from satellites. It could be handy for people who are traveling and not willing to buy another SIM card just to have an internet connection. Or people who use iPhone in a natural area, far away from cell towers.&lt;/p&gt;</description>
+      <guid>http://localhost:1313/blog/archive/navigating_success_11_years_of_innovation_with_anchor_pointer_gps_compass/</guid>
+      <description>&lt;p&gt;As a product designer with a passion for innovation, I embarked on a journey to create my own product. This led to the birth of the &lt;a href=&#34;https://apps.apple.com/us/app/find-car-anchor-pointer/id791684332&#34;&gt;Anchor Pointer GPS Compass&lt;/a&gt;, an iOS app designed to provide reliable navigation without an internet connection.&lt;/p&gt;&#xA;&lt;p&gt;Total downloads 732K, latest 5 years:&lt;/p&gt;&#xA;&lt;p&gt;&lt;img src=&#34;http://localhost:1313/blog/archive/navigating_success_11_years_of_innovation_with_anchor_pointer_gps_compass/images/1_hu_358ed0f5d2f96f4f.webp&#34; srcset=&#34;http://localhost:1313/blog/archive/navigating_success_11_years_of_innovation_with_anchor_pointer_gps_compass/images/1_hu_ddcebc25e20e787b.webp 480w, http://localhost:1313/blog/archive/navigating_success_11_years_of_innovation_with_anchor_pointer_gps_compass/images/1_hu_45f4180c9cfd9a90.webp 768w, http://localhost:1313/blog/archive/navigating_success_11_years_of_innovation_with_anchor_pointer_gps_compass/images/1_hu_358ed0f5d2f96f4f.webp 1200w&#34; sizes=&#34;(min-width: 768px) 768px, calc(100vw - 2rem)&#34; alt=&#34;&#34; width=&#34;1200&#34; height=&#34;785&#34; loading=&#34;lazy&#34; decoding=&#34;async&#34;&gt;&lt;/p&gt;&#xA;&lt;h3 id=&#34;project-goal&#34;&gt;Project goal&lt;/h3&gt;&#xA;&lt;p&gt;In 2013 I decided to release my first iOS app. On this way I asked my brother-developer to help me with this project. The goal was to try to create a unique navigation app using GPS as a core technology with one big advantage, it can work without internet connection by reading GPS signal directly from satellites. It could be handy for people who are traveling and not willing to buy another SIM card just to have an internet connection. Or people who use iPhone in a natural area, far away from cell towers.&lt;/p&gt;</description>
     </item>
     <item>
       <title>How to Shake Up Zero Downloads on App Store</title>
-      <link>https://interfacecraft.online/blog/archive/how-to-shake-up-zero-downloads-on-app-store/</link>
+      <link>http://localhost:1313/blog/archive/how-to-shake-up-zero-downloads-on-app-store/</link>
       <pubDate>Sun, 30 Jun 2024 14:54:59 +0200</pubDate>
-      <guid>https://interfacecraft.online/blog/archive/how-to-shake-up-zero-downloads-on-app-store/</guid>
+      <guid>http://localhost:1313/blog/archive/how-to-shake-up-zero-downloads-on-app-store/</guid>
       <description>&lt;h3 id=&#34;the-problem&#34;&gt;The Problem&lt;/h3&gt;&#xA;&lt;p&gt;You have a paid iOS app that you want to publish to the App Store, or it&amp;rsquo;s already published, but sales are dropping to zero.&lt;/p&gt;&#xA;&lt;p&gt;Today in the App Store have about 4 million and 1 million of games according to statista. With such huge competition each new app will be hidden to a user, and according to PhoneArena:&lt;/p&gt;&#xA;&lt;blockquote&gt;&#xA;&lt;p&gt;400,000 apps in the App Store have never been downloaded says report - PhoneArena&lt;/p&gt;</description>
     </item>
     <item>
       <title>Why the Fear of AI Taking on Humans s a Nonsense</title>
-      <link>https://interfacecraft.online/blog/archive/why-the-fear-of-ai-taking-on-humans-is-a-nonsense/</link>
+      <link>http://localhost:1313/blog/archive/why-the-fear-of-ai-taking-on-humans-is-a-nonsense/</link>
       <pubDate>Sat, 23 Mar 2024 20:05:56 +0200</pubDate>
-      <guid>https://interfacecraft.online/blog/archive/why-the-fear-of-ai-taking-on-humans-is-a-nonsense/</guid>
+      <guid>http://localhost:1313/blog/archive/why-the-fear-of-ai-taking-on-humans-is-a-nonsense/</guid>
       <description>&lt;p&gt;Lately you may hear a lot of talk about AI going wild and deciding to destroy humans and how dangerous that can be. This is such nonsense, and here is why.&lt;/p&gt;&#xA;&lt;ul&gt;&#xA;&lt;li&gt;First of all, AI must &lt;strong&gt;raise a question&lt;/strong&gt; about humans. Only then should it make a &lt;strong&gt;decision&lt;/strong&gt; to do something with it.&lt;/li&gt;&#xA;&lt;li&gt;From what we currently have, our AI systems have never asked a question. With a current state of technology it just runs a piece of code we ask to be loaded into a computer memory, chunk by chunk, and performs an output according to it.&lt;/li&gt;&#xA;&lt;li&gt;Second, we know animals that can &amp;ldquo;talk&amp;rdquo;. Like parrots or Koko the gorilla. She can interact with humans. But even these animals have never asked a question. They answer/react to our questions only when asked, like in the case of a Koko or when you ask your dog to go outside and it gets excited.&lt;/li&gt;&#xA;&lt;/ul&gt;&#xA;&lt;p&gt;Every time I hear that AI can harm a human, I wonder if AI is already capable of:&lt;/p&gt;</description>
     </item>
     <item>
       <title>How to Boost Mobile App Usage With a Simple Analytics Analysis</title>
-      <link>https://interfacecraft.online/blog/archive/how-to-boost-mobile-app-usage-with-a-simple-analytics-analysis/</link>
+      <link>http://localhost:1313/blog/archive/how-to-boost-mobile-app-usage-with-a-simple-analytics-analysis/</link>
       <pubDate>Thu, 21 Sep 2023 20:41:08 +0200</pubDate>
-      <guid>https://interfacecraft.online/blog/archive/how-to-boost-mobile-app-usage-with-a-simple-analytics-analysis/</guid>
+      <guid>http://localhost:1313/blog/archive/how-to-boost-mobile-app-usage-with-a-simple-analytics-analysis/</guid>
       <description>&lt;p&gt;If you are working on an app interface, you need to know very well how people are using your app.&lt;/p&gt;&#xA;&lt;p&gt;In order to improve usage, you need to find an answer to what exactly is popular amount of users and what isn’t.&lt;/p&gt;&#xA;&lt;p&gt;Sometimes app analytics can be very tricky, depending on the complexity of your app, your level of expertise in data analysis and the variety of techniques that require skills to work well. So after a while you might feel that you don’t use analytics very often.&lt;/p&gt;</description>
     </item>
     <item>
       <title>What Works Better Than a Three-Click Rule?</title>
-      <link>https://interfacecraft.online/blog/archive/what-works-better-than-three-click-rule/</link>
+      <link>http://localhost:1313/blog/archive/what-works-better-than-three-click-rule/</link>
       <pubDate>Fri, 11 Aug 2023 20:41:08 +0200</pubDate>
-      <guid>https://interfacecraft.online/blog/archive/what-works-better-than-three-click-rule/</guid>
+      <guid>http://localhost:1313/blog/archive/what-works-better-than-three-click-rule/</guid>
       <description>&lt;p&gt;&lt;img src=&#34;images/0.webp&#34; alt=&#34;&#34; loading=&#34;lazy&#34; decoding=&#34;async&#34;&gt;&lt;/p&gt;&#xA;&lt;h2 id=&#34;introduction&#34;&gt;Introduction&lt;/h2&gt;&#xA;&lt;p&gt;One of my favorite product design podcasts is the Quick Coffee. They discussed what makes great product design in the episode “5 principles of product design”. One of the principles was the “3 click rule”. The idea is simple: Keep a goal closer to the user, so they don’t have to do more than three clicks.&lt;/p&gt;&#xA;&lt;p&gt;After research on that topic I found alternative ideas to that.&lt;/p&gt;&#xA;&lt;h3 id=&#34;normal-nielsen-on-three-clicks-rule&#34;&gt;Normal Nielsen on three clicks rule:&lt;/h3&gt;&#xA;&lt;ul&gt;&#xA;&lt;li&gt;&#xA;&lt;p&gt;Click count varies with task complexity, no fixed number.&lt;/p&gt;</description>
     </item>
     <item>
       <title>Recreate the Apple Watch&#39;s Iconic Pairing Pattern in Vector</title>
-      <link>https://interfacecraft.online/blog/archive/cracking-the-code-recreate-the-apple-watch_s-iconic-pairing-pattern/</link>
+      <link>http://localhost:1313/blog/archive/cracking-the-code-recreate-the-apple-watch_s-iconic-pairing-pattern/</link>
       <pubDate>Mon, 22 Mar 2021 10:27:48 +0200</pubDate>
-      <guid>https://interfacecraft.online/blog/archive/cracking-the-code-recreate-the-apple-watch_s-iconic-pairing-pattern/</guid>
-      <description>&lt;p&gt;&lt;img src=&#34;https://interfacecraft.online/blog/archive/cracking-the-code-recreate-the-apple-watch_s-iconic-pairing-pattern/images/0_hu_faf0637381cbbd2b.webp&#34; srcset=&#34;https://interfacecraft.online/blog/archive/cracking-the-code-recreate-the-apple-watch_s-iconic-pairing-pattern/images/0_hu_3fc01e82c18ee2d6.webp 480w, https://interfacecraft.online/blog/archive/cracking-the-code-recreate-the-apple-watch_s-iconic-pairing-pattern/images/0_hu_23d9e05e17ba6401.webp 768w, https://interfacecraft.online/blog/archive/cracking-the-code-recreate-the-apple-watch_s-iconic-pairing-pattern/images/0_hu_faf0637381cbbd2b.webp 1200w&#34; sizes=&#34;(min-width: 768px) 768px, calc(100vw - 2rem)&#34; alt=&#34;&#34; width=&#34;1200&#34; height=&#34;747&#34; loading=&#34;lazy&#34; decoding=&#34;async&#34;&gt;&lt;/p&gt;&#xA;&lt;p&gt;Apple Watch itself is so beautiful, but also its pairing screen. I feel that this pattern is too complicated to be made by hand, so it seems that it was made by using code. It turns out that Apple made it based on 24 ovals, each representing 24 hours in a day. Each oval is offset from the center. So we can easily recreate it in code.&lt;/p&gt;</description>
+      <guid>http://localhost:1313/blog/archive/cracking-the-code-recreate-the-apple-watch_s-iconic-pairing-pattern/</guid>
+      <description>&lt;p&gt;&lt;img src=&#34;http://localhost:1313/blog/archive/cracking-the-code-recreate-the-apple-watch_s-iconic-pairing-pattern/images/0_hu_faf0637381cbbd2b.webp&#34; srcset=&#34;http://localhost:1313/blog/archive/cracking-the-code-recreate-the-apple-watch_s-iconic-pairing-pattern/images/0_hu_3fc01e82c18ee2d6.webp 480w, http://localhost:1313/blog/archive/cracking-the-code-recreate-the-apple-watch_s-iconic-pairing-pattern/images/0_hu_23d9e05e17ba6401.webp 768w, http://localhost:1313/blog/archive/cracking-the-code-recreate-the-apple-watch_s-iconic-pairing-pattern/images/0_hu_faf0637381cbbd2b.webp 1200w&#34; sizes=&#34;(min-width: 768px) 768px, calc(100vw - 2rem)&#34; alt=&#34;&#34; width=&#34;1200&#34; height=&#34;747&#34; loading=&#34;lazy&#34; decoding=&#34;async&#34;&gt;&lt;/p&gt;&#xA;&lt;p&gt;Apple Watch itself is so beautiful, but also its pairing screen. I feel that this pattern is too complicated to be made by hand, so it seems that it was made by using code. It turns out that Apple made it based on 24 ovals, each representing 24 hours in a day. Each oval is offset from the center. So we can easily recreate it in code.&lt;/p&gt;</description>
     </item>
     <item>
       <title>iOS App Pricing Doesn&#39;t Have to Be Low</title>
-      <link>https://interfacecraft.online/blog/archive/ios-app-pricing-doesn-t-have-to-be-low/</link>
+      <link>http://localhost:1313/blog/archive/ios-app-pricing-doesn-t-have-to-be-low/</link>
       <pubDate>Fri, 30 Jun 2017 18:46:57 +0200</pubDate>
-      <guid>https://interfacecraft.online/blog/archive/ios-app-pricing-doesn-t-have-to-be-low/</guid>
+      <guid>http://localhost:1313/blog/archive/ios-app-pricing-doesn-t-have-to-be-low/</guid>
       <description>&lt;p&gt;For many years, I developed only paid iOS apps. I read many online articles suggesting to set the price low, like $0.99 per copy. They said it allows more people to afford it.&lt;/p&gt;&#xA;&lt;p&gt;After some tests, I tried with one of my app pricing less than 0.99 (Tiers A, B), 0.99, 1.99, 2.99, up to 11.99. Then I calculated what price makes more income.&lt;/p&gt;&#xA;&lt;p&gt;The result was that one of my top apps made more money &lt;strong&gt;in total&lt;/strong&gt; when the price was 3.99. I tested this idea many times and over and over again — 3.99 was the winner.&lt;/p&gt;</description>
     </item>
     <item>
       <title>Taskmoji: Simplified To-Do App for People Who Hate To-Do Apps</title>
-      <link>https://interfacecraft.online/blog/archive/taskmoji-simplified-to-do-app-for-people-who-hate-to-do-apps/</link>
+      <link>http://localhost:1313/blog/archive/taskmoji-simplified-to-do-app-for-people-who-hate-to-do-apps/</link>
       <pubDate>Wed, 07 Sep 2016 10:53:16 +0200</pubDate>
-      <guid>https://interfacecraft.online/blog/archive/taskmoji-simplified-to-do-app-for-people-who-hate-to-do-apps/</guid>
-      <description>&lt;p&gt;You probably know that apps can sometimes be harder to use than physical objects. They&amp;rsquo;re slow, confusing, and require a lot of taps, clicks, and selections.&lt;/p&gt;&#xA;&lt;p&gt;That&amp;rsquo;s why, for many people, pen and paper still works better than some fancy app on your iPhone.&lt;/p&gt;&#xA;&lt;p&gt;&lt;img src=&#34;https://interfacecraft.online/blog/archive/taskmoji-simplified-to-do-app-for-people-who-hate-to-do-apps/images/1.webp&#34; alt=&#34;&#34; width=&#34;595&#34; height=&#34;275&#34; loading=&#34;lazy&#34; decoding=&#34;async&#34;&gt;&lt;/p&gt;&#xA;&lt;h3 id=&#34;core-of-the-problem&#34;&gt;Core of the problem&lt;/h3&gt;&#xA;&lt;p&gt;I started digging into the idea of &amp;ldquo;how can it be so simple, so literally replace pen &amp;amp; paper&amp;rdquo; and found that there are two main problems with apps:&lt;/p&gt;</description>
+      <guid>http://localhost:1313/blog/archive/taskmoji-simplified-to-do-app-for-people-who-hate-to-do-apps/</guid>
+      <description>&lt;p&gt;You probably know that apps can sometimes be harder to use than physical objects. They&amp;rsquo;re slow, confusing, and require a lot of taps, clicks, and selections.&lt;/p&gt;&#xA;&lt;p&gt;That&amp;rsquo;s why, for many people, pen and paper still works better than some fancy app on your iPhone.&lt;/p&gt;&#xA;&lt;p&gt;&lt;img src=&#34;http://localhost:1313/blog/archive/taskmoji-simplified-to-do-app-for-people-who-hate-to-do-apps/images/1.webp&#34; alt=&#34;&#34; width=&#34;595&#34; height=&#34;275&#34; loading=&#34;lazy&#34; decoding=&#34;async&#34;&gt;&lt;/p&gt;&#xA;&lt;h3 id=&#34;core-of-the-problem&#34;&gt;Core of the problem&lt;/h3&gt;&#xA;&lt;p&gt;I started digging into the idea of &amp;ldquo;how can it be so simple, so literally replace pen &amp;amp; paper&amp;rdquo; and found that there are two main problems with apps:&lt;/p&gt;</description>
     </item>
     <item>
       <title>The Future of Icons is No Shapes?</title>
-      <link>https://interfacecraft.online/blog/archive/the-future-of-icons-is-no-shapes/</link>
+      <link>http://localhost:1313/blog/archive/the-future-of-icons-is-no-shapes/</link>
       <pubDate>Sat, 16 Jul 2016 20:41:08 +0200</pubDate>
-      <guid>https://interfacecraft.online/blog/archive/the-future-of-icons-is-no-shapes/</guid>
-      <description>&lt;h2 id=&#34;introduction&#34;&gt;Introduction&lt;/h2&gt;&#xA;&lt;p&gt;If you’re a designer or developer you probably working with icons a lot. They’re everywhere. The main goal for every icon designer — is to make its shapes so clear, so it can be understandable without labels, without words. Even in foreign cultures.&lt;/p&gt;&#xA;&lt;p&gt;&lt;img src=&#34;https://interfacecraft.online/blog/archive/the-future-of-icons-is-no-shapes/images/1.webp&#34; alt=&#34;&#34; width=&#34;800&#34; height=&#34;600&#34; loading=&#34;lazy&#34; decoding=&#34;async&#34;&gt;&lt;/p&gt;&#xA;&lt;p&gt;Few years ago there is one popular topic in designers circles “why we should not use floppy disk icons anymore”, remember? The idea is simple, modern computers has changed, we don’t have floppy disk so modern user can’t associate the idea of save something with a floppy disk shape.&lt;/p&gt;</description>
+      <guid>http://localhost:1313/blog/archive/the-future-of-icons-is-no-shapes/</guid>
+      <description>&lt;h2 id=&#34;introduction&#34;&gt;Introduction&lt;/h2&gt;&#xA;&lt;p&gt;If you’re a designer or developer you probably working with icons a lot. They’re everywhere. The main goal for every icon designer — is to make its shapes so clear, so it can be understandable without labels, without words. Even in foreign cultures.&lt;/p&gt;&#xA;&lt;p&gt;&lt;img src=&#34;http://localhost:1313/blog/archive/the-future-of-icons-is-no-shapes/images/1.webp&#34; alt=&#34;&#34; width=&#34;800&#34; height=&#34;600&#34; loading=&#34;lazy&#34; decoding=&#34;async&#34;&gt;&lt;/p&gt;&#xA;&lt;p&gt;Few years ago there is one popular topic in designers circles “why we should not use floppy disk icons anymore”, remember? The idea is simple, modern computers has changed, we don’t have floppy disk so modern user can’t associate the idea of save something with a floppy disk shape.&lt;/p&gt;</description>
     </item>
     <item>
       <title>New App Release Newspaper for iPad</title>
-      <link>https://interfacecraft.online/blog/archive/new-app-release-newspaper-for-ipad/</link>
+      <link>http://localhost:1313/blog/archive/new-app-release-newspaper-for-ipad/</link>
       <pubDate>Tue, 12 Apr 2016 09:51:03 +0200</pubDate>
-      <guid>https://interfacecraft.online/blog/archive/new-app-release-newspaper-for-ipad/</guid>
-      <description>&lt;p&gt;The Old Newspaper app &lt;a href=&#34;https://itunes.apple.com/us/app/old-newspaper-breaking-news/id1068207248?mt=8&#34;&gt;released on App Store&lt;/a&gt;.&lt;/p&gt;&#xA;&lt;p&gt;&lt;img src=&#34;https://interfacecraft.online/blog/archive/new-app-release-newspaper-for-ipad/images/1.webp&#34; alt=&#34;&#34; width=&#34;2000&#34; height=&#34;1500&#34; loading=&#34;lazy&#34; decoding=&#34;async&#34;&gt;&lt;/p&gt;&#xA;&lt;h3 id=&#34;story-behind-the-app&#34;&gt;Story behind the app&lt;/h3&gt;&#xA;&lt;p&gt;I just finished a side project I always wanted to do: turn the iPad into a newspaper. From the first moment I saw the iPad, I saw it as a book replacement. The surface we can fill with dynamic information, but unlike the iPhone, it has the same format as books. Or, yes, a newspaper.&lt;/p&gt;&#xA;&lt;p&gt;I started this project a year ago, in 2015. It was even before Apple introduced Apple News. And that changed my app ideology a little bit. Instead of making an app for everyone, I decide to separate readers by their location.&lt;/p&gt;</description>
+      <guid>http://localhost:1313/blog/archive/new-app-release-newspaper-for-ipad/</guid>
+      <description>&lt;p&gt;The Old Newspaper app &lt;a href=&#34;https://itunes.apple.com/us/app/old-newspaper-breaking-news/id1068207248?mt=8&#34;&gt;released on App Store&lt;/a&gt;.&lt;/p&gt;&#xA;&lt;p&gt;&lt;img src=&#34;http://localhost:1313/blog/archive/new-app-release-newspaper-for-ipad/images/1.webp&#34; alt=&#34;&#34; width=&#34;2000&#34; height=&#34;1500&#34; loading=&#34;lazy&#34; decoding=&#34;async&#34;&gt;&lt;/p&gt;&#xA;&lt;h3 id=&#34;story-behind-the-app&#34;&gt;Story behind the app&lt;/h3&gt;&#xA;&lt;p&gt;I just finished a side project I always wanted to do: turn the iPad into a newspaper. From the first moment I saw the iPad, I saw it as a book replacement. The surface we can fill with dynamic information, but unlike the iPhone, it has the same format as books. Or, yes, a newspaper.&lt;/p&gt;&#xA;&lt;p&gt;I started this project a year ago, in 2015. It was even before Apple introduced Apple News. And that changed my app ideology a little bit. Instead of making an app for everyone, I decide to separate readers by their location.&lt;/p&gt;</description>
     </item>
   </channel>
 </rss>

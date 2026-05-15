@@ -209,6 +209,10 @@ a {
     text-decoration: none;
 }
 
+.tool-link:hover {
+    text-decoration: none;
+}
+
 a:hover {
     text-decoration: underline;
     text-decoration-color: currentColor;

@@ -1,0 +1,197 @@
+.middleContent {
+display: block;
+width: 100%;
+}
+
+.squircle {
+display: flex;
+justify-content: space-between;
+width: 100%;
+z-index: 1;
+position: relative;
+}
+
+.squircleLeft .cornerSVG,
+.squircleRight .cornerSVG {
+width: 100%;
+height: 100%;
+}
+
+.squircleCenter {
+flex: 1;
+}
+
+.squircleRight {
+transform: scale(-1, 1);
+}
+
+.squircleUpToBottom {
+transform: scale(1, -1);
+}
+
+.ss-1 {
+height: 30px;
+}
+
+.ss-1 .squircleLeft,
+.ss-1 .squircleRight {
+width: 30px;
+height: 100%;
+}
+@media (max-width: 768px) {
+.ss-1 {
+    height: 20px;
+}
+.ss-1 .squircleLeft,
+.ss-1 .squircleRight {
+    width: 20px;
+    height: 100%;
+}
+}
+
+.ss-2 {
+height: 40px;
+}
+
+.ss-2 .squircleLeft,
+.ss-2 .squircleRight {
+width: 40px;
+height: 100%;
+}
+
+@media (max-width: 768px) {
+.ss-2 {
+    height: 30px;
+}
+
+.ss-2 .squircleLeft,
+.ss-2 .squircleRight {
+    width: 30px;
+    height: 100%;
+}
+}
+
+.ss-3 {
+height: 60px;
+}
+
+.ss-3 .squircleLeft,
+.ss-3 .squircleRight {
+width: 60px;
+height: 100%;
+}
+
+@media (max-width: 768px) {
+.ss-3 {
+    height: 40px;
+}
+
+.ss-3 .squircleLeft,
+.ss-3 .squircleRight {
+    width: 40px;
+    height: 100%;
+}
+}
+
+:root {
+--blue: blue;
+--green: green;
+--yellow: rgb(255, 166, 0);
+}
+
+.sf-blue path,
+.sf-blue .squircleCenter,
+.sf-blue .middleContent {
+background-color: var(--blue);
+fill: var(--blue);
+}
+
+.sf-green path,
+.sf-green .squircleCenter,
+.sf-green .middleContent {
+background-color: var(--dp-fillColorGreen);
+fill: var(--dp-fillColorGreen);
+}
+
+.sf-yellow path,
+.sf-yellow .squircleCenter,
+.sf-yellow .middleContent {
+background-color: var(--yellow);
+fill: var(--yellow);
+}
+
+.sf-white path,
+.sf-white .squircleCenter,
+.sf-white .middleContent {
+background-color: white;
+fill: white;
+}
+
+.sf-purple path,
+.sf-purple .squircleCenter,
+.sf-purple .middleContent {
+background-color: var(--dp-fillColorPurple);
+fill: var(--dp-fillColorPurple);
+}
+
+/* .squircleHeader {
+  display: flex;
+  justify-content: space-between;
+  width: 100%;
+}
+
+.squircleLeft {
+  flex-grow: 1;
+}
+
+.squircleCenter {
+  flex-grow: 1;
+  background-color: white;
+}
+
+.squircleRight {
+  flex-grow: 1;
+  transform: scale(-1, 1);
+}
+
+.height81 {
+  height: 81px;
+}
+@media all and (max-width: 600px) {
+  .height81 {
+    height: 20px;
+  }
+  .cornerSVG svg {
+    height: 20px;
+    margin-left: -30px;
+    background-color: ;
+  }
+}
+
+.width81 {
+  max-width: 81px;
+}
+@media all and (max-width: 600px) {
+  .width81 {
+    max-width: 20px;
+  }
+}
+
+.flipVertical {
+  -moz-transform: scale(1, -1);
+  -o-transform: scale(1, -1);
+  -webkit-transform: scale(1, -1);
+  transform: scale(1, -1);
+}
+
+.boxShadow {
+  box-shadow: 0 53px 69px rgba(0, 0, 0, 0.15);
+  border-radius: 61px;
+}
+
+.boxContent {
+  background-color: var(--green);
+  padding: 0px 30px;
+}
+
+ */

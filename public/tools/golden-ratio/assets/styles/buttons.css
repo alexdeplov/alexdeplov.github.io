@@ -1,0 +1,86 @@
+
+.bg-blue{
+    background-color: var(--dp-accentBlue);
+}
+
+.bh-1{    
+    padding-left: 20px;
+    padding-right: 20px;
+    
+    padding-top: 12.5px;
+    padding-bottom: 12.5px;
+    min-height: 44px;
+
+    font-size: 13px;
+    font-weight: 500;
+
+    letter-spacing: -0.01em;
+    border-radius: 11px;
+
+    box-shadow: 0 8px 15px 0 rgba(0, 26, 255, 0.21);
+}
+
+
+.bh-2{    
+    padding-left: 20px;
+    padding-right: 20px;
+    
+    padding-top: 12.5px;
+    padding-bottom: 12.5px;
+    min-height: 44px;
+
+    font-size: 18px;
+    font-weight: 500;
+
+    letter-spacing: -0.02em;
+    border-radius: 11px;
+
+    box-shadow: 0 8px 15px 0 rgba(0, 26, 255, 0.21);
+}
+
+.bh-3{
+    padding-left: 30px;
+    padding-right: 30px;
+    min-height: 64px;
+    
+    padding-top: 14.5px;
+    padding-bottom: 14.5px;
+
+    font-size: 25px;
+    font-weight: 600;
+
+    letter-spacing: -0.03em;
+    border-radius: 13px;
+
+    box-shadow: 0 10px 25px 0 rgba(0, 26, 255, 0.31);
+}
+
+.downloadButton{
+  color: rgba(255,255,255,.85);
+  border: none;
+  transition: .15s;
+  cursor: pointer;
+  z-index: 2;
+  position: relative;
+  font-family: 'Poppins', sans-serif;
+}
+/* @media all and (max-width: 895px) {
+  .downloadButton{
+    width: 100%;
+  }
+} */
+
+.downloadButton:hover{
+    color: white;
+    transform: translateY(-3px);
+}
+
+/* .downloadButton:hover{
+  cursor: pointer;
+  transition: .25s;
+  
+  box-shadow: 0 15px 45px 0 rgba(0, 26, 255, 0.31);
+  transform: translateY(-5px);
+  position: relative;
+  color: white;
+} */

@@ -1,9 +1,14 @@
 {{ define "main" }}
 <main class="max-w-2xl mx-auto px-4 py-12">
-    <header class="mb-10 text-zinc-500 flex items-start gap-4">
-        <!-- <img src="/images/avatar.jpg" alt="Alexander Deplov" class="w-20 h-20 rounded-md mt-1 shrink-0"> -->
+    <header class="mb-10 text-zinc-500">
+        <div class="flex items-center justify-between mb-4">
+          <div class="font-semibold">Alexander Deplov</div>
+          <nav class="flex space-x-3 items-center text-sm">
+            <a href="/blog/" class="text-[#FD7F44]">Blog</a>
+            <a href="/tools/" class="hover:text-zinc-300">Tools</a>
+          </nav>
+        </div>
         <div>
-        <div class="font-semibold mb-1">Alexander Deplov</div>
         <h1 class="text-3xl !font-normal mb-2 text-zinc-500">Blog. Thoughts, ideas, and explorations</h1>
         <div class="flex space-x-3 items-center">
           <a alt="@alex_deplov on Mastodon" href="https://mastodon.social/@alex_deplov" target="_blank" rel="noopener noreferrer" class="text-[#29ADFF]">
