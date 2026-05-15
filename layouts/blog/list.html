@@ -124,7 +124,7 @@
     <div class="space-y-0">
         {{ range .RegularPages }}
         <article class="group">
-            <a href="{{ .RelPermalink }}" class="post-title-link flex items-center gap-3 py-3 no-underline hover:underline">
+            <a href="{{ .RelPermalink }}" class="post-title-link inline-flex items-center gap-3 py-3 no-underline hover:underline">
                 <span class="shrink-0 w-2 h-2 bg-zinc-400 rounded-sm"></span>
                 <h2 class="font-medium inline" style="font-size:18px">{{ with .Params.short_title }}{{ . }}{{ else }}{{ .Title }}{{ end }}{{ if .Params.featured }}<span class="blog-post-star" aria-hidden="true">●</span>{{ end }}</h2>
             </a>
