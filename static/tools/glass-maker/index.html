@@ -55,9 +55,13 @@
 
         #sidebar {
             width: 300px;
+            min-width: 300px;
+            max-width: 300px;
+            flex-shrink: 0;
             display: flex;
             flex-direction: column;
             background-color: #222;
+            border-right: 1px solid var(--border);
             z-index: 10;
         }
 
@@ -89,6 +93,55 @@
             flex-direction: column;
             gap: 8px;
             background-color: #222;
+        }
+
+        #sidebar-presets {
+            padding: 10px 20px;
+            border-bottom: 1px solid var(--border);
+            background-color: #222;
+            display: flex;
+            flex-direction: column;
+            gap: 6px;
+        }
+
+        .presets-label {
+            font-size: 10px;
+            color: var(--subColor);
+            font-family: 'Rubik', sans-serif;
+            font-weight: 500;
+            text-transform: uppercase;
+            letter-spacing: 0.05em;
+        }
+
+        .presets-list {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 6px;
+        }
+
+        .preset-btn {
+            font-family: 'Rubik', sans-serif;
+            font-size: 11px;
+            font-weight: 500;
+            padding: 4px 10px;
+            border-radius: 12px;
+            border: 1px solid var(--border);
+            background: #2a2a35;
+            color: var(--textColor);
+            cursor: pointer;
+            transition: background 0.15s, border-color 0.15s;
+            white-space: nowrap;
+        }
+
+        .preset-btn:hover {
+            background: #35353f;
+            border-color: rgba(255,255,255,0.2);
+        }
+
+        .preset-btn.active {
+            background: #3a3a48;
+            border-color: rgba(255,255,255,0.25);
+            color: #fff;
         }
 
         h2 {
@@ -317,6 +370,18 @@
     <div id="sidebar-header">
         <button id="selectImageBtn" class="btn-secondary">Select Image</button>
     </div>
+    <div id="sidebar-presets">
+        <div class="presets-label">Presets</div>
+        <div class="presets-list">
+            <button class="preset-btn" data-preset="slim-lines">Slim lines</button>
+            <button class="preset-btn" data-preset="medium-lines">Medium lines</button>
+            <button class="preset-btn" data-preset="wide-lines">Wide lines</button>
+            <button class="preset-btn" data-preset="shear">Shear</button>
+            <button class="preset-btn" data-preset="cascade">Cascade</button>
+            <button class="preset-btn" data-preset="fine-reeds">Fine Reeds</button>
+            <button class="preset-btn" data-preset="prism">Prism</button>
+        </div>
+    </div>
     <div id="controls">
 <input type="file" id="imageUpload" accept="image/*" style="display:none">
 
@@ -328,7 +393,7 @@
                     <label title="Invert — this slider moves in the opposite direction when pulled by a linked slider"><input type="checkbox" class="invert-check">+/-</label>
                 </div>
             </div>
-            <input type="range" id="sliceWidth" min="0.001" max="0.5" step="0.001" value="0.078">
+            <input type="range" id="sliceWidth" min="0.001" max="0.7" step="0.001" value="0.078">
         </div>
 
         <div class="control-group" data-id="spacing">
@@ -832,6 +897,134 @@
             updateTexture(tempCanvas);
         };
         defaultImg.src = './example.png';
+
+        // Presets
+        const PRESETS = {
+            'slim-lines': {
+                sliceWidth:      0.029,
+                spacing:         0.000,
+                start:           0.00,
+                end:             1.00,
+                shift:           0.08,
+                shiftCurve:      0.8,
+                texx:            0.34,
+                texScaleX:       0.62,
+                sliceInnerScale: 1.06,
+                sliceInnerCurve: -0.4,
+                centerSliceScale: false,
+            },
+            'wide-lines': {
+                sliceWidth:      0.656,
+                spacing:         0.000,
+                start:           0.00,
+                end:             1.00,
+                shift:           -0.59,
+                shiftCurve:      1.0,
+                texx:            0.04,
+                texScaleX:       0.74,
+                sliceInnerScale: 0.87,
+                sliceInnerCurve: 0.7,
+                centerSliceScale: true,
+            },
+            'shear': {
+                sliceWidth:      0.128,
+                spacing:         0.000,
+                start:           0.00,
+                end:             1.00,
+                shift:           0.63,
+                shiftCurve:      0.7,
+                texx:            0.29,
+                texScaleX:       0.74,
+                sliceInnerScale: 1.90,
+                sliceInnerCurve: 0.3,
+                centerSliceScale: false,
+            },
+            'cascade': {
+                sliceWidth:      0.056,
+                spacing:         0.000,
+                start:           0.00,
+                end:             0.80,
+                shift:           0.05,
+                shiftCurve:      0.6,
+                texx:            0.00,
+                texScaleX:       0.40,
+                sliceInnerScale: 3.86,
+                sliceInnerCurve: -0.4,
+                centerSliceScale: false,
+            },
+            'fine-reeds': {
+                sliceWidth:      0.045,
+                spacing:         0.000,
+                start:           0.00,
+                end:             1.00,
+                shift:           0.04,
+                shiftCurve:      1.0,
+                texx:            0.04,
+                texScaleX:       0.25,
+                sliceInnerScale: 5.16,
+                sliceInnerCurve: 0.9,
+                centerSliceScale: false,
+            },
+            'prism': {
+                sliceWidth:      0.146,
+                spacing:         0.000,
+                start:           0.00,
+                end:             1.00,
+                shift:           0.21,
+                shiftCurve:      1.0,
+                texx:            -0.09,
+                texScaleX:       0.14,
+                sliceInnerScale: -8.57,
+                sliceInnerCurve: 4.5,
+                centerSliceScale: false,
+            },
+            'medium-lines': {
+                sliceWidth:      0.078,
+                spacing:         0.000,
+                start:           0.00,
+                end:             1.00,
+                shift:           0.04,
+                shiftCurve:      1.0,
+                texx:            0.04,
+                texScaleX:       0.29,
+                sliceInnerScale: -10.00,
+                sliceInnerCurve: 5.0,
+                centerSliceScale: false,
+            }
+        };
+
+        function applyPreset(presetKey) {
+            const preset = PRESETS[presetKey];
+            if (!preset) return;
+            for (const [id, value] of Object.entries(preset)) {
+                const el = document.getElementById(id);
+                if (!el) continue;
+                if (el.type === 'checkbox') {
+                    el.checked = !!value;
+                    el.dispatchEvent(new Event('change'));
+                } else {
+                    el.value = value;
+                    el.dispatchEvent(new Event('input'));
+                }
+            }
+            // Reset checkboxes not specified in this preset to unchecked.
+            const checkboxIds = ['centerSliceScale'];
+            checkboxIds.forEach(id => {
+                if (!(id in preset)) {
+                    const el = document.getElementById(id);
+                    if (el && el.checked) { el.checked = false; el.dispatchEvent(new Event('change')); }
+                }
+            });
+            document.querySelectorAll('.preset-btn').forEach(btn => {
+                btn.classList.toggle('active', btn.dataset.preset === presetKey);
+            });
+        }
+
+        document.querySelector('.presets-list').addEventListener('click', (e) => {
+            const btn = e.target.closest('.preset-btn');
+            if (!btn) return;
+            applyPreset(btn.dataset.preset);
+        });
 
         // Reset buttons
         document.getElementById('controls').addEventListener('click', (e) => {
