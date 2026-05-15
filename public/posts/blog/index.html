@@ -1,15 +1,24 @@
-<!DOCTYPE html>
-<html>
+<!doctype html>
+<html lang="en">
 <head>
-    <meta charset="utf-8">
-    <meta http-equiv="refresh" content="0; url=http://localhost:1313/blog/">
-    <link rel="canonical" href="http://localhost:1313/blog/">
-    <title>Redirecting...</title>
+  <meta charset="utf-8">
+  <meta http-equiv="refresh" content="0; url=/blog/">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Redirecting…</title>
+  <link rel="canonical" href="/blog/">
+  <script>
+    (function() {
+      var target = '/blog/' + (window.location.search || '') + (window.location.hash || '');
+      if (window.location && window.location.replace) {
+        window.location.replace(target);
+      } else {
+        window.location.href = target;
+      }
+    })();
+  </script>
 </head>
 <body>
-    <p>This page has moved to <a href="http://localhost:1313/blog/">http://localhost:1313/blog/</a>.</p>
-    <script>window.location.replace("http:\/\/localhost:1313\/blog\/");</script>
+  <p>Redirecting to <a href="/blog/">/blog/</a>…</p>
 </body>
 </html>
-
 
