@@ -2,20 +2,18 @@
 
 @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap');
 
-nav, nav a, nav .websiteName {
+nav, nav a {
   font-family: 'Poppins', sans-serif;
 }
 
 nav ul {
   list-style-type: none;
   margin: 0;
-  padding: 0;
+  padding: 14px 0 0;
   display: flex;
   justify-content: center;
+  gap: 6px;
   width: 100%;
-  border-bottom: 1px solid rgba(0,0,0,.1);
-  padding-bottom: 20px;
-  margin-bottom: 20px;
 }
 
 nav a {
@@ -25,13 +23,7 @@ nav a {
   font-size: 14px;
   display: block;
   border-radius: 11px;
-  margin: 10px 5px 0;
-  padding: 10px 30px;
-}
-
-nav img {
-  display: block;
-  margin: -10px auto 0;
+  padding: 8px 14px;
 }
 
 nav a:hover {
@@ -45,8 +37,4 @@ nav .active {
 
 nav li {
   text-align: center;
-}
-
-nav .websiteName {
-  margin-top: -35px;
 }

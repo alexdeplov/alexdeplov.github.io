@@ -20,7 +20,7 @@ The visual style of these interfaces also reminds me of [Teletext](https://som-t
 
 Some time ago I discover a Usenet. I never used it before. I was excited to try Usenet in 2025, since it gives very similar experince to good old Fidonet days. In this post I'm going to share how to install it on modern macOS.
 
-But first you need to create an account at [news.eternal-september.org](https://news.eternal-september.org/RegisterNewsAccount.php?language=en). These credentials will be used later to enter the Usenet.
+But first you need to create an account at [eternal-september.org](https://eternal-september.org/RegisterNewsAccount.php?language=en). These credentials will be used later to enter the Usenet.
 
 ```js
 % brew install slrn

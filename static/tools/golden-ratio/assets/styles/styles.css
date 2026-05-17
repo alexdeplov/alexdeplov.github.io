@@ -29,6 +29,13 @@ ul{
 body{
     background-color: var(--backgroundColor);
     font-family: 'Poppins', sans-serif;
+    padding-top: 32px;
+}
+
+@media (max-width: 520px) {
+  body {
+    padding-top: 72px;
+  }
 }
 
 .wrapper{

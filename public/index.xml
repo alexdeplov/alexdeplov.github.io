@@ -274,12 +274,5 @@
       <guid>https://interfacecraft.online/blog/archive/new-app-release-newspaper-for-ipad/</guid>
       <description>&lt;p&gt;The Old Newspaper app &lt;a href=&#34;https://itunes.apple.com/us/app/old-newspaper-breaking-news/id1068207248?mt=8&#34;&gt;released on App Store&lt;/a&gt;.&lt;/p&gt;&#xA;&lt;p&gt;&lt;img src=&#34;https://interfacecraft.online/blog/archive/new-app-release-newspaper-for-ipad/images/1.webp&#34; alt=&#34;&#34; width=&#34;2000&#34; height=&#34;1500&#34; loading=&#34;lazy&#34; decoding=&#34;async&#34;&gt;&lt;/p&gt;&#xA;&lt;h3 id=&#34;story-behind-the-app&#34;&gt;Story behind the app&lt;/h3&gt;&#xA;&lt;p&gt;I just finished a side project I always wanted to do: turn the iPad into a newspaper. From the first moment I saw the iPad, I saw it as a book replacement. The surface we can fill with dynamic information, but unlike the iPhone, it has the same format as books. Or, yes, a newspaper.&lt;/p&gt;&#xA;&lt;p&gt;I started this project a year ago, in 2015. It was even before Apple introduced Apple News. And that changed my app ideology a little bit. Instead of making an app for everyone, I decide to separate readers by their location.&lt;/p&gt;</description>
     </item>
-    <item>
-      <title>Example Tool</title>
-      <link>https://interfacecraft.online/tools/example-tool/</link>
-      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
-      <guid>https://interfacecraft.online/tools/example-tool/</guid>
-      <description>&lt;div class=&#34;tool-container&#34;&gt;&#xA;    &lt;!-- Your custom HTML content goes here --&gt;&#xA;    &lt;div class=&#34;bg-[#eceff41a] p-6 rounded-lg&#34;&gt;&#xA;        &lt;h2&gt;Interactive Content&lt;/h2&gt;&#xA;        &lt;p&gt;Add any HTML content you want here.&lt;/p&gt;&#xA;    &lt;/div&gt;&#xA;    &#xA;    &lt;!-- Example interactive element --&gt;&#xA;    &lt;div class=&#34;mt-6&#34;&gt;&#xA;        &lt;button class=&#34;px-4 py-2 bg-[#FD7F44] text-white rounded-lg hover:bg-opacity-90 transition-colors&#34;&gt;&#xA;            Click me&#xA;        &lt;/button&gt;&#xA;    &lt;/div&gt;&#xA;&lt;/div&gt;</description>
-    </item>
   </channel>
 </rss>
