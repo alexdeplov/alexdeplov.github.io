@@ -412,6 +412,62 @@ $(document).ready(function () {
         path.position = paper.view.center
     }
 
-})
+    var mobileGrabber = document.getElementById('mobile-resize-grabber')
+    var mobileQuery = window.matchMedia('(max-width: 768px)')
+    var isResizingMobileSplit = false
 
+    function clampMobileCanvasHeight(value) {
+        var viewportHeight = window.innerHeight || document.documentElement.clientHeight
+        var min = viewportHeight * 0.3
+        var max = viewportHeight * 0.75
+        return Math.max(min, Math.min(max, value))
+    }
+
+    function refreshPaperView() {
+        var canvasElement = document.getElementById('canvas')
+        if (!canvasElement) return
+        paper.view.viewSize = new paper.Size(canvasElement.clientWidth, canvasElement.clientHeight)
+        setPathTocenter()
+        paper.view.draw()
+    }
+
+    function setMobileCanvasHeight(value) {
+        var height = clampMobileCanvasHeight(value)
+        document.documentElement.style.setProperty('--mobile-canvas-height', height + 'px')
+        requestAnimationFrame(refreshPaperView)
+    }
+
+    if (mobileGrabber) {
+        mobileGrabber.addEventListener('pointerdown', function (event) {
+            if (!mobileQuery.matches) return
+            isResizingMobileSplit = true
+            mobileGrabber.setPointerCapture(event.pointerId)
+            setMobileCanvasHeight(event.clientY)
+            event.preventDefault()
+        })
+
+        mobileGrabber.addEventListener('pointermove', function (event) {
+            if (!isResizingMobileSplit || !mobileQuery.matches) return
+            setMobileCanvasHeight(event.clientY)
+            event.preventDefault()
+        })
+
+        function stopMobileSplitResize(event) {
+            if (!isResizingMobileSplit) return
+            isResizingMobileSplit = false
+            if (mobileGrabber.hasPointerCapture(event.pointerId)) {
+                mobileGrabber.releasePointerCapture(event.pointerId)
+            }
+        }
+
+        mobileGrabber.addEventListener('pointerup', stopMobileSplitResize)
+        mobileGrabber.addEventListener('pointercancel', stopMobileSplitResize)
+    }
+
+    window.addEventListener('resize', function () {
+        if (!mobileQuery.matches) return
+        refreshPaperView()
+    })
+
+})
 

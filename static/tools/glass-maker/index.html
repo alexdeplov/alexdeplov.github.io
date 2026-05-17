@@ -4,7 +4,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Glass Maker by @alex_deplov</title>
+    <title>Glass Maker — Alexander Deplov</title>
     <meta name="description" content="Create stunning glassmorphism CSS effects with real-time preview. Adjust blur, opacity, and color to generate ready-to-use CSS code.">
     <meta name="author" content="Alexander Deplov">
     <link rel="canonical" href="https://interfacecraft.online/tools/glass-maker/">
@@ -12,7 +12,7 @@
     <!-- Open Graph -->
     <meta property="og:type" content="website">
     <meta property="og:url" content="https://interfacecraft.online/tools/glass-maker/">
-    <meta property="og:title" content="Glass Maker by @alex_deplov">
+    <meta property="og:title" content="Glass Maker — Alexander Deplov">
     <meta property="og:description" content="Create stunning glassmorphism CSS effects with real-time preview. Adjust blur, opacity, and color to generate ready-to-use CSS code.">
     <meta property="og:locale" content="en_US">
     <meta property="og:image" content="https://interfacecraft.online/tools/glass-maker/example.png">
@@ -21,7 +21,7 @@
     <meta name="twitter:card" content="summary_large_image">
     <meta property="twitter:domain" content="interfacecraft.online">
     <meta property="twitter:url" content="https://interfacecraft.online/tools/glass-maker/">
-    <meta name="twitter:title" content="Glass Maker by @alex_deplov">
+    <meta name="twitter:title" content="Glass Maker — Alexander Deplov">
     <meta name="twitter:description" content="Create stunning glassmorphism CSS effects with real-time preview. Adjust blur, opacity, and color to generate ready-to-use CSS code.">
     <meta name="twitter:image" content="https://interfacecraft.online/tools/glass-maker/example.png">
 
@@ -40,6 +40,7 @@
             --textColor: #e3e3e3;
             --subColor: #888;
             --accentBlue: #4d7fff;
+            --mobile-preview-height: 55vh;
         }
 
         body {
@@ -362,6 +363,124 @@
             user-select: none;
         }
 
+        #mobile-resize-grabber {
+            display: none;
+        }
+
+        @media (max-width: 768px) {
+            html,
+            body {
+                flex-direction: column;
+                height: 100dvh;
+                min-height: 100dvh;
+                max-width: 100vw;
+                overflow-x: hidden;
+            }
+
+            *,
+            *::before,
+            *::after {
+                box-sizing: border-box;
+            }
+
+            #canvas-container {
+                order: 1;
+                flex: 0 0 var(--mobile-preview-height);
+                height: var(--mobile-preview-height);
+                min-height: 30dvh;
+                max-height: 75dvh;
+                width: 100%;
+                padding: 40px 12px 12px;
+                overflow: hidden;
+            }
+
+            #mobile-resize-grabber {
+                order: 2;
+                display: flex;
+                align-items: center;
+                justify-content: center;
+                flex: 0 0 22px;
+                width: 100%;
+                background: #222;
+                border-top: 1px solid var(--border);
+                border-bottom: 1px solid var(--border);
+                cursor: ns-resize;
+                touch-action: none;
+                z-index: 20;
+            }
+
+            #mobile-resize-grabber::before {
+                content: "";
+                width: 44px;
+                height: 4px;
+                border-radius: 999px;
+                background: rgba(255,255,255,0.28);
+            }
+
+            #sidebar {
+                order: 3;
+                width: 100%;
+                min-width: 0;
+                max-width: none;
+                flex: 1 1 auto;
+                height: calc(100dvh - var(--mobile-preview-height) - 22px);
+                border-right: none;
+                border-top: 1px solid var(--border);
+                overflow-y: auto;
+                overflow-x: hidden;
+                -webkit-overflow-scrolling: touch;
+            }
+
+            #sidebar-header,
+            #sidebar-presets,
+            #controls,
+            #sidebar-footer {
+                width: 100%;
+                max-width: 100%;
+            }
+
+            #sidebar-header,
+            #sidebar-presets,
+            #sidebar-footer {
+                flex-shrink: 0;
+            }
+
+            #controls {
+                flex: 0 0 auto;
+                min-height: auto;
+                overflow: visible;
+            }
+
+            .presets-list {
+                width: 100%;
+            }
+
+            .preset-btn {
+                max-width: 100%;
+            }
+
+            .control-header {
+                align-items: flex-start;
+                gap: 6px;
+                min-width: 0;
+            }
+
+            .control-label {
+                min-width: 0;
+                overflow-wrap: anywhere;
+            }
+
+            .link-tools {
+                flex-shrink: 0;
+                margin-left: 4px;
+            }
+
+            input[type="range"],
+            button {
+                max-width: 100%;
+            }
+        }
+
     </style>
 </head>
 
@@ -509,6 +628,8 @@
         <button id="exportBtn">Export as PNG</button>
     </div>
     </div>
+
+    <div id="mobile-resize-grabber" role="separator" aria-label="Resize preview and controls" aria-orientation="horizontal"></div>
 
     <div id="canvas-container">
         <div id="drop-hint">Drop image anywhere</div>
@@ -1034,6 +1155,60 @@
             if (!slider) return;
             slider.value = btn.dataset.default;
             slider.dispatchEvent(new Event('input'));
+        });
+
+        // Mobile split view resizing.
+        const mobileGrabber = document.getElementById('mobile-resize-grabber');
+        const mobileQuery = window.matchMedia('(max-width: 768px)');
+        let isResizingMobileSplit = false;
+
+        function clampMobilePreviewHeight(value) {
+            const viewportHeight = window.innerHeight || document.documentElement.clientHeight;
+            const min = viewportHeight * 0.3;
+            const max = viewportHeight * 0.75;
+            return Math.max(min, Math.min(max, value));
+        }
+
+        function setMobilePreviewHeight(value) {
+            const height = clampMobilePreviewHeight(value);
+            document.documentElement.style.setProperty('--mobile-preview-height', `${height}px`);
+            requestAnimationFrame(draw);
+        }
+
+        if (mobileGrabber) {
+            mobileGrabber.addEventListener('pointerdown', (event) => {
+                if (!mobileQuery.matches) return;
+                isResizingMobileSplit = true;
+                mobileGrabber.setPointerCapture(event.pointerId);
+                setMobilePreviewHeight(event.clientY);
+                event.preventDefault();
+            });
+
+            mobileGrabber.addEventListener('pointermove', (event) => {
+                if (!isResizingMobileSplit || !mobileQuery.matches) return;
+                setMobilePreviewHeight(event.clientY);
+                event.preventDefault();
+            });
+
+            function stopMobileSplitResize(event) {
+                if (!isResizingMobileSplit) return;
+                isResizingMobileSplit = false;
+                if (mobileGrabber.hasPointerCapture(event.pointerId)) {
+                    mobileGrabber.releasePointerCapture(event.pointerId);
+                }
+            }
+
+            mobileGrabber.addEventListener('pointerup', stopMobileSplitResize);
+            mobileGrabber.addEventListener('pointercancel', stopMobileSplitResize);
+        }
+
+        window.addEventListener('resize', () => {
+            if (!mobileQuery.matches) return;
+            const current = getComputedStyle(document.documentElement).getPropertyValue('--mobile-preview-height').trim();
+            const parsed = current.endsWith('vh')
+                ? (window.innerHeight || document.documentElement.clientHeight) * (parseFloat(current) / 100)
+                : parseFloat(current);
+            if (!Number.isNaN(parsed)) setMobilePreviewHeight(parsed);
         });
 
     </script>

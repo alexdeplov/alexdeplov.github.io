@@ -4,16 +4,17 @@
 
 <head>
     <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
     <!-- HTML Meta Tags -->
-    <title>Create Squircle SVG With Ease by @alex_deplov</title>
+    <title>Squircle SVG — Alexander Deplov</title>
     <meta name="description" content="A squircle is a shape in between a circle and a square. Create a vector squircle with ease and download the result as an SVG file.">
     <link rel="canonical" href="https://interfacecraft.online/tools/squircle-svg/">
 
     <!-- Open Graph -->
     <meta property="og:url" content="https://interfacecraft.online/tools/squircle-svg/">
     <meta property="og:type" content="website">
-    <meta property="og:title" content="Create Squircle SVG With Ease by @alex_deplov">
+    <meta property="og:title" content="Squircle SVG — Alexander Deplov">
     <meta property="og:description" content="A squircle is a shape in between a circle and a square. Create a vector squircle with ease and download the result as an SVG file.">
     <meta property="og:locale" content="en_US">
     <meta property="og:image" content="https://interfacecraft.online/tools/squircle-svg/assets/images/websiteThumbnail.jpg">
@@ -22,7 +23,7 @@
     <meta name="twitter:card" content="summary_large_image">
     <meta property="twitter:domain" content="interfacecraft.online">
     <meta property="twitter:url" content="https://interfacecraft.online/tools/squircle-svg/">
-    <meta name="twitter:title" content="Create Squircle SVG With Ease by @alex_deplov">
+    <meta name="twitter:title" content="Squircle SVG — Alexander Deplov">
     <meta name="twitter:description" content="A squircle is a shape in between a circle and a square. Create a vector squircle with ease and download the result as an SVG file.">
     <meta name="twitter:image" content="https://interfacecraft.online/tools/squircle-svg/assets/images/websiteThumbnail.jpg">
 
@@ -43,10 +44,9 @@
 
     <meta name="author" content="Alexander Deplov">
 
-    <link rel="stylesheet" href="./assets/styles.css">
-    <link rel="stylesheet" href="/tools/nav.css">
-
     <link rel="stylesheet" href="./assets/PaperJSEngine/style.css" />
+    <link rel="stylesheet" href="./assets/styles.css">
+    <link rel="stylesheet" href="/tools/home-button.css">
     <script type="text/javascript" src="./assets/PaperJSEngine/paper-full.min.js"></script>
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
 
@@ -54,30 +54,13 @@
 
 <body>
 
-    <nav>
-        <ul>
-            <li>
-                <a class="active" href="/tools/squircle-svg/" title="Create Squircle SVG">
-                    <div><img src="/tools/golden-ratio/assets/images/sircle-svg-icon.svg"></div>
-                    <div class="websiteName">Squircle SVG</div>
-                </a>
-            </li>
-            <li>
-                <a href="/tools/golden-ratio/" title="Calculate Golden Ratio">
-                    <div><img src="/tools/golden-ratio/assets/images/golden-ratio-icon.svg"></div>
-                    <div class="websiteName">Golden Ratio</div>
-                </a>
-            </li>
-            <li>
-                <a href="/tools/color-maker/" title="Color Maker Pro">
-                    <div><img src="/tools/golden-ratio/assets/images/colorMakerPro.svg"></div>
-                    <div class="websiteName">Color Maker Pro</div>
-                </a>
-            </li>
-        </ul>
-    </nav>
-
-
+    <a class="tool-home-button" href="/blog/" aria-label="Open blog">
+        <svg width="19" height="19" viewBox="0 0 24 24" fill="none" aria-hidden="true" xmlns="http://www.w3.org/2000/svg">
+            <path d="M3 10.75L12 3.75L21 10.75" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+            <path d="M5.75 9.5V20.25H18.25V9.5" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+            <path d="M9.75 20.25V14.25H14.25V20.25" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+        </svg>
+    </a>
 
     <div id="followMe">
         <div id="closeFollowMeButton">
@@ -179,6 +162,7 @@
                     </div>
                     </div><!-- /#canvas-area -->
                 </div>
+                <div id="mobile-resize-grabber" role="separator" aria-label="Resize canvas and controls" aria-orientation="horizontal"></div>
                 <div id="right" class="column">
                     <div class="row">
                         <section class="controlBox">

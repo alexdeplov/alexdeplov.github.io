@@ -4,7 +4,7 @@
 <meta charset="UTF-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 <meta http-equiv="X-UA-Compatible" content="ie=edge" />
-<title>Color Maker Pro by @alex_deplov</title>
+<title>Color Maker Pro — Alexander Deplov</title>
 <meta name="description" content="An interactive color palette generator built with Paper.js. Create, blend, and explore beautiful color combinations on a canvas.">
 <meta name="author" content="Alexander Deplov">
 <link rel="canonical" href="https://interfacecraft.online/tools/color-maker/">
@@ -12,7 +12,7 @@
 <!-- Open Graph -->
 <meta property="og:type" content="website">
 <meta property="og:url" content="https://interfacecraft.online/tools/color-maker/">
-<meta property="og:title" content="Color Maker Pro by @alex_deplov">
+<meta property="og:title" content="Color Maker Pro — Alexander Deplov">
 <meta property="og:description" content="An interactive color palette generator built with Paper.js. Create, blend, and explore beautiful color combinations on a canvas.">
 <meta property="og:locale" content="en_US">
 
@@ -20,12 +20,12 @@
 <meta name="twitter:card" content="summary_large_image">
 <meta property="twitter:domain" content="interfacecraft.online">
 <meta property="twitter:url" content="https://interfacecraft.online/tools/color-maker/">
-<meta name="twitter:title" content="Color Maker Pro by @alex_deplov">
+<meta name="twitter:title" content="Color Maker Pro — Alexander Deplov">
 <meta name="twitter:description" content="An interactive color palette generator built with Paper.js. Create, blend, and explore beautiful color combinations on a canvas.">
 
 <link rel="stylesheet" href="./PaperJSEngine/style.css" >
 <link rel="stylesheet" href="./style.css" >
-<link rel="stylesheet" href="/tools/nav.css">
+<link rel="stylesheet" href="/tools/home-button.css">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@700;800&display=swap" rel="stylesheet">
@@ -590,30 +590,15 @@ bg.sendToBack()
 </head>
 <body>
 
-<nav>
-    <ul>
-        <li>
-            <a href="/tools/squircle-svg/" title="Create Squircle SVG">
-                <div><img src="/tools/golden-ratio/assets/images/sircle-svg-icon.svg"></div>
-                <div class="websiteName">Squircle SVG</div>
-            </a>
-        </li>
-        <li>
-            <a href="/tools/golden-ratio/" title="Calculate Golden Ratio">
-                <div><img src="/tools/golden-ratio/assets/images/golden-ratio-icon.svg"></div>
-                <div class="websiteName">Golden Ratio</div>
-            </a>
-        </li>
-        <li>
-            <a class="active" href="/tools/color-maker/" title="Color Maker Pro">
-                <div><img src="/tools/golden-ratio/assets/images/colorMakerPro.svg"></div>
-                <div class="websiteName">Color Maker Pro</div>
-            </a>
-        </li>
-    </ul>
-</nav>
+<a class="tool-home-button" href="/blog/" aria-label="Open blog">
+  <svg width="19" height="19" viewBox="0 0 24 24" fill="none" aria-hidden="true" xmlns="http://www.w3.org/2000/svg">
+    <path d="M3 10.75L12 3.75L21 10.75" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+    <path d="M5.75 9.5V20.25H18.25V9.5" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+    <path d="M9.75 20.25V14.25H14.25V20.25" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+  </svg>
+</a>
 
-<div>
+<div id="mobile-bottom-panel">
 
   <div id="toolbar">
     <h1 id="title">Color Maker Pro</h1>
@@ -629,7 +614,67 @@ bg.sendToBack()
 
 </div>
 
+<div id="mobile-resize-grabber" role="separator" aria-label="Resize canvas and controls" aria-orientation="horizontal"></div>
+
 <canvas id="canvas" hidpi='on' resize></canvas>
+<script>
+  (function () {
+    const grabber = document.getElementById('mobile-resize-grabber');
+    const canvas = document.getElementById('canvas');
+    const mobileQuery = window.matchMedia('(max-width: 768px)');
+    let isResizing = false;
+
+    function clampCanvasHeight(value) {
+      const viewportHeight = window.innerHeight || document.documentElement.clientHeight;
+      const min = viewportHeight * 0.3;
+      const max = viewportHeight * 0.75;
+      return Math.max(min, Math.min(max, value));
+    }
+
+    function refreshPaperView() {
+      if (!window.paper || !paper.view || !canvas) return;
+      paper.view.viewSize = new paper.Size(canvas.clientWidth, canvas.clientHeight);
+      paper.view.draw();
+    }
+
+    function setCanvasHeight(value) {
+      const height = clampCanvasHeight(value);
+      document.documentElement.style.setProperty('--mobile-canvas-height', `${height}px`);
+      requestAnimationFrame(refreshPaperView);
+    }
+
+    if (!grabber) return;
+
+    grabber.addEventListener('pointerdown', (event) => {
+      if (!mobileQuery.matches) return;
+      isResizing = true;
+      grabber.setPointerCapture(event.pointerId);
+      setCanvasHeight(event.clientY);
+      event.preventDefault();
+    });
+
+    grabber.addEventListener('pointermove', (event) => {
+      if (!isResizing || !mobileQuery.matches) return;
+      setCanvasHeight(event.clientY);
+      event.preventDefault();
+    });
+
+    function stopResize(event) {
+      if (!isResizing) return;
+      isResizing = false;
+      if (grabber.hasPointerCapture(event.pointerId)) {
+        grabber.releasePointerCapture(event.pointerId);
+      }
+    }
+
+    grabber.addEventListener('pointerup', stopResize);
+    grabber.addEventListener('pointercancel', stopResize);
+    window.addEventListener('resize', () => {
+      if (!mobileQuery.matches) return;
+      refreshPaperView();
+    });
+  }());
+</script>
 <script data-goatcounter="https://goatinterface.goatcounter.com/count" async src="//gc.zgo.at/count.js"></script>
 </body>
 </html>
