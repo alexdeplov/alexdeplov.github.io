@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<meta http-equiv="X-UA-Compatible" content="ie=edge" />
+<title>Paper.js</title>
+<link rel="stylesheet" href="./../PaperJSEngine/style.css" />
+<script type="text/javascript" src="./../PaperJSEngine/paper-full.js"></script>
+<script type="text/paperscript" canvas="canvas">
+
+// var rect = new Path.Rectangle({
+//   size: [580],
+//   radius: 40,
+//   fillColor: 'white',
+//   position: view.center
+// })
+
+var radius = 50
+var max = 7
+var gapBetween = 15
+var distanceFromCenter = 180
+var array = []
+
+var colors = ["#834AFF", "#EA92C4", "#CFDE79", "#FD5526", "#FABB01"]
+
+function createObject(){
+  var group = new Group()
+  group.applyMatrix = false
+
+  var obj1 = new Path.Circle({
+    radius: radius,
+    fillColor: colors[Math.floor(Math.random() * colors.length)],
+    center: view.center,
+    parent: group,
+    applyMatrix: false,
+    blendMode: 'multiply'
+  })
+  array.push(obj1)
+
+  obj1.onFrame = function(event){
+    this.fillColor.hue += 1
+  }
+
+  var obj2 = obj1.clone()
+  obj2.fillColor = colors[Math.floor(Math.random() * colors.length)]
+  array.push(obj2)
+
+  obj2.onFrame = function(event){
+    this.fillColor.hue -= 1
+  }
+
+  var obj3 = obj2.clone()
+  obj3.fillColor = colors[Math.floor(Math.random() * colors.length)]
+  obj3.scale(0.7)
+  obj3.blendMode = 'luminosity'
+  obj3.scale(0.7)
+  array.push(obj3)
+
+// 'normal', 'multiply', 'screen', 'overlay', 'soft-light', 'hard- light', 'color-dodge', 'color-burn', 'darken', 'lighten', 'difference', 'exclusion', 'hue', 'saturation', 'luminosity', 'color', 'add', 'subtract', 'average', 'pin-light', 'negation', 'source-over', 'source-in', 'source-out', 'source-atop', 'destination-over', 'destination-in', 'destination-out', 'destination-atop', 'lighter', 'darker', 'copy', 'xor'
+
+  obj3.onFrame = function(event){
+    this.fillColor.hue -= 1
+  }
+
+  obj1.position.x -= gapBetween
+  obj2.position.x += gapBetween
+
+  group.onFrame = function(event){
+    this.rotation = Math.sin(event.count * 0.01) * 360
+  }
+
+  return group
+}
+
+var rootGroup = new Group()
+rootGroup.applyMatrix = false
+
+
+for (var i = 0; i < max; i++){
+  var object = createObject()
+  object.position.x += distanceFromCenter
+  object.rotate((360/max) * i, view.center)
+  rootGroup.addChild(object)
+}
+
+
+var star = new Path.Star(view.center + [-20, 0], 6, 45, 70)
+star.smooth({ type: 'geometric', factor: 0.5 })
+star.fillColor = colors[Math.floor(Math.random() * colors.length)]
+star.applyMatrix = false
+star.onFrame = function(event){
+  star.rotation = Math.sin(event.count * 0.01) * 180
+}
+star.translate(20, 0)
+array.push(star)
+
+var circleInCenter = new Path.Circle({
+  radius: 15,
+  fillColor: colors[Math.floor(Math.random() * colors.length)],
+  center: view.center
+})
+circleInCenter.blendMode = 'luminosity'
+array.push(circleInCenter)
+
+project.activeLayer.position = view.center
+
+
+function onFrame(event){
+  rootGroup.rotate(0.125)
+}
+
+function onMouseDrag(event){
+  array.map(function(object, i){
+    object.fillColor.hue += event.delta.x
+  })
+}
+
+
+
+
+</script>
+</head>
+<body>
+<canvas hidpi='true' id="canvas" resize style="background: #F2F2F2;"></canvas>
+</body>
+</html>

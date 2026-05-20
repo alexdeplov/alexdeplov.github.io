@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+    <title>Round Corners - Paper.js</title>
+    <link rel="stylesheet" href="./../PaperJSEngine/style.css" />
+    <script type="text/javascript" src="./../PaperJSEngine/paper-full.js"></script>
+    <script type="text/paperscript" canvas="canvas">
+
+    // Adapted from the following Processing example:
+    // http://processing.org/learning/topics/follow3.html
+
+    var points = 5
+    var length = 200
+
+    var path = new Path({
+        strokeColor: '#E4141B',
+        strokeWidth: 20,
+        strokeCap: 'round',
+        blendMode: 'darken',
+        selected: false,
+    })
+
+    var start = view.center ;
+    for (var i = 0; i < points; i++)
+        path.add(start + new Point(i * length, 0))
+
+    function onMouseMove(event) {
+      self.isVisible = true
+      path.firstSegment.point = event.point
+
+      for (var i = 0; i < points - 1; i++) {
+          var segment = path.segments[i]
+          var nextSegment = segment.next
+          var vector = segment.point - nextSegment.point
+          vector.length = length
+          nextSegment.point = segment.point - vector/4 //CAN BE CHANGED
+          path.strokeColor.hue = 360/(view.bounds.width/event.point.x) / i*4
+          //only from blue to orange: 360 + 30/(view.bounds.width/event.point.x) / i*4
+
+      }
+
+      // path.transform(new Matrix(1.0, 0.0, 0.0, 0.5, 0.0, 0.0))
+
+      path.smooth({ type: 'asymmetric' })
+      path.simplify([2,2])
+
+    }
+    </script>
+  </head>
+  <body>
+    <canvas id="canvas" resize style="background: black; "></canvas>
+  </body>
+</html>

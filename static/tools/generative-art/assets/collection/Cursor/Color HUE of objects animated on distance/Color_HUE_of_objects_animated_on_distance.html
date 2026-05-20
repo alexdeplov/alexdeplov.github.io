@@ -1,0 +1,163 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<meta http-equiv="X-UA-Compatible" content="ie=edge" />
+<title>Paper.js</title>
+<link rel="stylesheet" href="./../PaperJSEngine/style.css" >
+<script type="text/javascript" src="./../PaperJSEngine/paper-full.js"></script>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+<script type="text/paperscript" canvas="canvas">
+
+var group = new Group()
+var coloredObjectsArray = []
+var svg = project.importSVG(document.getElementById('svg')).children[1]
+
+for (var i = 0; i < svg.children.length; i++){
+
+  var path = svg.children[i]
+  path.fillColor = Color.random()
+  coloredObjectsArray.push(path)
+
+  path.onMouseMove = function(event){
+    animate(event.point)
+  }
+
+}
+
+project.activeLayer.position = view.center
+// console.log(coloredObjectsArray.length)
+
+// var array = []
+// var max = 150
+
+// for (var i = 0; i < max; i++){
+//   var circle = new Path.Circle({
+//     radius: 25,
+//     fillColor: 'blue',
+//     center: [Math.random() * view.size.width, Math.random() * view.size.height]
+//   })
+//
+//   array.push(circle)
+//
+//   circle.onMouseDown = function(event){
+//     animate(event.point)
+//   }
+// }
+
+function animate(point){
+
+  for (var i = 0; i < coloredObjectsArray.length; i++){
+    var path = coloredObjectsArray[i]
+    var distance = point.getDistance(path.position)
+
+    //COOL:
+      path.fillColor.hue = distance
+
+    //ALSO COOL:
+    // var tween = path.tweenTo({
+    //   'fillColor.hue': distance,
+    // }, distance )
+
+
+  }
+
+}
+
+</script>
+</head>
+<body>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+
+<canvas id="canvas" resize ></canvas>
+
+<svg id="svg" data-name="Layer 2" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 443 438">
+  <defs>
+    <style>
+      .cls-1 {
+        fill: #ad3232;
+      }
+    </style>
+  </defs>
+  <g id="Layer_1-2" data-name="Layer 1">
+    <rect class="cls-1" x="73" y="43" width="43" height="43" transform="translate(-15.1 97.35) rotate(-51)"/>
+    <polygon class="cls-1" points="91.32 34.26 124.74 61.32 97.68 94.74 64.26 67.68 91.32 34.26"/>
+    <rect class="cls-1" x="202" y="138" width="43" height="43" transform="translate(-10.65 302.91) rotate(-67)"/>
+    <polygon class="cls-1" points="212.11 131.31 251.69 148.11 234.89 187.69 195.31 170.89 212.11 131.31"/>
+    <rect class="cls-1" x="150" y="98" width="43" height="43" transform="translate(-5.51 230.67) rotate(-67)"/>
+    <polygon class="cls-1" points="160.11 91.31 199.69 108.11 182.89 147.69 143.31 130.89 160.11 91.31"/>
+    <rect class="cls-1" x="309" y="95" width="43" height="43" transform="translate(64.36 344.47) rotate(-60)"/>
+    <polygon class="cls-1" points="322.63 87.13 359.87 108.63 338.37 145.87 301.13 124.37 322.63 87.13"/>
+    <rect class="cls-1" x="320" y="268" width="43" height="43"/>
+    <polygon class="cls-1" points="320 268 363 268 363 311 320 311 320 268"/>
+    <rect class="cls-1" x="239" y="258" width="43" height="43" transform="translate(-102.84 161.34) rotate(-29)"/>
+    <polygon class="cls-1" points="268.88 250.27 289.73 287.88 252.12 308.73 231.27 271.12 268.88 250.27"/>
+    <rect class="cls-1" x="62" y="169" width="43" height="43" transform="translate(-124.27 200.18) rotate(-69)"/>
+    <polygon class="cls-1" points="71.13 162.72 111.28 178.13 95.87 218.28 55.72 202.87 71.13 162.72"/>
+    <rect class="cls-1" x="22" y="116" width="43" height="43" transform="translate(-100.46 128.84) rotate(-69)"/>
+    <polygon class="cls-1" points="31.13 109.72 71.28 125.13 55.87 165.28 15.72 149.87 31.13 109.72"/>
+    <rect class="cls-1" x="175" y="237" width="43" height="43" transform="translate(-122.5 197.88) rotate(-42)"/>
+    <polygon class="cls-1" points="166.14 256.91 198.09 228.14 226.86 260.09 194.91 288.86 166.14 256.91"/>
+    <rect class="cls-1" x="73" y="280" width="43" height="43" transform="translate(-203.16 195.52) rotate(-53)"/>
+    <polygon class="cls-1" points="90.27 271.39 124.61 297.27 98.73 331.61 64.39 305.73 90.27 271.39"/>
+    <rect class="cls-1" x="175" y="351" width="43" height="43" transform="translate(-167.54 160.73) rotate(-32)"/>
+    <path class="cls-1" d="M166.87,365.66l36.47-22.79,22.79,36.47-36.47,22.79-22.79-36.47Z"/>
+    <rect class="cls-1" x="72" y="347" width="43" height="43" transform="translate(-181.07 105.54) rotate(-32)"/>
+    <polygon class="cls-1" points="63.87 361.66 100.34 338.87 123.13 375.34 86.66 398.13 63.87 361.66"/>
+    <circle class="cls-1" cx="94.5" cy="247.5" r="21.5"/>
+    <circle class="cls-1" cx="21.5" cy="228.5" r="21.5"/>
+    <circle class="cls-1" cx="218.5" cy="206.5" r="21.5"/>
+    <circle class="cls-1" cx="393.5" cy="147.5" r="21.5"/>
+    <circle class="cls-1" cx="124.5" cy="140.5" r="21.5"/>
+    <circle class="cls-1" cx="156.5" cy="202.5" r="21.5"/>
+    <circle class="cls-1" cx="267.5" cy="128.5" r="21.5"/>
+    <circle class="cls-1" cx="150.5" cy="330.5" r="21.5"/>
+    <circle class="cls-1" cx="146.5" cy="405.5" r="21.5"/>
+    <circle class="cls-1" cx="406.5" cy="211.5" r="21.5"/>
+    <circle class="cls-1" cx="401.5" cy="300.5" r="21.5"/>
+    <path class="cls-1" d="M220.5,396c9.66,0,17.5,7.84,17.5,17.5s-7.84,17.5-17.5,17.5-17.5-7.84-17.5-17.5,7.84-17.5,17.5-17.5Z"/>
+    <circle class="cls-1" cx="330.5" cy="65.5" r="21.5"/>
+    <circle class="cls-1" cx="175" cy="169" r="10"/>
+    <circle class="cls-1" cx="133" cy="28" r="10"/>
+    <circle class="cls-1" cx="168" cy="24" r="10"/>
+    <circle class="cls-1" cx="88" cy="147" r="10"/>
+    <circle class="cls-1" cx="64" cy="228" r="10"/>
+    <circle class="cls-1" cx="28" cy="179" r="10"/>
+    <circle class="cls-1" cx="56" cy="95" r="10"/>
+    <circle class="cls-1" cx="139" cy="246" r="10"/>
+    <circle class="cls-1" cx="54" cy="271" r="10"/>
+    <circle class="cls-1" cx="381" cy="258" r="10"/>
+    <circle class="cls-1" cx="261" cy="171" r="10"/>
+    <circle class="cls-1" cx="288" cy="94" r="10"/>
+    <circle class="cls-1" cx="294" cy="34" r="10"/>
+    <circle class="cls-1" cx="367" cy="87" r="10"/>
+    <circle class="cls-1" cx="358" cy="143" r="10"/>
+    <circle class="cls-1" cx="432" cy="169" r="10"/>
+    <circle class="cls-1" cx="382" cy="183" r="10"/>
+    <circle class="cls-1" cx="433" cy="251" r="10"/>
+    <circle class="cls-1" cx="400" cy="342" r="10"/>
+    <circle class="cls-1" cx="365" cy="379" r="10"/>
+    <circle class="cls-1" cx="257" cy="428" r="10"/>
+    <circle class="cls-1" cx="301" cy="277" r="10"/>
+    <circle class="cls-1" cx="221" cy="299" r="10"/>
+    <circle class="cls-1" cx="223" cy="337" r="10"/>
+    <circle class="cls-1" cx="144" cy="370" r="10"/>
+    <circle class="cls-1" cx="71" cy="333" r="10"/>
+    <circle class="cls-1" cx="18" cy="271" r="10"/>
+    <circle class="cls-1" cx="43" cy="302" r="10"/>
+    <circle class="cls-1" cx="41" cy="339" r="10"/>
+    <circle class="cls-1" cx="188" cy="424" r="10"/>
+    <circle class="cls-1" cx="108" cy="404" r="10"/>
+    <circle class="cls-1" cx="142" cy="282" r="10"/>
+    <circle class="cls-1" cx="175" cy="291" r="10"/>
+    <circle class="cls-1" cx="196" cy="317" r="10"/>
+    <circle class="cls-1" cx="370" cy="333" r="10"/>
+    <circle class="cls-1" cx="146" cy="64" r="10"/>
+    <circle class="cls-1" cx="228.5" cy="53.5" r="53.5"/>
+    <circle class="cls-1" cx="318.5" cy="206.5" r="53.5"/>
+    <path class="cls-1" d="M287.5,311c29.55,0,53.5,23.95,53.5,53.5s-23.95,53.5-53.5,53.5-53.5-23.95-53.5-53.5,23.95-53.5,53.5-53.5Z"/>
+  </g>
+</svg>
+</body>
+</html>

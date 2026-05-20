@@ -1,0 +1,448 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Sunflower - Generative Art Codes</title>
+    <meta name="description" content="Sunflower Paper.js generative art example.">
+    <link rel="canonical" href="https://interfacecraft.online/tools/generative-art/path/sunflower/">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Archivo:ital,wght@0,100..900;1,100..900&family=Source+Serif+4:ital,opsz,wght@0,8..60,200..900;1,8..60,200..900&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            color-scheme: light;
+            --bg-color: #fcfbf8;
+            --text-color: #131522;
+            --heading-color: #1a1a1a;
+            --muted: #71717a;
+            --tile: rgba(0, 0, 0, 0.05);
+            --tile-border: rgba(0, 0, 0, 0.06);
+            --accent: #f46c04;
+        }
+
+        @media (prefers-color-scheme: dark) {
+            :root {
+                --bg-color: #18181c;
+                --text-color: #e3e3e3;
+                --heading-color: #d7d7d7;
+                --muted: #a1a1aa;
+                --tile: rgba(255, 255, 255, 0.05);
+                --tile-border: rgba(255, 255, 255, 0.08);
+            }
+        }
+
+        * { box-sizing: border-box; }
+
+        body {
+            margin: 0;
+            background: var(--bg-color);
+            color: var(--text-color);
+            font-family: "Archivo", -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+            font-weight: 700;
+            line-height: 1.6;
+        }
+
+        a { color: inherit; }
+
+        .page {
+            width: 100%;
+            max-width: 48rem;
+            margin: 0 auto;
+            padding: 48px 1rem 72px;
+        }
+
+        .top-link {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            margin-bottom: 52px;
+            color: var(--muted);
+            font-size: 16px;
+            font-weight: 600;
+            text-decoration: none;
+        }
+
+        .top-link:hover { color: var(--heading-color); text-decoration: underline; }
+
+        .hero {
+            margin-bottom: 44px;
+        }
+
+        h1 {
+            margin: 0;
+            color: var(--heading-color);
+            font-size: 2rem;
+            line-height: 1.2;
+            letter-spacing: 0;
+            font-weight: 700;
+        }
+
+        .summary {
+            margin: 20px 0 0;
+            color: #1d1f21;
+            font-family: "Source Serif 4", Georgia, serif;
+            font-size: 18px;
+            font-weight: 400;
+            line-height: 1.6;
+        }
+
+        @media (prefers-color-scheme: dark) {
+            .summary { color: #b4b4b4; }
+        }
+
+        .section-nav {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 8px;
+            margin-top: 22px;
+        }
+
+        .section-nav a {
+            color: var(--accent);
+            font-size: 15px;
+            font-weight: 700;
+            text-decoration: underline;
+        }
+
+        .section-nav a:hover { text-decoration-thickness: 2px; }
+
+        .gallery-section { margin-top: 44px; }
+
+        .section-header {
+            margin-bottom: 14px;
+        }
+
+        h2 {
+            margin: 0;
+            color: var(--heading-color);
+            font-size: 1.5rem;
+            line-height: 1.25;
+            letter-spacing: 0;
+            font-weight: 700;
+        }
+
+        .count {
+            display: block;
+            color: var(--muted);
+            font-size: 13px;
+            font-weight: 600;
+            margin-top: 4px;
+        }
+
+        .grid {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 5px;
+            width: 100%;
+            margin: 0 auto;
+            padding: 20px 0;
+            align-items: stretch;
+        }
+
+        .card {
+            display: flex;
+            flex-direction: column;
+            min-width: 0;
+            height: 100%;
+            overflow: hidden;
+            border-radius: 10px;
+            padding: 0;
+            background: var(--tile);
+            backdrop-filter: blur(10px);
+            text-decoration: none;
+            color: inherit;
+        }
+
+        .thumb {
+            width: 100%;
+            display: flex;
+            place-items: center;
+            align-items: center;
+            justify-content: center;
+            aspect-ratio: 4 / 3;
+            overflow: hidden;
+            border-radius: 8px 8px 0 0;
+            background: rgba(0, 0, 0, 0.04);
+        }
+
+        @media (prefers-color-scheme: dark) {
+            .thumb { background: rgba(255, 255, 255, 0.05); }
+        }
+
+        .thumb img,
+        .thumb video {
+            width: 100%;
+            height: 100%;
+            display: block;
+            object-fit: cover;
+            border-radius: 0;
+        }
+
+        .placeholder {
+            width: 58px;
+            aspect-ratio: 1;
+            border: 5px solid rgba(255, 255, 255, 0.18);
+            border-top-color: rgba(255, 255, 255, 0.78);
+            border-radius: 50%;
+        }
+
+        .card-title {
+            flex: 0 0 46px;
+            display: -webkit-box;
+            margin: 0;
+            padding: 10px 10px 0;
+            color: var(--muted);
+            font-size: 13px;
+            line-height: 1.2;
+            letter-spacing: 0;
+            font-weight: 600;
+            -webkit-box-orient: vertical;
+            -webkit-line-clamp: 2;
+            overflow: hidden;
+            overflow-wrap: anywhere;
+        }
+
+        .article-top {
+            width: 100%;
+            max-width: 48rem;
+            margin: 0 auto;
+            padding: 48px 1rem 32px;
+            color: var(--muted);
+        }
+
+        .article-author {
+            color: var(--muted);
+            font-weight: 600;
+            text-decoration: none;
+        }
+
+        .article-author:hover {
+            color: var(--heading-color);
+            text-decoration: underline;
+        }
+
+        .article-detail {
+            width: 100%;
+            max-width: 48rem;
+            margin: 0 auto;
+            padding: 32px 1rem 72px;
+        }
+
+        .article-header {
+            margin-bottom: 32px;
+        }
+
+        .article-meta {
+            display: flex;
+            flex-wrap: wrap;
+            align-items: center;
+            gap: 0 8px;
+            margin-top: 8px;
+            color: var(--muted);
+            font-size: 14px;
+            font-weight: 600;
+        }
+
+        .article-meta a {
+            color: inherit;
+            text-decoration: underline;
+            text-decoration-thickness: 1px;
+            text-underline-offset: 2px;
+        }
+
+        .article-meta a:hover {
+            color: var(--heading-color);
+        }
+
+        .preview-panel {
+            margin-top: 16px;
+            border-radius: 0.3rem;
+            overflow: hidden;
+            background: var(--tile);
+        }
+
+        .preview-panel img,
+        .preview-panel video {
+            width: 100%;
+            max-height: 72vh;
+            display: block;
+            object-fit: contain;
+        }
+
+        .actions {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 8px 14px;
+            margin-top: 24px;
+        }
+
+        .text-link {
+            display: inline;
+            color: var(--accent);
+            font-size: 15px;
+            font-weight: 700;
+            text-decoration: underline;
+            text-underline-offset: 2px;
+        }
+
+        .text-link:hover {
+            text-decoration-thickness: 2px;
+        }
+
+        .button {
+            display: inline;
+            align-items: center;
+            min-height: 0;
+            border: 0;
+            border-radius: 0;
+            padding: 0;
+            background: transparent;
+            color: var(--accent);
+            font-size: 15px;
+            font-weight: 700;
+            text-decoration: underline;
+            text-underline-offset: 2px;
+        }
+
+        .button.secondary {
+            background: transparent;
+            color: var(--accent);
+            font-size: 15px;
+            font-weight: 750;
+            text-decoration: none;
+        }
+
+        .button:hover { text-decoration-thickness: 2px; }
+
+        .content-section {
+            margin-top: 32px;
+        }
+
+        .content-section h2 {
+            margin: 0 0 14px;
+            color: var(--heading-color);
+            font-size: 1.5rem;
+            line-height: 1.25;
+            font-weight: 700;
+        }
+
+        .content-section p {
+            color: #1d1f21;
+            font-family: "Source Serif 4", Georgia, serif;
+            font-size: 18px;
+            font-weight: 400;
+        }
+
+        @media (prefers-color-scheme: dark) {
+            .content-section p { color: #b4b4b4; }
+        }
+
+        pre {
+            overflow: auto;
+            margin: 0;
+            border: 1px solid #2a2a2a;
+            border-radius: 0.5rem;
+            padding: 18px;
+            background: #111;
+            color: #f5f5f5;
+            font-size: 14px;
+            line-height: 1.5;
+            white-space: pre;
+        }
+
+        .source-list {
+            display: grid;
+            gap: 10px;
+            margin: 0;
+            padding: 0;
+            list-style: none;
+        }
+
+        .source-list a {
+            color: var(--accent);
+            font-weight: 700;
+        }
+
+        .article-copyright {
+            margin: 56px 0 12px;
+            color: var(--muted);
+            font-size: 14px;
+            font-weight: 600;
+        }
+
+        @media (max-width: 760px) {
+            .page {
+                padding-top: 24px;
+            }
+
+            .article-top { padding-top: 24px; }
+
+            .grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+        }
+    </style>
+</head>
+<body>
+    <header class="article-top">
+        <a class="article-author" href="/">Alexander Deplov</a>
+    </header>
+    <article class="article-detail">
+        <header class="article-header">
+            <h1>Sunflower</h1>
+            <div class="article-meta">
+                <span>Path</span>
+                <span>•</span>
+                <a href="/tools/generative-art/">Generative Art Codes</a>
+                <span>•</span>
+                <span>Paper.js</span>
+            </div>
+        </header>
+        <div class="content">
+            <section class="preview-panel" aria-label="Preview">
+                <img class="preview-media" src="/tools/generative-art/assets/collection/Path/Sunflower/Screenshot_2024-01-21_at_11.14.43.png" alt="Sunflower" loading="eager" decoding="async">
+            </section>
+            <div class="actions"><a class="text-link" href="http://sketch.paperjs.org/#V/0.12.17/S/dVNNU8IwEP0rmZ4C1IIVRqfIyYMnZxg5qocYQpuhJDVJQWX6390k/cBad6bt5uXt281mew4EObAgCTZ7ZmgWhAGVW7t+FQjsSBQiB1kKg1YojhfLDtYFoVykgF9Hl3iqZFkAShUjhq2zrzyXhnxyjb3QqOY6XqQpyRmeW9DDu1JQw6X4Px6dPbOfULATerQ+blI0DAUCThNqvbl11XaEnVQIWxaH7dkSPver+sywmEx+5WsVyZaXGgLu0BXCHE2bLo3R/DK7NVvXmpgsembUEJHCeXuK1grJhUn6uRrLmUhNlrRNH6MYnierqj+UwXwUDge6fAkcatx24S+xGgjW/BvibO0b8HAcongoh2/EBdEDQ9SCKGaP6O5rYH/H8/xB5lJ5NediPvWNDdEsWrhXX7rys9OBVecqZkolfMb20qvG8RNYSM3r4ThydoooFMkUsOFfeIcZ3Lub0UHy8lb9AA==" target="_blank" rel="noopener noreferrer">Open in Paper.js Sketch</a></div>
+            
+            
+        <section class="content-section">
+            <h2>Code</h2>
+            <pre><code>var amount = 225;
+    var spacing = 1.5;
+    var group = createPhyllotaxis(amount);
+    group.scale(4);
+
+    function createPhyllotaxis(amount) {
+        var group = new Group();
+        var rotation = 137.5;
+
+        for (var i = 0; i &lt;= amount; i++) {
+            var radius = 8 - (i / amount * 4);
+            new Path.Rectangle({
+                point: {
+                    length: spacing * 2 * Math.sqrt(i),
+                    angle: i * rotation
+                },
+                size: new Size(2, 2),
+                radius: new Size(radius),
+                parent: group,
+                fillColor: new Color(i/amount, 0.5, 0.5),
+            });
+
+
+        }
+        return group;
+
+    }
+
+    group.position = view.center;</code></pre>
+        </section>
+        
+        </div>
+        <footer class="article-copyright">
+            &copy; 2026 Alexander Deplov, designer and developer of iOS and macOS apps, product designer.
+        </footer>
+    </article>
+</body>
+</html>

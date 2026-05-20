@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<meta http-equiv="X-UA-Compatible" content="ie=edge" />
+<title>Paper.js</title>
+<link rel="stylesheet" href="./../PaperJSEngine/style.css" />
+<script type="text/javascript" src="./../PaperJSEngine/paper-full.min.js"></script>
+<script type="text/paperscript" canvas="canvas">
+
+var group = new Group()
+var line = new Path.Line({
+    from: [120,100],
+    parent: group
+})
+line.strokeColor = 'blue'
+line.strokeWidth = 2
+line.add([120,100])
+line.add([-120,100])
+group.position = view.center
+
+var text = new PointText({
+    point: [50, 50],
+    content: 'angle',
+    fillColor: 'black',
+    fontSize: 25,
+    position: view.center
+})
+
+for (var i = 0; i < line.curves.length; i++) {
+    var curve = line.curves[1]
+    var angle = curve.getTangentAt(0.1, true).angle
+}
+
+function onMouseMove(event){
+    var curve = line.curves[1]
+    var angle = curve.getTangentAt(0.1, true).angle
+    line.segments[1].point = event.point
+    console.log(angle)
+    text.content = Math.floor(angle) + "°"
+    
+    if (angle === 0){
+        console.log("180°")
+    } else if (angle <= 90){
+        console.log("Острый°")
+    } else if (angle >= 90){
+        console.log("тупой°")
+    }
+}
+
+
+
+</script>
+</head>
+<body>
+<canvas hidpi="off" id="canvas" resize style="background: ;"></canvas>
+</body>
+</html>

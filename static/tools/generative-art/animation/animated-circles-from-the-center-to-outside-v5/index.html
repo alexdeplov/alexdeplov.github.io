@@ -1,0 +1,460 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Animated circles from the center to outside v5 - Generative Art Codes</title>
+    <meta name="description" content="Animated circles from the center to outside v5 Paper.js generative art example.">
+    <link rel="canonical" href="https://interfacecraft.online/tools/generative-art/animation/animated-circles-from-the-center-to-outside-v5/">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Archivo:ital,wght@0,100..900;1,100..900&family=Source+Serif+4:ital,opsz,wght@0,8..60,200..900;1,8..60,200..900&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            color-scheme: light;
+            --bg-color: #fcfbf8;
+            --text-color: #131522;
+            --heading-color: #1a1a1a;
+            --muted: #71717a;
+            --tile: rgba(0, 0, 0, 0.05);
+            --tile-border: rgba(0, 0, 0, 0.06);
+            --accent: #f46c04;
+        }
+
+        @media (prefers-color-scheme: dark) {
+            :root {
+                --bg-color: #18181c;
+                --text-color: #e3e3e3;
+                --heading-color: #d7d7d7;
+                --muted: #a1a1aa;
+                --tile: rgba(255, 255, 255, 0.05);
+                --tile-border: rgba(255, 255, 255, 0.08);
+            }
+        }
+
+        * { box-sizing: border-box; }
+
+        body {
+            margin: 0;
+            background: var(--bg-color);
+            color: var(--text-color);
+            font-family: "Archivo", -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+            font-weight: 700;
+            line-height: 1.6;
+        }
+
+        a { color: inherit; }
+
+        .page {
+            width: 100%;
+            max-width: 48rem;
+            margin: 0 auto;
+            padding: 48px 1rem 72px;
+        }
+
+        .top-link {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            margin-bottom: 52px;
+            color: var(--muted);
+            font-size: 16px;
+            font-weight: 600;
+            text-decoration: none;
+        }
+
+        .top-link:hover { color: var(--heading-color); text-decoration: underline; }
+
+        .hero {
+            margin-bottom: 44px;
+        }
+
+        h1 {
+            margin: 0;
+            color: var(--heading-color);
+            font-size: 2rem;
+            line-height: 1.2;
+            letter-spacing: 0;
+            font-weight: 700;
+        }
+
+        .summary {
+            margin: 20px 0 0;
+            color: #1d1f21;
+            font-family: "Source Serif 4", Georgia, serif;
+            font-size: 18px;
+            font-weight: 400;
+            line-height: 1.6;
+        }
+
+        @media (prefers-color-scheme: dark) {
+            .summary { color: #b4b4b4; }
+        }
+
+        .section-nav {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 8px;
+            margin-top: 22px;
+        }
+
+        .section-nav a {
+            color: var(--accent);
+            font-size: 15px;
+            font-weight: 700;
+            text-decoration: underline;
+        }
+
+        .section-nav a:hover { text-decoration-thickness: 2px; }
+
+        .gallery-section { margin-top: 44px; }
+
+        .section-header {
+            margin-bottom: 14px;
+        }
+
+        h2 {
+            margin: 0;
+            color: var(--heading-color);
+            font-size: 1.5rem;
+            line-height: 1.25;
+            letter-spacing: 0;
+            font-weight: 700;
+        }
+
+        .count {
+            display: block;
+            color: var(--muted);
+            font-size: 13px;
+            font-weight: 600;
+            margin-top: 4px;
+        }
+
+        .grid {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 5px;
+            width: 100%;
+            margin: 0 auto;
+            padding: 20px 0;
+            align-items: stretch;
+        }
+
+        .card {
+            display: flex;
+            flex-direction: column;
+            min-width: 0;
+            height: 100%;
+            overflow: hidden;
+            border-radius: 10px;
+            padding: 0;
+            background: var(--tile);
+            backdrop-filter: blur(10px);
+            text-decoration: none;
+            color: inherit;
+        }
+
+        .thumb {
+            width: 100%;
+            display: flex;
+            place-items: center;
+            align-items: center;
+            justify-content: center;
+            aspect-ratio: 4 / 3;
+            overflow: hidden;
+            border-radius: 8px 8px 0 0;
+            background: rgba(0, 0, 0, 0.04);
+        }
+
+        @media (prefers-color-scheme: dark) {
+            .thumb { background: rgba(255, 255, 255, 0.05); }
+        }
+
+        .thumb img,
+        .thumb video {
+            width: 100%;
+            height: 100%;
+            display: block;
+            object-fit: cover;
+            border-radius: 0;
+        }
+
+        .placeholder {
+            width: 58px;
+            aspect-ratio: 1;
+            border: 5px solid rgba(255, 255, 255, 0.18);
+            border-top-color: rgba(255, 255, 255, 0.78);
+            border-radius: 50%;
+        }
+
+        .card-title {
+            flex: 0 0 46px;
+            display: -webkit-box;
+            margin: 0;
+            padding: 10px 10px 0;
+            color: var(--muted);
+            font-size: 13px;
+            line-height: 1.2;
+            letter-spacing: 0;
+            font-weight: 600;
+            -webkit-box-orient: vertical;
+            -webkit-line-clamp: 2;
+            overflow: hidden;
+            overflow-wrap: anywhere;
+        }
+
+        .article-top {
+            width: 100%;
+            max-width: 48rem;
+            margin: 0 auto;
+            padding: 48px 1rem 32px;
+            color: var(--muted);
+        }
+
+        .article-author {
+            color: var(--muted);
+            font-weight: 600;
+            text-decoration: none;
+        }
+
+        .article-author:hover {
+            color: var(--heading-color);
+            text-decoration: underline;
+        }
+
+        .article-detail {
+            width: 100%;
+            max-width: 48rem;
+            margin: 0 auto;
+            padding: 32px 1rem 72px;
+        }
+
+        .article-header {
+            margin-bottom: 32px;
+        }
+
+        .article-meta {
+            display: flex;
+            flex-wrap: wrap;
+            align-items: center;
+            gap: 0 8px;
+            margin-top: 8px;
+            color: var(--muted);
+            font-size: 14px;
+            font-weight: 600;
+        }
+
+        .article-meta a {
+            color: inherit;
+            text-decoration: underline;
+            text-decoration-thickness: 1px;
+            text-underline-offset: 2px;
+        }
+
+        .article-meta a:hover {
+            color: var(--heading-color);
+        }
+
+        .preview-panel {
+            margin-top: 16px;
+            border-radius: 0.3rem;
+            overflow: hidden;
+            background: var(--tile);
+        }
+
+        .preview-panel img,
+        .preview-panel video {
+            width: 100%;
+            max-height: 72vh;
+            display: block;
+            object-fit: contain;
+        }
+
+        .actions {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 8px 14px;
+            margin-top: 24px;
+        }
+
+        .text-link {
+            display: inline;
+            color: var(--accent);
+            font-size: 15px;
+            font-weight: 700;
+            text-decoration: underline;
+            text-underline-offset: 2px;
+        }
+
+        .text-link:hover {
+            text-decoration-thickness: 2px;
+        }
+
+        .button {
+            display: inline;
+            align-items: center;
+            min-height: 0;
+            border: 0;
+            border-radius: 0;
+            padding: 0;
+            background: transparent;
+            color: var(--accent);
+            font-size: 15px;
+            font-weight: 700;
+            text-decoration: underline;
+            text-underline-offset: 2px;
+        }
+
+        .button.secondary {
+            background: transparent;
+            color: var(--accent);
+            font-size: 15px;
+            font-weight: 750;
+            text-decoration: none;
+        }
+
+        .button:hover { text-decoration-thickness: 2px; }
+
+        .content-section {
+            margin-top: 32px;
+        }
+
+        .content-section h2 {
+            margin: 0 0 14px;
+            color: var(--heading-color);
+            font-size: 1.5rem;
+            line-height: 1.25;
+            font-weight: 700;
+        }
+
+        .content-section p {
+            color: #1d1f21;
+            font-family: "Source Serif 4", Georgia, serif;
+            font-size: 18px;
+            font-weight: 400;
+        }
+
+        @media (prefers-color-scheme: dark) {
+            .content-section p { color: #b4b4b4; }
+        }
+
+        pre {
+            overflow: auto;
+            margin: 0;
+            border: 1px solid #2a2a2a;
+            border-radius: 0.5rem;
+            padding: 18px;
+            background: #111;
+            color: #f5f5f5;
+            font-size: 14px;
+            line-height: 1.5;
+            white-space: pre;
+        }
+
+        .source-list {
+            display: grid;
+            gap: 10px;
+            margin: 0;
+            padding: 0;
+            list-style: none;
+        }
+
+        .source-list a {
+            color: var(--accent);
+            font-weight: 700;
+        }
+
+        .article-copyright {
+            margin: 56px 0 12px;
+            color: var(--muted);
+            font-size: 14px;
+            font-weight: 600;
+        }
+
+        @media (max-width: 760px) {
+            .page {
+                padding-top: 24px;
+            }
+
+            .article-top { padding-top: 24px; }
+
+            .grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+        }
+    </style>
+</head>
+<body>
+    <header class="article-top">
+        <a class="article-author" href="/">Alexander Deplov</a>
+    </header>
+    <article class="article-detail">
+        <header class="article-header">
+            <h1>Animated circles from the center to outside v5</h1>
+            <div class="article-meta">
+                <span>Animation</span>
+                <span>•</span>
+                <a href="/tools/generative-art/">Generative Art Codes</a>
+                <span>•</span>
+                <span>Paper.js</span>
+            </div>
+        </header>
+        <div class="content">
+            <section class="preview-panel" aria-label="Preview">
+                <img class="preview-media" src="/tools/generative-art/assets/collection/Animation/Animated%20circles%20from%20the%20center%20to%20outside%20v5/Screen_Recording_2022-06-05_at_14.02.19.2022-06-05_14_02_50.gif" alt="Animated circles from the center to outside v5" loading="eager" decoding="async">
+            </section>
+            <div class="actions"><a class="text-link" href="http://sketch.paperjs.org/#V/0.12.17/S/pVRNj9owEP0rFhcCpG6gy7ai5VChbtUD2hXtbdmDcQZiYezIdmC3K/57x05YkhTRQ33AYT7ezLwZz2tHsR10Jp2fW3A868QdrlP/f88MWW3IlCg4kAfmMroA7pjaSIhel4rgseI3TMhewIGudKFSG5fytZBypqU2E9JdSca33UqRayuc0Kpy4qAcmKU69pbKh+NSK7AY8kNSCtgOYd39eqEPXjysxIalorA/1AOwLYo/1aXzQjqRSwHmXv3K4JtK0aKB876KU3oJpcAsgisajk8RtHbfjS7yqv7wHWGaa21IFPx8Pp/x+oJp4T0Y9EhFCzfAHMyE4RJsNCZ9ImIyCjciHJcKYQrFPREt2x17jkkqLNLM4c7o3Sww9IYcOPEd8BzdJlgKepxVm0sZe2VQUJbn8mXOnBHPaLRm0kLVr3pRSVkUAjerOgXhIderc3E65Xw8jrH65Clu6pozUkC3pS9nA73DpHgkehCpy7DmUUzOwgzEJnNeSgYXqGuHzZlB+aRkpKWr8TOp0+PPsXf+LhmgbxXQrAAymCJttX7UDLW6M/jGPOdV2yPYYxYNas9tMtqxMBtTMvf0WqEigcUFH8r9JOMoJTS5Ie8wZh/J7eHvuInlW2U5k/BViR1CRUM6RpDriKMKcZj0ep5S2gJ1mbDUowq1oX6IzhH65OaK7UsrA67tf2TQZH6KBCT/LO1jg6zb5AJsIB4i38YhmtWa/1dLK9PyLYb3XVtoNc+yo1cGoIKurre1Q1mazjIh0ygg+LWBm3mFy2Kba6Gc7Uwen45/AA==" target="_blank" rel="noopener noreferrer">Open in Paper.js Sketch</a></div>
+            
+            
+        <section class="content-section">
+            <h2>Code</h2>
+            <pre><code>var bg = new Path.Rectangle({
+    size: view.bounds,
+    fillColor: &#x27;black&#x27;,
+    position: view.center
+})
+var clones = 30
+var amountOfRows = 10
+var radiusInPeak = 8
+var radiusMultiplierOnTheEnd = amountOfRows / clones
+var innerRadius = 50
+var rootGroup = new Group()
+for (var i = 1; i &lt; 10; i++) {
+    createCircles(5 * i, 25 * i)
+}
+
+function createCircles(max, distanceFromCenter) {
+    var angle = 360 / max
+    var group = new Group()
+    group.applyMatrix = false
+    for (var i = 0; i &lt; max; i++) {
+        var circle = new Path.Rectangle({
+            size: [5, 20],
+            fillColor: &#x27;blue&#x27;,
+            center: [view.size.width / 2, view.size.height / 2 + distanceFromCenter],
+            parent: group,
+            applyMatrix: false
+        })
+        circle.fillColor.hue += i / max
+        circle.onFrame = function(event) {
+            group.rotation = Math.sin(i + event.count * 0.04 - i * 20) * 5
+            var scaleAnim = (1.5 + Math.sin(i + event.count * 0.02 - i * 10)) / 2.5
+            this.scaling.x = scaleAnim * 4
+            this.scaling.y = (1.5 + Math.cos(i + event.count * 0.02 - i * 10)) / 2.5
+            this.fillColor.hue = 200 + Math.sin(i + event.count * 0.07 - i * 20) * 60
+            this.rotate(i / 120)
+        }
+        circle.rotate(angle * i, view.center)
+        group.onFrame = function(event) {}
+    }
+    rootGroup.addChild(group)
+}</code></pre>
+        </section>
+        
+        </div>
+        <footer class="article-copyright">
+            &copy; 2026 Alexander Deplov, designer and developer of iOS and macOS apps, product designer.
+        </footer>
+    </article>
+</body>
+</html>

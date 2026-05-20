@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+    <title>Paper.js</title>
+    <link rel="stylesheet" href="./../PaperJSEngine/style.css">
+    <script type="text/javascript" src="./../PaperJSEngine/paper-full.min.js"></script>
+    <script type="text/paperscript" canvas="canvas">
+
+
+var x = 100
+
+var padding = 0.17
+var paddingLeft = 1 + padding
+var paddingRight = 2 - padding
+
+var path = new Path()
+path.fillColor = 'red'
+path.strokeWidth = 2
+path.add(x*paddingLeft, x)  // left
+path.add(x*paddingRight, x) // right
+path.add(x*1.5, x*2)        // bottom point
+path.closePath()
+path.visible = false
+
+var group = new Group()
+
+for (var i = 0; i < 36; i++){
+    var clone = path.clone()
+    clone.fillColor.hue += 36 * i
+    clone.rotate(i * 36, clone.bounds.bottomCenter)
+    clone.visible = true
+    group.addChild(clone)
+}
+
+group.position = view.center
+
+var circle = new Path.Circle(group.position, x)
+circle.strokeColor = 'blue'
+
+var maskedGroup = new Group(circle, group);
+maskedGroup.clipped = true
+
+function onMouseUp(event){
+    var fileName = "paperjs_example.svg"
+    var url = "data:image/svg+xml;utf8," + encodeURIComponent(paper.project.exportSVG({asString:true}));
+    var link = document.createElement("a");
+    link.download = fileName;
+    link.href = url;
+    link.click();
+}
+
+</script>
+</head>
+
+<body>
+    <canvas id="canvas" resize style="background: ; cursor: none;"></canvas>
+</body>
+
+</html>

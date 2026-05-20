@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<meta http-equiv="X-UA-Compatible" content="ie=edge" />
+<title>Paper.js</title>
+<link rel="stylesheet" href="./../PaperJSEngine/style.css" >
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+<script type="text/javascript" src="./../PaperJSEngine/paper-full.js"></script>
+<body>
+  <div>
+    <label for="sizeXInput">SizeX:</label>
+    <input id="sizeXInput" type="range" min="1" max="500" value="100">
+  </div>
+
+  <div>
+    <label for="sizeYInput">SizeY:</label>
+    <input id="sizeYInput" type="range" min="1" max="500" value="100">
+  </div>
+
+  <div>
+    <label for="radiusInput">Radius:</label>
+    <input id="radiusInput" type="range" min="1" max="500" value="50">
+  </div>
+
+  <div>
+    <label for="curvitureInput">Curviture:</label>
+    <input id="curvitureInput" type="range" min="-500" max="500" value="20">
+  </div>
+
+  <canvas id="canvas" hidpi='off' resize></canvas>
+</body>
+
+<script type="text/javascript" canvas="canvas">
+
+var sizeX = sizeXInput.value
+var sizeY = sizeYInput.value
+var rectangle
+var radius = radiusInput.value
+var curviture = curvitureInput.value
+
+$(document).ready(function () {
+    paper.setup($('#canvas').get(0))
+
+		sizeXInput.oninput = function(event){
+        sizeX = this.value
+        createSquircle()
+    }
+    sizeXInput.onchange = function(event){
+        sizeX = this.value
+        createSquircle()
+    }
+
+    sizeYInput.oninput = function(event){
+        sizeY = this.value
+        createSquircle()
+    }
+    sizeYInput.onchange = function(event){
+        sizeY = this.value
+        createSquircle()
+    }
+
+    radiusInput.oninput = function(event){
+        radius = this.value
+        createSquircle()
+    }
+    radiusInput.onchange = function(event){
+        radius = this.value
+        createSquircle()
+    }
+
+    curvitureInput.oninput = function(event){
+        curviture = this.value
+        createSquircle()
+    }
+    curvitureInput.onchange = function(event){
+        curviture = this.value
+        createSquircle()
+    }
+
+    createSquircle()
+})
+
+
+function createSquircle(){
+
+  if (rectangle){
+    rectangle.remove()
+  }
+
+  rectangle = new paper.Path.Rectangle({
+    size: [sizeX, sizeY],
+    strokeColor: 'blue',
+    strokeSize: 4,
+    position: paper.view.center,
+    fullySelected: true,
+    radius: radius,
+  })
+
+  rectangle.strokeColor = 'blue'
+  rectangle.strokeWidth = 5
+
+  rectangle.segments[0].handleOut.x -= curviture
+  rectangle.segments[1].handleIn.y -= curviture * -1
+  rectangle.segments[2].handleOut.y -= curviture
+  rectangle.segments[3].handleIn.x -= curviture
+  rectangle.segments[4].handleOut.x -= curviture * -1
+  rectangle.segments[5].handleIn.y -= curviture
+  rectangle.segments[6].handleOut.y -= curviture * -1
+  rectangle.segments[7].handleIn.x -= curviture * -1
+
+  // console.log(curviture)
+
+  // console.log(rectangle.segments[0].handleIn, rectangle.segments[0].handleOut)
+
+
+  // rectangle.segments[1].handleIn += curviture
+
+  // console.log(rectangle.segments[0])
+
+}
+
+
+
+
+
+</script>
+</head>
+
+</html>

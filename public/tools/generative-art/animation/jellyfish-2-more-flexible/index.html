@@ -1,0 +1,481 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Jellyfish 2 - more flexible - Generative Art Codes</title>
+    <meta name="description" content="Jellyfish 2 - more flexible Paper.js generative art example.">
+    <link rel="canonical" href="https://interfacecraft.online/tools/generative-art/animation/jellyfish-2-more-flexible/">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Archivo:ital,wght@0,100..900;1,100..900&family=Source+Serif+4:ital,opsz,wght@0,8..60,200..900;1,8..60,200..900&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            color-scheme: light;
+            --bg-color: #fcfbf8;
+            --text-color: #131522;
+            --heading-color: #1a1a1a;
+            --muted: #71717a;
+            --tile: rgba(0, 0, 0, 0.05);
+            --tile-border: rgba(0, 0, 0, 0.06);
+            --accent: #f46c04;
+        }
+
+        @media (prefers-color-scheme: dark) {
+            :root {
+                --bg-color: #18181c;
+                --text-color: #e3e3e3;
+                --heading-color: #d7d7d7;
+                --muted: #a1a1aa;
+                --tile: rgba(255, 255, 255, 0.05);
+                --tile-border: rgba(255, 255, 255, 0.08);
+            }
+        }
+
+        * { box-sizing: border-box; }
+
+        body {
+            margin: 0;
+            background: var(--bg-color);
+            color: var(--text-color);
+            font-family: "Archivo", -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+            font-weight: 700;
+            line-height: 1.6;
+        }
+
+        a { color: inherit; }
+
+        .page {
+            width: 100%;
+            max-width: 48rem;
+            margin: 0 auto;
+            padding: 48px 1rem 72px;
+        }
+
+        .top-link {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            margin-bottom: 52px;
+            color: var(--muted);
+            font-size: 16px;
+            font-weight: 600;
+            text-decoration: none;
+        }
+
+        .top-link:hover { color: var(--heading-color); text-decoration: underline; }
+
+        .hero {
+            margin-bottom: 44px;
+        }
+
+        h1 {
+            margin: 0;
+            color: var(--heading-color);
+            font-size: 2rem;
+            line-height: 1.2;
+            letter-spacing: 0;
+            font-weight: 700;
+        }
+
+        .summary {
+            margin: 20px 0 0;
+            color: #1d1f21;
+            font-family: "Source Serif 4", Georgia, serif;
+            font-size: 18px;
+            font-weight: 400;
+            line-height: 1.6;
+        }
+
+        @media (prefers-color-scheme: dark) {
+            .summary { color: #b4b4b4; }
+        }
+
+        .section-nav {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 8px;
+            margin-top: 22px;
+        }
+
+        .section-nav a {
+            color: var(--accent);
+            font-size: 15px;
+            font-weight: 700;
+            text-decoration: underline;
+        }
+
+        .section-nav a:hover { text-decoration-thickness: 2px; }
+
+        .gallery-section { margin-top: 44px; }
+
+        .section-header {
+            margin-bottom: 14px;
+        }
+
+        h2 {
+            margin: 0;
+            color: var(--heading-color);
+            font-size: 1.5rem;
+            line-height: 1.25;
+            letter-spacing: 0;
+            font-weight: 700;
+        }
+
+        .count {
+            display: block;
+            color: var(--muted);
+            font-size: 13px;
+            font-weight: 600;
+            margin-top: 4px;
+        }
+
+        .grid {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 5px;
+            width: 100%;
+            margin: 0 auto;
+            padding: 20px 0;
+            align-items: stretch;
+        }
+
+        .card {
+            display: flex;
+            flex-direction: column;
+            min-width: 0;
+            height: 100%;
+            overflow: hidden;
+            border-radius: 10px;
+            padding: 0;
+            background: var(--tile);
+            backdrop-filter: blur(10px);
+            text-decoration: none;
+            color: inherit;
+        }
+
+        .thumb {
+            width: 100%;
+            display: flex;
+            place-items: center;
+            align-items: center;
+            justify-content: center;
+            aspect-ratio: 4 / 3;
+            overflow: hidden;
+            border-radius: 8px 8px 0 0;
+            background: rgba(0, 0, 0, 0.04);
+        }
+
+        @media (prefers-color-scheme: dark) {
+            .thumb { background: rgba(255, 255, 255, 0.05); }
+        }
+
+        .thumb img,
+        .thumb video {
+            width: 100%;
+            height: 100%;
+            display: block;
+            object-fit: cover;
+            border-radius: 0;
+        }
+
+        .placeholder {
+            width: 58px;
+            aspect-ratio: 1;
+            border: 5px solid rgba(255, 255, 255, 0.18);
+            border-top-color: rgba(255, 255, 255, 0.78);
+            border-radius: 50%;
+        }
+
+        .card-title {
+            flex: 0 0 46px;
+            display: -webkit-box;
+            margin: 0;
+            padding: 10px 10px 0;
+            color: var(--muted);
+            font-size: 13px;
+            line-height: 1.2;
+            letter-spacing: 0;
+            font-weight: 600;
+            -webkit-box-orient: vertical;
+            -webkit-line-clamp: 2;
+            overflow: hidden;
+            overflow-wrap: anywhere;
+        }
+
+        .article-top {
+            width: 100%;
+            max-width: 48rem;
+            margin: 0 auto;
+            padding: 48px 1rem 32px;
+            color: var(--muted);
+        }
+
+        .article-author {
+            color: var(--muted);
+            font-weight: 600;
+            text-decoration: none;
+        }
+
+        .article-author:hover {
+            color: var(--heading-color);
+            text-decoration: underline;
+        }
+
+        .article-detail {
+            width: 100%;
+            max-width: 48rem;
+            margin: 0 auto;
+            padding: 32px 1rem 72px;
+        }
+
+        .article-header {
+            margin-bottom: 32px;
+        }
+
+        .article-meta {
+            display: flex;
+            flex-wrap: wrap;
+            align-items: center;
+            gap: 0 8px;
+            margin-top: 8px;
+            color: var(--muted);
+            font-size: 14px;
+            font-weight: 600;
+        }
+
+        .article-meta a {
+            color: inherit;
+            text-decoration: underline;
+            text-decoration-thickness: 1px;
+            text-underline-offset: 2px;
+        }
+
+        .article-meta a:hover {
+            color: var(--heading-color);
+        }
+
+        .preview-panel {
+            margin-top: 16px;
+            border-radius: 0.3rem;
+            overflow: hidden;
+            background: var(--tile);
+        }
+
+        .preview-panel img,
+        .preview-panel video {
+            width: 100%;
+            max-height: 72vh;
+            display: block;
+            object-fit: contain;
+        }
+
+        .actions {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 8px 14px;
+            margin-top: 24px;
+        }
+
+        .text-link {
+            display: inline;
+            color: var(--accent);
+            font-size: 15px;
+            font-weight: 700;
+            text-decoration: underline;
+            text-underline-offset: 2px;
+        }
+
+        .text-link:hover {
+            text-decoration-thickness: 2px;
+        }
+
+        .button {
+            display: inline;
+            align-items: center;
+            min-height: 0;
+            border: 0;
+            border-radius: 0;
+            padding: 0;
+            background: transparent;
+            color: var(--accent);
+            font-size: 15px;
+            font-weight: 700;
+            text-decoration: underline;
+            text-underline-offset: 2px;
+        }
+
+        .button.secondary {
+            background: transparent;
+            color: var(--accent);
+            font-size: 15px;
+            font-weight: 750;
+            text-decoration: none;
+        }
+
+        .button:hover { text-decoration-thickness: 2px; }
+
+        .content-section {
+            margin-top: 32px;
+        }
+
+        .content-section h2 {
+            margin: 0 0 14px;
+            color: var(--heading-color);
+            font-size: 1.5rem;
+            line-height: 1.25;
+            font-weight: 700;
+        }
+
+        .content-section p {
+            color: #1d1f21;
+            font-family: "Source Serif 4", Georgia, serif;
+            font-size: 18px;
+            font-weight: 400;
+        }
+
+        @media (prefers-color-scheme: dark) {
+            .content-section p { color: #b4b4b4; }
+        }
+
+        pre {
+            overflow: auto;
+            margin: 0;
+            border: 1px solid #2a2a2a;
+            border-radius: 0.5rem;
+            padding: 18px;
+            background: #111;
+            color: #f5f5f5;
+            font-size: 14px;
+            line-height: 1.5;
+            white-space: pre;
+        }
+
+        .source-list {
+            display: grid;
+            gap: 10px;
+            margin: 0;
+            padding: 0;
+            list-style: none;
+        }
+
+        .source-list a {
+            color: var(--accent);
+            font-weight: 700;
+        }
+
+        .article-copyright {
+            margin: 56px 0 12px;
+            color: var(--muted);
+            font-size: 14px;
+            font-weight: 600;
+        }
+
+        @media (max-width: 760px) {
+            .page {
+                padding-top: 24px;
+            }
+
+            .article-top { padding-top: 24px; }
+
+            .grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+        }
+    </style>
+</head>
+<body>
+    <header class="article-top">
+        <a class="article-author" href="/">Alexander Deplov</a>
+    </header>
+    <article class="article-detail">
+        <header class="article-header">
+            <h1>Jellyfish 2 - more flexible</h1>
+            <div class="article-meta">
+                <span>Animation</span>
+                <span>•</span>
+                <a href="/tools/generative-art/">Generative Art Codes</a>
+                <span>•</span>
+                <span>Paper.js</span>
+            </div>
+        </header>
+        <div class="content">
+            <section class="preview-panel" aria-label="Preview">
+                <img class="preview-media" src="/tools/generative-art/assets/collection/Animation/Jellyfish%202%20-%20more%20flexible/Screen_Recording_2024-02-13_at_22.34.07.2024-02-13_22_34_42.gif" alt="Jellyfish 2 - more flexible" loading="eager" decoding="async">
+            </section>
+            <div class="actions"><a class="text-link" href="http://sketch.paperjs.org/#V/0.12.17/S/rVVLj9owEP4rFhfCKwQqqiptDyuk7WVXWpXDHoCDSQZi4diR7cBStP+9YzsBL7uXrsoB7HnPN5+Hc0fQEjppZ7EHkxWdYSeTub0fqCKbHflJBBzJEzVF/BsyQ8WOQ3ReCYIfzf5ASg4MjrE9Dr10yzifSy5VSrobTrN9dyVeeyuxEjYkLWUtDIadJl6gjZJ7eGa5KQLpkR7grqw4M3UON/IHEDtnnMSTJqhgJTVMikUFkDtNMvOqiuY5E7sgRGZra/ONvrWF5UxjdxncK1nOQRhQqJ4lZDwmyaV4pegJxcu1vyspzS8l66qByZ0j1+u2FpmtiGQKqAELYMSGTfu9szWxYPkSXSkXnB+YuEDsAMWKUrJMhiRZD69iI73wfeGhlYf3Oo8auu+0Dow0vLwPQCt0x/ZEHvpXUjPbZcOCzKUP9LSq+OmRGsVeUrKlXEOgRGS3NeenBXBkFuQpMaoGr/eEaRFqW0SULFjxDsyTZMLcmcjduWPEeJL0vI8TMqFBmWhyRajRtpGdlRT3Ch8ARm4nFsEB/IguSBdMxwGQcVFbh4BIfcLIgEQj5xpnjuJ9ZOGsdxsFdiWa6OWbW9PAaLKOK9tXbEn2aMvTTEQ37O6TMMsAM/dQ9vbB9Mn0c4lfMHEwSryPbah/Cjb9X12MyexziT/s4rYTN35d4hMuojMxpwp3WTeTwjBRy1p3HQcdFwO6KGnwNUdfvuJiaHcZDn8YprtQ138rMLUSzh0XodsNUpHI8prZVfUdf340sfA8GLTUC3bDh0vEW7mdFFe1LtxbaKSXzRTj/psXjOet1lVwVbcv+C1i+DewwZR7B6fupMv1618=" target="_blank" rel="noopener noreferrer">Open in Paper.js Sketch</a>
+<a class="text-link" href="http://sketch.paperjs.org/#V/0.12.17/S/rVVNj9owEP0rFhfCVwhUVFXaHlZI28uutOoe9gAcTDIQC8eOHAeWov3vHdtJMLCXonIAe2Y8H8/Pj1NH0Bw6ced1BzrJOsNOIlOz31NF1lvykwg4kBeqs/A3JJqKLYfgtBQEPyX7AzHZMziEZjl01g3jfC65VDHprjlNdt2l+OgtxVKYlDSXldCYdho5Q6mV3MEbS3XmWQ90Dw95wZmuUriyP4HY2uAonNRJBcupZlK8FgCp9UQz5ypomjKx9VIkprem3uhb01jKSpwugUcl8zkIDQrds4iMxyRqm1eKHtG8WLm9klL/UrIqapjsOrCzbiqRmI5IooBqMAAGbFiP3zuZEAOWa9G20uL8xEQLsQUUO4rJIhqSaDU8m7V0xtvG/SgH7/k+KujeeC0Ysb+5TUALPI7jidQ/X8iSmSlrFiS2vOenRcGPz1Qr9h6TDeUleE5EdlNxfnwFjsyCNCZaVeD8jjANQs2IiJIBK9yCfpFM6Acd2D23jBhPop47Y41MlKB0MDkjVHubzDZKikeFDwAzNzcWwB7cFbVIZ6wMPSDDrDIHPCL1CSMDEozs0TCxFO8jC2e96yywzTGkXFzs6gFGk1VYmLlCQ7Jn017JRHDF7j7xqwywcg9tlw+mT6b3FX7Hwt5V4n5sUv1Tsun/mmJMZvcV/nQKN8kdoFwm88hvR8tRA7LgRPSxQDHsJlJoJipZlV1LYktmj29KapSD4MtXVJZGDJE9Q79Ey333rUBXStjjqKRWXKQigXkYzGjdd/z5UefC9WDQcNcTl09VyEVZUQuLqszsY6qtrbSFKKDzjPG08doOzu5GAi5Rwv+RNZbcWQDLTrxYffwF" target="_blank" rel="noopener noreferrer">Open in Paper.js Sketch</a>
+<a class="text-link" href="http://sketch.paperjs.org/#V/0.12.17/S/rVVNj9owEP0rFhfCxyaB7faQtocV0vayK626hx6Ag0kGYuHYkePAUrT/vWM7CQb2UKEiQeKZ8Xw8Pz+OPUEL6CW9ty3oNO+Ne6nMzHpHFVltyA8iYE9eqc7DX5BqKjYcguNCEPxU7A8kZMdgH5rXsbOuGeczyaVKSH/FabrtL8THYCEWwqSkhayFxrTT2BkqreQWfrNM5551T3fwWJSc6TqDC/sziI0NjsNJk1SwgmomxVsJkFlP/OBcJc0yJjZeitT01ta7/xpHrqW2wYxVOGUKT0oWMxAaFIZ1M4Z7szH6QqKIxN1MStEDRs2Xbq2k1D+VrMsGPfseWAjWtUhNoyRVQDUYXAM2blAZHE2IwdB1bjvs4H9mokPe4owNJmQej0m8HJ/MWjrj9Rx+lEP9dEw19K+8FqPEX1wnoCVux/FE5u8vZcXMlA05Ulve89Oy5IcXqhV7T8ia8go8JyK7rjk/vAFHwkGWEK1qcH7HoxahdkREyYAVbkC/Sib0ow7smluiRJN44PZYIxMVKB1MTgg13jazjZLiSeG9wMztiQWwA3dEHdI5q0IPyDCvzQaPX0PCyIgEd3ZrmFrmD5Gc08FlFtgUGFLNz1bNAHeTZViauUJDshfTXsVEcEH6IfGrjLDyAG3n92hIprcVfm/vgDtKXEfkvgXsH5NN/9cUEXm4rfBnU0zN9yZQzpN55LejFagBeXAk+lCiRvZTKTQTtayrviWxJbPHNyU1ykGAcoT9NBqJ7Bn7JTruu18FulbCbkeBteIiFQnMxWBGAr/h43uTC99Ho5a7nrh8qkIuyopaWNZVbi9TY+2kLURdneWMZ63XdnBytxJwjhL+vayw5NYCWPWS+fLjLw==" target="_blank" rel="noopener noreferrer">Open in Paper.js Sketch</a>
+<a class="text-link" href="http://sketch.paperjs.org/#V/0.12.17/S/rVVLb9swDP4rQi5xHrUdt93B2w5Fge7SAsV62CHJQbWZWIgsGbKcNAv630dJtqMsAbYVC5DY4uMj+YlkDgNBSxikg5cN6KwYTAeZzM15SxV5XZOvRMCOPFNdhN8h01SsOQSHhSD4qdlPSMmWwS40r1MnXTHO7yWXKiXDV06zzXAh3kcLsRAGkpayERphk9gJaq3kBn6wXBconbXSHd3CXVlxppscPGsjfwSxtsZxOGtBBSupZlK8VAC51cS3TlXRPGdi7UFkJrcu3vWnOHIpdQnmrMYqM3hQsrwHoUGhWV9juDOO0Q2JIhL3NSlF92g1X7qzklJ/U7KpWvbse2ApWDUiM4mSTAHVYHgN2LRlZXQwJoZDl7nNsKf/kYmeecszJpiSeTwl8XJ6FGvphOd1+FaO9eM1NTA801qOUv9wDkArdMfyRO77V7Jmpsq2OTIb3tPTquL7J6oVe0vJivIaPCUyu2o4378Ax4aDPCVaNeD0ro86hroSkSVDVrgG/SyZ0Hc6sGduGyWaxSPnY4VM1KB0MDsy1GrPcZM/AN9ewE2OuEkP7JlJ8aBw4BC5a4UAtuDuvr/CgtWhd0Nh0RgHr3HHhJEJCa6sa5jZkRpj13chjyiwLtGknp+c2gKubpZhZeoKTfc+mfRqJoLfpmlM/CgTjDxC2emAjknyT4FnXeC3brhcj+A5ItcdYX8JlvyvKiJy+7HAl6pIzPdDpJyCeVNlSytxuRTBgeh9hct3mEmhmWhkUw/tdNgp8fpNSY17JsA9h/m0yxe7Z+qH6IfK/SrQjRLWHTe33VpSkcBMBjO79TM+vrRY+D6ZdL3rba2L681Z2W0ZVk1d2GFqpf3ODHFh3xeM553WZnBUd7vllCX833rFkBtLYD1I58v3Xw==" target="_blank" rel="noopener noreferrer">Open in Paper.js Sketch</a>
+<a class="text-link" href="http://sketch.paperjs.org/#V/0.12.17/S/rVVdb9owFP0rFi+ErxCKOk3Z9lAhdS+tVI2HPgAPJrkQC8eOHIeWof73XdsxmNKHdRpSIb7f9/jk9NgRtIRO2pnvQGdFZ9jJZG7Oe6rIekt+EAEv5InqIv4FmaZiyyE6LgXBT81+Q0r2DF5i8zh01g3jfCa5VCnprjnNdt2leOstxVKYkrSUjdBY9jZxhloruYNnluvCWJ3xhe7hrqw4000OaJ4kZ/sDiK2N9UYqWEk1k2JeAeToSOKkrVPRPGfCbNHGZmYw32z01U+VsxpXy+BeyXIGQoOyE5Lx2CS2bZSiBzQvVu6spNQ/lWyqFiP7HNlFN43IzEAkU0A1GPQiNmx37x1NiEHKTWhHOYH8wMQJX4smTpSSRTIkyWp4NmvpjNeDh1EO2/NlNNC98low0vBwXYBWmI7riTzMr2TNzJYtBTLbPvDTquKHR6oVe03JhvIaAiciu2k4P8yBI60gT4lWDTi/Y4tHyK+IKBmw4i3oJ8mEvtORPXPLh/Ek6bkca2SiBqWjyRmh1usr2ygp7hWyHyv7G4tgD+6KTkgXrI4DIOOiMQkBkfqEkQGJRjY1ziy/+0jC2977KrAtMaReXJzaBUaTVVyZvWJDskczXs1E9I7cfRJ2GWDnHtouX5c+uflU46lv/IqNg6vE85hMPWB/Wezmf20xNlrwL40/2uIG/ybx5wr6+7gsF9DfLleiChTRkehDhVrYzaTQTDSyqbuWxpbOAeOU1CgI0fQLaovXQuTPMGxxYr/7VqAbJWw6CqmVF6lIZF4NZoTtG/58b2vh82Dg2RvIy4c65KKsrMVVUxf2dWqtJ3GLUUFnBeO599oJzm4vApco4b+RNbbcWQDrTrpYvf0B" target="_blank" rel="noopener noreferrer">Open in Paper.js Sketch</a></div>
+            
+            
+        <section class="content-section">
+            <h2>Code</h2>
+            <pre><code>var bg = new Path.Rectangle({
+    size: view.size,
+    fillColor: &#x27;black&#x27;
+})
+
+var amount = 20
+var strokeWidth = 20
+var waveAmplitude = 20
+var waveLength = 0.1
+var animationSpeed = 0.05
+var padding = 20
+var colorWidth = -8
+
+var distanceFromCenter = 50 // 0
+
+var array = []
+var rootGroup = new Group()
+
+function createPath(i, amount){
+
+    var path = new Path.Line({
+        from: [0, 0],
+        to: [0, distanceFromCenter],
+        strokeColor: &#x27;blue&#x27;,
+        strokeWidth: strokeWidth,
+        strokeCap: &#x27;round&#x27;,
+        position: view.center,
+        applyMatrix: false,
+        // fullySelected: true
+    })
+
+    var distance = path.getPointAt(path.length/10)
+    path.insert(1, distance)
+    
+
+    path.onFrame = function(event){
+        this.strokeColor.hue = colorWidth * i + (-event.count * 0.5)
+        this.segments[this.segments.length-1].point.y = Math.sin(animationSpeed * event.count + i ) * waveAmplitude * 2
+        this.segments[this.segments.length-1].point.x = view.center.x / 2
+
+        this.segments[this.segments.length-2].point.y = Math.sin(animationSpeed * event.count + i ) * waveAmplitude / 5
+        this.segments[this.segments.length-2].point.x = view.center.x / 2 / 2
+
+        path.smooth({ type: &#x27;continuous&#x27; })
+    }
+    path.rotate(360 / amount * i, view.center)
+
+    
+    return path
+}
+
+for (var i = 0; i &lt; amount; i++){
+    var path = createPath(i, amount)
+    array.push(path)
+    rootGroup.addChild(path)
+}
+
+rootGroup.position = view.center</code></pre>
+        </section>
+        
+        </div>
+        <footer class="article-copyright">
+            &copy; 2026 Alexander Deplov, designer and developer of iOS and macOS apps, product designer.
+        </footer>
+    </article>
+</body>
+</html>

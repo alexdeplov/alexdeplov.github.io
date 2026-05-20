@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+    <title>Paper.js</title>
+    <link rel="stylesheet" href="../PaperJSEngine/style.css" />
+    <script type="text/javascript" src="../PaperJSEngine/paper-full.js"></script>
+    <script type="text/paperscript" canvas="canvas">
+
+    var path = project.importSVG(document.getElementById('svg'))
+    path.strokeColor = 'darkgray'
+    path.strokeWidth = 1
+    path.position = view.center
+    path.scale(0.2)
+    path.opacity = 0
+
+    var tail = project.importSVG(document.getElementById('svg2'))
+    tail.strokeColor = 'darkgray'
+    tail.strokeWidth = 1
+    tail.position.x = path.position.x + 25
+    tail.position.y = path.position.y - 130
+    tail.scale(0.2)
+    tail.opacity = 0
+
+    function onFrame(event) {
+        var slowness = 200
+        var time = event.count % slowness / slowness
+        updateRectangle(event.count * 0.005)
+    }
+
+    function createCircleForBody(time){
+      var circle = new Path.Circle({
+          center: view.center,
+          radius: 7,
+          fillColor: 'blue'
+      })
+      
+
+      circle.fillColor.hue += time * 60 //% 50
+
+      var offset = time * path.children[1].children[0].length
+      var point = path.children[1].children[0].getPointAt(offset)
+      // var tangent = path.children[1].children[0].getTangentAt(offset)
+      circle.position = point
+      // circle.rotation = tangent.angle
+    }
+
+    function createCircleForTail(time){
+      var circle = new Path.Circle({
+          center: view.center,
+          radius: 7,
+          fillColor: 'red'
+      })
+
+      circle.fillColor.hue += time * 60 //% 50
+
+      var offset = time * tail.children[1].children[0].length
+      var point = tail.children[1].children[0].getPointAt(offset)
+      // var tangent = tail.children[1].children[0].getTangentAt(offset)
+      circle.position = point
+      // circle.rotation = tangent.angle
+    }
+
+    function updateRectangle(time) {
+
+        if (time <= 0.99){
+          createCircleForBody(time)
+          createCircleForTail(time)
+        }
+    }
+
+
+    </script>
+    </head>
+    <body>
+
+<canvas id="canvas" resize style="background: black; ">
+</canvas>
+
+<svg id="svg" width="1003px" height="909px" viewBox="0 0 1003 909" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+<title>path4-path</title>
+<g id="Page-1" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+<path d="M980.04184,645.18785 C962.08787,686.66522 940.83621,724.8449 916.2136,759.9468 C882.65062,807.7996 855.17004,840.9229 833.99166,859.3166 C801.16153,889.5086 765.98637,904.971 728.31963,905.8504 C701.27874,905.8504 668.66843,898.1558 630.70858,882.5469 C592.62416,867.0111 557.62487,859.3166 525.6228,859.3166 C492.05984,859.3166 456.06392,867.0111 417.56179,882.5469 C379.00099,898.1558 347.93695,906.2901 324.18638,907.0962 C288.06589,908.6351 252.06268,892.733 216.12537,859.3166 C193.18826,839.3107 164.49853,805.0149 130.12945,756.4292 C93.254176,704.54592 62.937588,644.38175 39.187028,575.7902 C13.750995,501.70252 1,429.95986 1,360.50361 C1,280.94181 18.191859,212.32094 52.626869,154.81688 C79.689754,108.62753 115.69299,72.19192 160.75381,45.44413 C205.81467,18.69638 254.50295,5.06601 306.93593,4.19394 C335.62564,4.19394 373.24843,13.06834 420.00206,30.50936 C466.6238,48.009 496.55933,56.8834 509.68404,56.8834 C519.49644,56.8834 552.75162,46.50671 609.12714,25.81935 C662.43951,6.63423 707.43438,-1.30952 744.29501,1.8196 C844.17781,9.88058 919.21814,49.25478 969.1229,120.19134 C879.79267,174.31712 835.60387,250.1269 836.48324,347.37887 C837.28934,423.13002 864.76992,486.16682 918.77844,536.21817 C943.25447,559.44839 970.58852,577.40238 1001.0003,590.15339 C994.40505,609.27987 987.4433,627.60027 980.04184,645.18785 Z" id="path4-path" stroke="#626262" stroke-width="2"></path>
+</g>
+</svg>
+
+<svg id="svg2" width="253px" height="285px" viewBox="0 0 253 285" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+<title>path4-path</title>
+<g id="Page-1" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+<path d="M251.02943,25.751237 C251.02943,85.124667 229.33805,140.56147 186.10195,191.8732 C133.92543,252.87281 70.81537,288.12123 2.37769,282.55917 C1.50565,275.43619 1,267.9395 1,260.06174 C1,203.06331 25.81315,142.06373 69.87738,92.188287 C91.87647,66.935477 119.85538,45.938107 153.78476,29.188107 C187.64084,12.688027 219.6649,3.5631274 249.7836,2.00052734 C250.66304,9.9378274 251.02943,17.875627 251.02943,25.750467 L251.02943,25.751237 Z" id="path4-path" stroke="#626262" stroke-width="2"></path>
+</g>
+</svg>
+
+<!-- <svg id="svg" width="496px" height="476px" viewBox="0 0 496 476" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+<title>Path</title>
+<g id="Page-1" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+    <polyline id="Path" stroke="#979797" stroke-width="4" points="156 2 3 156 299 452 493 258 356 121 3 474"></polyline>
+</g>
+</svg> -->
+
+<!-- <svg id="svg" width="1007px" height="1193px" viewBox="0 0 1007 1193" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+<title>shape</title>
+<g id="Page-1" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+  <path d="M746.29501,284.8196 C846.17781,292.88058 921.21814,332.25478 971.1229,403.19134 C881.79267,457.31712 837.60387,533.1269 838.48324,630.37887 C839.28934,706.13002 866.76992,769.16682 920.77844,819.21817 C945.25447,842.44839 972.58852,860.40238 1003.0003,873.15339 C996.40505,892.27987 989.4433,910.60027 982.04184,928.18785 C964.08787,969.66522 942.83621,1007.8449 918.2136,1042.9468 C884.65062,1090.7996 857.17004,1123.9229 835.99166,1142.3166 C803.16153,1172.5086 767.98637,1187.971 730.31963,1188.8504 C703.27874,1188.8504 670.66843,1181.1558 632.70858,1165.5469 C594.62416,1150.0111 559.62487,1142.3166 527.6228,1142.3166 C494.05984,1142.3166 458.06392,1150.0111 419.56179,1165.5469 C381.00099,1181.1558 349.93695,1189.2901 326.18638,1190.0962 C290.06589,1191.6351 254.06268,1175.733 218.12537,1142.3166 C195.18826,1122.3107 166.49853,1088.0149 132.12945,1039.4292 C95.254176,987.54592 64.937588,927.38175 41.187028,858.7902 C15.750995,784.70252 3,712.95986 3,643.50361 C3,563.94181 20.191859,495.32094 54.626869,437.81688 C81.689754,391.62753 117.69299,355.19192 162.75381,328.44413 C207.81467,301.69638 256.50295,288.06601 308.93593,287.19394 C337.62564,287.19394 375.24843,296.06834 422.00206,313.50936 C468.6238,331.009 498.55933,339.8834 511.68404,339.8834 C521.49644,339.8834 554.75162,329.50671 611.12714,308.81935 C664.43951,289.63423 709.43438,281.69048 746.29501,284.8196 Z M751.71783,3.00052734 C752.59727,10.9378274 752.96366,18.875627 752.96366,26.750467 L752.96366,26.751237 C752.96366,86.124667 731.27228,141.56147 688.03618,192.8732 C635.85966,253.87281 572.7496,289.12123 504.31192,283.55917 C503.43988,276.43619 502.93423,268.9395 502.93423,261.06174 C502.93423,204.06331 527.74738,143.06373 571.81161,93.188287 C593.8107,67.935477 621.78961,46.938107 655.71899,30.188107 C689.57507,13.688027 721.59913,4.5631274 751.71783,3.00052734 Z"></path>
+</g>
+</svg> -->
+
+</body>
+</html>

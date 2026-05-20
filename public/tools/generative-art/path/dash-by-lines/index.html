@@ -1,0 +1,467 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Dash by lines - Generative Art Codes</title>
+    <meta name="description" content="Dash by lines Paper.js generative art example.">
+    <link rel="canonical" href="https://interfacecraft.online/tools/generative-art/path/dash-by-lines/">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Archivo:ital,wght@0,100..900;1,100..900&family=Source+Serif+4:ital,opsz,wght@0,8..60,200..900;1,8..60,200..900&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            color-scheme: light;
+            --bg-color: #fcfbf8;
+            --text-color: #131522;
+            --heading-color: #1a1a1a;
+            --muted: #71717a;
+            --tile: rgba(0, 0, 0, 0.05);
+            --tile-border: rgba(0, 0, 0, 0.06);
+            --accent: #f46c04;
+        }
+
+        @media (prefers-color-scheme: dark) {
+            :root {
+                --bg-color: #18181c;
+                --text-color: #e3e3e3;
+                --heading-color: #d7d7d7;
+                --muted: #a1a1aa;
+                --tile: rgba(255, 255, 255, 0.05);
+                --tile-border: rgba(255, 255, 255, 0.08);
+            }
+        }
+
+        * { box-sizing: border-box; }
+
+        body {
+            margin: 0;
+            background: var(--bg-color);
+            color: var(--text-color);
+            font-family: "Archivo", -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+            font-weight: 700;
+            line-height: 1.6;
+        }
+
+        a { color: inherit; }
+
+        .page {
+            width: 100%;
+            max-width: 48rem;
+            margin: 0 auto;
+            padding: 48px 1rem 72px;
+        }
+
+        .top-link {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            margin-bottom: 52px;
+            color: var(--muted);
+            font-size: 16px;
+            font-weight: 600;
+            text-decoration: none;
+        }
+
+        .top-link:hover { color: var(--heading-color); text-decoration: underline; }
+
+        .hero {
+            margin-bottom: 44px;
+        }
+
+        h1 {
+            margin: 0;
+            color: var(--heading-color);
+            font-size: 2rem;
+            line-height: 1.2;
+            letter-spacing: 0;
+            font-weight: 700;
+        }
+
+        .summary {
+            margin: 20px 0 0;
+            color: #1d1f21;
+            font-family: "Source Serif 4", Georgia, serif;
+            font-size: 18px;
+            font-weight: 400;
+            line-height: 1.6;
+        }
+
+        @media (prefers-color-scheme: dark) {
+            .summary { color: #b4b4b4; }
+        }
+
+        .section-nav {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 8px;
+            margin-top: 22px;
+        }
+
+        .section-nav a {
+            color: var(--accent);
+            font-size: 15px;
+            font-weight: 700;
+            text-decoration: underline;
+        }
+
+        .section-nav a:hover { text-decoration-thickness: 2px; }
+
+        .gallery-section { margin-top: 44px; }
+
+        .section-header {
+            margin-bottom: 14px;
+        }
+
+        h2 {
+            margin: 0;
+            color: var(--heading-color);
+            font-size: 1.5rem;
+            line-height: 1.25;
+            letter-spacing: 0;
+            font-weight: 700;
+        }
+
+        .count {
+            display: block;
+            color: var(--muted);
+            font-size: 13px;
+            font-weight: 600;
+            margin-top: 4px;
+        }
+
+        .grid {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 5px;
+            width: 100%;
+            margin: 0 auto;
+            padding: 20px 0;
+            align-items: stretch;
+        }
+
+        .card {
+            display: flex;
+            flex-direction: column;
+            min-width: 0;
+            height: 100%;
+            overflow: hidden;
+            border-radius: 10px;
+            padding: 0;
+            background: var(--tile);
+            backdrop-filter: blur(10px);
+            text-decoration: none;
+            color: inherit;
+        }
+
+        .thumb {
+            width: 100%;
+            display: flex;
+            place-items: center;
+            align-items: center;
+            justify-content: center;
+            aspect-ratio: 4 / 3;
+            overflow: hidden;
+            border-radius: 8px 8px 0 0;
+            background: rgba(0, 0, 0, 0.04);
+        }
+
+        @media (prefers-color-scheme: dark) {
+            .thumb { background: rgba(255, 255, 255, 0.05); }
+        }
+
+        .thumb img,
+        .thumb video {
+            width: 100%;
+            height: 100%;
+            display: block;
+            object-fit: cover;
+            border-radius: 0;
+        }
+
+        .placeholder {
+            width: 58px;
+            aspect-ratio: 1;
+            border: 5px solid rgba(255, 255, 255, 0.18);
+            border-top-color: rgba(255, 255, 255, 0.78);
+            border-radius: 50%;
+        }
+
+        .card-title {
+            flex: 0 0 46px;
+            display: -webkit-box;
+            margin: 0;
+            padding: 10px 10px 0;
+            color: var(--muted);
+            font-size: 13px;
+            line-height: 1.2;
+            letter-spacing: 0;
+            font-weight: 600;
+            -webkit-box-orient: vertical;
+            -webkit-line-clamp: 2;
+            overflow: hidden;
+            overflow-wrap: anywhere;
+        }
+
+        .article-top {
+            width: 100%;
+            max-width: 48rem;
+            margin: 0 auto;
+            padding: 48px 1rem 32px;
+            color: var(--muted);
+        }
+
+        .article-author {
+            color: var(--muted);
+            font-weight: 600;
+            text-decoration: none;
+        }
+
+        .article-author:hover {
+            color: var(--heading-color);
+            text-decoration: underline;
+        }
+
+        .article-detail {
+            width: 100%;
+            max-width: 48rem;
+            margin: 0 auto;
+            padding: 32px 1rem 72px;
+        }
+
+        .article-header {
+            margin-bottom: 32px;
+        }
+
+        .article-meta {
+            display: flex;
+            flex-wrap: wrap;
+            align-items: center;
+            gap: 0 8px;
+            margin-top: 8px;
+            color: var(--muted);
+            font-size: 14px;
+            font-weight: 600;
+        }
+
+        .article-meta a {
+            color: inherit;
+            text-decoration: underline;
+            text-decoration-thickness: 1px;
+            text-underline-offset: 2px;
+        }
+
+        .article-meta a:hover {
+            color: var(--heading-color);
+        }
+
+        .preview-panel {
+            margin-top: 16px;
+            border-radius: 0.3rem;
+            overflow: hidden;
+            background: var(--tile);
+        }
+
+        .preview-panel img,
+        .preview-panel video {
+            width: 100%;
+            max-height: 72vh;
+            display: block;
+            object-fit: contain;
+        }
+
+        .actions {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 8px 14px;
+            margin-top: 24px;
+        }
+
+        .text-link {
+            display: inline;
+            color: var(--accent);
+            font-size: 15px;
+            font-weight: 700;
+            text-decoration: underline;
+            text-underline-offset: 2px;
+        }
+
+        .text-link:hover {
+            text-decoration-thickness: 2px;
+        }
+
+        .button {
+            display: inline;
+            align-items: center;
+            min-height: 0;
+            border: 0;
+            border-radius: 0;
+            padding: 0;
+            background: transparent;
+            color: var(--accent);
+            font-size: 15px;
+            font-weight: 700;
+            text-decoration: underline;
+            text-underline-offset: 2px;
+        }
+
+        .button.secondary {
+            background: transparent;
+            color: var(--accent);
+            font-size: 15px;
+            font-weight: 750;
+            text-decoration: none;
+        }
+
+        .button:hover { text-decoration-thickness: 2px; }
+
+        .content-section {
+            margin-top: 32px;
+        }
+
+        .content-section h2 {
+            margin: 0 0 14px;
+            color: var(--heading-color);
+            font-size: 1.5rem;
+            line-height: 1.25;
+            font-weight: 700;
+        }
+
+        .content-section p {
+            color: #1d1f21;
+            font-family: "Source Serif 4", Georgia, serif;
+            font-size: 18px;
+            font-weight: 400;
+        }
+
+        @media (prefers-color-scheme: dark) {
+            .content-section p { color: #b4b4b4; }
+        }
+
+        pre {
+            overflow: auto;
+            margin: 0;
+            border: 1px solid #2a2a2a;
+            border-radius: 0.5rem;
+            padding: 18px;
+            background: #111;
+            color: #f5f5f5;
+            font-size: 14px;
+            line-height: 1.5;
+            white-space: pre;
+        }
+
+        .source-list {
+            display: grid;
+            gap: 10px;
+            margin: 0;
+            padding: 0;
+            list-style: none;
+        }
+
+        .source-list a {
+            color: var(--accent);
+            font-weight: 700;
+        }
+
+        .article-copyright {
+            margin: 56px 0 12px;
+            color: var(--muted);
+            font-size: 14px;
+            font-weight: 600;
+        }
+
+        @media (max-width: 760px) {
+            .page {
+                padding-top: 24px;
+            }
+
+            .article-top { padding-top: 24px; }
+
+            .grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+        }
+    </style>
+</head>
+<body>
+    <header class="article-top">
+        <a class="article-author" href="/">Alexander Deplov</a>
+    </header>
+    <article class="article-detail">
+        <header class="article-header">
+            <h1>Dash by lines</h1>
+            <div class="article-meta">
+                <span>Path</span>
+                <span>•</span>
+                <a href="/tools/generative-art/">Generative Art Codes</a>
+                <span>•</span>
+                <span>Paper.js</span>
+            </div>
+        </header>
+        <div class="content">
+            <section class="preview-panel" aria-label="Preview">
+                <img class="preview-media" src="/tools/generative-art/assets/collection/Path/Dash%20by%20lines/Screenshot_2022-06-04_at_20.20.55.png" alt="Dash by lines" loading="eager" decoding="async">
+            </section>
+            <div class="actions"><a class="text-link" href="http://sketch.paperjs.org/#V/0.12.17/S/bVTLbtswEPwVQpc6sExwSS4fSXMoei4QoL3VReHYdCxYkQxJddAG/vcOpTg20PJELnd2ZmcpvRbN6jkVt8XXfRrWu6Is1u0mn5fNcdWJw2rYiXvRpBfxgO1sWXxhJ9kG0iUf1XpBUikfqVRioaXy1sdSSWJkiIWRWinHCFjnrDmqDPDSKa2pDKjCHllkkUbBl9jEYB0hFKWPIYYSG0PO+gkapLIUTOmkDsYw8py0HKItCRTQ4SGCpWYyCGlpWGueoCQpKoolSSYKDlDpA+tYGmmMdf4SYIgN1k4wJRWEG8BC8GSFghwVGSjnoR1VNQcHjPEUJwwhJSCmpTPea6HRlNNARHYcBMMvrd7PI4QlQYKHh+jD2Xx99lXkFgN7LuGm0sbDxXqhbSa28Icg1wYbUUXLEFk5aI1MsB9AyqUgQHttcm1mFcI58EatdIClSkSpSXHIzJpjQHM6T0iPzN5H50YA/NImuhLTZhUVoyGM0UMxy+jIjbyKDOrALAwYs6sNthY2IGhZZhE2u4sSFP1I6TlYDAHDC458rj65h5nrGK8if5bFzd2yye9S9kPX7tPntm47vNEPj/Vqvf9wvjy0fTVUbYObY5Ve5Do1Q+pwOz3szarPD1uru+ncbrd9GhAh9Z5T4ZhPL7uqTrNKfBw/B1mn5mnY3YjXZSOwcubPw3D9lbxeKbs9Cztl3RmAZLnabGZjsac0PLRVM3waZtXNOWPbdrPNSC42YM1a825+L+w7bV7VVkDWfEz6n7Tzyox11aRv7b+k8w1ox6wL5nQ5ni6a++r5UFfb37PrRvpUp/WQstqh+5XebqqsdbR4/uYsLk7Z15G/S8/tMaEOfjePXVrtD1lNX9x+/3H6Cw==" target="_blank" rel="noopener noreferrer">Open in Paper.js Sketch</a><a class="button secondary" href="/tools/generative-art/assets/collection/Path/Dash%20by%20lines/Dash_by_lines.html">Dash by lines.html</a></div>
+            
+        <section class="content-section">
+            <h2>Files</h2>
+            <ul class="source-list">
+                <li><a href="/tools/generative-art/assets/collection/Path/Dash%20by%20lines/Dash_by_lines.html">Dash by lines.html</a></li>
+            </ul>
+        </section>
+        
+            
+        <section class="content-section">
+            <h2>Code</h2>
+            <pre><code>&lt;!DOCTYPE html&gt;
+&lt;html lang=&quot;en&quot;&gt;
+&lt;head&gt;
+&lt;meta charset=&quot;UTF-8&quot; /&gt;
+&lt;meta name=&quot;viewport&quot; content=&quot;width=device-width, initial-scale=1.0&quot; /&gt;
+&lt;meta http-equiv=&quot;X-UA-Compatible&quot; content=&quot;ie=edge&quot; /&gt;
+&lt;title&gt;Paper.js&lt;/title&gt;
+&lt;link rel=&quot;stylesheet&quot; href=&quot;./../PaperJSEngine/style.css&quot; &gt;
+&lt;script type=&quot;text/javascript&quot; src=&quot;./../PaperJSEngine/paper-full.js&quot;&gt;&lt;/script&gt;
+&lt;script type=&quot;text/paperscript&quot; canvas=&quot;canvas&quot;&gt;
+
+var path = new Path(&quot;M56.54812,5v0c-1.00791,0 -2.07479,0.15548 -3.20065,0.46643v0v0c-7.60221,8.54578 -14.20187,14.98461 -19.79898,19.31647v0v0c-8.04183,6.28335 -16.45894,10.40077 -25.25134,12.35225v0v0c-1.19019,1.51186 -1.78529,3.33467 -1.78529,5.46844v0v0c-0.06433,1.88714 0.31095,3.6778 1.12586,5.37194v0v0c1.31886,2.63772 2.9862,3.95658 5.00202,3.95658v0v0c5.14677,0 10.64202,-1.00791 16.48575,-3.02373v0l-24.12548,115.44849v0c2.89506,1.95148 6.41202,2.92723 10.55088,2.92723v0v0c5.02883,0 9.21058,-1.25988 12.54525,-3.77966v0v0c3.32396,-2.50905 5.45772,-5.96168 6.4013,-10.35787v0l30.34986,-145.50884v0c-2.51978,-1.75847 -5.28617,-2.63772 -8.29917,-2.63772z&quot;);
+path.strokeColor = &#x27;black&#x27;;
+path.position = view.center;
+
+var dash = 40;
+var offset = 4;
+
+var i = 0;
+while(i &lt; path.length) {
+    var _pt = new Path({strokeColor: &#x27;black&#x27;});
+    _pt.add(path.getPointAt(i));
+    for(d = 0; d &lt; dash; d += 4) {
+        if (i + d &lt; path.length) {
+            _pt.lineTo(path.getPointAt(i+d));     
+        }    
+    }
+    _pt.simplify();
+    _pt.selected = true;
+    i += dash + offset;
+}
+
+path.remove();
+
+
+&lt;/script&gt;
+&lt;/head&gt;
+&lt;body&gt;
+&lt;canvas hidpi=&quot;off&quot; id=&quot;canvas&quot; resize style=&quot;background: ;&quot;&gt;&lt;/canvas&gt;
+&lt;/body&gt;
+&lt;/html&gt;</code></pre>
+        </section>
+        
+        </div>
+        <footer class="article-copyright">
+            &copy; 2026 Alexander Deplov, designer and developer of iOS and macOS apps, product designer.
+        </footer>
+    </article>
+</body>
+</html>

@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<meta http-equiv="X-UA-Compatible" content="ie=edge" />
+<title>Paper.js</title>
+<link rel="stylesheet" href="./../PaperJSEngine/style.css" >
+<script type="text/javascript" src="./../PaperJSEngine/paper-full.js"></script>
+<script type="text/paperscript" canvas="canvas">
+
+var path = new Path("M56.54812,5v0c-1.00791,0 -2.07479,0.15548 -3.20065,0.46643v0v0c-7.60221,8.54578 -14.20187,14.98461 -19.79898,19.31647v0v0c-8.04183,6.28335 -16.45894,10.40077 -25.25134,12.35225v0v0c-1.19019,1.51186 -1.78529,3.33467 -1.78529,5.46844v0v0c-0.06433,1.88714 0.31095,3.6778 1.12586,5.37194v0v0c1.31886,2.63772 2.9862,3.95658 5.00202,3.95658v0v0c5.14677,0 10.64202,-1.00791 16.48575,-3.02373v0l-24.12548,115.44849v0c2.89506,1.95148 6.41202,2.92723 10.55088,2.92723v0v0c5.02883,0 9.21058,-1.25988 12.54525,-3.77966v0v0c3.32396,-2.50905 5.45772,-5.96168 6.4013,-10.35787v0l30.34986,-145.50884v0c-2.51978,-1.75847 -5.28617,-2.63772 -8.29917,-2.63772z");
+path.strokeColor = 'black';
+path.position = view.center;
+
+var dash = 40;
+var offset = 4;
+
+var i = 0;
+while(i < path.length) {
+    var _pt = new Path({strokeColor: 'black'});
+    _pt.add(path.getPointAt(i));
+    for(d = 0; d < dash; d += 4) {
+        if (i + d < path.length) {
+            _pt.lineTo(path.getPointAt(i+d));     
+        }    
+    }
+    _pt.simplify();
+    _pt.selected = true;
+    i += dash + offset;
+}
+
+path.remove();
+
+
+</script>
+</head>
+<body>
+<canvas id="canvas" resize style="background:;"></canvas>
+</body>
+</html>

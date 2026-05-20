@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<meta http-equiv="X-UA-Compatible" content="ie=edge" />
+<title>Paper.js</title>
+<link rel="stylesheet" href="./../PaperJSEngine/style.css" />
+<script type="text/javascript" src="./../PaperJSEngine/paper-full.js"></script>
+<script type="text/paperscript" canvas="canvas">
+
+
+// var path = new Path()
+// path.strokeColor = 'blue'
+// path.strokeWidth = 2
+//
+// path.add(new Point(100, 100))
+// path.add(new Point(150, 150))
+// path.add(new Point(200, 100))
+// path.smooth()
+//
+// var circle = new Path.Rectangle({
+//   size: [20],
+//   fillColor: 'red',
+//   position: path.firstSegment.point,
+//   applyMatrix: false
+// })
+//
+// function updateRectangle(time) {
+//     var offset = time * path.length
+//     var point = path.getPointAt(offset)
+//     var tangent = path.getTangentAt(offset)
+//     circle.position = point
+//     circle.rotation = tangent.angle
+// }
+//
+// function onFrame(event) {
+//     var slowness = 100
+//     var time = event.count % slowness / slowness
+//     updateRectangle(time)
+// }
+
+
+
+
+function onFrame(event){
+  var slowness = 100
+  var time = event.count % slowness / slowness
+
+  var circle = new Path.Circle({
+    radius: 5,
+    fillColor: 'blue',
+    position: view.center,
+  })
+  var x = (event.count * 3) % view.size.width/2
+  circle.position.x = x
+  circle.position.y = view.center.y + Math.sin(circle.position.x * 0.05) * 50 * Math.sqrt(x)/10
+}
+
+
+
+</script>
+</head>
+<body>
+<canvas hidpi='true' id="canvas" resize style="background: black;"></canvas>
+</body>
+</html>

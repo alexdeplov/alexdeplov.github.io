@@ -1,0 +1,495 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Infinite Sign by Circles - Generative Art Codes</title>
+    <meta name="description" content="Infinite Sign by Circles Paper.js generative art example.">
+    <link rel="canonical" href="https://interfacecraft.online/tools/generative-art/animation/infinite-sign-by-circles/">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Archivo:ital,wght@0,100..900;1,100..900&family=Source+Serif+4:ital,opsz,wght@0,8..60,200..900;1,8..60,200..900&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            color-scheme: light;
+            --bg-color: #fcfbf8;
+            --text-color: #131522;
+            --heading-color: #1a1a1a;
+            --muted: #71717a;
+            --tile: rgba(0, 0, 0, 0.05);
+            --tile-border: rgba(0, 0, 0, 0.06);
+            --accent: #f46c04;
+        }
+
+        @media (prefers-color-scheme: dark) {
+            :root {
+                --bg-color: #18181c;
+                --text-color: #e3e3e3;
+                --heading-color: #d7d7d7;
+                --muted: #a1a1aa;
+                --tile: rgba(255, 255, 255, 0.05);
+                --tile-border: rgba(255, 255, 255, 0.08);
+            }
+        }
+
+        * { box-sizing: border-box; }
+
+        body {
+            margin: 0;
+            background: var(--bg-color);
+            color: var(--text-color);
+            font-family: "Archivo", -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+            font-weight: 700;
+            line-height: 1.6;
+        }
+
+        a { color: inherit; }
+
+        .page {
+            width: 100%;
+            max-width: 48rem;
+            margin: 0 auto;
+            padding: 48px 1rem 72px;
+        }
+
+        .top-link {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            margin-bottom: 52px;
+            color: var(--muted);
+            font-size: 16px;
+            font-weight: 600;
+            text-decoration: none;
+        }
+
+        .top-link:hover { color: var(--heading-color); text-decoration: underline; }
+
+        .hero {
+            margin-bottom: 44px;
+        }
+
+        h1 {
+            margin: 0;
+            color: var(--heading-color);
+            font-size: 2rem;
+            line-height: 1.2;
+            letter-spacing: 0;
+            font-weight: 700;
+        }
+
+        .summary {
+            margin: 20px 0 0;
+            color: #1d1f21;
+            font-family: "Source Serif 4", Georgia, serif;
+            font-size: 18px;
+            font-weight: 400;
+            line-height: 1.6;
+        }
+
+        @media (prefers-color-scheme: dark) {
+            .summary { color: #b4b4b4; }
+        }
+
+        .section-nav {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 8px;
+            margin-top: 22px;
+        }
+
+        .section-nav a {
+            color: var(--accent);
+            font-size: 15px;
+            font-weight: 700;
+            text-decoration: underline;
+        }
+
+        .section-nav a:hover { text-decoration-thickness: 2px; }
+
+        .gallery-section { margin-top: 44px; }
+
+        .section-header {
+            margin-bottom: 14px;
+        }
+
+        h2 {
+            margin: 0;
+            color: var(--heading-color);
+            font-size: 1.5rem;
+            line-height: 1.25;
+            letter-spacing: 0;
+            font-weight: 700;
+        }
+
+        .count {
+            display: block;
+            color: var(--muted);
+            font-size: 13px;
+            font-weight: 600;
+            margin-top: 4px;
+        }
+
+        .grid {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 5px;
+            width: 100%;
+            margin: 0 auto;
+            padding: 20px 0;
+            align-items: stretch;
+        }
+
+        .card {
+            display: flex;
+            flex-direction: column;
+            min-width: 0;
+            height: 100%;
+            overflow: hidden;
+            border-radius: 10px;
+            padding: 0;
+            background: var(--tile);
+            backdrop-filter: blur(10px);
+            text-decoration: none;
+            color: inherit;
+        }
+
+        .thumb {
+            width: 100%;
+            display: flex;
+            place-items: center;
+            align-items: center;
+            justify-content: center;
+            aspect-ratio: 4 / 3;
+            overflow: hidden;
+            border-radius: 8px 8px 0 0;
+            background: rgba(0, 0, 0, 0.04);
+        }
+
+        @media (prefers-color-scheme: dark) {
+            .thumb { background: rgba(255, 255, 255, 0.05); }
+        }
+
+        .thumb img,
+        .thumb video {
+            width: 100%;
+            height: 100%;
+            display: block;
+            object-fit: cover;
+            border-radius: 0;
+        }
+
+        .placeholder {
+            width: 58px;
+            aspect-ratio: 1;
+            border: 5px solid rgba(255, 255, 255, 0.18);
+            border-top-color: rgba(255, 255, 255, 0.78);
+            border-radius: 50%;
+        }
+
+        .card-title {
+            flex: 0 0 46px;
+            display: -webkit-box;
+            margin: 0;
+            padding: 10px 10px 0;
+            color: var(--muted);
+            font-size: 13px;
+            line-height: 1.2;
+            letter-spacing: 0;
+            font-weight: 600;
+            -webkit-box-orient: vertical;
+            -webkit-line-clamp: 2;
+            overflow: hidden;
+            overflow-wrap: anywhere;
+        }
+
+        .article-top {
+            width: 100%;
+            max-width: 48rem;
+            margin: 0 auto;
+            padding: 48px 1rem 32px;
+            color: var(--muted);
+        }
+
+        .article-author {
+            color: var(--muted);
+            font-weight: 600;
+            text-decoration: none;
+        }
+
+        .article-author:hover {
+            color: var(--heading-color);
+            text-decoration: underline;
+        }
+
+        .article-detail {
+            width: 100%;
+            max-width: 48rem;
+            margin: 0 auto;
+            padding: 32px 1rem 72px;
+        }
+
+        .article-header {
+            margin-bottom: 32px;
+        }
+
+        .article-meta {
+            display: flex;
+            flex-wrap: wrap;
+            align-items: center;
+            gap: 0 8px;
+            margin-top: 8px;
+            color: var(--muted);
+            font-size: 14px;
+            font-weight: 600;
+        }
+
+        .article-meta a {
+            color: inherit;
+            text-decoration: underline;
+            text-decoration-thickness: 1px;
+            text-underline-offset: 2px;
+        }
+
+        .article-meta a:hover {
+            color: var(--heading-color);
+        }
+
+        .preview-panel {
+            margin-top: 16px;
+            border-radius: 0.3rem;
+            overflow: hidden;
+            background: var(--tile);
+        }
+
+        .preview-panel img,
+        .preview-panel video {
+            width: 100%;
+            max-height: 72vh;
+            display: block;
+            object-fit: contain;
+        }
+
+        .actions {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 8px 14px;
+            margin-top: 24px;
+        }
+
+        .text-link {
+            display: inline;
+            color: var(--accent);
+            font-size: 15px;
+            font-weight: 700;
+            text-decoration: underline;
+            text-underline-offset: 2px;
+        }
+
+        .text-link:hover {
+            text-decoration-thickness: 2px;
+        }
+
+        .button {
+            display: inline;
+            align-items: center;
+            min-height: 0;
+            border: 0;
+            border-radius: 0;
+            padding: 0;
+            background: transparent;
+            color: var(--accent);
+            font-size: 15px;
+            font-weight: 700;
+            text-decoration: underline;
+            text-underline-offset: 2px;
+        }
+
+        .button.secondary {
+            background: transparent;
+            color: var(--accent);
+            font-size: 15px;
+            font-weight: 750;
+            text-decoration: none;
+        }
+
+        .button:hover { text-decoration-thickness: 2px; }
+
+        .content-section {
+            margin-top: 32px;
+        }
+
+        .content-section h2 {
+            margin: 0 0 14px;
+            color: var(--heading-color);
+            font-size: 1.5rem;
+            line-height: 1.25;
+            font-weight: 700;
+        }
+
+        .content-section p {
+            color: #1d1f21;
+            font-family: "Source Serif 4", Georgia, serif;
+            font-size: 18px;
+            font-weight: 400;
+        }
+
+        @media (prefers-color-scheme: dark) {
+            .content-section p { color: #b4b4b4; }
+        }
+
+        pre {
+            overflow: auto;
+            margin: 0;
+            border: 1px solid #2a2a2a;
+            border-radius: 0.5rem;
+            padding: 18px;
+            background: #111;
+            color: #f5f5f5;
+            font-size: 14px;
+            line-height: 1.5;
+            white-space: pre;
+        }
+
+        .source-list {
+            display: grid;
+            gap: 10px;
+            margin: 0;
+            padding: 0;
+            list-style: none;
+        }
+
+        .source-list a {
+            color: var(--accent);
+            font-weight: 700;
+        }
+
+        .article-copyright {
+            margin: 56px 0 12px;
+            color: var(--muted);
+            font-size: 14px;
+            font-weight: 600;
+        }
+
+        @media (max-width: 760px) {
+            .page {
+                padding-top: 24px;
+            }
+
+            .article-top { padding-top: 24px; }
+
+            .grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+        }
+    </style>
+</head>
+<body>
+    <header class="article-top">
+        <a class="article-author" href="/">Alexander Deplov</a>
+    </header>
+    <article class="article-detail">
+        <header class="article-header">
+            <h1>Infinite Sign by Circles</h1>
+            <div class="article-meta">
+                <span>Animation</span>
+                <span>•</span>
+                <a href="/tools/generative-art/">Generative Art Codes</a>
+                <span>•</span>
+                <span>Paper.js</span>
+            </div>
+        </header>
+        <div class="content">
+            <section class="preview-panel" aria-label="Preview">
+                <img class="preview-media" src="/tools/generative-art/assets/collection/Animation/Infinite%20Sign%20by%20Circles/Screen_Recording_2024-06-05_at_22.19.21.2024-06-05_22_22_34.gif" alt="Infinite Sign by Circles" loading="eager" decoding="async">
+            </section>
+            <div class="actions"><a class="text-link" href="http://sketch.paperjs.org/#V/0.12.17/S/lVVNc9owEP0rGi6xCxUGhgtNTsm0p0w7SQ9hIAchC6zGSB5JDtAM/70rWbIVEtLWF6Tdt99vxUtPkC3rzXr3T8zQojfoUZnb+zNRaLVBV0iwHfpBTIHvGDVEbEqWvCwFgk/z32yGnjnbYXscNNI1L8trWUo1QxerktCni6U4pkuxFNYl2cpamAfwO81iyRwkEy+pSJ5zsbGgyfSVyKLGXpRzDelQ9n19xwg1kUdNSQlga94IFMl5rZt7SKSCkuLqrrmiXWmNxcz/vq3MmrkjVkTkcpukHkOZMEz5rjQXryFVVR5uiVF8P0NrUmoW90VIrhnks3gMkpytueCGS+HTvD9sV7K8acWJLSHtKtooWVce+82eE6dcS4USq9+DLvsCP5dhCnDp91Nfcos7NLhDi5vDpcE1SPtZIBfNBABvU8G0lILZoAEUALjtHC5qhvpX6NbiQ+vQJzTO3rGqpA71L6J+4j0Y7NGw5ckA8o7UB1AfOvU8fXzHt6wI5caVirMx6qPkNKUMTz4uRRNTK+ITHH0ILfmmMIJp7eJNO6ybGYZErwte5kkw9YGPwBDb9AYVtSMqN0yf1krDBP/K6Ok7a2qgbF0RBQ4vzvM4pqtdt8yxqxbUJSXFVwUvScKeARw4ZeysM+yb43azlDumfvKtZY2BKY2yTkldxqOHUOEK2JdrvOM57OoQ2TG5KWkuksgRaOzAJtMMDYdwcBgqdYRJ3wSZnwQpmJ3R+SiOpTYCGvsOuYa/ImnIf9AG8dTroodXC+AnDvCGmRuvjfmchrVrWEAtUWBSeEuqJHQ/katf8DoPEA+d76L+Z+TGU6uLV2CNktbJ5en7m6Iosv28I88LiNom21DkFO/4UnCNu+e7HcMIT2Eqzg4GC0+S289sMnSD9wZn3HWbPjqDePM6ZXj8r9C2IcDkURa/kH6Bo2N38b157e1zm6HdsyP8Fa8UI0+V5MLo3mzxePwD" target="_blank" rel="noopener noreferrer">Open in Paper.js Sketch</a></div>
+            
+            
+        <section class="content-section">
+            <h2>Code</h2>
+            <pre><code>var bg = new Path.Rectangle({
+    size: view.size,
+    fillColor: &#x27;black&#x27;
+})
+
+var amountX = 50
+var amountY = 30
+var paddingX = 35
+var paddingY = 25
+var distanceOfReact = 50
+var scaling = 3
+var radius = 3
+
+
+var path = new Path.Circle({
+    radius: radius,
+    fillColor: new Color.random(),
+    center: view.center,
+    applyMatrix: false
+})
+
+var noise = []
+
+var definition = new SymbolDefinition(path)
+
+
+var group = new Group()
+
+for (var x = 0; x &lt; amountX; x++){
+    for (var y = 0; y &lt; amountY; y++){
+
+        var instance = path.clone()
+        instance.fillColor.hue += Math.random() * 20
+        instance.position = [view.center.x * x / paddingX, (view.center.y * y / paddingY)]
+        instance.opacity = 0.02 + (Math.random() * 0.3)
+        instance.fillColor.saturation = 1
+        instance.fillColor.lightness = 0.5
+        group.addChild(instance)
+    }
+}
+
+group.position = view.center
+
+var cursor = new Path.Circle({
+    radius: 5,
+    fillColor: &#x27;transparent&#x27;,
+    center: view.center
+})
+
+var t = 0
+
+function onFrame(event){
+    t += 0.1
+    var slowerTime = t / 10
+    var circle1X = view.bounds.width / 2 + Math.sin(slowerTime / 2) * 350 // * Math.cos(slowerTime)
+    var circle1Y = view.bounds.height / 2 + Math.sin(slowerTime) * 250 / 2
+    cursor.position = [circle1X, circle1Y]
+    
+    var distance = cursor.position.getDistance(view.center)
+
+    group.children.map(function(object, i){
+        
+        var distance = cursor.position.getDistance(object.position)
+        if (distance &lt; distanceOfReact) {
+            object.onFrame = function(event) {
+                this.scaling = Math.sin(1.5 + event.count * 0.03/2) * scaling
+                this.opacity = 1
+                this.fillColor.hue += 0.2
+                this.fillColor.hue += distance / 110
+
+            }
+        }
+
+        object.fillColor.hue -= 1
+    })
+}</code></pre>
+        </section>
+        
+        </div>
+        <footer class="article-copyright">
+            &copy; 2026 Alexander Deplov, designer and developer of iOS and macOS apps, product designer.
+        </footer>
+    </article>
+</body>
+</html>

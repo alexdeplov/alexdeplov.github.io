@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<meta http-equiv="X-UA-Compatible" content="ie=edge" />
+<title>Paper.js</title>
+<link rel="stylesheet" href="./../PaperJSEngine/style.css" />
+<script type="text/javascript" src="./../PaperJSEngine/paper-full.js"></script>
+<script type="text/paperscript" canvas="canvas" >
+
+var rootGroup = new Group()
+
+for (var i = 1; i < 10; i++){
+    createCircles(5 * i, 35 * i)
+}
+
+function createCircles(max, distanceFromCenter){
+    var angle = 360/max
+    var group = new Group()
+
+    for (var i = 0; i < max; i++){
+        var circle = new Path.Rectangle({
+            size: [10, 50],
+            fillColor: 'blue',
+            center: [view.size.width/2, view.size.height/2 + distanceFromCenter],
+            parent: group,
+            applyMatrix: false,
+            radius: 10,
+        })
+        // circle.sendToBack()
+
+        circle.onFrame = function(event){
+        //
+            var scaleAnim = (2.5 + Math.sin(i + event.count * 0.02 - i * 20))/4
+            this.scaling = scaleAnim
+            this.fillColor.hue += Math.sin(i + event.count * 0.02 - i * 40)
+            this.rotate(i * -0.01)
+            this.rotation -= 0.4
+            // this.position.y += Math.sin(i * 30 + event.count * 0.02 - i * 40 )
+            this.scaling = Math.sin(i + event.count * 0.02 - i * 40)
+        //     //cool:
+        //     // this.fillColor.lightness = scaleAnim / i * 20
+        //
+        //     //cool:
+            // group.position.y = view.center.y + Math.cos(i + event.count * 0.04- i * 40)
+        }
+
+        group.onFrame = function(event){
+            var scaleAnim = (2.5 + Math.sin(i + event.count * 0.02 - i * 20))/2.5
+            this.rotate(0.01 * scaleAnim * i)
+        }
+
+        circle.rotate(angle * i, view.center + new Point(50,0))
+    }
+    rootGroup.addChild(group)
+}
+
+rootGroup.position = view.center
+
+
+</script>
+</head>
+<body>
+<canvas id="canvas" resize style="background: black;">
+</canvas>
+</body>
+</html>

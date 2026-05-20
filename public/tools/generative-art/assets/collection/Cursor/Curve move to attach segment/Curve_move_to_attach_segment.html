@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<meta http-equiv="X-UA-Compatible" content="ie=edge" />
+<title>Paper.js</title>
+<link rel="stylesheet" href="./../PaperJSEngine/style.css" >
+<script type="text/javascript" src="./../PaperJSEngine/paper-full.min.js"></script>
+<script type="text/paperscript" canvas="canvas">
+
+//https://github.com/paperjs/paper.js/issues/338
+    
+var text = new PointText(new Point(30, 50));
+text.justification = 'left';
+text.fillColor = 'white';
+text.content = 'Point: ';
+text.fontSize = 20;
+
+var curve = new Path({
+    strokeColor: 'red',
+    strokeWidth: 20,
+    strokeCap: 'round'
+});
+curve.add(new Point(view.size.width/2, 100));
+curve.add(new Point(view.size.width/2, 100));
+curve.add(new Point(view.size.width/2, 250));
+curve.smooth({ 
+type: 'geometric',
+tension: 0.5, //0.9
+//    from: 1,
+//    to: 2
+    
+});
+
+var cursor = new Path.Circle({
+   radius: 50,
+    center: view.center,
+    strokeColor: 'white',
+    strokeWidth: 4,
+    opacity: 0.4,
+});
+var biggerCursor = cursor.clone();
+biggerCursor.strokeColor = 'white';
+biggerCursor.opacity = 0.2;
+biggerCursor.scale(2);
+biggerCursor.dashArray = [0.5,10];
+biggerCursor.strokeCap = 'round';
+
+var point2 = new Path.Circle({
+    radius: 10,
+    center: [view.size.width/2 - 20, view.size.height/2],
+    fillColor: 'yellow'
+});
+
+var group = new Group();
+var circle = new Path.Circle({
+   radius: 10,
+    center: [Math.random() * view.size.width, Math.random() * view.size.height],
+    fillColor: 'blue',
+    parent: group
+});
+
+function createRandomPoints(){
+    for (var x = 0; x < 10; x++){
+        var clone = circle.clone();
+        clone.position = Point.random() * view.size;        
+    }
+}
+
+createRandomPoints();
+
+function onFrame(event){
+    biggerCursor.rotate(0.1);
+}
+
+function onMouseMove(event){
+    
+    point2.position = event.point;
+    curve.segments[2].point = event.point;
+    cursor.position = event.point;
+    biggerCursor.position = event.point;
+    text.position = point2.position - [0, 67.5];
+    text.bringToFront();
+    point2.bringToFront();
+
+    for (var i = 0; i < group.children.length; i++){
+        if (group.children[i].position.isClose(event.point, 100)){
+            group.children[i].fillColor = 'purple';
+            curve.segments[1].point = group.children[i].position;
+            text.content = "Point: " + i;
+            
+        }else{
+            group.children[i].fillColor = 'blue';
+        }      
+        
+        if (group.children[i+1]){
+            if (group.children[i+1].position.isClose(event.point, 50)){
+                group.children[i].fillColor = 'orange';
+                curve.segments[0].point = group.children[i+1].position;
+            }        
+        }
+    }
+}
+
+
+</script>
+</head>
+<body>
+<canvas id="canvas" resize style="background: black; cursor: none;"></canvas>
+</body>
+</html>

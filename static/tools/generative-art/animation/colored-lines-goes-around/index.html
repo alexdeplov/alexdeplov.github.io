@@ -1,0 +1,487 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Colored lines goes around - Generative Art Codes</title>
+    <meta name="description" content="Colored lines goes around Paper.js generative art example.">
+    <link rel="canonical" href="https://interfacecraft.online/tools/generative-art/animation/colored-lines-goes-around/">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Archivo:ital,wght@0,100..900;1,100..900&family=Source+Serif+4:ital,opsz,wght@0,8..60,200..900;1,8..60,200..900&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            color-scheme: light;
+            --bg-color: #fcfbf8;
+            --text-color: #131522;
+            --heading-color: #1a1a1a;
+            --muted: #71717a;
+            --tile: rgba(0, 0, 0, 0.05);
+            --tile-border: rgba(0, 0, 0, 0.06);
+            --accent: #f46c04;
+        }
+
+        @media (prefers-color-scheme: dark) {
+            :root {
+                --bg-color: #18181c;
+                --text-color: #e3e3e3;
+                --heading-color: #d7d7d7;
+                --muted: #a1a1aa;
+                --tile: rgba(255, 255, 255, 0.05);
+                --tile-border: rgba(255, 255, 255, 0.08);
+            }
+        }
+
+        * { box-sizing: border-box; }
+
+        body {
+            margin: 0;
+            background: var(--bg-color);
+            color: var(--text-color);
+            font-family: "Archivo", -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+            font-weight: 700;
+            line-height: 1.6;
+        }
+
+        a { color: inherit; }
+
+        .page {
+            width: 100%;
+            max-width: 48rem;
+            margin: 0 auto;
+            padding: 48px 1rem 72px;
+        }
+
+        .top-link {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            margin-bottom: 52px;
+            color: var(--muted);
+            font-size: 16px;
+            font-weight: 600;
+            text-decoration: none;
+        }
+
+        .top-link:hover { color: var(--heading-color); text-decoration: underline; }
+
+        .hero {
+            margin-bottom: 44px;
+        }
+
+        h1 {
+            margin: 0;
+            color: var(--heading-color);
+            font-size: 2rem;
+            line-height: 1.2;
+            letter-spacing: 0;
+            font-weight: 700;
+        }
+
+        .summary {
+            margin: 20px 0 0;
+            color: #1d1f21;
+            font-family: "Source Serif 4", Georgia, serif;
+            font-size: 18px;
+            font-weight: 400;
+            line-height: 1.6;
+        }
+
+        @media (prefers-color-scheme: dark) {
+            .summary { color: #b4b4b4; }
+        }
+
+        .section-nav {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 8px;
+            margin-top: 22px;
+        }
+
+        .section-nav a {
+            color: var(--accent);
+            font-size: 15px;
+            font-weight: 700;
+            text-decoration: underline;
+        }
+
+        .section-nav a:hover { text-decoration-thickness: 2px; }
+
+        .gallery-section { margin-top: 44px; }
+
+        .section-header {
+            margin-bottom: 14px;
+        }
+
+        h2 {
+            margin: 0;
+            color: var(--heading-color);
+            font-size: 1.5rem;
+            line-height: 1.25;
+            letter-spacing: 0;
+            font-weight: 700;
+        }
+
+        .count {
+            display: block;
+            color: var(--muted);
+            font-size: 13px;
+            font-weight: 600;
+            margin-top: 4px;
+        }
+
+        .grid {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 5px;
+            width: 100%;
+            margin: 0 auto;
+            padding: 20px 0;
+            align-items: stretch;
+        }
+
+        .card {
+            display: flex;
+            flex-direction: column;
+            min-width: 0;
+            height: 100%;
+            overflow: hidden;
+            border-radius: 10px;
+            padding: 0;
+            background: var(--tile);
+            backdrop-filter: blur(10px);
+            text-decoration: none;
+            color: inherit;
+        }
+
+        .thumb {
+            width: 100%;
+            display: flex;
+            place-items: center;
+            align-items: center;
+            justify-content: center;
+            aspect-ratio: 4 / 3;
+            overflow: hidden;
+            border-radius: 8px 8px 0 0;
+            background: rgba(0, 0, 0, 0.04);
+        }
+
+        @media (prefers-color-scheme: dark) {
+            .thumb { background: rgba(255, 255, 255, 0.05); }
+        }
+
+        .thumb img,
+        .thumb video {
+            width: 100%;
+            height: 100%;
+            display: block;
+            object-fit: cover;
+            border-radius: 0;
+        }
+
+        .placeholder {
+            width: 58px;
+            aspect-ratio: 1;
+            border: 5px solid rgba(255, 255, 255, 0.18);
+            border-top-color: rgba(255, 255, 255, 0.78);
+            border-radius: 50%;
+        }
+
+        .card-title {
+            flex: 0 0 46px;
+            display: -webkit-box;
+            margin: 0;
+            padding: 10px 10px 0;
+            color: var(--muted);
+            font-size: 13px;
+            line-height: 1.2;
+            letter-spacing: 0;
+            font-weight: 600;
+            -webkit-box-orient: vertical;
+            -webkit-line-clamp: 2;
+            overflow: hidden;
+            overflow-wrap: anywhere;
+        }
+
+        .article-top {
+            width: 100%;
+            max-width: 48rem;
+            margin: 0 auto;
+            padding: 48px 1rem 32px;
+            color: var(--muted);
+        }
+
+        .article-author {
+            color: var(--muted);
+            font-weight: 600;
+            text-decoration: none;
+        }
+
+        .article-author:hover {
+            color: var(--heading-color);
+            text-decoration: underline;
+        }
+
+        .article-detail {
+            width: 100%;
+            max-width: 48rem;
+            margin: 0 auto;
+            padding: 32px 1rem 72px;
+        }
+
+        .article-header {
+            margin-bottom: 32px;
+        }
+
+        .article-meta {
+            display: flex;
+            flex-wrap: wrap;
+            align-items: center;
+            gap: 0 8px;
+            margin-top: 8px;
+            color: var(--muted);
+            font-size: 14px;
+            font-weight: 600;
+        }
+
+        .article-meta a {
+            color: inherit;
+            text-decoration: underline;
+            text-decoration-thickness: 1px;
+            text-underline-offset: 2px;
+        }
+
+        .article-meta a:hover {
+            color: var(--heading-color);
+        }
+
+        .preview-panel {
+            margin-top: 16px;
+            border-radius: 0.3rem;
+            overflow: hidden;
+            background: var(--tile);
+        }
+
+        .preview-panel img,
+        .preview-panel video {
+            width: 100%;
+            max-height: 72vh;
+            display: block;
+            object-fit: contain;
+        }
+
+        .actions {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 8px 14px;
+            margin-top: 24px;
+        }
+
+        .text-link {
+            display: inline;
+            color: var(--accent);
+            font-size: 15px;
+            font-weight: 700;
+            text-decoration: underline;
+            text-underline-offset: 2px;
+        }
+
+        .text-link:hover {
+            text-decoration-thickness: 2px;
+        }
+
+        .button {
+            display: inline;
+            align-items: center;
+            min-height: 0;
+            border: 0;
+            border-radius: 0;
+            padding: 0;
+            background: transparent;
+            color: var(--accent);
+            font-size: 15px;
+            font-weight: 700;
+            text-decoration: underline;
+            text-underline-offset: 2px;
+        }
+
+        .button.secondary {
+            background: transparent;
+            color: var(--accent);
+            font-size: 15px;
+            font-weight: 750;
+            text-decoration: none;
+        }
+
+        .button:hover { text-decoration-thickness: 2px; }
+
+        .content-section {
+            margin-top: 32px;
+        }
+
+        .content-section h2 {
+            margin: 0 0 14px;
+            color: var(--heading-color);
+            font-size: 1.5rem;
+            line-height: 1.25;
+            font-weight: 700;
+        }
+
+        .content-section p {
+            color: #1d1f21;
+            font-family: "Source Serif 4", Georgia, serif;
+            font-size: 18px;
+            font-weight: 400;
+        }
+
+        @media (prefers-color-scheme: dark) {
+            .content-section p { color: #b4b4b4; }
+        }
+
+        pre {
+            overflow: auto;
+            margin: 0;
+            border: 1px solid #2a2a2a;
+            border-radius: 0.5rem;
+            padding: 18px;
+            background: #111;
+            color: #f5f5f5;
+            font-size: 14px;
+            line-height: 1.5;
+            white-space: pre;
+        }
+
+        .source-list {
+            display: grid;
+            gap: 10px;
+            margin: 0;
+            padding: 0;
+            list-style: none;
+        }
+
+        .source-list a {
+            color: var(--accent);
+            font-weight: 700;
+        }
+
+        .article-copyright {
+            margin: 56px 0 12px;
+            color: var(--muted);
+            font-size: 14px;
+            font-weight: 600;
+        }
+
+        @media (max-width: 760px) {
+            .page {
+                padding-top: 24px;
+            }
+
+            .article-top { padding-top: 24px; }
+
+            .grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+        }
+    </style>
+</head>
+<body>
+    <header class="article-top">
+        <a class="article-author" href="/">Alexander Deplov</a>
+    </header>
+    <article class="article-detail">
+        <header class="article-header">
+            <h1>Colored lines goes around</h1>
+            <div class="article-meta">
+                <span>Animation</span>
+                <span>•</span>
+                <a href="/tools/generative-art/">Generative Art Codes</a>
+                <span>•</span>
+                <span>Paper.js</span>
+            </div>
+        </header>
+        <div class="content">
+            <section class="preview-panel" aria-label="Preview">
+                <img class="preview-media" src="/tools/generative-art/assets/collection/Animation/Colored%20lines%20goes%20around/Screen_Recording_2024-02-11_at_22.17.17.2024-02-11_22_18_27.gif" alt="Colored lines goes around" loading="eager" decoding="async">
+            </section>
+            <div class="actions"><a class="text-link" href="http://sketch.paperjs.org/#V/0.12.17/S/rVXRbtowFP0VKy8kkKVpq+0hW5+YkCZtWrVO2irCg3EMsQh2ZDswVvHvvU4cMCaT+rA8tPHx9c2559xrXgKOtzTIgqcN1aQM4oCIwqx3WKLlGj0gTvfoEesy+UGJxnxd0fAl5wgexf7SDO0Y3SfmNe7QFauqqaiEzNBoWWGyGeX8GOU85yYl3oqGa0j7Pu0AxjmVUyZJRQG9Sy0sGj0EKy3Fhv5ihS4Bvrc5OdtizQR/qiktAE+T9Nbb+swUkCf0t5vtave537X7UuLDF0MQ8PnCAb8bej5o1zlfNZyYtIhIijV9FIxrFXalx6iwH5tJsZ1SDoni7vxPMQP+kVXXqikkCludTF0f4d8nqyG8TyZ9sI02z0nU7rOug52evX39I3HBGpWhu/gSd4080KoS+5EXUQvFTJ22CUhbDJqg+VCJ6cI7LWpMmD5kKD3jplG8epxaEik06Bnef0hvbCONEYvdr0fng46mSd2oMnQz9dQjV+yjMQ+61fxBVzZ+ZZyGveBv9OXSlhq3bXvyo83oubECyTKn8+bM102LzGnC6/1uRs4j2FDfN2eKMncxnAjXkEZCacXINcot7vxmSkwcBknZmAEGx9ANOnvWKuweEXwm4SKC0F71kO7A0ciTR5dMXeV/94Buh8Loegsp1DxdgN9ge/IH8jvNAusJ+tYyZjz0rpExagkkpOU8AYfHA9dJNIQ+ozexOXhsDj0bItT/ZOO4duFV20TdaBgPIt/PY9/Ddi5yPnifOTd47DRu9I9w52aPnT4+hXdjlnP4KVoCsGm1UkE2XxxfAQ==" target="_blank" rel="noopener noreferrer">Open in Paper.js Sketch</a>
+<a class="text-link" href="http://sketch.paperjs.org/#V/0.12.17/S/rVVNj9owEP0rVi4kkIbstuoh256okCp1tatupXZFOJjEEIvERrbDlq747x3nAwaTSntoDhCPx88z781MXj1BK+Yl3tOWmazwQi+TuV3vqSKrDflMBHshj9QU0XeWGSo2JfNfU0Hg0fwPS8ies5fIvoatdc3LciZLqRIyWpU0245ScQxSkQoLSStZCwOwtx9aAxeCqRlXWcmsNY5bs6zNkFkbJbfsJ89NAeabzkoFr6jhUjztGMthI47iG2frC9cQfcZ+Ybir3ed+t9tXih6+2gjBvlgi44ONzzV261Ssa5FZWJIpRg17lFwY7be5hyTvLpsrWc2YAKCwPf9DziH+oKO3o1Mq4jdE2bzu4O9TRyK8Tya9c+dtnxOr7bVYwpbQXr/+UTTntU7IbXhpx0oeWFnKl5HjsZOa2zy7KsiaZMiELIZSjJfOabmjGTeHhMRnu60UJx+US6SkAT799x/jaVdJY8JDfHtwPog4jXa1LnyM1IceYLKPVjwoV/tDrmT8xgXze8LfqMulLDva1O1JjwbRUWMNlCWo8hbc5c3IBBXh9X7bJOcerJmrG2qjBC+GgegOYBSklrs4q5KJ/B4GBjhoIImJEZYSp29TR/KRKTkLGNyR6ZQ8KA4KwqVU6fM5BwHlFhW1nQ0uWKMdPiLFXMGMA9deT5/t4abAId4UXF/hv4MpM+TGNhVA6EW8hEqCgop+Az4qQ1hPyH0TMRe+M6DGpAkgypqYJ1A744FBFQxZn8mbojk40Rz6aDKp/2c0Q8FUUprCR314vJCxqdy2H608gSv1sW+crhlTMThE0XcjRN0S/MMdfU9C1Dwn97a3UwEfwBUYtg2N2ksWy+Nf" target="_blank" rel="noopener noreferrer">Open in Paper.js Sketch</a>
+<a class="text-link" href="http://sketch.paperjs.org/#V/0.12.17/S/vVZRb9owEP4rFi8kJQuBSXtIt4eJCWnSqlbrpK0iPJjkSiyCjWynHav47z07STEmm/qy5gHw+Xz33fedLzwNON3CIB3cbkDn5SAa5KIw6wcqyWpNPhEOj+SG6jL+DrmmfF1B8JRxgo9ifyAlDwweY/Mzaqz3rKpmohIyJcNVRfPNMOOHMOMZNyHpVtRcY9jJtDEwzkHOmMwrQOs0SRqzqHWfWWkpNvCTFbo0MVor5WxLNRP8dgdQ4EYSJxNv6wtTiD6HX264s927brfdl5LuvxqEaF8sHeO1wecb23XG72uem7Akl0A13AjGtQqa2iNStMnmUmxnwDFQ1Jz/IeaIP2zpbekUkgSWKFPXJX59bEnE36NR59x6m+eF1SatK2FDaKdf90hasFqlZBqd2l0l91BV4nHoeeyEYqbOtgtyWwwZkUVficnSOy12NGd6n5LkaDed4tXj1BJLoZHP4P2HZNx20gVhkZs9PB50OI13tSoDN1IHPXTJPhjxsF3NBzmT8RvjEHSEv1KXU1l21Pbtix42oqfGPVKWOp23YD5vWqROE57vN5fkeAdr8HVzrlHqLvoD0R2GkVha4cdZVcCLKxwY6KCQJOBDV0q3fFO6Ix8Zk6OA4SUZj8m1ZKggJqVSHc+dEtj1FZJoA65BWz0/68CuEc9al+NJEnqZGVcgdTA53r6wL4f1dfiLy9rk8gHb/nCPCD6XOEfRteuZAB6wmtATV5dMncV/h5OsD8z5qjkO6y2GVotkiV2Mxce/Ma9zBXA9Ile2EsYDbzheEAsszm0tI+zbi54hGfZZ75CD6asA7T1A+w5QLtT/A/QvaJM35+pVaN6KqD4wWyF0GTjX4HDCoZ0wzdw0LX52XQ7dgGuHZsZ7X3bO+z1yplr4F3fnvR85Q+7FvZnBGcc/Kis0bCyNapAulodn" target="_blank" rel="noopener noreferrer">Open in Paper.js Sketch</a>
+<a class="text-link" href="http://sketch.paperjs.org/#V/0.12.17/S/vVZRb9owEP4rFi8kJQuBSXtIt4eJCWnSqlbrpK0iPJjkSiyCjWynHav47z07STEmm/qy5gHw+Xz33fedLzwNON3CIB3cbkDn5SAa5KIw6wcqyWpNPhEOj+SG6jL+DrmmfF1B8JRxgo9ifyAlDwweY/Mzaqz3rKpmohIyJcNVRfPNMOOHMOMZNyHpVtRcY9jJtDEwzkHOmMwrQOs0SRqzqHWfWWkpNvCTFbo0MVor5WxLNRP8dgdQ4EYSJxNv6wtTiD6HX264s927brfdl5LuvxqEaF8sHeO1wecb23XG72uem7Akl0A13AjGtQqa2iNStMnmUmxnwDFQ1Jz/IeaIP2zpbekUkgSWKFPXJX59bEnE36NR59x6m+eF1SatK2FDaKdf90hasFqlZBqd2l0l91BV4nHoeeyEYqbOtgtyWwwZkUVficnSOy12NGd6n5LkaDed4tXj1BJLoZHP4P2HZNx20gVhkZs9PB50OI13tSoDN1IHPXTJPhjxsF3NBzmT8RvjEHSEv1KXU1l21Pbtix42oqfGPVKWOp23YD5vWqROE57vN5fkeAdr8HVzrlHqLvoD0R2GkVha4cdZVcCLKxwY6KCQJOBDV0q3fFO6Ix8Zk6OA4SUZj8m1ZKggJqVSHc+dEtj1FZJoA65BWz0/68CuEc9al+NJEnqZGVcgdTA53r6wL4f1dfiLy9rk8gHb/nCPCD6XOEfRteuZAB6wmtATV5dMncV/h5OsD8z5qjkO6y2GVotkiV2Mxce/Ma9zBXA9Ile2EsYDbzheEAsszm0tI+zbi54hGfZZ79A4fRWgvQdo3wHKhfp/gP4FbfLmXL0KzVsR1QdmK4QuA+caHE44tBOmmZumxc+uy6EbcO3QzHjvy855v0fOVAv/4u689yNnyL24NzM44/hHZYWGjaVRDdLF8vAM" target="_blank" rel="noopener noreferrer">Open in Paper.js Sketch</a></div>
+            
+            
+        <section class="content-section">
+            <h2>Code</h2>
+            <pre><code>var bg = new Path.Rectangle({
+    size: view.size,
+    fillColor: &#x27;black&#x27;
+})
+
+var amount = 50
+var innerCircle = 200
+var outerCircle = 200
+var strokeWidth = 3
+var animationSpeed = 0.01
+var animationDistanceX = 200
+var animationDistanceY = 200
+
+var arrayInner = []
+var arrayOuter = []
+var array = []
+
+function createPoints(amount, distanceFromCenter, arrayToFeed){
+    
+    for (var i = 0; i &lt; amount; i++){
+     
+        var innerPoints = new Path.Circle({
+            radius: 2,
+            fillColor: &#x27;yellow&#x27;,
+            position: view.center + [distanceFromCenter, 0],
+            opacity: 0
+        })
+     
+        innerPoints.rotate(360/amount * i, view.center)
+        arrayToFeed.push(innerPoints.position)
+    
+    }
+
+
+}
+
+ 
+function createLine(){
+    for (var i = 0; i &lt; amount; i++){
+    
+        var path = new Path.Line({
+            from: arrayInner[i],
+            to: arrayOuter[i],
+            strokeColor: &#x27;blue&#x27;,
+            strokeWidth: strokeWidth,
+            strokeCap: &#x27;round&#x27;
+        })  
+        
+        path.strokeColor.hue = 360 / amount * i
+
+        path.onFrame = function(event){
+            this.strokeColor.hue -= 1
+            this.segments[0].point.x = view.center.x + Math.sin(animationSpeed * event.count + i * animationDistanceX) * animationDistanceY 
+            this.segments[0].point.y = view.center.y + Math.cos(animationSpeed * event.count + i * animationDistanceX) * animationDistanceY
+        }   
+        array.push(path)
+        
+    }
+    
+}
+
+
+createPoints(amount, innerCircle, arrayInner)
+createPoints(amount, outerCircle, arrayOuter)
+createLine()</code></pre>
+        </section>
+        
+        </div>
+        <footer class="article-copyright">
+            &copy; 2026 Alexander Deplov, designer and developer of iOS and macOS apps, product designer.
+        </footer>
+    </article>
+</body>
+</html>

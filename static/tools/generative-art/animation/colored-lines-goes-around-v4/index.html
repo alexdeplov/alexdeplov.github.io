@@ -1,0 +1,497 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Colored lines goes around v4 - Generative Art Codes</title>
+    <meta name="description" content="Colored lines goes around v4 Paper.js generative art example.">
+    <link rel="canonical" href="https://interfacecraft.online/tools/generative-art/animation/colored-lines-goes-around-v4/">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Archivo:ital,wght@0,100..900;1,100..900&family=Source+Serif+4:ital,opsz,wght@0,8..60,200..900;1,8..60,200..900&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            color-scheme: light;
+            --bg-color: #fcfbf8;
+            --text-color: #131522;
+            --heading-color: #1a1a1a;
+            --muted: #71717a;
+            --tile: rgba(0, 0, 0, 0.05);
+            --tile-border: rgba(0, 0, 0, 0.06);
+            --accent: #f46c04;
+        }
+
+        @media (prefers-color-scheme: dark) {
+            :root {
+                --bg-color: #18181c;
+                --text-color: #e3e3e3;
+                --heading-color: #d7d7d7;
+                --muted: #a1a1aa;
+                --tile: rgba(255, 255, 255, 0.05);
+                --tile-border: rgba(255, 255, 255, 0.08);
+            }
+        }
+
+        * { box-sizing: border-box; }
+
+        body {
+            margin: 0;
+            background: var(--bg-color);
+            color: var(--text-color);
+            font-family: "Archivo", -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+            font-weight: 700;
+            line-height: 1.6;
+        }
+
+        a { color: inherit; }
+
+        .page {
+            width: 100%;
+            max-width: 48rem;
+            margin: 0 auto;
+            padding: 48px 1rem 72px;
+        }
+
+        .top-link {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            margin-bottom: 52px;
+            color: var(--muted);
+            font-size: 16px;
+            font-weight: 600;
+            text-decoration: none;
+        }
+
+        .top-link:hover { color: var(--heading-color); text-decoration: underline; }
+
+        .hero {
+            margin-bottom: 44px;
+        }
+
+        h1 {
+            margin: 0;
+            color: var(--heading-color);
+            font-size: 2rem;
+            line-height: 1.2;
+            letter-spacing: 0;
+            font-weight: 700;
+        }
+
+        .summary {
+            margin: 20px 0 0;
+            color: #1d1f21;
+            font-family: "Source Serif 4", Georgia, serif;
+            font-size: 18px;
+            font-weight: 400;
+            line-height: 1.6;
+        }
+
+        @media (prefers-color-scheme: dark) {
+            .summary { color: #b4b4b4; }
+        }
+
+        .section-nav {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 8px;
+            margin-top: 22px;
+        }
+
+        .section-nav a {
+            color: var(--accent);
+            font-size: 15px;
+            font-weight: 700;
+            text-decoration: underline;
+        }
+
+        .section-nav a:hover { text-decoration-thickness: 2px; }
+
+        .gallery-section { margin-top: 44px; }
+
+        .section-header {
+            margin-bottom: 14px;
+        }
+
+        h2 {
+            margin: 0;
+            color: var(--heading-color);
+            font-size: 1.5rem;
+            line-height: 1.25;
+            letter-spacing: 0;
+            font-weight: 700;
+        }
+
+        .count {
+            display: block;
+            color: var(--muted);
+            font-size: 13px;
+            font-weight: 600;
+            margin-top: 4px;
+        }
+
+        .grid {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 5px;
+            width: 100%;
+            margin: 0 auto;
+            padding: 20px 0;
+            align-items: stretch;
+        }
+
+        .card {
+            display: flex;
+            flex-direction: column;
+            min-width: 0;
+            height: 100%;
+            overflow: hidden;
+            border-radius: 10px;
+            padding: 0;
+            background: var(--tile);
+            backdrop-filter: blur(10px);
+            text-decoration: none;
+            color: inherit;
+        }
+
+        .thumb {
+            width: 100%;
+            display: flex;
+            place-items: center;
+            align-items: center;
+            justify-content: center;
+            aspect-ratio: 4 / 3;
+            overflow: hidden;
+            border-radius: 8px 8px 0 0;
+            background: rgba(0, 0, 0, 0.04);
+        }
+
+        @media (prefers-color-scheme: dark) {
+            .thumb { background: rgba(255, 255, 255, 0.05); }
+        }
+
+        .thumb img,
+        .thumb video {
+            width: 100%;
+            height: 100%;
+            display: block;
+            object-fit: cover;
+            border-radius: 0;
+        }
+
+        .placeholder {
+            width: 58px;
+            aspect-ratio: 1;
+            border: 5px solid rgba(255, 255, 255, 0.18);
+            border-top-color: rgba(255, 255, 255, 0.78);
+            border-radius: 50%;
+        }
+
+        .card-title {
+            flex: 0 0 46px;
+            display: -webkit-box;
+            margin: 0;
+            padding: 10px 10px 0;
+            color: var(--muted);
+            font-size: 13px;
+            line-height: 1.2;
+            letter-spacing: 0;
+            font-weight: 600;
+            -webkit-box-orient: vertical;
+            -webkit-line-clamp: 2;
+            overflow: hidden;
+            overflow-wrap: anywhere;
+        }
+
+        .article-top {
+            width: 100%;
+            max-width: 48rem;
+            margin: 0 auto;
+            padding: 48px 1rem 32px;
+            color: var(--muted);
+        }
+
+        .article-author {
+            color: var(--muted);
+            font-weight: 600;
+            text-decoration: none;
+        }
+
+        .article-author:hover {
+            color: var(--heading-color);
+            text-decoration: underline;
+        }
+
+        .article-detail {
+            width: 100%;
+            max-width: 48rem;
+            margin: 0 auto;
+            padding: 32px 1rem 72px;
+        }
+
+        .article-header {
+            margin-bottom: 32px;
+        }
+
+        .article-meta {
+            display: flex;
+            flex-wrap: wrap;
+            align-items: center;
+            gap: 0 8px;
+            margin-top: 8px;
+            color: var(--muted);
+            font-size: 14px;
+            font-weight: 600;
+        }
+
+        .article-meta a {
+            color: inherit;
+            text-decoration: underline;
+            text-decoration-thickness: 1px;
+            text-underline-offset: 2px;
+        }
+
+        .article-meta a:hover {
+            color: var(--heading-color);
+        }
+
+        .preview-panel {
+            margin-top: 16px;
+            border-radius: 0.3rem;
+            overflow: hidden;
+            background: var(--tile);
+        }
+
+        .preview-panel img,
+        .preview-panel video {
+            width: 100%;
+            max-height: 72vh;
+            display: block;
+            object-fit: contain;
+        }
+
+        .actions {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 8px 14px;
+            margin-top: 24px;
+        }
+
+        .text-link {
+            display: inline;
+            color: var(--accent);
+            font-size: 15px;
+            font-weight: 700;
+            text-decoration: underline;
+            text-underline-offset: 2px;
+        }
+
+        .text-link:hover {
+            text-decoration-thickness: 2px;
+        }
+
+        .button {
+            display: inline;
+            align-items: center;
+            min-height: 0;
+            border: 0;
+            border-radius: 0;
+            padding: 0;
+            background: transparent;
+            color: var(--accent);
+            font-size: 15px;
+            font-weight: 700;
+            text-decoration: underline;
+            text-underline-offset: 2px;
+        }
+
+        .button.secondary {
+            background: transparent;
+            color: var(--accent);
+            font-size: 15px;
+            font-weight: 750;
+            text-decoration: none;
+        }
+
+        .button:hover { text-decoration-thickness: 2px; }
+
+        .content-section {
+            margin-top: 32px;
+        }
+
+        .content-section h2 {
+            margin: 0 0 14px;
+            color: var(--heading-color);
+            font-size: 1.5rem;
+            line-height: 1.25;
+            font-weight: 700;
+        }
+
+        .content-section p {
+            color: #1d1f21;
+            font-family: "Source Serif 4", Georgia, serif;
+            font-size: 18px;
+            font-weight: 400;
+        }
+
+        @media (prefers-color-scheme: dark) {
+            .content-section p { color: #b4b4b4; }
+        }
+
+        pre {
+            overflow: auto;
+            margin: 0;
+            border: 1px solid #2a2a2a;
+            border-radius: 0.5rem;
+            padding: 18px;
+            background: #111;
+            color: #f5f5f5;
+            font-size: 14px;
+            line-height: 1.5;
+            white-space: pre;
+        }
+
+        .source-list {
+            display: grid;
+            gap: 10px;
+            margin: 0;
+            padding: 0;
+            list-style: none;
+        }
+
+        .source-list a {
+            color: var(--accent);
+            font-weight: 700;
+        }
+
+        .article-copyright {
+            margin: 56px 0 12px;
+            color: var(--muted);
+            font-size: 14px;
+            font-weight: 600;
+        }
+
+        @media (max-width: 760px) {
+            .page {
+                padding-top: 24px;
+            }
+
+            .article-top { padding-top: 24px; }
+
+            .grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+        }
+    </style>
+</head>
+<body>
+    <header class="article-top">
+        <a class="article-author" href="/">Alexander Deplov</a>
+    </header>
+    <article class="article-detail">
+        <header class="article-header">
+            <h1>Colored lines goes around v4</h1>
+            <div class="article-meta">
+                <span>Animation</span>
+                <span>•</span>
+                <a href="/tools/generative-art/">Generative Art Codes</a>
+                <span>•</span>
+                <span>Paper.js</span>
+            </div>
+        </header>
+        <div class="content">
+            <section class="preview-panel" aria-label="Preview">
+                <img class="preview-media" src="/tools/generative-art/assets/collection/Animation/Colored%20lines%20goes%20around%20v4/Screen_Recording_2024-02-18_at_23.54.24.2024-02-18_23_55_02.gif" alt="Colored lines goes around v4" loading="eager" decoding="async">
+            </section>
+            <div class="actions"><a class="text-link" href="http://sketch.paperjs.org/#V/0.12.17/S/vVZRb9owEP4rFi8kJQuBSXtIt4eJCWnSqlbrpK0iPJjkSiyCjWynHav47z07STEmm/qy5gHw+Xz33fedLzwNON3CIB3cbkDn5SAa5KIw6wcqyWpNPhEOj+SG6jL+DrmmfF1B8JRxgo9ifyAlDwweY/Mzaqz3rKpmohIyJcNVRfPNMOOHMOMZNyHpVtRcY9jJtDEwzkHOmMwrQOs0SRqzqHWfWWkpNvCTFbo0MVor5WxLNRP8dgdQ4EYSJxNv6wtTiD6HX264s927brfdl5LuvxqEaF8sHeO1wecb23XG72uem7Akl0A13AjGtQqa2iNStMnmUmxnwDFQ1Jz/IeaIP2zpbekUkgSWKFPXJX59bEnE36NR59x6m+eF1SatK2FDaKdf90hasFqlZBqd2l0l91BV4nHoeeyEYqbOtgtyWwwZkUVficnSOy12NGd6n5LkaDed4tXj1BJLoZHP4P2HZNx20gVhkZs9PB50OI13tSoDN1IHPXTJPhjxsF3NBzmT8RvjEHSEv1KXU1l21Pbtix42oqfGPVKWOp23YD5vWqROE57vN5fkeAdr8HVzrlHqLvoD0R2GkVha4cdZVcCLKxwY6KCQJOBDV0q3fFO6Ix8Zk6OA4SUZj8m1ZKggJqVSHc+dEtj1FZJoA65BWz0/68CuEc9al+NJEnqZGVcgdTA53r6wL4f1dfiLy9rk8gHb/nCPCD6XOEfRteuZAB6wmtATV5dMncV/h5OsD8z5qjkO6y2GVotkiV2Mxce/Ma9zBXA9Ile2EsYDbzheEAsszm0tI+zbi54hGfZZ79A4fRWgvQdo3wHKhfp/gP4FbfLmXL0KzVsR1QdmK4QuA+caHE44tBOmmZumxc+uy6EbcO3QzHjvy855v0fOVAv/4u689yNnyL24NzM44/hHZYWGjaVRDdLF8vAM" target="_blank" rel="noopener noreferrer">Open in Paper.js Sketch</a>
+<a class="text-link" href="http://sketch.paperjs.org/#V/0.12.17/S/xVZRb9owEP4rFi9NShoCU6cp2x6mTpUmrVo1Jm0V8GCSK7EINnKcMlrx33d2bDAh3fqyLS/E5/P57rvvPvLU43QFvbQ3XoLKil7Uy0Su1w9UkvmCvCccNuSWqiL+CpmifFFC8DTlBJ+KPUJKHhhsYv0aNdZ7VpZXohQyJWfzkmbLsynfhVM+5TokXYmaKww7HDUGxjnIKyazEtA6SpLGLGrVZa6UFEv4znJV6BjWSjlbUcUEH68BctxI4mTY2vrIKsw+gx9+uJPdO7dr96Wk2086Q7RPZp7xi86vbbTrKb+veabDkkwCVXArGFdV0NQekdxedi3F6go4Boqa89/ENeYfWngtnEKSwACl63qLP+8siPje7ztn662fParNtX4LG0Bd/9wjac7qKiWj6Njud3ILZSk2Zy2PtaiYrtOyIDPFkD6ZdJWYzFqnxZpmTG1TkhzsmimterxaYikU4hm8ep0MLJPOCYv828PDQQ/TeF1XReBHcqmHPtg73Tykq+t/5gj4DIIOucsO7m8KpsAB9ixQwyTRyLgRwTyaO2PBryVOJt7tyBTAAx5zDbduFpCLYRuEXQcPPzMOgQvwQmId82pNzeDt4TARW3S6x56n3uhMWLvxSqTeFJ3uN1N+EJEa2sTzdCD1F92B6BrDSCwtb8eZl8DzG1Q8dKgQJOBtj8EAG1CW2zGUqH+Qp0TJGnzC+hh1vWnc3DwgdhrCeAHK8PCDCswa01ioYnDpsdfYGa9AqmB4EI2w6wrj66EWF7W+CseEDMhhUAzD/CN/Itm+YQWrTuJfoAAfu3UdgsUKA1aTZIYjhxXHP/E2j6q47pMbkz/jQUvJz4lJJ85MBX3k6HmHoodd1js0JvGbF6W0baW0dSllovqbKf0uueF/wWv0opT+KV6dKa2EUEXgzcLuCE4jLo3ma56fzMzOaZsVfFTdrj9q79sk8gQtfMbd+2aJPH3buzfyO+X4kTVHw9KAWfXSyWz3Cw==" target="_blank" rel="noopener noreferrer">Open in Paper.js Sketch</a>
+<a class="text-link" href="http://sketch.paperjs.org/#V/0.12.17/S/xVZRb9owEP4rFi9NShoCU6cp2x6mTpUmrVo1Jm0V8GCSK7EINrKdMlrx33d2YjAh3fqyLS/E5/P57rvvPvLU43QFvbQ3XoLOil7Uy0Ru1g9UkvmCvCccNuSW6iL+CpmmfFFC8DTlBB/FHiElDww2sXmNaus9K8srUQqZkrN5SbPl2ZTvwimfchOSrkTFNYYdjmoD4xzkFZNZCWgdJUltFpXuMistxRK+s1wXJkZjpZytqGaCj9cAOW4kcTJsbX1kCrPP4Icf7mT3zu02+1LS7SeTIdonM8/4xeTXNjbrKb+veGbCkkwC1XArGNcqqGuPSN5cdi3F6go4Borq89/ENeYfNvA2cApJAguUqest/rxrQMT3ft85N97m2aNaX+u3sAbU9c89kuasUikZRcd2v5NbKEuxOWt5rIVips6GBZkthvTJpKvEZNY6LdY0Y3qbkuRgN0xp1ePVEkuhEc/g1etk0DDpnLDIvz08HPQwjdeVKgI/kks99MHemeYhXV3/M0fAZxB0yF12cH9TMA0OsGeBGiaJQcaNCOZR3xkLfi1xMvFuR6YAHvCYa3jj1gByMWyDsOvg4WfGIXABXkisY16tqR28PRw2YotO99jz1BudCWs3XovUm6LT/XrKDyJSQZt4ng6k/qI7EF1jGIml5e048xJ4foOKhw4KQQLe9hgMsAFluR1DifoHeUq0rMAnrI9R15vBzc0DYmcgjBegLQ8/6MCuMY2FLgaXHnutnXEFUgfDg2iEXVdYXw+1uKjMVTgmZEAOg2IZ5h/5E8n2DSuYOol/gQJ87NZ1CBYrDKgmyQxHDiuOf+JtHlVx3Sc3Nn/Gg5aSnxObTpzZCvrI0fMORQ+7rHdoTOI3L0pp20pp61LKhPqbKf0uudF/wWv0opT+KV6dKa2E0EXgzcLuCE4rLrXmG56fzMzOaVsj+Ki6XX/U3rdJ5Ala+Iy7980Sefq2d6/ld8rxI2uOhqUFU/XSyWz3Cw==" target="_blank" rel="noopener noreferrer">Open in Paper.js Sketch</a></div>
+            
+            
+        <section class="content-section">
+            <h2>Code</h2>
+            <pre><code>var bg = new Path.Rectangle({
+    size: view.size,
+    fillColor: &#x27;black&#x27;
+})
+
+var amount = 12
+var innerCircle = 200
+var outerCircle = 200
+var strokeWidth = 10
+var animationSpeed = 0.01
+var animationDistanceX = 200
+var animationDistanceY = 200
+
+var arrayInner = []
+var arrayOuter = []
+var array = []
+
+function createPoints(amount, distanceFromCenter, arrayToFeed){
+    
+    for (var i = 0; i &lt; amount; i++){
+     
+        var innerPoints = new Path.Circle({
+            radius: 2,
+            fillColor: &#x27;yellow&#x27;,
+            position: view.center + [distanceFromCenter, 0],
+            opacity: 0
+        })
+     
+        innerPoints.rotate(360/amount * i, view.center)
+        arrayToFeed.push(innerPoints.position)
+    
+    }
+
+
+}
+
+ 
+function createLine(){
+    for (var i = 0; i &lt; amount; i++){
+    
+        var path = new Path.Line({
+            from: arrayInner[i],
+            to: arrayOuter[i],
+            strokeColor: &#x27;blue&#x27;,
+            strokeWidth: strokeWidth,
+            strokeCap: &#x27;round&#x27;,
+            blendMode: &#x27;screen&#x27;
+        })  
+        path.rotate(360 / amount * i); // Orient stars
+        
+        var distance = path.getPointAt(path.length/10)
+        path.insert(1, distance)
+        
+        path.strokeColor.hue = 360 / amount * i
+
+        path.onFrame = function(event){
+            this.strokeColor.hue -= 1
+            
+            this.segments[0].point.x = view.center.x + Math.sin(animationSpeed * event.count + i * animationDistanceX) * animationDistanceY * 1.5
+            this.segments[0].point.y = view.center.y + Math.cos(animationSpeed * event.count + i * animationDistanceX) * animationDistanceY * 1.5
+        
+            this.segments[1].point.x = view.center.x + Math.sin(animationSpeed * event.count + i * animationDistanceX) * animationDistanceY 
+            this.segments[1].point.y = view.center.y + Math.cos(animationSpeed * event.count + i * animationDistanceX) * animationDistanceY
+            this.smooth()
+        }   
+        array.push(path)
+        
+    }
+    
+}
+
+
+
+createPoints(amount, innerCircle, arrayInner)
+createPoints(amount, outerCircle, arrayOuter)
+createLine()</code></pre>
+        </section>
+        
+        </div>
+        <footer class="article-copyright">
+            &copy; 2026 Alexander Deplov, designer and developer of iOS and macOS apps, product designer.
+        </footer>
+    </article>
+</body>
+</html>

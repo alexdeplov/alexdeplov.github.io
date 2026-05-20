@@ -1,0 +1,1093 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Generative Art Codes - Alexander Deplov</title>
+    <meta name="description" content="Paper.js generative art examples by Alexander Deplov.">
+    <link rel="canonical" href="https://interfacecraft.online/tools/generative-art/">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Archivo:ital,wght@0,100..900;1,100..900&family=Source+Serif+4:ital,opsz,wght@0,8..60,200..900;1,8..60,200..900&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            color-scheme: light;
+            --bg-color: #fcfbf8;
+            --text-color: #131522;
+            --heading-color: #1a1a1a;
+            --muted: #71717a;
+            --tile: rgba(0, 0, 0, 0.05);
+            --tile-border: rgba(0, 0, 0, 0.06);
+            --accent: #f46c04;
+        }
+
+        @media (prefers-color-scheme: dark) {
+            :root {
+                --bg-color: #18181c;
+                --text-color: #e3e3e3;
+                --heading-color: #d7d7d7;
+                --muted: #a1a1aa;
+                --tile: rgba(255, 255, 255, 0.05);
+                --tile-border: rgba(255, 255, 255, 0.08);
+            }
+        }
+
+        * { box-sizing: border-box; }
+
+        body {
+            margin: 0;
+            background: var(--bg-color);
+            color: var(--text-color);
+            font-family: "Archivo", -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+            font-weight: 700;
+            line-height: 1.6;
+        }
+
+        a { color: inherit; }
+
+        .page {
+            width: 100%;
+            max-width: 48rem;
+            margin: 0 auto;
+            padding: 48px 1rem 72px;
+        }
+
+        .top-link {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            margin-bottom: 52px;
+            color: var(--muted);
+            font-size: 16px;
+            font-weight: 600;
+            text-decoration: none;
+        }
+
+        .top-link:hover { color: var(--heading-color); text-decoration: underline; }
+
+        .hero {
+            margin-bottom: 44px;
+        }
+
+        h1 {
+            margin: 0;
+            color: var(--heading-color);
+            font-size: 2rem;
+            line-height: 1.2;
+            letter-spacing: 0;
+            font-weight: 700;
+        }
+
+        .summary {
+            margin: 20px 0 0;
+            color: #1d1f21;
+            font-family: "Source Serif 4", Georgia, serif;
+            font-size: 18px;
+            font-weight: 400;
+            line-height: 1.6;
+        }
+
+        @media (prefers-color-scheme: dark) {
+            .summary { color: #b4b4b4; }
+        }
+
+        .section-nav {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 8px;
+            margin-top: 22px;
+        }
+
+        .section-nav a {
+            color: var(--accent);
+            font-size: 15px;
+            font-weight: 700;
+            text-decoration: underline;
+        }
+
+        .section-nav a:hover { text-decoration-thickness: 2px; }
+
+        .gallery-section { margin-top: 44px; }
+
+        .section-header {
+            margin-bottom: 14px;
+        }
+
+        h2 {
+            margin: 0;
+            color: var(--heading-color);
+            font-size: 1.5rem;
+            line-height: 1.25;
+            letter-spacing: 0;
+            font-weight: 700;
+        }
+
+        .count {
+            display: block;
+            color: var(--muted);
+            font-size: 13px;
+            font-weight: 600;
+            margin-top: 4px;
+        }
+
+        .grid {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 5px;
+            width: 100%;
+            margin: 0 auto;
+            padding: 20px 0;
+            align-items: stretch;
+        }
+
+        .card {
+            display: flex;
+            flex-direction: column;
+            min-width: 0;
+            height: 100%;
+            overflow: hidden;
+            border-radius: 10px;
+            padding: 0;
+            background: var(--tile);
+            backdrop-filter: blur(10px);
+            text-decoration: none;
+            color: inherit;
+        }
+
+        .thumb {
+            width: 100%;
+            display: flex;
+            place-items: center;
+            align-items: center;
+            justify-content: center;
+            aspect-ratio: 4 / 3;
+            overflow: hidden;
+            border-radius: 8px 8px 0 0;
+            background: rgba(0, 0, 0, 0.04);
+        }
+
+        @media (prefers-color-scheme: dark) {
+            .thumb { background: rgba(255, 255, 255, 0.05); }
+        }
+
+        .thumb img,
+        .thumb video {
+            width: 100%;
+            height: 100%;
+            display: block;
+            object-fit: cover;
+            border-radius: 0;
+        }
+
+        .placeholder {
+            width: 58px;
+            aspect-ratio: 1;
+            border: 5px solid rgba(255, 255, 255, 0.18);
+            border-top-color: rgba(255, 255, 255, 0.78);
+            border-radius: 50%;
+        }
+
+        .card-title {
+            flex: 0 0 46px;
+            display: -webkit-box;
+            margin: 0;
+            padding: 10px 10px 0;
+            color: var(--muted);
+            font-size: 13px;
+            line-height: 1.2;
+            letter-spacing: 0;
+            font-weight: 600;
+            -webkit-box-orient: vertical;
+            -webkit-line-clamp: 2;
+            overflow: hidden;
+            overflow-wrap: anywhere;
+        }
+
+        .article-top {
+            width: 100%;
+            max-width: 48rem;
+            margin: 0 auto;
+            padding: 48px 1rem 32px;
+            color: var(--muted);
+        }
+
+        .article-author {
+            color: var(--muted);
+            font-weight: 600;
+            text-decoration: none;
+        }
+
+        .article-author:hover {
+            color: var(--heading-color);
+            text-decoration: underline;
+        }
+
+        .article-detail {
+            width: 100%;
+            max-width: 48rem;
+            margin: 0 auto;
+            padding: 32px 1rem 72px;
+        }
+
+        .article-header {
+            margin-bottom: 32px;
+        }
+
+        .article-meta {
+            display: flex;
+            flex-wrap: wrap;
+            align-items: center;
+            gap: 0 8px;
+            margin-top: 8px;
+            color: var(--muted);
+            font-size: 14px;
+            font-weight: 600;
+        }
+
+        .article-meta a {
+            color: inherit;
+            text-decoration: underline;
+            text-decoration-thickness: 1px;
+            text-underline-offset: 2px;
+        }
+
+        .article-meta a:hover {
+            color: var(--heading-color);
+        }
+
+        .preview-panel {
+            margin-top: 16px;
+            border-radius: 0.3rem;
+            overflow: hidden;
+            background: var(--tile);
+        }
+
+        .preview-panel img,
+        .preview-panel video {
+            width: 100%;
+            max-height: 72vh;
+            display: block;
+            object-fit: contain;
+        }
+
+        .actions {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 8px 14px;
+            margin-top: 24px;
+        }
+
+        .text-link {
+            display: inline;
+            color: var(--accent);
+            font-size: 15px;
+            font-weight: 700;
+            text-decoration: underline;
+            text-underline-offset: 2px;
+        }
+
+        .text-link:hover {
+            text-decoration-thickness: 2px;
+        }
+
+        .button {
+            display: inline;
+            align-items: center;
+            min-height: 0;
+            border: 0;
+            border-radius: 0;
+            padding: 0;
+            background: transparent;
+            color: var(--accent);
+            font-size: 15px;
+            font-weight: 700;
+            text-decoration: underline;
+            text-underline-offset: 2px;
+        }
+
+        .button.secondary {
+            background: transparent;
+            color: var(--accent);
+            font-size: 15px;
+            font-weight: 750;
+            text-decoration: none;
+        }
+
+        .button:hover { text-decoration-thickness: 2px; }
+
+        .content-section {
+            margin-top: 32px;
+        }
+
+        .content-section h2 {
+            margin: 0 0 14px;
+            color: var(--heading-color);
+            font-size: 1.5rem;
+            line-height: 1.25;
+            font-weight: 700;
+        }
+
+        .content-section p {
+            color: #1d1f21;
+            font-family: "Source Serif 4", Georgia, serif;
+            font-size: 18px;
+            font-weight: 400;
+        }
+
+        @media (prefers-color-scheme: dark) {
+            .content-section p { color: #b4b4b4; }
+        }
+
+        pre {
+            overflow: auto;
+            margin: 0;
+            border: 1px solid #2a2a2a;
+            border-radius: 0.5rem;
+            padding: 18px;
+            background: #111;
+            color: #f5f5f5;
+            font-size: 14px;
+            line-height: 1.5;
+            white-space: pre;
+        }
+
+        .source-list {
+            display: grid;
+            gap: 10px;
+            margin: 0;
+            padding: 0;
+            list-style: none;
+        }
+
+        .source-list a {
+            color: var(--accent);
+            font-weight: 700;
+        }
+
+        .article-copyright {
+            margin: 56px 0 12px;
+            color: var(--muted);
+            font-size: 14px;
+            font-weight: 600;
+        }
+
+        @media (max-width: 760px) {
+            .page {
+                padding-top: 24px;
+            }
+
+            .article-top { padding-top: 24px; }
+
+            .grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+        }
+    </style>
+</head>
+<body>
+    <main class="page">
+        <a class="top-link" href="/">Alexander Deplov</a>
+        <header class="hero">
+            <div>
+                <h1>Generative Art Codes</h1>
+                <p class="summary">Paper.js sketches and interaction experiments collected as visual examples.</p>
+            </div>
+            <nav class="section-nav" aria-label="Gallery sections">
+                <a href="#animation">Animation <span>72</span></a>
+<a href="#cursor">Cursor <span>38</span></a>
+<a href="#path">Path <span>20</span></a>
+            </nav>
+        </header>
+        
+            <section class="gallery-section" id="animation">
+                <div class="section-header">
+                    <div>
+                        <h2>Animation</h2>
+                        <p class="summary">Control animation with Paper.js code.</p>
+                    </div>
+                    <span class="count">72 examples</span>
+                </div>
+                <div class="grid">
+                    
+                <a class="card" href="/tools/generative-art/animation/colored-lines-goes-around/">
+                    <div class="thumb"><img class="thumb-media" src="/tools/generative-art/assets/collection/Animation/Colored%20lines%20goes%20around/Screen_Recording_2024-02-11_at_22.17.17.2024-02-11_22_18_27.gif" alt="Colored lines goes around" loading="eager" decoding="async"></div>
+                    <h3 class="card-title">Colored lines goes around</h3>
+                </a>
+                
+                <a class="card" href="/tools/generative-art/animation/colored-lines-goes-around-v4/">
+                    <div class="thumb"><img class="thumb-media" src="/tools/generative-art/assets/collection/Animation/Colored%20lines%20goes%20around%20v4/Screen_Recording_2024-02-18_at_23.54.24.2024-02-18_23_55_02.gif" alt="Colored lines goes around v4" loading="eager" decoding="async"></div>
+                    <h3 class="card-title">Colored lines goes around v4</h3>
+                </a>
+                
+                <a class="card" href="/tools/generative-art/animation/circles-with-shadow/">
+                    <div class="thumb"><img class="thumb-media" src="/tools/generative-art/assets/collection/Animation/Circles%20with%20shadow/Screen_Recording_2024-01-30_at_08.53.19.2024-01-30_08_55_06.gif" alt="Circles with shadow" loading="eager" decoding="async"></div>
+                    <h3 class="card-title">Circles with shadow</h3>
+                </a>
+                
+                <a class="card" href="/tools/generative-art/animation/jumping-lines/">
+                    <div class="thumb"><img class="thumb-media" src="/tools/generative-art/assets/collection/Animation/Jumping%20lines/Screen_Recording_2024-01-13_at_17.27.59.2024-01-13_17_28_56.gif" alt="Jumping lines" loading="eager" decoding="async"></div>
+                    <h3 class="card-title">Jumping lines</h3>
+                </a>
+                
+                <a class="card" href="/tools/generative-art/animation/spinner/">
+                    <div class="thumb"><img class="thumb-media" src="/tools/generative-art/assets/collection/Animation/Spinner/Screen_Recording_2024-01-16_at_21.51.56.2024-01-16_21_52_26.gif" alt="Spinner" loading="eager" decoding="async"></div>
+                    <h3 class="card-title">Spinner</h3>
+                </a>
+                
+                <a class="card" href="/tools/generative-art/animation/spinner-v2/">
+                    <div class="thumb"><img class="thumb-media" src="/tools/generative-art/assets/collection/Animation/Spinner%20v2/Screen_Recording_2024-01-16_at_21.59.08.2024-01-16_21_59_59.gif" alt="Spinner v2" loading="eager" decoding="async"></div>
+                    <h3 class="card-title">Spinner v2</h3>
+                </a>
+                
+                <a class="card" href="/tools/generative-art/animation/jellyfish/">
+                    <div class="thumb"><img class="thumb-media" src="/tools/generative-art/assets/collection/Animation/Jellyfish/Screen_Recording_2024-01-15_at_23.57.58.2024-01-15_23_59_17.gif" alt="Jellyfish" loading="eager" decoding="async"></div>
+                    <h3 class="card-title">Jellyfish</h3>
+                </a>
+                
+                <a class="card" href="/tools/generative-art/animation/jellyfish-2-more-flexible/">
+                    <div class="thumb"><img class="thumb-media" src="/tools/generative-art/assets/collection/Animation/Jellyfish%202%20-%20more%20flexible/Screen_Recording_2024-02-13_at_22.34.07.2024-02-13_22_34_42.gif" alt="Jellyfish 2 - more flexible" loading="eager" decoding="async"></div>
+                    <h3 class="card-title">Jellyfish 2 - more flexible</h3>
+                </a>
+                
+                <a class="card" href="/tools/generative-art/animation/hypnoses-spin/">
+                    <div class="thumb"><img class="thumb-media" src="/tools/generative-art/assets/collection/Animation/Hypnoses%20Spin/Screen_Recording_2023-05-19_at_09.46.39.2023-05-19_09_57_31.gif" alt="Hypnoses Spin" loading="eager" decoding="async"></div>
+                    <h3 class="card-title">Hypnoses Spin</h3>
+                </a>
+                
+                <a class="card" href="/tools/generative-art/animation/inverted-hypnoses-spin/">
+                    <div class="thumb"><img class="thumb-media" src="/tools/generative-art/assets/collection/Animation/Inverted%20hypnoses%20spin/Screen_Recording_2024-01-05_at_19.43.32.2024-01-05_19_45_13.gif" alt="Inverted hypnoses spin" loading="eager" decoding="async"></div>
+                    <h3 class="card-title">Inverted hypnoses spin</h3>
+                </a>
+                
+                <a class="card" href="/tools/generative-art/animation/jumping-lines-v2/">
+                    <div class="thumb"><img class="thumb-media" src="/tools/generative-art/assets/collection/Animation/Jumping%20lines%20v2/Screen_Recording_2024-01-13_at_17.46.35.2024-01-13_17_47_20.gif" alt="Jumping lines v2" loading="eager" decoding="async"></div>
+                    <h3 class="card-title">Jumping lines v2</h3>
+                </a>
+                
+                <a class="card" href="/tools/generative-art/animation/spirograph-movement-with-copies/">
+                    <div class="thumb"><img class="thumb-media" src="/tools/generative-art/assets/collection/Animation/Spirograph%20movement%20with%20copies/Screen_Recording_2023-04-29_at_8.27.48_AM.2023-04-29_08_29_22.gif" alt="Spirograph movement with copies" loading="eager" decoding="async"></div>
+                    <h3 class="card-title">Spirograph movement with copies</h3>
+                </a>
+                
+                <a class="card" href="/tools/generative-art/animation/huawei-watch-animation-blob/">
+                    <div class="thumb"><img class="thumb-media" src="/tools/generative-art/assets/collection/Animation/Huawei%20Watch%20animation%20blob/Screen_Recording_2024-01-01_at_11.44.49.2024-01-01_11_45_35.gif" alt="Huawei Watch animation blob" loading="eager" decoding="async"></div>
+                    <h3 class="card-title">Huawei Watch animation blob</h3>
+                </a>
+                
+                <a class="card" href="/tools/generative-art/animation/colored-sunflower-pattern/">
+                    <div class="thumb"><img class="thumb-media" src="/tools/generative-art/assets/collection/Animation/Colored%20sunflower%20pattern/Screen_Recording_2023-12-31_at_20.37.24.2023-12-31_20_38_19.gif" alt="Colored sunflower pattern" loading="eager" decoding="async"></div>
+                    <h3 class="card-title">Colored sunflower pattern</h3>
+                </a>
+                
+                <a class="card" href="/tools/generative-art/animation/move-path-to-random-point-normalized-speed/">
+                    <div class="thumb"><img class="thumb-media" src="/tools/generative-art/assets/collection/Animation/Move%20path%20to%20random%20point%20-%20normalized%20speed/Screen_Recording_2023-05-04_at_18.01.37.2023-05-04_18_04_39.gif" alt="Move path to random point - normalized speed" loading="eager" decoding="async"></div>
+                    <h3 class="card-title">Move path to random point - normalized speed</h3>
+                </a>
+                
+                <a class="card" href="/tools/generative-art/animation/step-animation-following-point/">
+                    <div class="thumb"><img class="thumb-media" src="/tools/generative-art/assets/collection/Animation/Step%20animation%20following%20point/Screen_Recording_2023-04-28_at_10.06.27_AM.2023-04-28_10_07_09.gif" alt="Step animation following point" loading="eager" decoding="async"></div>
+                    <h3 class="card-title">Step animation following point</h3>
+                </a>
+                
+                <a class="card" href="/tools/generative-art/animation/dash-circle-animation/">
+                    <div class="thumb"><img class="thumb-media" src="/tools/generative-art/assets/collection/Animation/Dash%20circle%20animation/2023_12_31_08_29_PM_1704050977.2023-12-31_20_54_18.gif" alt="Dash circle animation" loading="eager" decoding="async"></div>
+                    <h3 class="card-title">Dash circle animation</h3>
+                </a>
+                
+                <a class="card" href="/tools/generative-art/animation/dash-circle-animation-with-gradient/">
+                    <div class="thumb"><img class="thumb-media" src="/tools/generative-art/assets/collection/Animation/Dash%20circle%20animation%20with%20gradient/Screen_Recording_2024-01-01_at_11.05.54.2024-01-01_11_06_59.gif" alt="Dash circle animation with gradient" loading="eager" decoding="async"></div>
+                    <h3 class="card-title">Dash circle animation with gradient</h3>
+                </a>
+                
+                <a class="card" href="/tools/generative-art/animation/sold-objects-with-colored-background/">
+                    <div class="thumb"><img class="thumb-media" src="/tools/generative-art/assets/collection/Animation/Sold%20objects%20with%20colored%20background/Screen_Recording_2023-03-05_at_17.39.20.2023-03-05_17_40_02.gif" alt="Sold objects with colored background" loading="eager" decoding="async"></div>
+                    <h3 class="card-title">Sold objects with colored background</h3>
+                </a>
+                
+                <a class="card" href="/tools/generative-art/animation/animated-spirograph-star/">
+                    <div class="thumb"><img class="thumb-media" src="/tools/generative-art/assets/collection/Animation/Animated%20Spirograph%20Star/Screen_Recording_2023-04-23_at_20.14.45.2023-04-23_20_16_56.gif" alt="Animated Spirograph Star" loading="eager" decoding="async"></div>
+                    <h3 class="card-title">Animated Spirograph Star</h3>
+                </a>
+                
+                <a class="card" href="/tools/generative-art/animation/simple-star-sky-remove-after-delay/">
+                    <div class="thumb"><img class="thumb-media" src="/tools/generative-art/assets/collection/Animation/Simple%20star%20sky,%20remove%20after%20delay/Screen_Recording_2023-04-25_at_09.38.50.2023-04-25_09_39_21.gif" alt="Simple star sky, remove after delay" loading="eager" decoding="async"></div>
+                    <h3 class="card-title">Simple star sky, remove after delay</h3>
+                </a>
+                
+                <a class="card" href="/tools/generative-art/animation/colored-circles-dance/">
+                    <div class="thumb"><img class="thumb-media" src="/tools/generative-art/assets/collection/Animation/Colored%20circles%20dance/Screen_Recording_2023-04-10_at_17.34.33.2023-04-10_17_39_53.gif" alt="Colored circles dance" loading="eager" decoding="async"></div>
+                    <h3 class="card-title">Colored circles dance</h3>
+                </a>
+                
+                <a class="card" href="/tools/generative-art/animation/animated-objects-group/">
+                    <div class="thumb"><img class="thumb-media" src="/tools/generative-art/assets/collection/Animation/Animated%20objects%20group/Screen_Recording_2022-06-04_at_17.55.39.2022-06-04_17_55_57.gif" alt="Animated objects group" loading="eager" decoding="async"></div>
+                    <h3 class="card-title">Animated objects group</h3>
+                </a>
+                
+                <a class="card" href="/tools/generative-art/animation/animated-circles-around-center-with-blend-mode/">
+                    <div class="thumb"><img class="thumb-media" src="/tools/generative-art/assets/collection/Animation/Animated%20circles%20around%20center%20with%20blend%20mode/Screen_Recording_2024-01-01_at_11.19.33.2024-01-01_11_20_16.gif" alt="Animated circles around center with blend mode" loading="eager" decoding="async"></div>
+                    <h3 class="card-title">Animated circles around center with blend mode</h3>
+                </a>
+                
+                <a class="card" href="/tools/generative-art/animation/analogue-clock-by-paperjs/">
+                    <div class="thumb"><img class="thumb-media" src="/tools/generative-art/assets/collection/Animation/Analogue%20clock%20by%20PaperJS/Screen_Recording_2024-01-20_at_17.06.32.2024-01-20_17_07_32.gif" alt="Analogue clock by PaperJS" loading="eager" decoding="async"></div>
+                    <h3 class="card-title">Analogue clock by PaperJS</h3>
+                </a>
+                
+                <a class="card" href="/tools/generative-art/animation/import-svg-and-animate/">
+                    <div class="thumb"><img class="thumb-media" src="/tools/generative-art/assets/collection/Animation/Import%20SVG%20and%20animate/Screen_Recording_2022-06-04_at_18.01.16.2022-06-04_18_01_51.gif" alt="Import SVG and animate" loading="eager" decoding="async"></div>
+                    <h3 class="card-title">Import SVG and animate</h3>
+                </a>
+                
+                <a class="card" href="/tools/generative-art/animation/rainbow-infinity-sign-animation/">
+                    <div class="thumb"><img class="thumb-media" src="/tools/generative-art/assets/collection/Animation/Rainbow%20infinity%20sign%20animation/Screen_Recording_2022-06-04_at_18.06.55.2022-06-04_18_07_15.gif" alt="Rainbow infinity sign animation" loading="eager" decoding="async"></div>
+                    <h3 class="card-title">Rainbow infinity sign animation</h3>
+                </a>
+                
+                <a class="card" href="/tools/generative-art/animation/rainbow-infinity-sign-animated-v2/">
+                    <div class="thumb"><img class="thumb-media" src="/tools/generative-art/assets/collection/Animation/Rainbow%20infinity%20sign%20animated%20v2/Screen_Recording_2022-06-22_at_11.19.29.2022-06-22_11_23_33.gif" alt="Rainbow infinity sign animated v2" loading="eager" decoding="async"></div>
+                    <h3 class="card-title">Rainbow infinity sign animated v2</h3>
+                </a>
+                
+                <a class="card" href="/tools/generative-art/animation/rainbow-infinity-sign-animated-backwards/">
+                    <div class="thumb"><img class="thumb-media" src="/tools/generative-art/assets/collection/Animation/Rainbow%20infinity%20sign%20animated,%20backwards/Screen_Recording_2022-06-29_at_11.24.12.2022-06-29_11_25_12.gif" alt="Rainbow infinity sign animated, backwards" loading="eager" decoding="async"></div>
+                    <h3 class="card-title">Rainbow infinity sign animated, backwards</h3>
+                </a>
+                
+                <a class="card" href="/tools/generative-art/animation/animated-circles-grid/">
+                    <div class="thumb"><img class="thumb-media" src="/tools/generative-art/assets/collection/Animation/Animated%20circles%20grid/Screen_Recording_2022-06-29_at_11.09.08.2022-06-29_11_11_19.gif" alt="Animated circles grid" loading="eager" decoding="async"></div>
+                    <h3 class="card-title">Animated circles grid</h3>
+                </a>
+                
+                <a class="card" href="/tools/generative-art/animation/spirograph/">
+                    <div class="thumb"><img class="thumb-media" src="/tools/generative-art/assets/collection/Animation/Spirograph/Screen_Recording_2022-06-04_at_18.17.00.2022-06-04_18_17_30.gif" alt="Spirograph" loading="eager" decoding="async"></div>
+                    <h3 class="card-title">Spirograph</h3>
+                </a>
+                
+                <a class="card" href="/tools/generative-art/animation/spirograph-v2/">
+                    <div class="thumb"><img class="thumb-media" src="/tools/generative-art/assets/collection/Animation/Spirograph%20v2/Screen_Recording_2022-06-10_at_23.32.39.2022-06-10_23_33_15.gif" alt="Spirograph v2" loading="eager" decoding="async"></div>
+                    <h3 class="card-title">Spirograph v2</h3>
+                </a>
+                
+                <a class="card" href="/tools/generative-art/animation/spirograph-v3/">
+                    <div class="thumb"><img class="thumb-media" src="/tools/generative-art/assets/collection/Animation/Spirograph%20v3/Screen_Recording_2022-06-04_at_18.11.17.2022-06-04_18_11_51.gif" alt="Spirograph v3" loading="eager" decoding="async"></div>
+                    <h3 class="card-title">Spirograph v3</h3>
+                </a>
+                
+                <a class="card" href="/tools/generative-art/animation/spirograph-v4/">
+                    <div class="thumb"><img class="thumb-media" src="/tools/generative-art/assets/collection/Animation/Spirograph%20v4/Screen_Recording_2022-06-10_at_23.36.22.2022-06-10_23_37_11.gif" alt="Spirograph v4" loading="eager" decoding="async"></div>
+                    <h3 class="card-title">Spirograph v4</h3>
+                </a>
+                
+                <a class="card" href="/tools/generative-art/animation/spirograph-v5/">
+                    <div class="thumb"><img class="thumb-media" src="/tools/generative-art/assets/collection/Animation/Spirograph%20v5/Screen_Recording_2022-06-10_at_23.30.56.2022-06-10_23_31_35.gif" alt="Spirograph v5" loading="eager" decoding="async"></div>
+                    <h3 class="card-title">Spirograph v5</h3>
+                </a>
+                
+                <a class="card" href="/tools/generative-art/animation/spirograph-v6/">
+                    <div class="thumb"><img class="thumb-media" src="/tools/generative-art/assets/collection/Animation/Spirograph%20v6/Screen_Recording_2022-06-04_at_18.13.31.2022-06-04_18_14_08.gif" alt="Spirograph v6" loading="eager" decoding="async"></div>
+                    <h3 class="card-title">Spirograph v6</h3>
+                </a>
+                
+                <a class="card" href="/tools/generative-art/animation/spirograph-v7/">
+                    <div class="thumb"><img class="thumb-media" src="/tools/generative-art/assets/collection/Animation/Spirograph%20v7/Screen_Recording_2022-06-05_at_13.56.35.2022-06-05_13_57_03.gif" alt="Spirograph v7" loading="eager" decoding="async"></div>
+                    <h3 class="card-title">Spirograph v7</h3>
+                </a>
+                
+                <a class="card" href="/tools/generative-art/animation/ferris-wheel/">
+                    <div class="thumb"><img class="thumb-media" src="/tools/generative-art/assets/collection/Animation/Ferris%20wheel/Screen_Recording_2022-06-11_at_23.35.17.2022-06-11_23_37_46.gif" alt="Ferris wheel" loading="eager" decoding="async"></div>
+                    <h3 class="card-title">Ferris wheel</h3>
+                </a>
+                
+                <a class="card" href="/tools/generative-art/animation/ferris-wheel-v2/">
+                    <div class="thumb"><img class="thumb-media" src="/tools/generative-art/assets/collection/Animation/Ferris%20wheel%20v2/Screen_Recording_2022-06-19_at_23.47.25.2022-06-19_23_48_23.gif" alt="Ferris wheel v2" loading="eager" decoding="async"></div>
+                    <h3 class="card-title">Ferris wheel v2</h3>
+                </a>
+                
+                <a class="card" href="/tools/generative-art/animation/spirograph-star/">
+                    <div class="thumb"><img class="thumb-media" src="/tools/generative-art/assets/collection/Animation/Spirograph%20star/Screen_Recording_2022-06-05_at_13.50.49.2022-06-05_13_51_49.gif" alt="Spirograph star" loading="eager" decoding="async"></div>
+                    <h3 class="card-title">Spirograph star</h3>
+                </a>
+                
+                <a class="card" href="/tools/generative-art/animation/colored-flower/">
+                    <div class="thumb"><img class="thumb-media" src="/tools/generative-art/assets/collection/Animation/Colored%20flower/Screen_Recording_2022-06-18_at_00.14.27.2022-06-18_00_15_25.gif" alt="Colored flower" loading="eager" decoding="async"></div>
+                    <h3 class="card-title">Colored flower</h3>
+                </a>
+                
+                <a class="card" href="/tools/generative-art/animation/random-curves-animated/">
+                    <div class="thumb"><img class="thumb-media" src="/tools/generative-art/assets/collection/Animation/Random%20curves%20animated/Screen_Recording_2022-07-23_at_23.03.15.2022-07-23_23_04_06.gif" alt="Random curves animated" loading="eager" decoding="async"></div>
+                    <h3 class="card-title">Random curves animated</h3>
+                </a>
+                
+                <a class="card" href="/tools/generative-art/animation/heart-gradient-animation/">
+                    <div class="thumb"><img class="thumb-media" src="/tools/generative-art/assets/collection/Animation/Heart%20gradient%20animation/Screen_Recording_2024-01-01_at_12.16.19.2024-01-01_12_16_56.gif" alt="Heart gradient animation" loading="eager" decoding="async"></div>
+                    <h3 class="card-title">Heart gradient animation</h3>
+                </a>
+                
+                <a class="card" href="/tools/generative-art/animation/animated-circles-from-the-center-to-outside/">
+                    <div class="thumb"><img class="thumb-media" src="/tools/generative-art/assets/collection/Animation/Animated%20circles%20from%20the%20center%20to%20outside/Screen_Recording_2022-06-14_at_23.43.17.2022-06-14_23_44_01.gif" alt="Animated circles from the center to outside" loading="eager" decoding="async"></div>
+                    <h3 class="card-title">Animated circles from the center to outside</h3>
+                </a>
+                
+                <a class="card" href="/tools/generative-art/animation/animated-circles-from-the-center-to-outside-2444357a/">
+                    <div class="thumb"><img class="thumb-media" src="/tools/generative-art/assets/collection/Animation/Animated%20circles%20from%20the%20center%20to%20outside%202444-38ab/Screen_Recording_2022-12-18_at_21.27.39.2022-12-18_21_29_45.gif" alt="Animated circles from the center to outside" loading="eager" decoding="async"></div>
+                    <h3 class="card-title">Animated circles from the center to outside</h3>
+                </a>
+                
+                <a class="card" href="/tools/generative-art/animation/animated-circles-from-the-center-to-outside-v2/">
+                    <div class="thumb"><img class="thumb-media" src="/tools/generative-art/assets/collection/Animation/Animated%20circles%20from%20the%20center%20to%20outside%20v2/Screen_Recording_2023-01-26_at_20.55.43.2023-01-26_21_03_13.gif" alt="Animated circles from the center to outside v2" loading="eager" decoding="async"></div>
+                    <h3 class="card-title">Animated circles from the center to outside v2</h3>
+                </a>
+                
+                <a class="card" href="/tools/generative-art/animation/rainbow-circles-animation/">
+                    <div class="thumb"><img class="thumb-media" src="/tools/generative-art/assets/collection/Animation/Rainbow%20circles%20animation/Pinterest_12_sec.2023-01-03_19_05_18.gif" alt="Rainbow circles animation" loading="eager" decoding="async"></div>
+                    <h3 class="card-title">Rainbow circles animation</h3>
+                </a>
+                
+                <a class="card" href="/tools/generative-art/animation/wave/">
+                    <div class="thumb"><img class="thumb-media" src="/tools/generative-art/assets/collection/Animation/Wave/Screen_Recording_2024-01-01_at_16.15.56.2024-01-01_16_16_23.gif" alt="Wave" loading="eager" decoding="async"></div>
+                    <h3 class="card-title">Wave</h3>
+                </a>
+                
+                <a class="card" href="/tools/generative-art/animation/wave-path/">
+                    <div class="thumb"><img class="thumb-media" src="/tools/generative-art/assets/collection/Animation/Wave%20path/ezgif.com-gif-maker.gif" alt="Wave path" loading="eager" decoding="async"></div>
+                    <h3 class="card-title">Wave path</h3>
+                </a>
+                
+                <a class="card" href="/tools/generative-art/animation/cone-sin-wave/">
+                    <div class="thumb"><img class="thumb-media" src="/tools/generative-art/assets/collection/Animation/Cone%20sin%20wave/Screen_Recording_2023-01-20_at_8.30.09_PM.2023-01-20_20_31_28.gif" alt="Cone sin wave" loading="eager" decoding="async"></div>
+                    <h3 class="card-title">Cone sin wave</h3>
+                </a>
+                
+                <a class="card" href="/tools/generative-art/animation/digits-made-of-circles/">
+                    <div class="thumb"><img class="thumb-media" src="/tools/generative-art/assets/collection/Animation/Digits%20made%20of%20circles/Screen_Recording_2023-02-12_at_12.48.48.2023-02-12_12_57_45.gif" alt="Digits made of circles" loading="eager" decoding="async"></div>
+                    <h3 class="card-title">Digits made of circles</h3>
+                </a>
+                
+                <a class="card" href="/tools/generative-art/animation/rainbow-drawing-sin-wave/">
+                    <div class="thumb"><img class="thumb-media" src="/tools/generative-art/assets/collection/Animation/Rainbow%20drawing%20sin%20wave/Screen_Recording_2022-06-04_at_18.33.40.2022-06-04_18_34_26.gif" alt="Rainbow drawing sin wave" loading="eager" decoding="async"></div>
+                    <h3 class="card-title">Rainbow drawing sin wave</h3>
+                </a>
+                
+                <a class="card" href="/tools/generative-art/animation/colored-arcs-array/">
+                    <div class="thumb"><img class="thumb-media" src="/tools/generative-art/assets/collection/Animation/Colored%20Arcs%20Array/Screen_Recording_2022-06-17_at_23.07.19.2022-06-17_23_24_35.gif" alt="Colored Arcs Array" loading="eager" decoding="async"></div>
+                    <h3 class="card-title">Colored Arcs Array</h3>
+                </a>
+                
+                <a class="card" href="/tools/generative-art/animation/bouncing-ball/">
+                    <div class="thumb"><img class="thumb-media" src="/tools/generative-art/assets/collection/Animation/Bouncing%20ball/Screen_Recording_2024-01-01_at_16.28.28.2024-01-01_16_29_08.gif" alt="Bouncing ball" loading="eager" decoding="async"></div>
+                    <h3 class="card-title">Bouncing ball</h3>
+                </a>
+                
+                <a class="card" href="/tools/generative-art/animation/sunflower-animation/">
+                    <div class="thumb"><img class="thumb-media" src="/tools/generative-art/assets/collection/Animation/Sunflower%20animation/Screen_Recording_2024-01-01_at_16.32.30.2024-01-01_16_33_48.gif" alt="Sunflower animation" loading="eager" decoding="async"></div>
+                    <h3 class="card-title">Sunflower animation</h3>
+                </a>
+                
+                <a class="card" href="/tools/generative-art/animation/animated-circles-from-the-center-to-outside-c3f6572a/">
+                    <div class="thumb"><img class="thumb-media" src="/tools/generative-art/assets/collection/Animation/Animated%20circles%20from%20the%20center%20to%20outside%20c3f6-ba4e/Screen_Recording_2024-01-01_at_16.34.55.2024-01-01_16_35_28.gif" alt="Animated circles from the center to outside" loading="eager" decoding="async"></div>
+                    <h3 class="card-title">Animated circles from the center to outside</h3>
+                </a>
+                
+                <a class="card" href="/tools/generative-art/animation/animated-circles/">
+                    <div class="thumb"><img class="thumb-media" src="/tools/generative-art/assets/collection/Animation/Animated%20circles/Screen_Recording_2022-06-04_at_18.54.52.2022-06-04_18_55_42.gif" alt="Animated circles" loading="eager" decoding="async"></div>
+                    <h3 class="card-title">Animated circles</h3>
+                </a>
+                
+                <a class="card" href="/tools/generative-art/animation/hexagons/">
+                    <div class="thumb"><img class="thumb-media" src="/tools/generative-art/assets/collection/Animation/Hexagons/Screen_Recording_2022-06-04_at_20.32.46.2022-06-04_20_33_41.gif" alt="Hexagons" loading="eager" decoding="async"></div>
+                    <h3 class="card-title">Hexagons</h3>
+                </a>
+                
+                <a class="card" href="/tools/generative-art/animation/smart-assistant-animation/">
+                    <div class="thumb"><img class="thumb-media" src="/tools/generative-art/assets/collection/Animation/Smart%20assistant%20animation/Screen_Recording_2023-05-13_at_16.49.44.2023-05-13_16_54_09.gif" alt="Smart assistant animation" loading="eager" decoding="async"></div>
+                    <h3 class="card-title">Smart assistant animation</h3>
+                </a>
+                
+                <a class="card" href="/tools/generative-art/animation/animated-circles-from-the-center-to-outside-71ef8066/">
+                    <div class="thumb"><img class="thumb-media" src="/tools/generative-art/assets/collection/Animation/Animated%20circles%20from%20the%20center%20to%20outside%2071ef-93ce/Screen_Recording_2024-01-01_at_16.48.31.2024-01-01_16_49_00.gif" alt="Animated circles from the center to outside" loading="eager" decoding="async"></div>
+                    <h3 class="card-title">Animated circles from the center to outside</h3>
+                </a>
+                
+                <a class="card" href="/tools/generative-art/animation/animated-circles-from-the-center-to-outside-v2-e90f43a5/">
+                    <div class="thumb"><img class="thumb-media" src="/tools/generative-art/assets/collection/Animation/Animated%20circles%20from%20the%20center%20to%20outside%20v2%20e90f-1e24/Screen_Recording_2022-06-04_at_20.36.41.2022-06-04_20_37_07.gif" alt="Animated circles from the center to outside v2" loading="eager" decoding="async"></div>
+                    <h3 class="card-title">Animated circles from the center to outside v2</h3>
+                </a>
+                
+                <a class="card" href="/tools/generative-art/animation/animated-circles-from-the-center-to-outside-v3/">
+                    <div class="thumb"><img class="thumb-media" src="/tools/generative-art/assets/collection/Animation/Animated%20circles%20from%20the%20center%20to%20outside%20v3/Screen_Recording_2022-06-04_at_20.52.12.2022-06-04_20_52_49.gif" alt="Animated circles from the center to outside v3" loading="eager" decoding="async"></div>
+                    <h3 class="card-title">Animated circles from the center to outside v3</h3>
+                </a>
+                
+                <a class="card" href="/tools/generative-art/animation/animated-circles-from-the-center-to-outside-v4/">
+                    <div class="thumb"><img class="thumb-media" src="/tools/generative-art/assets/collection/Animation/Animated%20circles%20from%20the%20center%20to%20outside%20v4/Screen_Recording_2022-06-04_at_21.06.12.2022-06-04_21_06_46.gif" alt="Animated circles from the center to outside v4" loading="eager" decoding="async"></div>
+                    <h3 class="card-title">Animated circles from the center to outside v4</h3>
+                </a>
+                
+                <a class="card" href="/tools/generative-art/animation/animated-circles-from-the-center-to-outside-v5/">
+                    <div class="thumb"><img class="thumb-media" src="/tools/generative-art/assets/collection/Animation/Animated%20circles%20from%20the%20center%20to%20outside%20v5/Screen_Recording_2022-06-05_at_14.02.19.2022-06-05_14_02_50.gif" alt="Animated circles from the center to outside v5" loading="eager" decoding="async"></div>
+                    <h3 class="card-title">Animated circles from the center to outside v5</h3>
+                </a>
+                
+                <a class="card" href="/tools/generative-art/animation/purple-rect-grid-circles-animation-wave/">
+                    <div class="thumb"><img class="thumb-media" src="/tools/generative-art/assets/collection/Animation/Purple%20rect%20grid%20circles%20animation%20wave/2022_06_04_11_51_PM_1654372304.2022-06-04_23_58_25.gif" alt="Purple rect grid circles animation wave" loading="eager" decoding="async"></div>
+                    <h3 class="card-title">Purple rect grid circles animation wave</h3>
+                </a>
+                
+                <a class="card" href="/tools/generative-art/animation/spinner-v3/">
+                    <div class="thumb"><img class="thumb-media" src="/tools/generative-art/assets/collection/Animation/Spinner%20v3/Screen_Recording_2024-01-16_at_22.02.26.2024-01-16_22_03_30.gif" alt="Spinner v3" loading="eager" decoding="async"></div>
+                    <h3 class="card-title">Spinner v3</h3>
+                </a>
+                
+                <a class="card" href="/tools/generative-art/animation/spinner-v4/">
+                    <div class="thumb"><img class="thumb-media" src="/tools/generative-art/assets/collection/Animation/Spinner%20v4/Screen_Recording_2024-01-16_at_22.27.34.2024-01-16_22_28_24.gif" alt="Spinner v4" loading="eager" decoding="async"></div>
+                    <h3 class="card-title">Spinner v4</h3>
+                </a>
+                
+                <a class="card" href="/tools/generative-art/animation/spinner-v5/">
+                    <div class="thumb"><img class="thumb-media" src="/tools/generative-art/assets/collection/Animation/Spinner%20v5/Screen_Recording_2024-01-18_at_08.14.44.2024-01-18_08_15_14.gif" alt="Spinner v5" loading="eager" decoding="async"></div>
+                    <h3 class="card-title">Spinner v5</h3>
+                </a>
+                
+                <a class="card" href="/tools/generative-art/animation/spinner-v6/">
+                    <div class="thumb"><img class="thumb-media" src="/tools/generative-art/assets/collection/Animation/Spinner%20v6/Screen_Recording_2024-01-18_at_08.19.50.2024-01-18_08_20_09.gif" alt="Spinner v6" loading="eager" decoding="async"></div>
+                    <h3 class="card-title">Spinner v6</h3>
+                </a>
+                
+                <a class="card" href="/tools/generative-art/animation/hand-fan/">
+                    <div class="thumb"><img class="thumb-media" src="/tools/generative-art/assets/collection/Animation/Hand%20fan/Screen_Recording_2024-01-18_at_20.18.31.2024-01-18_20_21_12.gif" alt="Hand fan" loading="eager" decoding="async"></div>
+                    <h3 class="card-title">Hand fan</h3>
+                </a>
+                
+                <a class="card" href="/tools/generative-art/animation/non-linear-animation/">
+                    <div class="thumb"><img class="thumb-media" src="/tools/generative-art/assets/collection/Animation/Non-linear%20animation/Screen_Recording_2024-01-29_at_22.43.51.2024-01-29_22_44_48.gif" alt="Non-linear animation" loading="eager" decoding="async"></div>
+                    <h3 class="card-title">Non-linear animation</h3>
+                </a>
+                
+                <a class="card" href="/tools/generative-art/animation/infinite-sign-by-circles/">
+                    <div class="thumb"><img class="thumb-media" src="/tools/generative-art/assets/collection/Animation/Infinite%20Sign%20by%20Circles/Screen_Recording_2024-06-05_at_22.19.21.2024-06-05_22_22_34.gif" alt="Infinite Sign by Circles" loading="eager" decoding="async"></div>
+                    <h3 class="card-title">Infinite Sign by Circles</h3>
+                </a>
+                
+                </div>
+            </section>
+            
+            <section class="gallery-section" id="cursor">
+                <div class="section-header">
+                    <div>
+                        <h2>Cursor</h2>
+                        <p class="summary">Mouse and pointer interactions.</p>
+                    </div>
+                    <span class="count">38 examples</span>
+                </div>
+                <div class="grid">
+                    
+                <a class="card" href="/tools/generative-art/cursor/lightsaber/">
+                    <div class="thumb"><img class="thumb-media" src="/tools/generative-art/assets/collection/Cursor/Lightsaber/Screen_Recording_2024-01-05_at_19.55.31.2024-01-05_20_03_15.gif" alt="Lightsaber" loading="eager" decoding="async"></div>
+                    <h3 class="card-title">Lightsaber</h3>
+                </a>
+                
+                <a class="card" href="/tools/generative-art/cursor/rainbow-drawing/">
+                    <div class="thumb"><img class="thumb-media" src="/tools/generative-art/assets/collection/Cursor/Rainbow%20drawing/Screen_Recording_2022-06-04_at_19.32.51.2022-06-04_19_33_28.gif" alt="Rainbow drawing" loading="eager" decoding="async"></div>
+                    <h3 class="card-title">Rainbow drawing</h3>
+                </a>
+                
+                <a class="card" href="/tools/generative-art/cursor/rainbow-drawing-sin/">
+                    <div class="thumb"><img class="thumb-media" src="/tools/generative-art/assets/collection/Cursor/Rainbow%20drawing%20sin/Screen_Recording_2022-06-19_at_23.58.37.2022-06-20_00_00_04.gif" alt="Rainbow drawing sin" loading="eager" decoding="async"></div>
+                    <h3 class="card-title">Rainbow drawing sin</h3>
+                </a>
+                
+                <a class="card" href="/tools/generative-art/cursor/animated-cursor-size-color-based-on-moving-speed/">
+                    <div class="thumb"><img class="thumb-media" src="/tools/generative-art/assets/collection/Cursor/Animated%20cursor%20size%20%26%20color%20based%20on%20moving%20speed/Screen_Recording_2022-06-04_at_18.43.25.2022-06-04_18_43_49.gif" alt="Animated cursor size &amp; color based on moving speed" loading="eager" decoding="async"></div>
+                    <h3 class="card-title">Animated cursor size &amp; color based on moving speed</h3>
+                </a>
+                
+                <a class="card" href="/tools/generative-art/cursor/drawing-with-time-func/">
+                    <div class="thumb"><img class="thumb-media" src="/tools/generative-art/assets/collection/Cursor/Drawing%20with%20time%20func/Screen_Recording_2023-01-04_at_09.10.14.2023-01-04_09_11_21.gif" alt="Drawing with time func" loading="eager" decoding="async"></div>
+                    <h3 class="card-title">Drawing with time func</h3>
+                </a>
+                
+                <a class="card" href="/tools/generative-art/cursor/color-drops-when-mouse-is-moved/">
+                    <div class="thumb"><img class="thumb-media" src="/tools/generative-art/assets/collection/Cursor/Color%20drops%20when%20mouse%20is%20moved/Screen_Recording_2022-06-04_at_18.38.41.2022-06-04_18_39_23.gif" alt="Color drops when mouse is moved" loading="eager" decoding="async"></div>
+                    <h3 class="card-title">Color drops when mouse is moved</h3>
+                </a>
+                
+                <a class="card" href="/tools/generative-art/cursor/laser-cursor/">
+                    <div class="thumb"><img class="thumb-media" src="/tools/generative-art/assets/collection/Cursor/Laser%20cursor/Screen_Recording_2022-06-04_at_20.02.00.2022-06-04_20_02_28.gif" alt="Laser cursor" loading="eager" decoding="async"></div>
+                    <h3 class="card-title">Laser cursor</h3>
+                </a>
+                
+                <a class="card" href="/tools/generative-art/cursor/right-way-to-move-objects/">
+                    <div class="thumb"><img class="thumb-media" src="/tools/generative-art/assets/collection/Cursor/Right%20way%20to%20move%20objects/Screen_Recording_2022-06-04_at_20.03.34.2022-06-04_20_04_04.gif" alt="Right way to move objects" loading="eager" decoding="async"></div>
+                    <h3 class="card-title">Right way to move objects</h3>
+                </a>
+                
+                <a class="card" href="/tools/generative-art/cursor/shadow-control/">
+                    <div class="thumb"><img class="thumb-media" src="/tools/generative-art/assets/collection/Cursor/Shadow%20control/Screen_Recording_2022-06-05_at_14.35.24.2022-06-05_14_35_57.gif" alt="Shadow control" loading="eager" decoding="async"></div>
+                    <h3 class="card-title">Shadow control</h3>
+                </a>
+                
+                <a class="card" href="/tools/generative-art/cursor/array-rotated-to-mouse-move/">
+                    <div class="thumb"><img class="thumb-media" src="/tools/generative-art/assets/collection/Cursor/Array%20rotated%20to%20mouse%20move/Screen_Recording_2022-06-04_at_20.49.08.2022-06-04_20_49_57.gif" alt="Array rotated to mouse move" loading="eager" decoding="async"></div>
+                    <h3 class="card-title">Array rotated to mouse move</h3>
+                </a>
+                
+                <a class="card" href="/tools/generative-art/cursor/rainbow-rotated-to-mouse-move/">
+                    <div class="thumb"><img class="thumb-media" src="/tools/generative-art/assets/collection/Cursor/Rainbow%20rotated%20to%20mouse%20move/Screen_Recording_2024-01-16_at_08.05.18.2024-01-16_08_09_26.gif" alt="Rainbow rotated to mouse move" loading="eager" decoding="async"></div>
+                    <h3 class="card-title">Rainbow rotated to mouse move</h3>
+                </a>
+                
+                <a class="card" href="/tools/generative-art/cursor/rainbow-circles-follows-cursor/">
+                    <div class="thumb"><img class="thumb-media" src="/tools/generative-art/assets/collection/Cursor/Rainbow%20circles%20follows%20cursor/Screen_Recording_2022-06-04_at_20.04.51.2022-06-04_20_05_25.gif" alt="Rainbow circles follows cursor" loading="eager" decoding="async"></div>
+                    <h3 class="card-title">Rainbow circles follows cursor</h3>
+                </a>
+                
+                <a class="card" href="/tools/generative-art/cursor/rotate-around-circle/">
+                    <div class="thumb"><img class="thumb-media" src="/tools/generative-art/assets/collection/Cursor/Rotate%20around%20circle/Screen_Recording_2022-06-04_at_20.08.33.2022-06-04_20_09_05.gif" alt="Rotate around circle" loading="eager" decoding="async"></div>
+                    <h3 class="card-title">Rotate around circle</h3>
+                </a>
+                
+                <a class="card" href="/tools/generative-art/cursor/path-handles-control/">
+                    <div class="thumb"><img class="thumb-media" src="/tools/generative-art/assets/collection/Cursor/Path%20handles%20control/Screen_Recording_2022-06-04_at_19.58.51.2022-06-04_19_59_25.gif" alt="Path handles control" loading="eager" decoding="async"></div>
+                    <h3 class="card-title">Path handles control</h3>
+                </a>
+                
+                <a class="card" href="/tools/generative-art/cursor/drag-to-update-animation/">
+                    <div class="thumb"><img class="thumb-media" src="/tools/generative-art/assets/collection/Cursor/Drag%20to%20update%20animation/Screen_Recording_2022-06-04_at_20.01.06.2022-06-04_20_01_31.gif" alt="Drag to update animation" loading="eager" decoding="async"></div>
+                    <h3 class="card-title">Drag to update animation</h3>
+                </a>
+                
+                <a class="card" href="/tools/generative-art/cursor/color-hue-of-objects-animated-on-distance/">
+                    <div class="thumb"><img class="thumb-media" src="/tools/generative-art/assets/collection/Cursor/Color%20HUE%20of%20objects%20animated%20on%20distance/Screen_Recording_2023-02-24_at_4.34.06_PM.2023-02-24_16_35_02.gif" alt="Color HUE of objects animated on distance" loading="eager" decoding="async"></div>
+                    <h3 class="card-title">Color HUE of objects animated on distance</h3>
+                </a>
+                
+                <a class="card" href="/tools/generative-art/cursor/draw-vector-curves-find-closer-path/">
+                    <div class="thumb"><img class="thumb-media" src="/tools/generative-art/assets/collection/Cursor/Draw%20vector%20curves,%20find%20closer%20path/Screen_Recording_2022-06-04_at_19.56.49.2022-06-04_19_57_53.gif" alt="Draw vector curves, find closer path" loading="eager" decoding="async"></div>
+                    <h3 class="card-title">Draw vector curves, find closer path</h3>
+                </a>
+                
+                <a class="card" href="/tools/generative-art/cursor/vector-drawing-tool/">
+                    <div class="thumb"><img class="thumb-media" src="/tools/generative-art/assets/collection/Cursor/Vector%20drawing%20tool/Screen_Recording_2022-06-04_at_19.34.13.2022-06-04_19_34_41.gif" alt="Vector drawing tool" loading="eager" decoding="async"></div>
+                    <h3 class="card-title">Vector drawing tool</h3>
+                </a>
+                
+                <a class="card" href="/tools/generative-art/cursor/select-object-and-move-it-change-cursor-type/">
+                    <div class="thumb"><img class="thumb-media" src="/tools/generative-art/assets/collection/Cursor/Select%20object%20and%20move%20it,%20change%20cursor%20type/Screen_Recording_2022-06-05_at_16.47.32.2022-06-05_16_48_11.gif" alt="Select object and move it, change cursor type" loading="eager" decoding="async"></div>
+                    <h3 class="card-title">Select object and move it, change cursor type</h3>
+                </a>
+                
+                <a class="card" href="/tools/generative-art/cursor/cursor-move-with-delta/">
+                    <div class="thumb"><img class="thumb-media" src="/tools/generative-art/assets/collection/Cursor/Cursor%20Move%20with%20Delta/Screen_Recording_2022-06-05_at_15.24.23.2022-06-05_15_24_53.gif" alt="Cursor Move with Delta" loading="eager" decoding="async"></div>
+                    <h3 class="card-title">Cursor Move with Delta</h3>
+                </a>
+                
+                <a class="card" href="/tools/generative-art/cursor/worm-cursor/">
+                    <div class="thumb"><img class="thumb-media" src="/tools/generative-art/assets/collection/Cursor/Worm%20cursor/Screen_Recording_2022-06-05_at_14.36.21.2022-06-05_14_37_04.gif" alt="Worm cursor" loading="eager" decoding="async"></div>
+                    <h3 class="card-title">Worm cursor</h3>
+                </a>
+                
+                <a class="card" href="/tools/generative-art/cursor/calculate-angle/">
+                    <div class="thumb"><img class="thumb-media" src="/tools/generative-art/assets/collection/Cursor/Calculate%20angle/Screen_Recording_2022-06-05_at_14.25.24.2022-06-05_14_26_01.gif" alt="Calculate angle" loading="eager" decoding="async"></div>
+                    <h3 class="card-title">Calculate angle</h3>
+                </a>
+                
+                <a class="card" href="/tools/generative-art/cursor/curve-move-to-attach-segment/">
+                    <div class="thumb"><img class="thumb-media" src="/tools/generative-art/assets/collection/Cursor/Curve%20move%20to%20attach%20segment/Screen_Recording_2022-06-05_at_14.28.36.2022-06-05_14_29_36.gif" alt="Curve move to attach segment" loading="eager" decoding="async"></div>
+                    <h3 class="card-title">Curve move to attach segment</h3>
+                </a>
+                
+                <a class="card" href="/tools/generative-art/cursor/3-chars-animation/">
+                    <div class="thumb"><img class="thumb-media" src="/tools/generative-art/assets/collection/Cursor/3%20chars%20animation/Screen_Recording_2022-08-26_at_22.41.16.2022-08-26_22_41_38.gif" alt="3 chars animation" loading="eager" decoding="async"></div>
+                    <h3 class="card-title">3 chars animation</h3>
+                </a>
+                
+                <a class="card" href="/tools/generative-art/cursor/array-of-objects-animation-on-click/">
+                    <div class="thumb"><img class="thumb-media" src="/tools/generative-art/assets/collection/Cursor/Array%20of%20objects%20animation%20on%20click/2022_09_07_11_03_PM_1662584625.2022-09-07_23_06_46.gif" alt="Array of objects animation on click" loading="eager" decoding="async"></div>
+                    <h3 class="card-title">Array of objects animation on click</h3>
+                </a>
+                
+                <a class="card" href="/tools/generative-art/cursor/getdistance/">
+                    <div class="thumb"><img class="thumb-media" src="/tools/generative-art/assets/collection/Cursor/getDistance/Screen_Recording_2022-06-25_at_10.54.08.2022-06-25_10_55_03.gif" alt="getDistance" loading="eager" decoding="async"></div>
+                    <h3 class="card-title">getDistance</h3>
+                </a>
+                
+                <a class="card" href="/tools/generative-art/cursor/hitresults/">
+                    <div class="thumb"><img class="thumb-media" src="/tools/generative-art/assets/collection/Cursor/HitResults/Screen_Recording_2022-07-07_at_23.02.13.2022-07-07_23_03_04.gif" alt="HitResults" loading="eager" decoding="async"></div>
+                    <h3 class="card-title">HitResults</h3>
+                </a>
+                
+                <a class="card" href="/tools/generative-art/cursor/circle-inside-circle-boundaries/">
+                    <div class="thumb"><img class="thumb-media" src="/tools/generative-art/assets/collection/Cursor/Circle%20inside%20circle%20boundaries/Screen_Recording_2022-07-22_at_21.34.04.2022-07-22_21_36_23.gif" alt="Circle inside circle boundaries" loading="eager" decoding="async"></div>
+                    <h3 class="card-title">Circle inside circle boundaries</h3>
+                </a>
+                
+                <a class="card" href="/tools/generative-art/cursor/scroll-to-zoom/">
+                    <div class="thumb"><img class="thumb-media" src="/tools/generative-art/assets/collection/Cursor/Scroll%20to%20Zoom/Screen_Recording_2022-06-05_at_16.45.20.2022-06-05_16_46_38.gif" alt="Scroll to Zoom" loading="eager" decoding="async"></div>
+                    <h3 class="card-title">Scroll to Zoom</h3>
+                </a>
+                
+                <a class="card" href="/tools/generative-art/cursor/animation-drawing-strokes/">
+                    <div class="thumb"><img class="thumb-media" src="/tools/generative-art/assets/collection/Cursor/Animation%20drawing%20strokes/Screen_Recording_2022-07-14_at_23.57.56.2022-07-15_00_00_10.gif" alt="Animation drawing strokes" loading="eager" decoding="async"></div>
+                    <h3 class="card-title">Animation drawing strokes</h3>
+                </a>
+                
+                <a class="card" href="/tools/generative-art/cursor/collision-detection/">
+                    <div class="thumb"><img class="thumb-media" src="/tools/generative-art/assets/collection/Cursor/Collision%20detection/ezgif.com-gif-maker.gif" alt="Collision detection" loading="eager" decoding="async"></div>
+                    <h3 class="card-title">Collision detection</h3>
+                </a>
+                
+                <a class="card" href="/tools/generative-art/cursor/ball-as-class-with-reaction-function/">
+                    <div class="thumb"><img class="thumb-media" src="/tools/generative-art/assets/collection/Cursor/Ball%20as%20Class%20with%20reaction%20function/Screen_Recording_2023-01-12_at_09.35.17.2023-01-12_09_35_49.gif" alt="Ball as Class with reaction function" loading="eager" decoding="async"></div>
+                    <h3 class="card-title">Ball as Class with reaction function</h3>
+                </a>
+                
+                <a class="card" href="/tools/generative-art/cursor/nearest-point/">
+                    <div class="thumb"><img class="thumb-media" src="/tools/generative-art/assets/collection/Cursor/Nearest%20Point/Screen_Recording_2022-06-05_at_15.26.53.2022-06-05_15_27_32.gif" alt="Nearest Point" loading="eager" decoding="async"></div>
+                    <h3 class="card-title">Nearest Point</h3>
+                </a>
+                
+                <a class="card" href="/tools/generative-art/cursor/modify-pattern-by-moving-points/">
+                    <div class="thumb"><img class="thumb-media" src="/tools/generative-art/assets/collection/Cursor/Modify%20pattern%20by%20moving%20points/Screen_Recording_2023-04-23_at_11.56.35.2023-04-23_11_57_53.gif" alt="Modify pattern by moving points" loading="eager" decoding="async"></div>
+                    <h3 class="card-title">Modify pattern by moving points</h3>
+                </a>
+                
+                <a class="card" href="/tools/generative-art/cursor/wiggle-drawing/">
+                    <div class="thumb"><img class="thumb-media" src="/tools/generative-art/assets/collection/Cursor/Wiggle%20drawing/Screen_Recording_2022-08-20_at_22.15.28.2022-08-20_22_22_37.gif" alt="Wiggle drawing" loading="eager" decoding="async"></div>
+                    <h3 class="card-title">Wiggle drawing</h3>
+                </a>
+                
+                <a class="card" href="/tools/generative-art/cursor/select-path-segment-on-click/">
+                    <div class="thumb"><img class="thumb-media" src="/tools/generative-art/assets/collection/Cursor/Select%20path%20segment%20on%20click/Screen_Recording_2023-01-21_at_21.50.52.2023-01-21_21_52_08.gif" alt="Select path segment on click" loading="eager" decoding="async"></div>
+                    <h3 class="card-title">Select path segment on click</h3>
+                </a>
+                
+                <a class="card" href="/tools/generative-art/cursor/draw-rects-and-circles/">
+                    <div class="thumb"><img class="thumb-media" src="/tools/generative-art/assets/collection/Cursor/Draw%20rects%20and%20circles/Screen_Recording_2023-01-21_at_12.29.36_PM.2023-01-21_12_30_53.gif" alt="Draw rects and circles" loading="eager" decoding="async"></div>
+                    <h3 class="card-title">Draw rects and circles</h3>
+                </a>
+                
+                <a class="card" href="/tools/generative-art/cursor/follow-the-cursor/">
+                    <div class="thumb"><img class="thumb-media" src="/tools/generative-art/assets/collection/Cursor/Follow%20the%20cursor/Screen_Recording_2024-05-29_at_09.03.53.2024-05-29_09_04_53.gif" alt="Follow the cursor" loading="eager" decoding="async"></div>
+                    <h3 class="card-title">Follow the cursor</h3>
+                </a>
+                
+                </div>
+            </section>
+            
+            <section class="gallery-section" id="path">
+                <div class="section-header">
+                    <div>
+                        <h2>Path</h2>
+                        <p class="summary">Creative vector and path experiments.</p>
+                    </div>
+                    <span class="count">20 examples</span>
+                </div>
+                <div class="grid">
+                    
+                <a class="card" href="/tools/generative-art/path/circle-made-of-points/">
+                    <div class="thumb"><img class="thumb-media" src="/tools/generative-art/assets/collection/Path/Circle%20made%20of%20points/Screenshot_2024-01-18_at_08.16.18.png" alt="Circle made of points" loading="eager" decoding="async"></div>
+                    <h3 class="card-title">Circle made of points</h3>
+                </a>
+                
+                <a class="card" href="/tools/generative-art/path/lines-made-of-points/">
+                    <div class="thumb"><img class="thumb-media" src="/tools/generative-art/assets/collection/Path/Lines%20made%20of%20points/Screenshot_2024-01-18_at_08.18.40.png" alt="Lines made of points" loading="eager" decoding="async"></div>
+                    <h3 class="card-title">Lines made of points</h3>
+                </a>
+                
+                <a class="card" href="/tools/generative-art/path/pacman/">
+                    <div class="thumb"><img class="thumb-media" src="/tools/generative-art/assets/collection/Path/Pacman/Screenshot_2024-01-18_at_19.54.21.png" alt="Pacman" loading="eager" decoding="async"></div>
+                    <h3 class="card-title">Pacman</h3>
+                </a>
+                
+                <a class="card" href="/tools/generative-art/path/flower-pattern/">
+                    <div class="thumb"><img class="thumb-media" src="/tools/generative-art/assets/collection/Path/Flower%20pattern/Screenshot_2024-01-16_at_15.57.48.png" alt="Flower pattern" loading="eager" decoding="async"></div>
+                    <h3 class="card-title">Flower pattern</h3>
+                </a>
+                
+                <a class="card" href="/tools/generative-art/path/circles-pattern/">
+                    <div class="thumb"><img class="thumb-media" src="/tools/generative-art/assets/collection/Path/Circles%20pattern/Screenshot_2024-01-18_at_20.28.42.png" alt="Circles pattern" loading="eager" decoding="async"></div>
+                    <h3 class="card-title">Circles pattern</h3>
+                </a>
+                
+                <a class="card" href="/tools/generative-art/path/dash-by-lines/">
+                    <div class="thumb"><img class="thumb-media" src="/tools/generative-art/assets/collection/Path/Dash%20by%20lines/Screenshot_2022-06-04_at_20.20.55.png" alt="Dash by lines" loading="eager" decoding="async"></div>
+                    <h3 class="card-title">Dash by lines</h3>
+                </a>
+                
+                <a class="card" href="/tools/generative-art/path/quick-squircle/">
+                    <div class="thumb"><img class="thumb-media" src="/tools/generative-art/assets/collection/Path/Quick%20Squircle/Screen_Recording_2022-08-15_at_23.01.10.2022-08-15_23_02_07.gif" alt="Quick Squircle" loading="eager" decoding="async"></div>
+                    <h3 class="card-title">Quick Squircle</h3>
+                </a>
+                
+                <a class="card" href="/tools/generative-art/path/fake-blur/">
+                    <div class="thumb"><img class="thumb-media" src="/tools/generative-art/assets/collection/Path/Fake%20blur/Screenshot_2023-12-28_at_10.31.33.png" alt="Fake blur" loading="eager" decoding="async"></div>
+                    <h3 class="card-title">Fake blur</h3>
+                </a>
+                
+                <a class="card" href="/tools/generative-art/path/sunflower/">
+                    <div class="thumb"><img class="thumb-media" src="/tools/generative-art/assets/collection/Path/Sunflower/Screenshot_2024-01-21_at_11.14.43.png" alt="Sunflower" loading="eager" decoding="async"></div>
+                    <h3 class="card-title">Sunflower</h3>
+                </a>
+                
+                <a class="card" href="/tools/generative-art/path/circles-pattern-hole-center/">
+                    <div class="thumb"><img class="thumb-media" src="/tools/generative-art/assets/collection/Path/Circles%20Pattern%20Hole%20Center/Screenshot_2022-06-04_at_20.28.26.png" alt="Circles Pattern Hole Center" loading="eager" decoding="async"></div>
+                    <h3 class="card-title">Circles Pattern Hole Center</h3>
+                </a>
+                
+                <a class="card" href="/tools/generative-art/path/circles-sin-radius/">
+                    <div class="thumb"><img class="thumb-media" src="/tools/generative-art/assets/collection/Path/Circles%20Sin%20Radius/Screenshot_2022-06-04_at_20.26.06.png" alt="Circles Sin Radius" loading="eager" decoding="async"></div>
+                    <h3 class="card-title">Circles Sin Radius</h3>
+                </a>
+                
+                <a class="card" href="/tools/generative-art/path/circles-sin-radius-65b21a45/">
+                    <div class="thumb"><img class="thumb-media" src="/tools/generative-art/assets/collection/Path/Circles%20Sin%20Radius%2065b2-b248/SCR-20240621-sipb.png" alt="Circles Sin Radius" loading="eager" decoding="async"></div>
+                    <h3 class="card-title">Circles Sin Radius</h3>
+                </a>
+                
+                <a class="card" href="/tools/generative-art/path/circles-pattern-hole-in-center/">
+                    <div class="thumb"><img class="thumb-media" src="/tools/generative-art/assets/collection/Path/Circles%20Pattern%20Hole%20in%20Center/Screenshot_2022-06-04_at_18.21.27.png" alt="Circles Pattern Hole in Center" loading="eager" decoding="async"></div>
+                    <h3 class="card-title">Circles Pattern Hole in Center</h3>
+                </a>
+                
+                <a class="card" href="/tools/generative-art/path/spiral/">
+                    <div class="thumb"><img class="thumb-media" src="/tools/generative-art/assets/collection/Path/Spiral/Screenshot_2022-06-05_at_22.25.53.png" alt="Spiral" loading="eager" decoding="async"></div>
+                    <h3 class="card-title">Spiral</h3>
+                </a>
+                
+                <a class="card" href="/tools/generative-art/path/color-linear-interpolation/">
+                    <div class="thumb"><img class="thumb-media" src="/tools/generative-art/assets/collection/Path/Color%20linear%20interpolation/Screenshot_2022-06-05_at_15.28.29.png" alt="Color linear interpolation" loading="eager" decoding="async"></div>
+                    <h3 class="card-title">Color linear interpolation</h3>
+                </a>
+                
+                <a class="card" href="/tools/generative-art/path/rainbow-along-the-path-hue/">
+                    <div class="thumb"><img class="thumb-media" src="/tools/generative-art/assets/collection/Path/Rainbow%20along%20the%20path,%20hue/Screen_Recording_2022-06-04_at_20.22.09.2022-06-04_20_22_47.gif" alt="Rainbow along the path, hue" loading="eager" decoding="async"></div>
+                    <h3 class="card-title">Rainbow along the path, hue</h3>
+                </a>
+                
+                <a class="card" href="/tools/generative-art/path/colored-pie-chart/">
+                    <div class="thumb"><img class="thumb-media" src="/tools/generative-art/assets/collection/Path/Colored%20pie%20chart/Screenshot_2022-06-05_at_14.48.08.png" alt="Colored pie chart" loading="eager" decoding="async"></div>
+                    <h3 class="card-title">Colored pie chart</h3>
+                </a>
+                
+                <a class="card" href="/tools/generative-art/path/triangular-mesh/">
+                    <div class="thumb"><img class="thumb-media" src="/tools/generative-art/assets/collection/Path/Triangular%20Mesh/Screen_Recording_2023-01-10_at_22.12.15.2023-01-10_22_14_31.gif" alt="Triangular Mesh" loading="eager" decoding="async"></div>
+                    <h3 class="card-title">Triangular Mesh</h3>
+                </a>
+                
+                <a class="card" href="/tools/generative-art/path/rotate-copies-around-center-by-using-math-pi/">
+                    <div class="thumb"><img class="thumb-media" src="/tools/generative-art/assets/collection/Path/Rotate%20copies%20around%20center%20by%20using%20Math%20PI/Screenshot_2024-01-29_at_13.55.24.png" alt="Rotate copies around center by using Math.PI" loading="eager" decoding="async"></div>
+                    <h3 class="card-title">Rotate copies around center by using Math.PI</h3>
+                </a>
+                
+                <a class="card" href="/tools/generative-art/path/rotate-copies-around-center-by-using-math-pi-rotate-objects-to-center/">
+                    <div class="thumb"><img class="thumb-media" src="/tools/generative-art/assets/collection/Path/Rotate%20copies%20around%20center%20by%20using%20Math%20PI,%20rota/Screenshot_2024-01-29_at_14.11.51.png" alt="Rotate copies around center by using Math.PI, rotate objects to center" loading="eager" decoding="async"></div>
+                    <h3 class="card-title">Rotate copies around center by using Math.PI, rotate objects to center</h3>
+                </a>
+                
+                </div>
+            </section>
+            
+    </main>
+</body>
+</html>

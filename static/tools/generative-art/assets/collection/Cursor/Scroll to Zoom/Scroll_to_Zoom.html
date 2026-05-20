@@ -1,0 +1,139 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<meta http-equiv="X-UA-Compatible" content="ie=edge" />
+<title>Paper.js</title>
+<link rel="stylesheet" href="./../PaperJSEngine/style.css" />
+<script type="text/javascript" src="./../PaperJSEngine/paper-full.js"></script>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+</head>
+<body>
+<canvas id="canvas" resize>
+</canvas>
+
+<script type="text/javascript">
+
+
+$(document).ready(function () {
+
+    paper.setup($('#canvas').get(0))
+
+    var textGroup = new paper.Group()
+
+    var object = new paper.Path.Rectangle({
+        size: 20,
+        fillColor: 'blue',
+        position: paper.view.center,
+        radius: 1,
+        applyMatrix: false,
+        parent: textGroup
+    })
+
+    var text = new paper.PointText({
+        point: object.position,
+        content: 'The text',
+        fillColor: 'blue',
+        fontWeight: 'bold',
+        fontSize: 2,
+        parent: textGroup,
+        justification: 'center'
+    })
+
+    // console.log(text.bounds.width)
+    var textRect = new paper.Path.Rectangle({
+        size: text.bounds,
+        fillColor: 'whitesmoke',
+        position: text.position,
+        opacity: 0,
+        // scaling: 0.2
+    })
+    
+    paper.view.onMouseDrag = function(event){
+        paper.project.activeLayer.position = event.point
+    }
+
+    $("#canvas" ).on( 'wheel', function(e) {
+
+        // object.position.y -= e.originalEvent.deltaY
+        // object.position.x -= e.originalEvent.deltaX
+        // console.log(e.originalEvent)
+        // var scaleTop = if 
+        // paper.project.activeLayer.scale(1.1)
+
+        var scale = 1
+        var scaleSteps = 0.05
+        if (e.originalEvent.wheelDelta > 0){
+            // console.log("down")
+            scale += scaleSteps
+        } else{
+            // console.log("up")
+            scale -= scaleSteps
+        }
+        // console.log(paper.project.activeLayer.bounds.size.width)
+
+        if (paper.project.activeLayer.bounds.size.width > 200){
+            animateState(true, e)
+        } else{
+            animateState(false, e)
+        }
+
+        paper.project.activeLayer.scale(scale)
+
+    })
+
+    function animateState(isZoomed, e){
+        if (isZoomed){
+            object.fillColor = 'whitesmoke'
+            text.opacity = 1
+            textRect.opacity = 0
+        } else{
+            object.fillColor = 'blue'
+            text.opacity = 0
+            textRect.opacity = 1
+        }
+
+        // if (isZoomed){
+        //     object.tween(
+        //         { fillColor: 'whitesmoke' },
+        //         50
+        //     )
+        //     text.tween(
+        //         {'opacity': 1},
+        //         50
+        //     )
+        //     textRect.tween(
+        //         {'opacity': 0},
+        //         50
+        //     )
+        // } else{
+        //     object.tween(
+        //         { fillColor: 'blue' },
+        //         50
+        //     )
+        //     text.tween(
+        //         {'opacity': 0},
+        //         50
+        //     )
+        //     textRect.tween(
+        //         {'opacity': 1},
+        //         50
+        //     )
+        // }
+    }
+
+    
+
+
+
+
+
+})
+    
+
+
+</script>
+
+</body>
+</html>
