@@ -1,5 +1,6 @@
 +++
 title = "Taskmoji: Simplified To-Do App for People Who Hate To-Do Apps"
+short_title = "Taskmoji To-Do App"
 date = 2016-09-07T10:53:16+02:00
 aliases = ["/posts/blog/archive/taskmoji-simplified-to-do-app-for-people-who-hate-to-do-apps/"]
 draft = false

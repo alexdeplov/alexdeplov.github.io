@@ -1,5 +1,6 @@
 +++
 title = "New App Release Newspaper for iPad"
+short_title = "Newspaper for iPad"
 date = 2016-04-12T09:51:03+02:00
 aliases = ["/posts/blog/archive/new-app-release-newspaper-for-ipad/"]
 draft = false

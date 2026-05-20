@@ -1,5 +1,6 @@
 +++
 title = "Opera Browser Onboarding UX Analysis"
+short_title = "Opera Browser UX"
 date = 2024-11-01T16:28:45+01:00
 aliases = ["/posts/blog/2024/opera-browser-onboarding-ux-analysis/"]
 draft = false
@@ -9,6 +10,9 @@ tags = ["case-studies"]
 +++
 
 <iframe src="https://docs.google.com/presentation/d/e/2PACX-1vQlk_bUStpNmEc5hiQs7nGSU7qHR1J5z4bi4TDNpvF4pSI5bCRIlzCHPKMvLY21Cg/embed?start=false&loop=false&delayms=3000" frameborder="0" width="100%" allowfullscreen="true" mozallowfullscreen="true" webkitallowfullscreen="true" style="width: 100%; aspect-ratio: 16/10" autofocus></iframe>
+
+<details>
+<summary>Text version</summary>
 
 Inspired by the [Product Psychology Masterclass](https://growth.design/course), I did an analysis of the Opera browser onboarding to find the peaks and valleys in the journey. 
 
@@ -144,6 +148,5 @@ And the fact that you can install millions of existing extensions made for Googl
 ## Conclusion
 Opera has a powerful browser with a lot of unique features. However, the onboarding experience fails to showcase these strengths and instead leaves the user feeling frustrated and deceived. By prioritizing user control, transparency, and highlighting key features, Opera could significantly improve its onboarding and leave a positive first impression.
 
-
-
+</details>
 

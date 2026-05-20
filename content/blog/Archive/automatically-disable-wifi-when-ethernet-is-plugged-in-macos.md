@@ -1,5 +1,6 @@
 ---
 title: "Automatically Disable Wi-Fi When Ethernet Is Plugged in macOS"
+short_title: "Auto Disable Wi-Fi"
 date: 2025-11-12T14:33:35+01:00
 draft: false
 tags: ["macOS", "automation"]

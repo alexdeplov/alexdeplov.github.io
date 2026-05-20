@@ -1,0 +1,56 @@
+<main class="max-w-2xl mx-auto px-4 py-12">
+    <header class="mb-16 text-zinc-500">
+        <a href="/" class="font-semibold mb-1 block no-underline hover:underline hover:text-black">Alexander Deplov</a>
+    </header>
+
+    {{ $articles := where .Site.RegularPages "Section" "blog" }}
+    {{ $topArticleLinks := slice
+        "/blog/2026/desktop-phone-connected-to-freebsd-server/"
+        "/blog/2025/how-i-automated-my-computer-life-with-macos-folder-actions/"
+        "/blog/2025/mate-on-freebsd-macos-like-setup-guide-font-rendering-ui-tweaks-and-settings/"
+        "/blog/2025/freebsd-vs-macos-for-daily-use-my-personal-migration-story/"
+        "/blog/2024/why-i-ditched-my-apple-watch-for-a-quartz-watch/"
+        "/blog/2023/why-layout-evolution-matters-in-ui-design/"
+    }}
+
+    <section>
+        <h2 class="text-[22px] font-semibold leading-tight mb-6 text-zinc-700 dark:text-zinc-300">Top Articles</h2>
+        <div class="space-y-0">
+            {{- range $topArticleLinks }}
+            {{- $topArticleLink := . }}
+            {{- range $articles.ByDate.Reverse }}
+            {{- if eq .RelPermalink $topArticleLink }}
+            <article class="group">
+                <a href="{{ .RelPermalink }}" class="post-title-link inline-flex items-center gap-3 py-1 no-underline hover:underline">
+                    <span class="shrink-0 w-2 h-2 bg-zinc-400 rounded-sm"></span>
+                    <h2 class="font-medium inline text-zinc-600 dark:text-zinc-300" style="font-size:18px">{{ with .Params.short_title }}{{ . }}{{ else }}{{ .Title }}{{ end }}{{ if .Params.featured }}<span class="blog-post-star" aria-hidden="true">●</span>{{ end }}</h2>
+                </a>
+            </article>
+            {{- end }}
+            {{- end }}
+            {{- end }}
+        </div>
+    </section>
+
+    <hr class="my-10 border-zinc-200 dark:border-zinc-800">
+
+    <section>
+        <h2 class="text-[22px] font-semibold leading-tight mb-6 text-zinc-700 dark:text-zinc-300">All Articles</h2>
+        <div class="space-y-0">
+        {{- range $articles.ByDate.Reverse }}
+        {{- if not (in $topArticleLinks .RelPermalink) }}
+        <article class="group">
+            <a href="{{ .RelPermalink }}" class="post-title-link inline-flex items-center gap-3 py-1 no-underline hover:underline">
+                <span class="shrink-0 w-2 h-2 bg-zinc-400 rounded-sm"></span>
+                <h2 class="font-medium inline text-zinc-600 dark:text-zinc-300" style="font-size:18px">{{ with .Params.short_title }}{{ . }}{{ else }}{{ .Title }}{{ end }}{{ if .Params.featured }}<span class="blog-post-star" aria-hidden="true">●</span>{{ end }}</h2>
+            </a>
+        </article>
+        {{- end }}
+        {{- end }}
+        </div>
+    </section>
+
+    <footer class="mt-16 pb-8 text-sm font-medium text-zinc-500 dark:text-zinc-400">
+        &copy; 2026 Alexander Deplov, designer and developer of iOS and macOS apps, product designer.
+    </footer>
+</main>

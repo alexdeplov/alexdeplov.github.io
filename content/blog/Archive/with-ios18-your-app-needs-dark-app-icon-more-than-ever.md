@@ -1,5 +1,6 @@
 +++
 title = "With iOS 18 Your App Needs Dark App Icon More Than Ever"
+short_title = "iOS 18 Dark App Icon"
 date = 2024-09-24T17:02:50+02:00
 aliases = ["/posts/blog/2024/with-ios18-your-app-needs-dark-app-icon-more-than-ever/"]
 draft = false

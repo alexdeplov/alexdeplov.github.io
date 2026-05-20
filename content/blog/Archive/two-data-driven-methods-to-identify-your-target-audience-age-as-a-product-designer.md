@@ -1,5 +1,6 @@
 +++
 title = "Two Data-Driven Methods to Identify Your Target Audience Age"
+short_title = "Target Audience Age"
 date = 2024-07-29T13:13:53+02:00
 aliases = ["/posts/blog/2024/two-data-driven-methods-to-identify-your-target-audience-age-as-a-product-designer/"]
 draft = false
@@ -45,5 +46,4 @@ At some point, when you have enough data, you can do the next two things:
 I used both techniques when building [Anchor Pointer GPS Compass for iOS](https://interfacecraft.online/posts/portfolio/navigating_success_11_years_of_innovation_with_anchor_pointer_gps_compass/). Initially, I imagined that our target audience was a teenager, it turned out to be 50 - 69+.
 
 By using this method you can create gather most of the important data about your users, not only an age. 
-
 

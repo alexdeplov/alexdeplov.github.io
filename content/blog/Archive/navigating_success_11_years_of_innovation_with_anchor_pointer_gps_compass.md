@@ -1,5 +1,6 @@
 +++
 title = "Navigating Success: 11 Years of Innovation with Anchor Pointer GPS Compass"
+short_title = "Anchor Pointer 11 Years"
 date = 2024-07-04T21:52:14+02:00
 aliases = ["/posts/blog/2024/navigating_success_11_years_of_innovation_with_anchor_pointer_gps_compass/"]
 draft = false
@@ -157,5 +158,4 @@ Back to 2013, when app was released most popular monetization model was free app
 
 
 During my 11 years on the App Store, I learned a lot about ADS, user research, the development process, code, business, and other areas that ultimately helped me become a better designer. 
-
 

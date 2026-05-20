@@ -1,5 +1,6 @@
 +++
 title = "Interface Has Conversations with User"
+short_title = "Interface Conversations"
 date = 2025-02-05T22:25:51+01:00
 aliases = ["/posts/blog/2025/Interface_has_conversations_with_user/"]
 draft = true

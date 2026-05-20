@@ -1,5 +1,6 @@
 +++
 title = "Product Page Optimization Anchor Pointer App"
+short_title = "Anchor Pointer Product Page"
 date = 2024-07-14T13:24:09+02:00
 aliases = ["/posts/blog/2024/asc-product-page-optimization-anchor-pointer-app/"]
 draft = true
@@ -17,5 +18,4 @@ The test ran for 14 days and ended with +7.92% improvement and 40.3% confidence.
 
 ### Treatment A (the winner):
 ![](images/3.jpg)
-
 
