@@ -1,0 +1,97 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>Typography System</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <script src="https://cdn.tailwindcss.com/3.3.1"></script>    
+  <link rel="stylesheet" type="text/css" href="./fontKit.css">
+  <link rel="stylesheet" type="text/css" href="./spacingKit.css">
+</head>
+<body class="bg-gray-50 p-10">
+
+  <div class="max-w-4xl mx-auto bg-white p-12 rounded-2xl shadow-sm">
+    <div class="header mb-12 border-b pb-8">
+      <h1 class="text-4xl font-bold tracking-tight mb-4">Typography System</h1>
+      <p class="text-lg text-secondary leading-relaxed">A consistent, modular scale-based system designed for professional legibility and hierarchy.</p>
+    </div>
+
+    <!-- Scale -->
+    <section class="mb-16">
+      <h2 class="text-2xl font-bold mb-8 pb-2 border-b">Type Scale</h2>
+      
+      <div class="grid gap-8">
+        <div class="flex items-baseline gap-4">
+          <span class="w-32 text-xs text-tertiary uppercase tracking-wide font-bold">6XL (64px)</span>
+          <div class="text-6xl font-bold tracking-tight">The quick brown fox</div>
+        </div>
+        <div class="flex items-baseline gap-4">
+          <span class="w-32 text-xs text-tertiary uppercase tracking-wide font-bold">5XL (48px)</span>
+          <div class="text-5xl font-bold tracking-tight">The quick brown fox</div>
+        </div>
+        <div class="flex items-baseline gap-4">
+          <span class="w-32 text-xs text-tertiary uppercase tracking-wide font-bold">4XL (40px)</span>
+          <div class="text-4xl font-bold tracking-tight">The quick brown fox</div>
+        </div>
+        <div class="flex items-baseline gap-4">
+          <span class="w-32 text-xs text-tertiary uppercase tracking-wide font-bold">3XL (32px)</span>
+          <div class="text-3xl font-bold tracking-tight">The quick brown fox</div>
+        </div>
+        <div class="flex items-baseline gap-4">
+          <span class="w-32 text-xs text-tertiary uppercase tracking-wide font-bold">2XL (24px)</span>
+          <div class="text-2xl font-bold">The quick brown fox jumps over the lazy dog</div>
+        </div>
+        <div class="flex items-baseline gap-4">
+          <span class="w-32 text-xs text-tertiary uppercase tracking-wide font-bold">XL (20px)</span>
+          <div class="text-xl font-semibold">The quick brown fox jumps over the lazy dog</div>
+        </div>
+        <div class="flex items-baseline gap-4">
+          <span class="w-32 text-xs text-tertiary uppercase tracking-wide font-bold">LG (18px)</span>
+          <div class="text-lg font-medium">The quick brown fox jumps over the lazy dog</div>
+        </div>
+        <div class="flex items-baseline gap-4">
+          <span class="w-32 text-xs text-tertiary uppercase tracking-wide font-bold">Base (16px)</span>
+          <div class="text-base">The quick brown fox jumps over the lazy dog</div>
+        </div>
+        <div class="flex items-baseline gap-4">
+          <span class="w-32 text-xs text-tertiary uppercase tracking-wide font-bold">SM (14px)</span>
+          <div class="text-sm">The quick brown fox jumps over the lazy dog</div>
+        </div>
+        <div class="flex items-baseline gap-4">
+          <span class="w-32 text-xs text-tertiary uppercase tracking-wide font-bold">XS (12px)</span>
+          <div class="text-xs">The quick brown fox jumps over the lazy dog</div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Usage Examples -->
+    <section>
+      <h2 class="text-2xl font-bold mb-8 pb-2 border-b">Usage Examples</h2>
+      
+      <div class="grid gap-12">
+        <!-- Hero -->
+        <div>
+          <span class="text-xs text-tertiary uppercase tracking-wide font-bold block mb-4">Hero Section</span>
+          <div class="border p-8 rounded-xl bg-gray-50">
+            <h1 class="text-5xl font-bold tracking-tight text-primary mb-6">Product Designer crafting AI experiences</h1>
+            <p class="text-xl font-medium text-secondary leading-relaxed">I lead product design from concept to launch, shaping intuitive experiences for wellness, AI, and creative tools.</p>
+          </div>
+        </div>
+
+        <!-- Section Header + Content -->
+        <div>
+          <span class="text-xs text-tertiary uppercase tracking-wide font-bold block mb-4">Section Header + Content</span>
+          <div class="border p-8 rounded-xl bg-white">
+            <h2 class="text-3xl font-bold tracking-tight text-primary mb-4">Case Study</h2>
+            <div class="text-xl font-semibold text-primary mb-1">Concept Project</div>
+            <div class="text-sm text-tertiary mb-3">Product Design · 2023</div>
+            <p class="text-base text-secondary leading-relaxed max-w-2xl">
+              User-centered design is a fundamental method for creating successful mobile apps. It involves putting the user's needs and preferences at the forefront of the design process.
+            </p>
+          </div>
+        </div>
+      </div>
+    </section>
+  </div>
+</body>
+</html>

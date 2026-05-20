@@ -1,0 +1,93 @@
+:root {
+    /* Scale: Major Third (1.250) approx */
+    --font-xs: 0.75rem;    /* 12px */
+    --font-sm: 0.875rem;   /* 14px */
+    --font-base: 1rem;     /* 16px */
+    --font-lg: 1.125rem;   /* 18px */
+    --font-xl: 1.25rem;    /* 20px */
+    --font-2xl: 1.5rem;    /* 24px */
+    --font-3xl: 2rem;      /* 32px */
+    --font-4xl: 2.5rem;    /* 40px */
+    --font-5xl: 3rem;      /* 48px */
+    --font-6xl: 4rem;      /* 64px */
+
+    /* Weights */
+    --weight-regular: 400;
+    --weight-medium: 500;
+    --weight-semibold: 600;
+    --weight-bold: 700;
+
+    /* Line Heights */
+    --leading-none: 1;
+    --leading-tight: 1.1;
+    --leading-snug: 1.3;
+    --leading-normal: 1.5;
+    --leading-relaxed: 1.625;
+
+    /* Tracking */
+    --tracking-tighter: -0.05em;
+    --tracking-tight: -0.025em;
+    --tracking-normal: 0;
+    --tracking-wide: 0.025em;
+}
+
+body {
+    font-family: 'Inter', ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+    font-weight: var(--weight-regular);
+    font-size: var(--font-base);
+    line-height: var(--leading-normal);
+    color: #1a1a1a;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+}
+
+/* Typography Utilities */
+
+/* Sizes */
+.text-xs { font-size: var(--font-xs); }
+.text-sm { font-size: var(--font-sm); }
+.text-base { font-size: var(--font-base); }
+.text-lg { font-size: var(--font-lg); }
+.text-xl { font-size: var(--font-xl); }
+.text-2xl { font-size: var(--font-2xl); }
+.text-3xl { font-size: var(--font-3xl); }
+.text-4xl { font-size: var(--font-4xl); } /* Mobile-first default */
+.text-5xl { font-size: var(--font-5xl); }
+.text-6xl { font-size: var(--font-6xl); }
+
+/* Headings Responsiveness */
+@media (max-width: 768px) {
+    .text-4xl { font-size: 2rem; } /* 32px on mobile */
+    .text-5xl { font-size: 2.5rem; } /* 40px on mobile */
+    .text-6xl { font-size: 3rem; } /* 48px on mobile */
+}
+
+/* Weights */
+.font-regular { font-weight: var(--weight-regular); }
+.font-medium { font-weight: var(--weight-medium); }
+.font-semibold { font-weight: var(--weight-semibold); }
+.font-bold { font-weight: var(--weight-bold); }
+
+/* Leading (Line Height) */
+.leading-none { line-height: var(--leading-none); }
+.leading-tight { line-height: var(--leading-tight); }
+.leading-snug { line-height: var(--leading-snug); }
+.leading-normal { line-height: var(--leading-normal); }
+.leading-relaxed { line-height: var(--leading-relaxed); }
+
+/* Tracking (Letter Spacing) */
+.tracking-tighter { letter-spacing: var(--tracking-tighter); }
+.tracking-tight { letter-spacing: var(--tracking-tight); }
+.tracking-normal { letter-spacing: var(--tracking-normal); }
+.tracking-wide { letter-spacing: var(--tracking-wide); }
+
+/* Transforms */
+.uppercase { text-transform: uppercase; letter-spacing: 0.05em; }
+.sentence { text-transform: none; }
+
+/* Colors - Helper for typography */
+.text-primary { color: #0b002b; }
+.text-secondary { color: #52525b; } /* Neutral-600 */
+.text-tertiary { color: #a1a1aa; } /* Neutral-400 */
+
+
