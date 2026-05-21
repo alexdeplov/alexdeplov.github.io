@@ -88,7 +88,7 @@
     }
     </script>
 
-    {{ $articles := where .Site.RegularPages "Section" "blog" }}
+    {{ $articles := where (where .Site.RegularPages "Section" "blog") "Params.hide_from_home" "ne" true }}
     <section>
       <div class="flex items-center gap-4 mb-6">
         <a href="/blog/" class="blog-heading-link underline hover:underline">
