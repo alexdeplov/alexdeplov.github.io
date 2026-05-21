@@ -290,6 +290,10 @@
             text-decoration-thickness: 2px;
         }
 
+        .sketch-link {
+            flex: 0 0 100%;
+        }
+
         .button {
             display: inline;
             align-items: center;
@@ -338,16 +342,80 @@
             .content-section p { color: #b4b4b4; }
         }
 
-        pre {
-            overflow: auto;
-            margin: 0;
-            border: 1px solid #2a2a2a;
+        .code-block {
+            margin: 1em 0;
+            overflow: hidden;
             border-radius: 0.5rem;
-            padding: 18px;
-            background: #111;
-            color: #f5f5f5;
-            font-size: 14px;
+            background-color: #181818;
+        }
+
+        @media (prefers-color-scheme: dark) {
+            .code-block {
+                background-color: hsl(232, 20.3%, 6.4%);
+            }
+        }
+
+        .code-toolbar {
+            display: flex;
+            align-items: center;
+            justify-content: flex-start;
+            min-height: 26px;
+            background: inherit;
+        }
+
+        .code-toolbar-top {
+            padding: 10px 9px 0;
+        }
+
+        .code-toolbar-bottom {
+            padding: 0 1.5em 10px;
+        }
+
+        .copy-code-button {
+            appearance: none;
+            border: 1px solid rgba(171, 178, 191, 0.26);
+            border-radius: 0.3rem;
+            padding: 4px 8px;
+            background: transparent;
+            color: #abb2bf;
+            font: inherit;
+            font-size: 12px;
+            font-weight: 700;
+            line-height: 1.2;
+            cursor: pointer;
+        }
+
+        .copy-code-button:hover,
+        .copy-code-button.copied {
+            border-color: rgba(244, 108, 4, 0.55);
+            color: var(--accent);
+        }
+
+        .highlight pre {
+            overflow-x: auto;
+            margin: 0;
+            border: 0;
+            border-radius: 0;
+            padding: 1.5em;
+            box-sizing: border-box;
+            background: transparent !important;
+            color: #abb2bf;
+            font-family: "IBM Plex Mono", ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono", monospace;
+            font-size: 0.8rem;
+            font-weight: 400 !important;
             line-height: 1.5;
+            white-space: pre;
+            max-width: 100%;
+        }
+
+        @media (prefers-color-scheme: dark) {
+            .highlight pre {
+                background: transparent !important;
+            }
+        }
+
+        .highlight code {
+            display: block;
             white-space: pre;
         }
 
@@ -403,69 +471,74 @@
             <section class="preview-panel" aria-label="Preview">
                 <img class="preview-media" src="/tools/generative-art/assets/collection/Animation/Spirograph%20star/Screen_Recording_2022-06-05_at_13.50.49.2022-06-05_13_51_49.gif" alt="Spirograph star" loading="eager" decoding="async">
             </section>
-            <div class="actions"><a class="text-link" href="http://sketch.paperjs.org/#V/0.12.17/S/jVVNj9owEP0rFhdCoa7DNlUFpZeVuqeqq+6hh4WDkxhw8dqR7bClK/57x7HJ14a2CBTbM2/mzTxPeBlJ+sRGi9HDgdlsP5qNMpW7/ZFqlO7QCkn2jO6p3ePvLLNU7gSLXtYSwcfw32yBjpw941SVMjczf77lQtwqofQCjVNBs8M4GApluOVKBlDGpGV6Lc+TtXTpMqEkM5Dyo99XyWB784Ggd8HqLTutyiJwu3PrKIRIlc6ZvuU6q5A1d38StdLOUBwngGojsLFaHVjFHdDjnOpDKko2HnT7wXO7BzeC5z27KmjG7cnZ1nILsSLHjbv9Eh6fQi2wnk4nKHTTuRS0ini95U3bk1lzomnOS9M9a3FcOIqvTI1CUGDLOigSmqJHAi2bk03LNdS5cGW6vROyCuG4a2WpZZEX8Q3is3a84FjpiGme3+65yCOHA8vZa6nSn/GyXkInzN2Q7NDhUmaOMVLyi4bbHLEjJKkb65MEOnHI3I54sb0lmNx0mF16gX9B1hZ92E/RV1dlpoxPB6tSWigUgryfwDMhg5FOvUinSyTD5T8iVTNSob5tjaU6dKKgBcS5V1zaKCagUkImywbxdHp45evyudOoHQ6A8IXfnIQmeGh/KsJEtBzqgfdmN/Ed+5EbnlYDuaXCsFqBGE6CSzURUSNO3AJZXbIB1epr49wDkm9Rte1yXkHxpRD1jahz9CrTLB/3PTIquNyh6QrNQakYJyDIVb3mgcY5vAgHRt9fh8wR10xiweTO7rtvgotyvlqAdjGPfNMjeblc4Oox9cn1evG+ZK6qVyUknRJcQ9sun1ESz/uNbDSpOZIN1uxJHWtN/9KSwQhXOzOcj2+GiiP45j+A1fj79hHclH+GP8NUM3oo3GiZ0eJxc/4D" target="_blank" rel="noopener noreferrer">Open in Paper.js Sketch</a>
-<a class="text-link" href="http://sketch.paperjs.org/#V/0.12.17/S/jVVNc9owEP0rGi6YQhWZ1J0OaXrJTHPqNNMcegAOsi1ARZE8skxKM/z3rCxhy45py8DY0u7bj/e04mUk6RMbLUaPe2ay3Wg2ylRu1weqUbpFt0iyZ/RAzQ7/YJmhcitY9LKSCD4l/8MW6MDZM05VJfNy5vY3XIg7JZReoHEqaLYfe0OhSm64kh6UMWmYXsnTZCVtukwoyUpI+cmt62SwvP5I0JW3OstWq6rwtd3b98iHSJXOmb7jOquRTe1uJwrSzlAcJ4AKEbg0Wu1ZXTugxznV+1RUbDzo9pPnZgduBM97dlXQjJujta3kBmJFtjZu1zfw+Ox7gffpdII8m9aloHXEy5S3tCezdkfTnFdldy+ocWFLfGNqFYIGA+ugSGiKlgQom5N14Or7XNg27doKWYewtWtlqGGRE/Ed4rMwnnesdcQ0z+92XOSRxYHl5LRU6a/4pnkFJsr7IdmB4UpmtmKk5FcNpzliB0jSEOuS+HIIvva5w5hn63swX67zzAz+DTUETrCeom+250yVLjm8VdJA2wSTDxN4JmQw0rEX6XiOVHL5j0j1xNSo75vSUO15KWgBcR4UlyaKCWiWkMlNi3g6Pr7xtfnsbhSGAyB84TcnngQH7c+In4/AoRl/Z7bz37EfeMnTejw3VJSsUSOGHe9Sz0fUChUHIKMrNqBgc4isu0fyDaqX3ZpvoflKiOZ8NDl6nWmWj/seGRVcbtH0FsWgVIwTEOSiXnNfxslfiwMXgTsOmS1cM4kFk1uz694LZ+VctwDtYpZ83SvyfLjA1WGancv94l3FbFf9FuKk04IlNHT5gpJ4fnXdp7JVpamSrLFmT+rQqPoXUgYjXORmOB9fD7UH4/0fwPoycAQS3BJwsndNBxQwHQwx/IemmtF9YWewHC2W69Mr" target="_blank" rel="noopener noreferrer">Open in Paper.js Sketch</a></div>
+            <div class="actions"><a class="text-link sketch-link" href="http://sketch.paperjs.org/#V/0.12.17/S/jVVNj9owEP0rFhdCoa7DNlUFpZeVuqeqq+6hh4WDkxhw8dqR7bClK/57x7HJ14a2CBTbM2/mzTxPeBlJ+sRGi9HDgdlsP5qNMpW7/ZFqlO7QCkn2jO6p3ePvLLNU7gSLXtYSwcfw32yBjpw941SVMjczf77lQtwqofQCjVNBs8M4GApluOVKBlDGpGV6Lc+TtXTpMqEkM5Dyo99XyWB784Ggd8HqLTutyiJwu3PrKIRIlc6ZvuU6q5A1d38StdLOUBwngGojsLFaHVjFHdDjnOpDKko2HnT7wXO7BzeC5z27KmjG7cnZ1nILsSLHjbv9Eh6fQi2wnk4nKHTTuRS0ini95U3bk1lzomnOS9M9a3FcOIqvTI1CUGDLOigSmqJHAi2bk03LNdS5cGW6vROyCuG4a2WpZZEX8Q3is3a84FjpiGme3+65yCOHA8vZa6nSn/GyXkInzN2Q7NDhUmaOMVLyi4bbHLEjJKkb65MEOnHI3I54sb0lmNx0mF16gX9B1hZ92E/RV1dlpoxPB6tSWigUgryfwDMhg5FOvUinSyTD5T8iVTNSob5tjaU6dKKgBcS5V1zaKCagUkImywbxdHp45evyudOoHQ6A8IXfnIQmeGh/KsJEtBzqgfdmN/Ed+5EbnlYDuaXCsFqBGE6CSzURUSNO3AJZXbIB1epr49wDkm9Rte1yXkHxpRD1jahz9CrTLB/3PTIquNyh6QrNQakYJyDIVb3mgcY5vAgHRt9fh8wR10xiweTO7rtvgotyvlqAdjGPfNMjeblc4Oox9cn1evG+ZK6qVyUknRJcQ9sun1ESz/uNbDSpOZIN1uxJHWtN/9KSwQhXOzOcj2+GiiP45j+A1fj79hHclH+GP8NUM3oo3GiZ0eJxc/4D" target="_blank" rel="noopener noreferrer">Open v1 in Sketch</a>
+<a class="text-link sketch-link" href="http://sketch.paperjs.org/#V/0.12.17/S/jVVNc9owEP0rGi6YQhWZ1J0OaXrJTHPqNNMcegAOsi1ARZE8skxKM/z3rCxhy45py8DY0u7bj/e04mUk6RMbLUaPe2ay3Wg2ylRu1weqUbpFt0iyZ/RAzQ7/YJmhcitY9LKSCD4l/8MW6MDZM05VJfNy5vY3XIg7JZReoHEqaLYfe0OhSm64kh6UMWmYXsnTZCVtukwoyUpI+cmt62SwvP5I0JW3OstWq6rwtd3b98iHSJXOmb7jOquRTe1uJwrSzlAcJ4AKEbg0Wu1ZXTugxznV+1RUbDzo9pPnZgduBM97dlXQjJujta3kBmJFtjZu1zfw+Ox7gffpdII8m9aloHXEy5S3tCezdkfTnFdldy+ocWFLfGNqFYIGA+ugSGiKlgQom5N14Or7XNg27doKWYewtWtlqGGRE/Ed4rMwnnesdcQ0z+92XOSRxYHl5LRU6a/4pnkFJsr7IdmB4UpmtmKk5FcNpzliB0jSEOuS+HIIvva5w5hn63swX67zzAz+DTUETrCeom+250yVLjm8VdJA2wSTDxN4JmQw0rEX6XiOVHL5j0j1xNSo75vSUO15KWgBcR4UlyaKCWiWkMlNi3g6Pr7xtfnsbhSGAyB84TcnngQH7c+In4/AoRl/Z7bz37EfeMnTejw3VJSsUSOGHe9Sz0fUChUHIKMrNqBgc4isu0fyDaqX3ZpvoflKiOZ8NDl6nWmWj/seGRVcbtH0FsWgVIwTEOSiXnNfxslfiwMXgTsOmS1cM4kFk1uz694LZ+VctwDtYpZ83SvyfLjA1WGancv94l3FbFf9FuKk04IlNHT5gpJ4fnXdp7JVpamSrLFmT+rQqPoXUgYjXORmOB9fD7UH4/0fwPoycAQS3BJwsndNBxQwHQwx/IemmtF9YWewHC2W69Mr" target="_blank" rel="noopener noreferrer">Open v2 in Sketch</a></div>
             
             
         <section class="content-section">
             <h2>Code</h2>
-            <pre><code>var bg = new Path.Rectangle({
-    size: view.bounds,
-    fillColor: &#x27;black&#x27;,
-    position: view.center
-})
-var clones = 8
-var angle = 360 / clones
-var group = new Group()
-var borderCircle = new Path.Circle(view.center, 115)
-borderCircle.strokeColor = &#x27;darkblue&#x27;
-borderCircle.strokeWidth = 0.2
-borderCircle.opacity = 0
-for (var i = 0; i &lt; clones; i++) {
-    var path = new Path.Rectangle({
-        size: 5,
-        radius: 5,
-        strokeWidth: 0.2,
-        strokeColor: &#x27;blue&#x27;,
-        position: view.center + [0, 120],
-        opacity: 0
-    })
-    path.rotate(angle * i, view.center)
-    group.addChild(path)
-}
-var obj1;
-var objectsGroup = new Group()
-
-function onFrame(event) {
-    group.rotate(1)
-    objectsGroup.rotate(-0.03)
-    group.position.x = view.center.x + Math.cos(event.count * 0.04) * 50
-    group.position.y = view.center.y + Math.sin(event.count * 0.04) * 50
-    var centerOfstar = new paper.Point(100, 50);
-    var myStar = new paper.Path.Star(centerOfstar, 5, 55, 20)
-    myStar.strokeColor = &#x27;blue&#x27;
-    myStar.fillColor = &#x27;black&#x27;
-    myStar.visible = false
-    obj1 = myStar.clone()
-    obj1.visible = true
-    objectsGroup.addChild(obj1)
-    if (obj1.strokeColor === null) {
-        obj1.strokeColor = &#x27;red&#x27;
-        obj1.scaling += 2 + 1.5 * Math.sin(event.count * 0.2)
-    }
-    for (var i = 0; i &lt; group.children.length; i++) {
-        var object = group.children[i]
-        obj1.position = object.position
-        obj1.strokeColor.hue += event.count * 0.25
-    }
-    if (event.count &gt; 512) {
-        objectsGroup.children[0].remove()
-    }
-    for (var i = 0; i &lt; objectsGroup.children.length; i++) {
-        objectsGroup.children[i].strokeColor.hue += 0.3
-        objectsGroup.children[i].rotation = 0.5
-    }
-}</code></pre>
+            <div class="code-block">
+                <div class="code-toolbar code-toolbar-top"><button class="copy-code-button" type="button">Copy code</button></div>
+            <div class="highlight"><pre tabindex="0" style="color:#abb2bf;background-color:#282c34;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"><code class="language-js" data-lang="js"><span style="display:flex;"><span><span style="color:#c678dd">var</span> bg <span style="color:#56b6c2">=</span> <span style="color:#c678dd">new</span> <span style="color:#e5c07b">Path</span>.<span style="color:#e5c07b">Rectangle</span>({
+</span></span><span style="display:flex;"><span>    size<span style="color:#56b6c2">:</span> <span style="color:#e5c07b">view</span>.bounds,
+</span></span><span style="display:flex;"><span>    fillColor<span style="color:#56b6c2">:</span> <span style="color:#98c379">&#x27;black&#x27;</span>,
+</span></span><span style="display:flex;"><span>    position<span style="color:#56b6c2">:</span> <span style="color:#e5c07b">view</span>.center
+</span></span><span style="display:flex;"><span>})
+</span></span><span style="display:flex;"><span><span style="color:#c678dd">var</span> clones <span style="color:#56b6c2">=</span> <span style="color:#d19a66">8</span>
+</span></span><span style="display:flex;"><span><span style="color:#c678dd">var</span> angle <span style="color:#56b6c2">=</span> <span style="color:#d19a66">360</span> <span style="color:#56b6c2">/</span> clones
+</span></span><span style="display:flex;"><span><span style="color:#c678dd">var</span> group <span style="color:#56b6c2">=</span> <span style="color:#c678dd">new</span> <span style="color:#e5c07b">Group</span>()
+</span></span><span style="display:flex;"><span><span style="color:#c678dd">var</span> borderCircle <span style="color:#56b6c2">=</span> <span style="color:#c678dd">new</span> <span style="color:#e5c07b">Path</span>.<span style="color:#e5c07b">Circle</span>(<span style="color:#e5c07b">view</span>.center, <span style="color:#d19a66">115</span>)
+</span></span><span style="display:flex;"><span>borderCircle.strokeColor <span style="color:#56b6c2">=</span> <span style="color:#98c379">&#x27;darkblue&#x27;</span>
+</span></span><span style="display:flex;"><span>borderCircle.strokeWidth <span style="color:#56b6c2">=</span> <span style="color:#d19a66">0.2</span>
+</span></span><span style="display:flex;"><span>borderCircle.opacity <span style="color:#56b6c2">=</span> <span style="color:#d19a66">0</span>
+</span></span><span style="display:flex;"><span><span style="color:#c678dd">for</span> (<span style="color:#c678dd">var</span> i <span style="color:#56b6c2">=</span> <span style="color:#d19a66">0</span>; i <span style="color:#56b6c2">&lt;</span> clones; i<span style="color:#56b6c2">++</span>) {
+</span></span><span style="display:flex;"><span>    <span style="color:#c678dd">var</span> path <span style="color:#56b6c2">=</span> <span style="color:#c678dd">new</span> <span style="color:#e5c07b">Path</span>.<span style="color:#e5c07b">Rectangle</span>({
+</span></span><span style="display:flex;"><span>        size<span style="color:#56b6c2">:</span> <span style="color:#d19a66">5</span>,
+</span></span><span style="display:flex;"><span>        radius<span style="color:#56b6c2">:</span> <span style="color:#d19a66">5</span>,
+</span></span><span style="display:flex;"><span>        strokeWidth<span style="color:#56b6c2">:</span> <span style="color:#d19a66">0.2</span>,
+</span></span><span style="display:flex;"><span>        strokeColor<span style="color:#56b6c2">:</span> <span style="color:#98c379">&#x27;blue&#x27;</span>,
+</span></span><span style="display:flex;"><span>        position<span style="color:#56b6c2">:</span> <span style="color:#e5c07b">view</span>.center <span style="color:#56b6c2">+</span> [<span style="color:#d19a66">0</span>, <span style="color:#d19a66">120</span>],
+</span></span><span style="display:flex;"><span>        opacity<span style="color:#56b6c2">:</span> <span style="color:#d19a66">0</span>
+</span></span><span style="display:flex;"><span>    })
+</span></span><span style="display:flex;"><span>    path.<span style="color:#e5c07b">rotate</span>(angle <span style="color:#56b6c2">*</span> i, <span style="color:#e5c07b">view</span>.center)
+</span></span><span style="display:flex;"><span>    group.<span style="color:#e5c07b">addChild</span>(path)
+</span></span><span style="display:flex;"><span>}
+</span></span><span style="display:flex;"><span><span style="color:#c678dd">var</span> obj1;
+</span></span><span style="display:flex;"><span><span style="color:#c678dd">var</span> objectsGroup <span style="color:#56b6c2">=</span> <span style="color:#c678dd">new</span> <span style="color:#e5c07b">Group</span>()
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#c678dd">function</span> <span style="color:#e5c07b">onFrame</span>(<span style="color:#e5c07b">event</span>) {
+</span></span><span style="display:flex;"><span>    group.<span style="color:#e5c07b">rotate</span>(<span style="color:#d19a66">1</span>)
+</span></span><span style="display:flex;"><span>    objectsGroup.<span style="color:#e5c07b">rotate</span>(<span style="color:#56b6c2">-</span><span style="color:#d19a66">0.03</span>)
+</span></span><span style="display:flex;"><span>    group.position.x <span style="color:#56b6c2">=</span> <span style="color:#e5c07b">view</span>.center.x <span style="color:#56b6c2">+</span> <span style="color:#e5c07b">Math</span>.<span style="color:#e5c07b">cos</span>(<span style="color:#e5c07b">event</span>.count <span style="color:#56b6c2">*</span> <span style="color:#d19a66">0.04</span>) <span style="color:#56b6c2">*</span> <span style="color:#d19a66">50</span>
+</span></span><span style="display:flex;"><span>    group.position.y <span style="color:#56b6c2">=</span> <span style="color:#e5c07b">view</span>.center.y <span style="color:#56b6c2">+</span> <span style="color:#e5c07b">Math</span>.<span style="color:#e5c07b">sin</span>(<span style="color:#e5c07b">event</span>.count <span style="color:#56b6c2">*</span> <span style="color:#d19a66">0.04</span>) <span style="color:#56b6c2">*</span> <span style="color:#d19a66">50</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#c678dd">var</span> centerOfstar <span style="color:#56b6c2">=</span> <span style="color:#c678dd">new</span> <span style="color:#e5c07b">paper</span>.<span style="color:#e5c07b">Point</span>(<span style="color:#d19a66">100</span>, <span style="color:#d19a66">50</span>);
+</span></span><span style="display:flex;"><span>    <span style="color:#c678dd">var</span> myStar <span style="color:#56b6c2">=</span> <span style="color:#c678dd">new</span> <span style="color:#e5c07b">paper</span>.<span style="color:#e5c07b">Path</span>.<span style="color:#e5c07b">Star</span>(centerOfstar, <span style="color:#d19a66">5</span>, <span style="color:#d19a66">55</span>, <span style="color:#d19a66">20</span>)
+</span></span><span style="display:flex;"><span>    myStar.strokeColor <span style="color:#56b6c2">=</span> <span style="color:#98c379">&#x27;blue&#x27;</span>
+</span></span><span style="display:flex;"><span>    myStar.fillColor <span style="color:#56b6c2">=</span> <span style="color:#98c379">&#x27;black&#x27;</span>
+</span></span><span style="display:flex;"><span>    myStar.visible <span style="color:#56b6c2">=</span> <span style="color:#d19a66">false</span>
+</span></span><span style="display:flex;"><span>    obj1 <span style="color:#56b6c2">=</span> myStar.<span style="color:#e5c07b">clone</span>()
+</span></span><span style="display:flex;"><span>    obj1.visible <span style="color:#56b6c2">=</span> <span style="color:#d19a66">true</span>
+</span></span><span style="display:flex;"><span>    objectsGroup.<span style="color:#e5c07b">addChild</span>(obj1)
+</span></span><span style="display:flex;"><span>    <span style="color:#c678dd">if</span> (obj1.strokeColor <span style="color:#56b6c2">===</span> <span style="color:#d19a66">null</span>) {
+</span></span><span style="display:flex;"><span>        obj1.strokeColor <span style="color:#56b6c2">=</span> <span style="color:#98c379">&#x27;red&#x27;</span>
+</span></span><span style="display:flex;"><span>        obj1.scaling <span style="color:#56b6c2">+=</span> <span style="color:#d19a66">2</span> <span style="color:#56b6c2">+</span> <span style="color:#d19a66">1.5</span> <span style="color:#56b6c2">*</span> <span style="color:#e5c07b">Math</span>.<span style="color:#e5c07b">sin</span>(<span style="color:#e5c07b">event</span>.count <span style="color:#56b6c2">*</span> <span style="color:#d19a66">0.2</span>)
+</span></span><span style="display:flex;"><span>    }
+</span></span><span style="display:flex;"><span>    <span style="color:#c678dd">for</span> (<span style="color:#c678dd">var</span> i <span style="color:#56b6c2">=</span> <span style="color:#d19a66">0</span>; i <span style="color:#56b6c2">&lt;</span> group.children.length; i<span style="color:#56b6c2">++</span>) {
+</span></span><span style="display:flex;"><span>        <span style="color:#c678dd">var</span> object <span style="color:#56b6c2">=</span> group.children[i]
+</span></span><span style="display:flex;"><span>        obj1.position <span style="color:#56b6c2">=</span> object.position
+</span></span><span style="display:flex;"><span>        obj1.strokeColor.hue <span style="color:#56b6c2">+=</span> <span style="color:#e5c07b">event</span>.count <span style="color:#56b6c2">*</span> <span style="color:#d19a66">0.25</span>
+</span></span><span style="display:flex;"><span>    }
+</span></span><span style="display:flex;"><span>    <span style="color:#c678dd">if</span> (<span style="color:#e5c07b">event</span>.count <span style="color:#56b6c2">&gt;</span> <span style="color:#d19a66">512</span>) {
+</span></span><span style="display:flex;"><span>        objectsGroup.children[<span style="color:#d19a66">0</span>].<span style="color:#e5c07b">remove</span>()
+</span></span><span style="display:flex;"><span>    }
+</span></span><span style="display:flex;"><span>    <span style="color:#c678dd">for</span> (<span style="color:#c678dd">var</span> i <span style="color:#56b6c2">=</span> <span style="color:#d19a66">0</span>; i <span style="color:#56b6c2">&lt;</span> objectsGroup.children.length; i<span style="color:#56b6c2">++</span>) {
+</span></span><span style="display:flex;"><span>        objectsGroup.children[i].strokeColor.hue <span style="color:#56b6c2">+=</span> <span style="color:#d19a66">0.3</span>
+</span></span><span style="display:flex;"><span>        objectsGroup.children[i].rotation <span style="color:#56b6c2">=</span> <span style="color:#d19a66">0.5</span>
+</span></span><span style="display:flex;"><span>    }
+</span></span><span style="display:flex;"><span>}
+</span></span></code></pre></div>
+                <div class="code-toolbar code-toolbar-bottom"><button class="copy-code-button" type="button">Copy code</button></div>
+            </div>
         </section>
         
         </div>
@@ -473,5 +546,54 @@ function onFrame(event) {
             &copy; 2026 Alexander Deplov, designer and developer of iOS and macOS apps, product designer.
         </footer>
     </article>
+    <script>
+document.addEventListener("click", function (event) {
+    var button = event.target.closest(".copy-code-button");
+    if (!button) return;
+
+    var block = button.closest(".code-block");
+    var code = block ? block.querySelector("code") : null;
+    if (!code) return;
+
+    var text = code.textContent.replace(/\n$/, "");
+
+    function setButtonState(label, copied) {
+        block.querySelectorAll(".copy-code-button").forEach(function (item) {
+            item.textContent = label;
+            item.classList.toggle("copied", copied);
+        });
+    }
+
+    function markCopied() {
+        setButtonState("Copied", true);
+        window.setTimeout(function () {
+            setButtonState("Copy code", false);
+        }, 1400);
+    }
+
+    function fallbackCopy() {
+        var textarea = document.createElement("textarea");
+        textarea.value = text;
+        textarea.setAttribute("readonly", "");
+        textarea.style.position = "fixed";
+        textarea.style.opacity = "0";
+        document.body.appendChild(textarea);
+        textarea.select();
+        try {
+            document.execCommand("copy");
+            markCopied();
+        } finally {
+            document.body.removeChild(textarea);
+        }
+    }
+
+    if (navigator.clipboard && window.isSecureContext) {
+        navigator.clipboard.writeText(text).then(markCopied).catch(fallbackCopy);
+    } else {
+        fallbackCopy();
+    }
+});
+</script>
+    <script data-goatcounter="https://goatinterface.goatcounter.com/count" async src="//gc.zgo.at/count.js"></script>
 </body>
 </html>

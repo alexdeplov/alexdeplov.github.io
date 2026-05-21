@@ -290,6 +290,10 @@
             text-decoration-thickness: 2px;
         }
 
+        .sketch-link {
+            flex: 0 0 100%;
+        }
+
         .button {
             display: inline;
             align-items: center;
@@ -338,16 +342,80 @@
             .content-section p { color: #b4b4b4; }
         }
 
-        pre {
-            overflow: auto;
-            margin: 0;
-            border: 1px solid #2a2a2a;
+        .code-block {
+            margin: 1em 0;
+            overflow: hidden;
             border-radius: 0.5rem;
-            padding: 18px;
-            background: #111;
-            color: #f5f5f5;
-            font-size: 14px;
+            background-color: #181818;
+        }
+
+        @media (prefers-color-scheme: dark) {
+            .code-block {
+                background-color: hsl(232, 20.3%, 6.4%);
+            }
+        }
+
+        .code-toolbar {
+            display: flex;
+            align-items: center;
+            justify-content: flex-start;
+            min-height: 26px;
+            background: inherit;
+        }
+
+        .code-toolbar-top {
+            padding: 10px 9px 0;
+        }
+
+        .code-toolbar-bottom {
+            padding: 0 1.5em 10px;
+        }
+
+        .copy-code-button {
+            appearance: none;
+            border: 1px solid rgba(171, 178, 191, 0.26);
+            border-radius: 0.3rem;
+            padding: 4px 8px;
+            background: transparent;
+            color: #abb2bf;
+            font: inherit;
+            font-size: 12px;
+            font-weight: 700;
+            line-height: 1.2;
+            cursor: pointer;
+        }
+
+        .copy-code-button:hover,
+        .copy-code-button.copied {
+            border-color: rgba(244, 108, 4, 0.55);
+            color: var(--accent);
+        }
+
+        .highlight pre {
+            overflow-x: auto;
+            margin: 0;
+            border: 0;
+            border-radius: 0;
+            padding: 1.5em;
+            box-sizing: border-box;
+            background: transparent !important;
+            color: #abb2bf;
+            font-family: "IBM Plex Mono", ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono", monospace;
+            font-size: 0.8rem;
+            font-weight: 400 !important;
             line-height: 1.5;
+            white-space: pre;
+            max-width: 100%;
+        }
+
+        @media (prefers-color-scheme: dark) {
+            .highlight pre {
+                background: transparent !important;
+            }
+        }
+
+        .highlight code {
+            display: block;
             white-space: pre;
         }
 
@@ -418,5 +486,6 @@
             &copy; 2026 Alexander Deplov, designer and developer of iOS and macOS apps, product designer.
         </footer>
     </article>
+    <script data-goatcounter="https://goatinterface.goatcounter.com/count" async src="//gc.zgo.at/count.js"></script>
 </body>
 </html>

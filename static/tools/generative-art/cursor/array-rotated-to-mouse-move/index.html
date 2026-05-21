@@ -290,6 +290,10 @@
             text-decoration-thickness: 2px;
         }
 
+        .sketch-link {
+            flex: 0 0 100%;
+        }
+
         .button {
             display: inline;
             align-items: center;
@@ -338,16 +342,80 @@
             .content-section p { color: #b4b4b4; }
         }
 
-        pre {
-            overflow: auto;
-            margin: 0;
-            border: 1px solid #2a2a2a;
+        .code-block {
+            margin: 1em 0;
+            overflow: hidden;
             border-radius: 0.5rem;
-            padding: 18px;
-            background: #111;
-            color: #f5f5f5;
-            font-size: 14px;
+            background-color: #181818;
+        }
+
+        @media (prefers-color-scheme: dark) {
+            .code-block {
+                background-color: hsl(232, 20.3%, 6.4%);
+            }
+        }
+
+        .code-toolbar {
+            display: flex;
+            align-items: center;
+            justify-content: flex-start;
+            min-height: 26px;
+            background: inherit;
+        }
+
+        .code-toolbar-top {
+            padding: 10px 9px 0;
+        }
+
+        .code-toolbar-bottom {
+            padding: 0 1.5em 10px;
+        }
+
+        .copy-code-button {
+            appearance: none;
+            border: 1px solid rgba(171, 178, 191, 0.26);
+            border-radius: 0.3rem;
+            padding: 4px 8px;
+            background: transparent;
+            color: #abb2bf;
+            font: inherit;
+            font-size: 12px;
+            font-weight: 700;
+            line-height: 1.2;
+            cursor: pointer;
+        }
+
+        .copy-code-button:hover,
+        .copy-code-button.copied {
+            border-color: rgba(244, 108, 4, 0.55);
+            color: var(--accent);
+        }
+
+        .highlight pre {
+            overflow-x: auto;
+            margin: 0;
+            border: 0;
+            border-radius: 0;
+            padding: 1.5em;
+            box-sizing: border-box;
+            background: transparent !important;
+            color: #abb2bf;
+            font-family: "IBM Plex Mono", ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono", monospace;
+            font-size: 0.8rem;
+            font-weight: 400 !important;
             line-height: 1.5;
+            white-space: pre;
+            max-width: 100%;
+        }
+
+        @media (prefers-color-scheme: dark) {
+            .highlight pre {
+                background: transparent !important;
+            }
+        }
+
+        .highlight code {
+            display: block;
             white-space: pre;
         }
 
@@ -403,56 +471,61 @@
             <section class="preview-panel" aria-label="Preview">
                 <img class="preview-media" src="/tools/generative-art/assets/collection/Cursor/Array%20rotated%20to%20mouse%20move/Screen_Recording_2022-06-04_at_20.49.08.2022-06-04_20_49_57.gif" alt="Array rotated to mouse move" loading="eager" decoding="async">
             </section>
-            <div class="actions"><a class="text-link" href="http://sketch.paperjs.org/#V/0.12.17/S/fVTBbtswDP0Vwpc4resmHgoM3nbqYdghQLEdtiLJQbGZWIsrGbKcxivy7yMtKXGGYj7YIvn4qPek5C1S4gWjPPqxR1tUURIVuuT4IAxsdvAFFL7Ck7BV+h0LK9SuxvhtpYCeVv7BHA4SX1NeJi67lXX9qGttcphsalHsJyt1mq7USjFlQ0z/JW10K63UyhMXqCyaZDxwmSWQzdYhZ43e409Z2iqH7Cp52UWHE18RTVP3C2GNPOawFXUbtm1EKbv2QqEbUUjb5zAbb1+86E7ZX6Tgw2yceabM/MFlWu5UbF3mMTuju8ar/srrmAi32kDM1SNVZp/o8znQU3B7Ox0MOaN6h+rPqGcKAgqAIUWtFRKMPU6HgOdwdQjSYC1Blke4CRtNiPQcrMcN3gPW5tKDkFSU5WMl6zIeUMOIE5m0Uq48GjM6QnZw26liqGi10F2LC33AGA9UDzL8FQqipRMtSbTjLniuQZXWqHa2ohJbAP5x3cEOvflNl4sYrluXcn3BvbfiXr4NQrXUvGAzBd3RzO2U5El6H+HODzjrTY8JjCH9O5B++s+gEncG+dDiMPIG4vnHGdy7yU/fppS5m09D26XdcxtthbfbkbHTASO3EHvc6DcR3L7iGdXTqsMz3X12AZ/ckk+b/ik2BsV+0NpG+XJ9+gs=" target="_blank" rel="noopener noreferrer">Open in Paper.js Sketch</a></div>
+            <div class="actions"><a class="text-link sketch-link" href="http://sketch.paperjs.org/#V/0.12.17/S/fVTBbtswDP0Vwpc4resmHgoM3nbqYdghQLEdtiLJQbGZWIsrGbKcxivy7yMtKXGGYj7YIvn4qPek5C1S4gWjPPqxR1tUURIVuuT4IAxsdvAFFL7Ck7BV+h0LK9SuxvhtpYCeVv7BHA4SX1NeJi67lXX9qGttcphsalHsJyt1mq7USjFlQ0z/JW10K63UyhMXqCyaZDxwmSWQzdYhZ43e409Z2iqH7Cp52UWHE18RTVP3C2GNPOawFXUbtm1EKbv2QqEbUUjb5zAbb1+86E7ZX6Tgw2yceabM/MFlWu5UbF3mMTuju8ar/srrmAi32kDM1SNVZp/o8znQU3B7Ox0MOaN6h+rPqGcKAgqAIUWtFRKMPU6HgOdwdQjSYC1Blke4CRtNiPQcrMcN3gPW5tKDkFSU5WMl6zIeUMOIE5m0Uq48GjM6QnZw26liqGi10F2LC33AGA9UDzL8FQqipRMtSbTjLniuQZXWqHa2ohJbAP5x3cEOvflNl4sYrluXcn3BvbfiXr4NQrXUvGAzBd3RzO2U5El6H+HODzjrTY8JjCH9O5B++s+gEncG+dDiMPIG4vnHGdy7yU/fppS5m09D26XdcxtthbfbkbHTASO3EHvc6DcR3L7iGdXTqsMz3X12AZ/ckk+b/ik2BsV+0NpG+XJ9+gs=" target="_blank" rel="noopener noreferrer">Open v1 in Sketch</a></div>
             
             
         <section class="content-section">
             <h2>Code</h2>
-            <pre><code>var bg = new Path.Rectangle({
-    size: view.size,
-    fillColor: &#x27;black&#x27;
-})
-
-var path = new Path.Rectangle({
-    position: view.center,
-    size: [2, 20],
-    strokeWidth: 2,
-    strokeColor: &#x27;blue&#x27;,
-    applyMatrix: false,
-    radius: 2,
-    opacity: 0
-})
-
-var amountX = 30
-var amountY = 15
-var spacing = 20
-var group = new Group()
-for (var x = 0; x &lt; amountX; x++){
-  for (var y = 0; y &lt; amountY; y++){
-    var clone = path.clone()
-    clone.position = [x * spacing, y * spacing]
-    clone.opacity = 1
-    group.addChild(clone)
-  }
-}
-group.position = view.center
-
-function onMouseMove(event){
-    
-    for (var i = 0; i &lt; group.children.length; i++){        
-        var object = group.children[i]
-        
-        
-        var radians = Math.atan2(event.point.x - object.position.x, event.point.y - object.position.y) 
-        var degree = (radians * (180 / Math.PI) * -1)
-      
-        object.rotation = degree
-
-        if (object.strokeColor){
-          object.strokeColor.hue = degree/2
-        }
-    }
-}</code></pre>
+            <div class="code-block">
+                <div class="code-toolbar code-toolbar-top"><button class="copy-code-button" type="button">Copy code</button></div>
+            <div class="highlight"><pre tabindex="0" style="color:#abb2bf;background-color:#282c34;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"><code class="language-js" data-lang="js"><span style="display:flex;"><span><span style="color:#c678dd">var</span> bg <span style="color:#56b6c2">=</span> <span style="color:#c678dd">new</span> <span style="color:#e5c07b">Path</span>.<span style="color:#e5c07b">Rectangle</span>({
+</span></span><span style="display:flex;"><span>    size<span style="color:#56b6c2">:</span> <span style="color:#e5c07b">view</span>.size,
+</span></span><span style="display:flex;"><span>    fillColor<span style="color:#56b6c2">:</span> <span style="color:#98c379">&#x27;black&#x27;</span>
+</span></span><span style="display:flex;"><span>})
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#c678dd">var</span> path <span style="color:#56b6c2">=</span> <span style="color:#c678dd">new</span> <span style="color:#e5c07b">Path</span>.<span style="color:#e5c07b">Rectangle</span>({
+</span></span><span style="display:flex;"><span>    position<span style="color:#56b6c2">:</span> <span style="color:#e5c07b">view</span>.center,
+</span></span><span style="display:flex;"><span>    size<span style="color:#56b6c2">:</span> [<span style="color:#d19a66">2</span>, <span style="color:#d19a66">20</span>],
+</span></span><span style="display:flex;"><span>    strokeWidth<span style="color:#56b6c2">:</span> <span style="color:#d19a66">2</span>,
+</span></span><span style="display:flex;"><span>    strokeColor<span style="color:#56b6c2">:</span> <span style="color:#98c379">&#x27;blue&#x27;</span>,
+</span></span><span style="display:flex;"><span>    applyMatrix<span style="color:#56b6c2">:</span> <span style="color:#d19a66">false</span>,
+</span></span><span style="display:flex;"><span>    radius<span style="color:#56b6c2">:</span> <span style="color:#d19a66">2</span>,
+</span></span><span style="display:flex;"><span>    opacity<span style="color:#56b6c2">:</span> <span style="color:#d19a66">0</span>
+</span></span><span style="display:flex;"><span>})
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#c678dd">var</span> amountX <span style="color:#56b6c2">=</span> <span style="color:#d19a66">30</span>
+</span></span><span style="display:flex;"><span><span style="color:#c678dd">var</span> amountY <span style="color:#56b6c2">=</span> <span style="color:#d19a66">15</span>
+</span></span><span style="display:flex;"><span><span style="color:#c678dd">var</span> spacing <span style="color:#56b6c2">=</span> <span style="color:#d19a66">20</span>
+</span></span><span style="display:flex;"><span><span style="color:#c678dd">var</span> group <span style="color:#56b6c2">=</span> <span style="color:#c678dd">new</span> <span style="color:#e5c07b">Group</span>()
+</span></span><span style="display:flex;"><span><span style="color:#c678dd">for</span> (<span style="color:#c678dd">var</span> x <span style="color:#56b6c2">=</span> <span style="color:#d19a66">0</span>; x <span style="color:#56b6c2">&lt;</span> amountX; x<span style="color:#56b6c2">++</span>){
+</span></span><span style="display:flex;"><span>  <span style="color:#c678dd">for</span> (<span style="color:#c678dd">var</span> y <span style="color:#56b6c2">=</span> <span style="color:#d19a66">0</span>; y <span style="color:#56b6c2">&lt;</span> amountY; y<span style="color:#56b6c2">++</span>){
+</span></span><span style="display:flex;"><span>    <span style="color:#c678dd">var</span> clone <span style="color:#56b6c2">=</span> path.<span style="color:#e5c07b">clone</span>()
+</span></span><span style="display:flex;"><span>    clone.position <span style="color:#56b6c2">=</span> [x <span style="color:#56b6c2">*</span> spacing, y <span style="color:#56b6c2">*</span> spacing]
+</span></span><span style="display:flex;"><span>    clone.opacity <span style="color:#56b6c2">=</span> <span style="color:#d19a66">1</span>
+</span></span><span style="display:flex;"><span>    group.<span style="color:#e5c07b">addChild</span>(clone)
+</span></span><span style="display:flex;"><span>  }
+</span></span><span style="display:flex;"><span>}
+</span></span><span style="display:flex;"><span>group.position <span style="color:#56b6c2">=</span> <span style="color:#e5c07b">view</span>.center
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#c678dd">function</span> <span style="color:#e5c07b">onMouseMove</span>(<span style="color:#e5c07b">event</span>){
+</span></span><span style="display:flex;"><span>    
+</span></span><span style="display:flex;"><span>    <span style="color:#c678dd">for</span> (<span style="color:#c678dd">var</span> i <span style="color:#56b6c2">=</span> <span style="color:#d19a66">0</span>; i <span style="color:#56b6c2">&lt;</span> group.children.length; i<span style="color:#56b6c2">++</span>){        
+</span></span><span style="display:flex;"><span>        <span style="color:#c678dd">var</span> object <span style="color:#56b6c2">=</span> group.children[i]
+</span></span><span style="display:flex;"><span>        
+</span></span><span style="display:flex;"><span>        
+</span></span><span style="display:flex;"><span>        <span style="color:#c678dd">var</span> radians <span style="color:#56b6c2">=</span> <span style="color:#e5c07b">Math</span>.<span style="color:#e5c07b">atan2</span>(<span style="color:#e5c07b">event</span>.point.x <span style="color:#56b6c2">-</span> object.position.x, <span style="color:#e5c07b">event</span>.point.y <span style="color:#56b6c2">-</span> object.position.y) 
+</span></span><span style="display:flex;"><span>        <span style="color:#c678dd">var</span> degree <span style="color:#56b6c2">=</span> (radians <span style="color:#56b6c2">*</span> (<span style="color:#d19a66">180</span> <span style="color:#56b6c2">/</span> <span style="color:#e5c07b">Math</span>.PI) <span style="color:#56b6c2">*</span> <span style="color:#56b6c2">-</span><span style="color:#d19a66">1</span>)
+</span></span><span style="display:flex;"><span>      
+</span></span><span style="display:flex;"><span>        object.rotation <span style="color:#56b6c2">=</span> degree
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>        <span style="color:#c678dd">if</span> (object.strokeColor){
+</span></span><span style="display:flex;"><span>          object.strokeColor.hue <span style="color:#56b6c2">=</span> degree<span style="color:#56b6c2">/</span><span style="color:#d19a66">2</span>
+</span></span><span style="display:flex;"><span>        }
+</span></span><span style="display:flex;"><span>    }
+</span></span><span style="display:flex;"><span>}
+</span></span></code></pre></div>
+                <div class="code-toolbar code-toolbar-bottom"><button class="copy-code-button" type="button">Copy code</button></div>
+            </div>
         </section>
         
         </div>
@@ -460,5 +533,54 @@ function onMouseMove(event){
             &copy; 2026 Alexander Deplov, designer and developer of iOS and macOS apps, product designer.
         </footer>
     </article>
+    <script>
+document.addEventListener("click", function (event) {
+    var button = event.target.closest(".copy-code-button");
+    if (!button) return;
+
+    var block = button.closest(".code-block");
+    var code = block ? block.querySelector("code") : null;
+    if (!code) return;
+
+    var text = code.textContent.replace(/\n$/, "");
+
+    function setButtonState(label, copied) {
+        block.querySelectorAll(".copy-code-button").forEach(function (item) {
+            item.textContent = label;
+            item.classList.toggle("copied", copied);
+        });
+    }
+
+    function markCopied() {
+        setButtonState("Copied", true);
+        window.setTimeout(function () {
+            setButtonState("Copy code", false);
+        }, 1400);
+    }
+
+    function fallbackCopy() {
+        var textarea = document.createElement("textarea");
+        textarea.value = text;
+        textarea.setAttribute("readonly", "");
+        textarea.style.position = "fixed";
+        textarea.style.opacity = "0";
+        document.body.appendChild(textarea);
+        textarea.select();
+        try {
+            document.execCommand("copy");
+            markCopied();
+        } finally {
+            document.body.removeChild(textarea);
+        }
+    }
+
+    if (navigator.clipboard && window.isSecureContext) {
+        navigator.clipboard.writeText(text).then(markCopied).catch(fallbackCopy);
+    } else {
+        fallbackCopy();
+    }
+});
+</script>
+    <script data-goatcounter="https://goatinterface.goatcounter.com/count" async src="//gc.zgo.at/count.js"></script>
 </body>
 </html>

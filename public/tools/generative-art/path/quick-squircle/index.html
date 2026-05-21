@@ -290,6 +290,10 @@
             text-decoration-thickness: 2px;
         }
 
+        .sketch-link {
+            flex: 0 0 100%;
+        }
+
         .button {
             display: inline;
             align-items: center;
@@ -338,16 +342,80 @@
             .content-section p { color: #b4b4b4; }
         }
 
-        pre {
-            overflow: auto;
-            margin: 0;
-            border: 1px solid #2a2a2a;
+        .code-block {
+            margin: 1em 0;
+            overflow: hidden;
             border-radius: 0.5rem;
-            padding: 18px;
-            background: #111;
-            color: #f5f5f5;
-            font-size: 14px;
+            background-color: #181818;
+        }
+
+        @media (prefers-color-scheme: dark) {
+            .code-block {
+                background-color: hsl(232, 20.3%, 6.4%);
+            }
+        }
+
+        .code-toolbar {
+            display: flex;
+            align-items: center;
+            justify-content: flex-start;
+            min-height: 26px;
+            background: inherit;
+        }
+
+        .code-toolbar-top {
+            padding: 10px 9px 0;
+        }
+
+        .code-toolbar-bottom {
+            padding: 0 1.5em 10px;
+        }
+
+        .copy-code-button {
+            appearance: none;
+            border: 1px solid rgba(171, 178, 191, 0.26);
+            border-radius: 0.3rem;
+            padding: 4px 8px;
+            background: transparent;
+            color: #abb2bf;
+            font: inherit;
+            font-size: 12px;
+            font-weight: 700;
+            line-height: 1.2;
+            cursor: pointer;
+        }
+
+        .copy-code-button:hover,
+        .copy-code-button.copied {
+            border-color: rgba(244, 108, 4, 0.55);
+            color: var(--accent);
+        }
+
+        .highlight pre {
+            overflow-x: auto;
+            margin: 0;
+            border: 0;
+            border-radius: 0;
+            padding: 1.5em;
+            box-sizing: border-box;
+            background: transparent !important;
+            color: #abb2bf;
+            font-family: "IBM Plex Mono", ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono", monospace;
+            font-size: 0.8rem;
+            font-weight: 400 !important;
             line-height: 1.5;
+            white-space: pre;
+            max-width: 100%;
+        }
+
+        @media (prefers-color-scheme: dark) {
+            .highlight pre {
+                background: transparent !important;
+            }
+        }
+
+        .highlight code {
+            display: block;
             white-space: pre;
         }
 
@@ -415,129 +483,134 @@
             
         <section class="content-section">
             <h2>Code</h2>
-            <pre><code>&lt;!DOCTYPE html&gt;
-&lt;html lang=&quot;en&quot;&gt;
-&lt;head&gt;
-&lt;meta charset=&quot;UTF-8&quot; /&gt;
-&lt;meta name=&quot;viewport&quot; content=&quot;width=device-width, initial-scale=1.0&quot; /&gt;
-&lt;meta http-equiv=&quot;X-UA-Compatible&quot; content=&quot;ie=edge&quot; /&gt;
-&lt;title&gt;Paper.js&lt;/title&gt;
-&lt;link rel=&quot;stylesheet&quot; href=&quot;./../PaperJSEngine/style.css&quot; &gt;
-&lt;script src=&quot;https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js&quot;&gt;&lt;/script&gt;
-&lt;script type=&quot;text/javascript&quot; src=&quot;./../PaperJSEngine/paper-full.js&quot;&gt;&lt;/script&gt;
-&lt;body&gt;
-  &lt;div&gt;
-    &lt;label for=&quot;sizeXInput&quot;&gt;SizeX:&lt;/label&gt;
-    &lt;input id=&quot;sizeXInput&quot; type=&quot;range&quot; min=&quot;1&quot; max=&quot;500&quot; value=&quot;100&quot;&gt;
-  &lt;/div&gt;
-
-  &lt;div&gt;
-    &lt;label for=&quot;sizeYInput&quot;&gt;SizeY:&lt;/label&gt;
-    &lt;input id=&quot;sizeYInput&quot; type=&quot;range&quot; min=&quot;1&quot; max=&quot;500&quot; value=&quot;100&quot;&gt;
-  &lt;/div&gt;
-
-  &lt;div&gt;
-    &lt;label for=&quot;radiusInput&quot;&gt;Radius:&lt;/label&gt;
-    &lt;input id=&quot;radiusInput&quot; type=&quot;range&quot; min=&quot;1&quot; max=&quot;500&quot; value=&quot;50&quot;&gt;
-  &lt;/div&gt;
-
-  &lt;div&gt;
-    &lt;label for=&quot;curvitureInput&quot;&gt;Curviture:&lt;/label&gt;
-    &lt;input id=&quot;curvitureInput&quot; type=&quot;range&quot; min=&quot;-500&quot; max=&quot;500&quot; value=&quot;20&quot;&gt;
-  &lt;/div&gt;
-
-  &lt;canvas id=&quot;canvas&quot; hidpi=&#x27;off&#x27; resize&gt;&lt;/canvas&gt;
-&lt;/body&gt;
-
-&lt;script type=&quot;text/javascript&quot; canvas=&quot;canvas&quot;&gt;
-
-var sizeX = sizeXInput.value
-var sizeY = sizeYInput.value
-var rectangle
-var radius = radiusInput.value
-var curviture = curvitureInput.value
-
-$(document).ready(function () {
-    paper.setup($(&#x27;#canvas&#x27;).get(0))
-
-		sizeXInput.oninput = function(event){
-        sizeX = this.value
-        createSquircle()
-    }
-    sizeXInput.onchange = function(event){
-        sizeX = this.value
-        createSquircle()
-    }
-
-    sizeYInput.oninput = function(event){
-        sizeY = this.value
-        createSquircle()
-    }
-    sizeYInput.onchange = function(event){
-        sizeY = this.value
-        createSquircle()
-    }
-
-    radiusInput.oninput = function(event){
-        radius = this.value
-        createSquircle()
-    }
-    radiusInput.onchange = function(event){
-        radius = this.value
-        createSquircle()
-    }
-
-    curvitureInput.oninput = function(event){
-        curviture = this.value
-        createSquircle()
-    }
-    curvitureInput.onchange = function(event){
-        curviture = this.value
-        createSquircle()
-    }
-
-    createSquircle()
-})
-
-
-function createSquircle(){
-
-  if (rectangle){
-    rectangle.remove()
-  }
-
-  rectangle = new paper.Path.Rectangle({
-    size: [sizeX, sizeY],
-    strokeColor: &#x27;blue&#x27;,
-    strokeSize: 4,
-    position: paper.view.center,
-    fullySelected: true,
-    radius: radius,
-  })
-
-  rectangle.strokeColor = &#x27;blue&#x27;
-  rectangle.strokeWidth = 5
-
-  rectangle.segments[0].handleOut.x -= curviture
-  rectangle.segments[1].handleIn.y -= curviture * -1
-  rectangle.segments[2].handleOut.y -= curviture
-  rectangle.segments[3].handleIn.x -= curviture
-  rectangle.segments[4].handleOut.x -= curviture * -1
-  rectangle.segments[5].handleIn.y -= curviture
-  rectangle.segments[6].handleOut.y -= curviture * -1
-  rectangle.segments[7].handleIn.x -= curviture * -1
-
-
-}
-
-
-
-
-
-&lt;/script&gt;
-&lt;/head&gt;
-
-&lt;/html&gt;</code></pre>
+            <div class="code-block">
+                <div class="code-toolbar code-toolbar-top"><button class="copy-code-button" type="button">Copy code</button></div>
+            <div class="highlight"><pre tabindex="0" style="color:#abb2bf;background-color:#282c34;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"><code class="language-js" data-lang="js"><span style="display:flex;"><span><span style="color:#56b6c2">&lt;!</span>DOCTYPE html<span style="color:#56b6c2">&gt;</span>
+</span></span><span style="display:flex;"><span><span style="color:#56b6c2">&lt;</span>html lang<span style="color:#56b6c2">=</span><span style="color:#98c379">&quot;en&quot;</span><span style="color:#56b6c2">&gt;</span>
+</span></span><span style="display:flex;"><span><span style="color:#56b6c2">&lt;</span>head<span style="color:#56b6c2">&gt;</span>
+</span></span><span style="display:flex;"><span><span style="color:#56b6c2">&lt;</span>meta charset<span style="color:#56b6c2">=</span><span style="color:#98c379">&quot;UTF-8&quot;</span> <span style="color:#56b6c2">/&gt;</span>
+</span></span><span style="display:flex;"><span><span style="color:#56b6c2">&lt;</span>meta name<span style="color:#56b6c2">=</span><span style="color:#98c379">&quot;viewport&quot;</span> content<span style="color:#56b6c2">=</span><span style="color:#98c379">&quot;width=device-width, initial-scale=1.0&quot;</span> <span style="color:#56b6c2">/&gt;</span>
+</span></span><span style="display:flex;"><span><span style="color:#56b6c2">&lt;</span>meta http<span style="color:#56b6c2">-</span>equiv<span style="color:#56b6c2">=</span><span style="color:#98c379">&quot;X-UA-Compatible&quot;</span> content<span style="color:#56b6c2">=</span><span style="color:#98c379">&quot;ie=edge&quot;</span> <span style="color:#56b6c2">/&gt;</span>
+</span></span><span style="display:flex;"><span><span style="color:#56b6c2">&lt;</span>title<span style="color:#56b6c2">&gt;</span>Paper.js<span style="color:#56b6c2">&lt;/</span>title<span style="color:#56b6c2">&gt;</span>
+</span></span><span style="display:flex;"><span><span style="color:#56b6c2">&lt;</span>link rel<span style="color:#56b6c2">=</span><span style="color:#98c379">&quot;stylesheet&quot;</span> href<span style="color:#56b6c2">=</span><span style="color:#98c379">&quot;./../PaperJSEngine/style.css&quot;</span> <span style="color:#56b6c2">&gt;</span>
+</span></span><span style="display:flex;"><span><span style="color:#56b6c2">&lt;</span>script src<span style="color:#56b6c2">=</span><span style="color:#98c379">&quot;https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js&quot;</span><span style="color:#56b6c2">&gt;&lt;/</span>script<span style="color:#56b6c2">&gt;</span>
+</span></span><span style="display:flex;"><span><span style="color:#56b6c2">&lt;</span>script type<span style="color:#56b6c2">=</span><span style="color:#98c379">&quot;text/javascript&quot;</span> src<span style="color:#56b6c2">=</span><span style="color:#98c379">&quot;./../PaperJSEngine/paper-full.js&quot;</span><span style="color:#56b6c2">&gt;&lt;/</span>script<span style="color:#56b6c2">&gt;</span>
+</span></span><span style="display:flex;"><span><span style="color:#56b6c2">&lt;</span>body<span style="color:#56b6c2">&gt;</span>
+</span></span><span style="display:flex;"><span>  <span style="color:#56b6c2">&lt;</span>div<span style="color:#56b6c2">&gt;</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#56b6c2">&lt;</span>label <span style="color:#c678dd">for</span><span style="color:#56b6c2">=</span><span style="color:#98c379">&quot;sizeXInput&quot;</span><span style="color:#56b6c2">&gt;</span>SizeX<span style="color:#56b6c2">:&lt;/</span>label<span style="color:#56b6c2">&gt;</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#56b6c2">&lt;</span>input id<span style="color:#56b6c2">=</span><span style="color:#98c379">&quot;sizeXInput&quot;</span> type<span style="color:#56b6c2">=</span><span style="color:#98c379">&quot;range&quot;</span> min<span style="color:#56b6c2">=</span><span style="color:#98c379">&quot;1&quot;</span> max<span style="color:#56b6c2">=</span><span style="color:#98c379">&quot;500&quot;</span> value<span style="color:#56b6c2">=</span><span style="color:#98c379">&quot;100&quot;</span><span style="color:#56b6c2">&gt;</span>
+</span></span><span style="display:flex;"><span>  <span style="color:#56b6c2">&lt;/</span>div<span style="color:#56b6c2">&gt;</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>  <span style="color:#56b6c2">&lt;</span>div<span style="color:#56b6c2">&gt;</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#56b6c2">&lt;</span>label <span style="color:#c678dd">for</span><span style="color:#56b6c2">=</span><span style="color:#98c379">&quot;sizeYInput&quot;</span><span style="color:#56b6c2">&gt;</span>SizeY<span style="color:#56b6c2">:&lt;/</span>label<span style="color:#56b6c2">&gt;</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#56b6c2">&lt;</span>input id<span style="color:#56b6c2">=</span><span style="color:#98c379">&quot;sizeYInput&quot;</span> type<span style="color:#56b6c2">=</span><span style="color:#98c379">&quot;range&quot;</span> min<span style="color:#56b6c2">=</span><span style="color:#98c379">&quot;1&quot;</span> max<span style="color:#56b6c2">=</span><span style="color:#98c379">&quot;500&quot;</span> value<span style="color:#56b6c2">=</span><span style="color:#98c379">&quot;100&quot;</span><span style="color:#56b6c2">&gt;</span>
+</span></span><span style="display:flex;"><span>  <span style="color:#56b6c2">&lt;/</span>div<span style="color:#56b6c2">&gt;</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>  <span style="color:#56b6c2">&lt;</span>div<span style="color:#56b6c2">&gt;</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#56b6c2">&lt;</span>label <span style="color:#c678dd">for</span><span style="color:#56b6c2">=</span><span style="color:#98c379">&quot;radiusInput&quot;</span><span style="color:#56b6c2">&gt;</span>Radius<span style="color:#56b6c2">:&lt;/</span>label<span style="color:#56b6c2">&gt;</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#56b6c2">&lt;</span>input id<span style="color:#56b6c2">=</span><span style="color:#98c379">&quot;radiusInput&quot;</span> type<span style="color:#56b6c2">=</span><span style="color:#98c379">&quot;range&quot;</span> min<span style="color:#56b6c2">=</span><span style="color:#98c379">&quot;1&quot;</span> max<span style="color:#56b6c2">=</span><span style="color:#98c379">&quot;500&quot;</span> value<span style="color:#56b6c2">=</span><span style="color:#98c379">&quot;50&quot;</span><span style="color:#56b6c2">&gt;</span>
+</span></span><span style="display:flex;"><span>  <span style="color:#56b6c2">&lt;/</span>div<span style="color:#56b6c2">&gt;</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>  <span style="color:#56b6c2">&lt;</span>div<span style="color:#56b6c2">&gt;</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#56b6c2">&lt;</span>label <span style="color:#c678dd">for</span><span style="color:#56b6c2">=</span><span style="color:#98c379">&quot;curvitureInput&quot;</span><span style="color:#56b6c2">&gt;</span>Curviture<span style="color:#56b6c2">:&lt;/</span>label<span style="color:#56b6c2">&gt;</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#56b6c2">&lt;</span>input id<span style="color:#56b6c2">=</span><span style="color:#98c379">&quot;curvitureInput&quot;</span> type<span style="color:#56b6c2">=</span><span style="color:#98c379">&quot;range&quot;</span> min<span style="color:#56b6c2">=</span><span style="color:#98c379">&quot;-500&quot;</span> max<span style="color:#56b6c2">=</span><span style="color:#98c379">&quot;500&quot;</span> value<span style="color:#56b6c2">=</span><span style="color:#98c379">&quot;20&quot;</span><span style="color:#56b6c2">&gt;</span>
+</span></span><span style="display:flex;"><span>  <span style="color:#56b6c2">&lt;/</span>div<span style="color:#56b6c2">&gt;</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>  <span style="color:#56b6c2">&lt;</span>canvas id<span style="color:#56b6c2">=</span><span style="color:#98c379">&quot;canvas&quot;</span> hidpi<span style="color:#56b6c2">=</span><span style="color:#98c379">&#x27;off&#x27;</span> resize<span style="color:#56b6c2">&gt;&lt;/</span>canvas<span style="color:#56b6c2">&gt;</span>
+</span></span><span style="display:flex;"><span><span style="color:#56b6c2">&lt;/</span>body<span style="color:#56b6c2">&gt;</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#56b6c2">&lt;</span>script type<span style="color:#56b6c2">=</span><span style="color:#98c379">&quot;text/javascript&quot;</span> canvas<span style="color:#56b6c2">=</span><span style="color:#98c379">&quot;canvas&quot;</span><span style="color:#56b6c2">&gt;</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#c678dd">var</span> sizeX <span style="color:#56b6c2">=</span> sizeXInput.value
+</span></span><span style="display:flex;"><span><span style="color:#c678dd">var</span> sizeY <span style="color:#56b6c2">=</span> sizeYInput.value
+</span></span><span style="display:flex;"><span><span style="color:#c678dd">var</span> rectangle
+</span></span><span style="display:flex;"><span><span style="color:#c678dd">var</span> radius <span style="color:#56b6c2">=</span> radiusInput.value
+</span></span><span style="display:flex;"><span><span style="color:#c678dd">var</span> curviture <span style="color:#56b6c2">=</span> curvitureInput.value
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#e5c07b">$</span>(document).<span style="color:#e5c07b">ready</span>(<span style="color:#c678dd">function</span> () {
+</span></span><span style="display:flex;"><span>    <span style="color:#e5c07b">paper</span>.<span style="color:#e5c07b">setup</span>(<span style="color:#e5c07b">$</span>(<span style="color:#98c379">&#x27;#canvas&#x27;</span>).<span style="color:#e5c07b">get</span>(<span style="color:#d19a66">0</span>))
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>		sizeXInput.oninput <span style="color:#56b6c2">=</span> <span style="color:#c678dd">function</span>(<span style="color:#e5c07b">event</span>){
+</span></span><span style="display:flex;"><span>        sizeX <span style="color:#56b6c2">=</span> <span style="color:#c678dd">this</span>.value
+</span></span><span style="display:flex;"><span>        <span style="color:#e5c07b">createSquircle</span>()
+</span></span><span style="display:flex;"><span>    }
+</span></span><span style="display:flex;"><span>    sizeXInput.onchange <span style="color:#56b6c2">=</span> <span style="color:#c678dd">function</span>(<span style="color:#e5c07b">event</span>){
+</span></span><span style="display:flex;"><span>        sizeX <span style="color:#56b6c2">=</span> <span style="color:#c678dd">this</span>.value
+</span></span><span style="display:flex;"><span>        <span style="color:#e5c07b">createSquircle</span>()
+</span></span><span style="display:flex;"><span>    }
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>    sizeYInput.oninput <span style="color:#56b6c2">=</span> <span style="color:#c678dd">function</span>(<span style="color:#e5c07b">event</span>){
+</span></span><span style="display:flex;"><span>        sizeY <span style="color:#56b6c2">=</span> <span style="color:#c678dd">this</span>.value
+</span></span><span style="display:flex;"><span>        <span style="color:#e5c07b">createSquircle</span>()
+</span></span><span style="display:flex;"><span>    }
+</span></span><span style="display:flex;"><span>    sizeYInput.onchange <span style="color:#56b6c2">=</span> <span style="color:#c678dd">function</span>(<span style="color:#e5c07b">event</span>){
+</span></span><span style="display:flex;"><span>        sizeY <span style="color:#56b6c2">=</span> <span style="color:#c678dd">this</span>.value
+</span></span><span style="display:flex;"><span>        <span style="color:#e5c07b">createSquircle</span>()
+</span></span><span style="display:flex;"><span>    }
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>    radiusInput.oninput <span style="color:#56b6c2">=</span> <span style="color:#c678dd">function</span>(<span style="color:#e5c07b">event</span>){
+</span></span><span style="display:flex;"><span>        radius <span style="color:#56b6c2">=</span> <span style="color:#c678dd">this</span>.value
+</span></span><span style="display:flex;"><span>        <span style="color:#e5c07b">createSquircle</span>()
+</span></span><span style="display:flex;"><span>    }
+</span></span><span style="display:flex;"><span>    radiusInput.onchange <span style="color:#56b6c2">=</span> <span style="color:#c678dd">function</span>(<span style="color:#e5c07b">event</span>){
+</span></span><span style="display:flex;"><span>        radius <span style="color:#56b6c2">=</span> <span style="color:#c678dd">this</span>.value
+</span></span><span style="display:flex;"><span>        <span style="color:#e5c07b">createSquircle</span>()
+</span></span><span style="display:flex;"><span>    }
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>    curvitureInput.oninput <span style="color:#56b6c2">=</span> <span style="color:#c678dd">function</span>(<span style="color:#e5c07b">event</span>){
+</span></span><span style="display:flex;"><span>        curviture <span style="color:#56b6c2">=</span> <span style="color:#c678dd">this</span>.value
+</span></span><span style="display:flex;"><span>        <span style="color:#e5c07b">createSquircle</span>()
+</span></span><span style="display:flex;"><span>    }
+</span></span><span style="display:flex;"><span>    curvitureInput.onchange <span style="color:#56b6c2">=</span> <span style="color:#c678dd">function</span>(<span style="color:#e5c07b">event</span>){
+</span></span><span style="display:flex;"><span>        curviture <span style="color:#56b6c2">=</span> <span style="color:#c678dd">this</span>.value
+</span></span><span style="display:flex;"><span>        <span style="color:#e5c07b">createSquircle</span>()
+</span></span><span style="display:flex;"><span>    }
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>    <span style="color:#e5c07b">createSquircle</span>()
+</span></span><span style="display:flex;"><span>})
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#c678dd">function</span> <span style="color:#e5c07b">createSquircle</span>(){
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>  <span style="color:#c678dd">if</span> (rectangle){
+</span></span><span style="display:flex;"><span>    rectangle.<span style="color:#e5c07b">remove</span>()
+</span></span><span style="display:flex;"><span>  }
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>  rectangle <span style="color:#56b6c2">=</span> <span style="color:#c678dd">new</span> <span style="color:#e5c07b">paper</span>.<span style="color:#e5c07b">Path</span>.<span style="color:#e5c07b">Rectangle</span>({
+</span></span><span style="display:flex;"><span>    size<span style="color:#56b6c2">:</span> [sizeX, sizeY],
+</span></span><span style="display:flex;"><span>    strokeColor<span style="color:#56b6c2">:</span> <span style="color:#98c379">&#x27;blue&#x27;</span>,
+</span></span><span style="display:flex;"><span>    strokeSize<span style="color:#56b6c2">:</span> <span style="color:#d19a66">4</span>,
+</span></span><span style="display:flex;"><span>    position<span style="color:#56b6c2">:</span> <span style="color:#e5c07b">paper</span>.<span style="color:#e5c07b">view</span>.center,
+</span></span><span style="display:flex;"><span>    fullySelected<span style="color:#56b6c2">:</span> <span style="color:#d19a66">true</span>,
+</span></span><span style="display:flex;"><span>    radius<span style="color:#56b6c2">:</span> radius,
+</span></span><span style="display:flex;"><span>  })
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>  rectangle.strokeColor <span style="color:#56b6c2">=</span> <span style="color:#98c379">&#x27;blue&#x27;</span>
+</span></span><span style="display:flex;"><span>  rectangle.strokeWidth <span style="color:#56b6c2">=</span> <span style="color:#d19a66">5</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>  rectangle.segments[<span style="color:#d19a66">0</span>].handleOut.x <span style="color:#56b6c2">-=</span> curviture
+</span></span><span style="display:flex;"><span>  rectangle.segments[<span style="color:#d19a66">1</span>].handleIn.y <span style="color:#56b6c2">-=</span> curviture <span style="color:#56b6c2">*</span> <span style="color:#56b6c2">-</span><span style="color:#d19a66">1</span>
+</span></span><span style="display:flex;"><span>  rectangle.segments[<span style="color:#d19a66">2</span>].handleOut.y <span style="color:#56b6c2">-=</span> curviture
+</span></span><span style="display:flex;"><span>  rectangle.segments[<span style="color:#d19a66">3</span>].handleIn.x <span style="color:#56b6c2">-=</span> curviture
+</span></span><span style="display:flex;"><span>  rectangle.segments[<span style="color:#d19a66">4</span>].handleOut.x <span style="color:#56b6c2">-=</span> curviture <span style="color:#56b6c2">*</span> <span style="color:#56b6c2">-</span><span style="color:#d19a66">1</span>
+</span></span><span style="display:flex;"><span>  rectangle.segments[<span style="color:#d19a66">5</span>].handleIn.y <span style="color:#56b6c2">-=</span> curviture
+</span></span><span style="display:flex;"><span>  rectangle.segments[<span style="color:#d19a66">6</span>].handleOut.y <span style="color:#56b6c2">-=</span> curviture <span style="color:#56b6c2">*</span> <span style="color:#56b6c2">-</span><span style="color:#d19a66">1</span>
+</span></span><span style="display:flex;"><span>  rectangle.segments[<span style="color:#d19a66">7</span>].handleIn.x <span style="color:#56b6c2">-=</span> curviture <span style="color:#56b6c2">*</span> <span style="color:#56b6c2">-</span><span style="color:#d19a66">1</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>}
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#56b6c2">&lt;/</span>script<span style="color:#56b6c2">&gt;</span>
+</span></span><span style="display:flex;"><span><span style="color:#56b6c2">&lt;/</span>head<span style="color:#56b6c2">&gt;</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#56b6c2">&lt;/</span>html<span style="color:#56b6c2">&gt;</span>
+</span></span></code></pre></div>
+                <div class="code-toolbar code-toolbar-bottom"><button class="copy-code-button" type="button">Copy code</button></div>
+            </div>
         </section>
         
         </div>
@@ -545,5 +618,54 @@ function createSquircle(){
             &copy; 2026 Alexander Deplov, designer and developer of iOS and macOS apps, product designer.
         </footer>
     </article>
+    <script>
+document.addEventListener("click", function (event) {
+    var button = event.target.closest(".copy-code-button");
+    if (!button) return;
+
+    var block = button.closest(".code-block");
+    var code = block ? block.querySelector("code") : null;
+    if (!code) return;
+
+    var text = code.textContent.replace(/\n$/, "");
+
+    function setButtonState(label, copied) {
+        block.querySelectorAll(".copy-code-button").forEach(function (item) {
+            item.textContent = label;
+            item.classList.toggle("copied", copied);
+        });
+    }
+
+    function markCopied() {
+        setButtonState("Copied", true);
+        window.setTimeout(function () {
+            setButtonState("Copy code", false);
+        }, 1400);
+    }
+
+    function fallbackCopy() {
+        var textarea = document.createElement("textarea");
+        textarea.value = text;
+        textarea.setAttribute("readonly", "");
+        textarea.style.position = "fixed";
+        textarea.style.opacity = "0";
+        document.body.appendChild(textarea);
+        textarea.select();
+        try {
+            document.execCommand("copy");
+            markCopied();
+        } finally {
+            document.body.removeChild(textarea);
+        }
+    }
+
+    if (navigator.clipboard && window.isSecureContext) {
+        navigator.clipboard.writeText(text).then(markCopied).catch(fallbackCopy);
+    } else {
+        fallbackCopy();
+    }
+});
+</script>
+    <script data-goatcounter="https://goatinterface.goatcounter.com/count" async src="//gc.zgo.at/count.js"></script>
 </body>
 </html>

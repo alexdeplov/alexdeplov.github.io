@@ -15,6 +15,55 @@ SOURCE_ROOT = Path("/Users/alex/Downloads/Private & Shared/Collection of Generat
 OUT_ROOT = REPO_ROOT / "static" / "tools" / "generative-art"
 ASSET_ROOT = OUT_ROOT / "assets" / "collection"
 PUBLIC_BASE = "/tools/generative-art"
+GOATCOUNTER_SCRIPT = '<script data-goatcounter="https://goatinterface.goatcounter.com/count" async src="//gc.zgo.at/count.js"></script>'
+COPY_CODE_SCRIPT = """<script>
+document.addEventListener("click", function (event) {
+    var button = event.target.closest(".copy-code-button");
+    if (!button) return;
+
+    var block = button.closest(".code-block");
+    var code = block ? block.querySelector("code") : null;
+    if (!code) return;
+
+    var text = code.textContent.replace(/\\n$/, "");
+
+    function setButtonState(label, copied) {
+        block.querySelectorAll(".copy-code-button").forEach(function (item) {
+            item.textContent = label;
+            item.classList.toggle("copied", copied);
+        });
+    }
+
+    function markCopied() {
+        setButtonState("Copied", true);
+        window.setTimeout(function () {
+            setButtonState("Copy code", false);
+        }, 1400);
+    }
+
+    function fallbackCopy() {
+        var textarea = document.createElement("textarea");
+        textarea.value = text;
+        textarea.setAttribute("readonly", "");
+        textarea.style.position = "fixed";
+        textarea.style.opacity = "0";
+        document.body.appendChild(textarea);
+        textarea.select();
+        try {
+            document.execCommand("copy");
+            markCopied();
+        } finally {
+            document.body.removeChild(textarea);
+        }
+    }
+
+    if (navigator.clipboard && window.isSecureContext) {
+        navigator.clipboard.writeText(text).then(markCopied).catch(fallbackCopy);
+    } else {
+        fallbackCopy();
+    }
+});
+</script>"""
 
 CATEGORIES = [
     ("Animation", "Control animation with Paper.js code."),
@@ -23,6 +72,73 @@ CATEGORIES = [
 ]
 
 MEDIA_EXTENSIONS = {".gif", ".png", ".jpg", ".jpeg", ".webp", ".mp4"}
+
+JS_KEYWORDS = {
+    "async",
+    "await",
+    "break",
+    "case",
+    "catch",
+    "class",
+    "const",
+    "continue",
+    "default",
+    "delete",
+    "do",
+    "else",
+    "export",
+    "extends",
+    "finally",
+    "for",
+    "from",
+    "function",
+    "if",
+    "import",
+    "in",
+    "instanceof",
+    "let",
+    "new",
+    "of",
+    "return",
+    "switch",
+    "this",
+    "throw",
+    "try",
+    "typeof",
+    "var",
+    "void",
+    "while",
+    "with",
+    "yield",
+}
+
+JS_CONSTANTS = {"true", "false", "null", "undefined", "NaN", "Infinity"}
+
+PAPER_JS_BUILTINS = {
+    "Color",
+    "CompoundPath",
+    "Curve",
+    "Group",
+    "Layer",
+    "Matrix",
+    "Path",
+    "Point",
+    "PointText",
+    "Project",
+    "Raster",
+    "Rectangle",
+    "Segment",
+    "Shape",
+    "Size",
+    "Symbol",
+    "Tool",
+    "console",
+    "event",
+    "Math",
+    "paper",
+    "project",
+    "view",
+}
 
 
 @dataclass
@@ -223,6 +339,132 @@ def media_markup(item: Item, class_name: str = "") -> str:
     return '<div class="placeholder" aria-hidden="true"></div>'
 
 
+def color_span(value: str, color: str) -> str:
+    return f'<span style="color:{color}">{html.escape(value)}</span>'
+
+
+def is_identifier_start(value: str) -> bool:
+    return value.isalpha() or value in "_$"
+
+
+def is_identifier_part(value: str) -> bool:
+    return value.isalnum() or value in "_$"
+
+
+def highlight_js_line(line: str, in_block_comment: bool) -> tuple[str, bool]:
+    parts: list[str] = []
+    index = 0
+    length = len(line)
+
+    while index < length:
+        if in_block_comment:
+            end = line.find("*/", index)
+            if end == -1:
+                parts.append(color_span(line[index:], "#7f848e"))
+                return "".join(parts), True
+            parts.append(color_span(line[index : end + 2], "#7f848e"))
+            index = end + 2
+            in_block_comment = False
+            continue
+
+        char = line[index]
+        next_char = line[index + 1] if index + 1 < length else ""
+
+        if char == "/" and next_char == "/":
+            parts.append(color_span(line[index:], "#7f848e"))
+            break
+
+        if char == "/" and next_char == "*":
+            end = line.find("*/", index + 2)
+            if end == -1:
+                parts.append(color_span(line[index:], "#7f848e"))
+                return "".join(parts), True
+            parts.append(color_span(line[index : end + 2], "#7f848e"))
+            index = end + 2
+            continue
+
+        if char in {"'", '"', "`"}:
+            quote_char = char
+            end = index + 1
+            escaped = False
+            while end < length:
+                current = line[end]
+                if escaped:
+                    escaped = False
+                elif current == "\\":
+                    escaped = True
+                elif current == quote_char:
+                    end += 1
+                    break
+                end += 1
+            parts.append(color_span(line[index:end], "#98c379"))
+            index = end
+            continue
+
+        if char.isdigit() or (char == "." and next_char.isdigit()):
+            end = index + 1
+            while end < length and re.match(r"[0-9a-fA-FxXoObBeE_+.:-]", line[end]):
+                end += 1
+            parts.append(color_span(line[index:end], "#d19a66"))
+            index = end
+            continue
+
+        if is_identifier_start(char):
+            end = index + 1
+            while end < length and is_identifier_part(line[end]):
+                end += 1
+            token = line[index:end]
+            next_non_space = end
+            while next_non_space < length and line[next_non_space].isspace():
+                next_non_space += 1
+            if token in JS_KEYWORDS:
+                parts.append(color_span(token, "#c678dd"))
+            elif token in JS_CONSTANTS:
+                parts.append(color_span(token, "#d19a66"))
+            elif token in PAPER_JS_BUILTINS or (next_non_space < length and line[next_non_space] == "("):
+                parts.append(color_span(token, "#e5c07b"))
+            else:
+                parts.append(html.escape(token))
+            index = end
+            continue
+
+        if char in "=+-*/%<>!&|?:":
+            end = index + 1
+            while end < length and line[end] in "=+-*/%<>!&|?:":
+                end += 1
+            parts.append(color_span(line[index:end], "#56b6c2"))
+            index = end
+            continue
+
+        parts.append(html.escape(char))
+        index += 1
+
+    return "".join(parts), in_block_comment
+
+
+def highlight_js(code: str) -> str:
+    lines = code.splitlines() or [""]
+    in_block_comment = False
+    rendered_lines = []
+    for line in lines:
+        highlighted, in_block_comment = highlight_js_line(line, in_block_comment)
+        rendered_lines.append(f'<span style="display:flex;"><span>{highlighted}\n</span></span>')
+    return "".join(rendered_lines)
+
+
+def highlighted_code_block(code: str) -> str:
+    return (
+        '<div class="code-block">'
+        '<div class="code-toolbar code-toolbar-top"><button class="copy-code-button" type="button">Copy code</button></div>'
+        '<div class="highlight"><pre tabindex="0" '
+        'style="color:#abb2bf;background-color:#282c34;-moz-tab-size:4;-o-tab-size:4;'
+        'tab-size:4;-webkit-text-size-adjust:none;">'
+        f'<code class="language-js" data-lang="js">{highlight_js(code)}</code></pre></div>'
+        '<div class="code-toolbar code-toolbar-bottom"><button class="copy-code-button" type="button">Copy code</button></div>'
+        '</div>'
+    )
+
+
 def base_styles() -> str:
     return """
         :root {
@@ -363,8 +605,7 @@ def base_styles() -> str:
             overflow: hidden;
             border-radius: 10px;
             padding: 0;
-            background: var(--tile);
-            backdrop-filter: blur(10px);
+            background: transparent;
             text-decoration: none;
             color: inherit;
         }
@@ -377,12 +618,12 @@ def base_styles() -> str:
             justify-content: center;
             aspect-ratio: 4 / 3;
             overflow: hidden;
-            border-radius: 8px 8px 0 0;
-            background: rgba(0, 0, 0, 0.04);
+            border-radius: 8px;
+            background: transparent;
         }
 
         @media (prefers-color-scheme: dark) {
-            .thumb { background: rgba(255, 255, 255, 0.05); }
+            .thumb { background: transparent; }
         }
 
         .thumb img,
@@ -391,7 +632,7 @@ def base_styles() -> str:
             height: 100%;
             display: block;
             object-fit: cover;
-            border-radius: 0;
+            border-radius: inherit;
         }
 
         .placeholder {
@@ -406,8 +647,8 @@ def base_styles() -> str:
             flex: 0 0 46px;
             display: -webkit-box;
             margin: 0;
-            padding: 10px 10px 0;
-            color: var(--muted);
+            padding: 10px 10px 0 0;
+            color: var(--text-color);
             font-size: 13px;
             line-height: 1.2;
             letter-spacing: 0;
@@ -505,6 +746,10 @@ def base_styles() -> str:
             text-decoration-thickness: 2px;
         }
 
+        .sketch-link {
+            flex: 0 0 100%;
+        }
+
         .button {
             display: inline;
             align-items: center;
@@ -553,16 +798,80 @@ def base_styles() -> str:
             .content-section p { color: #b4b4b4; }
         }
 
-        pre {
-            overflow: auto;
-            margin: 0;
-            border: 1px solid #2a2a2a;
+        .code-block {
+            margin: 1em 0;
+            overflow: hidden;
             border-radius: 0.5rem;
-            padding: 18px;
-            background: #111;
-            color: #f5f5f5;
-            font-size: 14px;
+            background-color: #181818;
+        }
+
+        @media (prefers-color-scheme: dark) {
+            .code-block {
+                background-color: hsl(232, 20.3%, 6.4%);
+            }
+        }
+
+        .code-toolbar {
+            display: flex;
+            align-items: center;
+            justify-content: flex-start;
+            min-height: 26px;
+            background: inherit;
+        }
+
+        .code-toolbar-top {
+            padding: 10px 9px 0;
+        }
+
+        .code-toolbar-bottom {
+            padding: 0 1.5em 10px;
+        }
+
+        .copy-code-button {
+            appearance: none;
+            border: 1px solid rgba(171, 178, 191, 0.26);
+            border-radius: 0.3rem;
+            padding: 4px 8px;
+            background: transparent;
+            color: #abb2bf;
+            font: inherit;
+            font-size: 12px;
+            font-weight: 700;
+            line-height: 1.2;
+            cursor: pointer;
+        }
+
+        .copy-code-button:hover,
+        .copy-code-button.copied {
+            border-color: rgba(244, 108, 4, 0.55);
+            color: var(--accent);
+        }
+
+        .highlight pre {
+            overflow-x: auto;
+            margin: 0;
+            border: 0;
+            border-radius: 0;
+            padding: 1.5em;
+            box-sizing: border-box;
+            background: transparent !important;
+            color: #abb2bf;
+            font-family: "IBM Plex Mono", ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono", monospace;
+            font-size: 0.8rem;
+            font-weight: 400 !important;
             line-height: 1.5;
+            white-space: pre;
+            max-width: 100%;
+        }
+
+        @media (prefers-color-scheme: dark) {
+            .highlight pre {
+                background: transparent !important;
+            }
+        }
+
+        .highlight code {
+            display: block;
             white-space: pre;
         }
 
@@ -662,6 +971,7 @@ def render_index(items: list[Item]) -> str:
         </header>
         {''.join(sections)}
     </main>
+    {GOATCOUNTER_SCRIPT}
 </body>
 </html>
 """
@@ -669,8 +979,8 @@ def render_index(items: list[Item]) -> str:
 
 def render_detail(item: Item) -> str:
     sketch_buttons = "\n".join(
-        f'<a class="text-link" href="{html.escape(link, quote=True)}" target="_blank" rel="noopener noreferrer">Open in Paper.js Sketch</a>'
-        for link in item.sketch_links
+        f'<a class="text-link sketch-link" href="{html.escape(link, quote=True)}" target="_blank" rel="noopener noreferrer">Open v{index + 1} in Sketch</a>'
+        for index, link in enumerate(item.sketch_links)
     )
     source_buttons = "\n".join(
         f'<a class="button secondary" href="{html.escape(link.url, quote=True)}">{html.escape(link.title)}</a>'
@@ -680,7 +990,7 @@ def render_detail(item: Item) -> str:
         f"""
         <section class="content-section">
             <h2>{'Code' if index == 0 else f'Code {index + 1}'}</h2>
-            <pre><code>{html.escape(code)}</code></pre>
+            {highlighted_code_block(code)}
         </section>
         """
         for index, code in enumerate(item.code_blocks)
@@ -706,6 +1016,7 @@ def render_detail(item: Item) -> str:
     actions = ""
     if sketch_buttons or source_buttons:
         actions = f'<div class="actions">{sketch_buttons}{source_buttons}</div>'
+    copy_code_script = COPY_CODE_SCRIPT if item.code_blocks else ""
 
     preview = media_markup(item, "preview-media")
 
@@ -749,6 +1060,8 @@ def render_detail(item: Item) -> str:
             &copy; 2026 Alexander Deplov, designer and developer of iOS and macOS apps, product designer.
         </footer>
     </article>
+    {copy_code_script}
+    {GOATCOUNTER_SCRIPT}
 </body>
 </html>
 """

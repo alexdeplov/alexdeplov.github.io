@@ -290,6 +290,10 @@
             text-decoration-thickness: 2px;
         }
 
+        .sketch-link {
+            flex: 0 0 100%;
+        }
+
         .button {
             display: inline;
             align-items: center;
@@ -338,16 +342,80 @@
             .content-section p { color: #b4b4b4; }
         }
 
-        pre {
-            overflow: auto;
-            margin: 0;
-            border: 1px solid #2a2a2a;
+        .code-block {
+            margin: 1em 0;
+            overflow: hidden;
             border-radius: 0.5rem;
-            padding: 18px;
-            background: #111;
-            color: #f5f5f5;
-            font-size: 14px;
+            background-color: #181818;
+        }
+
+        @media (prefers-color-scheme: dark) {
+            .code-block {
+                background-color: hsl(232, 20.3%, 6.4%);
+            }
+        }
+
+        .code-toolbar {
+            display: flex;
+            align-items: center;
+            justify-content: flex-start;
+            min-height: 26px;
+            background: inherit;
+        }
+
+        .code-toolbar-top {
+            padding: 10px 9px 0;
+        }
+
+        .code-toolbar-bottom {
+            padding: 0 1.5em 10px;
+        }
+
+        .copy-code-button {
+            appearance: none;
+            border: 1px solid rgba(171, 178, 191, 0.26);
+            border-radius: 0.3rem;
+            padding: 4px 8px;
+            background: transparent;
+            color: #abb2bf;
+            font: inherit;
+            font-size: 12px;
+            font-weight: 700;
+            line-height: 1.2;
+            cursor: pointer;
+        }
+
+        .copy-code-button:hover,
+        .copy-code-button.copied {
+            border-color: rgba(244, 108, 4, 0.55);
+            color: var(--accent);
+        }
+
+        .highlight pre {
+            overflow-x: auto;
+            margin: 0;
+            border: 0;
+            border-radius: 0;
+            padding: 1.5em;
+            box-sizing: border-box;
+            background: transparent !important;
+            color: #abb2bf;
+            font-family: "IBM Plex Mono", ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono", monospace;
+            font-size: 0.8rem;
+            font-weight: 400 !important;
             line-height: 1.5;
+            white-space: pre;
+            max-width: 100%;
+        }
+
+        @media (prefers-color-scheme: dark) {
+            .highlight pre {
+                background: transparent !important;
+            }
+        }
+
+        .highlight code {
+            display: block;
             white-space: pre;
         }
 
@@ -403,69 +471,74 @@
             <section class="preview-panel" aria-label="Preview">
                 <img class="preview-media" src="/tools/generative-art/assets/collection/Animation/Spirograph%20v2/Screen_Recording_2022-06-10_at_23.32.39.2022-06-10_23_33_15.gif" alt="Spirograph v2" loading="eager" decoding="async">
             </section>
-            <div class="actions"><a class="text-link" href="http://sketch.paperjs.org/#V/0.12.17/S/pVXBjtowEP2VUS6EBtIkW6qKLZUqpPZUqWoPPQCHkAzgkrWR47Clq/x7x4kTkhBgpXKJ7Xkz8+bN2LxYPHxCa2r93KOKdtbIikSs98dQwnoLM+D4DN9DtXN/YKRCvk3QfllyoF/K/uIUjgyf3bXIeJyOyvMNS5K5SIScwmCdhNF+YAwHkTLFBDdOEXKFcsnz4ZLrdFEiOKaU8kO5L5LR9uG9B2+NtbRs2BHnTEYJpl+lyA6GZrG2KdpGSLA1kJHFe6TPR+NPa8cZgqlAQw5U280yz6VORucTGcYsS9tnzcKFpCA4aFh7qwcHFt4I/MBbNaDiEEZMnabglWdaoSKEJiiFChXapTpvgI2a8YZVC9oCuWEcz3csiW0dgkB5KaRY//Yf6yVV3q+nsX+Wus2EJ4UzHuliQPAvkibIxiPlr4W9yG9I+4ZfM1llG3uu93CNfyWe+4e4NeqlvQPftCyRSEsStMq4ImUo3rshfSdehUkZv8QEGhNMvHuZT53Mp5tRTea6XP+VM7YIaBza09AcK4nx4MYU5md9fbf2o9SFY8NmNG/Q7utMPTXaxwDYBuwWKNIIidxNkG/pLn2age/Vk3ARs4IvvJUr8Ukc0TaR8wa/NAoTxrfgzCAgnX13QnJeVbvi1nfvLxra4dt+EWoCVdsp0NUIC7aqcR33Wnt3lyGMZ9ClHEy6RZe3i/IVAYrnyh52rE1aLZpdXKqk2OMvFhePW3BhJnnRDtyHiwStoVH0iKWHkEpVg/4MNXSdZHgLU+hA3bR75HGADWHcvC3G37yDuplucGc+S5dXDyndsf8c0js0cvovXUsM9wfBuEqt6WKV/wM=" target="_blank" rel="noopener noreferrer">Open in Paper.js Sketch</a></div>
+            <div class="actions"><a class="text-link sketch-link" href="http://sketch.paperjs.org/#V/0.12.17/S/pVXBjtowEP2VUS6EBtIkW6qKLZUqpPZUqWoPPQCHkAzgkrWR47Clq/x7x4kTkhBgpXKJ7Xkz8+bN2LxYPHxCa2r93KOKdtbIikSs98dQwnoLM+D4DN9DtXN/YKRCvk3QfllyoF/K/uIUjgyf3bXIeJyOyvMNS5K5SIScwmCdhNF+YAwHkTLFBDdOEXKFcsnz4ZLrdFEiOKaU8kO5L5LR9uG9B2+NtbRs2BHnTEYJpl+lyA6GZrG2KdpGSLA1kJHFe6TPR+NPa8cZgqlAQw5U280yz6VORucTGcYsS9tnzcKFpCA4aFh7qwcHFt4I/MBbNaDiEEZMnabglWdaoSKEJiiFChXapTpvgI2a8YZVC9oCuWEcz3csiW0dgkB5KaRY//Yf6yVV3q+nsX+Wus2EJ4UzHuliQPAvkibIxiPlr4W9yG9I+4ZfM1llG3uu93CNfyWe+4e4NeqlvQPftCyRSEsStMq4ImUo3rshfSdehUkZv8QEGhNMvHuZT53Mp5tRTea6XP+VM7YIaBza09AcK4nx4MYU5md9fbf2o9SFY8NmNG/Q7utMPTXaxwDYBuwWKNIIidxNkG/pLn2age/Vk3ARs4IvvJUr8Ukc0TaR8wa/NAoTxrfgzCAgnX13QnJeVbvi1nfvLxra4dt+EWoCVdsp0NUIC7aqcR33Wnt3lyGMZ9ClHEy6RZe3i/IVAYrnyh52rE1aLZpdXKqk2OMvFhePW3BhJnnRDtyHiwStoVH0iKWHkEpVg/4MNXSdZHgLU+hA3bR75HGADWHcvC3G37yDuplucGc+S5dXDyndsf8c0js0cvovXUsM9wfBuEqt6WKV/wM=" target="_blank" rel="noopener noreferrer">Open v1 in Sketch</a></div>
             
             
         <section class="content-section">
             <h2>Code</h2>
-            <pre><code>var bg = new Path.Rectangle({
-    size: view.bounds,
-    fillColor: &#x27;black&#x27;,
-    position: view.center
-})
-var clones = 8
-var angle = 360 / clones
-var fiveCirclesGroup = new Group()
-for (var i = 0; i &lt; clones; i++) {
-    var path = new Path.Rectangle({
-        size: 5,
-        radius: 5,
-        fillColor: &#x27;orange&#x27;,
-        position: view.center + [0, 120],
-        opacity: 0
-    })
-    path.rotate(angle * i, view.center)
-    fiveCirclesGroup.addChild(path)
-}
-var obj1;
-var objectsGroup = new Group()
-var objAround;
-
-function onFrame(event) {
-    fiveCirclesGroup.rotate(1)
-    objectsGroup.rotate(-0.03)
-    fiveCirclesGroup.position.x = view.center.x + Math.cos(event.count * 0.04) * 50 + Math.sin(event.count * 0.02) * 250
-    fiveCirclesGroup.position.y = view.center.y + Math.sin(event.count * 0.04) * 50
-    obj1 = new Path.Rectangle({
-        size: [20, 20],
-        fillColor: &#x27;red&#x27;,
-        radius: 5,
-    })
-    obj1.fillColor = &#x27;red&#x27;
-    obj1.rotate(event.count)
-    objectsGroup.addChild(obj1)
-    if (objectsGroup.children.length &gt;= 10) {
-        objectsGroup.children[0].remove()
-    }
-    obj1.scaling += 2 + 1.5 * Math.sin(event.count * 0.1)
-    for (var i = 0; i &lt; fiveCirclesGroup.children.length; i++) {
-        obj1.position = fiveCirclesGroup.children[i].position
-        obj1.fillColor.hue -= event.count * 0.25
-    }
-    objAround = obj1.clone()
-    objAround.position = obj1.position
-    objAround.strokeWidth = 2
-    objAround.scale(2.3)
-    objAround.fillColor = &#x27;transparent&#x27;
-    objAround.strokeColor = &#x27;blue&#x27;
-    objAround.strokeColor.hue += (obj1.fillColor.hue + i) - 50
-    objAround.opacity = 0.2
-    objectsGroup.addChild(objAround)
-    if (objectsGroup.children.length &gt; 200) {
-        objectsGroup.children[0].remove()
-    }
-    objectsGroup.addChild(objAround)
-}</code></pre>
+            <div class="code-block">
+                <div class="code-toolbar code-toolbar-top"><button class="copy-code-button" type="button">Copy code</button></div>
+            <div class="highlight"><pre tabindex="0" style="color:#abb2bf;background-color:#282c34;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"><code class="language-js" data-lang="js"><span style="display:flex;"><span><span style="color:#c678dd">var</span> bg <span style="color:#56b6c2">=</span> <span style="color:#c678dd">new</span> <span style="color:#e5c07b">Path</span>.<span style="color:#e5c07b">Rectangle</span>({
+</span></span><span style="display:flex;"><span>    size<span style="color:#56b6c2">:</span> <span style="color:#e5c07b">view</span>.bounds,
+</span></span><span style="display:flex;"><span>    fillColor<span style="color:#56b6c2">:</span> <span style="color:#98c379">&#x27;black&#x27;</span>,
+</span></span><span style="display:flex;"><span>    position<span style="color:#56b6c2">:</span> <span style="color:#e5c07b">view</span>.center
+</span></span><span style="display:flex;"><span>})
+</span></span><span style="display:flex;"><span><span style="color:#c678dd">var</span> clones <span style="color:#56b6c2">=</span> <span style="color:#d19a66">8</span>
+</span></span><span style="display:flex;"><span><span style="color:#c678dd">var</span> angle <span style="color:#56b6c2">=</span> <span style="color:#d19a66">360</span> <span style="color:#56b6c2">/</span> clones
+</span></span><span style="display:flex;"><span><span style="color:#c678dd">var</span> fiveCirclesGroup <span style="color:#56b6c2">=</span> <span style="color:#c678dd">new</span> <span style="color:#e5c07b">Group</span>()
+</span></span><span style="display:flex;"><span><span style="color:#c678dd">for</span> (<span style="color:#c678dd">var</span> i <span style="color:#56b6c2">=</span> <span style="color:#d19a66">0</span>; i <span style="color:#56b6c2">&lt;</span> clones; i<span style="color:#56b6c2">++</span>) {
+</span></span><span style="display:flex;"><span>    <span style="color:#c678dd">var</span> path <span style="color:#56b6c2">=</span> <span style="color:#c678dd">new</span> <span style="color:#e5c07b">Path</span>.<span style="color:#e5c07b">Rectangle</span>({
+</span></span><span style="display:flex;"><span>        size<span style="color:#56b6c2">:</span> <span style="color:#d19a66">5</span>,
+</span></span><span style="display:flex;"><span>        radius<span style="color:#56b6c2">:</span> <span style="color:#d19a66">5</span>,
+</span></span><span style="display:flex;"><span>        fillColor<span style="color:#56b6c2">:</span> <span style="color:#98c379">&#x27;orange&#x27;</span>,
+</span></span><span style="display:flex;"><span>        position<span style="color:#56b6c2">:</span> <span style="color:#e5c07b">view</span>.center <span style="color:#56b6c2">+</span> [<span style="color:#d19a66">0</span>, <span style="color:#d19a66">120</span>],
+</span></span><span style="display:flex;"><span>        opacity<span style="color:#56b6c2">:</span> <span style="color:#d19a66">0</span>
+</span></span><span style="display:flex;"><span>    })
+</span></span><span style="display:flex;"><span>    path.<span style="color:#e5c07b">rotate</span>(angle <span style="color:#56b6c2">*</span> i, <span style="color:#e5c07b">view</span>.center)
+</span></span><span style="display:flex;"><span>    fiveCirclesGroup.<span style="color:#e5c07b">addChild</span>(path)
+</span></span><span style="display:flex;"><span>}
+</span></span><span style="display:flex;"><span><span style="color:#c678dd">var</span> obj1;
+</span></span><span style="display:flex;"><span><span style="color:#c678dd">var</span> objectsGroup <span style="color:#56b6c2">=</span> <span style="color:#c678dd">new</span> <span style="color:#e5c07b">Group</span>()
+</span></span><span style="display:flex;"><span><span style="color:#c678dd">var</span> objAround;
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#c678dd">function</span> <span style="color:#e5c07b">onFrame</span>(<span style="color:#e5c07b">event</span>) {
+</span></span><span style="display:flex;"><span>    fiveCirclesGroup.<span style="color:#e5c07b">rotate</span>(<span style="color:#d19a66">1</span>)
+</span></span><span style="display:flex;"><span>    objectsGroup.<span style="color:#e5c07b">rotate</span>(<span style="color:#56b6c2">-</span><span style="color:#d19a66">0.03</span>)
+</span></span><span style="display:flex;"><span>    fiveCirclesGroup.position.x <span style="color:#56b6c2">=</span> <span style="color:#e5c07b">view</span>.center.x <span style="color:#56b6c2">+</span> <span style="color:#e5c07b">Math</span>.<span style="color:#e5c07b">cos</span>(<span style="color:#e5c07b">event</span>.count <span style="color:#56b6c2">*</span> <span style="color:#d19a66">0.04</span>) <span style="color:#56b6c2">*</span> <span style="color:#d19a66">50</span> <span style="color:#56b6c2">+</span> <span style="color:#e5c07b">Math</span>.<span style="color:#e5c07b">sin</span>(<span style="color:#e5c07b">event</span>.count <span style="color:#56b6c2">*</span> <span style="color:#d19a66">0.02</span>) <span style="color:#56b6c2">*</span> <span style="color:#d19a66">250</span>
+</span></span><span style="display:flex;"><span>    fiveCirclesGroup.position.y <span style="color:#56b6c2">=</span> <span style="color:#e5c07b">view</span>.center.y <span style="color:#56b6c2">+</span> <span style="color:#e5c07b">Math</span>.<span style="color:#e5c07b">sin</span>(<span style="color:#e5c07b">event</span>.count <span style="color:#56b6c2">*</span> <span style="color:#d19a66">0.04</span>) <span style="color:#56b6c2">*</span> <span style="color:#d19a66">50</span>
+</span></span><span style="display:flex;"><span>    obj1 <span style="color:#56b6c2">=</span> <span style="color:#c678dd">new</span> <span style="color:#e5c07b">Path</span>.<span style="color:#e5c07b">Rectangle</span>({
+</span></span><span style="display:flex;"><span>        size<span style="color:#56b6c2">:</span> [<span style="color:#d19a66">20</span>, <span style="color:#d19a66">20</span>],
+</span></span><span style="display:flex;"><span>        fillColor<span style="color:#56b6c2">:</span> <span style="color:#98c379">&#x27;red&#x27;</span>,
+</span></span><span style="display:flex;"><span>        radius<span style="color:#56b6c2">:</span> <span style="color:#d19a66">5</span>,
+</span></span><span style="display:flex;"><span>    })
+</span></span><span style="display:flex;"><span>    obj1.fillColor <span style="color:#56b6c2">=</span> <span style="color:#98c379">&#x27;red&#x27;</span>
+</span></span><span style="display:flex;"><span>    obj1.<span style="color:#e5c07b">rotate</span>(<span style="color:#e5c07b">event</span>.count)
+</span></span><span style="display:flex;"><span>    objectsGroup.<span style="color:#e5c07b">addChild</span>(obj1)
+</span></span><span style="display:flex;"><span>    <span style="color:#c678dd">if</span> (objectsGroup.children.length <span style="color:#56b6c2">&gt;=</span> <span style="color:#d19a66">10</span>) {
+</span></span><span style="display:flex;"><span>        objectsGroup.children[<span style="color:#d19a66">0</span>].<span style="color:#e5c07b">remove</span>()
+</span></span><span style="display:flex;"><span>    }
+</span></span><span style="display:flex;"><span>    obj1.scaling <span style="color:#56b6c2">+=</span> <span style="color:#d19a66">2</span> <span style="color:#56b6c2">+</span> <span style="color:#d19a66">1.5</span> <span style="color:#56b6c2">*</span> <span style="color:#e5c07b">Math</span>.<span style="color:#e5c07b">sin</span>(<span style="color:#e5c07b">event</span>.count <span style="color:#56b6c2">*</span> <span style="color:#d19a66">0.1</span>)
+</span></span><span style="display:flex;"><span>    <span style="color:#c678dd">for</span> (<span style="color:#c678dd">var</span> i <span style="color:#56b6c2">=</span> <span style="color:#d19a66">0</span>; i <span style="color:#56b6c2">&lt;</span> fiveCirclesGroup.children.length; i<span style="color:#56b6c2">++</span>) {
+</span></span><span style="display:flex;"><span>        obj1.position <span style="color:#56b6c2">=</span> fiveCirclesGroup.children[i].position
+</span></span><span style="display:flex;"><span>        obj1.fillColor.hue <span style="color:#56b6c2">-=</span> <span style="color:#e5c07b">event</span>.count <span style="color:#56b6c2">*</span> <span style="color:#d19a66">0.25</span>
+</span></span><span style="display:flex;"><span>    }
+</span></span><span style="display:flex;"><span>    objAround <span style="color:#56b6c2">=</span> obj1.<span style="color:#e5c07b">clone</span>()
+</span></span><span style="display:flex;"><span>    objAround.position <span style="color:#56b6c2">=</span> obj1.position
+</span></span><span style="display:flex;"><span>    objAround.strokeWidth <span style="color:#56b6c2">=</span> <span style="color:#d19a66">2</span>
+</span></span><span style="display:flex;"><span>    objAround.<span style="color:#e5c07b">scale</span>(<span style="color:#d19a66">2.3</span>)
+</span></span><span style="display:flex;"><span>    objAround.fillColor <span style="color:#56b6c2">=</span> <span style="color:#98c379">&#x27;transparent&#x27;</span>
+</span></span><span style="display:flex;"><span>    objAround.strokeColor <span style="color:#56b6c2">=</span> <span style="color:#98c379">&#x27;blue&#x27;</span>
+</span></span><span style="display:flex;"><span>    objAround.strokeColor.hue <span style="color:#56b6c2">+=</span> (obj1.fillColor.hue <span style="color:#56b6c2">+</span> i) <span style="color:#56b6c2">-</span> <span style="color:#d19a66">50</span>
+</span></span><span style="display:flex;"><span>    objAround.opacity <span style="color:#56b6c2">=</span> <span style="color:#d19a66">0.2</span>
+</span></span><span style="display:flex;"><span>    objectsGroup.<span style="color:#e5c07b">addChild</span>(objAround)
+</span></span><span style="display:flex;"><span>    <span style="color:#c678dd">if</span> (objectsGroup.children.length <span style="color:#56b6c2">&gt;</span> <span style="color:#d19a66">200</span>) {
+</span></span><span style="display:flex;"><span>        objectsGroup.children[<span style="color:#d19a66">0</span>].<span style="color:#e5c07b">remove</span>()
+</span></span><span style="display:flex;"><span>    }
+</span></span><span style="display:flex;"><span>    objectsGroup.<span style="color:#e5c07b">addChild</span>(objAround)
+</span></span><span style="display:flex;"><span>}
+</span></span></code></pre></div>
+                <div class="code-toolbar code-toolbar-bottom"><button class="copy-code-button" type="button">Copy code</button></div>
+            </div>
         </section>
         
         </div>
@@ -473,5 +546,54 @@ function onFrame(event) {
             &copy; 2026 Alexander Deplov, designer and developer of iOS and macOS apps, product designer.
         </footer>
     </article>
+    <script>
+document.addEventListener("click", function (event) {
+    var button = event.target.closest(".copy-code-button");
+    if (!button) return;
+
+    var block = button.closest(".code-block");
+    var code = block ? block.querySelector("code") : null;
+    if (!code) return;
+
+    var text = code.textContent.replace(/\n$/, "");
+
+    function setButtonState(label, copied) {
+        block.querySelectorAll(".copy-code-button").forEach(function (item) {
+            item.textContent = label;
+            item.classList.toggle("copied", copied);
+        });
+    }
+
+    function markCopied() {
+        setButtonState("Copied", true);
+        window.setTimeout(function () {
+            setButtonState("Copy code", false);
+        }, 1400);
+    }
+
+    function fallbackCopy() {
+        var textarea = document.createElement("textarea");
+        textarea.value = text;
+        textarea.setAttribute("readonly", "");
+        textarea.style.position = "fixed";
+        textarea.style.opacity = "0";
+        document.body.appendChild(textarea);
+        textarea.select();
+        try {
+            document.execCommand("copy");
+            markCopied();
+        } finally {
+            document.body.removeChild(textarea);
+        }
+    }
+
+    if (navigator.clipboard && window.isSecureContext) {
+        navigator.clipboard.writeText(text).then(markCopied).catch(fallbackCopy);
+    } else {
+        fallbackCopy();
+    }
+});
+</script>
+    <script data-goatcounter="https://goatinterface.goatcounter.com/count" async src="//gc.zgo.at/count.js"></script>
 </body>
 </html>

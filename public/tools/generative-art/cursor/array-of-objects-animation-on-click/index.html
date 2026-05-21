@@ -290,6 +290,10 @@
             text-decoration-thickness: 2px;
         }
 
+        .sketch-link {
+            flex: 0 0 100%;
+        }
+
         .button {
             display: inline;
             align-items: center;
@@ -338,16 +342,80 @@
             .content-section p { color: #b4b4b4; }
         }
 
-        pre {
-            overflow: auto;
-            margin: 0;
-            border: 1px solid #2a2a2a;
+        .code-block {
+            margin: 1em 0;
+            overflow: hidden;
             border-radius: 0.5rem;
-            padding: 18px;
-            background: #111;
-            color: #f5f5f5;
-            font-size: 14px;
+            background-color: #181818;
+        }
+
+        @media (prefers-color-scheme: dark) {
+            .code-block {
+                background-color: hsl(232, 20.3%, 6.4%);
+            }
+        }
+
+        .code-toolbar {
+            display: flex;
+            align-items: center;
+            justify-content: flex-start;
+            min-height: 26px;
+            background: inherit;
+        }
+
+        .code-toolbar-top {
+            padding: 10px 9px 0;
+        }
+
+        .code-toolbar-bottom {
+            padding: 0 1.5em 10px;
+        }
+
+        .copy-code-button {
+            appearance: none;
+            border: 1px solid rgba(171, 178, 191, 0.26);
+            border-radius: 0.3rem;
+            padding: 4px 8px;
+            background: transparent;
+            color: #abb2bf;
+            font: inherit;
+            font-size: 12px;
+            font-weight: 700;
+            line-height: 1.2;
+            cursor: pointer;
+        }
+
+        .copy-code-button:hover,
+        .copy-code-button.copied {
+            border-color: rgba(244, 108, 4, 0.55);
+            color: var(--accent);
+        }
+
+        .highlight pre {
+            overflow-x: auto;
+            margin: 0;
+            border: 0;
+            border-radius: 0;
+            padding: 1.5em;
+            box-sizing: border-box;
+            background: transparent !important;
+            color: #abb2bf;
+            font-family: "IBM Plex Mono", ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono", monospace;
+            font-size: 0.8rem;
+            font-weight: 400 !important;
             line-height: 1.5;
+            white-space: pre;
+            max-width: 100%;
+        }
+
+        @media (prefers-color-scheme: dark) {
+            .highlight pre {
+                background: transparent !important;
+            }
+        }
+
+        .highlight code {
+            display: block;
             white-space: pre;
         }
 
@@ -416,144 +484,149 @@
             
         <section class="content-section">
             <h2>Code</h2>
-            <pre><code>&lt;!DOCTYPE html&gt;
-&lt;html lang=&quot;en&quot;&gt;
-&lt;head&gt;
-&lt;meta charset=&quot;UTF-8&quot; /&gt;
-&lt;meta name=&quot;viewport&quot; content=&quot;width=device-width, initial-scale=1.0&quot; /&gt;
-&lt;meta http-equiv=&quot;X-UA-Compatible&quot; content=&quot;ie=edge&quot; /&gt;
-&lt;title&gt;Paper.js&lt;/title&gt;
-&lt;link rel=&quot;stylesheet&quot; href=&quot;./../PaperJSEngine/style.css&quot; &gt;
-&lt;script type=&quot;text/javascript&quot; src=&quot;./../PaperJSEngine/paper-full.js&quot;&gt;&lt;/script&gt;
-&lt;script src=&quot;https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js&quot;&gt;&lt;/script&gt;
-&lt;script type=&quot;text/paperscript&quot; canvas=&quot;canvas&quot;&gt;
-
-var group = new Group()
-var coloredObjectsArray = []
-var svg = project.importSVG(document.getElementById(&#x27;svg&#x27;)).children[1]
-
-for (var i = 0; i &lt; svg.children.length; i++){
-
-  var path = svg.children[i]
-  path.fillColor = Color.random()
-  coloredObjectsArray.push(path)
-
-  path.onMouseDown = function(event){
-    animate(event.point)
-  }
-
-}
-
-function animate(point){
-
-  for (var i = 0; i &lt; coloredObjectsArray.length; i++){
-    var path = coloredObjectsArray[i]
-    var distance = point.getDistance(path.position)
-    var tween = path.tweenTo({
-      opacity: 0,
-    }, distance * 2)
-
-
-  }
-
-}
-
-&lt;/script&gt;
-&lt;/head&gt;
-&lt;body&gt;
-&lt;script src=&quot;https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js&quot;&gt;&lt;/script&gt;
-
-&lt;canvas id=&quot;canvas&quot; resize &gt;&lt;/canvas&gt;
-
-&lt;svg id=&quot;svg&quot; data-name=&quot;Layer 2&quot; xmlns=&quot;http://www.w3.org/2000/svg&quot; viewBox=&quot;0 0 443 438&quot;&gt;
-  &lt;defs&gt;
-    &lt;style&gt;
-      .cls-1 {
-        fill: #ad3232;
-      }
-    &lt;/style&gt;
-  &lt;/defs&gt;
-  &lt;g id=&quot;Layer_1-2&quot; data-name=&quot;Layer 1&quot;&gt;
-    &lt;rect class=&quot;cls-1&quot; x=&quot;73&quot; y=&quot;43&quot; width=&quot;43&quot; height=&quot;43&quot; transform=&quot;translate(-15.1 97.35) rotate(-51)&quot;/&gt;
-    &lt;polygon class=&quot;cls-1&quot; points=&quot;91.32 34.26 124.74 61.32 97.68 94.74 64.26 67.68 91.32 34.26&quot;/&gt;
-    &lt;rect class=&quot;cls-1&quot; x=&quot;202&quot; y=&quot;138&quot; width=&quot;43&quot; height=&quot;43&quot; transform=&quot;translate(-10.65 302.91) rotate(-67)&quot;/&gt;
-    &lt;polygon class=&quot;cls-1&quot; points=&quot;212.11 131.31 251.69 148.11 234.89 187.69 195.31 170.89 212.11 131.31&quot;/&gt;
-    &lt;rect class=&quot;cls-1&quot; x=&quot;150&quot; y=&quot;98&quot; width=&quot;43&quot; height=&quot;43&quot; transform=&quot;translate(-5.51 230.67) rotate(-67)&quot;/&gt;
-    &lt;polygon class=&quot;cls-1&quot; points=&quot;160.11 91.31 199.69 108.11 182.89 147.69 143.31 130.89 160.11 91.31&quot;/&gt;
-    &lt;rect class=&quot;cls-1&quot; x=&quot;309&quot; y=&quot;95&quot; width=&quot;43&quot; height=&quot;43&quot; transform=&quot;translate(64.36 344.47) rotate(-60)&quot;/&gt;
-    &lt;polygon class=&quot;cls-1&quot; points=&quot;322.63 87.13 359.87 108.63 338.37 145.87 301.13 124.37 322.63 87.13&quot;/&gt;
-    &lt;rect class=&quot;cls-1&quot; x=&quot;320&quot; y=&quot;268&quot; width=&quot;43&quot; height=&quot;43&quot;/&gt;
-    &lt;polygon class=&quot;cls-1&quot; points=&quot;320 268 363 268 363 311 320 311 320 268&quot;/&gt;
-    &lt;rect class=&quot;cls-1&quot; x=&quot;239&quot; y=&quot;258&quot; width=&quot;43&quot; height=&quot;43&quot; transform=&quot;translate(-102.84 161.34) rotate(-29)&quot;/&gt;
-    &lt;polygon class=&quot;cls-1&quot; points=&quot;268.88 250.27 289.73 287.88 252.12 308.73 231.27 271.12 268.88 250.27&quot;/&gt;
-    &lt;rect class=&quot;cls-1&quot; x=&quot;62&quot; y=&quot;169&quot; width=&quot;43&quot; height=&quot;43&quot; transform=&quot;translate(-124.27 200.18) rotate(-69)&quot;/&gt;
-    &lt;polygon class=&quot;cls-1&quot; points=&quot;71.13 162.72 111.28 178.13 95.87 218.28 55.72 202.87 71.13 162.72&quot;/&gt;
-    &lt;rect class=&quot;cls-1&quot; x=&quot;22&quot; y=&quot;116&quot; width=&quot;43&quot; height=&quot;43&quot; transform=&quot;translate(-100.46 128.84) rotate(-69)&quot;/&gt;
-    &lt;polygon class=&quot;cls-1&quot; points=&quot;31.13 109.72 71.28 125.13 55.87 165.28 15.72 149.87 31.13 109.72&quot;/&gt;
-    &lt;rect class=&quot;cls-1&quot; x=&quot;175&quot; y=&quot;237&quot; width=&quot;43&quot; height=&quot;43&quot; transform=&quot;translate(-122.5 197.88) rotate(-42)&quot;/&gt;
-    &lt;polygon class=&quot;cls-1&quot; points=&quot;166.14 256.91 198.09 228.14 226.86 260.09 194.91 288.86 166.14 256.91&quot;/&gt;
-    &lt;rect class=&quot;cls-1&quot; x=&quot;73&quot; y=&quot;280&quot; width=&quot;43&quot; height=&quot;43&quot; transform=&quot;translate(-203.16 195.52) rotate(-53)&quot;/&gt;
-    &lt;polygon class=&quot;cls-1&quot; points=&quot;90.27 271.39 124.61 297.27 98.73 331.61 64.39 305.73 90.27 271.39&quot;/&gt;
-    &lt;rect class=&quot;cls-1&quot; x=&quot;175&quot; y=&quot;351&quot; width=&quot;43&quot; height=&quot;43&quot; transform=&quot;translate(-167.54 160.73) rotate(-32)&quot;/&gt;
-    &lt;path class=&quot;cls-1&quot; d=&quot;M166.87,365.66l36.47-22.79,22.79,36.47-36.47,22.79-22.79-36.47Z&quot;/&gt;
-    &lt;rect class=&quot;cls-1&quot; x=&quot;72&quot; y=&quot;347&quot; width=&quot;43&quot; height=&quot;43&quot; transform=&quot;translate(-181.07 105.54) rotate(-32)&quot;/&gt;
-    &lt;polygon class=&quot;cls-1&quot; points=&quot;63.87 361.66 100.34 338.87 123.13 375.34 86.66 398.13 63.87 361.66&quot;/&gt;
-    &lt;circle class=&quot;cls-1&quot; cx=&quot;94.5&quot; cy=&quot;247.5&quot; r=&quot;21.5&quot;/&gt;
-    &lt;circle class=&quot;cls-1&quot; cx=&quot;21.5&quot; cy=&quot;228.5&quot; r=&quot;21.5&quot;/&gt;
-    &lt;circle class=&quot;cls-1&quot; cx=&quot;218.5&quot; cy=&quot;206.5&quot; r=&quot;21.5&quot;/&gt;
-    &lt;circle class=&quot;cls-1&quot; cx=&quot;393.5&quot; cy=&quot;147.5&quot; r=&quot;21.5&quot;/&gt;
-    &lt;circle class=&quot;cls-1&quot; cx=&quot;124.5&quot; cy=&quot;140.5&quot; r=&quot;21.5&quot;/&gt;
-    &lt;circle class=&quot;cls-1&quot; cx=&quot;156.5&quot; cy=&quot;202.5&quot; r=&quot;21.5&quot;/&gt;
-    &lt;circle class=&quot;cls-1&quot; cx=&quot;267.5&quot; cy=&quot;128.5&quot; r=&quot;21.5&quot;/&gt;
-    &lt;circle class=&quot;cls-1&quot; cx=&quot;150.5&quot; cy=&quot;330.5&quot; r=&quot;21.5&quot;/&gt;
-    &lt;circle class=&quot;cls-1&quot; cx=&quot;146.5&quot; cy=&quot;405.5&quot; r=&quot;21.5&quot;/&gt;
-    &lt;circle class=&quot;cls-1&quot; cx=&quot;406.5&quot; cy=&quot;211.5&quot; r=&quot;21.5&quot;/&gt;
-    &lt;circle class=&quot;cls-1&quot; cx=&quot;401.5&quot; cy=&quot;300.5&quot; r=&quot;21.5&quot;/&gt;
-    &lt;path class=&quot;cls-1&quot; d=&quot;M220.5,396c9.66,0,17.5,7.84,17.5,17.5s-7.84,17.5-17.5,17.5-17.5-7.84-17.5-17.5,7.84-17.5,17.5-17.5Z&quot;/&gt;
-    &lt;circle class=&quot;cls-1&quot; cx=&quot;330.5&quot; cy=&quot;65.5&quot; r=&quot;21.5&quot;/&gt;
-    &lt;circle class=&quot;cls-1&quot; cx=&quot;175&quot; cy=&quot;169&quot; r=&quot;10&quot;/&gt;
-    &lt;circle class=&quot;cls-1&quot; cx=&quot;133&quot; cy=&quot;28&quot; r=&quot;10&quot;/&gt;
-    &lt;circle class=&quot;cls-1&quot; cx=&quot;168&quot; cy=&quot;24&quot; r=&quot;10&quot;/&gt;
-    &lt;circle class=&quot;cls-1&quot; cx=&quot;88&quot; cy=&quot;147&quot; r=&quot;10&quot;/&gt;
-    &lt;circle class=&quot;cls-1&quot; cx=&quot;64&quot; cy=&quot;228&quot; r=&quot;10&quot;/&gt;
-    &lt;circle class=&quot;cls-1&quot; cx=&quot;28&quot; cy=&quot;179&quot; r=&quot;10&quot;/&gt;
-    &lt;circle class=&quot;cls-1&quot; cx=&quot;56&quot; cy=&quot;95&quot; r=&quot;10&quot;/&gt;
-    &lt;circle class=&quot;cls-1&quot; cx=&quot;139&quot; cy=&quot;246&quot; r=&quot;10&quot;/&gt;
-    &lt;circle class=&quot;cls-1&quot; cx=&quot;54&quot; cy=&quot;271&quot; r=&quot;10&quot;/&gt;
-    &lt;circle class=&quot;cls-1&quot; cx=&quot;381&quot; cy=&quot;258&quot; r=&quot;10&quot;/&gt;
-    &lt;circle class=&quot;cls-1&quot; cx=&quot;261&quot; cy=&quot;171&quot; r=&quot;10&quot;/&gt;
-    &lt;circle class=&quot;cls-1&quot; cx=&quot;288&quot; cy=&quot;94&quot; r=&quot;10&quot;/&gt;
-    &lt;circle class=&quot;cls-1&quot; cx=&quot;294&quot; cy=&quot;34&quot; r=&quot;10&quot;/&gt;
-    &lt;circle class=&quot;cls-1&quot; cx=&quot;367&quot; cy=&quot;87&quot; r=&quot;10&quot;/&gt;
-    &lt;circle class=&quot;cls-1&quot; cx=&quot;358&quot; cy=&quot;143&quot; r=&quot;10&quot;/&gt;
-    &lt;circle class=&quot;cls-1&quot; cx=&quot;432&quot; cy=&quot;169&quot; r=&quot;10&quot;/&gt;
-    &lt;circle class=&quot;cls-1&quot; cx=&quot;382&quot; cy=&quot;183&quot; r=&quot;10&quot;/&gt;
-    &lt;circle class=&quot;cls-1&quot; cx=&quot;433&quot; cy=&quot;251&quot; r=&quot;10&quot;/&gt;
-    &lt;circle class=&quot;cls-1&quot; cx=&quot;400&quot; cy=&quot;342&quot; r=&quot;10&quot;/&gt;
-    &lt;circle class=&quot;cls-1&quot; cx=&quot;365&quot; cy=&quot;379&quot; r=&quot;10&quot;/&gt;
-    &lt;circle class=&quot;cls-1&quot; cx=&quot;257&quot; cy=&quot;428&quot; r=&quot;10&quot;/&gt;
-    &lt;circle class=&quot;cls-1&quot; cx=&quot;301&quot; cy=&quot;277&quot; r=&quot;10&quot;/&gt;
-    &lt;circle class=&quot;cls-1&quot; cx=&quot;221&quot; cy=&quot;299&quot; r=&quot;10&quot;/&gt;
-    &lt;circle class=&quot;cls-1&quot; cx=&quot;223&quot; cy=&quot;337&quot; r=&quot;10&quot;/&gt;
-    &lt;circle class=&quot;cls-1&quot; cx=&quot;144&quot; cy=&quot;370&quot; r=&quot;10&quot;/&gt;
-    &lt;circle class=&quot;cls-1&quot; cx=&quot;71&quot; cy=&quot;333&quot; r=&quot;10&quot;/&gt;
-    &lt;circle class=&quot;cls-1&quot; cx=&quot;18&quot; cy=&quot;271&quot; r=&quot;10&quot;/&gt;
-    &lt;circle class=&quot;cls-1&quot; cx=&quot;43&quot; cy=&quot;302&quot; r=&quot;10&quot;/&gt;
-    &lt;circle class=&quot;cls-1&quot; cx=&quot;41&quot; cy=&quot;339&quot; r=&quot;10&quot;/&gt;
-    &lt;circle class=&quot;cls-1&quot; cx=&quot;188&quot; cy=&quot;424&quot; r=&quot;10&quot;/&gt;
-    &lt;circle class=&quot;cls-1&quot; cx=&quot;108&quot; cy=&quot;404&quot; r=&quot;10&quot;/&gt;
-    &lt;circle class=&quot;cls-1&quot; cx=&quot;142&quot; cy=&quot;282&quot; r=&quot;10&quot;/&gt;
-    &lt;circle class=&quot;cls-1&quot; cx=&quot;175&quot; cy=&quot;291&quot; r=&quot;10&quot;/&gt;
-    &lt;circle class=&quot;cls-1&quot; cx=&quot;196&quot; cy=&quot;317&quot; r=&quot;10&quot;/&gt;
-    &lt;circle class=&quot;cls-1&quot; cx=&quot;370&quot; cy=&quot;333&quot; r=&quot;10&quot;/&gt;
-    &lt;circle class=&quot;cls-1&quot; cx=&quot;146&quot; cy=&quot;64&quot; r=&quot;10&quot;/&gt;
-    &lt;circle class=&quot;cls-1&quot; cx=&quot;228.5&quot; cy=&quot;53.5&quot; r=&quot;53.5&quot;/&gt;
-    &lt;circle class=&quot;cls-1&quot; cx=&quot;318.5&quot; cy=&quot;206.5&quot; r=&quot;53.5&quot;/&gt;
-    &lt;path class=&quot;cls-1&quot; d=&quot;M287.5,311c29.55,0,53.5,23.95,53.5,53.5s-23.95,53.5-53.5,53.5-53.5-23.95-53.5-53.5,23.95-53.5,53.5-53.5Z&quot;/&gt;
-  &lt;/g&gt;
-&lt;/svg&gt;
-&lt;/body&gt;
-&lt;/html&gt;</code></pre>
+            <div class="code-block">
+                <div class="code-toolbar code-toolbar-top"><button class="copy-code-button" type="button">Copy code</button></div>
+            <div class="highlight"><pre tabindex="0" style="color:#abb2bf;background-color:#282c34;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"><code class="language-js" data-lang="js"><span style="display:flex;"><span><span style="color:#56b6c2">&lt;!</span>DOCTYPE html<span style="color:#56b6c2">&gt;</span>
+</span></span><span style="display:flex;"><span><span style="color:#56b6c2">&lt;</span>html lang<span style="color:#56b6c2">=</span><span style="color:#98c379">&quot;en&quot;</span><span style="color:#56b6c2">&gt;</span>
+</span></span><span style="display:flex;"><span><span style="color:#56b6c2">&lt;</span>head<span style="color:#56b6c2">&gt;</span>
+</span></span><span style="display:flex;"><span><span style="color:#56b6c2">&lt;</span>meta charset<span style="color:#56b6c2">=</span><span style="color:#98c379">&quot;UTF-8&quot;</span> <span style="color:#56b6c2">/&gt;</span>
+</span></span><span style="display:flex;"><span><span style="color:#56b6c2">&lt;</span>meta name<span style="color:#56b6c2">=</span><span style="color:#98c379">&quot;viewport&quot;</span> content<span style="color:#56b6c2">=</span><span style="color:#98c379">&quot;width=device-width, initial-scale=1.0&quot;</span> <span style="color:#56b6c2">/&gt;</span>
+</span></span><span style="display:flex;"><span><span style="color:#56b6c2">&lt;</span>meta http<span style="color:#56b6c2">-</span>equiv<span style="color:#56b6c2">=</span><span style="color:#98c379">&quot;X-UA-Compatible&quot;</span> content<span style="color:#56b6c2">=</span><span style="color:#98c379">&quot;ie=edge&quot;</span> <span style="color:#56b6c2">/&gt;</span>
+</span></span><span style="display:flex;"><span><span style="color:#56b6c2">&lt;</span>title<span style="color:#56b6c2">&gt;</span>Paper.js<span style="color:#56b6c2">&lt;/</span>title<span style="color:#56b6c2">&gt;</span>
+</span></span><span style="display:flex;"><span><span style="color:#56b6c2">&lt;</span>link rel<span style="color:#56b6c2">=</span><span style="color:#98c379">&quot;stylesheet&quot;</span> href<span style="color:#56b6c2">=</span><span style="color:#98c379">&quot;./../PaperJSEngine/style.css&quot;</span> <span style="color:#56b6c2">&gt;</span>
+</span></span><span style="display:flex;"><span><span style="color:#56b6c2">&lt;</span>script type<span style="color:#56b6c2">=</span><span style="color:#98c379">&quot;text/javascript&quot;</span> src<span style="color:#56b6c2">=</span><span style="color:#98c379">&quot;./../PaperJSEngine/paper-full.js&quot;</span><span style="color:#56b6c2">&gt;&lt;/</span>script<span style="color:#56b6c2">&gt;</span>
+</span></span><span style="display:flex;"><span><span style="color:#56b6c2">&lt;</span>script src<span style="color:#56b6c2">=</span><span style="color:#98c379">&quot;https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js&quot;</span><span style="color:#56b6c2">&gt;&lt;/</span>script<span style="color:#56b6c2">&gt;</span>
+</span></span><span style="display:flex;"><span><span style="color:#56b6c2">&lt;</span>script type<span style="color:#56b6c2">=</span><span style="color:#98c379">&quot;text/paperscript&quot;</span> canvas<span style="color:#56b6c2">=</span><span style="color:#98c379">&quot;canvas&quot;</span><span style="color:#56b6c2">&gt;</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#c678dd">var</span> group <span style="color:#56b6c2">=</span> <span style="color:#c678dd">new</span> <span style="color:#e5c07b">Group</span>()
+</span></span><span style="display:flex;"><span><span style="color:#c678dd">var</span> coloredObjectsArray <span style="color:#56b6c2">=</span> []
+</span></span><span style="display:flex;"><span><span style="color:#c678dd">var</span> svg <span style="color:#56b6c2">=</span> <span style="color:#e5c07b">project</span>.<span style="color:#e5c07b">importSVG</span>(document.<span style="color:#e5c07b">getElementById</span>(<span style="color:#98c379">&#x27;svg&#x27;</span>)).children[<span style="color:#d19a66">1</span>]
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#c678dd">for</span> (<span style="color:#c678dd">var</span> i <span style="color:#56b6c2">=</span> <span style="color:#d19a66">0</span>; i <span style="color:#56b6c2">&lt;</span> svg.children.length; i<span style="color:#56b6c2">++</span>){
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>  <span style="color:#c678dd">var</span> path <span style="color:#56b6c2">=</span> svg.children[i]
+</span></span><span style="display:flex;"><span>  path.fillColor <span style="color:#56b6c2">=</span> <span style="color:#e5c07b">Color</span>.<span style="color:#e5c07b">random</span>()
+</span></span><span style="display:flex;"><span>  coloredObjectsArray.<span style="color:#e5c07b">push</span>(path)
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>  path.onMouseDown <span style="color:#56b6c2">=</span> <span style="color:#c678dd">function</span>(<span style="color:#e5c07b">event</span>){
+</span></span><span style="display:flex;"><span>    <span style="color:#e5c07b">animate</span>(<span style="color:#e5c07b">event</span>.point)
+</span></span><span style="display:flex;"><span>  }
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>}
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#c678dd">function</span> <span style="color:#e5c07b">animate</span>(point){
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>  <span style="color:#c678dd">for</span> (<span style="color:#c678dd">var</span> i <span style="color:#56b6c2">=</span> <span style="color:#d19a66">0</span>; i <span style="color:#56b6c2">&lt;</span> coloredObjectsArray.length; i<span style="color:#56b6c2">++</span>){
+</span></span><span style="display:flex;"><span>    <span style="color:#c678dd">var</span> path <span style="color:#56b6c2">=</span> coloredObjectsArray[i]
+</span></span><span style="display:flex;"><span>    <span style="color:#c678dd">var</span> distance <span style="color:#56b6c2">=</span> point.<span style="color:#e5c07b">getDistance</span>(path.position)
+</span></span><span style="display:flex;"><span>    <span style="color:#c678dd">var</span> tween <span style="color:#56b6c2">=</span> path.<span style="color:#e5c07b">tweenTo</span>({
+</span></span><span style="display:flex;"><span>      opacity<span style="color:#56b6c2">:</span> <span style="color:#d19a66">0</span>,
+</span></span><span style="display:flex;"><span>    }, distance <span style="color:#56b6c2">*</span> <span style="color:#d19a66">2</span>)
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>  }
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>}
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#56b6c2">&lt;/</span>script<span style="color:#56b6c2">&gt;</span>
+</span></span><span style="display:flex;"><span><span style="color:#56b6c2">&lt;/</span>head<span style="color:#56b6c2">&gt;</span>
+</span></span><span style="display:flex;"><span><span style="color:#56b6c2">&lt;</span>body<span style="color:#56b6c2">&gt;</span>
+</span></span><span style="display:flex;"><span><span style="color:#56b6c2">&lt;</span>script src<span style="color:#56b6c2">=</span><span style="color:#98c379">&quot;https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js&quot;</span><span style="color:#56b6c2">&gt;&lt;/</span>script<span style="color:#56b6c2">&gt;</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#56b6c2">&lt;</span>canvas id<span style="color:#56b6c2">=</span><span style="color:#98c379">&quot;canvas&quot;</span> resize <span style="color:#56b6c2">&gt;&lt;/</span>canvas<span style="color:#56b6c2">&gt;</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#56b6c2">&lt;</span>svg id<span style="color:#56b6c2">=</span><span style="color:#98c379">&quot;svg&quot;</span> data<span style="color:#56b6c2">-</span>name<span style="color:#56b6c2">=</span><span style="color:#98c379">&quot;Layer 2&quot;</span> xmlns<span style="color:#56b6c2">=</span><span style="color:#98c379">&quot;http://www.w3.org/2000/svg&quot;</span> viewBox<span style="color:#56b6c2">=</span><span style="color:#98c379">&quot;0 0 443 438&quot;</span><span style="color:#56b6c2">&gt;</span>
+</span></span><span style="display:flex;"><span>  <span style="color:#56b6c2">&lt;</span>defs<span style="color:#56b6c2">&gt;</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#56b6c2">&lt;</span>style<span style="color:#56b6c2">&gt;</span>
+</span></span><span style="display:flex;"><span>      .cls<span style="color:#56b6c2">-</span><span style="color:#d19a66">1</span> {
+</span></span><span style="display:flex;"><span>        fill<span style="color:#56b6c2">:</span> #ad3232;
+</span></span><span style="display:flex;"><span>      }
+</span></span><span style="display:flex;"><span>    <span style="color:#56b6c2">&lt;/</span>style<span style="color:#56b6c2">&gt;</span>
+</span></span><span style="display:flex;"><span>  <span style="color:#56b6c2">&lt;/</span>defs<span style="color:#56b6c2">&gt;</span>
+</span></span><span style="display:flex;"><span>  <span style="color:#56b6c2">&lt;</span>g id<span style="color:#56b6c2">=</span><span style="color:#98c379">&quot;Layer_1-2&quot;</span> data<span style="color:#56b6c2">-</span>name<span style="color:#56b6c2">=</span><span style="color:#98c379">&quot;Layer 1&quot;</span><span style="color:#56b6c2">&gt;</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#56b6c2">&lt;</span>rect <span style="color:#c678dd">class</span><span style="color:#56b6c2">=</span><span style="color:#98c379">&quot;cls-1&quot;</span> x<span style="color:#56b6c2">=</span><span style="color:#98c379">&quot;73&quot;</span> y<span style="color:#56b6c2">=</span><span style="color:#98c379">&quot;43&quot;</span> width<span style="color:#56b6c2">=</span><span style="color:#98c379">&quot;43&quot;</span> height<span style="color:#56b6c2">=</span><span style="color:#98c379">&quot;43&quot;</span> transform<span style="color:#56b6c2">=</span><span style="color:#98c379">&quot;translate(-15.1 97.35) rotate(-51)&quot;</span><span style="color:#56b6c2">/&gt;</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#56b6c2">&lt;</span>polygon <span style="color:#c678dd">class</span><span style="color:#56b6c2">=</span><span style="color:#98c379">&quot;cls-1&quot;</span> points<span style="color:#56b6c2">=</span><span style="color:#98c379">&quot;91.32 34.26 124.74 61.32 97.68 94.74 64.26 67.68 91.32 34.26&quot;</span><span style="color:#56b6c2">/&gt;</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#56b6c2">&lt;</span>rect <span style="color:#c678dd">class</span><span style="color:#56b6c2">=</span><span style="color:#98c379">&quot;cls-1&quot;</span> x<span style="color:#56b6c2">=</span><span style="color:#98c379">&quot;202&quot;</span> y<span style="color:#56b6c2">=</span><span style="color:#98c379">&quot;138&quot;</span> width<span style="color:#56b6c2">=</span><span style="color:#98c379">&quot;43&quot;</span> height<span style="color:#56b6c2">=</span><span style="color:#98c379">&quot;43&quot;</span> transform<span style="color:#56b6c2">=</span><span style="color:#98c379">&quot;translate(-10.65 302.91) rotate(-67)&quot;</span><span style="color:#56b6c2">/&gt;</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#56b6c2">&lt;</span>polygon <span style="color:#c678dd">class</span><span style="color:#56b6c2">=</span><span style="color:#98c379">&quot;cls-1&quot;</span> points<span style="color:#56b6c2">=</span><span style="color:#98c379">&quot;212.11 131.31 251.69 148.11 234.89 187.69 195.31 170.89 212.11 131.31&quot;</span><span style="color:#56b6c2">/&gt;</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#56b6c2">&lt;</span>rect <span style="color:#c678dd">class</span><span style="color:#56b6c2">=</span><span style="color:#98c379">&quot;cls-1&quot;</span> x<span style="color:#56b6c2">=</span><span style="color:#98c379">&quot;150&quot;</span> y<span style="color:#56b6c2">=</span><span style="color:#98c379">&quot;98&quot;</span> width<span style="color:#56b6c2">=</span><span style="color:#98c379">&quot;43&quot;</span> height<span style="color:#56b6c2">=</span><span style="color:#98c379">&quot;43&quot;</span> transform<span style="color:#56b6c2">=</span><span style="color:#98c379">&quot;translate(-5.51 230.67) rotate(-67)&quot;</span><span style="color:#56b6c2">/&gt;</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#56b6c2">&lt;</span>polygon <span style="color:#c678dd">class</span><span style="color:#56b6c2">=</span><span style="color:#98c379">&quot;cls-1&quot;</span> points<span style="color:#56b6c2">=</span><span style="color:#98c379">&quot;160.11 91.31 199.69 108.11 182.89 147.69 143.31 130.89 160.11 91.31&quot;</span><span style="color:#56b6c2">/&gt;</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#56b6c2">&lt;</span>rect <span style="color:#c678dd">class</span><span style="color:#56b6c2">=</span><span style="color:#98c379">&quot;cls-1&quot;</span> x<span style="color:#56b6c2">=</span><span style="color:#98c379">&quot;309&quot;</span> y<span style="color:#56b6c2">=</span><span style="color:#98c379">&quot;95&quot;</span> width<span style="color:#56b6c2">=</span><span style="color:#98c379">&quot;43&quot;</span> height<span style="color:#56b6c2">=</span><span style="color:#98c379">&quot;43&quot;</span> transform<span style="color:#56b6c2">=</span><span style="color:#98c379">&quot;translate(64.36 344.47) rotate(-60)&quot;</span><span style="color:#56b6c2">/&gt;</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#56b6c2">&lt;</span>polygon <span style="color:#c678dd">class</span><span style="color:#56b6c2">=</span><span style="color:#98c379">&quot;cls-1&quot;</span> points<span style="color:#56b6c2">=</span><span style="color:#98c379">&quot;322.63 87.13 359.87 108.63 338.37 145.87 301.13 124.37 322.63 87.13&quot;</span><span style="color:#56b6c2">/&gt;</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#56b6c2">&lt;</span>rect <span style="color:#c678dd">class</span><span style="color:#56b6c2">=</span><span style="color:#98c379">&quot;cls-1&quot;</span> x<span style="color:#56b6c2">=</span><span style="color:#98c379">&quot;320&quot;</span> y<span style="color:#56b6c2">=</span><span style="color:#98c379">&quot;268&quot;</span> width<span style="color:#56b6c2">=</span><span style="color:#98c379">&quot;43&quot;</span> height<span style="color:#56b6c2">=</span><span style="color:#98c379">&quot;43&quot;</span><span style="color:#56b6c2">/&gt;</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#56b6c2">&lt;</span>polygon <span style="color:#c678dd">class</span><span style="color:#56b6c2">=</span><span style="color:#98c379">&quot;cls-1&quot;</span> points<span style="color:#56b6c2">=</span><span style="color:#98c379">&quot;320 268 363 268 363 311 320 311 320 268&quot;</span><span style="color:#56b6c2">/&gt;</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#56b6c2">&lt;</span>rect <span style="color:#c678dd">class</span><span style="color:#56b6c2">=</span><span style="color:#98c379">&quot;cls-1&quot;</span> x<span style="color:#56b6c2">=</span><span style="color:#98c379">&quot;239&quot;</span> y<span style="color:#56b6c2">=</span><span style="color:#98c379">&quot;258&quot;</span> width<span style="color:#56b6c2">=</span><span style="color:#98c379">&quot;43&quot;</span> height<span style="color:#56b6c2">=</span><span style="color:#98c379">&quot;43&quot;</span> transform<span style="color:#56b6c2">=</span><span style="color:#98c379">&quot;translate(-102.84 161.34) rotate(-29)&quot;</span><span style="color:#56b6c2">/&gt;</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#56b6c2">&lt;</span>polygon <span style="color:#c678dd">class</span><span style="color:#56b6c2">=</span><span style="color:#98c379">&quot;cls-1&quot;</span> points<span style="color:#56b6c2">=</span><span style="color:#98c379">&quot;268.88 250.27 289.73 287.88 252.12 308.73 231.27 271.12 268.88 250.27&quot;</span><span style="color:#56b6c2">/&gt;</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#56b6c2">&lt;</span>rect <span style="color:#c678dd">class</span><span style="color:#56b6c2">=</span><span style="color:#98c379">&quot;cls-1&quot;</span> x<span style="color:#56b6c2">=</span><span style="color:#98c379">&quot;62&quot;</span> y<span style="color:#56b6c2">=</span><span style="color:#98c379">&quot;169&quot;</span> width<span style="color:#56b6c2">=</span><span style="color:#98c379">&quot;43&quot;</span> height<span style="color:#56b6c2">=</span><span style="color:#98c379">&quot;43&quot;</span> transform<span style="color:#56b6c2">=</span><span style="color:#98c379">&quot;translate(-124.27 200.18) rotate(-69)&quot;</span><span style="color:#56b6c2">/&gt;</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#56b6c2">&lt;</span>polygon <span style="color:#c678dd">class</span><span style="color:#56b6c2">=</span><span style="color:#98c379">&quot;cls-1&quot;</span> points<span style="color:#56b6c2">=</span><span style="color:#98c379">&quot;71.13 162.72 111.28 178.13 95.87 218.28 55.72 202.87 71.13 162.72&quot;</span><span style="color:#56b6c2">/&gt;</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#56b6c2">&lt;</span>rect <span style="color:#c678dd">class</span><span style="color:#56b6c2">=</span><span style="color:#98c379">&quot;cls-1&quot;</span> x<span style="color:#56b6c2">=</span><span style="color:#98c379">&quot;22&quot;</span> y<span style="color:#56b6c2">=</span><span style="color:#98c379">&quot;116&quot;</span> width<span style="color:#56b6c2">=</span><span style="color:#98c379">&quot;43&quot;</span> height<span style="color:#56b6c2">=</span><span style="color:#98c379">&quot;43&quot;</span> transform<span style="color:#56b6c2">=</span><span style="color:#98c379">&quot;translate(-100.46 128.84) rotate(-69)&quot;</span><span style="color:#56b6c2">/&gt;</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#56b6c2">&lt;</span>polygon <span style="color:#c678dd">class</span><span style="color:#56b6c2">=</span><span style="color:#98c379">&quot;cls-1&quot;</span> points<span style="color:#56b6c2">=</span><span style="color:#98c379">&quot;31.13 109.72 71.28 125.13 55.87 165.28 15.72 149.87 31.13 109.72&quot;</span><span style="color:#56b6c2">/&gt;</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#56b6c2">&lt;</span>rect <span style="color:#c678dd">class</span><span style="color:#56b6c2">=</span><span style="color:#98c379">&quot;cls-1&quot;</span> x<span style="color:#56b6c2">=</span><span style="color:#98c379">&quot;175&quot;</span> y<span style="color:#56b6c2">=</span><span style="color:#98c379">&quot;237&quot;</span> width<span style="color:#56b6c2">=</span><span style="color:#98c379">&quot;43&quot;</span> height<span style="color:#56b6c2">=</span><span style="color:#98c379">&quot;43&quot;</span> transform<span style="color:#56b6c2">=</span><span style="color:#98c379">&quot;translate(-122.5 197.88) rotate(-42)&quot;</span><span style="color:#56b6c2">/&gt;</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#56b6c2">&lt;</span>polygon <span style="color:#c678dd">class</span><span style="color:#56b6c2">=</span><span style="color:#98c379">&quot;cls-1&quot;</span> points<span style="color:#56b6c2">=</span><span style="color:#98c379">&quot;166.14 256.91 198.09 228.14 226.86 260.09 194.91 288.86 166.14 256.91&quot;</span><span style="color:#56b6c2">/&gt;</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#56b6c2">&lt;</span>rect <span style="color:#c678dd">class</span><span style="color:#56b6c2">=</span><span style="color:#98c379">&quot;cls-1&quot;</span> x<span style="color:#56b6c2">=</span><span style="color:#98c379">&quot;73&quot;</span> y<span style="color:#56b6c2">=</span><span style="color:#98c379">&quot;280&quot;</span> width<span style="color:#56b6c2">=</span><span style="color:#98c379">&quot;43&quot;</span> height<span style="color:#56b6c2">=</span><span style="color:#98c379">&quot;43&quot;</span> transform<span style="color:#56b6c2">=</span><span style="color:#98c379">&quot;translate(-203.16 195.52) rotate(-53)&quot;</span><span style="color:#56b6c2">/&gt;</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#56b6c2">&lt;</span>polygon <span style="color:#c678dd">class</span><span style="color:#56b6c2">=</span><span style="color:#98c379">&quot;cls-1&quot;</span> points<span style="color:#56b6c2">=</span><span style="color:#98c379">&quot;90.27 271.39 124.61 297.27 98.73 331.61 64.39 305.73 90.27 271.39&quot;</span><span style="color:#56b6c2">/&gt;</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#56b6c2">&lt;</span>rect <span style="color:#c678dd">class</span><span style="color:#56b6c2">=</span><span style="color:#98c379">&quot;cls-1&quot;</span> x<span style="color:#56b6c2">=</span><span style="color:#98c379">&quot;175&quot;</span> y<span style="color:#56b6c2">=</span><span style="color:#98c379">&quot;351&quot;</span> width<span style="color:#56b6c2">=</span><span style="color:#98c379">&quot;43&quot;</span> height<span style="color:#56b6c2">=</span><span style="color:#98c379">&quot;43&quot;</span> transform<span style="color:#56b6c2">=</span><span style="color:#98c379">&quot;translate(-167.54 160.73) rotate(-32)&quot;</span><span style="color:#56b6c2">/&gt;</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#56b6c2">&lt;</span>path <span style="color:#c678dd">class</span><span style="color:#56b6c2">=</span><span style="color:#98c379">&quot;cls-1&quot;</span> d<span style="color:#56b6c2">=</span><span style="color:#98c379">&quot;M166.87,365.66l36.47-22.79,22.79,36.47-36.47,22.79-22.79-36.47Z&quot;</span><span style="color:#56b6c2">/&gt;</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#56b6c2">&lt;</span>rect <span style="color:#c678dd">class</span><span style="color:#56b6c2">=</span><span style="color:#98c379">&quot;cls-1&quot;</span> x<span style="color:#56b6c2">=</span><span style="color:#98c379">&quot;72&quot;</span> y<span style="color:#56b6c2">=</span><span style="color:#98c379">&quot;347&quot;</span> width<span style="color:#56b6c2">=</span><span style="color:#98c379">&quot;43&quot;</span> height<span style="color:#56b6c2">=</span><span style="color:#98c379">&quot;43&quot;</span> transform<span style="color:#56b6c2">=</span><span style="color:#98c379">&quot;translate(-181.07 105.54) rotate(-32)&quot;</span><span style="color:#56b6c2">/&gt;</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#56b6c2">&lt;</span>polygon <span style="color:#c678dd">class</span><span style="color:#56b6c2">=</span><span style="color:#98c379">&quot;cls-1&quot;</span> points<span style="color:#56b6c2">=</span><span style="color:#98c379">&quot;63.87 361.66 100.34 338.87 123.13 375.34 86.66 398.13 63.87 361.66&quot;</span><span style="color:#56b6c2">/&gt;</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#56b6c2">&lt;</span>circle <span style="color:#c678dd">class</span><span style="color:#56b6c2">=</span><span style="color:#98c379">&quot;cls-1&quot;</span> cx<span style="color:#56b6c2">=</span><span style="color:#98c379">&quot;94.5&quot;</span> cy<span style="color:#56b6c2">=</span><span style="color:#98c379">&quot;247.5&quot;</span> r<span style="color:#56b6c2">=</span><span style="color:#98c379">&quot;21.5&quot;</span><span style="color:#56b6c2">/&gt;</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#56b6c2">&lt;</span>circle <span style="color:#c678dd">class</span><span style="color:#56b6c2">=</span><span style="color:#98c379">&quot;cls-1&quot;</span> cx<span style="color:#56b6c2">=</span><span style="color:#98c379">&quot;21.5&quot;</span> cy<span style="color:#56b6c2">=</span><span style="color:#98c379">&quot;228.5&quot;</span> r<span style="color:#56b6c2">=</span><span style="color:#98c379">&quot;21.5&quot;</span><span style="color:#56b6c2">/&gt;</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#56b6c2">&lt;</span>circle <span style="color:#c678dd">class</span><span style="color:#56b6c2">=</span><span style="color:#98c379">&quot;cls-1&quot;</span> cx<span style="color:#56b6c2">=</span><span style="color:#98c379">&quot;218.5&quot;</span> cy<span style="color:#56b6c2">=</span><span style="color:#98c379">&quot;206.5&quot;</span> r<span style="color:#56b6c2">=</span><span style="color:#98c379">&quot;21.5&quot;</span><span style="color:#56b6c2">/&gt;</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#56b6c2">&lt;</span>circle <span style="color:#c678dd">class</span><span style="color:#56b6c2">=</span><span style="color:#98c379">&quot;cls-1&quot;</span> cx<span style="color:#56b6c2">=</span><span style="color:#98c379">&quot;393.5&quot;</span> cy<span style="color:#56b6c2">=</span><span style="color:#98c379">&quot;147.5&quot;</span> r<span style="color:#56b6c2">=</span><span style="color:#98c379">&quot;21.5&quot;</span><span style="color:#56b6c2">/&gt;</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#56b6c2">&lt;</span>circle <span style="color:#c678dd">class</span><span style="color:#56b6c2">=</span><span style="color:#98c379">&quot;cls-1&quot;</span> cx<span style="color:#56b6c2">=</span><span style="color:#98c379">&quot;124.5&quot;</span> cy<span style="color:#56b6c2">=</span><span style="color:#98c379">&quot;140.5&quot;</span> r<span style="color:#56b6c2">=</span><span style="color:#98c379">&quot;21.5&quot;</span><span style="color:#56b6c2">/&gt;</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#56b6c2">&lt;</span>circle <span style="color:#c678dd">class</span><span style="color:#56b6c2">=</span><span style="color:#98c379">&quot;cls-1&quot;</span> cx<span style="color:#56b6c2">=</span><span style="color:#98c379">&quot;156.5&quot;</span> cy<span style="color:#56b6c2">=</span><span style="color:#98c379">&quot;202.5&quot;</span> r<span style="color:#56b6c2">=</span><span style="color:#98c379">&quot;21.5&quot;</span><span style="color:#56b6c2">/&gt;</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#56b6c2">&lt;</span>circle <span style="color:#c678dd">class</span><span style="color:#56b6c2">=</span><span style="color:#98c379">&quot;cls-1&quot;</span> cx<span style="color:#56b6c2">=</span><span style="color:#98c379">&quot;267.5&quot;</span> cy<span style="color:#56b6c2">=</span><span style="color:#98c379">&quot;128.5&quot;</span> r<span style="color:#56b6c2">=</span><span style="color:#98c379">&quot;21.5&quot;</span><span style="color:#56b6c2">/&gt;</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#56b6c2">&lt;</span>circle <span style="color:#c678dd">class</span><span style="color:#56b6c2">=</span><span style="color:#98c379">&quot;cls-1&quot;</span> cx<span style="color:#56b6c2">=</span><span style="color:#98c379">&quot;150.5&quot;</span> cy<span style="color:#56b6c2">=</span><span style="color:#98c379">&quot;330.5&quot;</span> r<span style="color:#56b6c2">=</span><span style="color:#98c379">&quot;21.5&quot;</span><span style="color:#56b6c2">/&gt;</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#56b6c2">&lt;</span>circle <span style="color:#c678dd">class</span><span style="color:#56b6c2">=</span><span style="color:#98c379">&quot;cls-1&quot;</span> cx<span style="color:#56b6c2">=</span><span style="color:#98c379">&quot;146.5&quot;</span> cy<span style="color:#56b6c2">=</span><span style="color:#98c379">&quot;405.5&quot;</span> r<span style="color:#56b6c2">=</span><span style="color:#98c379">&quot;21.5&quot;</span><span style="color:#56b6c2">/&gt;</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#56b6c2">&lt;</span>circle <span style="color:#c678dd">class</span><span style="color:#56b6c2">=</span><span style="color:#98c379">&quot;cls-1&quot;</span> cx<span style="color:#56b6c2">=</span><span style="color:#98c379">&quot;406.5&quot;</span> cy<span style="color:#56b6c2">=</span><span style="color:#98c379">&quot;211.5&quot;</span> r<span style="color:#56b6c2">=</span><span style="color:#98c379">&quot;21.5&quot;</span><span style="color:#56b6c2">/&gt;</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#56b6c2">&lt;</span>circle <span style="color:#c678dd">class</span><span style="color:#56b6c2">=</span><span style="color:#98c379">&quot;cls-1&quot;</span> cx<span style="color:#56b6c2">=</span><span style="color:#98c379">&quot;401.5&quot;</span> cy<span style="color:#56b6c2">=</span><span style="color:#98c379">&quot;300.5&quot;</span> r<span style="color:#56b6c2">=</span><span style="color:#98c379">&quot;21.5&quot;</span><span style="color:#56b6c2">/&gt;</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#56b6c2">&lt;</span>path <span style="color:#c678dd">class</span><span style="color:#56b6c2">=</span><span style="color:#98c379">&quot;cls-1&quot;</span> d<span style="color:#56b6c2">=</span><span style="color:#98c379">&quot;M220.5,396c9.66,0,17.5,7.84,17.5,17.5s-7.84,17.5-17.5,17.5-17.5-7.84-17.5-17.5,7.84-17.5,17.5-17.5Z&quot;</span><span style="color:#56b6c2">/&gt;</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#56b6c2">&lt;</span>circle <span style="color:#c678dd">class</span><span style="color:#56b6c2">=</span><span style="color:#98c379">&quot;cls-1&quot;</span> cx<span style="color:#56b6c2">=</span><span style="color:#98c379">&quot;330.5&quot;</span> cy<span style="color:#56b6c2">=</span><span style="color:#98c379">&quot;65.5&quot;</span> r<span style="color:#56b6c2">=</span><span style="color:#98c379">&quot;21.5&quot;</span><span style="color:#56b6c2">/&gt;</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#56b6c2">&lt;</span>circle <span style="color:#c678dd">class</span><span style="color:#56b6c2">=</span><span style="color:#98c379">&quot;cls-1&quot;</span> cx<span style="color:#56b6c2">=</span><span style="color:#98c379">&quot;175&quot;</span> cy<span style="color:#56b6c2">=</span><span style="color:#98c379">&quot;169&quot;</span> r<span style="color:#56b6c2">=</span><span style="color:#98c379">&quot;10&quot;</span><span style="color:#56b6c2">/&gt;</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#56b6c2">&lt;</span>circle <span style="color:#c678dd">class</span><span style="color:#56b6c2">=</span><span style="color:#98c379">&quot;cls-1&quot;</span> cx<span style="color:#56b6c2">=</span><span style="color:#98c379">&quot;133&quot;</span> cy<span style="color:#56b6c2">=</span><span style="color:#98c379">&quot;28&quot;</span> r<span style="color:#56b6c2">=</span><span style="color:#98c379">&quot;10&quot;</span><span style="color:#56b6c2">/&gt;</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#56b6c2">&lt;</span>circle <span style="color:#c678dd">class</span><span style="color:#56b6c2">=</span><span style="color:#98c379">&quot;cls-1&quot;</span> cx<span style="color:#56b6c2">=</span><span style="color:#98c379">&quot;168&quot;</span> cy<span style="color:#56b6c2">=</span><span style="color:#98c379">&quot;24&quot;</span> r<span style="color:#56b6c2">=</span><span style="color:#98c379">&quot;10&quot;</span><span style="color:#56b6c2">/&gt;</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#56b6c2">&lt;</span>circle <span style="color:#c678dd">class</span><span style="color:#56b6c2">=</span><span style="color:#98c379">&quot;cls-1&quot;</span> cx<span style="color:#56b6c2">=</span><span style="color:#98c379">&quot;88&quot;</span> cy<span style="color:#56b6c2">=</span><span style="color:#98c379">&quot;147&quot;</span> r<span style="color:#56b6c2">=</span><span style="color:#98c379">&quot;10&quot;</span><span style="color:#56b6c2">/&gt;</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#56b6c2">&lt;</span>circle <span style="color:#c678dd">class</span><span style="color:#56b6c2">=</span><span style="color:#98c379">&quot;cls-1&quot;</span> cx<span style="color:#56b6c2">=</span><span style="color:#98c379">&quot;64&quot;</span> cy<span style="color:#56b6c2">=</span><span style="color:#98c379">&quot;228&quot;</span> r<span style="color:#56b6c2">=</span><span style="color:#98c379">&quot;10&quot;</span><span style="color:#56b6c2">/&gt;</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#56b6c2">&lt;</span>circle <span style="color:#c678dd">class</span><span style="color:#56b6c2">=</span><span style="color:#98c379">&quot;cls-1&quot;</span> cx<span style="color:#56b6c2">=</span><span style="color:#98c379">&quot;28&quot;</span> cy<span style="color:#56b6c2">=</span><span style="color:#98c379">&quot;179&quot;</span> r<span style="color:#56b6c2">=</span><span style="color:#98c379">&quot;10&quot;</span><span style="color:#56b6c2">/&gt;</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#56b6c2">&lt;</span>circle <span style="color:#c678dd">class</span><span style="color:#56b6c2">=</span><span style="color:#98c379">&quot;cls-1&quot;</span> cx<span style="color:#56b6c2">=</span><span style="color:#98c379">&quot;56&quot;</span> cy<span style="color:#56b6c2">=</span><span style="color:#98c379">&quot;95&quot;</span> r<span style="color:#56b6c2">=</span><span style="color:#98c379">&quot;10&quot;</span><span style="color:#56b6c2">/&gt;</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#56b6c2">&lt;</span>circle <span style="color:#c678dd">class</span><span style="color:#56b6c2">=</span><span style="color:#98c379">&quot;cls-1&quot;</span> cx<span style="color:#56b6c2">=</span><span style="color:#98c379">&quot;139&quot;</span> cy<span style="color:#56b6c2">=</span><span style="color:#98c379">&quot;246&quot;</span> r<span style="color:#56b6c2">=</span><span style="color:#98c379">&quot;10&quot;</span><span style="color:#56b6c2">/&gt;</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#56b6c2">&lt;</span>circle <span style="color:#c678dd">class</span><span style="color:#56b6c2">=</span><span style="color:#98c379">&quot;cls-1&quot;</span> cx<span style="color:#56b6c2">=</span><span style="color:#98c379">&quot;54&quot;</span> cy<span style="color:#56b6c2">=</span><span style="color:#98c379">&quot;271&quot;</span> r<span style="color:#56b6c2">=</span><span style="color:#98c379">&quot;10&quot;</span><span style="color:#56b6c2">/&gt;</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#56b6c2">&lt;</span>circle <span style="color:#c678dd">class</span><span style="color:#56b6c2">=</span><span style="color:#98c379">&quot;cls-1&quot;</span> cx<span style="color:#56b6c2">=</span><span style="color:#98c379">&quot;381&quot;</span> cy<span style="color:#56b6c2">=</span><span style="color:#98c379">&quot;258&quot;</span> r<span style="color:#56b6c2">=</span><span style="color:#98c379">&quot;10&quot;</span><span style="color:#56b6c2">/&gt;</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#56b6c2">&lt;</span>circle <span style="color:#c678dd">class</span><span style="color:#56b6c2">=</span><span style="color:#98c379">&quot;cls-1&quot;</span> cx<span style="color:#56b6c2">=</span><span style="color:#98c379">&quot;261&quot;</span> cy<span style="color:#56b6c2">=</span><span style="color:#98c379">&quot;171&quot;</span> r<span style="color:#56b6c2">=</span><span style="color:#98c379">&quot;10&quot;</span><span style="color:#56b6c2">/&gt;</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#56b6c2">&lt;</span>circle <span style="color:#c678dd">class</span><span style="color:#56b6c2">=</span><span style="color:#98c379">&quot;cls-1&quot;</span> cx<span style="color:#56b6c2">=</span><span style="color:#98c379">&quot;288&quot;</span> cy<span style="color:#56b6c2">=</span><span style="color:#98c379">&quot;94&quot;</span> r<span style="color:#56b6c2">=</span><span style="color:#98c379">&quot;10&quot;</span><span style="color:#56b6c2">/&gt;</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#56b6c2">&lt;</span>circle <span style="color:#c678dd">class</span><span style="color:#56b6c2">=</span><span style="color:#98c379">&quot;cls-1&quot;</span> cx<span style="color:#56b6c2">=</span><span style="color:#98c379">&quot;294&quot;</span> cy<span style="color:#56b6c2">=</span><span style="color:#98c379">&quot;34&quot;</span> r<span style="color:#56b6c2">=</span><span style="color:#98c379">&quot;10&quot;</span><span style="color:#56b6c2">/&gt;</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#56b6c2">&lt;</span>circle <span style="color:#c678dd">class</span><span style="color:#56b6c2">=</span><span style="color:#98c379">&quot;cls-1&quot;</span> cx<span style="color:#56b6c2">=</span><span style="color:#98c379">&quot;367&quot;</span> cy<span style="color:#56b6c2">=</span><span style="color:#98c379">&quot;87&quot;</span> r<span style="color:#56b6c2">=</span><span style="color:#98c379">&quot;10&quot;</span><span style="color:#56b6c2">/&gt;</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#56b6c2">&lt;</span>circle <span style="color:#c678dd">class</span><span style="color:#56b6c2">=</span><span style="color:#98c379">&quot;cls-1&quot;</span> cx<span style="color:#56b6c2">=</span><span style="color:#98c379">&quot;358&quot;</span> cy<span style="color:#56b6c2">=</span><span style="color:#98c379">&quot;143&quot;</span> r<span style="color:#56b6c2">=</span><span style="color:#98c379">&quot;10&quot;</span><span style="color:#56b6c2">/&gt;</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#56b6c2">&lt;</span>circle <span style="color:#c678dd">class</span><span style="color:#56b6c2">=</span><span style="color:#98c379">&quot;cls-1&quot;</span> cx<span style="color:#56b6c2">=</span><span style="color:#98c379">&quot;432&quot;</span> cy<span style="color:#56b6c2">=</span><span style="color:#98c379">&quot;169&quot;</span> r<span style="color:#56b6c2">=</span><span style="color:#98c379">&quot;10&quot;</span><span style="color:#56b6c2">/&gt;</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#56b6c2">&lt;</span>circle <span style="color:#c678dd">class</span><span style="color:#56b6c2">=</span><span style="color:#98c379">&quot;cls-1&quot;</span> cx<span style="color:#56b6c2">=</span><span style="color:#98c379">&quot;382&quot;</span> cy<span style="color:#56b6c2">=</span><span style="color:#98c379">&quot;183&quot;</span> r<span style="color:#56b6c2">=</span><span style="color:#98c379">&quot;10&quot;</span><span style="color:#56b6c2">/&gt;</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#56b6c2">&lt;</span>circle <span style="color:#c678dd">class</span><span style="color:#56b6c2">=</span><span style="color:#98c379">&quot;cls-1&quot;</span> cx<span style="color:#56b6c2">=</span><span style="color:#98c379">&quot;433&quot;</span> cy<span style="color:#56b6c2">=</span><span style="color:#98c379">&quot;251&quot;</span> r<span style="color:#56b6c2">=</span><span style="color:#98c379">&quot;10&quot;</span><span style="color:#56b6c2">/&gt;</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#56b6c2">&lt;</span>circle <span style="color:#c678dd">class</span><span style="color:#56b6c2">=</span><span style="color:#98c379">&quot;cls-1&quot;</span> cx<span style="color:#56b6c2">=</span><span style="color:#98c379">&quot;400&quot;</span> cy<span style="color:#56b6c2">=</span><span style="color:#98c379">&quot;342&quot;</span> r<span style="color:#56b6c2">=</span><span style="color:#98c379">&quot;10&quot;</span><span style="color:#56b6c2">/&gt;</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#56b6c2">&lt;</span>circle <span style="color:#c678dd">class</span><span style="color:#56b6c2">=</span><span style="color:#98c379">&quot;cls-1&quot;</span> cx<span style="color:#56b6c2">=</span><span style="color:#98c379">&quot;365&quot;</span> cy<span style="color:#56b6c2">=</span><span style="color:#98c379">&quot;379&quot;</span> r<span style="color:#56b6c2">=</span><span style="color:#98c379">&quot;10&quot;</span><span style="color:#56b6c2">/&gt;</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#56b6c2">&lt;</span>circle <span style="color:#c678dd">class</span><span style="color:#56b6c2">=</span><span style="color:#98c379">&quot;cls-1&quot;</span> cx<span style="color:#56b6c2">=</span><span style="color:#98c379">&quot;257&quot;</span> cy<span style="color:#56b6c2">=</span><span style="color:#98c379">&quot;428&quot;</span> r<span style="color:#56b6c2">=</span><span style="color:#98c379">&quot;10&quot;</span><span style="color:#56b6c2">/&gt;</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#56b6c2">&lt;</span>circle <span style="color:#c678dd">class</span><span style="color:#56b6c2">=</span><span style="color:#98c379">&quot;cls-1&quot;</span> cx<span style="color:#56b6c2">=</span><span style="color:#98c379">&quot;301&quot;</span> cy<span style="color:#56b6c2">=</span><span style="color:#98c379">&quot;277&quot;</span> r<span style="color:#56b6c2">=</span><span style="color:#98c379">&quot;10&quot;</span><span style="color:#56b6c2">/&gt;</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#56b6c2">&lt;</span>circle <span style="color:#c678dd">class</span><span style="color:#56b6c2">=</span><span style="color:#98c379">&quot;cls-1&quot;</span> cx<span style="color:#56b6c2">=</span><span style="color:#98c379">&quot;221&quot;</span> cy<span style="color:#56b6c2">=</span><span style="color:#98c379">&quot;299&quot;</span> r<span style="color:#56b6c2">=</span><span style="color:#98c379">&quot;10&quot;</span><span style="color:#56b6c2">/&gt;</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#56b6c2">&lt;</span>circle <span style="color:#c678dd">class</span><span style="color:#56b6c2">=</span><span style="color:#98c379">&quot;cls-1&quot;</span> cx<span style="color:#56b6c2">=</span><span style="color:#98c379">&quot;223&quot;</span> cy<span style="color:#56b6c2">=</span><span style="color:#98c379">&quot;337&quot;</span> r<span style="color:#56b6c2">=</span><span style="color:#98c379">&quot;10&quot;</span><span style="color:#56b6c2">/&gt;</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#56b6c2">&lt;</span>circle <span style="color:#c678dd">class</span><span style="color:#56b6c2">=</span><span style="color:#98c379">&quot;cls-1&quot;</span> cx<span style="color:#56b6c2">=</span><span style="color:#98c379">&quot;144&quot;</span> cy<span style="color:#56b6c2">=</span><span style="color:#98c379">&quot;370&quot;</span> r<span style="color:#56b6c2">=</span><span style="color:#98c379">&quot;10&quot;</span><span style="color:#56b6c2">/&gt;</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#56b6c2">&lt;</span>circle <span style="color:#c678dd">class</span><span style="color:#56b6c2">=</span><span style="color:#98c379">&quot;cls-1&quot;</span> cx<span style="color:#56b6c2">=</span><span style="color:#98c379">&quot;71&quot;</span> cy<span style="color:#56b6c2">=</span><span style="color:#98c379">&quot;333&quot;</span> r<span style="color:#56b6c2">=</span><span style="color:#98c379">&quot;10&quot;</span><span style="color:#56b6c2">/&gt;</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#56b6c2">&lt;</span>circle <span style="color:#c678dd">class</span><span style="color:#56b6c2">=</span><span style="color:#98c379">&quot;cls-1&quot;</span> cx<span style="color:#56b6c2">=</span><span style="color:#98c379">&quot;18&quot;</span> cy<span style="color:#56b6c2">=</span><span style="color:#98c379">&quot;271&quot;</span> r<span style="color:#56b6c2">=</span><span style="color:#98c379">&quot;10&quot;</span><span style="color:#56b6c2">/&gt;</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#56b6c2">&lt;</span>circle <span style="color:#c678dd">class</span><span style="color:#56b6c2">=</span><span style="color:#98c379">&quot;cls-1&quot;</span> cx<span style="color:#56b6c2">=</span><span style="color:#98c379">&quot;43&quot;</span> cy<span style="color:#56b6c2">=</span><span style="color:#98c379">&quot;302&quot;</span> r<span style="color:#56b6c2">=</span><span style="color:#98c379">&quot;10&quot;</span><span style="color:#56b6c2">/&gt;</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#56b6c2">&lt;</span>circle <span style="color:#c678dd">class</span><span style="color:#56b6c2">=</span><span style="color:#98c379">&quot;cls-1&quot;</span> cx<span style="color:#56b6c2">=</span><span style="color:#98c379">&quot;41&quot;</span> cy<span style="color:#56b6c2">=</span><span style="color:#98c379">&quot;339&quot;</span> r<span style="color:#56b6c2">=</span><span style="color:#98c379">&quot;10&quot;</span><span style="color:#56b6c2">/&gt;</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#56b6c2">&lt;</span>circle <span style="color:#c678dd">class</span><span style="color:#56b6c2">=</span><span style="color:#98c379">&quot;cls-1&quot;</span> cx<span style="color:#56b6c2">=</span><span style="color:#98c379">&quot;188&quot;</span> cy<span style="color:#56b6c2">=</span><span style="color:#98c379">&quot;424&quot;</span> r<span style="color:#56b6c2">=</span><span style="color:#98c379">&quot;10&quot;</span><span style="color:#56b6c2">/&gt;</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#56b6c2">&lt;</span>circle <span style="color:#c678dd">class</span><span style="color:#56b6c2">=</span><span style="color:#98c379">&quot;cls-1&quot;</span> cx<span style="color:#56b6c2">=</span><span style="color:#98c379">&quot;108&quot;</span> cy<span style="color:#56b6c2">=</span><span style="color:#98c379">&quot;404&quot;</span> r<span style="color:#56b6c2">=</span><span style="color:#98c379">&quot;10&quot;</span><span style="color:#56b6c2">/&gt;</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#56b6c2">&lt;</span>circle <span style="color:#c678dd">class</span><span style="color:#56b6c2">=</span><span style="color:#98c379">&quot;cls-1&quot;</span> cx<span style="color:#56b6c2">=</span><span style="color:#98c379">&quot;142&quot;</span> cy<span style="color:#56b6c2">=</span><span style="color:#98c379">&quot;282&quot;</span> r<span style="color:#56b6c2">=</span><span style="color:#98c379">&quot;10&quot;</span><span style="color:#56b6c2">/&gt;</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#56b6c2">&lt;</span>circle <span style="color:#c678dd">class</span><span style="color:#56b6c2">=</span><span style="color:#98c379">&quot;cls-1&quot;</span> cx<span style="color:#56b6c2">=</span><span style="color:#98c379">&quot;175&quot;</span> cy<span style="color:#56b6c2">=</span><span style="color:#98c379">&quot;291&quot;</span> r<span style="color:#56b6c2">=</span><span style="color:#98c379">&quot;10&quot;</span><span style="color:#56b6c2">/&gt;</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#56b6c2">&lt;</span>circle <span style="color:#c678dd">class</span><span style="color:#56b6c2">=</span><span style="color:#98c379">&quot;cls-1&quot;</span> cx<span style="color:#56b6c2">=</span><span style="color:#98c379">&quot;196&quot;</span> cy<span style="color:#56b6c2">=</span><span style="color:#98c379">&quot;317&quot;</span> r<span style="color:#56b6c2">=</span><span style="color:#98c379">&quot;10&quot;</span><span style="color:#56b6c2">/&gt;</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#56b6c2">&lt;</span>circle <span style="color:#c678dd">class</span><span style="color:#56b6c2">=</span><span style="color:#98c379">&quot;cls-1&quot;</span> cx<span style="color:#56b6c2">=</span><span style="color:#98c379">&quot;370&quot;</span> cy<span style="color:#56b6c2">=</span><span style="color:#98c379">&quot;333&quot;</span> r<span style="color:#56b6c2">=</span><span style="color:#98c379">&quot;10&quot;</span><span style="color:#56b6c2">/&gt;</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#56b6c2">&lt;</span>circle <span style="color:#c678dd">class</span><span style="color:#56b6c2">=</span><span style="color:#98c379">&quot;cls-1&quot;</span> cx<span style="color:#56b6c2">=</span><span style="color:#98c379">&quot;146&quot;</span> cy<span style="color:#56b6c2">=</span><span style="color:#98c379">&quot;64&quot;</span> r<span style="color:#56b6c2">=</span><span style="color:#98c379">&quot;10&quot;</span><span style="color:#56b6c2">/&gt;</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#56b6c2">&lt;</span>circle <span style="color:#c678dd">class</span><span style="color:#56b6c2">=</span><span style="color:#98c379">&quot;cls-1&quot;</span> cx<span style="color:#56b6c2">=</span><span style="color:#98c379">&quot;228.5&quot;</span> cy<span style="color:#56b6c2">=</span><span style="color:#98c379">&quot;53.5&quot;</span> r<span style="color:#56b6c2">=</span><span style="color:#98c379">&quot;53.5&quot;</span><span style="color:#56b6c2">/&gt;</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#56b6c2">&lt;</span>circle <span style="color:#c678dd">class</span><span style="color:#56b6c2">=</span><span style="color:#98c379">&quot;cls-1&quot;</span> cx<span style="color:#56b6c2">=</span><span style="color:#98c379">&quot;318.5&quot;</span> cy<span style="color:#56b6c2">=</span><span style="color:#98c379">&quot;206.5&quot;</span> r<span style="color:#56b6c2">=</span><span style="color:#98c379">&quot;53.5&quot;</span><span style="color:#56b6c2">/&gt;</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#56b6c2">&lt;</span>path <span style="color:#c678dd">class</span><span style="color:#56b6c2">=</span><span style="color:#98c379">&quot;cls-1&quot;</span> d<span style="color:#56b6c2">=</span><span style="color:#98c379">&quot;M287.5,311c29.55,0,53.5,23.95,53.5,53.5s-23.95,53.5-53.5,53.5-53.5-23.95-53.5-53.5,23.95-53.5,53.5-53.5Z&quot;</span><span style="color:#56b6c2">/&gt;</span>
+</span></span><span style="display:flex;"><span>  <span style="color:#56b6c2">&lt;/</span>g<span style="color:#56b6c2">&gt;</span>
+</span></span><span style="display:flex;"><span><span style="color:#56b6c2">&lt;/</span>svg<span style="color:#56b6c2">&gt;</span>
+</span></span><span style="display:flex;"><span><span style="color:#56b6c2">&lt;/</span>body<span style="color:#56b6c2">&gt;</span>
+</span></span><span style="display:flex;"><span><span style="color:#56b6c2">&lt;/</span>html<span style="color:#56b6c2">&gt;</span>
+</span></span></code></pre></div>
+                <div class="code-toolbar code-toolbar-bottom"><button class="copy-code-button" type="button">Copy code</button></div>
+            </div>
         </section>
         
         </div>
@@ -561,5 +634,54 @@ function animate(point){
             &copy; 2026 Alexander Deplov, designer and developer of iOS and macOS apps, product designer.
         </footer>
     </article>
+    <script>
+document.addEventListener("click", function (event) {
+    var button = event.target.closest(".copy-code-button");
+    if (!button) return;
+
+    var block = button.closest(".code-block");
+    var code = block ? block.querySelector("code") : null;
+    if (!code) return;
+
+    var text = code.textContent.replace(/\n$/, "");
+
+    function setButtonState(label, copied) {
+        block.querySelectorAll(".copy-code-button").forEach(function (item) {
+            item.textContent = label;
+            item.classList.toggle("copied", copied);
+        });
+    }
+
+    function markCopied() {
+        setButtonState("Copied", true);
+        window.setTimeout(function () {
+            setButtonState("Copy code", false);
+        }, 1400);
+    }
+
+    function fallbackCopy() {
+        var textarea = document.createElement("textarea");
+        textarea.value = text;
+        textarea.setAttribute("readonly", "");
+        textarea.style.position = "fixed";
+        textarea.style.opacity = "0";
+        document.body.appendChild(textarea);
+        textarea.select();
+        try {
+            document.execCommand("copy");
+            markCopied();
+        } finally {
+            document.body.removeChild(textarea);
+        }
+    }
+
+    if (navigator.clipboard && window.isSecureContext) {
+        navigator.clipboard.writeText(text).then(markCopied).catch(fallbackCopy);
+    } else {
+        fallbackCopy();
+    }
+});
+</script>
+    <script data-goatcounter="https://goatinterface.goatcounter.com/count" async src="//gc.zgo.at/count.js"></script>
 </body>
 </html>

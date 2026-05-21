@@ -290,6 +290,10 @@
             text-decoration-thickness: 2px;
         }
 
+        .sketch-link {
+            flex: 0 0 100%;
+        }
+
         .button {
             display: inline;
             align-items: center;
@@ -338,16 +342,80 @@
             .content-section p { color: #b4b4b4; }
         }
 
-        pre {
-            overflow: auto;
-            margin: 0;
-            border: 1px solid #2a2a2a;
+        .code-block {
+            margin: 1em 0;
+            overflow: hidden;
             border-radius: 0.5rem;
-            padding: 18px;
-            background: #111;
-            color: #f5f5f5;
-            font-size: 14px;
+            background-color: #181818;
+        }
+
+        @media (prefers-color-scheme: dark) {
+            .code-block {
+                background-color: hsl(232, 20.3%, 6.4%);
+            }
+        }
+
+        .code-toolbar {
+            display: flex;
+            align-items: center;
+            justify-content: flex-start;
+            min-height: 26px;
+            background: inherit;
+        }
+
+        .code-toolbar-top {
+            padding: 10px 9px 0;
+        }
+
+        .code-toolbar-bottom {
+            padding: 0 1.5em 10px;
+        }
+
+        .copy-code-button {
+            appearance: none;
+            border: 1px solid rgba(171, 178, 191, 0.26);
+            border-radius: 0.3rem;
+            padding: 4px 8px;
+            background: transparent;
+            color: #abb2bf;
+            font: inherit;
+            font-size: 12px;
+            font-weight: 700;
+            line-height: 1.2;
+            cursor: pointer;
+        }
+
+        .copy-code-button:hover,
+        .copy-code-button.copied {
+            border-color: rgba(244, 108, 4, 0.55);
+            color: var(--accent);
+        }
+
+        .highlight pre {
+            overflow-x: auto;
+            margin: 0;
+            border: 0;
+            border-radius: 0;
+            padding: 1.5em;
+            box-sizing: border-box;
+            background: transparent !important;
+            color: #abb2bf;
+            font-family: "IBM Plex Mono", ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono", monospace;
+            font-size: 0.8rem;
+            font-weight: 400 !important;
             line-height: 1.5;
+            white-space: pre;
+            max-width: 100%;
+        }
+
+        @media (prefers-color-scheme: dark) {
+            .highlight pre {
+                background: transparent !important;
+            }
+        }
+
+        .highlight code {
+            display: block;
             white-space: pre;
         }
 
@@ -403,71 +471,76 @@
             <section class="preview-panel" aria-label="Preview">
                 <img class="preview-media" src="/tools/generative-art/assets/collection/Animation/Rainbow%20infinity%20sign%20animation/Screen_Recording_2022-06-04_at_18.06.55.2022-06-04_18_07_15.gif" alt="Rainbow infinity sign animation" loading="eager" decoding="async">
             </section>
-            <div class="actions"><a class="text-link" href="http://sketch.paperjs.org/#V/0.12.17/S/nVTJbtswEP2VgS6WYpmSnaYNlOYUoLcCQdNDCtsHWqItwjJlkJRdNPC/d7hosRMDRXWQKM7wvVne8C0QdMeCLHjZMp2XQRzkdWH+D1TCagOPINgRnqkuyQ+Wayo2FQvfFgLwUfwPy+DA2ZGs6kYUKnb7a15VT3VVywxGq4rm25E37GvFNa+FP5QzoZlciFO0EAthCPc1F1oh6Zc7SJKCrTNcxTCd4evOuVRMbHSJLvetxz3aUvAA1NramMMOWWkqNVoGxJDAfJoi+vJhIda1hNA4cnRKH/Dz1UeD6/E4Ap+zISC0KEIHOHZUxjHkcOOjiyGNkPlkyB19zmVeMZPZfHmFzAArttlhbIo4nHPqHmfYlSe707bEPC677BxxzpfE5hP3jpIWvFEZfEoHm8PmSVaMnMW1yKK7TMi+UWXofqxtkKypc2p+1o3ITb+hFt8kyixkB4ylSwjL9wjTPjlV1Ucmf/KdSVBje6bpZebT17aHTnHkyAvseAIzbMV3mzAX4QAILRH25RYVkiS4sD55rQY+0TuSXxckJeObUl9nMQwzwwCzHstWu+2UFUibQtzxdFW1vVpzqfSLaxhpj9uvn6urGoUJTM/F0tXUwRmgCzmc+wn2u6VGX+9GzO653wEvAQyjd3FxToYAZBCzPWfPkG5y3aK3vzv6AbznTZIJWBGRglWaYsVvEcBrtC1msy+oZm4w1LO/c0IdOYV6qXbavObdVvL/hnUwKm70HO4Hfbis1uBUN4ukbMxMzFLU3+1no2fM3Lf+Bvg/HB57RZs72w1NV7QTXvoryejWAQbZfHn6Cw==" target="_blank" rel="noopener noreferrer">Open in Paper.js Sketch</a></div>
+            <div class="actions"><a class="text-link sketch-link" href="http://sketch.paperjs.org/#V/0.12.17/S/nVTJbtswEP2VgS6WYpmSnaYNlOYUoLcCQdNDCtsHWqItwjJlkJRdNPC/d7hosRMDRXWQKM7wvVne8C0QdMeCLHjZMp2XQRzkdWH+D1TCagOPINgRnqkuyQ+Wayo2FQvfFgLwUfwPy+DA2ZGs6kYUKnb7a15VT3VVywxGq4rm25E37GvFNa+FP5QzoZlciFO0EAthCPc1F1oh6Zc7SJKCrTNcxTCd4evOuVRMbHSJLvetxz3aUvAA1NramMMOWWkqNVoGxJDAfJoi+vJhIda1hNA4cnRKH/Dz1UeD6/E4Ap+zISC0KEIHOHZUxjHkcOOjiyGNkPlkyB19zmVeMZPZfHmFzAArttlhbIo4nHPqHmfYlSe707bEPC677BxxzpfE5hP3jpIWvFEZfEoHm8PmSVaMnMW1yKK7TMi+UWXofqxtkKypc2p+1o3ITb+hFt8kyixkB4ylSwjL9wjTPjlV1Ucmf/KdSVBje6bpZebT17aHTnHkyAvseAIzbMV3mzAX4QAILRH25RYVkiS4sD55rQY+0TuSXxckJeObUl9nMQwzwwCzHstWu+2UFUibQtzxdFW1vVpzqfSLaxhpj9uvn6urGoUJTM/F0tXUwRmgCzmc+wn2u6VGX+9GzO653wEvAQyjd3FxToYAZBCzPWfPkG5y3aK3vzv6AbznTZIJWBGRglWaYsVvEcBrtC1msy+oZm4w1LO/c0IdOYV6qXbavObdVvL/hnUwKm70HO4Hfbis1uBUN4ukbMxMzFLU3+1no2fM3Lf+Bvg/HB57RZs72w1NV7QTXvoryejWAQbZfHn6Cw==" target="_blank" rel="noopener noreferrer">Open v1 in Sketch</a></div>
             
             
         <section class="content-section">
             <h2>Code</h2>
-            <pre><code>var bg = new Path.Rectangle({
-    size: view.bounds,
-    fillColor: &#x27;black&#x27;,
-    position: view.center
-})
-
-var points = 75 //def: 75, 125, 5
-var length = 8 //def: 8, 50 
-var path = new Path()
-
-var start = view.center / [10, 1];
-for (var i = 0; i &lt; points; i++) {
-    path.add(start + new Point(i * length, 0))
-}
-
-
-var circles = []
-for (var i = 0; i &lt; path.segments.length; i++) {
-    var circle = new Path.Circle({
-        center: path.segments[i].point,
-        radius: 40,
-        fillColor: &#x27;red&#x27;
-    })
-
-    circles.push(circle)
-
-}
-
-
-var t = 0
-
-function onFrame(event) {
-    t += 1
-    var slowerTime = t / 10
-    var circle1X = view.bounds.width / 2 + Math.sin(slowerTime / 2) * 350 // * Math.cos(slowerTime)
-    var circle1Y = view.bounds.height / 2 + Math.sin(slowerTime) * 250 / 2
-    var point = new Point(circle1X, circle1Y)
-
-    path.firstSegment.point = point
-    for (var i = 0; i &lt; points - 1; i++) {
-        var segment = path.segments[i]
-        var nextSegment = segment.next
-        var vector = segment.point - nextSegment.point
-        vector.length = length
-        nextSegment.point = segment.point - vector //- event.delta / 3   
-    }
-
-    updateCirclesPosition(t)
-
-
-
-}
-
-function updateCirclesPosition(t) {
-    for (var i = 0; i &lt; path.segments.length; i++) {
-        circles[i].position = path.segments[i].point
-        circles[i].fillColor.hue = 20 + 36 * 3 / points * i
-        circles[i].fillColor.hue += view.size.width
-    }
-}</code></pre>
+            <div class="code-block">
+                <div class="code-toolbar code-toolbar-top"><button class="copy-code-button" type="button">Copy code</button></div>
+            <div class="highlight"><pre tabindex="0" style="color:#abb2bf;background-color:#282c34;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"><code class="language-js" data-lang="js"><span style="display:flex;"><span><span style="color:#c678dd">var</span> bg <span style="color:#56b6c2">=</span> <span style="color:#c678dd">new</span> <span style="color:#e5c07b">Path</span>.<span style="color:#e5c07b">Rectangle</span>({
+</span></span><span style="display:flex;"><span>    size<span style="color:#56b6c2">:</span> <span style="color:#e5c07b">view</span>.bounds,
+</span></span><span style="display:flex;"><span>    fillColor<span style="color:#56b6c2">:</span> <span style="color:#98c379">&#x27;black&#x27;</span>,
+</span></span><span style="display:flex;"><span>    position<span style="color:#56b6c2">:</span> <span style="color:#e5c07b">view</span>.center
+</span></span><span style="display:flex;"><span>})
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#c678dd">var</span> points <span style="color:#56b6c2">=</span> <span style="color:#d19a66">75</span> <span style="color:#7f848e">//def: 75, 125, 5</span>
+</span></span><span style="display:flex;"><span><span style="color:#c678dd">var</span> length <span style="color:#56b6c2">=</span> <span style="color:#d19a66">8</span> <span style="color:#7f848e">//def: 8, 50 </span>
+</span></span><span style="display:flex;"><span><span style="color:#c678dd">var</span> path <span style="color:#56b6c2">=</span> <span style="color:#c678dd">new</span> <span style="color:#e5c07b">Path</span>()
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#c678dd">var</span> start <span style="color:#56b6c2">=</span> <span style="color:#e5c07b">view</span>.center <span style="color:#56b6c2">/</span> [<span style="color:#d19a66">10</span>, <span style="color:#d19a66">1</span>];
+</span></span><span style="display:flex;"><span><span style="color:#c678dd">for</span> (<span style="color:#c678dd">var</span> i <span style="color:#56b6c2">=</span> <span style="color:#d19a66">0</span>; i <span style="color:#56b6c2">&lt;</span> points; i<span style="color:#56b6c2">++</span>) {
+</span></span><span style="display:flex;"><span>    path.<span style="color:#e5c07b">add</span>(start <span style="color:#56b6c2">+</span> <span style="color:#c678dd">new</span> <span style="color:#e5c07b">Point</span>(i <span style="color:#56b6c2">*</span> length, <span style="color:#d19a66">0</span>))
+</span></span><span style="display:flex;"><span>}
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#c678dd">var</span> circles <span style="color:#56b6c2">=</span> []
+</span></span><span style="display:flex;"><span><span style="color:#c678dd">for</span> (<span style="color:#c678dd">var</span> i <span style="color:#56b6c2">=</span> <span style="color:#d19a66">0</span>; i <span style="color:#56b6c2">&lt;</span> path.segments.length; i<span style="color:#56b6c2">++</span>) {
+</span></span><span style="display:flex;"><span>    <span style="color:#c678dd">var</span> circle <span style="color:#56b6c2">=</span> <span style="color:#c678dd">new</span> <span style="color:#e5c07b">Path</span>.<span style="color:#e5c07b">Circle</span>({
+</span></span><span style="display:flex;"><span>        center<span style="color:#56b6c2">:</span> path.segments[i].point,
+</span></span><span style="display:flex;"><span>        radius<span style="color:#56b6c2">:</span> <span style="color:#d19a66">40</span>,
+</span></span><span style="display:flex;"><span>        fillColor<span style="color:#56b6c2">:</span> <span style="color:#98c379">&#x27;red&#x27;</span>
+</span></span><span style="display:flex;"><span>    })
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>    circles.<span style="color:#e5c07b">push</span>(circle)
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>}
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#c678dd">var</span> t <span style="color:#56b6c2">=</span> <span style="color:#d19a66">0</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#c678dd">function</span> <span style="color:#e5c07b">onFrame</span>(<span style="color:#e5c07b">event</span>) {
+</span></span><span style="display:flex;"><span>    t <span style="color:#56b6c2">+=</span> <span style="color:#d19a66">1</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#c678dd">var</span> slowerTime <span style="color:#56b6c2">=</span> t <span style="color:#56b6c2">/</span> <span style="color:#d19a66">10</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#c678dd">var</span> circle1X <span style="color:#56b6c2">=</span> <span style="color:#e5c07b">view</span>.bounds.width <span style="color:#56b6c2">/</span> <span style="color:#d19a66">2</span> <span style="color:#56b6c2">+</span> <span style="color:#e5c07b">Math</span>.<span style="color:#e5c07b">sin</span>(slowerTime <span style="color:#56b6c2">/</span> <span style="color:#d19a66">2</span>) <span style="color:#56b6c2">*</span> <span style="color:#d19a66">350</span> <span style="color:#7f848e">// * Math.cos(slowerTime)</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#c678dd">var</span> circle1Y <span style="color:#56b6c2">=</span> <span style="color:#e5c07b">view</span>.bounds.height <span style="color:#56b6c2">/</span> <span style="color:#d19a66">2</span> <span style="color:#56b6c2">+</span> <span style="color:#e5c07b">Math</span>.<span style="color:#e5c07b">sin</span>(slowerTime) <span style="color:#56b6c2">*</span> <span style="color:#d19a66">250</span> <span style="color:#56b6c2">/</span> <span style="color:#d19a66">2</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#c678dd">var</span> point <span style="color:#56b6c2">=</span> <span style="color:#c678dd">new</span> <span style="color:#e5c07b">Point</span>(circle1X, circle1Y)
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>    path.firstSegment.point <span style="color:#56b6c2">=</span> point
+</span></span><span style="display:flex;"><span>    <span style="color:#c678dd">for</span> (<span style="color:#c678dd">var</span> i <span style="color:#56b6c2">=</span> <span style="color:#d19a66">0</span>; i <span style="color:#56b6c2">&lt;</span> points <span style="color:#56b6c2">-</span> <span style="color:#d19a66">1</span>; i<span style="color:#56b6c2">++</span>) {
+</span></span><span style="display:flex;"><span>        <span style="color:#c678dd">var</span> segment <span style="color:#56b6c2">=</span> path.segments[i]
+</span></span><span style="display:flex;"><span>        <span style="color:#c678dd">var</span> nextSegment <span style="color:#56b6c2">=</span> segment.next
+</span></span><span style="display:flex;"><span>        <span style="color:#c678dd">var</span> vector <span style="color:#56b6c2">=</span> segment.point <span style="color:#56b6c2">-</span> nextSegment.point
+</span></span><span style="display:flex;"><span>        vector.length <span style="color:#56b6c2">=</span> length
+</span></span><span style="display:flex;"><span>        nextSegment.point <span style="color:#56b6c2">=</span> segment.point <span style="color:#56b6c2">-</span> vector <span style="color:#7f848e">//- event.delta / 3   </span>
+</span></span><span style="display:flex;"><span>    }
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>    <span style="color:#e5c07b">updateCirclesPosition</span>(t)
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>}
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#c678dd">function</span> <span style="color:#e5c07b">updateCirclesPosition</span>(t) {
+</span></span><span style="display:flex;"><span>    <span style="color:#c678dd">for</span> (<span style="color:#c678dd">var</span> i <span style="color:#56b6c2">=</span> <span style="color:#d19a66">0</span>; i <span style="color:#56b6c2">&lt;</span> path.segments.length; i<span style="color:#56b6c2">++</span>) {
+</span></span><span style="display:flex;"><span>        circles[i].position <span style="color:#56b6c2">=</span> path.segments[i].point
+</span></span><span style="display:flex;"><span>        circles[i].fillColor.hue <span style="color:#56b6c2">=</span> <span style="color:#d19a66">20</span> <span style="color:#56b6c2">+</span> <span style="color:#d19a66">36</span> <span style="color:#56b6c2">*</span> <span style="color:#d19a66">3</span> <span style="color:#56b6c2">/</span> points <span style="color:#56b6c2">*</span> i
+</span></span><span style="display:flex;"><span>        circles[i].fillColor.hue <span style="color:#56b6c2">+=</span> <span style="color:#e5c07b">view</span>.size.width
+</span></span><span style="display:flex;"><span>    }
+</span></span><span style="display:flex;"><span>}
+</span></span></code></pre></div>
+                <div class="code-toolbar code-toolbar-bottom"><button class="copy-code-button" type="button">Copy code</button></div>
+            </div>
         </section>
         
         </div>
@@ -475,5 +548,54 @@ function updateCirclesPosition(t) {
             &copy; 2026 Alexander Deplov, designer and developer of iOS and macOS apps, product designer.
         </footer>
     </article>
+    <script>
+document.addEventListener("click", function (event) {
+    var button = event.target.closest(".copy-code-button");
+    if (!button) return;
+
+    var block = button.closest(".code-block");
+    var code = block ? block.querySelector("code") : null;
+    if (!code) return;
+
+    var text = code.textContent.replace(/\n$/, "");
+
+    function setButtonState(label, copied) {
+        block.querySelectorAll(".copy-code-button").forEach(function (item) {
+            item.textContent = label;
+            item.classList.toggle("copied", copied);
+        });
+    }
+
+    function markCopied() {
+        setButtonState("Copied", true);
+        window.setTimeout(function () {
+            setButtonState("Copy code", false);
+        }, 1400);
+    }
+
+    function fallbackCopy() {
+        var textarea = document.createElement("textarea");
+        textarea.value = text;
+        textarea.setAttribute("readonly", "");
+        textarea.style.position = "fixed";
+        textarea.style.opacity = "0";
+        document.body.appendChild(textarea);
+        textarea.select();
+        try {
+            document.execCommand("copy");
+            markCopied();
+        } finally {
+            document.body.removeChild(textarea);
+        }
+    }
+
+    if (navigator.clipboard && window.isSecureContext) {
+        navigator.clipboard.writeText(text).then(markCopied).catch(fallbackCopy);
+    } else {
+        fallbackCopy();
+    }
+});
+</script>
+    <script data-goatcounter="https://goatinterface.goatcounter.com/count" async src="//gc.zgo.at/count.js"></script>
 </body>
 </html>

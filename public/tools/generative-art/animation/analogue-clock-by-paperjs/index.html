@@ -290,6 +290,10 @@
             text-decoration-thickness: 2px;
         }
 
+        .sketch-link {
+            flex: 0 0 100%;
+        }
+
         .button {
             display: inline;
             align-items: center;
@@ -338,16 +342,80 @@
             .content-section p { color: #b4b4b4; }
         }
 
-        pre {
-            overflow: auto;
-            margin: 0;
-            border: 1px solid #2a2a2a;
+        .code-block {
+            margin: 1em 0;
+            overflow: hidden;
             border-radius: 0.5rem;
-            padding: 18px;
-            background: #111;
-            color: #f5f5f5;
-            font-size: 14px;
+            background-color: #181818;
+        }
+
+        @media (prefers-color-scheme: dark) {
+            .code-block {
+                background-color: hsl(232, 20.3%, 6.4%);
+            }
+        }
+
+        .code-toolbar {
+            display: flex;
+            align-items: center;
+            justify-content: flex-start;
+            min-height: 26px;
+            background: inherit;
+        }
+
+        .code-toolbar-top {
+            padding: 10px 9px 0;
+        }
+
+        .code-toolbar-bottom {
+            padding: 0 1.5em 10px;
+        }
+
+        .copy-code-button {
+            appearance: none;
+            border: 1px solid rgba(171, 178, 191, 0.26);
+            border-radius: 0.3rem;
+            padding: 4px 8px;
+            background: transparent;
+            color: #abb2bf;
+            font: inherit;
+            font-size: 12px;
+            font-weight: 700;
+            line-height: 1.2;
+            cursor: pointer;
+        }
+
+        .copy-code-button:hover,
+        .copy-code-button.copied {
+            border-color: rgba(244, 108, 4, 0.55);
+            color: var(--accent);
+        }
+
+        .highlight pre {
+            overflow-x: auto;
+            margin: 0;
+            border: 0;
+            border-radius: 0;
+            padding: 1.5em;
+            box-sizing: border-box;
+            background: transparent !important;
+            color: #abb2bf;
+            font-family: "IBM Plex Mono", ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono", monospace;
+            font-size: 0.8rem;
+            font-weight: 400 !important;
             line-height: 1.5;
+            white-space: pre;
+            max-width: 100%;
+        }
+
+        @media (prefers-color-scheme: dark) {
+            .highlight pre {
+                background: transparent !important;
+            }
+        }
+
+        .highlight code {
+            display: block;
             white-space: pre;
         }
 
@@ -403,110 +471,115 @@
             <section class="preview-panel" aria-label="Preview">
                 <img class="preview-media" src="/tools/generative-art/assets/collection/Animation/Analogue%20clock%20by%20PaperJS/Screen_Recording_2024-01-20_at_17.06.32.2024-01-20_17_07_32.gif" alt="Analogue clock by PaperJS" loading="eager" decoding="async">
             </section>
-            <div class="actions"><a class="text-link" href="http://sketch.paperjs.org/#V/0.12.17/S/nVZNj9owEP0rFheSJc0mILZSaA/VVi2VttJKVOoBOHgTEyyCjRwHDoj/3vFHiM0CrYoEid+M5828GVscewxvSS/rzTZE5ute1Mt5odYLtscC4S1vmESfUTo0QEVYKdcADBMDlII3O1gzckDf1XsQLpgxrTErftNCu4876KUNkaZJ65pTkVfEhnnFch0/ayQ4LhiCj8AFbeoMpaMkMkgtBd+QZ15xkaH+W4XzTd8zaeYMjS244zWVlLMM7Sk5xDlhkogFO52zNcjfU/hoA65oVV2lv8u04gIFio4CUzKBxycrMrwPBqEl01JT5inyAus2GZ2A4NsMzZMIJcuogyUH0LTpwnJHspuy3SzItWMBUGZG4T0f3gEbmFjRNzalhHqqAmPBJZYkGD0l6LEdtwdEI5cLDdA8TXShsPWkdNRccZsZyORprZVuWK5tuSDAMIXJCw6quMitNEK50kPp3imvpvR/lQdQs9wUXvPdkt3N7N8bcE9o86YqiqXArK6U2irLDzrNx+EydFx2dM/lezX1/BPZCKbdbA+0VLwR9dTo5Qj9BAQpfO2UhcZ5S1kjyRV33dzxpXtNcs6Ka+5DcB+BO4eKStIPvX5TBmLhaqbnyj1QjB9sV79qk9NwVYWy8UNcEjlVS9duE+88fhrA9bHZdj4zAwShN1oq9BdW6svODH06hIHXuG1EK6k5G2a8u31uNJuXHw9+HlqLcXV0d2O6u92otpIrUa3FXrNde9yo7m5nUPJGqFvCijJRsN8oc2od/qhNcOK1t9kV4H8W9+gl4/X3ogltefiirrvVYFccZww8EmcajCNdoeCcEdzzoXN53GiGJdLH1g1z5rwIc3VK/CDqoTtQE/lDHeU9rgJPPnVIk0SnbQ57/CYoK3/xb4IzGYTwd+ANjt1mxymTdS+bL09/AA==" target="_blank" rel="noopener noreferrer">Open in Paper.js Sketch</a></div>
+            <div class="actions"><a class="text-link sketch-link" href="http://sketch.paperjs.org/#V/0.12.17/S/nVZNj9owEP0rFheSJc0mILZSaA/VVi2VttJKVOoBOHgTEyyCjRwHDoj/3vFHiM0CrYoEid+M5828GVscewxvSS/rzTZE5ute1Mt5odYLtscC4S1vmESfUTo0QEVYKdcADBMDlII3O1gzckDf1XsQLpgxrTErftNCu4876KUNkaZJ65pTkVfEhnnFch0/ayQ4LhiCj8AFbeoMpaMkMkgtBd+QZ15xkaH+W4XzTd8zaeYMjS244zWVlLMM7Sk5xDlhkogFO52zNcjfU/hoA65oVV2lv8u04gIFio4CUzKBxycrMrwPBqEl01JT5inyAus2GZ2A4NsMzZMIJcuogyUH0LTpwnJHspuy3SzItWMBUGZG4T0f3gEbmFjRNzalhHqqAmPBJZYkGD0l6LEdtwdEI5cLDdA8TXShsPWkdNRccZsZyORprZVuWK5tuSDAMIXJCw6quMitNEK50kPp3imvpvR/lQdQs9wUXvPdkt3N7N8bcE9o86YqiqXArK6U2irLDzrNx+EydFx2dM/lezX1/BPZCKbdbA+0VLwR9dTo5Qj9BAQpfO2UhcZ5S1kjyRV33dzxpXtNcs6Ka+5DcB+BO4eKStIPvX5TBmLhaqbnyj1QjB9sV79qk9NwVYWy8UNcEjlVS9duE+88fhrA9bHZdj4zAwShN1oq9BdW6svODH06hIHXuG1EK6k5G2a8u31uNJuXHw9+HlqLcXV0d2O6u92otpIrUa3FXrNde9yo7m5nUPJGqFvCijJRsN8oc2od/qhNcOK1t9kV4H8W9+gl4/X3ogltefiirrvVYFccZww8EmcajCNdoeCcEdzzoXN53GiGJdLH1g1z5rwIc3VK/CDqoTtQE/lDHeU9rgJPPnVIk0SnbQ57/CYoK3/xb4IzGYTwd+ANjt1mxymTdS+bL09/AA==" target="_blank" rel="noopener noreferrer">Open v1 in Sketch</a></div>
             
             
         <section class="content-section">
             <h2>Code</h2>
-            <pre><code>var amount = 12
-var length = 20
-var group = new Group()
-
-var handWidth = 5
-var handLength = 110
-
-var circle = new Path.Circle({
-    radius: 130,
-    strokeColor: &#x27;black&#x27;,
-    strokeWidth: 5,
-    position: view.center
-})
-
-var center = new Path.Circle({
-    radius: 7,
-    fillColor: &#x27;black&#x27;,
-    position: view.center
-})
-
-for (var i = 0; i &lt; amount; i++){
-    var line = new Path.Line({
-        from: [0, 0],
-        to: [length, 0],
-        strokeColor: &#x27;black&#x27;,
-        strokeWidth: 5,
-        position: view.center,
-        parent: group,
-        strokeCap: &#x27;round&#x27;
-    })
-    line.rotate(360 / amount * i, view.center + [100, 0])
-}
-
-group.position = view.center
-
-
-function createHand(width, strokeWidth, color){
-
-    var hand = new Path.Line({
-        from: [0, 0],
-        to: [0, width],
-        strokeColor: color,
-        strokeWidth: strokeWidth,
-        position: view.center,
-        strokeCap: &#x27;round&#x27;
-    })
-
-    hand.translate([0, -width/2])
-    hand.pivot = view.center
-
-    return hand
-}
-
-var hoursHand = createHand(60, 10, &#x27;black&#x27;)
-var minutesHand = createHand(100, 5, &#x27;black&#x27;)
-var secondsHand = createHand(120, 3, &#x27;orange&#x27;)
-
-function initialState(){
-    var now = new Date()
-    var hours = now.getHours()
-    var minutes = now.getMinutes()
-    var seconds = now.getSeconds()
-
-    var hoursAngle = 360 / 12 * hours
-    hoursHand.rotation = hoursAngle
-
-    var minutesAngle = 360 / 60 * minutes
-    minutesHand.rotation = minutesAngle
-
-    var secondsAngle = 360 / 60 * seconds
-    secondsHand.rotation = secondsAngle
-}
-
-var currentSeconds;
-
-initialState()
-
-
-var seconds, minutes;
-
-function updateSeconds(){
-    seconds = new Date().getSeconds()
-    var angle = 360 / 60
-    secondsHand.rotation = angle
-
-    minutes = new Date().getMinutes()
-
-    if (seconds == 0){
-        minutesHand.rotation = angle
-    }
-
-    if (minutes == 0){
-        hoursHand.rotation = angle
-    }
-    
-}
-setInterval(updateSeconds, 1000)
-
-center.bringToFront()</code></pre>
+            <div class="code-block">
+                <div class="code-toolbar code-toolbar-top"><button class="copy-code-button" type="button">Copy code</button></div>
+            <div class="highlight"><pre tabindex="0" style="color:#abb2bf;background-color:#282c34;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"><code class="language-js" data-lang="js"><span style="display:flex;"><span><span style="color:#c678dd">var</span> amount <span style="color:#56b6c2">=</span> <span style="color:#d19a66">12</span>
+</span></span><span style="display:flex;"><span><span style="color:#c678dd">var</span> length <span style="color:#56b6c2">=</span> <span style="color:#d19a66">20</span>
+</span></span><span style="display:flex;"><span><span style="color:#c678dd">var</span> group <span style="color:#56b6c2">=</span> <span style="color:#c678dd">new</span> <span style="color:#e5c07b">Group</span>()
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#c678dd">var</span> handWidth <span style="color:#56b6c2">=</span> <span style="color:#d19a66">5</span>
+</span></span><span style="display:flex;"><span><span style="color:#c678dd">var</span> handLength <span style="color:#56b6c2">=</span> <span style="color:#d19a66">110</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#c678dd">var</span> circle <span style="color:#56b6c2">=</span> <span style="color:#c678dd">new</span> <span style="color:#e5c07b">Path</span>.<span style="color:#e5c07b">Circle</span>({
+</span></span><span style="display:flex;"><span>    radius<span style="color:#56b6c2">:</span> <span style="color:#d19a66">130</span>,
+</span></span><span style="display:flex;"><span>    strokeColor<span style="color:#56b6c2">:</span> <span style="color:#98c379">&#x27;black&#x27;</span>,
+</span></span><span style="display:flex;"><span>    strokeWidth<span style="color:#56b6c2">:</span> <span style="color:#d19a66">5</span>,
+</span></span><span style="display:flex;"><span>    position<span style="color:#56b6c2">:</span> <span style="color:#e5c07b">view</span>.center
+</span></span><span style="display:flex;"><span>})
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#c678dd">var</span> center <span style="color:#56b6c2">=</span> <span style="color:#c678dd">new</span> <span style="color:#e5c07b">Path</span>.<span style="color:#e5c07b">Circle</span>({
+</span></span><span style="display:flex;"><span>    radius<span style="color:#56b6c2">:</span> <span style="color:#d19a66">7</span>,
+</span></span><span style="display:flex;"><span>    fillColor<span style="color:#56b6c2">:</span> <span style="color:#98c379">&#x27;black&#x27;</span>,
+</span></span><span style="display:flex;"><span>    position<span style="color:#56b6c2">:</span> <span style="color:#e5c07b">view</span>.center
+</span></span><span style="display:flex;"><span>})
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#c678dd">for</span> (<span style="color:#c678dd">var</span> i <span style="color:#56b6c2">=</span> <span style="color:#d19a66">0</span>; i <span style="color:#56b6c2">&lt;</span> amount; i<span style="color:#56b6c2">++</span>){
+</span></span><span style="display:flex;"><span>    <span style="color:#c678dd">var</span> line <span style="color:#56b6c2">=</span> <span style="color:#c678dd">new</span> <span style="color:#e5c07b">Path</span>.<span style="color:#e5c07b">Line</span>({
+</span></span><span style="display:flex;"><span>        <span style="color:#c678dd">from</span><span style="color:#56b6c2">:</span> [<span style="color:#d19a66">0</span>, <span style="color:#d19a66">0</span>],
+</span></span><span style="display:flex;"><span>        to<span style="color:#56b6c2">:</span> [length, <span style="color:#d19a66">0</span>],
+</span></span><span style="display:flex;"><span>        strokeColor<span style="color:#56b6c2">:</span> <span style="color:#98c379">&#x27;black&#x27;</span>,
+</span></span><span style="display:flex;"><span>        strokeWidth<span style="color:#56b6c2">:</span> <span style="color:#d19a66">5</span>,
+</span></span><span style="display:flex;"><span>        position<span style="color:#56b6c2">:</span> <span style="color:#e5c07b">view</span>.center,
+</span></span><span style="display:flex;"><span>        parent<span style="color:#56b6c2">:</span> group,
+</span></span><span style="display:flex;"><span>        strokeCap<span style="color:#56b6c2">:</span> <span style="color:#98c379">&#x27;round&#x27;</span>
+</span></span><span style="display:flex;"><span>    })
+</span></span><span style="display:flex;"><span>    line.<span style="color:#e5c07b">rotate</span>(<span style="color:#d19a66">360</span> <span style="color:#56b6c2">/</span> amount <span style="color:#56b6c2">*</span> i, <span style="color:#e5c07b">view</span>.center <span style="color:#56b6c2">+</span> [<span style="color:#d19a66">100</span>, <span style="color:#d19a66">0</span>])
+</span></span><span style="display:flex;"><span>}
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>group.position <span style="color:#56b6c2">=</span> <span style="color:#e5c07b">view</span>.center
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#c678dd">function</span> <span style="color:#e5c07b">createHand</span>(width, strokeWidth, color){
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>    <span style="color:#c678dd">var</span> hand <span style="color:#56b6c2">=</span> <span style="color:#c678dd">new</span> <span style="color:#e5c07b">Path</span>.<span style="color:#e5c07b">Line</span>({
+</span></span><span style="display:flex;"><span>        <span style="color:#c678dd">from</span><span style="color:#56b6c2">:</span> [<span style="color:#d19a66">0</span>, <span style="color:#d19a66">0</span>],
+</span></span><span style="display:flex;"><span>        to<span style="color:#56b6c2">:</span> [<span style="color:#d19a66">0</span>, width],
+</span></span><span style="display:flex;"><span>        strokeColor<span style="color:#56b6c2">:</span> color,
+</span></span><span style="display:flex;"><span>        strokeWidth<span style="color:#56b6c2">:</span> strokeWidth,
+</span></span><span style="display:flex;"><span>        position<span style="color:#56b6c2">:</span> <span style="color:#e5c07b">view</span>.center,
+</span></span><span style="display:flex;"><span>        strokeCap<span style="color:#56b6c2">:</span> <span style="color:#98c379">&#x27;round&#x27;</span>
+</span></span><span style="display:flex;"><span>    })
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>    hand.<span style="color:#e5c07b">translate</span>([<span style="color:#d19a66">0</span>, <span style="color:#56b6c2">-</span>width<span style="color:#56b6c2">/</span><span style="color:#d19a66">2</span>])
+</span></span><span style="display:flex;"><span>    hand.pivot <span style="color:#56b6c2">=</span> <span style="color:#e5c07b">view</span>.center
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>    <span style="color:#c678dd">return</span> hand
+</span></span><span style="display:flex;"><span>}
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#c678dd">var</span> hoursHand <span style="color:#56b6c2">=</span> <span style="color:#e5c07b">createHand</span>(<span style="color:#d19a66">60</span>, <span style="color:#d19a66">10</span>, <span style="color:#98c379">&#x27;black&#x27;</span>)
+</span></span><span style="display:flex;"><span><span style="color:#c678dd">var</span> minutesHand <span style="color:#56b6c2">=</span> <span style="color:#e5c07b">createHand</span>(<span style="color:#d19a66">100</span>, <span style="color:#d19a66">5</span>, <span style="color:#98c379">&#x27;black&#x27;</span>)
+</span></span><span style="display:flex;"><span><span style="color:#c678dd">var</span> secondsHand <span style="color:#56b6c2">=</span> <span style="color:#e5c07b">createHand</span>(<span style="color:#d19a66">120</span>, <span style="color:#d19a66">3</span>, <span style="color:#98c379">&#x27;orange&#x27;</span>)
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#c678dd">function</span> <span style="color:#e5c07b">initialState</span>(){
+</span></span><span style="display:flex;"><span>    <span style="color:#c678dd">var</span> now <span style="color:#56b6c2">=</span> <span style="color:#c678dd">new</span> <span style="color:#e5c07b">Date</span>()
+</span></span><span style="display:flex;"><span>    <span style="color:#c678dd">var</span> hours <span style="color:#56b6c2">=</span> now.<span style="color:#e5c07b">getHours</span>()
+</span></span><span style="display:flex;"><span>    <span style="color:#c678dd">var</span> minutes <span style="color:#56b6c2">=</span> now.<span style="color:#e5c07b">getMinutes</span>()
+</span></span><span style="display:flex;"><span>    <span style="color:#c678dd">var</span> seconds <span style="color:#56b6c2">=</span> now.<span style="color:#e5c07b">getSeconds</span>()
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>    <span style="color:#c678dd">var</span> hoursAngle <span style="color:#56b6c2">=</span> <span style="color:#d19a66">360</span> <span style="color:#56b6c2">/</span> <span style="color:#d19a66">12</span> <span style="color:#56b6c2">*</span> hours
+</span></span><span style="display:flex;"><span>    hoursHand.rotation <span style="color:#56b6c2">=</span> hoursAngle
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>    <span style="color:#c678dd">var</span> minutesAngle <span style="color:#56b6c2">=</span> <span style="color:#d19a66">360</span> <span style="color:#56b6c2">/</span> <span style="color:#d19a66">60</span> <span style="color:#56b6c2">*</span> minutes
+</span></span><span style="display:flex;"><span>    minutesHand.rotation <span style="color:#56b6c2">=</span> minutesAngle
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>    <span style="color:#c678dd">var</span> secondsAngle <span style="color:#56b6c2">=</span> <span style="color:#d19a66">360</span> <span style="color:#56b6c2">/</span> <span style="color:#d19a66">60</span> <span style="color:#56b6c2">*</span> seconds
+</span></span><span style="display:flex;"><span>    secondsHand.rotation <span style="color:#56b6c2">=</span> secondsAngle
+</span></span><span style="display:flex;"><span>}
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#c678dd">var</span> currentSeconds;
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#e5c07b">initialState</span>()
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#c678dd">var</span> seconds, minutes;
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#c678dd">function</span> <span style="color:#e5c07b">updateSeconds</span>(){
+</span></span><span style="display:flex;"><span>    seconds <span style="color:#56b6c2">=</span> <span style="color:#c678dd">new</span> <span style="color:#e5c07b">Date</span>().<span style="color:#e5c07b">getSeconds</span>()
+</span></span><span style="display:flex;"><span>    <span style="color:#c678dd">var</span> angle <span style="color:#56b6c2">=</span> <span style="color:#d19a66">360</span> <span style="color:#56b6c2">/</span> <span style="color:#d19a66">60</span>
+</span></span><span style="display:flex;"><span>    secondsHand.rotation <span style="color:#56b6c2">=</span> angle
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>    minutes <span style="color:#56b6c2">=</span> <span style="color:#c678dd">new</span> <span style="color:#e5c07b">Date</span>().<span style="color:#e5c07b">getMinutes</span>()
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>    <span style="color:#c678dd">if</span> (seconds <span style="color:#56b6c2">==</span> <span style="color:#d19a66">0</span>){
+</span></span><span style="display:flex;"><span>        minutesHand.rotation <span style="color:#56b6c2">=</span> angle
+</span></span><span style="display:flex;"><span>    }
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>    <span style="color:#c678dd">if</span> (minutes <span style="color:#56b6c2">==</span> <span style="color:#d19a66">0</span>){
+</span></span><span style="display:flex;"><span>        hoursHand.rotation <span style="color:#56b6c2">=</span> angle
+</span></span><span style="display:flex;"><span>    }
+</span></span><span style="display:flex;"><span>    
+</span></span><span style="display:flex;"><span>}
+</span></span><span style="display:flex;"><span><span style="color:#e5c07b">setInterval</span>(updateSeconds, <span style="color:#d19a66">1000</span>)
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>center.<span style="color:#e5c07b">bringToFront</span>()
+</span></span></code></pre></div>
+                <div class="code-toolbar code-toolbar-bottom"><button class="copy-code-button" type="button">Copy code</button></div>
+            </div>
         </section>
         
         </div>
@@ -514,5 +587,54 @@ center.bringToFront()</code></pre>
             &copy; 2026 Alexander Deplov, designer and developer of iOS and macOS apps, product designer.
         </footer>
     </article>
+    <script>
+document.addEventListener("click", function (event) {
+    var button = event.target.closest(".copy-code-button");
+    if (!button) return;
+
+    var block = button.closest(".code-block");
+    var code = block ? block.querySelector("code") : null;
+    if (!code) return;
+
+    var text = code.textContent.replace(/\n$/, "");
+
+    function setButtonState(label, copied) {
+        block.querySelectorAll(".copy-code-button").forEach(function (item) {
+            item.textContent = label;
+            item.classList.toggle("copied", copied);
+        });
+    }
+
+    function markCopied() {
+        setButtonState("Copied", true);
+        window.setTimeout(function () {
+            setButtonState("Copy code", false);
+        }, 1400);
+    }
+
+    function fallbackCopy() {
+        var textarea = document.createElement("textarea");
+        textarea.value = text;
+        textarea.setAttribute("readonly", "");
+        textarea.style.position = "fixed";
+        textarea.style.opacity = "0";
+        document.body.appendChild(textarea);
+        textarea.select();
+        try {
+            document.execCommand("copy");
+            markCopied();
+        } finally {
+            document.body.removeChild(textarea);
+        }
+    }
+
+    if (navigator.clipboard && window.isSecureContext) {
+        navigator.clipboard.writeText(text).then(markCopied).catch(fallbackCopy);
+    } else {
+        fallbackCopy();
+    }
+});
+</script>
+    <script data-goatcounter="https://goatinterface.goatcounter.com/count" async src="//gc.zgo.at/count.js"></script>
 </body>
 </html>

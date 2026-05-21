@@ -290,6 +290,10 @@
             text-decoration-thickness: 2px;
         }
 
+        .sketch-link {
+            flex: 0 0 100%;
+        }
+
         .button {
             display: inline;
             align-items: center;
@@ -338,16 +342,80 @@
             .content-section p { color: #b4b4b4; }
         }
 
-        pre {
-            overflow: auto;
-            margin: 0;
-            border: 1px solid #2a2a2a;
+        .code-block {
+            margin: 1em 0;
+            overflow: hidden;
             border-radius: 0.5rem;
-            padding: 18px;
-            background: #111;
-            color: #f5f5f5;
-            font-size: 14px;
+            background-color: #181818;
+        }
+
+        @media (prefers-color-scheme: dark) {
+            .code-block {
+                background-color: hsl(232, 20.3%, 6.4%);
+            }
+        }
+
+        .code-toolbar {
+            display: flex;
+            align-items: center;
+            justify-content: flex-start;
+            min-height: 26px;
+            background: inherit;
+        }
+
+        .code-toolbar-top {
+            padding: 10px 9px 0;
+        }
+
+        .code-toolbar-bottom {
+            padding: 0 1.5em 10px;
+        }
+
+        .copy-code-button {
+            appearance: none;
+            border: 1px solid rgba(171, 178, 191, 0.26);
+            border-radius: 0.3rem;
+            padding: 4px 8px;
+            background: transparent;
+            color: #abb2bf;
+            font: inherit;
+            font-size: 12px;
+            font-weight: 700;
+            line-height: 1.2;
+            cursor: pointer;
+        }
+
+        .copy-code-button:hover,
+        .copy-code-button.copied {
+            border-color: rgba(244, 108, 4, 0.55);
+            color: var(--accent);
+        }
+
+        .highlight pre {
+            overflow-x: auto;
+            margin: 0;
+            border: 0;
+            border-radius: 0;
+            padding: 1.5em;
+            box-sizing: border-box;
+            background: transparent !important;
+            color: #abb2bf;
+            font-family: "IBM Plex Mono", ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono", monospace;
+            font-size: 0.8rem;
+            font-weight: 400 !important;
             line-height: 1.5;
+            white-space: pre;
+            max-width: 100%;
+        }
+
+        @media (prefers-color-scheme: dark) {
+            .highlight pre {
+                background: transparent !important;
+            }
+        }
+
+        .highlight code {
+            display: block;
             white-space: pre;
         }
 
@@ -403,89 +471,94 @@
             <section class="preview-panel" aria-label="Preview">
                 <img class="preview-media" src="/tools/generative-art/assets/collection/Animation/Colored%20lines%20goes%20around%20v4/Screen_Recording_2024-02-18_at_23.54.24.2024-02-18_23_55_02.gif" alt="Colored lines goes around v4" loading="eager" decoding="async">
             </section>
-            <div class="actions"><a class="text-link" href="http://sketch.paperjs.org/#V/0.12.17/S/vVZRb9owEP4rFi8kJQuBSXtIt4eJCWnSqlbrpK0iPJjkSiyCjWynHav47z07STEmm/qy5gHw+Xz33fedLzwNON3CIB3cbkDn5SAa5KIw6wcqyWpNPhEOj+SG6jL+DrmmfF1B8JRxgo9ifyAlDwweY/Mzaqz3rKpmohIyJcNVRfPNMOOHMOMZNyHpVtRcY9jJtDEwzkHOmMwrQOs0SRqzqHWfWWkpNvCTFbo0MVor5WxLNRP8dgdQ4EYSJxNv6wtTiD6HX264s927brfdl5LuvxqEaF8sHeO1wecb23XG72uem7Akl0A13AjGtQqa2iNStMnmUmxnwDFQ1Jz/IeaIP2zpbekUkgSWKFPXJX59bEnE36NR59x6m+eF1SatK2FDaKdf90hasFqlZBqd2l0l91BV4nHoeeyEYqbOtgtyWwwZkUVficnSOy12NGd6n5LkaDed4tXj1BJLoZHP4P2HZNx20gVhkZs9PB50OI13tSoDN1IHPXTJPhjxsF3NBzmT8RvjEHSEv1KXU1l21Pbtix42oqfGPVKWOp23YD5vWqROE57vN5fkeAdr8HVzrlHqLvoD0R2GkVha4cdZVcCLKxwY6KCQJOBDV0q3fFO6Ix8Zk6OA4SUZj8m1ZKggJqVSHc+dEtj1FZJoA65BWz0/68CuEc9al+NJEnqZGVcgdTA53r6wL4f1dfiLy9rk8gHb/nCPCD6XOEfRteuZAB6wmtATV5dMncV/h5OsD8z5qjkO6y2GVotkiV2Mxce/Ma9zBXA9Ile2EsYDbzheEAsszm0tI+zbi54hGfZZ79A4fRWgvQdo3wHKhfp/gP4FbfLmXL0KzVsR1QdmK4QuA+caHE44tBOmmZumxc+uy6EbcO3QzHjvy855v0fOVAv/4u689yNnyL24NzM44/hHZYWGjaVRDdLF8vAM" target="_blank" rel="noopener noreferrer">Open in Paper.js Sketch</a>
-<a class="text-link" href="http://sketch.paperjs.org/#V/0.12.17/S/xVZRb9owEP4rFi9NShoCU6cp2x6mTpUmrVo1Jm0V8GCSK7EINnKcMlrx33d2bDAh3fqyLS/E5/P57rvvPvLU43QFvbQ3XoLKil7Uy0Su1w9UkvmCvCccNuSWqiL+CpmifFFC8DTlBJ+KPUJKHhhsYv0aNdZ7VpZXohQyJWfzkmbLsynfhVM+5TokXYmaKww7HDUGxjnIKyazEtA6SpLGLGrVZa6UFEv4znJV6BjWSjlbUcUEH68BctxI4mTY2vrIKsw+gx9+uJPdO7dr96Wk2086Q7RPZp7xi86vbbTrKb+veabDkkwCVXArGFdV0NQekdxedi3F6go4Boqa89/ENeYfWngtnEKSwACl63qLP+8siPje7ztn662fParNtX4LG0Bd/9wjac7qKiWj6Njud3ILZSk2Zy2PtaiYrtOyIDPFkD6ZdJWYzFqnxZpmTG1TkhzsmimterxaYikU4hm8ep0MLJPOCYv828PDQQ/TeF1XReBHcqmHPtg73Tykq+t/5gj4DIIOucsO7m8KpsAB9ixQwyTRyLgRwTyaO2PBryVOJt7tyBTAAx5zDbduFpCLYRuEXQcPPzMOgQvwQmId82pNzeDt4TARW3S6x56n3uhMWLvxSqTeFJ3uN1N+EJEa2sTzdCD1F92B6BrDSCwtb8eZl8DzG1Q8dKgQJOBtj8EAG1CW2zGUqH+Qp0TJGnzC+hh1vWnc3DwgdhrCeAHK8PCDCswa01ioYnDpsdfYGa9AqmB4EI2w6wrj66EWF7W+CseEDMhhUAzD/CN/Itm+YQWrTuJfoAAfu3UdgsUKA1aTZIYjhxXHP/E2j6q47pMbkz/jQUvJz4lJJ85MBX3k6HmHoodd1js0JvGbF6W0baW0dSllovqbKf0uueF/wWv0opT+KV6dKa2EUEXgzcLuCE4jLo3ma56fzMzOaZsVfFTdrj9q79sk8gQtfMbd+2aJPH3buzfyO+X4kTVHw9KAWfXSyWz3Cw==" target="_blank" rel="noopener noreferrer">Open in Paper.js Sketch</a>
-<a class="text-link" href="http://sketch.paperjs.org/#V/0.12.17/S/xVZRb9owEP4rFi9NShoCU6cp2x6mTpUmrVo1Jm0V8GCSK7EINrKdMlrx33d2YjAh3fqyLS/E5/P57rvvPvLU43QFvbQ3XoLOil7Uy0Ru1g9UkvmCvCccNuSW6iL+CpmmfFFC8DTlBB/FHiElDww2sXmNaus9K8srUQqZkrN5SbPl2ZTvwimfchOSrkTFNYYdjmoD4xzkFZNZCWgdJUltFpXuMistxRK+s1wXJkZjpZytqGaCj9cAOW4kcTJsbX1kCrPP4Icf7mT3zu02+1LS7SeTIdonM8/4xeTXNjbrKb+veGbCkkwC1XArGNcqqGuPSN5cdi3F6go4Borq89/ENeYfNvA2cApJAguUqest/rxrQMT3ft85N97m2aNaX+u3sAbU9c89kuasUikZRcd2v5NbKEuxOWt5rIVips6GBZkthvTJpKvEZNY6LdY0Y3qbkuRgN0xp1ePVEkuhEc/g1etk0DDpnLDIvz08HPQwjdeVKgI/kks99MHemeYhXV3/M0fAZxB0yF12cH9TMA0OsGeBGiaJQcaNCOZR3xkLfi1xMvFuR6YAHvCYa3jj1gByMWyDsOvg4WfGIXABXkisY16tqR28PRw2YotO99jz1BudCWs3XovUm6LT/XrKDyJSQZt4ng6k/qI7EF1jGIml5e048xJ4foOKhw4KQQLe9hgMsAFluR1DifoHeUq0rMAnrI9R15vBzc0DYmcgjBegLQ8/6MCuMY2FLgaXHnutnXEFUgfDg2iEXVdYXw+1uKjMVTgmZEAOg2IZ5h/5E8n2DSuYOol/gQJ87NZ1CBYrDKgmyQxHDiuOf+JtHlVx3Sc3Nn/Gg5aSnxObTpzZCvrI0fMORQ+7rHdoTOI3L0pp20pp61LKhPqbKf0uudF/wWv0opT+KV6dKa2E0EXgzcLuCE4rLrXmG56fzMzOaVsj+Ki6XX/U3rdJ5Ala+Iy7980Sefq2d6/ld8rxI2uOhqUFU/XSyWz3Cw==" target="_blank" rel="noopener noreferrer">Open in Paper.js Sketch</a></div>
+            <div class="actions"><a class="text-link sketch-link" href="http://sketch.paperjs.org/#V/0.12.17/S/vVZRb9owEP4rFi8kJQuBSXtIt4eJCWnSqlbrpK0iPJjkSiyCjWynHav47z07STEmm/qy5gHw+Xz33fedLzwNON3CIB3cbkDn5SAa5KIw6wcqyWpNPhEOj+SG6jL+DrmmfF1B8JRxgo9ifyAlDwweY/Mzaqz3rKpmohIyJcNVRfPNMOOHMOMZNyHpVtRcY9jJtDEwzkHOmMwrQOs0SRqzqHWfWWkpNvCTFbo0MVor5WxLNRP8dgdQ4EYSJxNv6wtTiD6HX264s927brfdl5LuvxqEaF8sHeO1wecb23XG72uem7Akl0A13AjGtQqa2iNStMnmUmxnwDFQ1Jz/IeaIP2zpbekUkgSWKFPXJX59bEnE36NR59x6m+eF1SatK2FDaKdf90hasFqlZBqd2l0l91BV4nHoeeyEYqbOtgtyWwwZkUVficnSOy12NGd6n5LkaDed4tXj1BJLoZHP4P2HZNx20gVhkZs9PB50OI13tSoDN1IHPXTJPhjxsF3NBzmT8RvjEHSEv1KXU1l21Pbtix42oqfGPVKWOp23YD5vWqROE57vN5fkeAdr8HVzrlHqLvoD0R2GkVha4cdZVcCLKxwY6KCQJOBDV0q3fFO6Ix8Zk6OA4SUZj8m1ZKggJqVSHc+dEtj1FZJoA65BWz0/68CuEc9al+NJEnqZGVcgdTA53r6wL4f1dfiLy9rk8gHb/nCPCD6XOEfRteuZAB6wmtATV5dMncV/h5OsD8z5qjkO6y2GVotkiV2Mxce/Ma9zBXA9Ile2EsYDbzheEAsszm0tI+zbi54hGfZZ79A4fRWgvQdo3wHKhfp/gP4FbfLmXL0KzVsR1QdmK4QuA+caHE44tBOmmZumxc+uy6EbcO3QzHjvy855v0fOVAv/4u689yNnyL24NzM44/hHZYWGjaVRDdLF8vAM" target="_blank" rel="noopener noreferrer">Open v1 in Sketch</a>
+<a class="text-link sketch-link" href="http://sketch.paperjs.org/#V/0.12.17/S/xVZRb9owEP4rFi9NShoCU6cp2x6mTpUmrVo1Jm0V8GCSK7EINnKcMlrx33d2bDAh3fqyLS/E5/P57rvvPvLU43QFvbQ3XoLKil7Uy0Su1w9UkvmCvCccNuSWqiL+CpmifFFC8DTlBJ+KPUJKHhhsYv0aNdZ7VpZXohQyJWfzkmbLsynfhVM+5TokXYmaKww7HDUGxjnIKyazEtA6SpLGLGrVZa6UFEv4znJV6BjWSjlbUcUEH68BctxI4mTY2vrIKsw+gx9+uJPdO7dr96Wk2086Q7RPZp7xi86vbbTrKb+veabDkkwCVXArGFdV0NQekdxedi3F6go4Boqa89/ENeYfWngtnEKSwACl63qLP+8siPje7ztn662fParNtX4LG0Bd/9wjac7qKiWj6Njud3ILZSk2Zy2PtaiYrtOyIDPFkD6ZdJWYzFqnxZpmTG1TkhzsmimterxaYikU4hm8ep0MLJPOCYv828PDQQ/TeF1XReBHcqmHPtg73Tykq+t/5gj4DIIOucsO7m8KpsAB9ixQwyTRyLgRwTyaO2PBryVOJt7tyBTAAx5zDbduFpCLYRuEXQcPPzMOgQvwQmId82pNzeDt4TARW3S6x56n3uhMWLvxSqTeFJ3uN1N+EJEa2sTzdCD1F92B6BrDSCwtb8eZl8DzG1Q8dKgQJOBtj8EAG1CW2zGUqH+Qp0TJGnzC+hh1vWnc3DwgdhrCeAHK8PCDCswa01ioYnDpsdfYGa9AqmB4EI2w6wrj66EWF7W+CseEDMhhUAzD/CN/Itm+YQWrTuJfoAAfu3UdgsUKA1aTZIYjhxXHP/E2j6q47pMbkz/jQUvJz4lJJ85MBX3k6HmHoodd1js0JvGbF6W0baW0dSllovqbKf0uueF/wWv0opT+KV6dKa2EUEXgzcLuCE4jLo3ma56fzMzOaZsVfFTdrj9q79sk8gQtfMbd+2aJPH3buzfyO+X4kTVHw9KAWfXSyWz3Cw==" target="_blank" rel="noopener noreferrer">Open v2 in Sketch</a>
+<a class="text-link sketch-link" href="http://sketch.paperjs.org/#V/0.12.17/S/xVZRb9owEP4rFi9NShoCU6cp2x6mTpUmrVo1Jm0V8GCSK7EINrKdMlrx33d2YjAh3fqyLS/E5/P57rvvPvLU43QFvbQ3XoLOil7Uy0Ru1g9UkvmCvCccNuSW6iL+CpmmfFFC8DTlBB/FHiElDww2sXmNaus9K8srUQqZkrN5SbPl2ZTvwimfchOSrkTFNYYdjmoD4xzkFZNZCWgdJUltFpXuMistxRK+s1wXJkZjpZytqGaCj9cAOW4kcTJsbX1kCrPP4Icf7mT3zu02+1LS7SeTIdonM8/4xeTXNjbrKb+veGbCkkwC1XArGNcqqGuPSN5cdi3F6go4Borq89/ENeYfNvA2cApJAguUqest/rxrQMT3ft85N97m2aNaX+u3sAbU9c89kuasUikZRcd2v5NbKEuxOWt5rIVips6GBZkthvTJpKvEZNY6LdY0Y3qbkuRgN0xp1ePVEkuhEc/g1etk0DDpnLDIvz08HPQwjdeVKgI/kks99MHemeYhXV3/M0fAZxB0yF12cH9TMA0OsGeBGiaJQcaNCOZR3xkLfi1xMvFuR6YAHvCYa3jj1gByMWyDsOvg4WfGIXABXkisY16tqR28PRw2YotO99jz1BudCWs3XovUm6LT/XrKDyJSQZt4ng6k/qI7EF1jGIml5e048xJ4foOKhw4KQQLe9hgMsAFluR1DifoHeUq0rMAnrI9R15vBzc0DYmcgjBegLQ8/6MCuMY2FLgaXHnutnXEFUgfDg2iEXVdYXw+1uKjMVTgmZEAOg2IZ5h/5E8n2DSuYOol/gQJ87NZ1CBYrDKgmyQxHDiuOf+JtHlVx3Sc3Nn/Gg5aSnxObTpzZCvrI0fMORQ+7rHdoTOI3L0pp20pp61LKhPqbKf0uudF/wWv0opT+KV6dKa2E0EXgzcLuCE4rLrXmG56fzMzOaVsj+Ki6XX/U3rdJ5Ala+Iy7980Sefq2d6/ld8rxI2uOhqUFU/XSyWz3Cw==" target="_blank" rel="noopener noreferrer">Open v3 in Sketch</a></div>
             
             
         <section class="content-section">
             <h2>Code</h2>
-            <pre><code>var bg = new Path.Rectangle({
-    size: view.size,
-    fillColor: &#x27;black&#x27;
-})
-
-var amount = 12
-var innerCircle = 200
-var outerCircle = 200
-var strokeWidth = 10
-var animationSpeed = 0.01
-var animationDistanceX = 200
-var animationDistanceY = 200
-
-var arrayInner = []
-var arrayOuter = []
-var array = []
-
-function createPoints(amount, distanceFromCenter, arrayToFeed){
-    
-    for (var i = 0; i &lt; amount; i++){
-     
-        var innerPoints = new Path.Circle({
-            radius: 2,
-            fillColor: &#x27;yellow&#x27;,
-            position: view.center + [distanceFromCenter, 0],
-            opacity: 0
-        })
-     
-        innerPoints.rotate(360/amount * i, view.center)
-        arrayToFeed.push(innerPoints.position)
-    
-    }
-
-
-}
-
- 
-function createLine(){
-    for (var i = 0; i &lt; amount; i++){
-    
-        var path = new Path.Line({
-            from: arrayInner[i],
-            to: arrayOuter[i],
-            strokeColor: &#x27;blue&#x27;,
-            strokeWidth: strokeWidth,
-            strokeCap: &#x27;round&#x27;,
-            blendMode: &#x27;screen&#x27;
-        })  
-        path.rotate(360 / amount * i); // Orient stars
-        
-        var distance = path.getPointAt(path.length/10)
-        path.insert(1, distance)
-        
-        path.strokeColor.hue = 360 / amount * i
-
-        path.onFrame = function(event){
-            this.strokeColor.hue -= 1
-            
-            this.segments[0].point.x = view.center.x + Math.sin(animationSpeed * event.count + i * animationDistanceX) * animationDistanceY * 1.5
-            this.segments[0].point.y = view.center.y + Math.cos(animationSpeed * event.count + i * animationDistanceX) * animationDistanceY * 1.5
-        
-            this.segments[1].point.x = view.center.x + Math.sin(animationSpeed * event.count + i * animationDistanceX) * animationDistanceY 
-            this.segments[1].point.y = view.center.y + Math.cos(animationSpeed * event.count + i * animationDistanceX) * animationDistanceY
-            this.smooth()
-        }   
-        array.push(path)
-        
-    }
-    
-}
-
-
-
-createPoints(amount, innerCircle, arrayInner)
-createPoints(amount, outerCircle, arrayOuter)
-createLine()</code></pre>
+            <div class="code-block">
+                <div class="code-toolbar code-toolbar-top"><button class="copy-code-button" type="button">Copy code</button></div>
+            <div class="highlight"><pre tabindex="0" style="color:#abb2bf;background-color:#282c34;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"><code class="language-js" data-lang="js"><span style="display:flex;"><span><span style="color:#c678dd">var</span> bg <span style="color:#56b6c2">=</span> <span style="color:#c678dd">new</span> <span style="color:#e5c07b">Path</span>.<span style="color:#e5c07b">Rectangle</span>({
+</span></span><span style="display:flex;"><span>    size<span style="color:#56b6c2">:</span> <span style="color:#e5c07b">view</span>.size,
+</span></span><span style="display:flex;"><span>    fillColor<span style="color:#56b6c2">:</span> <span style="color:#98c379">&#x27;black&#x27;</span>
+</span></span><span style="display:flex;"><span>})
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#c678dd">var</span> amount <span style="color:#56b6c2">=</span> <span style="color:#d19a66">12</span>
+</span></span><span style="display:flex;"><span><span style="color:#c678dd">var</span> innerCircle <span style="color:#56b6c2">=</span> <span style="color:#d19a66">200</span>
+</span></span><span style="display:flex;"><span><span style="color:#c678dd">var</span> outerCircle <span style="color:#56b6c2">=</span> <span style="color:#d19a66">200</span>
+</span></span><span style="display:flex;"><span><span style="color:#c678dd">var</span> strokeWidth <span style="color:#56b6c2">=</span> <span style="color:#d19a66">10</span>
+</span></span><span style="display:flex;"><span><span style="color:#c678dd">var</span> animationSpeed <span style="color:#56b6c2">=</span> <span style="color:#d19a66">0.01</span>
+</span></span><span style="display:flex;"><span><span style="color:#c678dd">var</span> animationDistanceX <span style="color:#56b6c2">=</span> <span style="color:#d19a66">200</span>
+</span></span><span style="display:flex;"><span><span style="color:#c678dd">var</span> animationDistanceY <span style="color:#56b6c2">=</span> <span style="color:#d19a66">200</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#c678dd">var</span> arrayInner <span style="color:#56b6c2">=</span> []
+</span></span><span style="display:flex;"><span><span style="color:#c678dd">var</span> arrayOuter <span style="color:#56b6c2">=</span> []
+</span></span><span style="display:flex;"><span><span style="color:#c678dd">var</span> array <span style="color:#56b6c2">=</span> []
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#c678dd">function</span> <span style="color:#e5c07b">createPoints</span>(amount, distanceFromCenter, arrayToFeed){
+</span></span><span style="display:flex;"><span>    
+</span></span><span style="display:flex;"><span>    <span style="color:#c678dd">for</span> (<span style="color:#c678dd">var</span> i <span style="color:#56b6c2">=</span> <span style="color:#d19a66">0</span>; i <span style="color:#56b6c2">&lt;</span> amount; i<span style="color:#56b6c2">++</span>){
+</span></span><span style="display:flex;"><span>     
+</span></span><span style="display:flex;"><span>        <span style="color:#c678dd">var</span> innerPoints <span style="color:#56b6c2">=</span> <span style="color:#c678dd">new</span> <span style="color:#e5c07b">Path</span>.<span style="color:#e5c07b">Circle</span>({
+</span></span><span style="display:flex;"><span>            radius<span style="color:#56b6c2">:</span> <span style="color:#d19a66">2</span>,
+</span></span><span style="display:flex;"><span>            fillColor<span style="color:#56b6c2">:</span> <span style="color:#98c379">&#x27;yellow&#x27;</span>,
+</span></span><span style="display:flex;"><span>            position<span style="color:#56b6c2">:</span> <span style="color:#e5c07b">view</span>.center <span style="color:#56b6c2">+</span> [distanceFromCenter, <span style="color:#d19a66">0</span>],
+</span></span><span style="display:flex;"><span>            opacity<span style="color:#56b6c2">:</span> <span style="color:#d19a66">0</span>
+</span></span><span style="display:flex;"><span>        })
+</span></span><span style="display:flex;"><span>     
+</span></span><span style="display:flex;"><span>        innerPoints.<span style="color:#e5c07b">rotate</span>(<span style="color:#d19a66">360</span><span style="color:#56b6c2">/</span>amount <span style="color:#56b6c2">*</span> i, <span style="color:#e5c07b">view</span>.center)
+</span></span><span style="display:flex;"><span>        arrayToFeed.<span style="color:#e5c07b">push</span>(innerPoints.position)
+</span></span><span style="display:flex;"><span>    
+</span></span><span style="display:flex;"><span>    }
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>}
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span> 
+</span></span><span style="display:flex;"><span><span style="color:#c678dd">function</span> <span style="color:#e5c07b">createLine</span>(){
+</span></span><span style="display:flex;"><span>    <span style="color:#c678dd">for</span> (<span style="color:#c678dd">var</span> i <span style="color:#56b6c2">=</span> <span style="color:#d19a66">0</span>; i <span style="color:#56b6c2">&lt;</span> amount; i<span style="color:#56b6c2">++</span>){
+</span></span><span style="display:flex;"><span>    
+</span></span><span style="display:flex;"><span>        <span style="color:#c678dd">var</span> path <span style="color:#56b6c2">=</span> <span style="color:#c678dd">new</span> <span style="color:#e5c07b">Path</span>.<span style="color:#e5c07b">Line</span>({
+</span></span><span style="display:flex;"><span>            <span style="color:#c678dd">from</span><span style="color:#56b6c2">:</span> arrayInner[i],
+</span></span><span style="display:flex;"><span>            to<span style="color:#56b6c2">:</span> arrayOuter[i],
+</span></span><span style="display:flex;"><span>            strokeColor<span style="color:#56b6c2">:</span> <span style="color:#98c379">&#x27;blue&#x27;</span>,
+</span></span><span style="display:flex;"><span>            strokeWidth<span style="color:#56b6c2">:</span> strokeWidth,
+</span></span><span style="display:flex;"><span>            strokeCap<span style="color:#56b6c2">:</span> <span style="color:#98c379">&#x27;round&#x27;</span>,
+</span></span><span style="display:flex;"><span>            blendMode<span style="color:#56b6c2">:</span> <span style="color:#98c379">&#x27;screen&#x27;</span>
+</span></span><span style="display:flex;"><span>        })  
+</span></span><span style="display:flex;"><span>        path.<span style="color:#e5c07b">rotate</span>(<span style="color:#d19a66">360</span> <span style="color:#56b6c2">/</span> amount <span style="color:#56b6c2">*</span> i); <span style="color:#7f848e">// Orient stars</span>
+</span></span><span style="display:flex;"><span>        
+</span></span><span style="display:flex;"><span>        <span style="color:#c678dd">var</span> distance <span style="color:#56b6c2">=</span> path.<span style="color:#e5c07b">getPointAt</span>(path.length<span style="color:#56b6c2">/</span><span style="color:#d19a66">10</span>)
+</span></span><span style="display:flex;"><span>        path.<span style="color:#e5c07b">insert</span>(<span style="color:#d19a66">1</span>, distance)
+</span></span><span style="display:flex;"><span>        
+</span></span><span style="display:flex;"><span>        path.strokeColor.hue <span style="color:#56b6c2">=</span> <span style="color:#d19a66">360</span> <span style="color:#56b6c2">/</span> amount <span style="color:#56b6c2">*</span> i
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>        path.onFrame <span style="color:#56b6c2">=</span> <span style="color:#c678dd">function</span>(<span style="color:#e5c07b">event</span>){
+</span></span><span style="display:flex;"><span>            <span style="color:#c678dd">this</span>.strokeColor.hue <span style="color:#56b6c2">-=</span> <span style="color:#d19a66">1</span>
+</span></span><span style="display:flex;"><span>            
+</span></span><span style="display:flex;"><span>            <span style="color:#c678dd">this</span>.segments[<span style="color:#d19a66">0</span>].point.x <span style="color:#56b6c2">=</span> <span style="color:#e5c07b">view</span>.center.x <span style="color:#56b6c2">+</span> <span style="color:#e5c07b">Math</span>.<span style="color:#e5c07b">sin</span>(animationSpeed <span style="color:#56b6c2">*</span> <span style="color:#e5c07b">event</span>.count <span style="color:#56b6c2">+</span> i <span style="color:#56b6c2">*</span> animationDistanceX) <span style="color:#56b6c2">*</span> animationDistanceY <span style="color:#56b6c2">*</span> <span style="color:#d19a66">1.5</span>
+</span></span><span style="display:flex;"><span>            <span style="color:#c678dd">this</span>.segments[<span style="color:#d19a66">0</span>].point.y <span style="color:#56b6c2">=</span> <span style="color:#e5c07b">view</span>.center.y <span style="color:#56b6c2">+</span> <span style="color:#e5c07b">Math</span>.<span style="color:#e5c07b">cos</span>(animationSpeed <span style="color:#56b6c2">*</span> <span style="color:#e5c07b">event</span>.count <span style="color:#56b6c2">+</span> i <span style="color:#56b6c2">*</span> animationDistanceX) <span style="color:#56b6c2">*</span> animationDistanceY <span style="color:#56b6c2">*</span> <span style="color:#d19a66">1.5</span>
+</span></span><span style="display:flex;"><span>        
+</span></span><span style="display:flex;"><span>            <span style="color:#c678dd">this</span>.segments[<span style="color:#d19a66">1</span>].point.x <span style="color:#56b6c2">=</span> <span style="color:#e5c07b">view</span>.center.x <span style="color:#56b6c2">+</span> <span style="color:#e5c07b">Math</span>.<span style="color:#e5c07b">sin</span>(animationSpeed <span style="color:#56b6c2">*</span> <span style="color:#e5c07b">event</span>.count <span style="color:#56b6c2">+</span> i <span style="color:#56b6c2">*</span> animationDistanceX) <span style="color:#56b6c2">*</span> animationDistanceY 
+</span></span><span style="display:flex;"><span>            <span style="color:#c678dd">this</span>.segments[<span style="color:#d19a66">1</span>].point.y <span style="color:#56b6c2">=</span> <span style="color:#e5c07b">view</span>.center.y <span style="color:#56b6c2">+</span> <span style="color:#e5c07b">Math</span>.<span style="color:#e5c07b">cos</span>(animationSpeed <span style="color:#56b6c2">*</span> <span style="color:#e5c07b">event</span>.count <span style="color:#56b6c2">+</span> i <span style="color:#56b6c2">*</span> animationDistanceX) <span style="color:#56b6c2">*</span> animationDistanceY
+</span></span><span style="display:flex;"><span>            <span style="color:#c678dd">this</span>.<span style="color:#e5c07b">smooth</span>()
+</span></span><span style="display:flex;"><span>        }   
+</span></span><span style="display:flex;"><span>        array.<span style="color:#e5c07b">push</span>(path)
+</span></span><span style="display:flex;"><span>        
+</span></span><span style="display:flex;"><span>    }
+</span></span><span style="display:flex;"><span>    
+</span></span><span style="display:flex;"><span>}
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#e5c07b">createPoints</span>(amount, innerCircle, arrayInner)
+</span></span><span style="display:flex;"><span><span style="color:#e5c07b">createPoints</span>(amount, outerCircle, arrayOuter)
+</span></span><span style="display:flex;"><span><span style="color:#e5c07b">createLine</span>()
+</span></span></code></pre></div>
+                <div class="code-toolbar code-toolbar-bottom"><button class="copy-code-button" type="button">Copy code</button></div>
+            </div>
         </section>
         
         </div>
@@ -493,5 +566,54 @@ createLine()</code></pre>
             &copy; 2026 Alexander Deplov, designer and developer of iOS and macOS apps, product designer.
         </footer>
     </article>
+    <script>
+document.addEventListener("click", function (event) {
+    var button = event.target.closest(".copy-code-button");
+    if (!button) return;
+
+    var block = button.closest(".code-block");
+    var code = block ? block.querySelector("code") : null;
+    if (!code) return;
+
+    var text = code.textContent.replace(/\n$/, "");
+
+    function setButtonState(label, copied) {
+        block.querySelectorAll(".copy-code-button").forEach(function (item) {
+            item.textContent = label;
+            item.classList.toggle("copied", copied);
+        });
+    }
+
+    function markCopied() {
+        setButtonState("Copied", true);
+        window.setTimeout(function () {
+            setButtonState("Copy code", false);
+        }, 1400);
+    }
+
+    function fallbackCopy() {
+        var textarea = document.createElement("textarea");
+        textarea.value = text;
+        textarea.setAttribute("readonly", "");
+        textarea.style.position = "fixed";
+        textarea.style.opacity = "0";
+        document.body.appendChild(textarea);
+        textarea.select();
+        try {
+            document.execCommand("copy");
+            markCopied();
+        } finally {
+            document.body.removeChild(textarea);
+        }
+    }
+
+    if (navigator.clipboard && window.isSecureContext) {
+        navigator.clipboard.writeText(text).then(markCopied).catch(fallbackCopy);
+    } else {
+        fallbackCopy();
+    }
+});
+</script>
+    <script data-goatcounter="https://goatinterface.goatcounter.com/count" async src="//gc.zgo.at/count.js"></script>
 </body>
 </html>

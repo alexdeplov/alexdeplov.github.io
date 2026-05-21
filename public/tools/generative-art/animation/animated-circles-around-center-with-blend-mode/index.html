@@ -290,6 +290,10 @@
             text-decoration-thickness: 2px;
         }
 
+        .sketch-link {
+            flex: 0 0 100%;
+        }
+
         .button {
             display: inline;
             align-items: center;
@@ -338,16 +342,80 @@
             .content-section p { color: #b4b4b4; }
         }
 
-        pre {
-            overflow: auto;
-            margin: 0;
-            border: 1px solid #2a2a2a;
+        .code-block {
+            margin: 1em 0;
+            overflow: hidden;
             border-radius: 0.5rem;
-            padding: 18px;
-            background: #111;
-            color: #f5f5f5;
-            font-size: 14px;
+            background-color: #181818;
+        }
+
+        @media (prefers-color-scheme: dark) {
+            .code-block {
+                background-color: hsl(232, 20.3%, 6.4%);
+            }
+        }
+
+        .code-toolbar {
+            display: flex;
+            align-items: center;
+            justify-content: flex-start;
+            min-height: 26px;
+            background: inherit;
+        }
+
+        .code-toolbar-top {
+            padding: 10px 9px 0;
+        }
+
+        .code-toolbar-bottom {
+            padding: 0 1.5em 10px;
+        }
+
+        .copy-code-button {
+            appearance: none;
+            border: 1px solid rgba(171, 178, 191, 0.26);
+            border-radius: 0.3rem;
+            padding: 4px 8px;
+            background: transparent;
+            color: #abb2bf;
+            font: inherit;
+            font-size: 12px;
+            font-weight: 700;
+            line-height: 1.2;
+            cursor: pointer;
+        }
+
+        .copy-code-button:hover,
+        .copy-code-button.copied {
+            border-color: rgba(244, 108, 4, 0.55);
+            color: var(--accent);
+        }
+
+        .highlight pre {
+            overflow-x: auto;
+            margin: 0;
+            border: 0;
+            border-radius: 0;
+            padding: 1.5em;
+            box-sizing: border-box;
+            background: transparent !important;
+            color: #abb2bf;
+            font-family: "IBM Plex Mono", ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono", monospace;
+            font-size: 0.8rem;
+            font-weight: 400 !important;
             line-height: 1.5;
+            white-space: pre;
+            max-width: 100%;
+        }
+
+        @media (prefers-color-scheme: dark) {
+            .highlight pre {
+                background: transparent !important;
+            }
+        }
+
+        .highlight code {
+            display: block;
             white-space: pre;
         }
 
@@ -403,7 +471,7 @@
             <section class="preview-panel" aria-label="Preview">
                 <img class="preview-media" src="/tools/generative-art/assets/collection/Animation/Animated%20circles%20around%20center%20with%20blend%20mode/Screen_Recording_2024-01-01_at_11.19.33.2024-01-01_11_20_16.gif" alt="Animated circles around center with blend mode" loading="eager" decoding="async">
             </section>
-            <div class="actions"><a class="text-link" href="http://sketch.paperjs.org/#V/0.12.17/S/rVbNbuM2EH4Vwj1YrmVFtuNk120PibNeFGjQAnu0c6Al2uJGIgWKchwEefcOh5REbdzFtulJnOHMN7+c0ctA0IINloMvj0wn2SAcJDI19FZsxZEqomjK64r8RhaxZRT0BNS1JQ60vGX6iTEBvOnCMlNeaSoStlayWDGhmTKXH5w+VYo+A2Pz0JhIZC6VMbHZDn76ML+8Wa+3g5AA8enm42x16YjV+u7T9UdHrO8Wi9lVQ9zc3sbT7QAR97VINJeCJIpRzf7cfWWJDkYvW0EIuqxkXYIxwZ7IZ3MORuYK2REty/z5nmrFTZB7mlfMYFpNufs6dYp/UZ1FK66SnAWITFyilu4bWuae5/nKhLd0UW7ujeY+l1IFeFRUpLIIRuRnJxHlTBx0NnpwEAlmcEmOnD1FlnA3JVVALq3rjucFsLT+u4sdwKb3UNslGRZ1rjnIDc3VK4aPVYnKusoCE+bIRm2OkRRrBT1i8uFSG7AjGB65wHXGq6gNNMpqRsZQb8TuJW8GEIiY5FIwm3bD7pRB4F+n6a33s8772X/xfnLW+7n1fvaN9/P3e48oVUKhl+LougNuSwbAw7wuuJAV17ZqZ3T6SZhjEi4uyFBIVdB8GHp1h3MFz4MJc5JHpnJqmXKvJzk/ZNpQGVXphLQkej5JZXpgHbmrFYKkVD1aOJS3x5Tv9wx6NEEFdkryuoICIHaNvIrqWlHtmF6MjQFzoGmKsvVOK5qgLxR8ptaPkovOZcEOLVola5WwiQnPI3nvrtYeRbUs0W1WaS4Qp9X2eRaiJ2VxfFYDZtOh2hwpG1qJIZ4gwLZX5/9Dr+LzKk0KQTk6metuRLdvwhMY9wW6SfhDviipMVqQwj6vuJOKElkLDe0eR/HUtP38KvbcVAzKLqylrXhtd42U+vO58dxe/NOAhrEP7y8wIBz48S/w+dWsKjiMx93wl7gNzEPtLQeXGTh/k5u3q8wTxehZEEBsF2DKhMlDf04jrud7mq4ynqeB1R+5yG3sYEf5y+UL0IGHRcZkM5nFIYkfQnIVkstFSK5jwDCKUVWAlSx4Ifq5NBP+wGTBIEkJdNke3oxZQHG0wGGPCu8cWohxthZ48/3mQZEfbx38c3h1yDABRJWbtGMuIBxv7BmJUftXgdv5d9H+gZzd283Wni5wT757X5/Z1uA8ONV35zuz3Yunr4ORlUpi70FN+ZH9QZ8Bq2lZgOqZ7f0NuZL4deg603VyHE1ni6YtPc17WVfsDgaur239LGgZtDW2fR0S3gwJ91De/BzYQqcs1zQ6NT8haBV+QHfwNB9LyYWuBsvNw+vf" target="_blank" rel="noopener noreferrer">Open in Paper.js Sketch</a><a class="button secondary" href="/tools/generative-art/assets/collection/Animation/Animated%20circles%20around%20center%20with%20blend%20mode/animated_circles_around_center_blend_mode.html">animated circles around center blend mode.html</a></div>
+            <div class="actions"><a class="text-link sketch-link" href="http://sketch.paperjs.org/#V/0.12.17/S/rVbNbuM2EH4Vwj1YrmVFtuNk120PibNeFGjQAnu0c6Al2uJGIgWKchwEefcOh5REbdzFtulJnOHMN7+c0ctA0IINloMvj0wn2SAcJDI19FZsxZEqomjK64r8RhaxZRT0BNS1JQ60vGX6iTEBvOnCMlNeaSoStlayWDGhmTKXH5w+VYo+A2Pz0JhIZC6VMbHZDn76ML+8Wa+3g5AA8enm42x16YjV+u7T9UdHrO8Wi9lVQ9zc3sbT7QAR97VINJeCJIpRzf7cfWWJDkYvW0EIuqxkXYIxwZ7IZ3MORuYK2REty/z5nmrFTZB7mlfMYFpNufs6dYp/UZ1FK66SnAWITFyilu4bWuae5/nKhLd0UW7ujeY+l1IFeFRUpLIIRuRnJxHlTBx0NnpwEAlmcEmOnD1FlnA3JVVALq3rjucFsLT+u4sdwKb3UNslGRZ1rjnIDc3VK4aPVYnKusoCE+bIRm2OkRRrBT1i8uFSG7AjGB65wHXGq6gNNMpqRsZQb8TuJW8GEIiY5FIwm3bD7pRB4F+n6a33s8772X/xfnLW+7n1fvaN9/P3e48oVUKhl+LougNuSwbAw7wuuJAV17ZqZ3T6SZhjEi4uyFBIVdB8GHp1h3MFz4MJc5JHpnJqmXKvJzk/ZNpQGVXphLQkej5JZXpgHbmrFYKkVD1aOJS3x5Tv9wx6NEEFdkryuoICIHaNvIrqWlHtmF6MjQFzoGmKsvVOK5qgLxR8ptaPkovOZcEOLVola5WwiQnPI3nvrtYeRbUs0W1WaS4Qp9X2eRaiJ2VxfFYDZtOh2hwpG1qJIZ4gwLZX5/9Dr+LzKk0KQTk6metuRLdvwhMY9wW6SfhDviipMVqQwj6vuJOKElkLDe0eR/HUtP38KvbcVAzKLqylrXhtd42U+vO58dxe/NOAhrEP7y8wIBz48S/w+dWsKjiMx93wl7gNzEPtLQeXGTh/k5u3q8wTxehZEEBsF2DKhMlDf04jrud7mq4ynqeB1R+5yG3sYEf5y+UL0IGHRcZkM5nFIYkfQnIVkstFSK5jwDCKUVWAlSx4Ifq5NBP+wGTBIEkJdNke3oxZQHG0wGGPCu8cWohxthZ48/3mQZEfbx38c3h1yDABRJWbtGMuIBxv7BmJUftXgdv5d9H+gZzd283Wni5wT757X5/Z1uA8ONV35zuz3Yunr4ORlUpi70FN+ZH9QZ8Bq2lZgOqZ7f0NuZL4deg603VyHE1ni6YtPc17WVfsDgaur239LGgZtDW2fR0S3gwJ91De/BzYQqcs1zQ6NT8haBV+QHfwNB9LyYWuBsvNw+vf" target="_blank" rel="noopener noreferrer">Open v1 in Sketch</a><a class="button secondary" href="/tools/generative-art/assets/collection/Animation/Animated%20circles%20around%20center%20with%20blend%20mode/animated_circles_around_center_blend_mode.html">animated circles around center blend mode.html</a></div>
             
         <section class="content-section">
             <h2>Files</h2>
@@ -415,128 +483,133 @@
             
         <section class="content-section">
             <h2>Code</h2>
-            <pre><code>&lt;!DOCTYPE html&gt;
-&lt;html lang=&quot;en&quot;&gt;
-&lt;head&gt;
-&lt;meta charset=&quot;UTF-8&quot; /&gt;
-&lt;meta name=&quot;viewport&quot; content=&quot;width=device-width, initial-scale=1.0&quot; /&gt;
-&lt;meta http-equiv=&quot;X-UA-Compatible&quot; content=&quot;ie=edge&quot; /&gt;
-&lt;title&gt;Paper.js&lt;/title&gt;
-&lt;link rel=&quot;stylesheet&quot; href=&quot;./../PaperJSEngine/style.css&quot; /&gt;
-&lt;script type=&quot;text/javascript&quot; src=&quot;./../PaperJSEngine/paper-full.js&quot;&gt;&lt;/script&gt;
-&lt;script type=&quot;text/paperscript&quot; canvas=&quot;canvas&quot;&gt;
-
-
-
-var radius = 50
-var max = 7
-var gapBetween = 15
-var distanceFromCenter = 180
-var array = []
-
-var colors = [&quot;#834AFF&quot;, &quot;#EA92C4&quot;, &quot;#CFDE79&quot;, &quot;#FD5526&quot;, &quot;#FABB01&quot;]
-
-function createObject(){
-  var group = new Group()
-  group.applyMatrix = false
-
-  var obj1 = new Path.Circle({
-    radius: radius,
-    fillColor: colors[Math.floor(Math.random() * colors.length)],
-    center: view.center,
-    parent: group,
-    applyMatrix: false,
-    blendMode: &#x27;multiply&#x27;
-  })
-  array.push(obj1)
-
-  obj1.onFrame = function(event){
-    this.fillColor.hue += 1
-  }
-
-  var obj2 = obj1.clone()
-  obj2.fillColor = colors[Math.floor(Math.random() * colors.length)]
-  array.push(obj2)
-
-  obj2.onFrame = function(event){
-    this.fillColor.hue -= 1
-  }
-
-  var obj3 = obj2.clone()
-  obj3.fillColor = colors[Math.floor(Math.random() * colors.length)]
-  obj3.scale(0.7)
-  obj3.blendMode = &#x27;luminosity&#x27;
-  obj3.scale(0.7)
-  array.push(obj3)
-
-// &#x27;normal&#x27;, &#x27;multiply&#x27;, &#x27;screen&#x27;, &#x27;overlay&#x27;, &#x27;soft-light&#x27;, &#x27;hard- light&#x27;, &#x27;color-dodge&#x27;, &#x27;color-burn&#x27;, &#x27;darken&#x27;, &#x27;lighten&#x27;, &#x27;difference&#x27;, &#x27;exclusion&#x27;, &#x27;hue&#x27;, &#x27;saturation&#x27;, &#x27;luminosity&#x27;, &#x27;color&#x27;, &#x27;add&#x27;, &#x27;subtract&#x27;, &#x27;average&#x27;, &#x27;pin-light&#x27;, &#x27;negation&#x27;, &#x27;source-over&#x27;, &#x27;source-in&#x27;, &#x27;source-out&#x27;, &#x27;source-atop&#x27;, &#x27;destination-over&#x27;, &#x27;destination-in&#x27;, &#x27;destination-out&#x27;, &#x27;destination-atop&#x27;, &#x27;lighter&#x27;, &#x27;darker&#x27;, &#x27;copy&#x27;, &#x27;xor&#x27;
-
-  obj3.onFrame = function(event){
-    this.fillColor.hue -= 1
-  }
-
-  obj1.position.x -= gapBetween
-  obj2.position.x += gapBetween
-
-  group.onFrame = function(event){
-    this.rotation = Math.sin(event.count * 0.01) * 360
-  }
-
-  return group
-}
-
-var rootGroup = new Group()
-rootGroup.applyMatrix = false
-
-
-for (var i = 0; i &lt; max; i++){
-  var object = createObject()
-  object.position.x += distanceFromCenter
-  object.rotate((360/max) * i, view.center)
-  rootGroup.addChild(object)
-}
-
-
-var star = new Path.Star(view.center + [-20, 0], 6, 45, 70)
-star.smooth({ type: &#x27;geometric&#x27;, factor: 0.5 })
-star.fillColor = colors[Math.floor(Math.random() * colors.length)]
-star.applyMatrix = false
-star.onFrame = function(event){
-  star.rotation = Math.sin(event.count * 0.01) * 180
-}
-star.translate(20, 0)
-array.push(star)
-
-var circleInCenter = new Path.Circle({
-  radius: 15,
-  fillColor: colors[Math.floor(Math.random() * colors.length)],
-  center: view.center
-})
-circleInCenter.blendMode = &#x27;luminosity&#x27;
-array.push(circleInCenter)
-
-project.activeLayer.position = view.center
-
-
-function onFrame(event){
-  rootGroup.rotate(0.125)
-}
-
-function onMouseDrag(event){
-  array.map(function(object, i){
-    object.fillColor.hue += event.delta.x
-  })
-}
-
-
-
-
-&lt;/script&gt;
-&lt;/head&gt;
-&lt;body&gt;
-&lt;canvas hidpi=&#x27;true&#x27; id=&quot;canvas&quot; resize style=&quot;background: #F2F2F2;&quot;&gt;&lt;/canvas&gt;
-&lt;/body&gt;
-&lt;/html&gt;</code></pre>
+            <div class="code-block">
+                <div class="code-toolbar code-toolbar-top"><button class="copy-code-button" type="button">Copy code</button></div>
+            <div class="highlight"><pre tabindex="0" style="color:#abb2bf;background-color:#282c34;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"><code class="language-js" data-lang="js"><span style="display:flex;"><span><span style="color:#56b6c2">&lt;!</span>DOCTYPE html<span style="color:#56b6c2">&gt;</span>
+</span></span><span style="display:flex;"><span><span style="color:#56b6c2">&lt;</span>html lang<span style="color:#56b6c2">=</span><span style="color:#98c379">&quot;en&quot;</span><span style="color:#56b6c2">&gt;</span>
+</span></span><span style="display:flex;"><span><span style="color:#56b6c2">&lt;</span>head<span style="color:#56b6c2">&gt;</span>
+</span></span><span style="display:flex;"><span><span style="color:#56b6c2">&lt;</span>meta charset<span style="color:#56b6c2">=</span><span style="color:#98c379">&quot;UTF-8&quot;</span> <span style="color:#56b6c2">/&gt;</span>
+</span></span><span style="display:flex;"><span><span style="color:#56b6c2">&lt;</span>meta name<span style="color:#56b6c2">=</span><span style="color:#98c379">&quot;viewport&quot;</span> content<span style="color:#56b6c2">=</span><span style="color:#98c379">&quot;width=device-width, initial-scale=1.0&quot;</span> <span style="color:#56b6c2">/&gt;</span>
+</span></span><span style="display:flex;"><span><span style="color:#56b6c2">&lt;</span>meta http<span style="color:#56b6c2">-</span>equiv<span style="color:#56b6c2">=</span><span style="color:#98c379">&quot;X-UA-Compatible&quot;</span> content<span style="color:#56b6c2">=</span><span style="color:#98c379">&quot;ie=edge&quot;</span> <span style="color:#56b6c2">/&gt;</span>
+</span></span><span style="display:flex;"><span><span style="color:#56b6c2">&lt;</span>title<span style="color:#56b6c2">&gt;</span>Paper.js<span style="color:#56b6c2">&lt;/</span>title<span style="color:#56b6c2">&gt;</span>
+</span></span><span style="display:flex;"><span><span style="color:#56b6c2">&lt;</span>link rel<span style="color:#56b6c2">=</span><span style="color:#98c379">&quot;stylesheet&quot;</span> href<span style="color:#56b6c2">=</span><span style="color:#98c379">&quot;./../PaperJSEngine/style.css&quot;</span> <span style="color:#56b6c2">/&gt;</span>
+</span></span><span style="display:flex;"><span><span style="color:#56b6c2">&lt;</span>script type<span style="color:#56b6c2">=</span><span style="color:#98c379">&quot;text/javascript&quot;</span> src<span style="color:#56b6c2">=</span><span style="color:#98c379">&quot;./../PaperJSEngine/paper-full.js&quot;</span><span style="color:#56b6c2">&gt;&lt;/</span>script<span style="color:#56b6c2">&gt;</span>
+</span></span><span style="display:flex;"><span><span style="color:#56b6c2">&lt;</span>script type<span style="color:#56b6c2">=</span><span style="color:#98c379">&quot;text/paperscript&quot;</span> canvas<span style="color:#56b6c2">=</span><span style="color:#98c379">&quot;canvas&quot;</span><span style="color:#56b6c2">&gt;</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#c678dd">var</span> radius <span style="color:#56b6c2">=</span> <span style="color:#d19a66">50</span>
+</span></span><span style="display:flex;"><span><span style="color:#c678dd">var</span> max <span style="color:#56b6c2">=</span> <span style="color:#d19a66">7</span>
+</span></span><span style="display:flex;"><span><span style="color:#c678dd">var</span> gapBetween <span style="color:#56b6c2">=</span> <span style="color:#d19a66">15</span>
+</span></span><span style="display:flex;"><span><span style="color:#c678dd">var</span> distanceFromCenter <span style="color:#56b6c2">=</span> <span style="color:#d19a66">180</span>
+</span></span><span style="display:flex;"><span><span style="color:#c678dd">var</span> array <span style="color:#56b6c2">=</span> []
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#c678dd">var</span> colors <span style="color:#56b6c2">=</span> [<span style="color:#98c379">&quot;#834AFF&quot;</span>, <span style="color:#98c379">&quot;#EA92C4&quot;</span>, <span style="color:#98c379">&quot;#CFDE79&quot;</span>, <span style="color:#98c379">&quot;#FD5526&quot;</span>, <span style="color:#98c379">&quot;#FABB01&quot;</span>]
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#c678dd">function</span> <span style="color:#e5c07b">createObject</span>(){
+</span></span><span style="display:flex;"><span>  <span style="color:#c678dd">var</span> group <span style="color:#56b6c2">=</span> <span style="color:#c678dd">new</span> <span style="color:#e5c07b">Group</span>()
+</span></span><span style="display:flex;"><span>  group.applyMatrix <span style="color:#56b6c2">=</span> <span style="color:#d19a66">false</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>  <span style="color:#c678dd">var</span> obj1 <span style="color:#56b6c2">=</span> <span style="color:#c678dd">new</span> <span style="color:#e5c07b">Path</span>.<span style="color:#e5c07b">Circle</span>({
+</span></span><span style="display:flex;"><span>    radius<span style="color:#56b6c2">:</span> radius,
+</span></span><span style="display:flex;"><span>    fillColor<span style="color:#56b6c2">:</span> colors[<span style="color:#e5c07b">Math</span>.<span style="color:#e5c07b">floor</span>(<span style="color:#e5c07b">Math</span>.<span style="color:#e5c07b">random</span>() <span style="color:#56b6c2">*</span> colors.length)],
+</span></span><span style="display:flex;"><span>    center<span style="color:#56b6c2">:</span> <span style="color:#e5c07b">view</span>.center,
+</span></span><span style="display:flex;"><span>    parent<span style="color:#56b6c2">:</span> group,
+</span></span><span style="display:flex;"><span>    applyMatrix<span style="color:#56b6c2">:</span> <span style="color:#d19a66">false</span>,
+</span></span><span style="display:flex;"><span>    blendMode<span style="color:#56b6c2">:</span> <span style="color:#98c379">&#x27;multiply&#x27;</span>
+</span></span><span style="display:flex;"><span>  })
+</span></span><span style="display:flex;"><span>  array.<span style="color:#e5c07b">push</span>(obj1)
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>  obj1.onFrame <span style="color:#56b6c2">=</span> <span style="color:#c678dd">function</span>(<span style="color:#e5c07b">event</span>){
+</span></span><span style="display:flex;"><span>    <span style="color:#c678dd">this</span>.fillColor.hue <span style="color:#56b6c2">+=</span> <span style="color:#d19a66">1</span>
+</span></span><span style="display:flex;"><span>  }
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>  <span style="color:#c678dd">var</span> obj2 <span style="color:#56b6c2">=</span> obj1.<span style="color:#e5c07b">clone</span>()
+</span></span><span style="display:flex;"><span>  obj2.fillColor <span style="color:#56b6c2">=</span> colors[<span style="color:#e5c07b">Math</span>.<span style="color:#e5c07b">floor</span>(<span style="color:#e5c07b">Math</span>.<span style="color:#e5c07b">random</span>() <span style="color:#56b6c2">*</span> colors.length)]
+</span></span><span style="display:flex;"><span>  array.<span style="color:#e5c07b">push</span>(obj2)
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>  obj2.onFrame <span style="color:#56b6c2">=</span> <span style="color:#c678dd">function</span>(<span style="color:#e5c07b">event</span>){
+</span></span><span style="display:flex;"><span>    <span style="color:#c678dd">this</span>.fillColor.hue <span style="color:#56b6c2">-=</span> <span style="color:#d19a66">1</span>
+</span></span><span style="display:flex;"><span>  }
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>  <span style="color:#c678dd">var</span> obj3 <span style="color:#56b6c2">=</span> obj2.<span style="color:#e5c07b">clone</span>()
+</span></span><span style="display:flex;"><span>  obj3.fillColor <span style="color:#56b6c2">=</span> colors[<span style="color:#e5c07b">Math</span>.<span style="color:#e5c07b">floor</span>(<span style="color:#e5c07b">Math</span>.<span style="color:#e5c07b">random</span>() <span style="color:#56b6c2">*</span> colors.length)]
+</span></span><span style="display:flex;"><span>  obj3.<span style="color:#e5c07b">scale</span>(<span style="color:#d19a66">0.7</span>)
+</span></span><span style="display:flex;"><span>  obj3.blendMode <span style="color:#56b6c2">=</span> <span style="color:#98c379">&#x27;luminosity&#x27;</span>
+</span></span><span style="display:flex;"><span>  obj3.<span style="color:#e5c07b">scale</span>(<span style="color:#d19a66">0.7</span>)
+</span></span><span style="display:flex;"><span>  array.<span style="color:#e5c07b">push</span>(obj3)
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#7f848e">// &#x27;normal&#x27;, &#x27;multiply&#x27;, &#x27;screen&#x27;, &#x27;overlay&#x27;, &#x27;soft-light&#x27;, &#x27;hard- light&#x27;, &#x27;color-dodge&#x27;, &#x27;color-burn&#x27;, &#x27;darken&#x27;, &#x27;lighten&#x27;, &#x27;difference&#x27;, &#x27;exclusion&#x27;, &#x27;hue&#x27;, &#x27;saturation&#x27;, &#x27;luminosity&#x27;, &#x27;color&#x27;, &#x27;add&#x27;, &#x27;subtract&#x27;, &#x27;average&#x27;, &#x27;pin-light&#x27;, &#x27;negation&#x27;, &#x27;source-over&#x27;, &#x27;source-in&#x27;, &#x27;source-out&#x27;, &#x27;source-atop&#x27;, &#x27;destination-over&#x27;, &#x27;destination-in&#x27;, &#x27;destination-out&#x27;, &#x27;destination-atop&#x27;, &#x27;lighter&#x27;, &#x27;darker&#x27;, &#x27;copy&#x27;, &#x27;xor&#x27;</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>  obj3.onFrame <span style="color:#56b6c2">=</span> <span style="color:#c678dd">function</span>(<span style="color:#e5c07b">event</span>){
+</span></span><span style="display:flex;"><span>    <span style="color:#c678dd">this</span>.fillColor.hue <span style="color:#56b6c2">-=</span> <span style="color:#d19a66">1</span>
+</span></span><span style="display:flex;"><span>  }
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>  obj1.position.x <span style="color:#56b6c2">-=</span> gapBetween
+</span></span><span style="display:flex;"><span>  obj2.position.x <span style="color:#56b6c2">+=</span> gapBetween
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>  group.onFrame <span style="color:#56b6c2">=</span> <span style="color:#c678dd">function</span>(<span style="color:#e5c07b">event</span>){
+</span></span><span style="display:flex;"><span>    <span style="color:#c678dd">this</span>.rotation <span style="color:#56b6c2">=</span> <span style="color:#e5c07b">Math</span>.<span style="color:#e5c07b">sin</span>(<span style="color:#e5c07b">event</span>.count <span style="color:#56b6c2">*</span> <span style="color:#d19a66">0.01</span>) <span style="color:#56b6c2">*</span> <span style="color:#d19a66">360</span>
+</span></span><span style="display:flex;"><span>  }
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>  <span style="color:#c678dd">return</span> group
+</span></span><span style="display:flex;"><span>}
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#c678dd">var</span> rootGroup <span style="color:#56b6c2">=</span> <span style="color:#c678dd">new</span> <span style="color:#e5c07b">Group</span>()
+</span></span><span style="display:flex;"><span>rootGroup.applyMatrix <span style="color:#56b6c2">=</span> <span style="color:#d19a66">false</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#c678dd">for</span> (<span style="color:#c678dd">var</span> i <span style="color:#56b6c2">=</span> <span style="color:#d19a66">0</span>; i <span style="color:#56b6c2">&lt;</span> max; i<span style="color:#56b6c2">++</span>){
+</span></span><span style="display:flex;"><span>  <span style="color:#c678dd">var</span> object <span style="color:#56b6c2">=</span> <span style="color:#e5c07b">createObject</span>()
+</span></span><span style="display:flex;"><span>  object.position.x <span style="color:#56b6c2">+=</span> distanceFromCenter
+</span></span><span style="display:flex;"><span>  object.<span style="color:#e5c07b">rotate</span>((<span style="color:#d19a66">360</span><span style="color:#56b6c2">/</span>max) <span style="color:#56b6c2">*</span> i, <span style="color:#e5c07b">view</span>.center)
+</span></span><span style="display:flex;"><span>  rootGroup.<span style="color:#e5c07b">addChild</span>(object)
+</span></span><span style="display:flex;"><span>}
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#c678dd">var</span> star <span style="color:#56b6c2">=</span> <span style="color:#c678dd">new</span> <span style="color:#e5c07b">Path</span>.<span style="color:#e5c07b">Star</span>(<span style="color:#e5c07b">view</span>.center <span style="color:#56b6c2">+</span> [<span style="color:#56b6c2">-</span><span style="color:#d19a66">20</span>, <span style="color:#d19a66">0</span>], <span style="color:#d19a66">6</span>, <span style="color:#d19a66">45</span>, <span style="color:#d19a66">70</span>)
+</span></span><span style="display:flex;"><span>star.<span style="color:#e5c07b">smooth</span>({ type<span style="color:#56b6c2">:</span> <span style="color:#98c379">&#x27;geometric&#x27;</span>, factor<span style="color:#56b6c2">:</span> <span style="color:#d19a66">0.5</span> })
+</span></span><span style="display:flex;"><span>star.fillColor <span style="color:#56b6c2">=</span> colors[<span style="color:#e5c07b">Math</span>.<span style="color:#e5c07b">floor</span>(<span style="color:#e5c07b">Math</span>.<span style="color:#e5c07b">random</span>() <span style="color:#56b6c2">*</span> colors.length)]
+</span></span><span style="display:flex;"><span>star.applyMatrix <span style="color:#56b6c2">=</span> <span style="color:#d19a66">false</span>
+</span></span><span style="display:flex;"><span>star.onFrame <span style="color:#56b6c2">=</span> <span style="color:#c678dd">function</span>(<span style="color:#e5c07b">event</span>){
+</span></span><span style="display:flex;"><span>  star.rotation <span style="color:#56b6c2">=</span> <span style="color:#e5c07b">Math</span>.<span style="color:#e5c07b">sin</span>(<span style="color:#e5c07b">event</span>.count <span style="color:#56b6c2">*</span> <span style="color:#d19a66">0.01</span>) <span style="color:#56b6c2">*</span> <span style="color:#d19a66">180</span>
+</span></span><span style="display:flex;"><span>}
+</span></span><span style="display:flex;"><span>star.<span style="color:#e5c07b">translate</span>(<span style="color:#d19a66">20</span>, <span style="color:#d19a66">0</span>)
+</span></span><span style="display:flex;"><span>array.<span style="color:#e5c07b">push</span>(star)
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#c678dd">var</span> circleInCenter <span style="color:#56b6c2">=</span> <span style="color:#c678dd">new</span> <span style="color:#e5c07b">Path</span>.<span style="color:#e5c07b">Circle</span>({
+</span></span><span style="display:flex;"><span>  radius<span style="color:#56b6c2">:</span> <span style="color:#d19a66">15</span>,
+</span></span><span style="display:flex;"><span>  fillColor<span style="color:#56b6c2">:</span> colors[<span style="color:#e5c07b">Math</span>.<span style="color:#e5c07b">floor</span>(<span style="color:#e5c07b">Math</span>.<span style="color:#e5c07b">random</span>() <span style="color:#56b6c2">*</span> colors.length)],
+</span></span><span style="display:flex;"><span>  center<span style="color:#56b6c2">:</span> <span style="color:#e5c07b">view</span>.center
+</span></span><span style="display:flex;"><span>})
+</span></span><span style="display:flex;"><span>circleInCenter.blendMode <span style="color:#56b6c2">=</span> <span style="color:#98c379">&#x27;luminosity&#x27;</span>
+</span></span><span style="display:flex;"><span>array.<span style="color:#e5c07b">push</span>(circleInCenter)
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#e5c07b">project</span>.activeLayer.position <span style="color:#56b6c2">=</span> <span style="color:#e5c07b">view</span>.center
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#c678dd">function</span> <span style="color:#e5c07b">onFrame</span>(<span style="color:#e5c07b">event</span>){
+</span></span><span style="display:flex;"><span>  rootGroup.<span style="color:#e5c07b">rotate</span>(<span style="color:#d19a66">0.125</span>)
+</span></span><span style="display:flex;"><span>}
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#c678dd">function</span> <span style="color:#e5c07b">onMouseDrag</span>(<span style="color:#e5c07b">event</span>){
+</span></span><span style="display:flex;"><span>  array.<span style="color:#e5c07b">map</span>(<span style="color:#c678dd">function</span>(object, i){
+</span></span><span style="display:flex;"><span>    object.fillColor.hue <span style="color:#56b6c2">+=</span> <span style="color:#e5c07b">event</span>.delta.x
+</span></span><span style="display:flex;"><span>  })
+</span></span><span style="display:flex;"><span>}
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#56b6c2">&lt;/</span>script<span style="color:#56b6c2">&gt;</span>
+</span></span><span style="display:flex;"><span><span style="color:#56b6c2">&lt;/</span>head<span style="color:#56b6c2">&gt;</span>
+</span></span><span style="display:flex;"><span><span style="color:#56b6c2">&lt;</span>body<span style="color:#56b6c2">&gt;</span>
+</span></span><span style="display:flex;"><span><span style="color:#56b6c2">&lt;</span>canvas hidpi<span style="color:#56b6c2">=</span><span style="color:#98c379">&#x27;true&#x27;</span> id<span style="color:#56b6c2">=</span><span style="color:#98c379">&quot;canvas&quot;</span> resize style<span style="color:#56b6c2">=</span><span style="color:#98c379">&quot;background: #F2F2F2;&quot;</span><span style="color:#56b6c2">&gt;&lt;/</span>canvas<span style="color:#56b6c2">&gt;</span>
+</span></span><span style="display:flex;"><span><span style="color:#56b6c2">&lt;/</span>body<span style="color:#56b6c2">&gt;</span>
+</span></span><span style="display:flex;"><span><span style="color:#56b6c2">&lt;/</span>html<span style="color:#56b6c2">&gt;</span>
+</span></span></code></pre></div>
+                <div class="code-toolbar code-toolbar-bottom"><button class="copy-code-button" type="button">Copy code</button></div>
+            </div>
         </section>
         
         </div>
@@ -544,5 +617,54 @@ function onMouseDrag(event){
             &copy; 2026 Alexander Deplov, designer and developer of iOS and macOS apps, product designer.
         </footer>
     </article>
+    <script>
+document.addEventListener("click", function (event) {
+    var button = event.target.closest(".copy-code-button");
+    if (!button) return;
+
+    var block = button.closest(".code-block");
+    var code = block ? block.querySelector("code") : null;
+    if (!code) return;
+
+    var text = code.textContent.replace(/\n$/, "");
+
+    function setButtonState(label, copied) {
+        block.querySelectorAll(".copy-code-button").forEach(function (item) {
+            item.textContent = label;
+            item.classList.toggle("copied", copied);
+        });
+    }
+
+    function markCopied() {
+        setButtonState("Copied", true);
+        window.setTimeout(function () {
+            setButtonState("Copy code", false);
+        }, 1400);
+    }
+
+    function fallbackCopy() {
+        var textarea = document.createElement("textarea");
+        textarea.value = text;
+        textarea.setAttribute("readonly", "");
+        textarea.style.position = "fixed";
+        textarea.style.opacity = "0";
+        document.body.appendChild(textarea);
+        textarea.select();
+        try {
+            document.execCommand("copy");
+            markCopied();
+        } finally {
+            document.body.removeChild(textarea);
+        }
+    }
+
+    if (navigator.clipboard && window.isSecureContext) {
+        navigator.clipboard.writeText(text).then(markCopied).catch(fallbackCopy);
+    } else {
+        fallbackCopy();
+    }
+});
+</script>
+    <script data-goatcounter="https://goatinterface.goatcounter.com/count" async src="//gc.zgo.at/count.js"></script>
 </body>
 </html>

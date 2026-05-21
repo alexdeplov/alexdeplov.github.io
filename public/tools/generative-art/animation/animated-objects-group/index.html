@@ -290,6 +290,10 @@
             text-decoration-thickness: 2px;
         }
 
+        .sketch-link {
+            flex: 0 0 100%;
+        }
+
         .button {
             display: inline;
             align-items: center;
@@ -338,16 +342,80 @@
             .content-section p { color: #b4b4b4; }
         }
 
-        pre {
-            overflow: auto;
-            margin: 0;
-            border: 1px solid #2a2a2a;
+        .code-block {
+            margin: 1em 0;
+            overflow: hidden;
             border-radius: 0.5rem;
-            padding: 18px;
-            background: #111;
-            color: #f5f5f5;
-            font-size: 14px;
+            background-color: #181818;
+        }
+
+        @media (prefers-color-scheme: dark) {
+            .code-block {
+                background-color: hsl(232, 20.3%, 6.4%);
+            }
+        }
+
+        .code-toolbar {
+            display: flex;
+            align-items: center;
+            justify-content: flex-start;
+            min-height: 26px;
+            background: inherit;
+        }
+
+        .code-toolbar-top {
+            padding: 10px 9px 0;
+        }
+
+        .code-toolbar-bottom {
+            padding: 0 1.5em 10px;
+        }
+
+        .copy-code-button {
+            appearance: none;
+            border: 1px solid rgba(171, 178, 191, 0.26);
+            border-radius: 0.3rem;
+            padding: 4px 8px;
+            background: transparent;
+            color: #abb2bf;
+            font: inherit;
+            font-size: 12px;
+            font-weight: 700;
+            line-height: 1.2;
+            cursor: pointer;
+        }
+
+        .copy-code-button:hover,
+        .copy-code-button.copied {
+            border-color: rgba(244, 108, 4, 0.55);
+            color: var(--accent);
+        }
+
+        .highlight pre {
+            overflow-x: auto;
+            margin: 0;
+            border: 0;
+            border-radius: 0;
+            padding: 1.5em;
+            box-sizing: border-box;
+            background: transparent !important;
+            color: #abb2bf;
+            font-family: "IBM Plex Mono", ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono", monospace;
+            font-size: 0.8rem;
+            font-weight: 400 !important;
             line-height: 1.5;
+            white-space: pre;
+            max-width: 100%;
+        }
+
+        @media (prefers-color-scheme: dark) {
+            .highlight pre {
+                background: transparent !important;
+            }
+        }
+
+        .highlight code {
+            display: block;
             white-space: pre;
         }
 
@@ -403,91 +471,96 @@
             <section class="preview-panel" aria-label="Preview">
                 <img class="preview-media" src="/tools/generative-art/assets/collection/Animation/Animated%20objects%20group/Screen_Recording_2022-06-04_at_17.55.39.2022-06-04_17_55_57.gif" alt="Animated objects group" loading="eager" decoding="async">
             </section>
-            <div class="actions"><a class="text-link" href="http://sketch.paperjs.org/#V/0.12.17/S/pVZNc9owEP0rGi6YxDFOwP2gzaHNtL0kM5kmMz0AB0desIqRPLJMymT4711ZNsjGTmnrg0G7+1a7+1ZrvfR4uIbepPewAkXjntujItLrTSjJk5ARyOybFHlKrsl0PuNanIZRxPgSJW99I8mUFCv4wSIVo3RUCfF1TTg8k/tQxd4Drp0Ng2ePAlcgyTmZXpS+XOLPXfLGJVeBS8b+YMY12svWQqjYeSFqm8KE9Jcg1qAko32XLEKqhJwQ3wvIrgIsWJLciETojftPSQ79UhGmabK9CxH7C1WLMMmg1EihQgXO+/2mgt+JPIMvRYxom3OqmOAObDDswcuME3xUzDJPPQPwR+GUMv3sA8BoJUR9o9lhYr7eQC+KEkACa3TnZWqbgJeBupciBam2Tp/mMhMSM+yngukg+gjc1YO7hXAD/xVcWZx/j47nSWICq8i+YZImYFNuJE4ReSoypkN1SVCV2qg90z1ttNUMqvayVjWrToorL8CjR/E5pCsH97d720vzLHYOpqg2xTC50a68Gs1c9bI/Jy4Z6STpK5GVuraOPWzaWdIS3SiqDeooa4tJa2Frdq0JHFfQxhQ1NKmgAY8g+g5UnT4Pyj9nVzgXxrpB8WeMTi1nR+OBCq4Yz/GA1OaDf1UMCBtZHvpx0JC3JmobdNFl2WD+rZTZbhq8NdEd3HWYtfJ3ZHsih02czeMJBHbxNwrKIyG7qihtRl8nNNhVjlqTqmLtJKKNgT+V/qSa/3Wxa1U2E6ca6UTwrxK/zfXRXsxaGibwibM1unYCrPqdTi5j3LnERWHuUaRRkTPd/cFgMAyIgZuvKuLN93vvydKWR+NycJBV02KP8713wdACD4d7+J5aL2HLWHHIMh3m6KQwR7ar1hnlHONO8dzp14Qa50DOrw9uWlxU9Og3bdajUUfzrk2qLtOWoXTp1XeTlu7ioJSv+z30aydrZgtTmAV2u6Obi2nDD/jzsXb982jMkkgC9xLgSxWjxfm5bkoDr1rTQNBFK3bK5jbA3n9X3CRmPJXiZ3Gw8Qxs4DbcwuHmgG6taYNX1ScJ4aq4JGW9yXS++w0=" target="_blank" rel="noopener noreferrer">Open in Paper.js Sketch</a></div>
+            <div class="actions"><a class="text-link sketch-link" href="http://sketch.paperjs.org/#V/0.12.17/S/pVZNc9owEP0rGi6YxDFOwP2gzaHNtL0kM5kmMz0AB0desIqRPLJMymT4711ZNsjGTmnrg0G7+1a7+1ZrvfR4uIbepPewAkXjntujItLrTSjJk5ARyOybFHlKrsl0PuNanIZRxPgSJW99I8mUFCv4wSIVo3RUCfF1TTg8k/tQxd4Drp0Ng2ePAlcgyTmZXpS+XOLPXfLGJVeBS8b+YMY12svWQqjYeSFqm8KE9Jcg1qAko32XLEKqhJwQ3wvIrgIsWJLciETojftPSQ79UhGmabK9CxH7C1WLMMmg1EihQgXO+/2mgt+JPIMvRYxom3OqmOAObDDswcuME3xUzDJPPQPwR+GUMv3sA8BoJUR9o9lhYr7eQC+KEkACa3TnZWqbgJeBupciBam2Tp/mMhMSM+yngukg+gjc1YO7hXAD/xVcWZx/j47nSWICq8i+YZImYFNuJE4ReSoypkN1SVCV2qg90z1ttNUMqvayVjWrToorL8CjR/E5pCsH97d720vzLHYOpqg2xTC50a68Gs1c9bI/Jy4Z6STpK5GVuraOPWzaWdIS3SiqDeooa4tJa2Frdq0JHFfQxhQ1NKmgAY8g+g5UnT4Pyj9nVzgXxrpB8WeMTi1nR+OBCq4Yz/GA1OaDf1UMCBtZHvpx0JC3JmobdNFl2WD+rZTZbhq8NdEd3HWYtfJ3ZHsih02czeMJBHbxNwrKIyG7qihtRl8nNNhVjlqTqmLtJKKNgT+V/qSa/3Wxa1U2E6ca6UTwrxK/zfXRXsxaGibwibM1unYCrPqdTi5j3LnERWHuUaRRkTPd/cFgMAyIgZuvKuLN93vvydKWR+NycJBV02KP8713wdACD4d7+J5aL2HLWHHIMh3m6KQwR7ar1hnlHONO8dzp14Qa50DOrw9uWlxU9Og3bdajUUfzrk2qLtOWoXTp1XeTlu7ioJSv+z30aydrZgtTmAV2u6Obi2nDD/jzsXb982jMkkgC9xLgSxWjxfm5bkoDr1rTQNBFK3bK5jbA3n9X3CRmPJXiZ3Gw8Qxs4DbcwuHmgG6taYNX1ScJ4aq4JGW9yXS++w0=" target="_blank" rel="noopener noreferrer">Open v1 in Sketch</a></div>
             
             
         <section class="content-section">
             <h2>Code</h2>
-            <pre><code>var bordersGroup = []
-var padding = 70
-var strokeWidth = 3
-var star = new Path.Star(view.center + [-padding, 0], 6, 25, 40)
-star.smooth({ type: &#x27;geometric&#x27;, factor: 0.5 })
-star.fillColor = &#x27;blue&#x27;
-star.applyMatrix = false
-star.rotate(90)
-star.onMouseEnter = function(event){
-    this.tweenTo({
-        fillColor: &#x27;red&#x27;
-    }, 200)
-    view.element.style.setProperty(&#x27;cursor&#x27;, &#x27;pointer&#x27;)
-}
-star.onMouseLeave = function(event){
-    this.tweenTo({
-        fillColor: &#x27;blue&#x27;
-    }, 200)
-    view.element.style.setProperty(&#x27;cursor&#x27;, null)
-}
-var starCircle = new Path.Circle(star.position, 50)
-starCircle.strokeColor = &#x27;blue&#x27;
-starCircle.strokeWidth = strokeWidth
-starCircle.applyMatrix = false
-starCircle.sendToBack()
-bordersGroup.push(starCircle)
-
-    
-var circle = new Path.Circle(view.center + [padding,0] , 30)
-circle.applyMatrix = false
-circle.fillColor = &#x27;blue&#x27;
-var circleCircle = new Path.Circle(circle.position, 50)
-circleCircle.strokeColor = &#x27;blue&#x27;
-circleCircle.strokeWidth = strokeWidth
-circleCircle.applyMatrix = false
-bordersGroup.push(circleCircle)
-
-
-var roundedRect = new Path.Star(view.center + [-padding, padding*2], 4, 20, 44)
-roundedRect.smooth({ type: &#x27;continuous&#x27;, factor: 0.02 })
-roundedRect.rotate(45)
-roundedRect.applyMatrix = false
-roundedRect.fillColor = &#x27;blue&#x27;
-var roundedRectCirle = new Path.Circle(roundedRect.position, 50)
-roundedRectCirle.strokeColor = &#x27;blue&#x27;
-roundedRectCirle.strokeWidth = strokeWidth
-roundedRectCirle.applyMatrix = false
-bordersGroup.push(roundedRectCirle)
-
-
-var rect = new Path.Star(view.center + [padding, padding*2], 4, 35, 30)
-rect.fillColor = &#x27;blue&#x27;
-rect.smooth({type: &#x27;continuous&#x27;, factor: 0.5})
-rect.applyMatrix = false
-var rectCirle = new Path.Circle(rect.position, 50)
-rectCirle.strokeColor = &#x27;blue&#x27;
-rectCirle.strokeWidth = strokeWidth
-rectCirle.applyMatrix = false
-bordersGroup.push(rectCirle)
-
-    
-function onFrame(event){
-    var scaleAnim = (5 + Math.sin(1 + event.count * 0.05))/5 
-    star.scaling = scaleAnim
-    star.rotate(1)
-    starCircle.scaling = 0.85/scaleAnim
-
-    circle.scaling = scaleAnim
-    
-    roundedRect.scaling = scaleAnim
-    roundedRect.rotate(1.5)
-    
-    rect.rotate(-1.5)
-    rect.scaling = scaleAnim
-    rectCirle.scaling = 0.85/scaleAnim
-    
-
-}
-
-project.activeLayer.position = view.center</code></pre>
+            <div class="code-block">
+                <div class="code-toolbar code-toolbar-top"><button class="copy-code-button" type="button">Copy code</button></div>
+            <div class="highlight"><pre tabindex="0" style="color:#abb2bf;background-color:#282c34;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"><code class="language-js" data-lang="js"><span style="display:flex;"><span><span style="color:#c678dd">var</span> bordersGroup <span style="color:#56b6c2">=</span> []
+</span></span><span style="display:flex;"><span><span style="color:#c678dd">var</span> padding <span style="color:#56b6c2">=</span> <span style="color:#d19a66">70</span>
+</span></span><span style="display:flex;"><span><span style="color:#c678dd">var</span> strokeWidth <span style="color:#56b6c2">=</span> <span style="color:#d19a66">3</span>
+</span></span><span style="display:flex;"><span><span style="color:#c678dd">var</span> star <span style="color:#56b6c2">=</span> <span style="color:#c678dd">new</span> <span style="color:#e5c07b">Path</span>.<span style="color:#e5c07b">Star</span>(<span style="color:#e5c07b">view</span>.center <span style="color:#56b6c2">+</span> [<span style="color:#56b6c2">-</span>padding, <span style="color:#d19a66">0</span>], <span style="color:#d19a66">6</span>, <span style="color:#d19a66">25</span>, <span style="color:#d19a66">40</span>)
+</span></span><span style="display:flex;"><span>star.<span style="color:#e5c07b">smooth</span>({ type<span style="color:#56b6c2">:</span> <span style="color:#98c379">&#x27;geometric&#x27;</span>, factor<span style="color:#56b6c2">:</span> <span style="color:#d19a66">0.5</span> })
+</span></span><span style="display:flex;"><span>star.fillColor <span style="color:#56b6c2">=</span> <span style="color:#98c379">&#x27;blue&#x27;</span>
+</span></span><span style="display:flex;"><span>star.applyMatrix <span style="color:#56b6c2">=</span> <span style="color:#d19a66">false</span>
+</span></span><span style="display:flex;"><span>star.<span style="color:#e5c07b">rotate</span>(<span style="color:#d19a66">90</span>)
+</span></span><span style="display:flex;"><span>star.onMouseEnter <span style="color:#56b6c2">=</span> <span style="color:#c678dd">function</span>(<span style="color:#e5c07b">event</span>){
+</span></span><span style="display:flex;"><span>    <span style="color:#c678dd">this</span>.<span style="color:#e5c07b">tweenTo</span>({
+</span></span><span style="display:flex;"><span>        fillColor<span style="color:#56b6c2">:</span> <span style="color:#98c379">&#x27;red&#x27;</span>
+</span></span><span style="display:flex;"><span>    }, <span style="color:#d19a66">200</span>)
+</span></span><span style="display:flex;"><span>    <span style="color:#e5c07b">view</span>.element.style.<span style="color:#e5c07b">setProperty</span>(<span style="color:#98c379">&#x27;cursor&#x27;</span>, <span style="color:#98c379">&#x27;pointer&#x27;</span>)
+</span></span><span style="display:flex;"><span>}
+</span></span><span style="display:flex;"><span>star.onMouseLeave <span style="color:#56b6c2">=</span> <span style="color:#c678dd">function</span>(<span style="color:#e5c07b">event</span>){
+</span></span><span style="display:flex;"><span>    <span style="color:#c678dd">this</span>.<span style="color:#e5c07b">tweenTo</span>({
+</span></span><span style="display:flex;"><span>        fillColor<span style="color:#56b6c2">:</span> <span style="color:#98c379">&#x27;blue&#x27;</span>
+</span></span><span style="display:flex;"><span>    }, <span style="color:#d19a66">200</span>)
+</span></span><span style="display:flex;"><span>    <span style="color:#e5c07b">view</span>.element.style.<span style="color:#e5c07b">setProperty</span>(<span style="color:#98c379">&#x27;cursor&#x27;</span>, <span style="color:#d19a66">null</span>)
+</span></span><span style="display:flex;"><span>}
+</span></span><span style="display:flex;"><span><span style="color:#c678dd">var</span> starCircle <span style="color:#56b6c2">=</span> <span style="color:#c678dd">new</span> <span style="color:#e5c07b">Path</span>.<span style="color:#e5c07b">Circle</span>(star.position, <span style="color:#d19a66">50</span>)
+</span></span><span style="display:flex;"><span>starCircle.strokeColor <span style="color:#56b6c2">=</span> <span style="color:#98c379">&#x27;blue&#x27;</span>
+</span></span><span style="display:flex;"><span>starCircle.strokeWidth <span style="color:#56b6c2">=</span> strokeWidth
+</span></span><span style="display:flex;"><span>starCircle.applyMatrix <span style="color:#56b6c2">=</span> <span style="color:#d19a66">false</span>
+</span></span><span style="display:flex;"><span>starCircle.<span style="color:#e5c07b">sendToBack</span>()
+</span></span><span style="display:flex;"><span>bordersGroup.<span style="color:#e5c07b">push</span>(starCircle)
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>    
+</span></span><span style="display:flex;"><span><span style="color:#c678dd">var</span> circle <span style="color:#56b6c2">=</span> <span style="color:#c678dd">new</span> <span style="color:#e5c07b">Path</span>.<span style="color:#e5c07b">Circle</span>(<span style="color:#e5c07b">view</span>.center <span style="color:#56b6c2">+</span> [padding,<span style="color:#d19a66">0</span>] , <span style="color:#d19a66">30</span>)
+</span></span><span style="display:flex;"><span>circle.applyMatrix <span style="color:#56b6c2">=</span> <span style="color:#d19a66">false</span>
+</span></span><span style="display:flex;"><span>circle.fillColor <span style="color:#56b6c2">=</span> <span style="color:#98c379">&#x27;blue&#x27;</span>
+</span></span><span style="display:flex;"><span><span style="color:#c678dd">var</span> circleCircle <span style="color:#56b6c2">=</span> <span style="color:#c678dd">new</span> <span style="color:#e5c07b">Path</span>.<span style="color:#e5c07b">Circle</span>(circle.position, <span style="color:#d19a66">50</span>)
+</span></span><span style="display:flex;"><span>circleCircle.strokeColor <span style="color:#56b6c2">=</span> <span style="color:#98c379">&#x27;blue&#x27;</span>
+</span></span><span style="display:flex;"><span>circleCircle.strokeWidth <span style="color:#56b6c2">=</span> strokeWidth
+</span></span><span style="display:flex;"><span>circleCircle.applyMatrix <span style="color:#56b6c2">=</span> <span style="color:#d19a66">false</span>
+</span></span><span style="display:flex;"><span>bordersGroup.<span style="color:#e5c07b">push</span>(circleCircle)
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#c678dd">var</span> roundedRect <span style="color:#56b6c2">=</span> <span style="color:#c678dd">new</span> <span style="color:#e5c07b">Path</span>.<span style="color:#e5c07b">Star</span>(<span style="color:#e5c07b">view</span>.center <span style="color:#56b6c2">+</span> [<span style="color:#56b6c2">-</span>padding, padding<span style="color:#56b6c2">*</span><span style="color:#d19a66">2</span>], <span style="color:#d19a66">4</span>, <span style="color:#d19a66">20</span>, <span style="color:#d19a66">44</span>)
+</span></span><span style="display:flex;"><span>roundedRect.<span style="color:#e5c07b">smooth</span>({ type<span style="color:#56b6c2">:</span> <span style="color:#98c379">&#x27;continuous&#x27;</span>, factor<span style="color:#56b6c2">:</span> <span style="color:#d19a66">0.02</span> })
+</span></span><span style="display:flex;"><span>roundedRect.<span style="color:#e5c07b">rotate</span>(<span style="color:#d19a66">45</span>)
+</span></span><span style="display:flex;"><span>roundedRect.applyMatrix <span style="color:#56b6c2">=</span> <span style="color:#d19a66">false</span>
+</span></span><span style="display:flex;"><span>roundedRect.fillColor <span style="color:#56b6c2">=</span> <span style="color:#98c379">&#x27;blue&#x27;</span>
+</span></span><span style="display:flex;"><span><span style="color:#c678dd">var</span> roundedRectCirle <span style="color:#56b6c2">=</span> <span style="color:#c678dd">new</span> <span style="color:#e5c07b">Path</span>.<span style="color:#e5c07b">Circle</span>(roundedRect.position, <span style="color:#d19a66">50</span>)
+</span></span><span style="display:flex;"><span>roundedRectCirle.strokeColor <span style="color:#56b6c2">=</span> <span style="color:#98c379">&#x27;blue&#x27;</span>
+</span></span><span style="display:flex;"><span>roundedRectCirle.strokeWidth <span style="color:#56b6c2">=</span> strokeWidth
+</span></span><span style="display:flex;"><span>roundedRectCirle.applyMatrix <span style="color:#56b6c2">=</span> <span style="color:#d19a66">false</span>
+</span></span><span style="display:flex;"><span>bordersGroup.<span style="color:#e5c07b">push</span>(roundedRectCirle)
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#c678dd">var</span> rect <span style="color:#56b6c2">=</span> <span style="color:#c678dd">new</span> <span style="color:#e5c07b">Path</span>.<span style="color:#e5c07b">Star</span>(<span style="color:#e5c07b">view</span>.center <span style="color:#56b6c2">+</span> [padding, padding<span style="color:#56b6c2">*</span><span style="color:#d19a66">2</span>], <span style="color:#d19a66">4</span>, <span style="color:#d19a66">35</span>, <span style="color:#d19a66">30</span>)
+</span></span><span style="display:flex;"><span>rect.fillColor <span style="color:#56b6c2">=</span> <span style="color:#98c379">&#x27;blue&#x27;</span>
+</span></span><span style="display:flex;"><span>rect.<span style="color:#e5c07b">smooth</span>({type<span style="color:#56b6c2">:</span> <span style="color:#98c379">&#x27;continuous&#x27;</span>, factor<span style="color:#56b6c2">:</span> <span style="color:#d19a66">0.5</span>})
+</span></span><span style="display:flex;"><span>rect.applyMatrix <span style="color:#56b6c2">=</span> <span style="color:#d19a66">false</span>
+</span></span><span style="display:flex;"><span><span style="color:#c678dd">var</span> rectCirle <span style="color:#56b6c2">=</span> <span style="color:#c678dd">new</span> <span style="color:#e5c07b">Path</span>.<span style="color:#e5c07b">Circle</span>(rect.position, <span style="color:#d19a66">50</span>)
+</span></span><span style="display:flex;"><span>rectCirle.strokeColor <span style="color:#56b6c2">=</span> <span style="color:#98c379">&#x27;blue&#x27;</span>
+</span></span><span style="display:flex;"><span>rectCirle.strokeWidth <span style="color:#56b6c2">=</span> strokeWidth
+</span></span><span style="display:flex;"><span>rectCirle.applyMatrix <span style="color:#56b6c2">=</span> <span style="color:#d19a66">false</span>
+</span></span><span style="display:flex;"><span>bordersGroup.<span style="color:#e5c07b">push</span>(rectCirle)
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>    
+</span></span><span style="display:flex;"><span><span style="color:#c678dd">function</span> <span style="color:#e5c07b">onFrame</span>(<span style="color:#e5c07b">event</span>){
+</span></span><span style="display:flex;"><span>    <span style="color:#c678dd">var</span> scaleAnim <span style="color:#56b6c2">=</span> (<span style="color:#d19a66">5</span> <span style="color:#56b6c2">+</span> <span style="color:#e5c07b">Math</span>.<span style="color:#e5c07b">sin</span>(<span style="color:#d19a66">1</span> <span style="color:#56b6c2">+</span> <span style="color:#e5c07b">event</span>.count <span style="color:#56b6c2">*</span> <span style="color:#d19a66">0.05</span>))<span style="color:#56b6c2">/</span><span style="color:#d19a66">5</span> 
+</span></span><span style="display:flex;"><span>    star.scaling <span style="color:#56b6c2">=</span> scaleAnim
+</span></span><span style="display:flex;"><span>    star.<span style="color:#e5c07b">rotate</span>(<span style="color:#d19a66">1</span>)
+</span></span><span style="display:flex;"><span>    starCircle.scaling <span style="color:#56b6c2">=</span> <span style="color:#d19a66">0.85</span><span style="color:#56b6c2">/</span>scaleAnim
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>    circle.scaling <span style="color:#56b6c2">=</span> scaleAnim
+</span></span><span style="display:flex;"><span>    
+</span></span><span style="display:flex;"><span>    roundedRect.scaling <span style="color:#56b6c2">=</span> scaleAnim
+</span></span><span style="display:flex;"><span>    roundedRect.<span style="color:#e5c07b">rotate</span>(<span style="color:#d19a66">1.5</span>)
+</span></span><span style="display:flex;"><span>    
+</span></span><span style="display:flex;"><span>    rect.<span style="color:#e5c07b">rotate</span>(<span style="color:#56b6c2">-</span><span style="color:#d19a66">1.5</span>)
+</span></span><span style="display:flex;"><span>    rect.scaling <span style="color:#56b6c2">=</span> scaleAnim
+</span></span><span style="display:flex;"><span>    rectCirle.scaling <span style="color:#56b6c2">=</span> <span style="color:#d19a66">0.85</span><span style="color:#56b6c2">/</span>scaleAnim
+</span></span><span style="display:flex;"><span>    
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>}
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#e5c07b">project</span>.activeLayer.position <span style="color:#56b6c2">=</span> <span style="color:#e5c07b">view</span>.center
+</span></span></code></pre></div>
+                <div class="code-toolbar code-toolbar-bottom"><button class="copy-code-button" type="button">Copy code</button></div>
+            </div>
         </section>
         
         </div>
@@ -495,5 +568,54 @@ project.activeLayer.position = view.center</code></pre>
             &copy; 2026 Alexander Deplov, designer and developer of iOS and macOS apps, product designer.
         </footer>
     </article>
+    <script>
+document.addEventListener("click", function (event) {
+    var button = event.target.closest(".copy-code-button");
+    if (!button) return;
+
+    var block = button.closest(".code-block");
+    var code = block ? block.querySelector("code") : null;
+    if (!code) return;
+
+    var text = code.textContent.replace(/\n$/, "");
+
+    function setButtonState(label, copied) {
+        block.querySelectorAll(".copy-code-button").forEach(function (item) {
+            item.textContent = label;
+            item.classList.toggle("copied", copied);
+        });
+    }
+
+    function markCopied() {
+        setButtonState("Copied", true);
+        window.setTimeout(function () {
+            setButtonState("Copy code", false);
+        }, 1400);
+    }
+
+    function fallbackCopy() {
+        var textarea = document.createElement("textarea");
+        textarea.value = text;
+        textarea.setAttribute("readonly", "");
+        textarea.style.position = "fixed";
+        textarea.style.opacity = "0";
+        document.body.appendChild(textarea);
+        textarea.select();
+        try {
+            document.execCommand("copy");
+            markCopied();
+        } finally {
+            document.body.removeChild(textarea);
+        }
+    }
+
+    if (navigator.clipboard && window.isSecureContext) {
+        navigator.clipboard.writeText(text).then(markCopied).catch(fallbackCopy);
+    } else {
+        fallbackCopy();
+    }
+});
+</script>
+    <script data-goatcounter="https://goatinterface.goatcounter.com/count" async src="//gc.zgo.at/count.js"></script>
 </body>
 </html>
