@@ -262,6 +262,17 @@
             background: var(--tile);
         }
 
+        .preview-link {
+            display: block;
+            color: inherit;
+            text-decoration: none;
+        }
+
+        .preview-link:focus-visible {
+            outline: 3px solid var(--accent);
+            outline-offset: 3px;
+        }
+
         .preview-panel img,
         .preview-panel video {
             width: 100%;
@@ -469,9 +480,10 @@
         </header>
         <div class="content">
             <section class="preview-panel" aria-label="Preview">
-                <img class="preview-media" src="/tools/generative-art/assets/collection/Animation/Spirograph%20movement%20with%20copies/Screen_Recording_2023-04-29_at_8.27.48_AM.2023-04-29_08_29_22.gif" alt="Spirograph movement with copies" loading="eager" decoding="async">
+                <a class="preview-link" href="http://sketch.paperjs.org/#V/0.12.17/S/tVddj9o4FP0rFlJFKDSThGW3ZbeVRiNNXzpL1c5qHxgeTGLAO8aOHGembMV/32s7ASc4MK20vCSxz/3wuefehO89jrekN+19fSQq3fRGvVRk+vkJS5QywUmB3qM4euB6AfM1I/A8/jW6spt2fS1FmcM6J8/oo74PBnZjhTMyK9U93VK+1oZRBK7s3nJdWXzGahN+Iaky7oPvAFAF/ZdM0RMlz6G+Hem1FWXsRjAhp6i/ZDh97D/w/UC7WwmJAu2Tgsvod7j8USUP98PhwLjU+zmEuhh1YqJJnNGyqJ/c2EKCCemb9UJJ8Uj+ppnaTFEUJs7iMdWyAueioIoKXh0sJVwRiYZoHo1QnEQLAxI5Tqnagbf6dDrpUAqFFQlsBV4jOnJ9AMyUIMRZdrOhLAu0jTHe13SL5T9x59HtwedxZJLw5gnrNSVjzQnOc7a7w0rSb1OoMyt0kUyWxvKXSZ1+FRzCFR99OqmkxdjMgq6lxDsAzRf1nqJbrTqjnFXJUx0BCX4rQboBeYL0dIUNagiwMJpopGWk4i0KJxAKVT83nRrxBuzGDsaa11SE3yABhw14HqI7zWMqCpsD3JVcQW3AUTKA69gkXPu7urr/68ufaHZ7O0LXn77O0M1s9mnaGW/Xirer4xWUvyiernd4kC146+8IY+K530HDQTracNDyU3HUncBEJxCHyTlW4smgqwYOzVDB7jCxDpO4x7S0pTpzSXi4xXlQSySwIUaIankg53eUJPDS9DCniybWnL/OD+DW7rDiAR9IDzclQW/eoxMijka2RVp5XUNGPLOx4tAMssBhrtUqYV4Wm+Bg1qTYrrXyjz3ZH7FFimEojNsNU+02FAVDkhc5BtpU3+vqOAi7BHiK7GJtPLlkWGBVSlydM7mEZnS9UfCK0C84GA/dcDPdDeg3H6ga2AYwhjbXFx/OGZiANRPzwVsA9UwIvxdBS7THF8PI0c+o+Y4d+F0WZL0FNosX9sdB4xQqcL4l647UZk0ndIUa6FfwGYE+AEueaF6+nQruEQG6XmgXOXZdnaaTa0ygwwRhhK/BzQcUv/VlemoxjxahJFvx1GjSfWdfJ7YJq9RPuvuIqzox1uPdu7+EXLM7+F7TzbUtmaKgMF97JZcHuHmDQBucG+AG05FLq9XXEjTsT+Viq4/DxNeNiftyvCjJOPK6+JHe0r/jBw3I4UzfWfJOhrmuIOx+tp+dZ6ruAP2Dwge0+ojCd287PF2avy62ISYQs2R41wH16rLTV5G2tOAi/x9dnuGgLcwO6EuU6Zr+rDRdHz+qTa8Gk4YG9/CHbikJfjSjvOhN54v9fw==" target="_blank" rel="noopener noreferrer" aria-label="Open v1 in Sketch">
+                    <img class="preview-media" src="/tools/generative-art/assets/collection/Animation/Spirograph%20movement%20with%20copies/Screen_Recording_2023-04-29_at_8.27.48_AM.2023-04-29_08_29_22.gif" alt="Spirograph movement with copies" loading="eager" decoding="async">
+                </a>
             </section>
-            <div class="actions"><a class="text-link sketch-link" href="http://sketch.paperjs.org/#V/0.12.17/S/tVddj9o4FP0rFlJFKDSThGW3ZbeVRiNNXzpL1c5qHxgeTGLAO8aOHGembMV/32s7ASc4MK20vCSxz/3wuefehO89jrekN+19fSQq3fRGvVRk+vkJS5QywUmB3qM4euB6AfM1I/A8/jW6spt2fS1FmcM6J8/oo74PBnZjhTMyK9U93VK+1oZRBK7s3nJdWXzGahN+Iaky7oPvAFAF/ZdM0RMlz6G+Hem1FWXsRjAhp6i/ZDh97D/w/UC7WwmJAu2Tgsvod7j8USUP98PhwLjU+zmEuhh1YqJJnNGyqJ/c2EKCCemb9UJJ8Uj+ppnaTFEUJs7iMdWyAueioIoKXh0sJVwRiYZoHo1QnEQLAxI5Tqnagbf6dDrpUAqFFQlsBV4jOnJ9AMyUIMRZdrOhLAu0jTHe13SL5T9x59HtwedxZJLw5gnrNSVjzQnOc7a7w0rSb1OoMyt0kUyWxvKXSZ1+FRzCFR99OqmkxdjMgq6lxDsAzRf1nqJbrTqjnFXJUx0BCX4rQboBeYL0dIUNagiwMJpopGWk4i0KJxAKVT83nRrxBuzGDsaa11SE3yABhw14HqI7zWMqCpsD3JVcQW3AUTKA69gkXPu7urr/68ufaHZ7O0LXn77O0M1s9mnaGW/Xirer4xWUvyiernd4kC146+8IY+K530HDQTracNDyU3HUncBEJxCHyTlW4smgqwYOzVDB7jCxDpO4x7S0pTpzSXi4xXlQSySwIUaIankg53eUJPDS9DCniybWnL/OD+DW7rDiAR9IDzclQW/eoxMijka2RVp5XUNGPLOx4tAMssBhrtUqYV4Wm+Bg1qTYrrXyjz3ZH7FFimEojNsNU+02FAVDkhc5BtpU3+vqOAi7BHiK7GJtPLlkWGBVSlydM7mEZnS9UfCK0C84GA/dcDPdDeg3H6ga2AYwhjbXFx/OGZiANRPzwVsA9UwIvxdBS7THF8PI0c+o+Y4d+F0WZL0FNosX9sdB4xQqcL4l647UZk0ndIUa6FfwGYE+AEueaF6+nQruEQG6XmgXOXZdnaaTa0ygwwRhhK/BzQcUv/VlemoxjxahJFvx1GjSfWdfJ7YJq9RPuvuIqzox1uPdu7+EXLM7+F7TzbUtmaKgMF97JZcHuHmDQBucG+AG05FLq9XXEjTsT+Viq4/DxNeNiftyvCjJOPK6+JHe0r/jBw3I4UzfWfJOhrmuIOx+tp+dZ6ruAP2Dwge0+ojCd287PF2avy62ISYQs2R41wH16rLTV5G2tOAi/x9dnuGgLcwO6EuU6Zr+rDRdHz+qTa8Gk4YG9/CHbikJfjSjvOhN54v9fw==" target="_blank" rel="noopener noreferrer">Open v1 in Sketch</a></div>
             
             
         <section class="content-section">

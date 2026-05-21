@@ -262,6 +262,17 @@
             background: var(--tile);
         }
 
+        .preview-link {
+            display: block;
+            color: inherit;
+            text-decoration: none;
+        }
+
+        .preview-link:focus-visible {
+            outline: 3px solid var(--accent);
+            outline-offset: 3px;
+        }
+
         .preview-panel img,
         .preview-panel video {
             width: 100%;
@@ -469,9 +480,10 @@
         </header>
         <div class="content">
             <section class="preview-panel" aria-label="Preview">
-                <img class="preview-media" src="/tools/generative-art/assets/collection/Animation/Spirograph%20v4/Screen_Recording_2022-06-10_at_23.36.22.2022-06-10_23_37_11.gif" alt="Spirograph v4" loading="eager" decoding="async">
+                <a class="preview-link" href="http://sketch.paperjs.org/#V/0.12.17/S/pVZNj9owEP0rFhdCYV0n21RVtlupQuqeKlXtoQfg4CQGXLI2chy2dMV/33HshHwBh3KA2PNm5s2bmYjXkaDPbBSNfu2YTraj2SiRqTkfqELxBj0iwV7QD6q3+CdLNBWbjHmvS4Hgk/N/LEIHzl5wLAuR5jN7v+ZZNpeZVBEaxxlNdmNn2Mucay6Fc0qY0EwtxWmyFCZdkknBckj5yZ7LZHC8/0jQe2e1lo2Sxd5xezLPngsRS5UyNecqKT1r7vbGa6SdId8PwavpgXOt5I6V3MF7nFK1i7OCjQdhv3mqtwAjOOjY5Z4mXB+NbSnWEMsz3Lg5P8DPZ1cLPE+nE+TUNJA9LSNelvwsezg73yia8iJv3zU4RkDR75nOHYICG9bBJqEpWhCQLCCrBtTVGZkyzdk0sgxhuCupqWaebeI7xGfNeA5Y9hHTNJ1veZZ6xg8sJ9tLGf/xH+pHUCJ/utR2sH9VZgQBD4oXIjEVICm+KZhujx0gaS20Tero+Y5JM0NluyOY3LeYVtrgv8CiUQ6cp+i7qTqRuU0HT4XQUDgE+TCB35BUmJyLPiYwmCAkg+mOnXTHq6Fcurow/+YmkLMKPq7X16yAYul4QKG6ZcbDOfM18lqgxCAUEzhjYgOD/eURBYTUfegFrfALssKKPcsD81zoU4NentCMiw2aQjSQwcchVHtRjIrc0BZuhli2l7JaTMsTXNs+C75q1eLXLQOo9alvOsBaZbwtmCmmyzwIu7XbEbeRfVy+Q7xJx9oh4HfSn3Htd1hAenaQGdYDh70MrfnQiop8T0ELPR5OUUPdm/QiphLCG9IH8Qm6u0DTTQNIBjjzfWUeCBnc+OY828hX5ubakPfHZ3jE+ao/AQTft1p+e6FQ+H/bdEMAANp5t8MQTODvQawY3e0lFzofRYvV6Q0=" target="_blank" rel="noopener noreferrer" aria-label="Open v1 in Sketch">
+                    <img class="preview-media" src="/tools/generative-art/assets/collection/Animation/Spirograph%20v4/Screen_Recording_2022-06-10_at_23.36.22.2022-06-10_23_37_11.gif" alt="Spirograph v4" loading="eager" decoding="async">
+                </a>
             </section>
-            <div class="actions"><a class="text-link sketch-link" href="http://sketch.paperjs.org/#V/0.12.17/S/pVZNj9owEP0rFhdCYV0n21RVtlupQuqeKlXtoQfg4CQGXLI2chy2dMV/33HshHwBh3KA2PNm5s2bmYjXkaDPbBSNfu2YTraj2SiRqTkfqELxBj0iwV7QD6q3+CdLNBWbjHmvS4Hgk/N/LEIHzl5wLAuR5jN7v+ZZNpeZVBEaxxlNdmNn2Mucay6Fc0qY0EwtxWmyFCZdkknBckj5yZ7LZHC8/0jQe2e1lo2Sxd5xezLPngsRS5UyNecqKT1r7vbGa6SdId8PwavpgXOt5I6V3MF7nFK1i7OCjQdhv3mqtwAjOOjY5Z4mXB+NbSnWEMsz3Lg5P8DPZ1cLPE+nE+TUNJA9LSNelvwsezg73yia8iJv3zU4RkDR75nOHYICG9bBJqEpWhCQLCCrBtTVGZkyzdk0sgxhuCupqWaebeI7xGfNeA5Y9hHTNJ1veZZ6xg8sJ9tLGf/xH+pHUCJ/utR2sH9VZgQBD4oXIjEVICm+KZhujx0gaS20Tero+Y5JM0NluyOY3LeYVtrgv8CiUQ6cp+i7qTqRuU0HT4XQUDgE+TCB35BUmJyLPiYwmCAkg+mOnXTHq6Fcurow/+YmkLMKPq7X16yAYul4QKG6ZcbDOfM18lqgxCAUEzhjYgOD/eURBYTUfegFrfALssKKPcsD81zoU4NentCMiw2aQjSQwcchVHtRjIrc0BZuhli2l7JaTMsTXNs+C75q1eLXLQOo9alvOsBaZbwtmCmmyzwIu7XbEbeRfVy+Q7xJx9oh4HfSn3Htd1hAenaQGdYDh70MrfnQiop8T0ELPR5OUUPdm/QiphLCG9IH8Qm6u0DTTQNIBjjzfWUeCBnc+OY828hX5ubakPfHZ3jE+ao/AQTft1p+e6FQ+H/bdEMAANp5t8MQTODvQawY3e0lFzofRYvV6Q0=" target="_blank" rel="noopener noreferrer">Open v1 in Sketch</a></div>
             
             
         <section class="content-section">

@@ -262,6 +262,17 @@
             background: var(--tile);
         }
 
+        .preview-link {
+            display: block;
+            color: inherit;
+            text-decoration: none;
+        }
+
+        .preview-link:focus-visible {
+            outline: 3px solid var(--accent);
+            outline-offset: 3px;
+        }
+
         .preview-panel img,
         .preview-panel video {
             width: 100%;
@@ -469,9 +480,11 @@
         </header>
         <div class="content">
             <section class="preview-panel" aria-label="Preview">
-                <img class="preview-media" src="/tools/generative-art/assets/collection/Animation/Sold%20objects%20with%20colored%20background/Screen_Recording_2023-03-05_at_17.39.20.2023-03-05_17_40_02.gif" alt="Sold objects with colored background" loading="eager" decoding="async">
+                <a class="preview-link" href="http://sketch.paperjs.org/#V/0.12.17/S/rVZbb9owFP4rR0hTk0FdYKPbQqs+dNqeKlXry6rSB5MYsBrsyHEorOp/3/E1XKU9DCRin+t3vnPs8NYRdMk6Wefhhel80el1clmY/YoqmM7hGgR7hXuqF+QXyzUV85IlbxMB+Kn5H5bBirNXMpWNKOqek894Wd7KUqoMzqYlzV/OvKKSNddcCu+UM6GZmoj3dCImwiRc0vVvTPk57h5x98XtKloUXBhEX/tOomjBm3qAksFoWzI0IbzNXMmm8lX8NOvEJptJBcka5f0xrOHKJsZVt5va2qx649Qbp37ElVObr6nGhF+wNZ1LsU3Tg6YqMATgaszgKcD/COsetJvNcy+YVpILXWdwGSW+wCws9hTDoBhGxRb1BpBdEkVFIZdJGq1oVZWbO6oVX2cwo2XNWhBUIeLM8eaEpj3m6WsldU5xBgZkmAYmlOn+rVSCqTrxZj24jPrgKcUPhdOGbM0akZtJSNgK06WRLr3gNYlFkEXDoHsNox21kpoaXzjH/pBhVF5cnHC/M20JJCDnfTKC7oH0k682gOYzMyEfAKcJ87QQQzFhmMnG5PCNuBjsRTFDkpdSmKKDp90nnlW7aTGjmT8zTo1FOQvHep982/H7R0YtZSw5JGJwhIhB6jz3eXUIrHXNfR6SY+u1ccJx6Dm7QEwaqbA/jpIAc3dmKgzacxSm8Ba4C/zVbL7EXDVWWdnsfk/qkufISTpu7a2BYku5Yg/eLDF6fzNJlZiI3BztHpT4iMFKJuZ6MUbdFZT4wMMOkUXbxkbdmyO65fTEn4k9tuNtQ8HW+tASmR6YUSrhBvqQgRUcc68UWx1xP0f3K/S82YdsNSbe+fF4Bs53VmqK8UINpG6mWtFcJxFsegDitFOE2FILbZ6AK5yKGDgGPWLRXkDYQLwek7an5iaraMUU8S3d0sEJdDZNe+PZME1Z7ghaOAVf8cLcaaO0NYjL9P/CizztwYv0baE5KOAEPPN89y9ZgxBvh5oVyK9WDfN6xXSjhNWP/Zl0h9ze9fHYotPO2xn/EkwVoy/u9dTJnp7f/wI=" target="_blank" rel="noopener noreferrer" aria-label="Open v1 in Sketch">
+                    <img class="preview-media" src="/tools/generative-art/assets/collection/Animation/Sold%20objects%20with%20colored%20background/Screen_Recording_2023-03-05_at_17.39.20.2023-03-05_17_40_02.gif" alt="Sold objects with colored background" loading="eager" decoding="async">
+                </a>
             </section>
-            <div class="actions"><a class="text-link sketch-link" href="http://sketch.paperjs.org/#V/0.12.17/S/rVZbb9owFP4rR0hTk0FdYKPbQqs+dNqeKlXry6rSB5MYsBrsyHEorOp/3/E1XKU9DCRin+t3vnPs8NYRdMk6Wefhhel80el1clmY/YoqmM7hGgR7hXuqF+QXyzUV85IlbxMB+Kn5H5bBirNXMpWNKOqek894Wd7KUqoMzqYlzV/OvKKSNddcCu+UM6GZmoj3dCImwiRc0vVvTPk57h5x98XtKloUXBhEX/tOomjBm3qAksFoWzI0IbzNXMmm8lX8NOvEJptJBcka5f0xrOHKJsZVt5va2qx649Qbp37ElVObr6nGhF+wNZ1LsU3Tg6YqMATgaszgKcD/COsetJvNcy+YVpILXWdwGSW+wCws9hTDoBhGxRb1BpBdEkVFIZdJGq1oVZWbO6oVX2cwo2XNWhBUIeLM8eaEpj3m6WsldU5xBgZkmAYmlOn+rVSCqTrxZj24jPrgKcUPhdOGbM0akZtJSNgK06WRLr3gNYlFkEXDoHsNox21kpoaXzjH/pBhVF5cnHC/M20JJCDnfTKC7oH0k682gOYzMyEfAKcJ87QQQzFhmMnG5PCNuBjsRTFDkpdSmKKDp90nnlW7aTGjmT8zTo1FOQvHep982/H7R0YtZSw5JGJwhIhB6jz3eXUIrHXNfR6SY+u1ccJx6Dm7QEwaqbA/jpIAc3dmKgzacxSm8Ba4C/zVbL7EXDVWWdnsfk/qkufISTpu7a2BYku5Yg/eLDF6fzNJlZiI3BztHpT4iMFKJuZ6MUbdFZT4wMMOkUXbxkbdmyO65fTEn4k9tuNtQ8HW+tASmR6YUSrhBvqQgRUcc68UWx1xP0f3K/S82YdsNSbe+fF4Bs53VmqK8UINpG6mWtFcJxFsegDitFOE2FILbZ6AK5yKGDgGPWLRXkDYQLwek7an5iaraMUU8S3d0sEJdDZNe+PZME1Z7ghaOAVf8cLcaaO0NYjL9P/CizztwYv0baE5KOAEPPN89y9ZgxBvh5oVyK9WDfN6xXSjhNWP/Zl0h9ze9fHYotPO2xn/EkwVoy/u9dTJnp7f/wI=" target="_blank" rel="noopener noreferrer">Open v1 in Sketch</a><a class="button secondary" href="/tools/generative-art/assets/collection/Animation/Sold%20objects%20with%20colored%20background/solid_objects_with_colored_background.html">solid objects with colored background.html</a></div>
+            <div class="actions"><a class="button secondary" href="/tools/generative-art/assets/collection/Animation/Sold%20objects%20with%20colored%20background/solid_objects_with_colored_background.html">solid objects with colored background.html</a></div>
             
         <section class="content-section">
             <h2>Files</h2>

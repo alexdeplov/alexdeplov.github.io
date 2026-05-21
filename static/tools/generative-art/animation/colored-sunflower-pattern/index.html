@@ -262,6 +262,17 @@
             background: var(--tile);
         }
 
+        .preview-link {
+            display: block;
+            color: inherit;
+            text-decoration: none;
+        }
+
+        .preview-link:focus-visible {
+            outline: 3px solid var(--accent);
+            outline-offset: 3px;
+        }
+
         .preview-panel img,
         .preview-panel video {
             width: 100%;
@@ -469,9 +480,10 @@
         </header>
         <div class="content">
             <section class="preview-panel" aria-label="Preview">
-                <img class="preview-media" src="/tools/generative-art/assets/collection/Animation/Colored%20sunflower%20pattern/Screen_Recording_2023-12-31_at_20.37.24.2023-12-31_20_38_19.gif" alt="Colored sunflower pattern" loading="eager" decoding="async">
+                <a class="preview-link" href="http://sketch.paperjs.org/#V/0.12.17/S/jVZbb9owFP4rFi9NCnVTVsaWjpdt2jRpSFUr7WXswSSGeA02sx1YV/Hfd3wLwS0VEUocn9t3vnN8wlOPkxXt5b37B6qLqjfoFaI07xsi0XyJJojTLbolusJ3tNCEL2uaPM04gkuxfzRHG0a32CwHbnfB6vqTqIXM0dm8JsXD2Yzv0hmfceNSkpI1CtwOsxu3Q1ai4drsjLMbdHk5HGVOoNakYNxAyPA7r7yUolnDTiEp0fS2eqxroclfphLnJgU9q4MXTH+EnVIlFuDcrrEqCODP8DhNg+JaKKaZ4ODVahaUayoN3kXDCys5Gg15JrrQDF9fzToxYIJUgqGPcvVmjEfZePz2OhtlhgXPm5AoMarM6NzA48PEkwMv/b4N5lSDU1rTFbXcHS9SuNaCcZ2jaNdcNeVLXeUt3+ehSOdoalyqP1InLB08t7SBckB63uZ3qLSLjFzHGLD3sEpcnIGPF0dYE0kNZEtsJOs0mfFmlwlDl56wAcrgh0exS2FS1I85yLKOaBcqFYi1bWIbb4j6ngXGbYC2kH2QXgeObr+BaAhvXZV079RXyvefvadxNYmUYntSLR2Nw+wEUrAkvBSrJGbCUZ6jUZeF/Xq/sqiw4F8kzAlAFw5FQjeQUBoh0xVTuMWBq4aivqGxG6abt/O+N6jZstKcKuXMro9rKqIb6SsRRQiqYQAE8t0MSGPFzgAImmErVrWVpUm34aEP3mfpYSVLpqBwBT0cKXhJ9WcvSQ5DP8N0SOEEJe2UxVtW6gq6LARJAcyVmZlRVvb0gKk9PlF7t9z9IHXjG/0kqi8msfEptXzJKnTBzj0kBTkPYOGLYW6vD2iTiRbr73Rh0rx4ztDQ6cyF1mJ1Z9C8MuMFn4pG0anYUN/aYVY6FEXF6hIoxSuyTtpDIOa/4ZAOEEu7kzXqAesO2wF80APO+KUm8JK4C0zfQaeji9a75zD1hHWyuaOGixdTOUboXuOEj+cO/irM4bv4YPNSvfznr91/" target="_blank" rel="noopener noreferrer" aria-label="Open v1 in Sketch">
+                    <img class="preview-media" src="/tools/generative-art/assets/collection/Animation/Colored%20sunflower%20pattern/Screen_Recording_2023-12-31_at_20.37.24.2023-12-31_20_38_19.gif" alt="Colored sunflower pattern" loading="eager" decoding="async">
+                </a>
             </section>
-            <div class="actions"><a class="text-link sketch-link" href="http://sketch.paperjs.org/#V/0.12.17/S/jVZbb9owFP4rFi9NCnVTVsaWjpdt2jRpSFUr7WXswSSGeA02sx1YV/Hfd3wLwS0VEUocn9t3vnN8wlOPkxXt5b37B6qLqjfoFaI07xsi0XyJJojTLbolusJ3tNCEL2uaPM04gkuxfzRHG0a32CwHbnfB6vqTqIXM0dm8JsXD2Yzv0hmfceNSkpI1CtwOsxu3Q1ai4drsjLMbdHk5HGVOoNakYNxAyPA7r7yUolnDTiEp0fS2eqxroclfphLnJgU9q4MXTH+EnVIlFuDcrrEqCODP8DhNg+JaKKaZ4ODVahaUayoN3kXDCys5Gg15JrrQDF9fzToxYIJUgqGPcvVmjEfZePz2OhtlhgXPm5AoMarM6NzA48PEkwMv/b4N5lSDU1rTFbXcHS9SuNaCcZ2jaNdcNeVLXeUt3+ehSOdoalyqP1InLB08t7SBckB63uZ3qLSLjFzHGLD3sEpcnIGPF0dYE0kNZEtsJOs0mfFmlwlDl56wAcrgh0exS2FS1I85yLKOaBcqFYi1bWIbb4j6ngXGbYC2kH2QXgeObr+BaAhvXZV079RXyvefvadxNYmUYntSLR2Nw+wEUrAkvBSrJGbCUZ6jUZeF/Xq/sqiw4F8kzAlAFw5FQjeQUBoh0xVTuMWBq4aivqGxG6abt/O+N6jZstKcKuXMro9rKqIb6SsRRQiqYQAE8t0MSGPFzgAImmErVrWVpUm34aEP3mfpYSVLpqBwBT0cKXhJ9WcvSQ5DP8N0SOEEJe2UxVtW6gq6LARJAcyVmZlRVvb0gKk9PlF7t9z9IHXjG/0kqi8msfEptXzJKnTBzj0kBTkPYOGLYW6vD2iTiRbr73Rh0rx4ztDQ6cyF1mJ1Z9C8MuMFn4pG0anYUN/aYVY6FEXF6hIoxSuyTtpDIOa/4ZAOEEu7kzXqAesO2wF80APO+KUm8JK4C0zfQaeji9a75zD1hHWyuaOGixdTOUboXuOEj+cO/irM4bv4YPNSvfznr91/" target="_blank" rel="noopener noreferrer">Open v1 in Sketch</a></div>
             
             
         <section class="content-section">

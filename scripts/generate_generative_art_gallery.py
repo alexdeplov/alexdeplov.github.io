@@ -718,6 +718,17 @@ def base_styles() -> str:
             background: var(--tile);
         }
 
+        .preview-link {
+            display: block;
+            color: inherit;
+            text-decoration: none;
+        }
+
+        .preview-link:focus-visible {
+            outline: 3px solid var(--accent);
+            outline-offset: 3px;
+        }
+
         .preview-panel img,
         .preview-panel video {
             width: 100%;
@@ -979,8 +990,8 @@ def render_index(items: list[Item]) -> str:
 
 def render_detail(item: Item) -> str:
     sketch_buttons = "\n".join(
-        f'<a class="text-link sketch-link" href="{html.escape(link, quote=True)}" target="_blank" rel="noopener noreferrer">Open v{index + 1} in Sketch</a>'
-        for index, link in enumerate(item.sketch_links)
+        f'<a class="text-link sketch-link" href="{html.escape(link, quote=True)}" target="_blank" rel="noopener noreferrer">Open v{index + 2} in Sketch</a>'
+        for index, link in enumerate(item.sketch_links[1:])
     )
     source_buttons = "\n".join(
         f'<a class="button secondary" href="{html.escape(link.url, quote=True)}">{html.escape(link.title)}</a>'
@@ -1019,6 +1030,12 @@ def render_detail(item: Item) -> str:
     copy_code_script = COPY_CODE_SCRIPT if item.code_blocks else ""
 
     preview = media_markup(item, "preview-media")
+    if item.sketch_links:
+        preview = (
+            f'<a class="preview-link" href="{html.escape(item.sketch_links[0], quote=True)}" '
+            'target="_blank" rel="noopener noreferrer" aria-label="Open v1 in Sketch">'
+            f"{preview}</a>"
+        )
 
     return f"""<!doctype html>
 <html lang="en">

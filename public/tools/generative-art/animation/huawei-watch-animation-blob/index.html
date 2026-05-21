@@ -262,6 +262,17 @@
             background: var(--tile);
         }
 
+        .preview-link {
+            display: block;
+            color: inherit;
+            text-decoration: none;
+        }
+
+        .preview-link:focus-visible {
+            outline: 3px solid var(--accent);
+            outline-offset: 3px;
+        }
+
         .preview-panel img,
         .preview-panel video {
             width: 100%;
@@ -469,9 +480,10 @@
         </header>
         <div class="content">
             <section class="preview-panel" aria-label="Preview">
-                <img class="preview-media" src="/tools/generative-art/assets/collection/Animation/Huawei%20Watch%20animation%20blob/Screen_Recording_2024-01-01_at_11.44.49.2024-01-01_11_45_35.gif" alt="Huawei Watch animation blob" loading="eager" decoding="async">
+                <a class="preview-link" href="http://sketch.paperjs.org/#V/0.12.17/S/tVZNb9tGEP0rC11MJjTLXfHTgQ9Fgd4MFAmQi+UDRa1l1tRSoCjFaeD/3veGpMy0Tj8ONmCJO/PmzZvZ2aW+LVy5s4urxadH21cPi2BRtRuuT2Wn1lt1rZz9on4r+4fwo6360m0b631bOYW/Q/2HvVKn2n4J1+3RbQ7BYL+vm+aXtmm7K3Wxbsrq8WJ07NtD3detG4Mq63rbrdyzv3Irx4R72+2OfUkMMt8ySic6UDqN8LHMAlVgVXCR0EDXMlAmohWWIg1UAoMuYliXeEKIMYnk1zHilkDoCI4lFmmBRWwClSMUz0xgiDIk5rdwEUlgTm82cBnxIkuGtHwmokB8CjrJnhjyFFRHFg3fkqJBvYQrGYky2gHIyU4BOkZMArqci4xUrNdIwcySSUMA57/OhuKI0ykw4qUwvQSPaCZPishM2EmRSDIgc5Gm2aRiLAzaUmmBELG7bJURERF7DEAMX4JnkpmYD4TEzBqZsdmITGCgJmpPmSklJ7lZHkIy2TzozKiKbdGs2kTQl4+CWGQqbaSCQoDSCy5JpNk6nQCSc5WKClHL7S3ysc/MTwC+CRm2R8aDRSTSY4Zyz6kZhaglmWO2TY80Axj+nGNDnCZRJKo5fVTKjksUDbJJzC3VDUUZGDl3RgZMNiGTnst2kCKWmggBkrIS2WBOtOyGHuTIsHP6NTXplImFjVPIYkQOCuH3cDLgIDdbrDnj2dhnOUhGzg2VZvTnMrBcRnRoOQEoqpC+ccXTyWkz8bjvhUwMXSTXop0EPLg6oyaeEMMJyjlFNHOCDDfVxHIihx5Rs2ZjxVjIfoFNDj1DdSEAmWdpMJy5HBfmxEQNZbEEnmfucCwLUjKIjZS2ilyeLRMlK3fH22i8j3Dvza5ADxcVTeH5hoPzYttZ6y6GAF6JsGH+RmS52XgS3tau9y7pDwTl+68i/iPg8h8Ql69C9vvm603Zd/UT9N2XzcGOnqppD3YDY98dJ9th17ZDuUNZpat3n/ZWYFEYmRfrz7t9U/fHjRWPGeNb92uH1wozHV3F69yzJ9z2/vjmGJLY7Q62Q7gr994Z165/D1Q9Afn38sSks/fD7G1xeyPb0rRt58ljV7pNu/N89W4OCxvrtv2Df/c9p2u7XdmgXZubF/aqdSfb9R/xyrPeRDDc9TxrKBazKB2aqCA93HMLwif1/lqJjkM9lh5WeEX2kHPupT8uXlr4Tv1NfM0Pr8ZHFCb+a7m+nnNV7eFNctX3tF5jg+fb8lYVmx+oeKuqf5TveZq8Z38+tBUGxfF3kWfCRL3/95r/IsFXPykzI+xaTJb1onA5T3O+YMKH43ihIJf3vxtMQ4q76JlzOp2x70f7VDZHXBfydVO76al8CnjviYXf5ZOvZPd5YNpmI8FQNqHV5ZniwwRD3AQbKAAaOOeQzwxjQ71By4yJ8icSNm7K66MZM6LO9sfOnbk+jPWOl9H0q5Ni5z87Vw6/dtedLR9lpA6Lq9u75z8B" target="_blank" rel="noopener noreferrer" aria-label="Open v1 in Sketch">
+                    <img class="preview-media" src="/tools/generative-art/assets/collection/Animation/Huawei%20Watch%20animation%20blob/Screen_Recording_2024-01-01_at_11.44.49.2024-01-01_11_45_35.gif" alt="Huawei Watch animation blob" loading="eager" decoding="async">
+                </a>
             </section>
-            <div class="actions"><a class="text-link sketch-link" href="http://sketch.paperjs.org/#V/0.12.17/S/tVZNb9tGEP0rC11MJjTLXfHTgQ9Fgd4MFAmQi+UDRa1l1tRSoCjFaeD/3veGpMy0Tj8ONmCJO/PmzZvZ2aW+LVy5s4urxadH21cPi2BRtRuuT2Wn1lt1rZz9on4r+4fwo6360m0b631bOYW/Q/2HvVKn2n4J1+3RbQ7BYL+vm+aXtmm7K3Wxbsrq8WJ07NtD3detG4Mq63rbrdyzv3Irx4R72+2OfUkMMt8ySic6UDqN8LHMAlVgVXCR0EDXMlAmohWWIg1UAoMuYliXeEKIMYnk1zHilkDoCI4lFmmBRWwClSMUz0xgiDIk5rdwEUlgTm82cBnxIkuGtHwmokB8CjrJnhjyFFRHFg3fkqJBvYQrGYky2gHIyU4BOkZMArqci4xUrNdIwcySSUMA57/OhuKI0ykw4qUwvQSPaCZPishM2EmRSDIgc5Gm2aRiLAzaUmmBELG7bJURERF7DEAMX4JnkpmYD4TEzBqZsdmITGCgJmpPmSklJ7lZHkIy2TzozKiKbdGs2kTQl4+CWGQqbaSCQoDSCy5JpNk6nQCSc5WKClHL7S3ysc/MTwC+CRm2R8aDRSTSY4Zyz6kZhaglmWO2TY80Axj+nGNDnCZRJKo5fVTKjksUDbJJzC3VDUUZGDl3RgZMNiGTnst2kCKWmggBkrIS2WBOtOyGHuTIsHP6NTXplImFjVPIYkQOCuH3cDLgIDdbrDnj2dhnOUhGzg2VZvTnMrBcRnRoOQEoqpC+ccXTyWkz8bjvhUwMXSTXop0EPLg6oyaeEMMJyjlFNHOCDDfVxHIihx5Rs2ZjxVjIfoFNDj1DdSEAmWdpMJy5HBfmxEQNZbEEnmfucCwLUjKIjZS2ilyeLRMlK3fH22i8j3Dvza5ADxcVTeH5hoPzYttZ6y6GAF6JsGH+RmS52XgS3tau9y7pDwTl+68i/iPg8h8Ql69C9vvm603Zd/UT9N2XzcGOnqppD3YDY98dJ9th17ZDuUNZpat3n/ZWYFEYmRfrz7t9U/fHjRWPGeNb92uH1wozHV3F69yzJ9z2/vjmGJLY7Q62Q7gr994Z165/D1Q9Afn38sSks/fD7G1xeyPb0rRt58ljV7pNu/N89W4OCxvrtv2Df/c9p2u7XdmgXZubF/aqdSfb9R/xyrPeRDDc9TxrKBazKB2aqCA93HMLwif1/lqJjkM9lh5WeEX2kHPupT8uXlr4Tv1NfM0Pr8ZHFCb+a7m+nnNV7eFNctX3tF5jg+fb8lYVmx+oeKuqf5TveZq8Z38+tBUGxfF3kWfCRL3/95r/IsFXPykzI+xaTJb1onA5T3O+YMKH43ihIJf3vxtMQ4q76JlzOp2x70f7VDZHXBfydVO76al8CnjviYXf5ZOvZPd5YNpmI8FQNqHV5ZniwwRD3AQbKAAaOOeQzwxjQ71By4yJ8icSNm7K66MZM6LO9sfOnbk+jPWOl9H0q5Ni5z87Vw6/dtedLR9lpA6Lq9u75z8B" target="_blank" rel="noopener noreferrer">Open v1 in Sketch</a></div>
             
             
         <section class="content-section">

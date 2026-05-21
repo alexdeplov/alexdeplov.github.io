@@ -262,6 +262,17 @@
             background: var(--tile);
         }
 
+        .preview-link {
+            display: block;
+            color: inherit;
+            text-decoration: none;
+        }
+
+        .preview-link:focus-visible {
+            outline: 3px solid var(--accent);
+            outline-offset: 3px;
+        }
+
         .preview-panel img,
         .preview-panel video {
             width: 100%;
@@ -469,9 +480,11 @@
         </header>
         <div class="content">
             <section class="preview-panel" aria-label="Preview">
-                <img class="preview-media" src="/tools/generative-art/assets/collection/Animation/Animated%20circles%20around%20center%20with%20blend%20mode/Screen_Recording_2024-01-01_at_11.19.33.2024-01-01_11_20_16.gif" alt="Animated circles around center with blend mode" loading="eager" decoding="async">
+                <a class="preview-link" href="http://sketch.paperjs.org/#V/0.12.17/S/rVbNbuM2EH4Vwj1YrmVFtuNk120PibNeFGjQAnu0c6Al2uJGIgWKchwEefcOh5REbdzFtulJnOHMN7+c0ctA0IINloMvj0wn2SAcJDI19FZsxZEqomjK64r8RhaxZRT0BNS1JQ60vGX6iTEBvOnCMlNeaSoStlayWDGhmTKXH5w+VYo+A2Pz0JhIZC6VMbHZDn76ML+8Wa+3g5AA8enm42x16YjV+u7T9UdHrO8Wi9lVQ9zc3sbT7QAR97VINJeCJIpRzf7cfWWJDkYvW0EIuqxkXYIxwZ7IZ3MORuYK2REty/z5nmrFTZB7mlfMYFpNufs6dYp/UZ1FK66SnAWITFyilu4bWuae5/nKhLd0UW7ujeY+l1IFeFRUpLIIRuRnJxHlTBx0NnpwEAlmcEmOnD1FlnA3JVVALq3rjucFsLT+u4sdwKb3UNslGRZ1rjnIDc3VK4aPVYnKusoCE+bIRm2OkRRrBT1i8uFSG7AjGB65wHXGq6gNNMpqRsZQb8TuJW8GEIiY5FIwm3bD7pRB4F+n6a33s8772X/xfnLW+7n1fvaN9/P3e48oVUKhl+LougNuSwbAw7wuuJAV17ZqZ3T6SZhjEi4uyFBIVdB8GHp1h3MFz4MJc5JHpnJqmXKvJzk/ZNpQGVXphLQkej5JZXpgHbmrFYKkVD1aOJS3x5Tv9wx6NEEFdkryuoICIHaNvIrqWlHtmF6MjQFzoGmKsvVOK5qgLxR8ptaPkovOZcEOLVola5WwiQnPI3nvrtYeRbUs0W1WaS4Qp9X2eRaiJ2VxfFYDZtOh2hwpG1qJIZ4gwLZX5/9Dr+LzKk0KQTk6metuRLdvwhMY9wW6SfhDviipMVqQwj6vuJOKElkLDe0eR/HUtP38KvbcVAzKLqylrXhtd42U+vO58dxe/NOAhrEP7y8wIBz48S/w+dWsKjiMx93wl7gNzEPtLQeXGTh/k5u3q8wTxehZEEBsF2DKhMlDf04jrud7mq4ynqeB1R+5yG3sYEf5y+UL0IGHRcZkM5nFIYkfQnIVkstFSK5jwDCKUVWAlSx4Ifq5NBP+wGTBIEkJdNke3oxZQHG0wGGPCu8cWohxthZ48/3mQZEfbx38c3h1yDABRJWbtGMuIBxv7BmJUftXgdv5d9H+gZzd283Wni5wT757X5/Z1uA8ONV35zuz3Yunr4ORlUpi70FN+ZH9QZ8Bq2lZgOqZ7f0NuZL4deg603VyHE1ni6YtPc17WVfsDgaur239LGgZtDW2fR0S3gwJ91De/BzYQqcs1zQ6NT8haBV+QHfwNB9LyYWuBsvNw+vf" target="_blank" rel="noopener noreferrer" aria-label="Open v1 in Sketch">
+                    <img class="preview-media" src="/tools/generative-art/assets/collection/Animation/Animated%20circles%20around%20center%20with%20blend%20mode/Screen_Recording_2024-01-01_at_11.19.33.2024-01-01_11_20_16.gif" alt="Animated circles around center with blend mode" loading="eager" decoding="async">
+                </a>
             </section>
-            <div class="actions"><a class="text-link sketch-link" href="http://sketch.paperjs.org/#V/0.12.17/S/rVbNbuM2EH4Vwj1YrmVFtuNk120PibNeFGjQAnu0c6Al2uJGIgWKchwEefcOh5REbdzFtulJnOHMN7+c0ctA0IINloMvj0wn2SAcJDI19FZsxZEqomjK64r8RhaxZRT0BNS1JQ60vGX6iTEBvOnCMlNeaSoStlayWDGhmTKXH5w+VYo+A2Pz0JhIZC6VMbHZDn76ML+8Wa+3g5AA8enm42x16YjV+u7T9UdHrO8Wi9lVQ9zc3sbT7QAR97VINJeCJIpRzf7cfWWJDkYvW0EIuqxkXYIxwZ7IZ3MORuYK2REty/z5nmrFTZB7mlfMYFpNufs6dYp/UZ1FK66SnAWITFyilu4bWuae5/nKhLd0UW7ujeY+l1IFeFRUpLIIRuRnJxHlTBx0NnpwEAlmcEmOnD1FlnA3JVVALq3rjucFsLT+u4sdwKb3UNslGRZ1rjnIDc3VK4aPVYnKusoCE+bIRm2OkRRrBT1i8uFSG7AjGB65wHXGq6gNNMpqRsZQb8TuJW8GEIiY5FIwm3bD7pRB4F+n6a33s8772X/xfnLW+7n1fvaN9/P3e48oVUKhl+LougNuSwbAw7wuuJAV17ZqZ3T6SZhjEi4uyFBIVdB8GHp1h3MFz4MJc5JHpnJqmXKvJzk/ZNpQGVXphLQkej5JZXpgHbmrFYKkVD1aOJS3x5Tv9wx6NEEFdkryuoICIHaNvIrqWlHtmF6MjQFzoGmKsvVOK5qgLxR8ptaPkovOZcEOLVola5WwiQnPI3nvrtYeRbUs0W1WaS4Qp9X2eRaiJ2VxfFYDZtOh2hwpG1qJIZ4gwLZX5/9Dr+LzKk0KQTk6metuRLdvwhMY9wW6SfhDviipMVqQwj6vuJOKElkLDe0eR/HUtP38KvbcVAzKLqylrXhtd42U+vO58dxe/NOAhrEP7y8wIBz48S/w+dWsKjiMx93wl7gNzEPtLQeXGTh/k5u3q8wTxehZEEBsF2DKhMlDf04jrud7mq4ynqeB1R+5yG3sYEf5y+UL0IGHRcZkM5nFIYkfQnIVkstFSK5jwDCKUVWAlSx4Ifq5NBP+wGTBIEkJdNke3oxZQHG0wGGPCu8cWohxthZ48/3mQZEfbx38c3h1yDABRJWbtGMuIBxv7BmJUftXgdv5d9H+gZzd283Wni5wT757X5/Z1uA8ONV35zuz3Yunr4ORlUpi70FN+ZH9QZ8Bq2lZgOqZ7f0NuZL4deg603VyHE1ni6YtPc17WVfsDgaur239LGgZtDW2fR0S3gwJ91De/BzYQqcs1zQ6NT8haBV+QHfwNB9LyYWuBsvNw+vf" target="_blank" rel="noopener noreferrer">Open v1 in Sketch</a><a class="button secondary" href="/tools/generative-art/assets/collection/Animation/Animated%20circles%20around%20center%20with%20blend%20mode/animated_circles_around_center_blend_mode.html">animated circles around center blend mode.html</a></div>
+            <div class="actions"><a class="button secondary" href="/tools/generative-art/assets/collection/Animation/Animated%20circles%20around%20center%20with%20blend%20mode/animated_circles_around_center_blend_mode.html">animated circles around center blend mode.html</a></div>
             
         <section class="content-section">
             <h2>Files</h2>

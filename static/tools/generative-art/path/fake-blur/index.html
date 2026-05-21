@@ -262,6 +262,17 @@
             background: var(--tile);
         }
 
+        .preview-link {
+            display: block;
+            color: inherit;
+            text-decoration: none;
+        }
+
+        .preview-link:focus-visible {
+            outline: 3px solid var(--accent);
+            outline-offset: 3px;
+        }
+
         .preview-panel img,
         .preview-panel video {
             width: 100%;
@@ -469,9 +480,10 @@
         </header>
         <div class="content">
             <section class="preview-panel" aria-label="Preview">
-                <img class="preview-media" src="/tools/generative-art/assets/collection/Path/Fake%20blur/Screenshot_2023-12-28_at_10.31.33.png" alt="Fake blur" loading="eager" decoding="async">
+                <a class="preview-link" href="http://sketch.paperjs.org/#V/0.12.17/S/VY+xCsIwEIZfJWRRoRQ7CBJwsbMgOFqHNDlJ6DUpadIgpe9uaq3gbf//fQd3IzW8BcrorQEvFM2osHLOA3dEaCcQCnIiBiK5cq/y8lNtx8qQNAKMB8fIoCHmS8gW4rjUoWekOOy/Ta+4tLG0aNPCpsYAmz9yxpDAcdWfGnGVo9L+Z9cIRl7SkQm0Ab3u8DWzaVeZyqQHage86aw2vqfs/pje" target="_blank" rel="noopener noreferrer" aria-label="Open v1 in Sketch">
+                    <img class="preview-media" src="/tools/generative-art/assets/collection/Path/Fake%20blur/Screenshot_2023-12-28_at_10.31.33.png" alt="Fake blur" loading="eager" decoding="async">
+                </a>
             </section>
-            <div class="actions"><a class="text-link sketch-link" href="http://sketch.paperjs.org/#V/0.12.17/S/VY+xCsIwEIZfJWRRoRQ7CBJwsbMgOFqHNDlJ6DUpadIgpe9uaq3gbf//fQd3IzW8BcrorQEvFM2osHLOA3dEaCcQCnIiBiK5cq/y8lNtx8qQNAKMB8fIoCHmS8gW4rjUoWekOOy/Ta+4tLG0aNPCpsYAmz9yxpDAcdWfGnGVo9L+Z9cIRl7SkQm0Ab3u8DWzaVeZyqQHage86aw2vqfs/pje" target="_blank" rel="noopener noreferrer">Open v1 in Sketch</a></div>
             
             
         <section class="content-section">

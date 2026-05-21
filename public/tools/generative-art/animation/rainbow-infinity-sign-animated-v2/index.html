@@ -262,6 +262,17 @@
             background: var(--tile);
         }
 
+        .preview-link {
+            display: block;
+            color: inherit;
+            text-decoration: none;
+        }
+
+        .preview-link:focus-visible {
+            outline: 3px solid var(--accent);
+            outline-offset: 3px;
+        }
+
         .preview-panel img,
         .preview-panel video {
             width: 100%;
@@ -469,9 +480,10 @@
         </header>
         <div class="content">
             <section class="preview-panel" aria-label="Preview">
-                <img class="preview-media" src="/tools/generative-art/assets/collection/Animation/Rainbow%20infinity%20sign%20animated%20v2/Screen_Recording_2022-06-22_at_11.19.29.2022-06-22_11_23_33.gif" alt="Rainbow infinity sign animated v2" loading="eager" decoding="async">
+                <a class="preview-link" href="http://sketch.paperjs.org/#V/0.12.17/S/nVXfb9owEP5XLF4ILXWTdnRauj1V6p4qVWsfNgEPJjHEItjINtCt4n/fObYThyxsWl4Sn++++/Xd5X3AyYYO0sHLmuqsGIwHmcjNeU8kWqzQF8TpAT0TXeBvNNOEr0oavc84gkexXzRFe0YPeCF2PFdjK1+ysnwQpZApGi5Kkq2H7mIrFNNMcGeUUa6pnPHjaMaNu61gXCtw+XFiBSXlK10YgVMg1clHFDk7pYnUIA9A0TWaJvEYJfP7GV8KiSKjyEApvofXZ+cLvi8vR8jlY+AxyfPIAl5aR0YxYujCRTNG8Qj8Hq3rjMmspCbm6bzHkQFVdLWBuBS2GG23DU5Y7YdK4kttHptZ2kacsjmuchk3ipLkbKdS9CEOhGFTJM2HwRXZbsufT0RL9paiJSkVdZemMZVnmyXe7lQR2UNTAlP5eMYh+x3PTHeR4I8SSBXRPURYpwkFBUU8aZJWpThQ+co2JnENLUvi04ok331fLcPwgeXAgWt0A+15qgrBeBQAwc0IenU76UL9OIEqKFsVuh/L4NxMYqPQYFW19n2qqOEDHdd+RgGdlkwq/WKbhb1x9Xaz0stNdIWSNlHqulk4A3RChbYep2/eNeg6NWykbb09DDaE0ajYOK9CABzEXNlVNrieUPdx4Wtlno75H1xYHEc3+9ptc6Kp5b96disj0sHQ2RHvHZYO/0Pul6bpXyWl3I+An6tgfbib7mDYZWWV8EIyvnoVj1IADRpx7Q0iHB4KpukwjPuhFNwQ3mln5thYV7dtiCDiDk5yHij5C1JByqXrkDqlk+8t0LA13X3t8Sz9vyXYNAL7v0SH333hzU/JGZayFy0+Z5b027VqBruhC2NLYzdzDwg7Z1X3DBc7w5SbGBbU7Z1Za+DQbYcLxP7BGFZucvcprufrCD/4haRkbVEG6XR+/A0=" target="_blank" rel="noopener noreferrer" aria-label="Open v1 in Sketch">
+                    <img class="preview-media" src="/tools/generative-art/assets/collection/Animation/Rainbow%20infinity%20sign%20animated%20v2/Screen_Recording_2022-06-22_at_11.19.29.2022-06-22_11_23_33.gif" alt="Rainbow infinity sign animated v2" loading="eager" decoding="async">
+                </a>
             </section>
-            <div class="actions"><a class="text-link sketch-link" href="http://sketch.paperjs.org/#V/0.12.17/S/nVXfb9owEP5XLF4ILXWTdnRauj1V6p4qVWsfNgEPJjHEItjINtCt4n/fObYThyxsWl4Sn++++/Xd5X3AyYYO0sHLmuqsGIwHmcjNeU8kWqzQF8TpAT0TXeBvNNOEr0oavc84gkexXzRFe0YPeCF2PFdjK1+ysnwQpZApGi5Kkq2H7mIrFNNMcGeUUa6pnPHjaMaNu61gXCtw+XFiBSXlK10YgVMg1clHFDk7pYnUIA9A0TWaJvEYJfP7GV8KiSKjyEApvofXZ+cLvi8vR8jlY+AxyfPIAl5aR0YxYujCRTNG8Qj8Hq3rjMmspCbm6bzHkQFVdLWBuBS2GG23DU5Y7YdK4kttHptZ2kacsjmuchk3ipLkbKdS9CEOhGFTJM2HwRXZbsufT0RL9paiJSkVdZemMZVnmyXe7lQR2UNTAlP5eMYh+x3PTHeR4I8SSBXRPURYpwkFBUU8aZJWpThQ+co2JnENLUvi04ok331fLcPwgeXAgWt0A+15qgrBeBQAwc0IenU76UL9OIEqKFsVuh/L4NxMYqPQYFW19n2qqOEDHdd+RgGdlkwq/WKbhb1x9Xaz0stNdIWSNlHqulk4A3RChbYep2/eNeg6NWykbb09DDaE0ajYOK9CABzEXNlVNrieUPdx4Wtlno75H1xYHEc3+9ptc6Kp5b96disj0sHQ2RHvHZYO/0Pul6bpXyWl3I+An6tgfbib7mDYZWWV8EIyvnoVj1IADRpx7Q0iHB4KpukwjPuhFNwQ3mln5thYV7dtiCDiDk5yHij5C1JByqXrkDqlk+8t0LA13X3t8Sz9vyXYNAL7v0SH333hzU/JGZayFy0+Z5b027VqBruhC2NLYzdzDwg7Z1X3DBc7w5SbGBbU7Z1Za+DQbYcLxP7BGFZucvcprufrCD/4haRkbVEG6XR+/A0=" target="_blank" rel="noopener noreferrer">Open v1 in Sketch</a></div>
             
             
         <section class="content-section">

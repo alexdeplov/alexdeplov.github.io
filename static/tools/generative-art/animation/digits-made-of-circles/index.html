@@ -262,6 +262,17 @@
             background: var(--tile);
         }
 
+        .preview-link {
+            display: block;
+            color: inherit;
+            text-decoration: none;
+        }
+
+        .preview-link:focus-visible {
+            outline: 3px solid var(--accent);
+            outline-offset: 3px;
+        }
+
         .preview-panel img,
         .preview-panel video {
             width: 100%;
@@ -469,9 +480,10 @@
         </header>
         <div class="content">
             <section class="preview-panel" aria-label="Preview">
-                <img class="preview-media" src="/tools/generative-art/assets/collection/Animation/Digits%20made%20of%20circles/Screen_Recording_2023-02-12_at_12.48.48.2023-02-12_12_57_45.gif" alt="Digits made of circles" loading="eager" decoding="async">
+                <a class="preview-link" href="http://sketch.paperjs.org/#V/0.12.17/S/tVfbjpswEP0VK1IV0kQI5x7aPq3UvlRV1X3pikSVQ5ysG2Ijh2RDV/x7bUwuBjdmN1uEBDMeHx+Ox/bw3KBogxt+436Nk/Cx0WmEbCHtPeJgvgKfAMVP4DtKHt0fOEwQXUXYeZ5SIK4t+YN9sCf4yZ2zHV1sO8q/JFF0xyLGfdCcRyhcN4uGmG1JQhgtOoWYJphPadaaUjncBh1+igEHJ+tBWCNlcbQgu62wYdG8QrGw+p6y6G4zx/yXJ1yBGivwOgAeb29WMAikcbxh1QurXliNhVcQNK/OYUpnGluosz2N5VX7l73m2Nu9V9h2X6mtV0MZE0IN7/musO1dsNUjrbzO4lT1MnjfIhP6lUyozQBWY6ERwaKC+cuMbAdWbe0zZlPx7bQdmlZZWQNoZFv7Gyy7ygvYjm7N25dks2H1X1ehzHZ86377wj3hNm0n/43t6+bhTEBju+JsF0/plC53NJTHJViQbRyh9Fv+GQ7iHKUtUBzCZAmcvMfJI6/c43K8YXvstJQ/U4+8qTjXv8j3Y/uSceBIAgfR6n0Qj4/5kSze2m0N/RSZqshURT6It1KkvGRgSHgY4ctq4i73OKVYeamj3hcnfafaeFlbcLxoGkJUWeGD4KLIcA+gnZcM78Ghc1l9uOmpIZ0ZwFiMQpKkPshVD9JZcDCFxYgLOF+JW2rPWrqttHALZNAWErrdc0imzRbHyY7TY05kKkOIlF3LEEY/c1HHOXgvaGi5kXvcUNRnCXgHeqJCEn21OZJRRLonlakrBipR0zp5lU56th4rs9Z1GFgPBlpguvVguhaYXj2YngWmXw+mb4EZ1IMZWGCG9WCGFphRPZiRBWZcD2ZsganmrBFm8g8YufrgacFlck3FnP0WfzouEitrj7+iVGwSxx8XsRwu9g7xszTnGK1jRmiybfjBLPsL" target="_blank" rel="noopener noreferrer" aria-label="Open v1 in Sketch">
+                    <img class="preview-media" src="/tools/generative-art/assets/collection/Animation/Digits%20made%20of%20circles/Screen_Recording_2023-02-12_at_12.48.48.2023-02-12_12_57_45.gif" alt="Digits made of circles" loading="eager" decoding="async">
+                </a>
             </section>
-            <div class="actions"><a class="text-link sketch-link" href="http://sketch.paperjs.org/#V/0.12.17/S/tVfbjpswEP0VK1IV0kQI5x7aPq3UvlRV1X3pikSVQ5ysG2Ijh2RDV/x7bUwuBjdmN1uEBDMeHx+Ox/bw3KBogxt+436Nk/Cx0WmEbCHtPeJgvgKfAMVP4DtKHt0fOEwQXUXYeZ5SIK4t+YN9sCf4yZ2zHV1sO8q/JFF0xyLGfdCcRyhcN4uGmG1JQhgtOoWYJphPadaaUjncBh1+igEHJ+tBWCNlcbQgu62wYdG8QrGw+p6y6G4zx/yXJ1yBGivwOgAeb29WMAikcbxh1QurXliNhVcQNK/OYUpnGluosz2N5VX7l73m2Nu9V9h2X6mtV0MZE0IN7/musO1dsNUjrbzO4lT1MnjfIhP6lUyozQBWY6ERwaKC+cuMbAdWbe0zZlPx7bQdmlZZWQNoZFv7Gyy7ygvYjm7N25dks2H1X1ehzHZ86377wj3hNm0n/43t6+bhTEBju+JsF0/plC53NJTHJViQbRyh9Fv+GQ7iHKUtUBzCZAmcvMfJI6/c43K8YXvstJQ/U4+8qTjXv8j3Y/uSceBIAgfR6n0Qj4/5kSze2m0N/RSZqshURT6It1KkvGRgSHgY4ctq4i73OKVYeamj3hcnfafaeFlbcLxoGkJUWeGD4KLIcA+gnZcM78Ghc1l9uOmpIZ0ZwFiMQpKkPshVD9JZcDCFxYgLOF+JW2rPWrqttHALZNAWErrdc0imzRbHyY7TY05kKkOIlF3LEEY/c1HHOXgvaGi5kXvcUNRnCXgHeqJCEn21OZJRRLonlakrBipR0zp5lU56th4rs9Z1GFgPBlpguvVguhaYXj2YngWmXw+mb4EZ1IMZWGCG9WCGFphRPZiRBWZcD2ZsganmrBFm8g8YufrgacFlck3FnP0WfzouEitrj7+iVGwSxx8XsRwu9g7xszTnGK1jRmiybfjBLPsL" target="_blank" rel="noopener noreferrer">Open v1 in Sketch</a></div>
             
             
         <section class="content-section">
