@@ -12,6 +12,7 @@
     --accent-color: #4a90e2;
     --accent-orange: #f46c04;
     --blog-section-separator: rgba(24, 24, 27, 0.18);
+    --index-link-border: #d4d4d8;
 }
 
 @media (prefers-color-scheme: dark) {
@@ -25,6 +26,7 @@
         --accent-color: #4a90e2;
         --accent-orange: #f46c04;
         --blog-section-separator: rgba(244, 244, 245, 0.16);
+        --index-link-border: rgba(244, 244, 245, 0.28);
     }
 }
 
@@ -220,8 +222,33 @@ a:hover {
     text-decoration-color: currentColor;
 }
 
-.post-title-link:hover {
-    text-decoration: underline;
+a.post-title-link {
+    padding-bottom: 0.45rem;
+    padding-top: 0.45rem;
+    text-decoration: none;
+    text-decoration-line: none;
+}
+
+a.post-title-link h2,
+a.post-title-link h3 {
+    border-bottom: 1px solid var(--index-link-border);
+    font-size: 17px !important;
+    line-height: 1.18;
+    transition: border-color 150ms ease, color 150ms ease;
+}
+
+a.post-title-link:hover,
+a.post-title-link:focus-visible {
+    text-decoration: none;
+    text-decoration-line: none;
+}
+
+a.post-title-link:hover h2,
+a.post-title-link:hover h3,
+a.post-title-link:focus-visible h2,
+a.post-title-link:focus-visible h3 {
+    border-bottom-color: var(--accent-orange);
+    color: #000000 !important;
 }
 
 .blog-heading-link:hover h2 {
@@ -229,8 +256,17 @@ a:hover {
 }
 
 @media (prefers-color-scheme: dark) {
-    .post-title-link:hover {
-        text-decoration: underline;
+    a.post-title-link:hover,
+    a.post-title-link:focus-visible {
+        text-decoration: none;
+        text-decoration-line: none;
+    }
+
+    a.post-title-link:hover h2,
+    a.post-title-link:hover h3,
+    a.post-title-link:focus-visible h2,
+    a.post-title-link:focus-visible h3 {
+        color: #ffffff !important;
     }
 }
 
@@ -248,12 +284,12 @@ a:hover {
     background: var(--blog-section-separator);
     border: 0;
     height: 1px;
-    margin: 3rem 0 !important;
+    margin: 2.25rem 0 !important;
 }
 
 @media (max-width: 640px) {
     .blog-section-separator {
-        margin: 1.75rem 0 !important;
+        margin: 1.35rem 0 !important;
     }
 }
 

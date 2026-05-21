@@ -590,7 +590,8 @@ def base_styles() -> str:
         .grid {
             display: grid;
             grid-template-columns: repeat(4, 1fr);
-            gap: 5px;
+            column-gap: 5px;
+            row-gap: 18px;
             width: 100%;
             margin: 0 auto;
             padding: 20px 0;
