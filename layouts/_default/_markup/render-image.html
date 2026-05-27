@@ -9,7 +9,9 @@
   {{- $cleanSrc := strings.TrimPrefix "./" $src -}}
   {{- $image := .Page.Resources.GetMatch $cleanSrc -}}
   {{- if and $image (eq $image.ResourceType "image") (in (slice "jpeg" "jpg" "png" "webp") $image.MediaType.SubType) -}}
-    {{- if eq $image.MediaType.SubType "png" -}}
+    {{- if eq (.Page.Params.image_processing | default "") "original" -}}
+<img src="{{ $image.RelPermalink }}" alt="{{ $alt }}"{{ with $title }} title="{{ . }}"{{ end }} width="{{ $image.Width }}" height="{{ $image.Height }}" loading="lazy" decoding="async">
+    {{- else if eq $image.MediaType.SubType "png" -}}
       {{- $webpSrc := replaceRE "\\.[^.]+$" ".webp" $cleanSrc -}}
       {{- $webp := .Page.Resources.GetMatch $webpSrc -}}
       {{- if $webp -}}
@@ -21,12 +23,13 @@
 <img src="{{ $image.RelPermalink }}" alt="{{ $alt }}"{{ with $title }} title="{{ . }}"{{ end }} width="{{ $image.Width }}" height="{{ $image.Height }}" loading="lazy" decoding="async">
     {{- else -}}
       {{- $maxWidth := 1200 -}}
+      {{- $webpOptions := .Page.Params.image_webp_options | default "q95" -}}
       {{- $fallbackWidth := cond (gt $image.Width $maxWidth) $maxWidth $image.Width -}}
-      {{- $fallback := $image.Resize (printf "%dx webp q95" $fallbackWidth) -}}
+      {{- $fallback := $image.Resize (printf "%dx webp %s" $fallbackWidth $webpOptions) -}}
       {{- $srcset := slice -}}
       {{- range slice 480 768 1200 -}}
         {{- if le . $image.Width -}}
-          {{- $resized := $image.Resize (printf "%dx webp q95" .) -}}
+          {{- $resized := $image.Resize (printf "%dx webp %s" . $webpOptions) -}}
           {{- $srcset = $srcset | append (printf "%s %dw" $resized.RelPermalink .) -}}
         {{- end -}}
       {{- end -}}

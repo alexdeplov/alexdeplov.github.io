@@ -6,8 +6,15 @@
     <description>Recent content in FreeBSD on Alexander Deplov, AI artist, product designer</description>
     <generator>Hugo</generator>
     <language>en-us</language>
-    <lastBuildDate>Tue, 14 Apr 2026 09:00:00 -0400</lastBuildDate>
+    <lastBuildDate>Wed, 27 May 2026 12:00:00 +0200</lastBuildDate>
     <atom:link href="https://interfacecraft.online/tags/freebsd/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>How to Fit the FreeBSD Logo in a Perfect Circle</title>
+      <link>https://interfacecraft.online/blog/2026/how-to-fit-the-freebsd-logo-in-a-perfect-circle/</link>
+      <pubDate>Wed, 27 May 2026 12:00:00 +0200</pubDate>
+      <guid>https://interfacecraft.online/blog/2026/how-to-fit-the-freebsd-logo-in-a-perfect-circle/</guid>
+      <description>&lt;p&gt;The FreeBSD and Apple logos are quite similar. &lt;br/&gt;&#xA;Both have a heavy base and leaves / tails on top.&lt;/p&gt;&#xA;&lt;p&gt;&lt;img src=&#34;https://interfacecraft.online/blog/2026/how-to-fit-the-freebsd-logo-in-a-perfect-circle/apple-freebsd-wrong-circle-fit.jpg&#34; alt=&#34;Apple and FreeBSD logos compared by their heavy base and top detail, followed by a wrong circular crop approach&#34; width=&#34;928&#34; height=&#34;200&#34; loading=&#34;lazy&#34; decoding=&#34;async&#34;&gt;&lt;/p&gt;&#xA;&lt;br/&gt;&#xA;&lt;br/&gt;&#xA;&lt;h2 id=&#34;this-is-how-apple-fits-its-logo-into-a-circle&#34;&gt;This is how Apple fits its logo into a circle&lt;/h2&gt;&#xA;&lt;p&gt;&lt;img src=&#34;https://interfacecraft.online/blog/2026/how-to-fit-the-freebsd-logo-in-a-perfect-circle/apple-homepod-logo.jpg&#34; alt=&#34;Apple logo centered on the circular top surface of a black HomePod&#34; width=&#34;1472&#34; height=&#34;980&#34; loading=&#34;lazy&#34; decoding=&#34;async&#34;&gt;&lt;/p&gt;&#xA;&lt;br/&gt;&#xA;&lt;p&gt;With guides:&lt;/p&gt;&#xA;&lt;p&gt;&lt;img src=&#34;https://interfacecraft.online/blog/2026/how-to-fit-the-freebsd-logo-in-a-perfect-circle/apple-homepod-circle-guides.jpg&#34; alt=&#34;Apple HomePod top with orange circular guides around the speaker surface and Apple logo&#34; width=&#34;1472&#34; height=&#34;980&#34; loading=&#34;lazy&#34; decoding=&#34;async&#34;&gt;&lt;/p&gt;</description>
+    </item>
     <item>
       <title>I Connected a Desktop Phone to a FreeBSD Server, so Now I Can Call It</title>
       <link>https://interfacecraft.online/blog/2026/desktop-phone-connected-to-freebsd-server/</link>

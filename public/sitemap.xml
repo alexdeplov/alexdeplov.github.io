@@ -3,15 +3,27 @@
   xmlns:xhtml="http://www.w3.org/1999/xhtml">
   <url>
     <loc>https://interfacecraft.online/</loc>
-    <lastmod>2026-04-14T09:00:00-04:00</lastmod>
+    <lastmod>2026-05-27T12:00:00&#43;02:00</lastmod>
   </url>
   <url>
     <loc>https://interfacecraft.online/blog/</loc>
-    <lastmod>2026-04-14T09:00:00-04:00</lastmod>
+    <lastmod>2026-05-27T12:00:00&#43;02:00</lastmod>
+  </url>
+  <url>
+    <loc>https://interfacecraft.online/tags/design/</loc>
+    <lastmod>2026-05-27T12:00:00&#43;02:00</lastmod>
   </url>
   <url>
     <loc>https://interfacecraft.online/tags/freebsd/</loc>
-    <lastmod>2026-04-14T09:00:00-04:00</lastmod>
+    <lastmod>2026-05-27T12:00:00&#43;02:00</lastmod>
+  </url>
+  <url>
+    <loc>https://interfacecraft.online/blog/2026/how-to-fit-the-freebsd-logo-in-a-perfect-circle/</loc>
+    <lastmod>2026-05-27T12:00:00&#43;02:00</lastmod>
+  </url>
+  <url>
+    <loc>https://interfacecraft.online/tags/</loc>
+    <lastmod>2026-05-27T12:00:00&#43;02:00</lastmod>
   </url>
   <url>
     <loc>https://interfacecraft.online/tags/hardware/</loc>
@@ -19,10 +31,6 @@
   </url>
   <url>
     <loc>https://interfacecraft.online/blog/2026/desktop-phone-connected-to-freebsd-server/</loc>
-    <lastmod>2026-04-14T09:00:00-04:00</lastmod>
-  </url>
-  <url>
-    <loc>https://interfacecraft.online/tags/</loc>
     <lastmod>2026-04-14T09:00:00-04:00</lastmod>
   </url>
   <url>
@@ -56,10 +64,6 @@
   <url>
     <loc>https://interfacecraft.online/tags/automation/</loc>
     <lastmod>2025-11-12T14:33:35&#43;01:00</lastmod>
-  </url>
-  <url>
-    <loc>https://interfacecraft.online/tags/design/</loc>
-    <lastmod>2025-09-07T22:42:50&#43;02:00</lastmod>
   </url>
   <url>
     <loc>https://interfacecraft.online/blog/2025/why-i-ditched-dark-mode-on-macos/</loc>
