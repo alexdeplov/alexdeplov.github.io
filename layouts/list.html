@@ -1,11 +1,11 @@
 {{ define "main" }}
     <!-- Title section -->
     {{ if eq .Type "posts" }}
-        <h1 class="text-2xl font-bold mb-8">All Blog Posts</h1>
+        <h1 class="text-2xl font-semibold mb-8">All Blog Posts</h1>
     {{ else if and .Title (eq .Type "tags") }}
-        <h1 class="text-2xl font-bold mb-8">#{{ .Title }}</h1>
+        <h1 class="text-2xl font-semibold mb-8">#{{ .Title }}</h1>
     {{ else }}
-        <h1 class="text-2xl font-bold mb-8">{{ .Title }}</h1>
+        <h1 class="text-2xl font-semibold mb-8">{{ .Title }}</h1>
     {{ end }}
 
     <!-- User profile section - only on homepage first page -->
@@ -23,7 +23,7 @@
                 {{ end }}
                 {{ if site.Params.name }}
                     <div>
-                        <h1 class="mb-2 mt-3 text-[1.6rem] font-bold">{{ site.Params.name }}</h1>
+                        <h1 class="mb-2 mt-3 text-[1.6rem] font-semibold">{{ site.Params.name }}</h1>
                         <div class="break-words">
                             {{ site.Params.bio | default (print `A personal blog by ` site.Params.name) }}
                         </div>
