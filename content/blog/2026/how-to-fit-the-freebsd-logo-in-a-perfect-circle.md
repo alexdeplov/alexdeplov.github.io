@@ -33,7 +33,7 @@ With guides:
 <br/>
 <br/>
 
-Apple tries to keep heavy center closer to the surrounded surface:
+Apple tries to keep heavy center closer to the center of the surface:
 
 ![Apple logo on the HomePod with orange guides showing its mass placed close to the center surface](apple-logo-mass-guide.jpg)
 
