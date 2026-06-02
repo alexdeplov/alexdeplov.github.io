@@ -281,6 +281,13 @@
             object-fit: contain;
         }
 
+        .preview-panel canvas {
+            width: 100%;
+            display: block;
+            aspect-ratio: 4 / 3;
+            background: #000;
+        }
+
         .actions {
             display: flex;
             flex-wrap: wrap;
@@ -480,9 +487,9 @@
         </header>
         <div class="content">
             <section class="preview-panel" aria-label="Preview">
-                <a class="preview-link" href="http://sketch.paperjs.org/#V/0.12.17/S/ZVJBbsIwEPzKKheSgixaqZcUTlTtCalqj4SD4yyJhbuOHAekIv7eNbFoovqy9s5odsb2JSH5jUmefB3RqyZZJMpW4XySDsoa1kB4hg/pG/GJykuqDaaXgoBXp38wh5PGsyhtT1W3GPoHbczGGutymJVGquOsoGtWUEFBtHa2b6Pue9inDB16Ul5bAktb23f46mSd4gnJZ3GYcig9brRTbOCGiNZqxlk7SN8VJsSBEiXC9JaTjENFXmSE5WSl+y6Hp+XirzmN1ONshCn2ggzcZo36rXSM5EPgoX3959bSm+MHmGY9WAdpcKvZ6vKFy2pQEarRpmJZYZBq3zA0n2cj81PWTu/F3bloeoT5GrYhdqcpXqLil/PwAEvxmHF5jkbZJ/+Fku/yeMvVJfluf/0F" target="_blank" rel="noopener noreferrer" aria-label="Open v1 in Sketch">
-                    <img class="preview-media" src="/tools/generative-art/assets/collection/Cursor/Rainbow%20drawing%20sin/Screen_Recording_2022-06-19_at_23.58.37.2022-06-20_00_00_04.gif" alt="Rainbow drawing sin" loading="eager" decoding="async">
-                </a>
+                <div class="preview-link paperjs-preview-frame" data-sketch-url="http://sketch.paperjs.org/#V/0.12.17/S/ZVJBbsIwEPzKKheSgixaqZcUTlTtCalqj4SD4yyJhbuOHAekIv7eNbFoovqy9s5odsb2JSH5jUmefB3RqyZZJMpW4XySDsoa1kB4hg/pG/GJykuqDaaXgoBXp38wh5PGsyhtT1W3GPoHbczGGutymJVGquOsoGtWUEFBtHa2b6Pue9inDB16Ul5bAktb23f46mSd4gnJZ3GYcig9brRTbOCGiNZqxlk7SN8VJsSBEiXC9JaTjENFXmSE5WSl+y6Hp+XirzmN1ONshCn2ggzcZo36rXSM5EPgoX3959bSm+MHmGY9WAdpcKvZ6vKFy2pQEarRpmJZYZBq3zA0n2cj81PWTu/F3bloeoT5GrYhdqcpXqLil/PwAEvxmHF5jkbZJ/+Fku/yeMvVJfluf/0F">
+                    <canvas id="paperjs-preview-canvas" class="preview-media paperjs-preview-canvas" resize data-paperjs-preview aria-label="Rainbow drawing sin preview"></canvas>
+                </div>
             </section>
             
             
@@ -524,6 +531,8 @@
             &copy; 2026 Alexander Deplov, designer and developer of iOS and macOS apps, product designer.
         </footer>
     </article>
+    <script src="../../PaperJSEngine/paper-full.js"></script>
+    <script src="../../paperjs-preview-runner.js"></script>
     <script>
 document.addEventListener("click", function (event) {
     var button = event.target.closest(".copy-code-button");

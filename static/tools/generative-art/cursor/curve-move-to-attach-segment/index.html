@@ -281,6 +281,13 @@
             object-fit: contain;
         }
 
+        .preview-panel canvas {
+            width: 100%;
+            display: block;
+            aspect-ratio: 4 / 3;
+            background: #000;
+        }
+
         .actions {
             display: flex;
             flex-wrap: wrap;
@@ -480,9 +487,9 @@
         </header>
         <div class="content">
             <section class="preview-panel" aria-label="Preview">
-                <a class="preview-link" href="http://sketch.paperjs.org/#V/0.12.17/S/tVbRbpswFP0VixfISl3C1k1KtocpUidNqjS1lfaQ5MEBB7wQGxmTtJvy77s2hgCBVnsYLwHf6+tzzj2288fhZE+dmfO4oypKHd+JRKy/D0SiTYK+IE6P6AdRKX6gkSI8yaj3Z8URPAX7TWfowOgR61e/Gt2yLFuITMgZcjcZiXbuip8mK15FV1wXVvRZ1aUF4+oJvr3my3sf+Og2mEzmK64z8a+yUGzLIqKY4DDPzehWuXW0WVBHjilTtAlFAn65Xso1lQFSMwtCj4AaYmEw1/A0sKiUB9oi3VBVUuxoTUvS2PXbgZ8sVukMCnVGFyTXyaLksdHArGJWwCSOW3wbCfFRF7oJfTQNKv7/Jz28bacXeyE0VVSBVy85tNVNqNhTJVlUUwUlC9B/hgJ86yNLyFYwfL/DclrqinFb08I0p3HSgsmosZEkMSuLGTTcrhNBx6i0xqo+/KEuVK0e6sMHOyhyEjH1ohHrIdsB42yWJFQuamQVRBxlglNPZ7XjuLVsx2KdJLsWJAQ4vKgQEeAbXlSOSZF+lZLoaUst6zRYj6xO8gFpc93gcFTaRttpX9vlhSnQtbbveTfjlLIkVTfhemBfv9AsE0e3I2kC2HIL5Zt+N0IaAxhMbxrgEuS9zpWEx2LvTdA71APto/GECv0Q9k1WNq7JiaT6VDDYGzbbkkfmpIkkJYo+mPpmLxXexCq7BS94mtyz7vgcfj7rcwQ9X13VKfox9LWrtMkM6ZbJ6iQzgnNRMHu+mbUGec3rOdXsE2A2h8oA0C4Vwe8kHPQePQDhGmHHZ1IoqOEFeKqnnnqz70VZ0Htx6FWwMhobthmYJGzGLVF7UNBkD5FiGa6r6FiuRvRqvQ72VzPNcd/K6KO9hq3no4+f1u38jWQ8eRJ3Eq6Jpll25kWsZwlWWYKBJYyxcJSyLAan4YzyRKUQ6rqEbZHXzVyydQMQs2KRicIqX1EDvHCCt0ro57JE52rMS5ln5uBqT+r1ZXruyziiXoneVbty7F27ctAVYr3k89fp/Eqzgv4bGbOLW6VP/eqvq3s1XffVG0l7ow3m4u1VGpA1GJe1vUZPq9OoaNXGh39rG9j5O1O6cGbL9ekv" target="_blank" rel="noopener noreferrer" aria-label="Open v1 in Sketch">
-                    <img class="preview-media" src="/tools/generative-art/assets/collection/Cursor/Curve%20move%20to%20attach%20segment/Screen_Recording_2022-06-05_at_14.28.36.2022-06-05_14_29_36.gif" alt="Curve move to attach segment" loading="eager" decoding="async">
-                </a>
+                <div class="preview-link paperjs-preview-frame" data-sketch-url="http://sketch.paperjs.org/#V/0.12.17/S/tVbRbpswFP0VixfISl3C1k1KtocpUidNqjS1lfaQ5MEBB7wQGxmTtJvy77s2hgCBVnsYLwHf6+tzzj2288fhZE+dmfO4oypKHd+JRKy/D0SiTYK+IE6P6AdRKX6gkSI8yaj3Z8URPAX7TWfowOgR61e/Gt2yLFuITMgZcjcZiXbuip8mK15FV1wXVvRZ1aUF4+oJvr3my3sf+Og2mEzmK64z8a+yUGzLIqKY4DDPzehWuXW0WVBHjilTtAlFAn65Xso1lQFSMwtCj4AaYmEw1/A0sKiUB9oi3VBVUuxoTUvS2PXbgZ8sVukMCnVGFyTXyaLksdHArGJWwCSOW3wbCfFRF7oJfTQNKv7/Jz28bacXeyE0VVSBVy85tNVNqNhTJVlUUwUlC9B/hgJ86yNLyFYwfL/DclrqinFb08I0p3HSgsmosZEkMSuLGTTcrhNBx6i0xqo+/KEuVK0e6sMHOyhyEjH1ohHrIdsB42yWJFQuamQVRBxlglNPZ7XjuLVsx2KdJLsWJAQ4vKgQEeAbXlSOSZF+lZLoaUst6zRYj6xO8gFpc93gcFTaRttpX9vlhSnQtbbveTfjlLIkVTfhemBfv9AsE0e3I2kC2HIL5Zt+N0IaAxhMbxrgEuS9zpWEx2LvTdA71APto/GECv0Q9k1WNq7JiaT6VDDYGzbbkkfmpIkkJYo+mPpmLxXexCq7BS94mtyz7vgcfj7rcwQ9X13VKfox9LWrtMkM6ZbJ6iQzgnNRMHu+mbUGec3rOdXsE2A2h8oA0C4Vwe8kHPQePQDhGmHHZ1IoqOEFeKqnnnqz70VZ0Htx6FWwMhobthmYJGzGLVF7UNBkD5FiGa6r6FiuRvRqvQ72VzPNcd/K6KO9hq3no4+f1u38jWQ8eRJ3Eq6Jpll25kWsZwlWWYKBJYyxcJSyLAan4YzyRKUQ6rqEbZHXzVyydQMQs2KRicIqX1EDvHCCt0ro57JE52rMS5ln5uBqT+r1ZXruyziiXoneVbty7F27ctAVYr3k89fp/Eqzgv4bGbOLW6VP/eqvq3s1XffVG0l7ow3m4u1VGpA1GJe1vUZPq9OoaNXGh39rG9j5O1O6cGbL9ekv">
+                    <canvas id="paperjs-preview-canvas" class="preview-media paperjs-preview-canvas" resize data-paperjs-preview aria-label="Curve move to attach segment preview"></canvas>
+                </div>
             </section>
             <div class="actions"><a class="button secondary" href="/tools/generative-art/assets/collection/Cursor/Curve%20move%20to%20attach%20segment/Curve_move_to_attach_segment.html">Curve move to attach segment.html</a></div>
             
@@ -605,6 +612,8 @@
             &copy; 2026 Alexander Deplov, designer and developer of iOS and macOS apps, product designer.
         </footer>
     </article>
+    <script src="../../PaperJSEngine/paper-full.js"></script>
+    <script src="../../paperjs-preview-runner.js"></script>
     <script>
 document.addEventListener("click", function (event) {
     var button = event.target.closest(".copy-code-button");

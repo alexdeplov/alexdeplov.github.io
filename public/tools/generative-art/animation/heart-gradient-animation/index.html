@@ -281,6 +281,13 @@
             object-fit: contain;
         }
 
+        .preview-panel canvas {
+            width: 100%;
+            display: block;
+            aspect-ratio: 4 / 3;
+            background: #000;
+        }
+
         .actions {
             display: flex;
             flex-wrap: wrap;
@@ -480,9 +487,9 @@
         </header>
         <div class="content">
             <section class="preview-panel" aria-label="Preview">
-                <a class="preview-link" href="http://sketch.paperjs.org/#V/0.12.17/S/pVPLTsMwEPyVVS5NILJSJC6V4FIJTkgIjk0PrrNtrLrryHH6APXfWddpoS2cyCnx7Ozs7DifCckVJqPkfYle1UmeKFuF77V0MFvAAxBu4FX6Wryh8pIWBtPPkoCfVn/gCNYaN2JmO6raPJ7PtTFja6wbwWBmpFoOeqCxrfbaUk9SSB5dSfuspCAnSa9kwN8bxIqlC1EMI1TplrUVPjm7Gh9oDN8VRUklzTtSgQXKofQ41k7xjEetHFQYJYN+6NBNHUp+ersi3RdZrI+14uSJWYeGZ6hsGrN7kd7pLeNzaVqMuEPfOerL2Gl0s3C2a3r55/CeZmdGLD05TiXFNVs9mzy0/7E7sYVbeAkGWk2xXCiOwsPNxTYzPvlliX+yefV3gTMMOz6q7y7Ud0e+su0/1K/Zv6qfUjvLebLNYTfNw03rcPBHaKLuEG4f4FLlPpYf8hCyqsa1NlUa2X0rPYc04iqADkkYpIWv4ZEvSXFK57vPsW5STIXDlV1j2vfi+Pf8h814/mVjNfk2GU2m+y8=" target="_blank" rel="noopener noreferrer" aria-label="Open v1 in Sketch">
-                    <img class="preview-media" src="/tools/generative-art/assets/collection/Animation/Heart%20gradient%20animation/Screen_Recording_2024-01-01_at_12.16.19.2024-01-01_12_16_56.gif" alt="Heart gradient animation" loading="eager" decoding="async">
-                </a>
+                <div class="preview-link paperjs-preview-frame" data-sketch-url="http://sketch.paperjs.org/#V/0.12.17/S/pVPLTsMwEPyVVS5NILJSJC6V4FIJTkgIjk0PrrNtrLrryHH6APXfWddpoS2cyCnx7Ozs7DifCckVJqPkfYle1UmeKFuF77V0MFvAAxBu4FX6Wryh8pIWBtPPkoCfVn/gCNYaN2JmO6raPJ7PtTFja6wbwWBmpFoOeqCxrfbaUk9SSB5dSfuspCAnSa9kwN8bxIqlC1EMI1TplrUVPjm7Gh9oDN8VRUklzTtSgQXKofQ41k7xjEetHFQYJYN+6NBNHUp+ersi3RdZrI+14uSJWYeGZ6hsGrN7kd7pLeNzaVqMuEPfOerL2Gl0s3C2a3r55/CeZmdGLD05TiXFNVs9mzy0/7E7sYVbeAkGWk2xXCiOwsPNxTYzPvlliX+yefV3gTMMOz6q7y7Ud0e+su0/1K/Zv6qfUjvLebLNYTfNw03rcPBHaKLuEG4f4FLlPpYf8hCyqsa1NlUa2X0rPYc04iqADkkYpIWv4ZEvSXFK57vPsW5STIXDlV1j2vfi+Pf8h814/mVjNfk2GU2m+y8=">
+                    <canvas id="paperjs-preview-canvas" class="preview-media paperjs-preview-canvas" resize data-paperjs-preview aria-label="Heart gradient animation preview"></canvas>
+                </div>
             </section>
             
             
@@ -526,6 +533,8 @@
             &copy; 2026 Alexander Deplov, designer and developer of iOS and macOS apps, product designer.
         </footer>
     </article>
+    <script src="../../PaperJSEngine/paper-full.js"></script>
+    <script src="../../paperjs-preview-runner.js"></script>
     <script>
 document.addEventListener("click", function (event) {
     var button = event.target.closest(".copy-code-button");

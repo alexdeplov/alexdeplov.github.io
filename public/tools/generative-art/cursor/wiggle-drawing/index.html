@@ -281,6 +281,13 @@
             object-fit: contain;
         }
 
+        .preview-panel canvas {
+            width: 100%;
+            display: block;
+            aspect-ratio: 4 / 3;
+            background: #000;
+        }
+
         .actions {
             display: flex;
             flex-wrap: wrap;
@@ -480,9 +487,9 @@
         </header>
         <div class="content">
             <section class="preview-panel" aria-label="Preview">
-                <a class="preview-link" href="http://sketch.paperjs.org/#V/0.12.17/S/bVE9b4MwEP0rJ5YEJbLSoUOJMiVrpapVp7qDgQuxMHcIO6A24r/XNqSp1Hix/c7v486XhFSDSZa81eiKU7JOCi7DvVcd5BXsgHCAF+VO4hULp6gyuLxIAr+s/sYMeo2DyPlMpV1P+FEbs2fDXQaL3KiiXkgaU0mSgmjrtbbTUTWe5rzHw2YjyTEb0Wg6aOt9Coz4NtBihemZzxYPPJCvHM9UOM20xB7JpSFREP6Td5nOmFBlOT0TLWv/+Ipb13GNMannxV10ikpublyrm9bo41dAxn9ZOlXdzSJdaK/3A4vSk3mJxqlYi7iIs4TVDp588yDdvaywmlWu9lcvmCO8t7MrXG4iv6Ef49RH/6t5h6qOkjbJPj7HHw==" target="_blank" rel="noopener noreferrer" aria-label="Open v1 in Sketch">
-                    <img class="preview-media" src="/tools/generative-art/assets/collection/Cursor/Wiggle%20drawing/Screen_Recording_2022-08-20_at_22.15.28.2022-08-20_22_22_37.gif" alt="Wiggle drawing" loading="eager" decoding="async">
-                </a>
+                <div class="preview-link paperjs-preview-frame" data-sketch-url="http://sketch.paperjs.org/#V/0.12.17/S/bVE9b4MwEP0rJ5YEJbLSoUOJMiVrpapVp7qDgQuxMHcIO6A24r/XNqSp1Hix/c7v486XhFSDSZa81eiKU7JOCi7DvVcd5BXsgHCAF+VO4hULp6gyuLxIAr+s/sYMeo2DyPlMpV1P+FEbs2fDXQaL3KiiXkgaU0mSgmjrtbbTUTWe5rzHw2YjyTEb0Wg6aOt9Coz4NtBihemZzxYPPJCvHM9UOM20xB7JpSFREP6Td5nOmFBlOT0TLWv/+Ipb13GNMannxV10ikpublyrm9bo41dAxn9ZOlXdzSJdaK/3A4vSk3mJxqlYi7iIs4TVDp588yDdvaywmlWu9lcvmCO8t7MrXG4iv6Ef49RH/6t5h6qOkjbJPj7HHw==">
+                    <canvas id="paperjs-preview-canvas" class="preview-media paperjs-preview-canvas" resize data-paperjs-preview aria-label="Wiggle drawing preview"></canvas>
+                </div>
             </section>
             
             
@@ -526,6 +533,8 @@
             &copy; 2026 Alexander Deplov, designer and developer of iOS and macOS apps, product designer.
         </footer>
     </article>
+    <script src="../../PaperJSEngine/paper-full.js"></script>
+    <script src="../../paperjs-preview-runner.js"></script>
     <script>
 document.addEventListener("click", function (event) {
     var button = event.target.closest(".copy-code-button");

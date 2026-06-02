@@ -281,6 +281,13 @@
             object-fit: contain;
         }
 
+        .preview-panel canvas {
+            width: 100%;
+            display: block;
+            aspect-ratio: 4 / 3;
+            background: #000;
+        }
+
         .actions {
             display: flex;
             flex-wrap: wrap;
@@ -480,9 +487,9 @@
         </header>
         <div class="content">
             <section class="preview-panel" aria-label="Preview">
-                <a class="preview-link" href="http://sketch.paperjs.org/#V/0.12.17/S/jVTBjtowEP0VKxdIN1jQFmkVaQ/tSu1lV6q2lXoADk4yJC7GjmwHRBH/3jG2SdhdoeYAk5nxzJs3zzkmkm0hyZOfG7Blk2RJqSr3vmOa1Fp1LXkgEvbku7PH6VIupQu1zDYh8gNN+sh1KWB8XEqCj2YV70xO5vPMO4zVagOPSiidk9G+4RZGV6HfvLJNTj7HA60y3HIlc7LjsKclSAs6xEqhDFQ5WTNh4LoBa7E8IpVVLN8yjWdzP8tSni4TVMy4CdwgFCtKcMM5Jx2AxYSANsR8b+e2urt4I1r0D+CGoPv5ojU7YHQxm2Zk9nG6iq1AVr/UV1ZuPLVLue5keS6l5DeNqxnDDoulRxfz8yBerSyzMH52tuHS59AS57bkA5nS6XSeojGj82wIKPUlzp1vl5jcqjEAMqCKNh2QuwcyGzR5P4xbiEtQO9DizMxFSS9QWibrXkyG/4Ugg8Jt1oTNrrkQUVGFQApH/6GdQiDjzyhxPFS6w5NKVbVbZK8Mq9onWNvrZZIJWdzj8u7d7lxWoaxV2xdeN68z7waZPrd2FwKDN+cMbfNoRMR9n3z48paFUMc9seGV098T1eLFXIwOIITajzK8LlC5v0Kgnld99inrbaV5zeVrZOc1g7FcMk/3AJ3POL3D+rYTlrficKE8YqVB8UhSvAS9+M8ENdxE3c7SoKJWqz/IJGV4YAdP7ACampIhrZ9S/JoVGtimVVxak+SL1ekf" target="_blank" rel="noopener noreferrer" aria-label="Open v1 in Sketch">
-                    <img class="preview-media" src="/tools/generative-art/assets/collection/Animation/Dash%20circle%20animation%20with%20gradient/Screen_Recording_2024-01-01_at_11.05.54.2024-01-01_11_06_59.gif" alt="Dash circle animation with gradient" loading="eager" decoding="async">
-                </a>
+                <div class="preview-link paperjs-preview-frame" data-sketch-url="http://sketch.paperjs.org/#V/0.12.17/S/jVTBjtowEP0VKxdIN1jQFmkVaQ/tSu1lV6q2lXoADk4yJC7GjmwHRBH/3jG2SdhdoeYAk5nxzJs3zzkmkm0hyZOfG7Blk2RJqSr3vmOa1Fp1LXkgEvbku7PH6VIupQu1zDYh8gNN+sh1KWB8XEqCj2YV70xO5vPMO4zVagOPSiidk9G+4RZGV6HfvLJNTj7HA60y3HIlc7LjsKclSAs6xEqhDFQ5WTNh4LoBa7E8IpVVLN8yjWdzP8tSni4TVMy4CdwgFCtKcMM5Jx2AxYSANsR8b+e2urt4I1r0D+CGoPv5ojU7YHQxm2Zk9nG6iq1AVr/UV1ZuPLVLue5keS6l5DeNqxnDDoulRxfz8yBerSyzMH52tuHS59AS57bkA5nS6XSeojGj82wIKPUlzp1vl5jcqjEAMqCKNh2QuwcyGzR5P4xbiEtQO9DizMxFSS9QWibrXkyG/4Ugg8Jt1oTNrrkQUVGFQApH/6GdQiDjzyhxPFS6w5NKVbVbZK8Mq9onWNvrZZIJWdzj8u7d7lxWoaxV2xdeN68z7waZPrd2FwKDN+cMbfNoRMR9n3z48paFUMc9seGV098T1eLFXIwOIITajzK8LlC5v0Kgnld99inrbaV5zeVrZOc1g7FcMk/3AJ3POL3D+rYTlrficKE8YqVB8UhSvAS9+M8ENdxE3c7SoKJWqz/IJGV4YAdP7ACampIhrZ9S/JoVGtimVVxak+SL1ekf">
+                    <canvas id="paperjs-preview-canvas" class="preview-media paperjs-preview-canvas" resize data-paperjs-preview aria-label="Dash circle animation with gradient preview"></canvas>
+                </div>
             </section>
             
             
@@ -576,6 +583,8 @@
             &copy; 2026 Alexander Deplov, designer and developer of iOS and macOS apps, product designer.
         </footer>
     </article>
+    <script src="../../PaperJSEngine/paper-full.js"></script>
+    <script src="../../paperjs-preview-runner.js"></script>
     <script>
 document.addEventListener("click", function (event) {
     var button = event.target.closest(".copy-code-button");

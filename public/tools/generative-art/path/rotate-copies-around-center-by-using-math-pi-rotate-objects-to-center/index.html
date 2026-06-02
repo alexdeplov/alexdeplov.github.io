@@ -281,6 +281,13 @@
             object-fit: contain;
         }
 
+        .preview-panel canvas {
+            width: 100%;
+            display: block;
+            aspect-ratio: 4 / 3;
+            background: #000;
+        }
+
         .actions {
             display: flex;
             flex-wrap: wrap;
@@ -480,9 +487,9 @@
         </header>
         <div class="content">
             <section class="preview-panel" aria-label="Preview">
-                <a class="preview-link" href="http://sketch.paperjs.org/#V/0.12.17/S/bVHBTsMwDP0VK5e1a1XSSUhQ4MSJA9IEx3WHrDMsaudUSboxpv477tqJjpGL7ef34ufkKEhtUWTivURfbEQsCrPu6px2yoLamoY8PEE66wGr1rpxJ0DmlNOHsRB0Dc2YfODwOIg4j6LwmBPw6Ri18hsmEe5hzmnyhoVX9FlhMJC64/Q3ZnAr4xHkrSnx2VTGZjBZVQ1ORt3aOO21oQx2GvdJgeTRQgSLVMoY5HJE7b1nkMoea8M+/lo82WGPGqbw2nmcv3A2g5thpzG/WyexxiuPQa+bQpDeSSYP0pBt3MvwSnS2nHzxqJFrrqPzAw/zC+P6y8P/9Ic/+sOV3mm60OfU8hevLKqyNpq8E9li2f4A" target="_blank" rel="noopener noreferrer" aria-label="Open v1 in Sketch">
-                    <img class="preview-media" src="/tools/generative-art/assets/collection/Path/Rotate%20copies%20around%20center%20by%20using%20Math%20PI,%20rota/Screenshot_2024-01-29_at_14.11.51.png" alt="Rotate copies around center by using Math.PI, rotate objects to center" loading="eager" decoding="async">
-                </a>
+                <div class="preview-link paperjs-preview-frame" data-sketch-url="http://sketch.paperjs.org/#V/0.12.17/S/bVHBTsMwDP0VK5e1a1XSSUhQ4MSJA9IEx3WHrDMsaudUSboxpv477tqJjpGL7ef34ufkKEhtUWTivURfbEQsCrPu6px2yoLamoY8PEE66wGr1rpxJ0DmlNOHsRB0Dc2YfODwOIg4j6LwmBPw6Ri18hsmEe5hzmnyhoVX9FlhMJC64/Q3ZnAr4xHkrSnx2VTGZjBZVQ1ORt3aOO21oQx2GvdJgeTRQgSLVMoY5HJE7b1nkMoea8M+/lo82WGPGqbw2nmcv3A2g5thpzG/WyexxiuPQa+bQpDeSSYP0pBt3MvwSnS2nHzxqJFrrqPzAw/zC+P6y8P/9Ic/+sOV3mm60OfU8hevLKqyNpq8E9li2f4A">
+                    <canvas id="paperjs-preview-canvas" class="preview-media paperjs-preview-canvas" resize data-paperjs-preview aria-label="Rotate copies around center by using Math.PI, rotate objects to center preview"></canvas>
+                </div>
             </section>
             
             
@@ -519,6 +526,8 @@
             &copy; 2026 Alexander Deplov, designer and developer of iOS and macOS apps, product designer.
         </footer>
     </article>
+    <script src="../../PaperJSEngine/paper-full.js"></script>
+    <script src="../../paperjs-preview-runner.js"></script>
     <script>
 document.addEventListener("click", function (event) {
     var button = event.target.closest(".copy-code-button");

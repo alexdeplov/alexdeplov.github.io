@@ -281,6 +281,13 @@
             object-fit: contain;
         }
 
+        .preview-panel canvas {
+            width: 100%;
+            display: block;
+            aspect-ratio: 4 / 3;
+            background: #000;
+        }
+
         .actions {
             display: flex;
             flex-wrap: wrap;
@@ -480,9 +487,9 @@
         </header>
         <div class="content">
             <section class="preview-panel" aria-label="Preview">
-                <a class="preview-link" href="http://sketch.paperjs.org/#V/0.12.17/S/jVNRT8IwEP4rzXxgE7IMCC9LMDEa9YXE6IMPjofSHdBQrkvXoUj4717XMadiYl92vbt+931f10OAfAtBGjxvwIp1MAiEzt1+xw1brNiUIbyxR27X8RMIy3GlIDxkyGiV8gNStpPwFrtw4LNLqdSNVtqkrLdQXGx6GR6jDDN0kALQgrmRRijogvuMRzY8l1WZslGS1JilNXoDJ8yL8Xjc6+RfZG7X1FynPHxDym+601dGV0Uz9t7FYdTQUhrh/q8qV+raGL6n2uu8SW0LJW2Vw4M28kOj5YqqiRuU4bJCYaVGpvHOkL0h7IhK1Njmjhek+S/5bn1ZMDilvvtaQa+tnBHd1gpuKJF65W2WF4Xaz7g18j1lS65K8BXnVF0/o64/ZZPTeeaDGjQ22nIL4czpKCV6sbHQFVp2yZI4SYaTiKLRoMuwvhPPkM4VupTOsfidXOl00b5/lk0NPDmHsP+BsCeEmhunv/c3OU+tA9T6HK8rcKr/T2c4mpxUuUvOZUkjBfwgtAJ721TCb9Qb8+WShe3RK/cKosPXdVK/ga3eQdi0H92HfnJ6ugsDfFNoibYM0tf58RM=" target="_blank" rel="noopener noreferrer" aria-label="Open v1 in Sketch">
-                    <img class="preview-media" src="/tools/generative-art/assets/collection/Animation/Hypnoses%20Spin/Screen_Recording_2023-05-19_at_09.46.39.2023-05-19_09_57_31.gif" alt="Hypnoses Spin" loading="eager" decoding="async">
-                </a>
+                <div class="preview-link paperjs-preview-frame" data-sketch-url="http://sketch.paperjs.org/#V/0.12.17/S/jVNRT8IwEP4rzXxgE7IMCC9LMDEa9YXE6IMPjofSHdBQrkvXoUj4717XMadiYl92vbt+931f10OAfAtBGjxvwIp1MAiEzt1+xw1brNiUIbyxR27X8RMIy3GlIDxkyGiV8gNStpPwFrtw4LNLqdSNVtqkrLdQXGx6GR6jDDN0kALQgrmRRijogvuMRzY8l1WZslGS1JilNXoDJ8yL8Xjc6+RfZG7X1FynPHxDym+601dGV0Uz9t7FYdTQUhrh/q8qV+raGL6n2uu8SW0LJW2Vw4M28kOj5YqqiRuU4bJCYaVGpvHOkL0h7IhK1Njmjhek+S/5bn1ZMDilvvtaQa+tnBHd1gpuKJF65W2WF4Xaz7g18j1lS65K8BXnVF0/o64/ZZPTeeaDGjQ22nIL4czpKCV6sbHQFVp2yZI4SYaTiKLRoMuwvhPPkM4VupTOsfidXOl00b5/lk0NPDmHsP+BsCeEmhunv/c3OU+tA9T6HK8rcKr/T2c4mpxUuUvOZUkjBfwgtAJ721TCb9Qb8+WShe3RK/cKosPXdVK/ga3eQdi0H92HfnJ6ugsDfFNoibYM0tf58RM=">
+                    <canvas id="paperjs-preview-canvas" class="preview-media paperjs-preview-canvas" resize data-paperjs-preview aria-label="Hypnoses Spin preview"></canvas>
+                </div>
             </section>
             
             
@@ -561,6 +568,8 @@
             &copy; 2026 Alexander Deplov, designer and developer of iOS and macOS apps, product designer.
         </footer>
     </article>
+    <script src="../../PaperJSEngine/paper-full.js"></script>
+    <script src="../../paperjs-preview-runner.js"></script>
     <script>
 document.addEventListener("click", function (event) {
     var button = event.target.closest(".copy-code-button");

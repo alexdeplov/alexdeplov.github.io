@@ -281,6 +281,13 @@
             object-fit: contain;
         }
 
+        .preview-panel canvas {
+            width: 100%;
+            display: block;
+            aspect-ratio: 4 / 3;
+            background: #000;
+        }
+
         .actions {
             display: flex;
             flex-wrap: wrap;
@@ -480,9 +487,9 @@
         </header>
         <div class="content">
             <section class="preview-panel" aria-label="Preview">
-                <a class="preview-link" href="http://sketch.paperjs.org/#V/0.12.17/S/hVTLbtswEPyVhS6Wa5VV3AQB1MehAdJTgKLNzdGBomiZNUMKFGVbDfzvXUqKTUlGwoNNc3aHs7NLvwSKPvMgCf5suWWbIAqYzt3vHTWQFfANFN/DL2o35DdnlqpC8vDlSQGuSvzjCewE35NM1yqvou58LaS801KbBGaZpGw764FSV8IKrfokxpXl5kkd5x3srqTG0AZvXaXns8LouuyV/HT70Et4R+NIp9tGZ+SiIA+fVtJhr4qzglRc5Y/6B2JOVW9ArZijhdzQ/Z0wDPUcImgiqBiVPALmOOfgaXSlsDbSL6fP9eLcMjQXdZXAdTQ87+QnsHJ3pSPQL6XhUur9bBShS8qEbRK4GgElNcicdH0YYbQsZfNArRGHBNZUVvyMv7rUamsrIW39Yfs5BU8S0YLWoUlEZoQqHvW90cqGHoHhtjaqj+pbNGmGVvcGZz3kO6xmYv4BL/WGgBxgAQ+uB5VQXQphOOQWPkBM4hv4BMs57pc38ZCnGfE0b/M4jluPQqwhbH0mbCNkjsYTyVVhN/AdPsfxQLZbw9hVnBLDn/WO++4cz9vJQF5Fp3HwMtbYg9BVI7Ca+At+fYWLqhBaLCaiXKbO/uJbxPSRQpGOpq6NawcDewsLvI9cXww5jQfZ1O6VfFzGaN7UU+zLAsSQAh+qP11T107oxLYj/idmhtNtqYWyVZCs0uN/" target="_blank" rel="noopener noreferrer" aria-label="Open v1 in Sketch">
-                    <img class="preview-media" src="/tools/generative-art/assets/collection/Animation/Rainbow%20drawing%20sin%20wave/Screen_Recording_2022-06-04_at_18.33.40.2022-06-04_18_34_26.gif" alt="Rainbow drawing sin wave" loading="eager" decoding="async">
-                </a>
+                <div class="preview-link paperjs-preview-frame" data-sketch-url="http://sketch.paperjs.org/#V/0.12.17/S/hVTLbtswEPyVhS6Wa5VV3AQB1MehAdJTgKLNzdGBomiZNUMKFGVbDfzvXUqKTUlGwoNNc3aHs7NLvwSKPvMgCf5suWWbIAqYzt3vHTWQFfANFN/DL2o35DdnlqpC8vDlSQGuSvzjCewE35NM1yqvou58LaS801KbBGaZpGw764FSV8IKrfokxpXl5kkd5x3srqTG0AZvXaXns8LouuyV/HT70Et4R+NIp9tGZ+SiIA+fVtJhr4qzglRc5Y/6B2JOVW9ArZijhdzQ/Z0wDPUcImgiqBiVPALmOOfgaXSlsDbSL6fP9eLcMjQXdZXAdTQ87+QnsHJ3pSPQL6XhUur9bBShS8qEbRK4GgElNcicdH0YYbQsZfNArRGHBNZUVvyMv7rUamsrIW39Yfs5BU8S0YLWoUlEZoQqHvW90cqGHoHhtjaqj+pbNGmGVvcGZz3kO6xmYv4BL/WGgBxgAQ+uB5VQXQphOOQWPkBM4hv4BMs57pc38ZCnGfE0b/M4jluPQqwhbH0mbCNkjsYTyVVhN/AdPsfxQLZbw9hVnBLDn/WO++4cz9vJQF5Fp3HwMtbYg9BVI7Ca+At+fYWLqhBaLCaiXKbO/uJbxPSRQpGOpq6NawcDewsLvI9cXww5jQfZ1O6VfFzGaN7UU+zLAsSQAh+qP11T107oxLYj/idmhtNtqYWyVZCs0uN/">
+                    <canvas id="paperjs-preview-canvas" class="preview-media paperjs-preview-canvas" resize data-paperjs-preview aria-label="Rainbow drawing sin wave preview"></canvas>
+                </div>
             </section>
             
             
@@ -543,6 +550,8 @@
             &copy; 2026 Alexander Deplov, designer and developer of iOS and macOS apps, product designer.
         </footer>
     </article>
+    <script src="../../PaperJSEngine/paper-full.js"></script>
+    <script src="../../paperjs-preview-runner.js"></script>
     <script>
 document.addEventListener("click", function (event) {
     var button = event.target.closest(".copy-code-button");

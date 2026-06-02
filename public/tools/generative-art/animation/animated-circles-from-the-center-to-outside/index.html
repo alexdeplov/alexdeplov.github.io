@@ -281,6 +281,13 @@
             object-fit: contain;
         }
 
+        .preview-panel canvas {
+            width: 100%;
+            display: block;
+            aspect-ratio: 4 / 3;
+            background: #000;
+        }
+
         .actions {
             display: flex;
             flex-wrap: wrap;
@@ -480,9 +487,9 @@
         </header>
         <div class="content">
             <section class="preview-panel" aria-label="Preview">
-                <a class="preview-link" href="http://sketch.paperjs.org/#V/0.12.17/S/lVVNk6IwEP0rKfYgjm4WZJ0Du3PYcss9Te3UzFE9xBAlJSZUCH7s1Pz37QTQAHoYLki6+/Xj9aN99wTZMy/23nZM09Qbe1Qm5vlAFFpv0RMS7IheiE7xK6OaiG3G/PelQHAV/B+L0YGzI17LUiTFuDrf8CybyUyqGA3WGaG7QR3IZcE1l6IuokxoppbiY7gUph0XgqlXkvCygL7ToDpVUuo/SpZ5zcX+9qFkIxXybR1Ewh9w+4nCAO6j0RDVFKliRLMZVzRjhT9FD4iPURSYOyB8LAXAlIIaUmgvD+xvqatkP5dc6AuOaUNtwFWkTq1zzKUs+xh4jK+HbT1KNnBilQYxsu2cc5Ln2fmZaMVPMdqQrGBVzGhl62xrLMVcwfyAVPMaPjswh/iFvO0DeS3l3QxZ6hdDAnIsGYdj1auZHj6hUZ2DT/ezztesc829q3h7OntyGqOEF2AyyuZK7meWZWsG1n/AMHoM0DcEFdfQ9pZHTNAGsCOoUeuqaMtGQWUjAG776DMeuOuDrhe+hNFj9Hs+6KQ0llg4o8IgjfsI4t6QatVByomC87hSoBO7ZzDXZJ81WqNSQUnGfgm+h3Q/xFMg+2y0KrjwOXx7AQ7hyNZjCptD27PgO/qKTDicDof2ZNqG1ikvsMHmwiymS5cbWReZcVoa0pMAGhpsh0fDQHN4rwc0qbtHgWk+wRNHj54cSmpwrl/Z0S4VZzrDi92tFZr9hUmSzFKeJb6dR2//1BJ3dL1lzyskNXgwZJwxsdXpbdMqeTQLtV+14CtndUGW+423VoX55q/a9SY3MZKFdq3eAzx3AM8NIJVFHzCyMwg6YFZ1I9VT20+98iB0683egT+2NWybnV1IhRcvVh//AQ==" target="_blank" rel="noopener noreferrer" aria-label="Open v1 in Sketch">
-                    <img class="preview-media" src="/tools/generative-art/assets/collection/Animation/Animated%20circles%20from%20the%20center%20to%20outside/Screen_Recording_2022-06-14_at_23.43.17.2022-06-14_23_44_01.gif" alt="Animated circles from the center to outside" loading="eager" decoding="async">
-                </a>
+                <div class="preview-link paperjs-preview-frame" data-sketch-url="http://sketch.paperjs.org/#V/0.12.17/S/lVVNk6IwEP0rKfYgjm4WZJ0Du3PYcss9Te3UzFE9xBAlJSZUCH7s1Pz37QTQAHoYLki6+/Xj9aN99wTZMy/23nZM09Qbe1Qm5vlAFFpv0RMS7IheiE7xK6OaiG3G/PelQHAV/B+L0YGzI17LUiTFuDrf8CybyUyqGA3WGaG7QR3IZcE1l6IuokxoppbiY7gUph0XgqlXkvCygL7ToDpVUuo/SpZ5zcX+9qFkIxXybR1Ewh9w+4nCAO6j0RDVFKliRLMZVzRjhT9FD4iPURSYOyB8LAXAlIIaUmgvD+xvqatkP5dc6AuOaUNtwFWkTq1zzKUs+xh4jK+HbT1KNnBilQYxsu2cc5Ln2fmZaMVPMdqQrGBVzGhl62xrLMVcwfyAVPMaPjswh/iFvO0DeS3l3QxZ6hdDAnIsGYdj1auZHj6hUZ2DT/ezztesc829q3h7OntyGqOEF2AyyuZK7meWZWsG1n/AMHoM0DcEFdfQ9pZHTNAGsCOoUeuqaMtGQWUjAG776DMeuOuDrhe+hNFj9Hs+6KQ0llg4o8IgjfsI4t6QatVByomC87hSoBO7ZzDXZJ81WqNSQUnGfgm+h3Q/xFMg+2y0KrjwOXx7AQ7hyNZjCptD27PgO/qKTDicDof2ZNqG1ikvsMHmwiymS5cbWReZcVoa0pMAGhpsh0fDQHN4rwc0qbtHgWk+wRNHj54cSmpwrl/Z0S4VZzrDi92tFZr9hUmSzFKeJb6dR2//1BJ3dL1lzyskNXgwZJwxsdXpbdMqeTQLtV+14CtndUGW+423VoX55q/a9SY3MZKFdq3eAzx3AM8NIJVFHzCyMwg6YFZ1I9VT20+98iB0683egT+2NWybnV1IhRcvVh//AQ==">
+                    <canvas id="paperjs-preview-canvas" class="preview-media paperjs-preview-canvas" resize data-paperjs-preview aria-label="Animated circles from the center to outside preview"></canvas>
+                </div>
             </section>
             
             
@@ -556,6 +563,8 @@
             &copy; 2026 Alexander Deplov, designer and developer of iOS and macOS apps, product designer.
         </footer>
     </article>
+    <script src="../../PaperJSEngine/paper-full.js"></script>
+    <script src="../../paperjs-preview-runner.js"></script>
     <script>
 document.addEventListener("click", function (event) {
     var button = event.target.closest(".copy-code-button");

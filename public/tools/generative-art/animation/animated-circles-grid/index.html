@@ -281,6 +281,13 @@
             object-fit: contain;
         }
 
+        .preview-panel canvas {
+            width: 100%;
+            display: block;
+            aspect-ratio: 4 / 3;
+            background: #000;
+        }
+
         .actions {
             display: flex;
             flex-wrap: wrap;
@@ -480,9 +487,9 @@
         </header>
         <div class="content">
             <section class="preview-panel" aria-label="Preview">
-                <a class="preview-link" href="http://sketch.paperjs.org/#V/0.12.17/S/fVTBjtowEP0VKxfMQqMsFZe0PVQrtaeVqvYIHIxjyAgzjmyHha74986ENITQ4otjz/PMvPfsvCeo9ibJk187E3WZTBPtCl4flBfrrfgi0LyJHyqW6U+jo8KtNfJ9iYJGgN8mFwcwb+na1ViE6WV/A9a+OOt8LkZrq/Ru1AYqFyCCw/aQNhiNX+J5vEQu552L372rq7Zq8y3boLYOzT+jG+eFZMiRItknmj6L5xnNk8lYtK12mNMFc2oxpx6GR1MJvLamz/yl2ZE9HA+vCqhDLp6z6W3gln9tRoP4hXcuFkfxJD5mU+qG59UAVilPwPwqyyCuqsqeXlX0cMzFRtlgrnGWtCvXdJ92XaVBxdorNoLFSGdiIl6ZpldYuL0cUzdZOh+IwvITvE3WLGVb5EwWLpGMqFE3WR1+83SrpDkQgU5fTrNXbFLHKNUl2IJoptbgNpYDs+BiFpBZdJA+Hrl1n3QBq1ts0Mqarwh7gsuOdgCUQIum21TTTY6NAtlsLj5Q8SdyeHwnSisEpwTkd9Ilf6B8WXOn8r4SlQcuwX0Q1QcpLGzLiCaExrs5nelI/C/thE3uW3WV6u+LpGS9J0l/gbU3alc5wBiSfLE6/wE=" target="_blank" rel="noopener noreferrer" aria-label="Open v1 in Sketch">
-                    <img class="preview-media" src="/tools/generative-art/assets/collection/Animation/Animated%20circles%20grid/Screen_Recording_2022-06-29_at_11.09.08.2022-06-29_11_11_19.gif" alt="Animated circles grid" loading="eager" decoding="async">
-                </a>
+                <div class="preview-link paperjs-preview-frame" data-sketch-url="http://sketch.paperjs.org/#V/0.12.17/S/fVTBjtowEP0VKxfMQqMsFZe0PVQrtaeVqvYIHIxjyAgzjmyHha74986ENITQ4otjz/PMvPfsvCeo9ibJk187E3WZTBPtCl4flBfrrfgi0LyJHyqW6U+jo8KtNfJ9iYJGgN8mFwcwb+na1ViE6WV/A9a+OOt8LkZrq/Ru1AYqFyCCw/aQNhiNX+J5vEQu552L372rq7Zq8y3boLYOzT+jG+eFZMiRItknmj6L5xnNk8lYtK12mNMFc2oxpx6GR1MJvLamz/yl2ZE9HA+vCqhDLp6z6W3gln9tRoP4hXcuFkfxJD5mU+qG59UAVilPwPwqyyCuqsqeXlX0cMzFRtlgrnGWtCvXdJ92XaVBxdorNoLFSGdiIl6ZpldYuL0cUzdZOh+IwvITvE3WLGVb5EwWLpGMqFE3WR1+83SrpDkQgU5fTrNXbFLHKNUl2IJoptbgNpYDs+BiFpBZdJA+Hrl1n3QBq1ts0Mqarwh7gsuOdgCUQIum21TTTY6NAtlsLj5Q8SdyeHwnSisEpwTkd9Ilf6B8WXOn8r4SlQcuwX0Q1QcpLGzLiCaExrs5nelI/C/thE3uW3WV6u+LpGS9J0l/gbU3alc5wBiSfLE6/wE=">
+                    <canvas id="paperjs-preview-canvas" class="preview-media paperjs-preview-canvas" resize data-paperjs-preview aria-label="Animated circles grid preview"></canvas>
+                </div>
             </section>
             
             
@@ -532,6 +539,8 @@
             &copy; 2026 Alexander Deplov, designer and developer of iOS and macOS apps, product designer.
         </footer>
     </article>
+    <script src="../../PaperJSEngine/paper-full.js"></script>
+    <script src="../../paperjs-preview-runner.js"></script>
     <script>
 document.addEventListener("click", function (event) {
     var button = event.target.closest(".copy-code-button");

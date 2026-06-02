@@ -281,6 +281,13 @@
             object-fit: contain;
         }
 
+        .preview-panel canvas {
+            width: 100%;
+            display: block;
+            aspect-ratio: 4 / 3;
+            background: #000;
+        }
+
         .actions {
             display: flex;
             flex-wrap: wrap;
@@ -480,9 +487,9 @@
         </header>
         <div class="content">
             <section class="preview-panel" aria-label="Preview">
-                <a class="preview-link" href="http://sketch.paperjs.org/#V/0.12.17/S/lVbfb5swEP5XbqmqQEMpkGXt2KJp7dq3SZP6sIckD4w4wSmYCJyGLOr/vjvb0EBTtYuSYt99990Pn4/ueyLKWC/s3T8wGSc9pxfnc9o/RgWUkq1LGIPvTQXt4zzNCxJM+ieeN/Q+fu470D/58Sm4Cq7U8u7y8s7z9PLm+s4Abr/fBteX/ZlmySJZ8IpYjIAYHznbuiX/y9wtn8sELrRzDdCiFyCtTBhfJrKl1aKpmIpFXlgE4pTFF3x81by4HAxs2CNGkj7lgpmIphKNQFmttNXq2WrVWGk7SiOL1hZ3wHM0SK1UfDYMwFqdBjAegwff4BzKiwBC8EiRsmJtnfsO4PdnJBO3iMQ8zyzbhjOsyAUMn73sjJdVx4vO83/YKE93vSkTS7At/Mq5kFbl7Gyb1E/0R5+OxhAaNU+mktCU0jsoJaYVHJazVT3voHoa2FRQxYO+IrFMmTUVYD46gMlqNuEzt3La+53zEjjwu1AjOQq2+GkwHnvf/NCzEYXQluUR9a5msd8RtSHwa4Jj7AfKYyG+jKoO5LXku0n4xyKn49UnuRGx5LlQTQNWKaNCOsDE3IEok/aejAomN4UAy8dDQyGoNiIg9hrtzwjf5WvKUmEX7vBXBfjEXzXE59A2p069UUOxRVQjUsveI7+11yHHTEhWhDAZYZuPvJnJfE0NW4bguyMjKaI535Q+itqSIISglix4mt7Q6ArNBJuoK7JIc5wOrduCeWmEmzKxxBtMjunES1nkD+w33WokbgkNc3+bcMn6RpWvo5jLHYalKm8/Z76O1Chrsr7hRYwlMzNFBx/CyPAchN520BRI13p26KYurluyZYa4cuLNXFU6l+ZV5b8BonGzewXkt5iCN0CK6RVQ0GIavgFSTMNux9FQFI7uTJ+e+do320BvA5rFMuHiOt+IeWk3Ex8P4DFKkdUSNJgVg42D0lIkB6IzLQpqUUDzVq+Iiy/A+tByUb8fzB3Sjpr5SnhtreYiEncNkKp041xge0VcWNq+k5W+0MDSkr3XWtXCZFBH0ylnYyZLKmuab/Edg68YXTXjQF2YLKr0zcnIh0IJW1nQ+wL/i/hTsOhBX9deOJk9/QM=" target="_blank" rel="noopener noreferrer" aria-label="Open v1 in Sketch">
-                    <img class="preview-media" src="/tools/generative-art/assets/collection/Path/Triangular%20Mesh/Screen_Recording_2023-01-10_at_22.12.15.2023-01-10_22_14_31.gif" alt="Triangular Mesh" loading="eager" decoding="async">
-                </a>
+                <div class="preview-link paperjs-preview-frame" data-sketch-url="http://sketch.paperjs.org/#V/0.12.17/S/lVbfb5swEP5XbqmqQEMpkGXt2KJp7dq3SZP6sIckD4w4wSmYCJyGLOr/vjvb0EBTtYuSYt99990Pn4/ueyLKWC/s3T8wGSc9pxfnc9o/RgWUkq1LGIPvTQXt4zzNCxJM+ieeN/Q+fu470D/58Sm4Cq7U8u7y8s7z9PLm+s4Abr/fBteX/ZlmySJZ8IpYjIAYHznbuiX/y9wtn8sELrRzDdCiFyCtTBhfJrKl1aKpmIpFXlgE4pTFF3x81by4HAxs2CNGkj7lgpmIphKNQFmttNXq2WrVWGk7SiOL1hZ3wHM0SK1UfDYMwFqdBjAegwff4BzKiwBC8EiRsmJtnfsO4PdnJBO3iMQ8zyzbhjOsyAUMn73sjJdVx4vO83/YKE93vSkTS7At/Mq5kFbl7Gyb1E/0R5+OxhAaNU+mktCU0jsoJaYVHJazVT3voHoa2FRQxYO+IrFMmTUVYD46gMlqNuEzt3La+53zEjjwu1AjOQq2+GkwHnvf/NCzEYXQluUR9a5msd8RtSHwa4Jj7AfKYyG+jKoO5LXku0n4xyKn49UnuRGx5LlQTQNWKaNCOsDE3IEok/aejAomN4UAy8dDQyGoNiIg9hrtzwjf5WvKUmEX7vBXBfjEXzXE59A2p069UUOxRVQjUsveI7+11yHHTEhWhDAZYZuPvJnJfE0NW4bguyMjKaI535Q+itqSIISglix4mt7Q6ArNBJuoK7JIc5wOrduCeWmEmzKxxBtMjunES1nkD+w33WokbgkNc3+bcMn6RpWvo5jLHYalKm8/Z76O1Chrsr7hRYwlMzNFBx/CyPAchN520BRI13p26KYurluyZYa4cuLNXFU6l+ZV5b8BonGzewXkt5iCN0CK6RVQ0GIavgFSTMNux9FQFI7uTJ+e+do320BvA5rFMuHiOt+IeWk3Ex8P4DFKkdUSNJgVg42D0lIkB6IzLQpqUUDzVq+Iiy/A+tByUb8fzB3Sjpr5SnhtreYiEncNkKp041xge0VcWNq+k5W+0MDSkr3XWtXCZFBH0ylnYyZLKmuab/Edg68YXTXjQF2YLKr0zcnIh0IJW1nQ+wL/i/hTsOhBX9deOJk9/QM=">
+                    <canvas id="paperjs-preview-canvas" class="preview-media paperjs-preview-canvas" resize data-paperjs-preview aria-label="Triangular Mesh preview"></canvas>
+                </div>
             </section>
             
             
@@ -581,6 +588,8 @@
             &copy; 2026 Alexander Deplov, designer and developer of iOS and macOS apps, product designer.
         </footer>
     </article>
+    <script src="../../PaperJSEngine/paper-full.js"></script>
+    <script src="../../paperjs-preview-runner.js"></script>
     <script>
 document.addEventListener("click", function (event) {
     var button = event.target.closest(".copy-code-button");

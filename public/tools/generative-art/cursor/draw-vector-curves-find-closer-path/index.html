@@ -281,6 +281,13 @@
             object-fit: contain;
         }
 
+        .preview-panel canvas {
+            width: 100%;
+            display: block;
+            aspect-ratio: 4 / 3;
+            background: #000;
+        }
+
         .actions {
             display: flex;
             flex-wrap: wrap;
@@ -480,9 +487,9 @@
         </header>
         <div class="content">
             <section class="preview-panel" aria-label="Preview">
-                <a class="preview-link" href="http://sketch.paperjs.org/#V/0.12.17/S/nVXBbtswDP0VIRc5m+GlLVYMLnIqtmHAOhRbhx2aHhSbSYQokiHJSb3C/z5KlhM5TYeiOskkRb5HPslPI8k2MMpHv9Zgi9UoHRWqdN9bpsl8SaZEwo7cMrvKfkJhmVwKSJ5mkuAy/C/kZMthl7lt2lkXXIhrJZTOCZ0LVqzpTLbjmZxJl9JYpu0114WAlIAsu+1V5yz8x09W8tpg5bPzgf2rVnUVAPl9Mu79tTZKx1i7tAGo9glzzBcgVopLm5P7STp5CCZjtVpDj3u34hbowPWHl3aVkz6FqljBbZOTSfbJ8btyBDs0FQKIsOy7NagwF/ULBSZDRKzCaGQrS7qvs6hlYbmSpNDALPgqntM41HIQMlaWwXoVWc1GKQeK2KbC6dFCSctlrWpDSdtHxvEH2NmqBvJ+Sm6cXTNZqk0yJu/IxeUknHP07Q5AIn9/2n/cqaRzP51qAmkD4YDdrbLWzBF07ej74RYww+UST+IGvsnres4L2rk99vZEd4IUHtOm785BUi9Kxq0CpAWEeY9HHyIQvZxitUbuWP8Ku7Tcz9ktVlWiwQZq/piTBRMGImfFNDhhRnqPvEre4JTgc4eqZ5mMo765ZVfcZKZgyOWin+fAtweI7GkDQqgdPYrzdxoEbBAOKqARkBmwt1pVoG2T0O7C0ZRQLzDQNK7UPgf9HdgWXgf67MMrYIfGvhW2rIUYII405Ed/GEA21yi5O/VF40VJxieE3gU/lzqy8WKdZOcf/y/yy7drPPT3d5XAFg4PAF+QJHpqyXQ6JfiEwIJLKOPmD4KIz5H5mQai7SF0cJ2iyOwxjQ9mTdzZ/RN/lN35jlP7dywKepHtjdrCkG83WTxmuA88RcXNTAJeMWNvnbl/o5Zgf0TmYwSn08eJhkHP9NLiT3WOBNc+pRnl9w/tPw==" target="_blank" rel="noopener noreferrer" aria-label="Open v1 in Sketch">
-                    <img class="preview-media" src="/tools/generative-art/assets/collection/Cursor/Draw%20vector%20curves,%20find%20closer%20path/Screen_Recording_2022-06-04_at_19.56.49.2022-06-04_19_57_53.gif" alt="Draw vector curves, find closer path" loading="eager" decoding="async">
-                </a>
+                <div class="preview-link paperjs-preview-frame" data-sketch-url="http://sketch.paperjs.org/#V/0.12.17/S/nVXBbtswDP0VIRc5m+GlLVYMLnIqtmHAOhRbhx2aHhSbSYQokiHJSb3C/z5KlhM5TYeiOskkRb5HPslPI8k2MMpHv9Zgi9UoHRWqdN9bpsl8SaZEwo7cMrvKfkJhmVwKSJ5mkuAy/C/kZMthl7lt2lkXXIhrJZTOCZ0LVqzpTLbjmZxJl9JYpu0114WAlIAsu+1V5yz8x09W8tpg5bPzgf2rVnUVAPl9Mu79tTZKx1i7tAGo9glzzBcgVopLm5P7STp5CCZjtVpDj3u34hbowPWHl3aVkz6FqljBbZOTSfbJ8btyBDs0FQKIsOy7NagwF/ULBSZDRKzCaGQrS7qvs6hlYbmSpNDALPgqntM41HIQMlaWwXoVWc1GKQeK2KbC6dFCSctlrWpDSdtHxvEH2NmqBvJ+Sm6cXTNZqk0yJu/IxeUknHP07Q5AIn9/2n/cqaRzP51qAmkD4YDdrbLWzBF07ej74RYww+UST+IGvsnres4L2rk99vZEd4IUHtOm785BUi9Kxq0CpAWEeY9HHyIQvZxitUbuWP8Ku7Tcz9ktVlWiwQZq/piTBRMGImfFNDhhRnqPvEre4JTgc4eqZ5mMo765ZVfcZKZgyOWin+fAtweI7GkDQqgdPYrzdxoEbBAOKqARkBmwt1pVoG2T0O7C0ZRQLzDQNK7UPgf9HdgWXgf67MMrYIfGvhW2rIUYII405Ed/GEA21yi5O/VF40VJxieE3gU/lzqy8WKdZOcf/y/yy7drPPT3d5XAFg4PAF+QJHpqyXQ6JfiEwIJLKOPmD4KIz5H5mQai7SF0cJ2iyOwxjQ9mTdzZ/RN/lN35jlP7dywKepHtjdrCkG83WTxmuA88RcXNTAJeMWNvnbl/o5Zgf0TmYwSn08eJhkHP9NLiT3WOBNc+pRnl9w/tPw==">
+                    <canvas id="paperjs-preview-canvas" class="preview-media paperjs-preview-canvas" resize data-paperjs-preview aria-label="Draw vector curves, find closer path preview"></canvas>
+                </div>
             </section>
             
             
@@ -578,6 +585,8 @@
             &copy; 2026 Alexander Deplov, designer and developer of iOS and macOS apps, product designer.
         </footer>
     </article>
+    <script src="../../PaperJSEngine/paper-full.js"></script>
+    <script src="../../paperjs-preview-runner.js"></script>
     <script>
 document.addEventListener("click", function (event) {
     var button = event.target.closest(".copy-code-button");

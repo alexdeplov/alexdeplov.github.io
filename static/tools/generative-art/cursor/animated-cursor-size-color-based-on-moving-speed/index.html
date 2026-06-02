@@ -281,6 +281,13 @@
             object-fit: contain;
         }
 
+        .preview-panel canvas {
+            width: 100%;
+            display: block;
+            aspect-ratio: 4 / 3;
+            background: #000;
+        }
+
         .actions {
             display: flex;
             flex-wrap: wrap;
@@ -480,9 +487,9 @@
         </header>
         <div class="content">
             <section class="preview-panel" aria-label="Preview">
-                <a class="preview-link" href="http://sketch.paperjs.org/#V/0.12.17/S/pZIxT8MwEIX/yilLWwhWKAyVERNzJQQDQ9LBia+NFeccxU4KVP3v2E1bEjHiyX73/One2YeIRI0Rj94rdEUZxVFhZDj3ooV8B89AuIdX4Ur2hoUTtNM4P2QEfln1jRx6hXsWtvGgbpXWL0ablsMs16KoZhkdFxkFYOM5I+QVhLsayVkO6SCElS6TGJbJJh5JKy+tptL942AbpEvJutZUeGmjRTmbFD6UdCUHf3ViF00wm45+7ah9apQctkLbS8TGWOWUoXP4wveObRxiPmWU0bajIpTB0Np0Ftemxzn23rWAc+IwCCakHGTWGEUObmE4SdROBNTVOeraj+8h8db1iZDb+egO+4S7MYN9LeAGln9Jp8GwssP/0s4PlyYb1mIdck77ro3xzxy0o/9aeYuiOmW1EU83xx8=" target="_blank" rel="noopener noreferrer" aria-label="Open v1 in Sketch">
-                    <img class="preview-media" src="/tools/generative-art/assets/collection/Cursor/Animated%20cursor%20size%20%26%20color%20based%20on%20moving%20speed/Screen_Recording_2022-06-04_at_18.43.25.2022-06-04_18_43_49.gif" alt="Animated cursor size &amp; color based on moving speed" loading="eager" decoding="async">
-                </a>
+                <div class="preview-link paperjs-preview-frame" data-sketch-url="http://sketch.paperjs.org/#V/0.12.17/S/pZIxT8MwEIX/yilLWwhWKAyVERNzJQQDQ9LBia+NFeccxU4KVP3v2E1bEjHiyX73/One2YeIRI0Rj94rdEUZxVFhZDj3ooV8B89AuIdX4Ur2hoUTtNM4P2QEfln1jRx6hXsWtvGgbpXWL0ablsMs16KoZhkdFxkFYOM5I+QVhLsayVkO6SCElS6TGJbJJh5JKy+tptL942AbpEvJutZUeGmjRTmbFD6UdCUHf3ViF00wm45+7ah9apQctkLbS8TGWOWUoXP4wveObRxiPmWU0bajIpTB0Np0Ftemxzn23rWAc+IwCCakHGTWGEUObmE4SdROBNTVOeraj+8h8db1iZDb+egO+4S7MYN9LeAGln9Jp8GwssP/0s4PlyYb1mIdck77ro3xzxy0o/9aeYuiOmW1EU83xx8=">
+                    <canvas id="paperjs-preview-canvas" class="preview-media paperjs-preview-canvas" resize data-paperjs-preview aria-label="Animated cursor size &amp; color based on moving speed preview"></canvas>
+                </div>
             </section>
             
             
@@ -524,6 +531,8 @@
             &copy; 2026 Alexander Deplov, designer and developer of iOS and macOS apps, product designer.
         </footer>
     </article>
+    <script src="../../PaperJSEngine/paper-full.js"></script>
+    <script src="../../paperjs-preview-runner.js"></script>
     <script>
 document.addEventListener("click", function (event) {
     var button = event.target.closest(".copy-code-button");

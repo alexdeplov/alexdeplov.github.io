@@ -281,6 +281,13 @@
             object-fit: contain;
         }
 
+        .preview-panel canvas {
+            width: 100%;
+            display: block;
+            aspect-ratio: 4 / 3;
+            background: #000;
+        }
+
         .actions {
             display: flex;
             flex-wrap: wrap;
@@ -480,9 +487,9 @@
         </header>
         <div class="content">
             <section class="preview-panel" aria-label="Preview">
-                <a class="preview-link" href="http://sketch.paperjs.org/#V/0.12.17/S/bVLLbsIwEPyVVS4kJXINKoeGcilSe6pUtUfg4DiGuBg7chweRfx713WAIOFDYu/sYzyeY6TZRkRZ9L0WjpdRGnFT+POWWchXMAEtdvDJXEm+BHdMr5SIj3MNuGr5KzLYSrEjuWl0UachvpRKTY0yNoNerhhf91qgMrV00ui2iAvthJ3rUzLXfpxlh/M8I7WLR5SmgJ9kHPAN2yOOAXrOL2RTY+gpnFfWNFXb4d3vY2y8NBZij0pE6Bh/LxPfCXf9fgLtVXwClk2l5Up0Lx0i5xv7FVhnMEO6ZJ961uSwSK8JgVYGA9oJdjWxouh1oIpZbJkF+p04qyp1+GDOyn0GS6ZqETAvV5jj5fLjrXHMiXgwTLvCXtOIEnrlSuijAmQ0QsXnGpVpNPevAUa/WTRBLLZYd5HkjnCBIuGlVAVybtveKnlW0+Q/6Bcsva2ZycU1L+SQizakbLz4Eh4gvjsKgQH6AfoQyBKOvnMYpYQO8ScTeIQhbXX6v2fos5Tu9d+icceupOYM35aS5yRB4+dWsHXlnVdH2Wxx+gM=" target="_blank" rel="noopener noreferrer" aria-label="Open v1 in Sketch">
-                    <img class="preview-media" src="/tools/generative-art/assets/collection/Animation/Ferris%20wheel/Screen_Recording_2022-06-11_at_23.35.17.2022-06-11_23_37_46.gif" alt="Ferris wheel" loading="eager" decoding="async">
-                </a>
+                <div class="preview-link paperjs-preview-frame" data-sketch-url="http://sketch.paperjs.org/#V/0.12.17/S/bVLLbsIwEPyVVS4kJXINKoeGcilSe6pUtUfg4DiGuBg7chweRfx713WAIOFDYu/sYzyeY6TZRkRZ9L0WjpdRGnFT+POWWchXMAEtdvDJXEm+BHdMr5SIj3MNuGr5KzLYSrEjuWl0UachvpRKTY0yNoNerhhf91qgMrV00ui2iAvthJ3rUzLXfpxlh/M8I7WLR5SmgJ9kHPAN2yOOAXrOL2RTY+gpnFfWNFXb4d3vY2y8NBZij0pE6Bh/LxPfCXf9fgLtVXwClk2l5Up0Lx0i5xv7FVhnMEO6ZJ961uSwSK8JgVYGA9oJdjWxouh1oIpZbJkF+p04qyp1+GDOyn0GS6ZqETAvV5jj5fLjrXHMiXgwTLvCXtOIEnrlSuijAmQ0QsXnGpVpNPevAUa/WTRBLLZYd5HkjnCBIuGlVAVybtveKnlW0+Q/6Bcsva2ZycU1L+SQizakbLz4Eh4gvjsKgQH6AfoQyBKOvnMYpYQO8ScTeIQhbXX6v2fos5Tu9d+icceupOYM35aS5yRB4+dWsHXlnVdH2Wxx+gM=">
+                    <canvas id="paperjs-preview-canvas" class="preview-media paperjs-preview-canvas" resize data-paperjs-preview aria-label="Ferris wheel preview"></canvas>
+                </div>
             </section>
             
             
@@ -528,6 +535,8 @@
             &copy; 2026 Alexander Deplov, designer and developer of iOS and macOS apps, product designer.
         </footer>
     </article>
+    <script src="../../PaperJSEngine/paper-full.js"></script>
+    <script src="../../paperjs-preview-runner.js"></script>
     <script>
 document.addEventListener("click", function (event) {
     var button = event.target.closest(".copy-code-button");

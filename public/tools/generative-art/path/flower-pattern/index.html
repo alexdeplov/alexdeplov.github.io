@@ -281,6 +281,13 @@
             object-fit: contain;
         }
 
+        .preview-panel canvas {
+            width: 100%;
+            display: block;
+            aspect-ratio: 4 / 3;
+            background: #000;
+        }
+
         .actions {
             display: flex;
             flex-wrap: wrap;
@@ -480,9 +487,9 @@
         </header>
         <div class="content">
             <section class="preview-panel" aria-label="Preview">
-                <a class="preview-link" href="http://sketch.paperjs.org/#V/0.12.17/S/ZVNNj5swEP0rI6QK01iUVdQ90O4phz1u1R56CDk4ZpJYMTYyZqN0xX+vDZg4WV8Y5uM9z5vxR6JYg0mZ/Dmj5aeEJlzX/v+dGdgf4QUUXuAXs6f8N3LL1FEi+agUuNOJf1jCu8BL7k06eQ9Cyo2W2pSQ7iXj57RSQ1apSnlIZgy7OtTtznuClwvDJb4pjPgWFmv0GQOiwTqlceCvqO2phCcaWCbEo9F9O6O9epuMwUOvuBVaATfILG5GXsIa3StLwWjLfDSbqUeQ3GUw48u9a+5RGyCeRjiK4of7/IQJxNmrVaj3x2e1WigbSznzRmn+GFaLvithTe/9saJXlFJf0oeMVnfCX3yeBkdl0cAKtk9FQaHY3bKH7GaP18rHppGsn4tvUwvwFQSNgaKSZVA5q2syAQTyO4WG+OdWxaXusHZSWNPjY7BrtPZzB3tt3WKlXCsrVK/7Ll3uPY3EkW9OQtZkKc4+gaF0+/rA9Tnp2LgWu7xhLQm7MbVFQYQxigMQAV9gDS9u2vFwgwDTeCPJbimP1uCNYdFq8Ft5t4zfnf7rLLyOSrknuXfx88jSJeV2N/wH" target="_blank" rel="noopener noreferrer" aria-label="Open v1 in Sketch">
-                    <img class="preview-media" src="/tools/generative-art/assets/collection/Path/Flower%20pattern/Screenshot_2024-01-16_at_15.57.48.png" alt="Flower pattern" loading="eager" decoding="async">
-                </a>
+                <div class="preview-link paperjs-preview-frame" data-sketch-url="http://sketch.paperjs.org/#V/0.12.17/S/ZVNNj5swEP0rI6QK01iUVdQ90O4phz1u1R56CDk4ZpJYMTYyZqN0xX+vDZg4WV8Y5uM9z5vxR6JYg0mZ/Dmj5aeEJlzX/v+dGdgf4QUUXuAXs6f8N3LL1FEi+agUuNOJf1jCu8BL7k06eQ9Cyo2W2pSQ7iXj57RSQ1apSnlIZgy7OtTtznuClwvDJb4pjPgWFmv0GQOiwTqlceCvqO2phCcaWCbEo9F9O6O9epuMwUOvuBVaATfILG5GXsIa3StLwWjLfDSbqUeQ3GUw48u9a+5RGyCeRjiK4of7/IQJxNmrVaj3x2e1WigbSznzRmn+GFaLvithTe/9saJXlFJf0oeMVnfCX3yeBkdl0cAKtk9FQaHY3bKH7GaP18rHppGsn4tvUwvwFQSNgaKSZVA5q2syAQTyO4WG+OdWxaXusHZSWNPjY7BrtPZzB3tt3WKlXCsrVK/7Ll3uPY3EkW9OQtZkKc4+gaF0+/rA9Tnp2LgWu7xhLQm7MbVFQYQxigMQAV9gDS9u2vFwgwDTeCPJbimP1uCNYdFq8Ft5t4zfnf7rLLyOSrknuXfx88jSJeV2N/wH">
+                    <canvas id="paperjs-preview-canvas" class="preview-media paperjs-preview-canvas" resize data-paperjs-preview aria-label="Flower pattern preview"></canvas>
+                </div>
             </section>
             
             
@@ -547,6 +554,8 @@
             &copy; 2026 Alexander Deplov, designer and developer of iOS and macOS apps, product designer.
         </footer>
     </article>
+    <script src="../../PaperJSEngine/paper-full.js"></script>
+    <script src="../../paperjs-preview-runner.js"></script>
     <script>
 document.addEventListener("click", function (event) {
     var button = event.target.closest(".copy-code-button");

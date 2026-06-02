@@ -12,6 +12,7 @@
 
 var group = new Group()
 var coloredObjectsArray = []
+var resetTimer
 var svg = project.importSVG(document.getElementById('svg')).children[1]
 
 for (var i = 0; i < svg.children.length; i++){
@@ -45,15 +46,23 @@ for (var i = 0; i < svg.children.length; i++){
 // }
 
 function animate(point){
+  var maxDuration = 0
+
+  if (resetTimer) {
+    clearTimeout(resetTimer)
+  }
 
   for (var i = 0; i < coloredObjectsArray.length; i++){
     var path = coloredObjectsArray[i]
     var distance = point.getDistance(path.position)
+    var duration = distance * 2
+    maxDuration = Math.max(maxDuration, duration)
+    path.opacity = 1
     // console.log(path.position)
     var tween = path.tweenTo({
       opacity: 0,
       // scaling: 0
-    }, distance * 2)
+    }, duration)
 
   //   setTimeout(function timer() {
   //     console.log(1)
@@ -68,6 +77,17 @@ function animate(point){
 
   }
 
+  resetTimer = setTimeout(resetCanvas, maxDuration + 1000)
+
+}
+
+function resetCanvas(){
+  for (var i = 0; i < coloredObjectsArray.length; i++){
+    coloredObjectsArray[i].opacity = 1
+    coloredObjectsArray[i].fillColor = Color.random()
+  }
+
+  view.update()
 }
 
 </script>

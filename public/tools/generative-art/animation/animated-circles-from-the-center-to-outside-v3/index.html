@@ -281,6 +281,13 @@
             object-fit: contain;
         }
 
+        .preview-panel canvas {
+            width: 100%;
+            display: block;
+            aspect-ratio: 4 / 3;
+            background: #000;
+        }
+
         .actions {
             display: flex;
             flex-wrap: wrap;
@@ -480,9 +487,9 @@
         </header>
         <div class="content">
             <section class="preview-panel" aria-label="Preview">
-                <a class="preview-link" href="http://sketch.paperjs.org/#V/0.12.17/S/vVRNb9swDP0rgi+xG09R3GYHbzkMAbpTgWE7Nj0oshILcSRDkpN2Rf77KMsfsRukt/liWyTfIx9FvgeSHniQBn/23LI8iAOmMvd/pBptdmiJJD+hX9Tm+DdnlspdwcP3tUTwGPGXp+go+AlvVCUzE/vzrSiKlSqUTtFkU1C2nzSGUhlhhZJNEOPScr2W52gtHZ1Wyv7Uqiob1vo7BONWaRQ6DwGW+Td4fUdzAu/pNEJNMkxzavlKaFZwEy7QHXhNwStGCel+CICd1xIQK8lcJqOwA32NUSYM1Mn4o1aHVZ1iR+JyqCWAPO6/EjRDENGbdteSrxW5LID4AiByWEGLwupkbirfPr4Dz67KOXmJh8ZhGyo+Gdm9/BBeN8NB4ZPIbA5VJTHqD3Mudrl1p6DhR3HGtCXVcJ56MUY2WpbF2xO1WrymaEsLw0cOmmaiMqnrW284R/23Fwcr+ajh3oJIbSdDfgTagZitoIbRgv+Q4gDuYYIXUMaTk9UIGbp7UUdiBlfYwk0hmCToC7ToDt2TKHJ148UQ1ObCYIcqpJuQDv+KV9cEnFccTZeemSnzKTOazRJyBbEdIvzWwflCXNQtzAcSDeHqDl3iLS/n0uF/ku3DNeRz/+kJ/k+vklu90srClIcEz8Gzo7iedHPDmhA/7bA/4kttIJF6OJWQNoS1EiNg9xANUrfLMM2yVS6KLKzV8Auot7bqD7WHNbyBxbQvHYEJ0ueX8z8=" target="_blank" rel="noopener noreferrer" aria-label="Open v1 in Sketch">
-                    <img class="preview-media" src="/tools/generative-art/assets/collection/Animation/Animated%20circles%20from%20the%20center%20to%20outside%20v3/Screen_Recording_2022-06-04_at_20.52.12.2022-06-04_20_52_49.gif" alt="Animated circles from the center to outside v3" loading="eager" decoding="async">
-                </a>
+                <div class="preview-link paperjs-preview-frame" data-sketch-url="http://sketch.paperjs.org/#V/0.12.17/S/vVRNb9swDP0rgi+xG09R3GYHbzkMAbpTgWE7Nj0oshILcSRDkpN2Rf77KMsfsRukt/liWyTfIx9FvgeSHniQBn/23LI8iAOmMvd/pBptdmiJJD+hX9Tm+DdnlspdwcP3tUTwGPGXp+go+AlvVCUzE/vzrSiKlSqUTtFkU1C2nzSGUhlhhZJNEOPScr2W52gtHZ1Wyv7Uqiob1vo7BONWaRQ6DwGW+Td4fUdzAu/pNEJNMkxzavlKaFZwEy7QHXhNwStGCel+CICd1xIQK8lcJqOwA32NUSYM1Mn4o1aHVZ1iR+JyqCWAPO6/EjRDENGbdteSrxW5LID4AiByWEGLwupkbirfPr4Dz67KOXmJh8ZhGyo+Gdm9/BBeN8NB4ZPIbA5VJTHqD3Mudrl1p6DhR3HGtCXVcJ56MUY2WpbF2xO1WrymaEsLw0cOmmaiMqnrW284R/23Fwcr+ajh3oJIbSdDfgTagZitoIbRgv+Q4gDuYYIXUMaTk9UIGbp7UUdiBlfYwk0hmCToC7ToDt2TKHJ148UQ1ObCYIcqpJuQDv+KV9cEnFccTZeemSnzKTOazRJyBbEdIvzWwflCXNQtzAcSDeHqDl3iLS/n0uF/ku3DNeRz/+kJ/k+vklu90srClIcEz8Gzo7iedHPDmhA/7bA/4kttIJF6OJWQNoS1EiNg9xANUrfLMM2yVS6KLKzV8Auot7bqD7WHNbyBxbQvHYEJ0ueX8z8=">
+                    <canvas id="paperjs-preview-canvas" class="preview-media paperjs-preview-canvas" resize data-paperjs-preview aria-label="Animated circles from the center to outside v3 preview"></canvas>
+                </div>
             </section>
             
             
@@ -538,6 +545,8 @@
             &copy; 2026 Alexander Deplov, designer and developer of iOS and macOS apps, product designer.
         </footer>
     </article>
+    <script src="../../PaperJSEngine/paper-full.js"></script>
+    <script src="../../paperjs-preview-runner.js"></script>
     <script>
 document.addEventListener("click", function (event) {
     var button = event.target.closest(".copy-code-button");

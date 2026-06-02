@@ -281,6 +281,13 @@
             object-fit: contain;
         }
 
+        .preview-panel canvas {
+            width: 100%;
+            display: block;
+            aspect-ratio: 4 / 3;
+            background: #000;
+        }
+
         .actions {
             display: flex;
             flex-wrap: wrap;
@@ -480,9 +487,9 @@
         </header>
         <div class="content">
             <section class="preview-panel" aria-label="Preview">
-                <a class="preview-link" href="http://sketch.paperjs.org/#V/0.12.17/S/tVRba9swFP4rBz/UTpuJeNBBU/KUbmOwQmm3p6UPin0Si8qSkWSHEPLfd2QnsZ22tPSiNx2d73I+CW0CxXMMxsHdA7okC4ZBolO/r7gBbcRSKC4tTEDhCn4aXRbRBoSyaNwYnCkRtoPLmZop358Ik0jcNd9wl7FpXYkqgSuWoHJo4Ay+joZwPvKwBsAWQsqpltoQNNSGqyWG7elcokqvyZU/zUvpRCHX/vxgj/E0nWZCplED6VBrda1Li99r6QksSpU4oVWEFbkZbGYKaNX2UGJONWbdmnAW3Y3RBY25jsKkNFabcAhhoYVnCr3C9ljkN/IK3y+iSil3/N1Y4xdy/fIo17gf7FyWnVjjN+Qad7k/ONlcV9iPNf7sXDmxVfjLYV6/4D097GSv9GovBXstQmXC3aKluMhRmxRV/6B1TT+rn4nX8qBWhhAt+uSk3TDRmPDtYgFRCxk0xT4Pswmn2x+xi8M8x+b/Fv2UXs8as/gp1h+G/oljzi4lFZ5kPbxBltFvcTaBJqIUpeNwCt9Gz41wZfjyKP/XTFFoK2qavpRXod9tbpA/1Ndjg/G/++1/" target="_blank" rel="noopener noreferrer" aria-label="Open v1 in Sketch">
-                    <img class="preview-media" src="/tools/generative-art/assets/collection/Cursor/Select%20object%20and%20move%20it,%20change%20cursor%20type/Screen_Recording_2022-06-05_at_16.47.32.2022-06-05_16_48_11.gif" alt="Select object and move it, change cursor type" loading="eager" decoding="async">
-                </a>
+                <div class="preview-link paperjs-preview-frame" data-sketch-url="http://sketch.paperjs.org/#V/0.12.17/S/tVRba9swFP4rBz/UTpuJeNBBU/KUbmOwQmm3p6UPin0Si8qSkWSHEPLfd2QnsZ22tPSiNx2d73I+CW0CxXMMxsHdA7okC4ZBolO/r7gBbcRSKC4tTEDhCn4aXRbRBoSyaNwYnCkRtoPLmZop358Ik0jcNd9wl7FpXYkqgSuWoHJo4Ay+joZwPvKwBsAWQsqpltoQNNSGqyWG7elcokqvyZU/zUvpRCHX/vxgj/E0nWZCplED6VBrda1Li99r6QksSpU4oVWEFbkZbGYKaNX2UGJONWbdmnAW3Y3RBY25jsKkNFabcAhhoYVnCr3C9ljkN/IK3y+iSil3/N1Y4xdy/fIo17gf7FyWnVjjN+Qad7k/ONlcV9iPNf7sXDmxVfjLYV6/4D097GSv9GovBXstQmXC3aKluMhRmxRV/6B1TT+rn4nX8qBWhhAt+uSk3TDRmPDtYgFRCxk0xT4Pswmn2x+xi8M8x+b/Fv2UXs8as/gp1h+G/oljzi4lFZ5kPbxBltFvcTaBJqIUpeNwCt9Gz41wZfjyKP/XTFFoK2qavpRXod9tbpA/1Ndjg/G/++1/">
+                    <canvas id="paperjs-preview-canvas" class="preview-media paperjs-preview-canvas" style="background: whitesmoke;" resize data-paperjs-preview aria-label="Select object and move it, change cursor type preview"></canvas>
+                </div>
             </section>
             
             
@@ -547,6 +554,8 @@
             &copy; 2026 Alexander Deplov, designer and developer of iOS and macOS apps, product designer.
         </footer>
     </article>
+    <script src="../../PaperJSEngine/paper-full.js"></script>
+    <script src="../../paperjs-preview-runner.js"></script>
     <script>
 document.addEventListener("click", function (event) {
     var button = event.target.closest(".copy-code-button");

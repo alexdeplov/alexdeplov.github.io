@@ -281,6 +281,13 @@
             object-fit: contain;
         }
 
+        .preview-panel canvas {
+            width: 100%;
+            display: block;
+            aspect-ratio: 4 / 3;
+            background: #000;
+        }
+
         .actions {
             display: flex;
             flex-wrap: wrap;
@@ -480,9 +487,9 @@
         </header>
         <div class="content">
             <section class="preview-panel" aria-label="Preview">
-                <a class="preview-link" href="http://sketch.paperjs.org/#V/0.12.17/S/bVTbjpswEP0Vi5cll5LLqtsq6T5FVVSpraqNtn0oVeXAELwY2zImQYry7ztjwgbU5gVmzpkzc8Y450DxEoJVsCvAJXkwDRKdUnzkljXskS3m81jFikLD01SoAybn0eLDIPcVMkdkNukyA/hJHHLCl+zdDe8YLkdEwYn9wNdwFCtKRZmQcqOltgjeWUjvrvnKWV3AL5H6suU1i5phM+4NM2XNiLHZjEkM/kfyI3kWkiwFA9Yieo/geIki7Q9Ze+2cLpnRQnXkROoKBnMfRSX2EnC2jMsKOpsHq2tz9bmldyqIVYb+QsIFbXWNj0/s/gGfk8noHCtqTCi2USTZ9VRA5YT64LasKK+BTR5Rg42Z6FOsdtxBKDB//zC9Jve6VmkVtcY2oBzYge7NjLM1tIh3Qlva5EKmoSdi0YXstJjRlXBCKyw7CjhFiRfuNpEIm3jJ7sijjc+Ew2I6mli15Ouhv30Oe1nDXadX8qqAdPvPftvSaTvvaB2rHhF3KIyB9M0YnkStEj+0Vt90XcGzCeGIg/ePAdcM3/G6YFkcGG7AvlR/oeGloRmPhzi4cWsrPS3ljq9EyQ8wQ8akKeW6dtnHaRzgXQFFt+356ctGlwb3qFzoZSNj9QskLoLGaOt2P7fhmVc7Z/HDXdHElxE56npJoQpsluqkLlEjSizgWX+WQFEYBzwOOjpRo1SflNSc7HeW+nBuIUMIHfSzuLKkCEnngv8Se2xR+JtQBavffy6v" target="_blank" rel="noopener noreferrer" aria-label="Open v1 in Sketch">
-                    <img class="preview-media" src="/tools/generative-art/assets/collection/Path/Colored%20pie%20chart/Screenshot_2022-06-05_at_14.48.08.png" alt="Colored pie chart" loading="eager" decoding="async">
-                </a>
+                <div class="preview-link paperjs-preview-frame" data-sketch-url="http://sketch.paperjs.org/#V/0.12.17/S/bVTbjpswEP0Vi5cll5LLqtsq6T5FVVSpraqNtn0oVeXAELwY2zImQYry7ztjwgbU5gVmzpkzc8Y450DxEoJVsCvAJXkwDRKdUnzkljXskS3m81jFikLD01SoAybn0eLDIPcVMkdkNukyA/hJHHLCl+zdDe8YLkdEwYn9wNdwFCtKRZmQcqOltgjeWUjvrvnKWV3AL5H6suU1i5phM+4NM2XNiLHZjEkM/kfyI3kWkiwFA9Yieo/geIki7Q9Ze+2cLpnRQnXkROoKBnMfRSX2EnC2jMsKOpsHq2tz9bmldyqIVYb+QsIFbXWNj0/s/gGfk8noHCtqTCi2USTZ9VRA5YT64LasKK+BTR5Rg42Z6FOsdtxBKDB//zC9Jve6VmkVtcY2oBzYge7NjLM1tIh3Qlva5EKmoSdi0YXstJjRlXBCKyw7CjhFiRfuNpEIm3jJ7sijjc+Ew2I6mli15Ouhv30Oe1nDXadX8qqAdPvPftvSaTvvaB2rHhF3KIyB9M0YnkStEj+0Vt90XcGzCeGIg/ePAdcM3/G6YFkcGG7AvlR/oeGloRmPhzi4cWsrPS3ljq9EyQ8wQ8akKeW6dtnHaRzgXQFFt+356ctGlwb3qFzoZSNj9QskLoLGaOt2P7fhmVc7Z/HDXdHElxE56npJoQpsluqkLlEjSizgWX+WQFEYBzwOOjpRo1SflNSc7HeW+nBuIUMIHfSzuLKkCEnngv8Se2xR+JtQBavffy6v">
+                    <canvas id="paperjs-preview-canvas" class="preview-media paperjs-preview-canvas" resize data-paperjs-preview aria-label="Colored pie chart preview"></canvas>
+                </div>
             </section>
             <div class="actions"><a class="button secondary" href="/tools/generative-art/assets/collection/Path/Colored%20pie%20chart/Colored_pie_chart.html">Colored pie chart.html</a></div>
             
@@ -549,6 +556,8 @@
             &copy; 2026 Alexander Deplov, designer and developer of iOS and macOS apps, product designer.
         </footer>
     </article>
+    <script src="../../PaperJSEngine/paper-full.js"></script>
+    <script src="../../paperjs-preview-runner.js"></script>
     <script>
 document.addEventListener("click", function (event) {
     var button = event.target.closest(".copy-code-button");

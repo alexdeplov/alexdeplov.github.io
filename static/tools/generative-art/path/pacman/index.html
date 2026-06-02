@@ -281,6 +281,13 @@
             object-fit: contain;
         }
 
+        .preview-panel canvas {
+            width: 100%;
+            display: block;
+            aspect-ratio: 4 / 3;
+            background: #000;
+        }
+
         .actions {
             display: flex;
             flex-wrap: wrap;
@@ -480,9 +487,9 @@
         </header>
         <div class="content">
             <section class="preview-panel" aria-label="Preview">
-                <a class="preview-link" href="http://sketch.paperjs.org/#V/0.12.17/S/nVNNj9sgEP0rI0uVSWO5jqLuwe2ectjTqlV76CHJgeBJgoLBArypu/J/L9jGIemtHPAwH+8x8/B7ImmNSZn8vKBl5yRLmKr8+Y1qOJzgGSRe4Tu15/wHMkvlSSB530lwy/A/WMIbx2vuzWz0HrkQGyWULiE9CMou6U72i53cSQ9JtaadQ93uvSd4GddM4DeJEd/MYrW6YEDUWKVZHPjFK3suYRVIRsCTVm0zgb14mwzBYyuZ5UoC00gtbgZaQmvVSpuBVpb66GJiHkByl0G1L/euqUWlgXga7iiKL+7zFUYQZy+Xod4vn9UoLm08yYk3SvNL04q3poR1du+PB9qhEOqaPmQ0ynB/8UkMhtKihiVsV0WRQbG/ZfeLmz1cKx+aRrJ+Kj6NLcBH4FkMFJXMOuW0qsgIEMjvJtTHh1sVE8pg5UZhdYuPQVMr5WUH2zXuXaVMSctlq1qTzvceJXHkmzMXFZmLZ/Ley3yn7mfX0HpQP6LCU+16M3lNGxIexdhPBjzox49AOHyANTw7mWNVQ+d+/+3aiablzkt49SobLsljYFX8I8C4dw8oXUBhytyhdP+hYPQUoupJqWFqzu1+/YOb22UANUm53fd/AQ==" target="_blank" rel="noopener noreferrer" aria-label="Open v1 in Sketch">
-                    <img class="preview-media" src="/tools/generative-art/assets/collection/Path/Pacman/Screenshot_2024-01-18_at_19.54.21.png" alt="Pacman" loading="eager" decoding="async">
-                </a>
+                <div class="preview-link paperjs-preview-frame" data-sketch-url="http://sketch.paperjs.org/#V/0.12.17/S/nVNNj9sgEP0rI0uVSWO5jqLuwe2ectjTqlV76CHJgeBJgoLBArypu/J/L9jGIemtHPAwH+8x8/B7ImmNSZn8vKBl5yRLmKr8+Y1qOJzgGSRe4Tu15/wHMkvlSSB530lwy/A/WMIbx2vuzWz0HrkQGyWULiE9CMou6U72i53cSQ9JtaadQ93uvSd4GddM4DeJEd/MYrW6YEDUWKVZHPjFK3suYRVIRsCTVm0zgb14mwzBYyuZ5UoC00gtbgZaQmvVSpuBVpb66GJiHkByl0G1L/euqUWlgXga7iiKL+7zFUYQZy+Xod4vn9UoLm08yYk3SvNL04q3poR1du+PB9qhEOqaPmQ0ynB/8UkMhtKihiVsV0WRQbG/ZfeLmz1cKx+aRrJ+Kj6NLcBH4FkMFJXMOuW0qsgIEMjvJtTHh1sVE8pg5UZhdYuPQVMr5WUH2zXuXaVMSctlq1qTzvceJXHkmzMXFZmLZ/Ley3yn7mfX0HpQP6LCU+16M3lNGxIexdhPBjzox49AOHyANTw7mWNVQ+d+/+3aiablzkt49SobLsljYFX8I8C4dw8oXUBhytyhdP+hYPQUoupJqWFqzu1+/YOb22UANUm53fd/AQ==">
+                    <canvas id="paperjs-preview-canvas" class="preview-media paperjs-preview-canvas" resize data-paperjs-preview aria-label="Pacman preview"></canvas>
+                </div>
             </section>
             
             
@@ -547,6 +554,8 @@
             &copy; 2026 Alexander Deplov, designer and developer of iOS and macOS apps, product designer.
         </footer>
     </article>
+    <script src="../../PaperJSEngine/paper-full.js"></script>
+    <script src="../../paperjs-preview-runner.js"></script>
     <script>
 document.addEventListener("click", function (event) {
     var button = event.target.closest(".copy-code-button");

@@ -281,6 +281,13 @@
             object-fit: contain;
         }
 
+        .preview-panel canvas {
+            width: 100%;
+            display: block;
+            aspect-ratio: 4 / 3;
+            background: #000;
+        }
+
         .actions {
             display: flex;
             flex-wrap: wrap;
@@ -480,9 +487,9 @@
         </header>
         <div class="content">
             <section class="preview-panel" aria-label="Preview">
-                <a class="preview-link" href="http://sketch.paperjs.org/#V/0.12.17/S/bVLLbsIwEPyVVaSKhCI3qOISqSek3ipV7bH04DgLWJg1tR1Ci/j3rklogooPfsx4vDMrHxOSW0yK5H2DQa2TSaJsFc976aBcwRMQNvAqw1q8oQqSVgbT44KAh9c/WMBeYyNKW1PlJy2+1MbMrbGugFFppNqMOmJnvQ7aUidSSAHdgk7ZgpY1qUiBpWfHjlLcM5tBVyq68cY2hN6zp2me93jQW2TsLBCKjQS46y8//G17hdJOGRxmm5+RS7A4nKx07QuYTXrsOliNowF3M1vHx4CX2gcumw69juExY8NnVeyoaHQV1q2gNSoub4soPtymvpkaVObzPbzEaF5T+v+dMeQin2W8znKe2ptfLqSHjFs25fae+C+UDuVmZzUFnxQfn6df" target="_blank" rel="noopener noreferrer" aria-label="Open v1 in Sketch">
-                    <img class="preview-media" src="/tools/generative-art/assets/collection/Animation/Cone%20sin%20wave/Screen_Recording_2023-01-20_at_8.30.09_PM.2023-01-20_20_31_28.gif" alt="Cone sin wave" loading="eager" decoding="async">
-                </a>
+                <div class="preview-link paperjs-preview-frame" data-sketch-url="http://sketch.paperjs.org/#V/0.12.17/S/bVLLbsIwEPyVVaSKhCI3qOISqSek3ipV7bH04DgLWJg1tR1Ci/j3rklogooPfsx4vDMrHxOSW0yK5H2DQa2TSaJsFc976aBcwRMQNvAqw1q8oQqSVgbT44KAh9c/WMBeYyNKW1PlJy2+1MbMrbGugFFppNqMOmJnvQ7aUidSSAHdgk7ZgpY1qUiBpWfHjlLcM5tBVyq68cY2hN6zp2me93jQW2TsLBCKjQS46y8//G17hdJOGRxmm5+RS7A4nKx07QuYTXrsOliNowF3M1vHx4CX2gcumw69juExY8NnVeyoaHQV1q2gNSoub4soPtymvpkaVObzPbzEaF5T+v+dMeQin2W8znKe2ptfLqSHjFs25fae+C+UDuVmZzUFnxQfn6df">
+                    <canvas id="paperjs-preview-canvas" class="preview-media paperjs-preview-canvas" resize data-paperjs-preview aria-label="Cone sin wave preview"></canvas>
+                </div>
             </section>
             <div class="actions"><a class="button secondary" href="/tools/generative-art/assets/collection/Animation/Cone%20sin%20wave/Cone_sin_wave.html">Cone sin wave.html</a></div>
             
@@ -525,6 +532,8 @@
             &copy; 2026 Alexander Deplov, designer and developer of iOS and macOS apps, product designer.
         </footer>
     </article>
+    <script src="../../PaperJSEngine/paper-full.js"></script>
+    <script src="../../paperjs-preview-runner.js"></script>
     <script>
 document.addEventListener("click", function (event) {
     var button = event.target.closest(".copy-code-button");

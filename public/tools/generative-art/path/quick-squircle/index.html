@@ -270,6 +270,13 @@
             object-fit: contain;
         }
 
+        .preview-panel canvas {
+            width: 100%;
+            display: block;
+            aspect-ratio: 4 / 3;
+            background: #000;
+        }
+
         .actions {
             display: flex;
             flex-wrap: wrap;
@@ -469,7 +476,7 @@
         </header>
         <div class="content">
             <section class="preview-panel" aria-label="Preview">
-                <img class="preview-media" src="/tools/generative-art/assets/collection/Path/Quick%20Squircle/Screen_Recording_2022-08-15_at_23.01.10.2022-08-15_23_02_07.gif" alt="Quick Squircle" loading="eager" decoding="async">
+                <canvas id="paperjs-preview-canvas" class="preview-media paperjs-preview-canvas" resize data-paperjs-preview data-paperjs-center-layer aria-label="Quick Squircle preview"></canvas>
             </section>
             <div class="actions"><a class="button secondary" href="/tools/generative-art/assets/collection/Path/Quick%20Squircle/Squircle_Better.html">Squircle Better.html</a></div>
             
@@ -618,6 +625,8 @@
             &copy; 2026 Alexander Deplov, designer and developer of iOS and macOS apps, product designer.
         </footer>
     </article>
+    <script src="../../PaperJSEngine/paper-full.js"></script>
+    <script src="../../paperjs-preview-runner.js"></script>
     <script>
 document.addEventListener("click", function (event) {
     var button = event.target.closest(".copy-code-button");

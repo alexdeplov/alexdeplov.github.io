@@ -281,6 +281,13 @@
             object-fit: contain;
         }
 
+        .preview-panel canvas {
+            width: 100%;
+            display: block;
+            aspect-ratio: 4 / 3;
+            background: #000;
+        }
+
         .actions {
             display: flex;
             flex-wrap: wrap;
@@ -480,9 +487,9 @@
         </header>
         <div class="content">
             <section class="preview-panel" aria-label="Preview">
-                <a class="preview-link" href="http://sketch.paperjs.org/#V/0.12.17/S/ZVNdb5swFP0rFg+NWSIvmdROou1Tp71Fm9aXVaUPjjHgBWxkmySsyn/fvRgIWa1Izv0+PufyHmleyyiJnvfSizJaRcJkaB+4JbuCPBItj+Qn9yX7JYXnuqgkfU81gePUX5mQg5JHtjOtztwq+HNVVU+mMjYhi13FxX4xBBrjlFdGD0VCai9tqs9xqnGcV7V89tz6Yeo37iWNWSH9FjoqJ4WBIXTItjxTrYPU22AXvAHjyzpYvAZE/jd4vq6vXC/guhs91vIO7Ne3VKc6b7VAdERYCZN/7P7Ag2kAGZPhzVjWABtzYp6UFRdW8ARsyXCvLoFralq5mMXCpGS4ZwHeNFW35d6qU0JyXjkZYshbTyuCMPq7BSUB1/gOKg/QaUKOx5fKMSd4pTRKu2G3ZEm2WO6Uphsw+homkCnyiazZJiafkeGrDtMrWNlKsnwcE87h6mllTetKitAAJQRyYwlF9k4weH0P18MoEhjL5YRzSuxCYjclvoAxSxzlAOFR5xPghb8fYih4939M5YT2dQ9hFXGV2VFlIOzNTaiaR0qpivKayl6x+aL062CU9n3jVd8kji8F54kj+AWKat7QSS3Tt5lmBPNC9bBwgXbLdWZq/BJwB1INn+0OsOwbnO+i5PXt/A8=" target="_blank" rel="noopener noreferrer" aria-label="Open v1 in Sketch">
-                    <img class="preview-media" src="/tools/generative-art/assets/collection/Animation/Rainbow%20circles%20animation/Pinterest_12_sec.2023-01-03_19_05_18.gif" alt="Rainbow circles animation" loading="eager" decoding="async">
-                </a>
+                <div class="preview-link paperjs-preview-frame" data-sketch-url="http://sketch.paperjs.org/#V/0.12.17/S/ZVNdb5swFP0rFg+NWSIvmdROou1Tp71Fm9aXVaUPjjHgBWxkmySsyn/fvRgIWa1Izv0+PufyHmleyyiJnvfSizJaRcJkaB+4JbuCPBItj+Qn9yX7JYXnuqgkfU81gePUX5mQg5JHtjOtztwq+HNVVU+mMjYhi13FxX4xBBrjlFdGD0VCai9tqs9xqnGcV7V89tz6Yeo37iWNWSH9FjoqJ4WBIXTItjxTrYPU22AXvAHjyzpYvAZE/jd4vq6vXC/guhs91vIO7Ne3VKc6b7VAdERYCZN/7P7Ag2kAGZPhzVjWABtzYp6UFRdW8ARsyXCvLoFralq5mMXCpGS4ZwHeNFW35d6qU0JyXjkZYshbTyuCMPq7BSUB1/gOKg/QaUKOx5fKMSd4pTRKu2G3ZEm2WO6Uphsw+homkCnyiazZJiafkeGrDtMrWNlKsnwcE87h6mllTetKitAAJQRyYwlF9k4weH0P18MoEhjL5YRzSuxCYjclvoAxSxzlAOFR5xPghb8fYih4939M5YT2dQ9hFXGV2VFlIOzNTaiaR0qpivKayl6x+aL062CU9n3jVd8kji8F54kj+AWKat7QSS3Tt5lmBPNC9bBwgXbLdWZq/BJwB1INn+0OsOwbnO+i5PXt/A8=">
+                    <canvas id="paperjs-preview-canvas" class="preview-media paperjs-preview-canvas" resize data-paperjs-preview aria-label="Rainbow circles animation preview"></canvas>
+                </div>
             </section>
             
             
@@ -537,6 +544,8 @@
             &copy; 2026 Alexander Deplov, designer and developer of iOS and macOS apps, product designer.
         </footer>
     </article>
+    <script src="../../PaperJSEngine/paper-full.js"></script>
+    <script src="../../paperjs-preview-runner.js"></script>
     <script>
 document.addEventListener("click", function (event) {
     var button = event.target.closest(".copy-code-button");

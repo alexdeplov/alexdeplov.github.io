@@ -281,6 +281,13 @@
             object-fit: contain;
         }
 
+        .preview-panel canvas {
+            width: 100%;
+            display: block;
+            aspect-ratio: 4 / 3;
+            background: #000;
+        }
+
         .actions {
             display: flex;
             flex-wrap: wrap;
@@ -480,9 +487,9 @@
         </header>
         <div class="content">
             <section class="preview-panel" aria-label="Preview">
-                <a class="preview-link" href="http://sketch.paperjs.org/#V/0.12.17/S/bVFNb4MwDP0rVi6FgVhaaRe2nXrqYVK1HUsPKfXWCOqgJLTrKv77HKAS+/AhsZ/f80dyFaSOKHLxVqEvDyIVpdmHuKCTsqCOpiUPzzBfDIBVe926HpAFFfRuLEQhoRmTj3w9jSL2kyS+FgRsgdEof2AS4RnW7GavWHpFHzVGIymY01+Yw4NMJ5C3psKlqY3NYbarW5xNso1x2mtDOZw0nrMSyaOFBDZzKVOQ24HZxcM9Pfv9Qn8eSsMdvISh1iv2FnA/LjHlh/mzW7vsk1WTjhwnt8cZS5XGRX39+D/95Zf+8kfvNP3QF9Tx9+wsqqoxmrwT+WbbfQM=" target="_blank" rel="noopener noreferrer" aria-label="Open v1 in Sketch">
-                    <img class="preview-media" src="/tools/generative-art/assets/collection/Path/Rotate%20copies%20around%20center%20by%20using%20Math%20PI/Screenshot_2024-01-29_at_13.55.24.png" alt="Rotate copies around center by using Math.PI" loading="eager" decoding="async">
-                </a>
+                <div class="preview-link paperjs-preview-frame" data-sketch-url="http://sketch.paperjs.org/#V/0.12.17/S/bVFNb4MwDP0rVi6FgVhaaRe2nXrqYVK1HUsPKfXWCOqgJLTrKv77HKAS+/AhsZ/f80dyFaSOKHLxVqEvDyIVpdmHuKCTsqCOpiUPzzBfDIBVe926HpAFFfRuLEQhoRmTj3w9jSL2kyS+FgRsgdEof2AS4RnW7GavWHpFHzVGIymY01+Yw4NMJ5C3psKlqY3NYbarW5xNso1x2mtDOZw0nrMSyaOFBDZzKVOQ24HZxcM9Pfv9Qn8eSsMdvISh1iv2FnA/LjHlh/mzW7vsk1WTjhwnt8cZS5XGRX39+D/95Zf+8kfvNP3QF9Tx9+wsqqoxmrwT+WbbfQM=">
+                    <canvas id="paperjs-preview-canvas" class="preview-media paperjs-preview-canvas" resize data-paperjs-preview aria-label="Rotate copies around center by using Math.PI preview"></canvas>
+                </div>
             </section>
             
             
@@ -517,6 +524,8 @@
             &copy; 2026 Alexander Deplov, designer and developer of iOS and macOS apps, product designer.
         </footer>
     </article>
+    <script src="../../PaperJSEngine/paper-full.js"></script>
+    <script src="../../paperjs-preview-runner.js"></script>
     <script>
 document.addEventListener("click", function (event) {
     var button = event.target.closest(".copy-code-button");

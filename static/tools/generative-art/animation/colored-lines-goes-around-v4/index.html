@@ -281,6 +281,13 @@
             object-fit: contain;
         }
 
+        .preview-panel canvas {
+            width: 100%;
+            display: block;
+            aspect-ratio: 4 / 3;
+            background: #000;
+        }
+
         .actions {
             display: flex;
             flex-wrap: wrap;
@@ -480,9 +487,9 @@
         </header>
         <div class="content">
             <section class="preview-panel" aria-label="Preview">
-                <a class="preview-link" href="http://sketch.paperjs.org/#V/0.12.17/S/vVZRb9owEP4rFi8kJQuBSXtIt4eJCWnSqlbrpK0iPJjkSiyCjWynHav47z07STEmm/qy5gHw+Xz33fedLzwNON3CIB3cbkDn5SAa5KIw6wcqyWpNPhEOj+SG6jL+DrmmfF1B8JRxgo9ifyAlDwweY/Mzaqz3rKpmohIyJcNVRfPNMOOHMOMZNyHpVtRcY9jJtDEwzkHOmMwrQOs0SRqzqHWfWWkpNvCTFbo0MVor5WxLNRP8dgdQ4EYSJxNv6wtTiD6HX264s927brfdl5LuvxqEaF8sHeO1wecb23XG72uem7Akl0A13AjGtQqa2iNStMnmUmxnwDFQ1Jz/IeaIP2zpbekUkgSWKFPXJX59bEnE36NR59x6m+eF1SatK2FDaKdf90hasFqlZBqd2l0l91BV4nHoeeyEYqbOtgtyWwwZkUVficnSOy12NGd6n5LkaDed4tXj1BJLoZHP4P2HZNx20gVhkZs9PB50OI13tSoDN1IHPXTJPhjxsF3NBzmT8RvjEHSEv1KXU1l21Pbtix42oqfGPVKWOp23YD5vWqROE57vN5fkeAdr8HVzrlHqLvoD0R2GkVha4cdZVcCLKxwY6KCQJOBDV0q3fFO6Ix8Zk6OA4SUZj8m1ZKggJqVSHc+dEtj1FZJoA65BWz0/68CuEc9al+NJEnqZGVcgdTA53r6wL4f1dfiLy9rk8gHb/nCPCD6XOEfRteuZAB6wmtATV5dMncV/h5OsD8z5qjkO6y2GVotkiV2Mxce/Ma9zBXA9Ile2EsYDbzheEAsszm0tI+zbi54hGfZZ79A4fRWgvQdo3wHKhfp/gP4FbfLmXL0KzVsR1QdmK4QuA+caHE44tBOmmZumxc+uy6EbcO3QzHjvy855v0fOVAv/4u689yNnyL24NzM44/hHZYWGjaVRDdLF8vAM" target="_blank" rel="noopener noreferrer" aria-label="Open v1 in Sketch">
-                    <img class="preview-media" src="/tools/generative-art/assets/collection/Animation/Colored%20lines%20goes%20around%20v4/Screen_Recording_2024-02-18_at_23.54.24.2024-02-18_23_55_02.gif" alt="Colored lines goes around v4" loading="eager" decoding="async">
-                </a>
+                <div class="preview-link paperjs-preview-frame" data-sketch-url="http://sketch.paperjs.org/#V/0.12.17/S/vVZRb9owEP4rFi8kJQuBSXtIt4eJCWnSqlbrpK0iPJjkSiyCjWynHav47z07STEmm/qy5gHw+Xz33fedLzwNON3CIB3cbkDn5SAa5KIw6wcqyWpNPhEOj+SG6jL+DrmmfF1B8JRxgo9ifyAlDwweY/Mzaqz3rKpmohIyJcNVRfPNMOOHMOMZNyHpVtRcY9jJtDEwzkHOmMwrQOs0SRqzqHWfWWkpNvCTFbo0MVor5WxLNRP8dgdQ4EYSJxNv6wtTiD6HX264s927brfdl5LuvxqEaF8sHeO1wecb23XG72uem7Akl0A13AjGtQqa2iNStMnmUmxnwDFQ1Jz/IeaIP2zpbekUkgSWKFPXJX59bEnE36NR59x6m+eF1SatK2FDaKdf90hasFqlZBqd2l0l91BV4nHoeeyEYqbOtgtyWwwZkUVficnSOy12NGd6n5LkaDed4tXj1BJLoZHP4P2HZNx20gVhkZs9PB50OI13tSoDN1IHPXTJPhjxsF3NBzmT8RvjEHSEv1KXU1l21Pbtix42oqfGPVKWOp23YD5vWqROE57vN5fkeAdr8HVzrlHqLvoD0R2GkVha4cdZVcCLKxwY6KCQJOBDV0q3fFO6Ix8Zk6OA4SUZj8m1ZKggJqVSHc+dEtj1FZJoA65BWz0/68CuEc9al+NJEnqZGVcgdTA53r6wL4f1dfiLy9rk8gHb/nCPCD6XOEfRteuZAB6wmtATV5dMncV/h5OsD8z5qjkO6y2GVotkiV2Mxce/Ma9zBXA9Ile2EsYDbzheEAsszm0tI+zbi54hGfZZ79A4fRWgvQdo3wHKhfp/gP4FbfLmXL0KzVsR1QdmK4QuA+caHE44tBOmmZumxc+uy6EbcO3QzHjvy855v0fOVAv/4u689yNnyL24NzM44/hHZYWGjaVRDdLF8vAM">
+                    <canvas id="paperjs-preview-canvas" class="preview-media paperjs-preview-canvas" resize data-paperjs-preview aria-label="Colored lines goes around v4 preview"></canvas>
+                </div>
             </section>
             <div class="actions"><a class="text-link sketch-link" href="http://sketch.paperjs.org/#V/0.12.17/S/xVZRb9owEP4rFi9NShoCU6cp2x6mTpUmrVo1Jm0V8GCSK7EINnKcMlrx33d2bDAh3fqyLS/E5/P57rvvPvLU43QFvbQ3XoLKil7Uy0Su1w9UkvmCvCccNuSWqiL+CpmifFFC8DTlBJ+KPUJKHhhsYv0aNdZ7VpZXohQyJWfzkmbLsynfhVM+5TokXYmaKww7HDUGxjnIKyazEtA6SpLGLGrVZa6UFEv4znJV6BjWSjlbUcUEH68BctxI4mTY2vrIKsw+gx9+uJPdO7dr96Wk2086Q7RPZp7xi86vbbTrKb+veabDkkwCVXArGFdV0NQekdxedi3F6go4Boqa89/ENeYfWngtnEKSwACl63qLP+8siPje7ztn662fParNtX4LG0Bd/9wjac7qKiWj6Njud3ILZSk2Zy2PtaiYrtOyIDPFkD6ZdJWYzFqnxZpmTG1TkhzsmimterxaYikU4hm8ep0MLJPOCYv828PDQQ/TeF1XReBHcqmHPtg73Tykq+t/5gj4DIIOucsO7m8KpsAB9ixQwyTRyLgRwTyaO2PBryVOJt7tyBTAAx5zDbduFpCLYRuEXQcPPzMOgQvwQmId82pNzeDt4TARW3S6x56n3uhMWLvxSqTeFJ3uN1N+EJEa2sTzdCD1F92B6BrDSCwtb8eZl8DzG1Q8dKgQJOBtj8EAG1CW2zGUqH+Qp0TJGnzC+hh1vWnc3DwgdhrCeAHK8PCDCswa01ioYnDpsdfYGa9AqmB4EI2w6wrj66EWF7W+CseEDMhhUAzD/CN/Itm+YQWrTuJfoAAfu3UdgsUKA1aTZIYjhxXHP/E2j6q47pMbkz/jQUvJz4lJJ85MBX3k6HmHoodd1js0JvGbF6W0baW0dSllovqbKf0uueF/wWv0opT+KV6dKa2EUEXgzcLuCE4jLo3ma56fzMzOaZsVfFTdrj9q79sk8gQtfMbd+2aJPH3buzfyO+X4kTVHw9KAWfXSyWz3Cw==" target="_blank" rel="noopener noreferrer">Open v2 in Sketch</a>
 <a class="text-link sketch-link" href="http://sketch.paperjs.org/#V/0.12.17/S/xVZRb9owEP4rFi9NShoCU6cp2x6mTpUmrVo1Jm0V8GCSK7EINrKdMlrx33d2YjAh3fqyLS/E5/P57rvvPvLU43QFvbQ3XoLOil7Uy0Ru1g9UkvmCvCccNuSW6iL+CpmmfFFC8DTlBB/FHiElDww2sXmNaus9K8srUQqZkrN5SbPl2ZTvwimfchOSrkTFNYYdjmoD4xzkFZNZCWgdJUltFpXuMistxRK+s1wXJkZjpZytqGaCj9cAOW4kcTJsbX1kCrPP4Icf7mT3zu02+1LS7SeTIdonM8/4xeTXNjbrKb+veGbCkkwC1XArGNcqqGuPSN5cdi3F6go4Borq89/ENeYfNvA2cApJAguUqest/rxrQMT3ft85N97m2aNaX+u3sAbU9c89kuasUikZRcd2v5NbKEuxOWt5rIVips6GBZkthvTJpKvEZNY6LdY0Y3qbkuRgN0xp1ePVEkuhEc/g1etk0DDpnLDIvz08HPQwjdeVKgI/kks99MHemeYhXV3/M0fAZxB0yF12cH9TMA0OsGeBGiaJQcaNCOZR3xkLfi1xMvFuR6YAHvCYa3jj1gByMWyDsOvg4WfGIXABXkisY16tqR28PRw2YotO99jz1BudCWs3XovUm6LT/XrKDyJSQZt4ng6k/qI7EF1jGIml5e048xJ4foOKhw4KQQLe9hgMsAFluR1DifoHeUq0rMAnrI9R15vBzc0DYmcgjBegLQ8/6MCuMY2FLgaXHnutnXEFUgfDg2iEXVdYXw+1uKjMVTgmZEAOg2IZ5h/5E8n2DSuYOol/gQJ87NZ1CBYrDKgmyQxHDiuOf+JtHlVx3Sc3Nn/Gg5aSnxObTpzZCvrI0fMORQ+7rHdoTOI3L0pp20pp61LKhPqbKf0uudF/wWv0opT+KV6dKa2E0EXgzcLuCE4rLrXmG56fzMzOaVsj+Ki6XX/U3rdJ5Ala+Iy7980Sefq2d6/ld8rxI2uOhqUFU/XSyWz3Cw==" target="_blank" rel="noopener noreferrer">Open v3 in Sketch</a></div>
@@ -578,6 +585,8 @@
             &copy; 2026 Alexander Deplov, designer and developer of iOS and macOS apps, product designer.
         </footer>
     </article>
+    <script src="../../PaperJSEngine/paper-full.js"></script>
+    <script src="../../paperjs-preview-runner.js"></script>
     <script>
 document.addEventListener("click", function (event) {
     var button = event.target.closest(".copy-code-button");

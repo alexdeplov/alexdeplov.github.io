@@ -851,15 +851,27 @@ function displayNumber(array) {
             var circle = new Path.Circle({
                 radius: 15,
                 fillColor: &#x27;red&#x27;,
-                center: [view.center.x + gap * x, view.center.y + gap * y],
+                center: [gap * x, gap * y],
                 opacity: array[y][x],
                 parent: group,
             })
             circle.opacity += 0.2
         }
     }
+    centerObjects()
     return group
 }
+
+function centerObjects() {
+    if (group) {
+        group.position = view.center
+    }
+}
+
+function onResize(event) {
+    centerObjects()
+}
+
 var i = 0
 
 function onFrame(event) {
@@ -899,6 +911,4 @@ function onFrame(event) {
         }
         i += 1
     }
-}
-
-project.activeLayer.position = view.center</code></pre></div><div style="display:contents" dir="ltr"><figure id="6e63a817-3de4-4c7a-9403-9e589dbecc91"><a href="http://sketch.paperjs.org/#V/0.12.17/S/tVfbjpswEP0VK1IV0kQI5x7aPq3UvlRV1X3pikSVQ5ysG2Ijh2RDV/x7bUwuBjdmN1uEBDMeHx+Ox/bw3KBogxt+436Nk/Cx0WmEbCHtPeJgvgKfAMVP4DtKHt0fOEwQXUXYeZ5SIK4t+YN9sCf4yZ2zHV1sO8q/JFF0xyLGfdCcRyhcN4uGmG1JQhgtOoWYJphPadaaUjncBh1+igEHJ+tBWCNlcbQgu62wYdG8QrGw+p6y6G4zx/yXJ1yBGivwOgAeb29WMAikcbxh1QurXliNhVcQNK/OYUpnGluosz2N5VX7l73m2Nu9V9h2X6mtV0MZE0IN7/musO1dsNUjrbzO4lT1MnjfIhP6lUyozQBWY6ERwaKC+cuMbAdWbe0zZlPx7bQdmlZZWQNoZFv7Gyy7ygvYjm7N25dks2H1X1ehzHZ86377wj3hNm0n/43t6+bhTEBju+JsF0/plC53NJTHJViQbRyh9Fv+GQ7iHKUtUBzCZAmcvMfJI6/c43K8YXvstJQ/U4+8qTjXv8j3Y/uSceBIAgfR6n0Qj4/5kSze2m0N/RSZqshURT6It1KkvGRgSHgY4ctq4i73OKVYeamj3hcnfafaeFlbcLxoGkJUWeGD4KLIcA+gnZcM78Ghc1l9uOmpIZ0ZwFiMQpKkPshVD9JZcDCFxYgLOF+JW2rPWrqttHALZNAWErrdc0imzRbHyY7TY05kKkOIlF3LEEY/c1HHOXgvaGi5kXvcUNRnCXgHeqJCEn21OZJRRLonlakrBipR0zp5lU56th4rs9Z1GFgPBlpguvVguhaYXj2YngWmXw+mb4EZ1IMZWGCG9WCGFphRPZiRBWZcD2ZsganmrBFm8g8YufrgacFlck3FnP0WfzouEitrj7+iVGwSxx8XsRwu9g7xszTnGK1jRmiybfjBLPsL" class="bookmark source"><div class="bookmark-info"><div class="bookmark-text"><div class="bookmark-title">Paper.js Sketch</div></div><div class="bookmark-href">http://sketch.paperjs.org/#V/0.12.17/S/tVfbjpswEP0VK1IV0kQI5x7aPq3UvlRV1X3pikSVQ5ysG2Ijh2RDV/x7bUwuBjdmN1uEBDMeHx+Ox/bw3KBogxt+436Nk/Cx0WmEbCHtPeJgvgKfAMVP4DtKHt0fOEwQXUXYeZ5SIK4t+YN9sCf4yZ2zHV1sO8q/JFF0xyLGfdCcRyhcN4uGmG1JQhgtOoWYJphPadaaUjncBh1+igEHJ+tBWCNlcbQgu62wYdG8QrGw+p6y6G4zx/yXJ1yBGivwOgAeb29WMAikcbxh1QurXliNhVcQNK/OYUpnGluosz2N5VX7l73m2Nu9V9h2X6mtV0MZE0IN7/musO1dsNUjrbzO4lT1MnjfIhP6lUyozQBWY6ERwaKC+cuMbAdWbe0zZlPx7bQdmlZZWQNoZFv7Gyy7ygvYjm7N25dks2H1X1ehzHZ86377wj3hNm0n/43t6+bhTEBju+JsF0/plC53NJTHJViQbRyh9Fv+GQ7iHKUtUBzCZAmcvMfJI6/c43K8YXvstJQ/U4+8qTjXv8j3Y/uSceBIAgfR6n0Qj4/5kSze2m0N/RSZqshURT6It1KkvGRgSHgY4ctq4i73OKVYeamj3hcnfafaeFlbcLxoGkJUWeGD4KLIcA+gnZcM78Ghc1l9uOmpIZ0ZwFiMQpKkPshVD9JZcDCFxYgLOF+JW2rPWrqttHALZNAWErrdc0imzRbHyY7TY05kKkOIlF3LEEY/c1HHOXgvaGi5kXvcUNRnCXgHeqJCEn21OZJRRLonlakrBipR0zp5lU56th4rs9Z1GFgPBlpguvVguhaYXj2YngWmXw+mb4EZ1IMZWGCG9WCGFphRPZiRBWZcD2ZsganmrBFm8g8YufrgacFlck3FnP0WfzouEitrj7+iVGwSxx8XsRwu9g7xszTnGK1jRmiybfjBLPsL</div></div></a></figure></div></div></article><span class="sans" style="font-size:14px;padding-top:2em"></span></body></html>
+}</code></pre></div><div style="display:contents" dir="ltr"><figure id="6e63a817-3de4-4c7a-9403-9e589dbecc91"><a href="http://sketch.paperjs.org/#V/0.12.17/S/tVfbjpswEP0VK1IV0kQI5x7aPq3UvlRV1X3pikSVQ5ysG2Ijh2RDV/x7bUwuBjdmN1uEBDMeHx+Ox/bw3KBogxt+436Nk/Cx0WmEbCHtPeJgvgKfAMVP4DtKHt0fOEwQXUXYeZ5SIK4t+YN9sCf4yZ2zHV1sO8q/JFF0xyLGfdCcRyhcN4uGmG1JQhgtOoWYJphPadaaUjncBh1+igEHJ+tBWCNlcbQgu62wYdG8QrGw+p6y6G4zx/yXJ1yBGivwOgAeb29WMAikcbxh1QurXliNhVcQNK/OYUpnGluosz2N5VX7l73m2Nu9V9h2X6mtV0MZE0IN7/musO1dsNUjrbzO4lT1MnjfIhP6lUyozQBWY6ERwaKC+cuMbAdWbe0zZlPx7bQdmlZZWQNoZFv7Gyy7ygvYjm7N25dks2H1X1ehzHZ86377wj3hNm0n/43t6+bhTEBju+JsF0/plC53NJTHJViQbRyh9Fv+GQ7iHKUtUBzCZAmcvMfJI6/c43K8YXvstJQ/U4+8qTjXv8j3Y/uSceBIAgfR6n0Qj4/5kSze2m0N/RSZqshURT6It1KkvGRgSHgY4ctq4i73OKVYeamj3hcnfafaeFlbcLxoGkJUWeGD4KLIcA+gnZcM78Ghc1l9uOmpIZ0ZwFiMQpKkPshVD9JZcDCFxYgLOF+JW2rPWrqttHALZNAWErrdc0imzRbHyY7TY05kKkOIlF3LEEY/c1HHOXgvaGi5kXvcUNRnCXgHeqJCEn21OZJRRLonlakrBipR0zp5lU56th4rs9Z1GFgPBlpguvVguhaYXj2YngWmXw+mb4EZ1IMZWGCG9WCGFphRPZiRBWZcD2ZsganmrBFm8g8YufrgacFlck3FnP0WfzouEitrj7+iVGwSxx8XsRwu9g7xszTnGK1jRmiybfjBLPsL" class="bookmark source"><div class="bookmark-info"><div class="bookmark-text"><div class="bookmark-title">Paper.js Sketch</div></div><div class="bookmark-href">http://sketch.paperjs.org/#V/0.12.17/S/tVfbjpswEP0VK1IV0kQI5x7aPq3UvlRV1X3pikSVQ5ysG2Ijh2RDV/x7bUwuBjdmN1uEBDMeHx+Ox/bw3KBogxt+436Nk/Cx0WmEbCHtPeJgvgKfAMVP4DtKHt0fOEwQXUXYeZ5SIK4t+YN9sCf4yZ2zHV1sO8q/JFF0xyLGfdCcRyhcN4uGmG1JQhgtOoWYJphPadaaUjncBh1+igEHJ+tBWCNlcbQgu62wYdG8QrGw+p6y6G4zx/yXJ1yBGivwOgAeb29WMAikcbxh1QurXliNhVcQNK/OYUpnGluosz2N5VX7l73m2Nu9V9h2X6mtV0MZE0IN7/musO1dsNUjrbzO4lT1MnjfIhP6lUyozQBWY6ERwaKC+cuMbAdWbe0zZlPx7bQdmlZZWQNoZFv7Gyy7ygvYjm7N25dks2H1X1ehzHZ86377wj3hNm0n/43t6+bhTEBju+JsF0/plC53NJTHJViQbRyh9Fv+GQ7iHKUtUBzCZAmcvMfJI6/c43K8YXvstJQ/U4+8qTjXv8j3Y/uSceBIAgfR6n0Qj4/5kSze2m0N/RSZqshURT6It1KkvGRgSHgY4ctq4i73OKVYeamj3hcnfafaeFlbcLxoGkJUWeGD4KLIcA+gnZcM78Ghc1l9uOmpIZ0ZwFiMQpKkPshVD9JZcDCFxYgLOF+JW2rPWrqttHALZNAWErrdc0imzRbHyY7TY05kKkOIlF3LEEY/c1HHOXgvaGi5kXvcUNRnCXgHeqJCEn21OZJRRLonlakrBipR0zp5lU56th4rs9Z1GFgPBlpguvVguhaYXj2YngWmXw+mb4EZ1IMZWGCG9WCGFphRPZiRBWZcD2ZsganmrBFm8g8YufrgacFlck3FnP0WfzouEitrj7+iVGwSxx8XsRwu9g7xszTnGK1jRmiybfjBLPsL</div></div></a></figure></div></div></article><span class="sans" style="font-size:14px;padding-top:2em"></span></body></html>

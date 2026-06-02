@@ -281,6 +281,13 @@
             object-fit: contain;
         }
 
+        .preview-panel canvas {
+            width: 100%;
+            display: block;
+            aspect-ratio: 4 / 3;
+            background: #000;
+        }
+
         .actions {
             display: flex;
             flex-wrap: wrap;
@@ -480,9 +487,9 @@
         </header>
         <div class="content">
             <section class="preview-panel" aria-label="Preview">
-                <a class="preview-link" href="http://sketch.paperjs.org/#V/0.12.17/S/fVXBctsgEP0VxhfJjapiN5nOKM3JM8n0kDaTZqaHKAcsrW1qGTSA7LgZ/3sWkCyUOPVFsG+Bffse+GUk2AZG2ej3GkyxGiWjQpZ2vmWKzJfkigjYkTtmVuk9FIaJZQXxSy4I/jT/BxnZctildpj46IJX1UxWUmUkmlesWEe5OIxzkQu75YY9454TSj6RqY8oVvJG/1rcQznjqqhAY8KUDsFZo7RUPT6hX9rlJddYVQHXSm5mIAwohM9pdx5Tiu0x8vjk50slm7pldWPHMZa2kIrEFuWI0Ev8fLeF4uDsbIxkc2PBwp0edsTXE7uM3PhaM6wdyfHEB7VRcg1dPxSU0QD4w0uzyghNJ224YJZC29XC8WmRmimcZp6BDfmm5sZRTOtGr2JfIsYPuXB5aS01N1wKLDvY0i5cNKJwiBS3stFwK7cQwxZxS3m4On0mZ1ckvrWkNRc+LS1kIwxypSm9GFtB6djNvvq63hXgV9WSC9PjShpmIP58kYR4S82NQd2EmdMkZDLowYbVcUcrlvO/aNiE8HGrT6/hrJLa+eQDJXstT/ov6bKGVm8gOiId61NCYrV1Xe2xmYo/Z2TBKg0ecYpaEwRVpsdD0lUDVgbvL8/7Ta7ZAYgHGXvohUS6YBUXywhd2Z4eDfZD4JweWqhlby9x2Sjm659SmvRxYCj/EuniAH6IWTPnRRQUf2y0ALSrNndWQGy0FyNdgvkZAPFA365n48sTzAIbhVufSpXiWuGbhplHLxxt7ftvVly/7+u3Dv5/+ye05dvR7b4azAPfgGxMb8L+zMGmCjb2trVyHxIUgbr2HfzdDe6m4zIgIFyKf87CBr591QL8I6t3Nr9wEod23kNVyZ03tHfveyt3L1JYhANkzQpu9vZdm3pOJ4X2rwoaDP915grY2mXpUfb4dHgF" target="_blank" rel="noopener noreferrer" aria-label="Open v1 in Sketch">
-                    <img class="preview-media" src="/tools/generative-art/assets/collection/Cursor/Lightsaber/Screen_Recording_2024-01-05_at_19.55.31.2024-01-05_20_03_15.gif" alt="Lightsaber" loading="eager" decoding="async">
-                </a>
+                <div class="preview-link paperjs-preview-frame" data-sketch-url="http://sketch.paperjs.org/#V/0.12.17/S/fVXBctsgEP0VxhfJjapiN5nOKM3JM8n0kDaTZqaHKAcsrW1qGTSA7LgZ/3sWkCyUOPVFsG+Bffse+GUk2AZG2ej3GkyxGiWjQpZ2vmWKzJfkigjYkTtmVuk9FIaJZQXxSy4I/jT/BxnZctildpj46IJX1UxWUmUkmlesWEe5OIxzkQu75YY9454TSj6RqY8oVvJG/1rcQznjqqhAY8KUDsFZo7RUPT6hX9rlJddYVQHXSm5mIAwohM9pdx5Tiu0x8vjk50slm7pldWPHMZa2kIrEFuWI0Ev8fLeF4uDsbIxkc2PBwp0edsTXE7uM3PhaM6wdyfHEB7VRcg1dPxSU0QD4w0uzyghNJ224YJZC29XC8WmRmimcZp6BDfmm5sZRTOtGr2JfIsYPuXB5aS01N1wKLDvY0i5cNKJwiBS3stFwK7cQwxZxS3m4On0mZ1ckvrWkNRc+LS1kIwxypSm9GFtB6djNvvq63hXgV9WSC9PjShpmIP58kYR4S82NQd2EmdMkZDLowYbVcUcrlvO/aNiE8HGrT6/hrJLa+eQDJXstT/ov6bKGVm8gOiId61NCYrV1Xe2xmYo/Z2TBKg0ecYpaEwRVpsdD0lUDVgbvL8/7Ta7ZAYgHGXvohUS6YBUXywhd2Z4eDfZD4JweWqhlby9x2Sjm659SmvRxYCj/EuniAH6IWTPnRRQUf2y0ALSrNndWQGy0FyNdgvkZAPFA365n48sTzAIbhVufSpXiWuGbhplHLxxt7ftvVly/7+u3Dv5/+ye05dvR7b4azAPfgGxMb8L+zMGmCjb2trVyHxIUgbr2HfzdDe6m4zIgIFyKf87CBr591QL8I6t3Nr9wEod23kNVyZ03tHfveyt3L1JYhANkzQpu9vZdm3pOJ4X2rwoaDP915grY2mXpUfb4dHgF">
+                    <canvas id="paperjs-preview-canvas" class="preview-media paperjs-preview-canvas" resize data-paperjs-preview aria-label="Lightsaber preview"></canvas>
+                </div>
             </section>
             
             
@@ -579,6 +586,8 @@
             &copy; 2026 Alexander Deplov, designer and developer of iOS and macOS apps, product designer.
         </footer>
     </article>
+    <script src="../../PaperJSEngine/paper-full.js"></script>
+    <script src="../../paperjs-preview-runner.js"></script>
     <script>
 document.addEventListener("click", function (event) {
     var button = event.target.closest(".copy-code-button");

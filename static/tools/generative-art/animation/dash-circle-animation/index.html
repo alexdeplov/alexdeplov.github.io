@@ -281,6 +281,13 @@
             object-fit: contain;
         }
 
+        .preview-panel canvas {
+            width: 100%;
+            display: block;
+            aspect-ratio: 4 / 3;
+            background: #000;
+        }
+
         .actions {
             display: flex;
             flex-wrap: wrap;
@@ -480,9 +487,9 @@
         </header>
         <div class="content">
             <section class="preview-panel" aria-label="Preview">
-                <a class="preview-link" href="http://sketch.paperjs.org/#V/0.12.17/S/fVLfS8MwEP5XQl+66gydMoSCDzrQFwVRwQfrQ5betrh4KZd0Yw7/dy+2nRXEPoTrfcn345J9guodkiJ5XEPQq2ScaFfF/40iMV+KC4GwFfcqrOQD6KBwaWG0L1Hw580HFGJjYCtjOW67C2PtzFlHhUjnVul1WuJnVmKJkXJJrqk71ptYjw5QzSJDvZkh/SNGqjKNL8R02un4QG4NvRJBlf4Cnk0VVoU47bfXzptgHHaGNWAA6jBtnYeqEAtlPfymV3Ukdw0e6GtFfLZokwyjVcpH/zGGZEaEGC025cAqb0h3YK3bph3Yisd+oAb6bm+X+wO/HRiXSyK1Y/Rlko/Fef7aSwFWT+6Kx94OtsRFg/qbyeE18V2PYMNc2T5ibR72Sy6oAKO7WHuD7R6pOXcQRyKXeT7NuJjI6XjoJ2spvpX/pzj5j2NgZDAquWpAHF+IyUDkb5hvIS41uTd+o1Jx3g3cqh2Q9FrxGzrL+GHPCdS6dgaDT4qX188v" target="_blank" rel="noopener noreferrer" aria-label="Open v1 in Sketch">
-                    <img class="preview-media" src="/tools/generative-art/assets/collection/Animation/Dash%20circle%20animation/2023_12_31_08_29_PM_1704050977.2023-12-31_20_54_18.gif" alt="Dash circle animation" loading="eager" decoding="async">
-                </a>
+                <div class="preview-link paperjs-preview-frame" data-sketch-url="http://sketch.paperjs.org/#V/0.12.17/S/fVLfS8MwEP5XQl+66gydMoSCDzrQFwVRwQfrQ5betrh4KZd0Yw7/dy+2nRXEPoTrfcn345J9guodkiJ5XEPQq2ScaFfF/40iMV+KC4GwFfcqrOQD6KBwaWG0L1Hw580HFGJjYCtjOW67C2PtzFlHhUjnVul1WuJnVmKJkXJJrqk71ptYjw5QzSJDvZkh/SNGqjKNL8R02un4QG4NvRJBlf4Cnk0VVoU47bfXzptgHHaGNWAA6jBtnYeqEAtlPfymV3Ukdw0e6GtFfLZokwyjVcpH/zGGZEaEGC025cAqb0h3YK3bph3Yisd+oAb6bm+X+wO/HRiXSyK1Y/Rlko/Fef7aSwFWT+6Kx94OtsRFg/qbyeE18V2PYMNc2T5ibR72Sy6oAKO7WHuD7R6pOXcQRyKXeT7NuJjI6XjoJ2spvpX/pzj5j2NgZDAquWpAHF+IyUDkb5hvIS41uTd+o1Jx3g3cqh2Q9FrxGzrL+GHPCdS6dgaDT4qX188v">
+                    <canvas id="paperjs-preview-canvas" class="preview-media paperjs-preview-canvas" resize data-paperjs-preview aria-label="Dash circle animation preview"></canvas>
+                </div>
             </section>
             
             
@@ -549,6 +556,8 @@
             &copy; 2026 Alexander Deplov, designer and developer of iOS and macOS apps, product designer.
         </footer>
     </article>
+    <script src="../../PaperJSEngine/paper-full.js"></script>
+    <script src="../../paperjs-preview-runner.js"></script>
     <script>
 document.addEventListener("click", function (event) {
     var button = event.target.closest(".copy-code-button");

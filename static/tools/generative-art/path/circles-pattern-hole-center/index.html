@@ -281,6 +281,13 @@
             object-fit: contain;
         }
 
+        .preview-panel canvas {
+            width: 100%;
+            display: block;
+            aspect-ratio: 4 / 3;
+            background: #000;
+        }
+
         .actions {
             display: flex;
             flex-wrap: wrap;
@@ -480,9 +487,9 @@
         </header>
         <div class="content">
             <section class="preview-panel" aria-label="Preview">
-                <a class="preview-link" href="http://sketch.paperjs.org/#V/0.12.17/S/bVLLbsIwEPwVK5eGEiUURFWl7Qm1VQ8IRHsDDsZZiIVZR44DtIh/78YO4qH6EDsz6/F41ocA+QaCNPhagxV5EAVCZ/X/lhsmlEYo2SvrdWZYA3yjK7Sj5UTvaviBYE8Ynsmq/MQx8DURT5fosFJWFkqCGeF3Dm+YUcWlUtKckySsE/d6fq9EBDNxAlTedyfNcKkNCx1dH/9M0wu5oLndbh1myGgIA9zCQBqhoAz77J7JiHXd3Koljo1ShcJKjTf1G76PWCZLy1HAu9GbAaAFcxJ3IeBKQR3KYyeh8jOxMroqiEDYsY96HbY8eeW6413TzivbJxHhjDQqY27z2FsLL+rq4bNN6fbRNbGUSg200iZldwtVwd0NL9yFUjbdStjFpfyFeCczmyfdiJ2hHOQqt0mXtf9JY34jWXBDeOoDuOF4UaifIbdG7lO25KqEM39s8qHvGfQBxEZbakvow3Y9dOa8e9dIp+AWrq30dBfUynWhJdoySKfz4x8=" target="_blank" rel="noopener noreferrer" aria-label="Open v1 in Sketch">
-                    <img class="preview-media" src="/tools/generative-art/assets/collection/Path/Circles%20Pattern%20Hole%20Center/Screenshot_2022-06-04_at_20.28.26.png" alt="Circles Pattern Hole Center" loading="eager" decoding="async">
-                </a>
+                <div class="preview-link paperjs-preview-frame" data-sketch-url="http://sketch.paperjs.org/#V/0.12.17/S/bVLLbsIwEPwVK5eGEiUURFWl7Qm1VQ8IRHsDDsZZiIVZR44DtIh/78YO4qH6EDsz6/F41ocA+QaCNPhagxV5EAVCZ/X/lhsmlEYo2SvrdWZYA3yjK7Sj5UTvaviBYE8Ynsmq/MQx8DURT5fosFJWFkqCGeF3Dm+YUcWlUtKckySsE/d6fq9EBDNxAlTedyfNcKkNCx1dH/9M0wu5oLndbh1myGgIA9zCQBqhoAz77J7JiHXd3Koljo1ShcJKjTf1G76PWCZLy1HAu9GbAaAFcxJ3IeBKQR3KYyeh8jOxMroqiEDYsY96HbY8eeW6413TzivbJxHhjDQqY27z2FsLL+rq4bNN6fbRNbGUSg200iZldwtVwd0NL9yFUjbdStjFpfyFeCczmyfdiJ2hHOQqt0mXtf9JY34jWXBDeOoDuOF4UaifIbdG7lO25KqEM39s8qHvGfQBxEZbakvow3Y9dOa8e9dIp+AWrq30dBfUynWhJdoySKfz4x8=">
+                    <canvas id="paperjs-preview-canvas" class="preview-media paperjs-preview-canvas" resize data-paperjs-preview aria-label="Circles Pattern Hole Center preview"></canvas>
+                </div>
             </section>
             
             
@@ -534,6 +541,8 @@
             &copy; 2026 Alexander Deplov, designer and developer of iOS and macOS apps, product designer.
         </footer>
     </article>
+    <script src="../../PaperJSEngine/paper-full.js"></script>
+    <script src="../../paperjs-preview-runner.js"></script>
     <script>
 document.addEventListener("click", function (event) {
     var button = event.target.closest(".copy-code-button");

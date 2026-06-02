@@ -22,6 +22,10 @@ $(document).ready(function () {
 
     var textGroup = new paper.Group()
 
+    function centerObjects(){
+        textGroup.translate(paper.view.center.subtract(object.position))
+    }
+
     var object = new paper.Path.Rectangle({
         size: 20,
         fillColor: 'blue',
@@ -43,15 +47,20 @@ $(document).ready(function () {
 
     // console.log(text.bounds.width)
     var textRect = new paper.Path.Rectangle({
-        size: text.bounds,
+        size: text.bounds.size,
         fillColor: 'whitesmoke',
         position: text.position,
         opacity: 0,
+        parent: textGroup,
         // scaling: 0.2
     })
+
+    centerObjects()
     
+    paper.view.onResize = centerObjects
+
     paper.view.onMouseDrag = function(event){
-        paper.project.activeLayer.position = event.point
+        centerObjects()
     }
 
     $("#canvas" ).on( 'wheel', function(e) {
@@ -73,13 +82,14 @@ $(document).ready(function () {
         }
         // console.log(paper.project.activeLayer.bounds.size.width)
 
-        if (paper.project.activeLayer.bounds.size.width > 200){
+        if (textGroup.bounds.size.width > 200){
             animateState(true, e)
         } else{
             animateState(false, e)
         }
 
-        paper.project.activeLayer.scale(scale)
+        textGroup.scale(scale, paper.view.center)
+        centerObjects()
 
     })
 

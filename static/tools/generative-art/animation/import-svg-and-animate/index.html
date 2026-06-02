@@ -270,6 +270,13 @@
             object-fit: contain;
         }
 
+        .preview-panel canvas {
+            width: 100%;
+            display: block;
+            aspect-ratio: 4 / 3;
+            background: #000;
+        }
+
         .actions {
             display: flex;
             flex-wrap: wrap;
@@ -469,7 +476,7 @@
         </header>
         <div class="content">
             <section class="preview-panel" aria-label="Preview">
-                <img class="preview-media" src="/tools/generative-art/assets/collection/Animation/Import%20SVG%20and%20animate/Screen_Recording_2022-06-04_at_18.01.16.2022-06-04_18_01_51.gif" alt="Import SVG and animate" loading="eager" decoding="async">
+                <canvas id="paperjs-preview-canvas" class="preview-media paperjs-preview-canvas" resize data-paperjs-preview data-paperjs-source="/tools/generative-art/assets/collection/Animation/Import%20SVG%20and%20animate/Import_apple_logo_SVG_and_animate_circle.html" aria-label="Import SVG and animate preview"></canvas>
             </section>
             <div class="actions"><a class="button secondary" href="/tools/generative-art/assets/collection/Animation/Import%20SVG%20and%20animate/Import_apple_logo_SVG_and_animate_circle.html">Import SVG and animate.html</a></div>
             
@@ -486,6 +493,8 @@
             &copy; 2026 Alexander Deplov, designer and developer of iOS and macOS apps, product designer.
         </footer>
     </article>
+    <script src="../../PaperJSEngine/paper-full.js"></script>
+    <script src="../../paperjs-preview-runner.js"></script>
     <script data-goatcounter="https://goatinterface.goatcounter.com/count" async src="//gc.zgo.at/count.js"></script>
 </body>
 </html>

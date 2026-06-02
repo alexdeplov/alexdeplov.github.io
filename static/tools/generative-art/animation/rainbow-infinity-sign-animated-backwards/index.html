@@ -281,6 +281,13 @@
             object-fit: contain;
         }
 
+        .preview-panel canvas {
+            width: 100%;
+            display: block;
+            aspect-ratio: 4 / 3;
+            background: #000;
+        }
+
         .actions {
             display: flex;
             flex-wrap: wrap;
@@ -480,9 +487,9 @@
         </header>
         <div class="content">
             <section class="preview-panel" aria-label="Preview">
-                <a class="preview-link" href="http://sketch.paperjs.org/#V/0.12.17/S/nVbfb9owEP5XLF4ILTVJOzot3Z4qdU+VqrUPm4AHkxhi1TjINtCt4n/fObYThzRdtbwkPt999+u7g9eBIBs6SAePz1RnxWA8yMrcnPdEouUafUOCHtAD0QX+QTNNxJrT6HUuEDyK/aEp2jN6wMtyJ3I1tvIV4/y25KVM0XDJSfY8dBfbUjHNSuGMMio0lXNxHM2FcbctmdAKXH6eWgGnYq0LI3AKpDr5iCJnpzSRGuQBKJqgWRKPUbK4mYtVKVFkFBkoxTfw+up8wff5+Qi5fAw8JnkeWcBz68goRgyduWjGKB6B36N1nTGZcWpini16HBlQRdcbiEthi9F22+CE1b6tJL7U5rGZpW3EGVvgKpdxoyhJznYqRZ/iQBg2RdJ8GFyR7Zb/vidaspcUrQhX1F2axlSebZZ4u1NFZA9NCUzl47mA7HciM91FpbiTQKqI7iHCOk0oKCjiaZO04uWByie2MYlraFkSn1Yk+en7ahmGDywHDkzQJbTnvioEE1EABDcj6NXVtAv16wSqoGxd6H4sg3M5jY1Cg1XV2vepooYPdFz7GQV0WjGp9KNtFvbG1dvNSi830QVK2kSp62bhDNAJFdp6gr5416Dr1LCRtvX2MNgQRqNi47wIAXAQc2VX2eB6Qt3Hma+VeTrmb7iwOI5u9rXb5kRTy3/14FZGpIOhsyPeOywd/ofc56bp3yWlwo+An6tgfbib7mDYZWWV8FIysX4q72QJNGjEtTeIcHgomKbDMO5bXgpDeKedmWNjXd22IYKIOzjJ+0DJP5AKwleuQ+qUTr63QMPWdPe1x7P0/5Zg0wjsfyU6/O4Lb3FKzrCUvWjxe2ZJv12rZrAbujC2NHYz94Cw96zqnuFiZ5hyGcOCuro2aw0cuu1whtgHjGHlJtdf4jc1VUY4ELiv75OPOtD19B7h78NSUvJsYxyks8XxLw==" target="_blank" rel="noopener noreferrer" aria-label="Open v1 in Sketch">
-                    <img class="preview-media" src="/tools/generative-art/assets/collection/Animation/Rainbow%20infinity%20sign%20animated,%20backwards/Screen_Recording_2022-06-29_at_11.24.12.2022-06-29_11_25_12.gif" alt="Rainbow infinity sign animated, backwards" loading="eager" decoding="async">
-                </a>
+                <div class="preview-link paperjs-preview-frame" data-sketch-url="http://sketch.paperjs.org/#V/0.12.17/S/nVbfb9owEP5XLF4ILTVJOzot3Z4qdU+VqrUPm4AHkxhi1TjINtCt4n/fObYThzRdtbwkPt999+u7g9eBIBs6SAePz1RnxWA8yMrcnPdEouUafUOCHtAD0QX+QTNNxJrT6HUuEDyK/aEp2jN6wMtyJ3I1tvIV4/y25KVM0XDJSfY8dBfbUjHNSuGMMio0lXNxHM2FcbctmdAKXH6eWgGnYq0LI3AKpDr5iCJnpzSRGuQBKJqgWRKPUbK4mYtVKVFkFBkoxTfw+up8wff5+Qi5fAw8JnkeWcBz68goRgyduWjGKB6B36N1nTGZcWpini16HBlQRdcbiEthi9F22+CE1b6tJL7U5rGZpW3EGVvgKpdxoyhJznYqRZ/iQBg2RdJ8GFyR7Zb/vidaspcUrQhX1F2axlSebZZ4u1NFZA9NCUzl47mA7HciM91FpbiTQKqI7iHCOk0oKCjiaZO04uWByie2MYlraFkSn1Yk+en7ahmGDywHDkzQJbTnvioEE1EABDcj6NXVtAv16wSqoGxd6H4sg3M5jY1Cg1XV2vepooYPdFz7GQV0WjGp9KNtFvbG1dvNSi830QVK2kSp62bhDNAJFdp6gr5416Dr1LCRtvX2MNgQRqNi47wIAXAQc2VX2eB6Qt3Hma+VeTrmb7iwOI5u9rXb5kRTy3/14FZGpIOhsyPeOywd/ofc56bp3yWlwo+An6tgfbib7mDYZWWV8FIysX4q72QJNGjEtTeIcHgomKbDMO5bXgpDeKedmWNjXd22IYKIOzjJ+0DJP5AKwleuQ+qUTr63QMPWdPe1x7P0/5Zg0wjsfyU6/O4Lb3FKzrCUvWjxe2ZJv12rZrAbujC2NHYz94Cw96zqnuFiZ5hyGcOCuro2aw0cuu1whtgHjGHlJtdf4jc1VUY4ELiv75OPOtD19B7h78NSUvJsYxyks8XxLw==">
+                    <canvas id="paperjs-preview-canvas" class="preview-media paperjs-preview-canvas" resize data-paperjs-preview aria-label="Rainbow infinity sign animated, backwards preview"></canvas>
+                </div>
             </section>
             
             
@@ -566,6 +573,8 @@
             &copy; 2026 Alexander Deplov, designer and developer of iOS and macOS apps, product designer.
         </footer>
     </article>
+    <script src="../../PaperJSEngine/paper-full.js"></script>
+    <script src="../../paperjs-preview-runner.js"></script>
     <script>
 document.addEventListener("click", function (event) {
     var button = event.target.closest(".copy-code-button");

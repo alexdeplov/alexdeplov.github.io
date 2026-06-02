@@ -281,6 +281,13 @@
             object-fit: contain;
         }
 
+        .preview-panel canvas {
+            width: 100%;
+            display: block;
+            aspect-ratio: 4 / 3;
+            background: #000;
+        }
+
         .actions {
             display: flex;
             flex-wrap: wrap;
@@ -480,9 +487,9 @@
         </header>
         <div class="content">
             <section class="preview-panel" aria-label="Preview">
-                <a class="preview-link" href="http://sketch.paperjs.org/#V/0.12.17/S/lVVNc9owEP0rGl9i144rCO50nNJLZppTp5nm0ANwkG2BVYzkkWRSmuG/Z2X5CweYlouk/XirfXprXh1OdtSJnect1WnuBE4qMnPeE4mSDZojTl/QE9F5+JOmmvBNQd3XJUfwU+wvjdGe0ZcwERXPVGDta1YUD6IQMkY3SUHS7U3jKIVimgneJKWUayqX/Ogt+ZKbgmkhOFVQdGrPdTk43n3CH63P2jdSVGVzt0ezd2uItZDINX4GPnwPy5cGEva+7zX3NhEldHS1uba9KGjPkmSsUjGadhalpdjSXyzTeYxwOHb0HFT0pvOdJQH5aIEDhFddmChJyvQBcK3FkFSnm9tKoYmmrqXnA2LBEKsJrDkKSZY95KzIXJMHnmNLtUh+T+67LXSvHi+QWvHU3BcJ/k2CVly6hzItl7ZKcx8c4rum+hCzdd82/mFmy0b4ByoPmoCzj76bXlOhbEnYVVxDuwDz2YM1wmeRDiOkQ4ukGL+C1GvD5v1YKw0Hy0dJSkB6Eoxrd4JxEGGvj98dnt9FmnrG6g7BAjSFR44iszb5NjdUKQHpzUbGXkUAbmV0EtANmnWbSTsDUOvTDBE+ce6ZYkk9XWtSKHriqx/MvPn8CnMzwxyQYTNbAo2uIK0BqqfP7TUxGZTVsqJnxNIp1oSP1JIah6Q83JHSbYXp2vQAMa+b3bpUqwioZUM6y0nYgOYwryjy52jc6yy6mKGIrqQlyx+wBV8DyBzgeDXQ5CJOwTa5hi+V+g+YY0cPW6OTB/oKku7ZGDHcsrjAq1DSndh3L3QcvOL7+H9h3bA8JvQWtDe8MFSB/5lEUrItzUQpJ16sjm8=" target="_blank" rel="noopener noreferrer" aria-label="Open v1 in Sketch">
-                    <img class="preview-media" src="/tools/generative-art/assets/collection/Animation/Animated%20Spirograph%20Star/Screen_Recording_2023-04-23_at_20.14.45.2023-04-23_20_16_56.gif" alt="Animated Spirograph Star" loading="eager" decoding="async">
-                </a>
+                <div class="preview-link paperjs-preview-frame" data-sketch-url="http://sketch.paperjs.org/#V/0.12.17/S/lVVNc9owEP0rGl9i144rCO50nNJLZppTp5nm0ANwkG2BVYzkkWRSmuG/Z2X5CweYlouk/XirfXprXh1OdtSJnect1WnuBE4qMnPeE4mSDZojTl/QE9F5+JOmmvBNQd3XJUfwU+wvjdGe0ZcwERXPVGDta1YUD6IQMkY3SUHS7U3jKIVimgneJKWUayqX/Ogt+ZKbgmkhOFVQdGrPdTk43n3CH63P2jdSVGVzt0ezd2uItZDINX4GPnwPy5cGEva+7zX3NhEldHS1uba9KGjPkmSsUjGadhalpdjSXyzTeYxwOHb0HFT0pvOdJQH5aIEDhFddmChJyvQBcK3FkFSnm9tKoYmmrqXnA2LBEKsJrDkKSZY95KzIXJMHnmNLtUh+T+67LXSvHi+QWvHU3BcJ/k2CVly6hzItl7ZKcx8c4rum+hCzdd82/mFmy0b4ByoPmoCzj76bXlOhbEnYVVxDuwDz2YM1wmeRDiOkQ4ukGL+C1GvD5v1YKw0Hy0dJSkB6Eoxrd4JxEGGvj98dnt9FmnrG6g7BAjSFR44iszb5NjdUKQHpzUbGXkUAbmV0EtANmnWbSTsDUOvTDBE+ce6ZYkk9XWtSKHriqx/MvPn8CnMzwxyQYTNbAo2uIK0BqqfP7TUxGZTVsqJnxNIp1oSP1JIah6Q83JHSbYXp2vQAMa+b3bpUqwioZUM6y0nYgOYwryjy52jc6yy6mKGIrqQlyx+wBV8DyBzgeDXQ5CJOwTa5hi+V+g+YY0cPW6OTB/oKku7ZGDHcsrjAq1DSndh3L3QcvOL7+H9h3bA8JvQWtDe8MFSB/5lEUrItzUQpJ16sjm8=">
+                    <canvas id="paperjs-preview-canvas" class="preview-media paperjs-preview-canvas" resize data-paperjs-preview aria-label="Animated Spirograph Star preview"></canvas>
+                </div>
             </section>
             
             
@@ -577,6 +584,8 @@
             &copy; 2026 Alexander Deplov, designer and developer of iOS and macOS apps, product designer.
         </footer>
     </article>
+    <script src="../../PaperJSEngine/paper-full.js"></script>
+    <script src="../../paperjs-preview-runner.js"></script>
     <script>
 document.addEventListener("click", function (event) {
     var button = event.target.closest(".copy-code-button");

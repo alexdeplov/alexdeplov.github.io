@@ -281,6 +281,13 @@
             object-fit: contain;
         }
 
+        .preview-panel canvas {
+            width: 100%;
+            display: block;
+            aspect-ratio: 4 / 3;
+            background: #000;
+        }
+
         .actions {
             display: flex;
             flex-wrap: wrap;
@@ -480,9 +487,9 @@
         </header>
         <div class="content">
             <section class="preview-panel" aria-label="Preview">
-                <a class="preview-link" href="http://sketch.paperjs.org/#V/0.12.17/S/nVVdT9swFP0rVqWpKa2yFMZLRh+2oT0NMQEPq1oejHPbeqR2ZLuFDOW/7zp2vgFNs9Qmvvf4fvgcOy8jQfcwike3j2DYbjQbMZnY+ZEqQvfyIMwvsiDzKFqLxrRE07m36IwyLrYWFYXRvGNcOuOpMyqa8ING05kHMZoiCA2n4bkzJVwbKhhcb26AMmNdPs1W8eT64Tcwo78oRXN0re7XYi02UpHAIp5tss/4uKgKx8l0OiEva0Fw1MDcAfMauMRJC2iHxTGuWAoIFvBEflKzC28wPRXbFIIW1A7N/0DsG5x1Xc5YOT9+6rk3PE2/yVSqmIwVJOOeO5OaGy5FTFZHDk8hA2FAhc/khNhftfkz0vbm6Mkb7/K+F5RmWZpfUaP4c0w2NNXQA0i70OQxknfaeIpJ8+72JtQgkjv5lbLHoOXscxVmB70L3BIPK9aiKNk7CGb7I1J8V6jEAI7YQ00F3xBnCZklinxAPZAF0tcha5BvT7OgihzI0jMjvLOmin5led2kUir3qqhI5D6Y4PYNwqYgtmY3IVMSYSV8WEhbPeYJQKB4XPqwnN7JvnBqAbmzgCI460tgQMp4Ph4iihluTTQZOsrEodmBaLbk1aLLHP9UbLfg+VsF26GkoU6/4+g9XNMcSu6V9t5tsejZiqFmX9HblTxouFR029Oc2XEdVueOTBfECTCB1FCH+B+9tW83UsXMJMf/LZhL7/GL6/StxqxY6wAX/ZtywKgP5I8VZqzr63bbHmXnza1cngfNRecEnpQXuj0eHvhGGE+o/Xa8TY7nZuLJyZQsi8Z++BF+0BzvspqIRfuKw+/UgwL6WG6gHsWr++Iv" target="_blank" rel="noopener noreferrer" aria-label="Open v1 in Sketch">
-                    <img class="preview-media" src="/tools/generative-art/assets/collection/Cursor/Drawing%20with%20time%20func/Screen_Recording_2023-01-04_at_09.10.14.2023-01-04_09_11_21.gif" alt="Drawing with time func" loading="eager" decoding="async">
-                </a>
+                <div class="preview-link paperjs-preview-frame" data-sketch-url="http://sketch.paperjs.org/#V/0.12.17/S/nVVdT9swFP0rVqWpKa2yFMZLRh+2oT0NMQEPq1oejHPbeqR2ZLuFDOW/7zp2vgFNs9Qmvvf4fvgcOy8jQfcwike3j2DYbjQbMZnY+ZEqQvfyIMwvsiDzKFqLxrRE07m36IwyLrYWFYXRvGNcOuOpMyqa8ING05kHMZoiCA2n4bkzJVwbKhhcb26AMmNdPs1W8eT64Tcwo78oRXN0re7XYi02UpHAIp5tss/4uKgKx8l0OiEva0Fw1MDcAfMauMRJC2iHxTGuWAoIFvBEflKzC28wPRXbFIIW1A7N/0DsG5x1Xc5YOT9+6rk3PE2/yVSqmIwVJOOeO5OaGy5FTFZHDk8hA2FAhc/khNhftfkz0vbm6Mkb7/K+F5RmWZpfUaP4c0w2NNXQA0i70OQxknfaeIpJ8+72JtQgkjv5lbLHoOXscxVmB70L3BIPK9aiKNk7CGb7I1J8V6jEAI7YQ00F3xBnCZklinxAPZAF0tcha5BvT7OgihzI0jMjvLOmin5led2kUir3qqhI5D6Y4PYNwqYgtmY3IVMSYSV8WEhbPeYJQKB4XPqwnN7JvnBqAbmzgCI460tgQMp4Ph4iihluTTQZOsrEodmBaLbk1aLLHP9UbLfg+VsF26GkoU6/4+g9XNMcSu6V9t5tsejZiqFmX9HblTxouFR029Oc2XEdVueOTBfECTCB1FCH+B+9tW83UsXMJMf/LZhL7/GL6/StxqxY6wAX/ZtywKgP5I8VZqzr63bbHmXnza1cngfNRecEnpQXuj0eHvhGGE+o/Xa8TY7nZuLJyZQsi8Z++BF+0BzvspqIRfuKw+/UgwL6WG6gHsWr++Iv">
+                    <canvas id="paperjs-preview-canvas" class="preview-media paperjs-preview-canvas" resize data-paperjs-preview aria-label="Drawing with time func preview"></canvas>
+                </div>
             </section>
             
             
@@ -558,6 +565,8 @@
             &copy; 2026 Alexander Deplov, designer and developer of iOS and macOS apps, product designer.
         </footer>
     </article>
+    <script src="../../PaperJSEngine/paper-full.js"></script>
+    <script src="../../paperjs-preview-runner.js"></script>
     <script>
 document.addEventListener("click", function (event) {
     var button = event.target.closest(".copy-code-button");

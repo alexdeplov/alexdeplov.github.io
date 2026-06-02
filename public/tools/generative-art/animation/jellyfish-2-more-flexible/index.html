@@ -281,6 +281,13 @@
             object-fit: contain;
         }
 
+        .preview-panel canvas {
+            width: 100%;
+            display: block;
+            aspect-ratio: 4 / 3;
+            background: #000;
+        }
+
         .actions {
             display: flex;
             flex-wrap: wrap;
@@ -480,9 +487,9 @@
         </header>
         <div class="content">
             <section class="preview-panel" aria-label="Preview">
-                <a class="preview-link" href="http://sketch.paperjs.org/#V/0.12.17/S/rVVLj9owEP4rFhfCKwQqqiptDyuk7WVXWpXDHoCDSQZi4diR7cBStP+9YzsBL7uXrsoB7HnPN5+Hc0fQEjppZ7EHkxWdYSeTub0fqCKbHflJBBzJEzVF/BsyQ8WOQ3ReCYIfzf5ASg4MjrE9Dr10yzifSy5VSrobTrN9dyVeeyuxEjYkLWUtDIadJl6gjZJ7eGa5KQLpkR7grqw4M3UON/IHEDtnnMSTJqhgJTVMikUFkDtNMvOqiuY5E7sgRGZra/ONvrWF5UxjdxncK1nOQRhQqJ4lZDwmyaV4pegJxcu1vyspzS8l66qByZ0j1+u2FpmtiGQKqAELYMSGTfu9szWxYPkSXSkXnB+YuEDsAMWKUrJMhiRZD69iI73wfeGhlYf3Oo8auu+0Dow0vLwPQCt0x/ZEHvpXUjPbZcOCzKUP9LSq+OmRGsVeUrKlXEOgRGS3NeenBXBkFuQpMaoGr/eEaRFqW0SULFjxDsyTZMLcmcjduWPEeJL0vI8TMqFBmWhyRajRtpGdlRT3Ch8ARm4nFsEB/IguSBdMxwGQcVFbh4BIfcLIgEQj5xpnjuJ9ZOGsdxsFdiWa6OWbW9PAaLKOK9tXbEn2aMvTTEQ37O6TMMsAM/dQ9vbB9Mn0c4lfMHEwSryPbah/Cjb9X12MyexziT/s4rYTN35d4hMuojMxpwp3WTeTwjBRy1p3HQcdFwO6KGnwNUdfvuJiaHcZDn8YprtQ138rMLUSzh0XodsNUpHI8prZVfUdf340sfA8GLTUC3bDh0vEW7mdFFe1LtxbaKSXzRTj/psXjOet1lVwVbcv+C1i+DewwZR7B6fupMv1618=" target="_blank" rel="noopener noreferrer" aria-label="Open v1 in Sketch">
-                    <img class="preview-media" src="/tools/generative-art/assets/collection/Animation/Jellyfish%202%20-%20more%20flexible/Screen_Recording_2024-02-13_at_22.34.07.2024-02-13_22_34_42.gif" alt="Jellyfish 2 - more flexible" loading="eager" decoding="async">
-                </a>
+                <div class="preview-link paperjs-preview-frame" data-sketch-url="http://sketch.paperjs.org/#V/0.12.17/S/rVVLj9owEP4rFhfCKwQqqiptDyuk7WVXWpXDHoCDSQZi4diR7cBStP+9YzsBL7uXrsoB7HnPN5+Hc0fQEjppZ7EHkxWdYSeTub0fqCKbHflJBBzJEzVF/BsyQ8WOQ3ReCYIfzf5ASg4MjrE9Dr10yzifSy5VSrobTrN9dyVeeyuxEjYkLWUtDIadJl6gjZJ7eGa5KQLpkR7grqw4M3UON/IHEDtnnMSTJqhgJTVMikUFkDtNMvOqiuY5E7sgRGZra/ONvrWF5UxjdxncK1nOQRhQqJ4lZDwmyaV4pegJxcu1vyspzS8l66qByZ0j1+u2FpmtiGQKqAELYMSGTfu9szWxYPkSXSkXnB+YuEDsAMWKUrJMhiRZD69iI73wfeGhlYf3Oo8auu+0Dow0vLwPQCt0x/ZEHvpXUjPbZcOCzKUP9LSq+OmRGsVeUrKlXEOgRGS3NeenBXBkFuQpMaoGr/eEaRFqW0SULFjxDsyTZMLcmcjduWPEeJL0vI8TMqFBmWhyRajRtpGdlRT3Ch8ARm4nFsEB/IguSBdMxwGQcVFbh4BIfcLIgEQj5xpnjuJ9ZOGsdxsFdiWa6OWbW9PAaLKOK9tXbEn2aMvTTEQ37O6TMMsAM/dQ9vbB9Mn0c4lfMHEwSryPbah/Cjb9X12MyexziT/s4rYTN35d4hMuojMxpwp3WTeTwjBRy1p3HQcdFwO6KGnwNUdfvuJiaHcZDn8YprtQ138rMLUSzh0XodsNUpHI8prZVfUdf340sfA8GLTUC3bDh0vEW7mdFFe1LtxbaKSXzRTj/psXjOet1lVwVbcv+C1i+DewwZR7B6fupMv1618=">
+                    <canvas id="paperjs-preview-canvas" class="preview-media paperjs-preview-canvas" resize data-paperjs-preview aria-label="Jellyfish 2 - more flexible preview"></canvas>
+                </div>
             </section>
             <div class="actions"><a class="text-link sketch-link" href="http://sketch.paperjs.org/#V/0.12.17/S/rVVNj9owEP0rFhfCVwhUVFXaHlZI28uutOoe9gAcTDIQC8eOHAeWov3vHdtJMLCXonIAe2Y8H8/Pj1NH0Bw6ced1BzrJOsNOIlOz31NF1lvykwg4kBeqs/A3JJqKLYfgtBQEPyX7AzHZMziEZjl01g3jfC65VDHprjlNdt2l+OgtxVKYlDSXldCYdho5Q6mV3MEbS3XmWQ90Dw95wZmuUriyP4HY2uAonNRJBcupZlK8FgCp9UQz5ypomjKx9VIkprem3uhb01jKSpwugUcl8zkIDQrds4iMxyRqm1eKHtG8WLm9klL/UrIqapjsOrCzbiqRmI5IooBqMAAGbFiP3zuZEAOWa9G20uL8xEQLsQUUO4rJIhqSaDU8m7V0xtvG/SgH7/k+KujeeC0Ysb+5TUALPI7jidQ/X8iSmSlrFiS2vOenRcGPz1Qr9h6TDeUleE5EdlNxfnwFjsyCNCZaVeD8jjANQs2IiJIBK9yCfpFM6Acd2D23jBhPop47Y41MlKB0MDkjVHubzDZKikeFDwAzNzcWwB7cFbVIZ6wMPSDDrDIHPCL1CSMDEozs0TCxFO8jC2e96yywzTGkXFzs6gFGk1VYmLlCQ7Jn017JRHDF7j7xqwywcg9tlw+mT6b3FX7Hwt5V4n5sUv1Tsun/mmJMZvcV/nQKN8kdoFwm88hvR8tRA7LgRPSxQDHsJlJoJipZlV1LYktmj29KapSD4MtXVJZGDJE9Q79Ey333rUBXStjjqKRWXKQigXkYzGjdd/z5UefC9WDQcNcTl09VyEVZUQuLqszsY6qtrbSFKKDzjPG08doOzu5GAi5Rwv+RNZbcWQDLTrxYffwF" target="_blank" rel="noopener noreferrer">Open v2 in Sketch</a>
 <a class="text-link sketch-link" href="http://sketch.paperjs.org/#V/0.12.17/S/rVVNj9owEP0rFhfCxyaB7faQtocV0vayK626hx6Ag0kGYuHYkePAUrT/vWM7CQb2UKEiQeKZ8Xw8Pz+OPUEL6CW9ty3oNO+Ne6nMzHpHFVltyA8iYE9eqc7DX5BqKjYcguNCEPxU7A8kZMdgH5rXsbOuGeczyaVKSH/FabrtL8THYCEWwqSkhayFxrTT2BkqreQWfrNM5551T3fwWJSc6TqDC/sziI0NjsNJk1SwgmomxVsJkFlP/OBcJc0yJjZeitT01ta7/xpHrqW2wYxVOGUKT0oWMxAaFIZ1M4Z7szH6QqKIxN1MStEDRs2Xbq2k1D+VrMsGPfseWAjWtUhNoyRVQDUYXAM2blAZHE2IwdB1bjvs4H9mokPe4owNJmQej0m8HJ/MWjrj9Rx+lEP9dEw19K+8FqPEX1wnoCVux/FE5u8vZcXMlA05Ulve89Oy5IcXqhV7T8ia8go8JyK7rjk/vAFHwkGWEK1qcH7HoxahdkREyYAVbkC/Sib0ow7smluiRJN44PZYIxMVKB1MTgg13jazjZLiSeG9wMztiQWwA3dEHdI5q0IPyDCvzQaPX0PCyIgEd3ZrmFrmD5Gc08FlFtgUGFLNz1bNAHeTZViauUJDshfTXsVEcEH6IfGrjLDyAG3n92hIprcVfm/vgDtKXEfkvgXsH5NN/9cUEXm4rfBnU0zN9yZQzpN55LejFagBeXAk+lCiRvZTKTQTtayrviWxJbPHNyU1ykGAcoT9NBqJ7Bn7JTruu18FulbCbkeBteIiFQnMxWBGAr/h43uTC99Ho5a7nrh8qkIuyopaWNZVbi9TY+2kLURdneWMZ63XdnBytxJwjhL+vayw5NYCWPWS+fLjLw==" target="_blank" rel="noopener noreferrer">Open v3 in Sketch</a>
@@ -562,6 +569,8 @@
             &copy; 2026 Alexander Deplov, designer and developer of iOS and macOS apps, product designer.
         </footer>
     </article>
+    <script src="../../PaperJSEngine/paper-full.js"></script>
+    <script src="../../paperjs-preview-runner.js"></script>
     <script>
 document.addEventListener("click", function (event) {
     var button = event.target.closest(".copy-code-button");

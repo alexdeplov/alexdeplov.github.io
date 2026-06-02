@@ -281,6 +281,13 @@
             object-fit: contain;
         }
 
+        .preview-panel canvas {
+            width: 100%;
+            display: block;
+            aspect-ratio: 4 / 3;
+            background: #000;
+        }
+
         .actions {
             display: flex;
             flex-wrap: wrap;
@@ -480,9 +487,9 @@
         </header>
         <div class="content">
             <section class="preview-panel" aria-label="Preview">
-                <a class="preview-link" href="http://sketch.paperjs.org/#V/0.12.17/S/jVNNb9swDP0rhC+xG9d1CmwHrR0wFNguHTCghx2SHFyZjoUoUiDJKYbC/33URxxn6GE+2DQf9fz4SL9nqjlgxrKXPTreZ2XGdevfT42B5qAH5eARPtUb5RM7o4cjvSt8gx8+zouNitCxcX1CflFYPQuF+ftGAV2d0QcGJ4FvFUfl0MAtrO/ruqy3Zaxw+hpfRhymAuuM3uOTltowWBhsF1fAb9G6nkGdkt0g5Z8XlMgdtgycGbD0Qscgt9MGcq9ZkODVF3o8pFYpXi6LpNpXWIe+X99cJVHtqMe7VBuLAiKURePy1Y0oY2KH7lnzxgmtvrlcwE0gKujrYxAwKO4x4AYbh0/CcIl5bL2ETkgZGp0L4aFmbnA6lWr8FQlYepYXwDStGCyD+3qWnD7DLuEMPjaGaFgc+Syv1XdDG0OHUhM5nqiwmOkIA+2FrSbeqh8Qlo/w0wu3QpElZxtpFWJQkEsTHjgr7vN3n+viwj3GcEyps6H/P1Hu9SQfg7Z88SoHXEyE/i46yP0g511dojNaWdwdSKc9r8ZXWH18IkxnboRfidU/+HwXrujXYlsdtVCujCQf2EE+0K/7ShT7UGkztt6OfwE=" target="_blank" rel="noopener noreferrer" aria-label="Open v1 in Sketch">
-                    <img class="preview-media" src="/tools/generative-art/assets/collection/Path/Rainbow%20along%20the%20path,%20hue/Screen_Recording_2022-06-04_at_20.22.09.2022-06-04_20_22_47.gif" alt="Rainbow along the path, hue" loading="eager" decoding="async">
-                </a>
+                <div class="preview-link paperjs-preview-frame" data-sketch-url="http://sketch.paperjs.org/#V/0.12.17/S/jVNNb9swDP0rhC+xG9d1CmwHrR0wFNguHTCghx2SHFyZjoUoUiDJKYbC/33URxxn6GE+2DQf9fz4SL9nqjlgxrKXPTreZ2XGdevfT42B5qAH5eARPtUb5RM7o4cjvSt8gx8+zouNitCxcX1CflFYPQuF+ftGAV2d0QcGJ4FvFUfl0MAtrO/ruqy3Zaxw+hpfRhymAuuM3uOTltowWBhsF1fAb9G6nkGdkt0g5Z8XlMgdtgycGbD0Qscgt9MGcq9ZkODVF3o8pFYpXi6LpNpXWIe+X99cJVHtqMe7VBuLAiKURePy1Y0oY2KH7lnzxgmtvrlcwE0gKujrYxAwKO4x4AYbh0/CcIl5bL2ETkgZGp0L4aFmbnA6lWr8FQlYepYXwDStGCyD+3qWnD7DLuEMPjaGaFgc+Syv1XdDG0OHUhM5nqiwmOkIA+2FrSbeqh8Qlo/w0wu3QpElZxtpFWJQkEsTHjgr7vN3n+viwj3GcEyps6H/P1Hu9SQfg7Z88SoHXEyE/i46yP0g511dojNaWdwdSKc9r8ZXWH18IkxnboRfidU/+HwXrujXYlsdtVCujCQf2EE+0K/7ShT7UGkztt6OfwE=">
+                    <canvas id="paperjs-preview-canvas" class="preview-media paperjs-preview-canvas" resize data-paperjs-preview aria-label="Rainbow along the path, hue preview"></canvas>
+                </div>
             </section>
             
             
@@ -542,6 +549,8 @@
             &copy; 2026 Alexander Deplov, designer and developer of iOS and macOS apps, product designer.
         </footer>
     </article>
+    <script src="../../PaperJSEngine/paper-full.js"></script>
+    <script src="../../paperjs-preview-runner.js"></script>
     <script>
 document.addEventListener("click", function (event) {
     var button = event.target.closest(".copy-code-button");

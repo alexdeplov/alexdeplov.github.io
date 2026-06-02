@@ -281,6 +281,13 @@
             object-fit: contain;
         }
 
+        .preview-panel canvas {
+            width: 100%;
+            display: block;
+            aspect-ratio: 4 / 3;
+            background: #000;
+        }
+
         .actions {
             display: flex;
             flex-wrap: wrap;
@@ -480,9 +487,9 @@
         </header>
         <div class="content">
             <section class="preview-panel" aria-label="Preview">
-                <a class="preview-link" href="http://sketch.paperjs.org/#V/0.12.17/S/nVPLTsMwEPyVVS5NIQ0pFRKKgANI3BAIuLU9OM62sWrWUeK2CdB/x86rCQIO+LYz8s7Mev3hEHtDJ3ReNqh54ngOV7GtdyyDaA3XQLiHJ6YT/xm5ZrSW6H4sCMzJxTuGsBO49yO1pTj3anwlpLxTUmUhjCLJ+GbUEKnKhRaKmkscSWO2oMN4QQuygoXRmwZBXZT9oshTxNgiDdnWM39WIxGT8pnFYpsb9CI4gv0MdyLjJkBP3utdND5s4XcBzFWTYIujhmBpKssHpjNhna6YzNFaX22J21yg6D4z43RxZ3qPoZlTAafXbYATG8CCpQXLb6BYgVvATT0eO15/L2KdwKSf7gzO4fPTdL36hnaClWg7oE54Mj2yeo9Ij3Rrno2ja9uMa/JwNFIOjCQo1on+0Un5t5Puqcr/OKnm3i6OaTIvPCiXZmkGgx92Sc1TdxbsGlS0uWwJvypelduzmHMmBa1DCPxL7wj3FznDeNQY8+A8aExWvXydILmtF3cQ/jfFgerUGxLDD1StX0tV4q26/TgH82WjDNkmVYJ07oTz5eEL" target="_blank" rel="noopener noreferrer" aria-label="Open v1 in Sketch">
-                    <img class="preview-media" src="/tools/generative-art/assets/collection/Animation/Bouncing%20ball/Screen_Recording_2024-01-01_at_16.28.28.2024-01-01_16_29_08.gif" alt="Bouncing ball" loading="eager" decoding="async">
-                </a>
+                <div class="preview-link paperjs-preview-frame" data-sketch-url="http://sketch.paperjs.org/#V/0.12.17/S/nVPLTsMwEPyVVS5NIQ0pFRKKgANI3BAIuLU9OM62sWrWUeK2CdB/x86rCQIO+LYz8s7Mev3hEHtDJ3ReNqh54ngOV7GtdyyDaA3XQLiHJ6YT/xm5ZrSW6H4sCMzJxTuGsBO49yO1pTj3anwlpLxTUmUhjCLJ+GbUEKnKhRaKmkscSWO2oMN4QQuygoXRmwZBXZT9oshTxNgiDdnWM39WIxGT8pnFYpsb9CI4gv0MdyLjJkBP3utdND5s4XcBzFWTYIujhmBpKssHpjNhna6YzNFaX22J21yg6D4z43RxZ3qPoZlTAafXbYATG8CCpQXLb6BYgVvATT0eO15/L2KdwKSf7gzO4fPTdL36hnaClWg7oE54Mj2yeo9Ij3Rrno2ja9uMa/JwNFIOjCQo1on+0Un5t5Puqcr/OKnm3i6OaTIvPCiXZmkGgx92Sc1TdxbsGlS0uWwJvypelduzmHMmBa1DCPxL7wj3FznDeNQY8+A8aExWvXydILmtF3cQ/jfFgerUGxLDD1StX0tV4q26/TgH82WjDNkmVYJ07oTz5eEL">
+                    <canvas id="paperjs-preview-canvas" class="preview-media paperjs-preview-canvas" resize data-paperjs-preview aria-label="Bouncing ball preview"></canvas>
+                </div>
             </section>
             
             
@@ -541,6 +548,8 @@
             &copy; 2026 Alexander Deplov, designer and developer of iOS and macOS apps, product designer.
         </footer>
     </article>
+    <script src="../../PaperJSEngine/paper-full.js"></script>
+    <script src="../../paperjs-preview-runner.js"></script>
     <script>
 document.addEventListener("click", function (event) {
     var button = event.target.closest(".copy-code-button");

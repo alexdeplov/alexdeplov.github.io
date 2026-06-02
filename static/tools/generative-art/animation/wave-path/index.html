@@ -281,6 +281,13 @@
             object-fit: contain;
         }
 
+        .preview-panel canvas {
+            width: 100%;
+            display: block;
+            aspect-ratio: 4 / 3;
+            background: #000;
+        }
+
         .actions {
             display: flex;
             flex-wrap: wrap;
@@ -480,9 +487,9 @@
         </header>
         <div class="content">
             <section class="preview-panel" aria-label="Preview">
-                <a class="preview-link" href="http://sketch.paperjs.org/#V/0.12.17/S/bZHBasMwDIZfRRhGki6YrLBLoKdCb4WxHZcdHEdtTDy52E6yrfTdZy8py1h1EdJv+f9knxmJd2Qle+nQy5blTJom1oOwUB9hA4QjPAnf8meUXtBRY3quCEI49YUlDApHXpueGpdP/YPSemu0sSUktRayS2bhZJzyytA8JJE82oouWUUVHXqSUQRDOxuYUhyCnsFsFnmkslLjkmn707kCxbCiUb0r4TH/7f0F6jFZaDeZZj2CxTz58utR/hEQJjwuw+IeVvBQZHA3XRGfhY+q8e3t6c8wvfAK9T3s4zJOUfrfagUFL9ZZyOsivFX4odqi6E5GkXesfH27fAM=" target="_blank" rel="noopener noreferrer" aria-label="Open v1 in Sketch">
-                    <img class="preview-media" src="/tools/generative-art/assets/collection/Animation/Wave%20path/ezgif.com-gif-maker.gif" alt="Wave path" loading="eager" decoding="async">
-                </a>
+                <div class="preview-link paperjs-preview-frame" data-sketch-url="http://sketch.paperjs.org/#V/0.12.17/S/bZHBasMwDIZfRRhGki6YrLBLoKdCb4WxHZcdHEdtTDy52E6yrfTdZy8py1h1EdJv+f9knxmJd2Qle+nQy5blTJom1oOwUB9hA4QjPAnf8meUXtBRY3quCEI49YUlDApHXpueGpdP/YPSemu0sSUktRayS2bhZJzyytA8JJE82oouWUUVHXqSUQRDOxuYUhyCnsFsFnmkslLjkmn707kCxbCiUb0r4TH/7f0F6jFZaDeZZj2CxTz58utR/hEQJjwuw+IeVvBQZHA3XRGfhY+q8e3t6c8wvfAK9T3s4zJOUfrfagUFL9ZZyOsivFX4odqi6E5GkXesfH27fAM=">
+                    <canvas id="paperjs-preview-canvas" class="preview-media paperjs-preview-canvas" resize data-paperjs-preview aria-label="Wave path preview"></canvas>
+                </div>
             </section>
             
             
@@ -515,6 +522,8 @@
             &copy; 2026 Alexander Deplov, designer and developer of iOS and macOS apps, product designer.
         </footer>
     </article>
+    <script src="../../PaperJSEngine/paper-full.js"></script>
+    <script src="../../paperjs-preview-runner.js"></script>
     <script>
 document.addEventListener("click", function (event) {
     var button = event.target.closest(".copy-code-button");

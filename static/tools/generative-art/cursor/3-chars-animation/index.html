@@ -270,6 +270,13 @@
             object-fit: contain;
         }
 
+        .preview-panel canvas {
+            width: 100%;
+            display: block;
+            aspect-ratio: 4 / 3;
+            background: #000;
+        }
+
         .actions {
             display: flex;
             flex-wrap: wrap;
@@ -469,7 +476,7 @@
         </header>
         <div class="content">
             <section class="preview-panel" aria-label="Preview">
-                <img class="preview-media" src="/tools/generative-art/assets/collection/Cursor/3%20chars%20animation/Screen_Recording_2022-08-26_at_22.41.16.2022-08-26_22_41_38.gif" alt="3 chars animation" loading="eager" decoding="async">
+                <canvas id="paperjs-preview-canvas" class="preview-media paperjs-preview-canvas" style="background: whitesmoke;" resize data-paperjs-preview data-paperjs-source="/tools/generative-art/assets/collection/Cursor/3%20chars%20animation/3_chars_animation.html" aria-label="3 chars animation preview"></canvas>
             </section>
             <div class="actions"><a class="button secondary" href="/tools/generative-art/assets/collection/Cursor/3%20chars%20animation/3_chars_animation.html">3 chars animation.html</a></div>
             
@@ -486,6 +493,8 @@
             &copy; 2026 Alexander Deplov, designer and developer of iOS and macOS apps, product designer.
         </footer>
     </article>
+    <script src="../../PaperJSEngine/paper-full.js"></script>
+    <script src="../../paperjs-preview-runner.js"></script>
     <script data-goatcounter="https://goatinterface.goatcounter.com/count" async src="//gc.zgo.at/count.js"></script>
 </body>
 </html>

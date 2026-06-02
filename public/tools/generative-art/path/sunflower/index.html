@@ -281,6 +281,13 @@
             object-fit: contain;
         }
 
+        .preview-panel canvas {
+            width: 100%;
+            display: block;
+            aspect-ratio: 4 / 3;
+            background: #000;
+        }
+
         .actions {
             display: flex;
             flex-wrap: wrap;
@@ -480,9 +487,9 @@
         </header>
         <div class="content">
             <section class="preview-panel" aria-label="Preview">
-                <a class="preview-link" href="http://sketch.paperjs.org/#V/0.12.17/S/dVNNU8IwEP0rmZ4C1IIVRqfIyYMnZxg5qocYQpuhJDVJQWX6390k/cBad6bt5uXt281mew4EObAgCTZ7ZmgWhAGVW7t+FQjsSBQiB1kKg1YojhfLDtYFoVykgF9Hl3iqZFkAShUjhq2zrzyXhnxyjb3QqOY6XqQpyRmeW9DDu1JQw6X4Px6dPbOfULATerQ+blI0DAUCThNqvbl11XaEnVQIWxaH7dkSPver+sywmEx+5WsVyZaXGgLu0BXCHE2bLo3R/DK7NVvXmpgsembUEJHCeXuK1grJhUn6uRrLmUhNlrRNH6MYnierqj+UwXwUDge6fAkcatx24S+xGgjW/BvibO0b8HAcongoh2/EBdEDQ9SCKGaP6O5rYH/H8/xB5lJ5NediPvWNDdEsWrhXX7rys9OBVecqZkolfMb20qvG8RNYSM3r4ThydoooFMkUsOFfeIcZ3Lub0UHy8lb9AA==" target="_blank" rel="noopener noreferrer" aria-label="Open v1 in Sketch">
-                    <img class="preview-media" src="/tools/generative-art/assets/collection/Path/Sunflower/Screenshot_2024-01-21_at_11.14.43.png" alt="Sunflower" loading="eager" decoding="async">
-                </a>
+                <div class="preview-link paperjs-preview-frame" data-sketch-url="http://sketch.paperjs.org/#V/0.12.17/S/dVNNU8IwEP0rmZ4C1IIVRqfIyYMnZxg5qocYQpuhJDVJQWX6390k/cBad6bt5uXt281mew4EObAgCTZ7ZmgWhAGVW7t+FQjsSBQiB1kKg1YojhfLDtYFoVykgF9Hl3iqZFkAShUjhq2zrzyXhnxyjb3QqOY6XqQpyRmeW9DDu1JQw6X4Px6dPbOfULATerQ+blI0DAUCThNqvbl11XaEnVQIWxaH7dkSPver+sywmEx+5WsVyZaXGgLu0BXCHE2bLo3R/DK7NVvXmpgsembUEJHCeXuK1grJhUn6uRrLmUhNlrRNH6MYnierqj+UwXwUDge6fAkcatx24S+xGgjW/BvibO0b8HAcongoh2/EBdEDQ9SCKGaP6O5rYH/H8/xB5lJ5NediPvWNDdEsWrhXX7rys9OBVecqZkolfMb20qvG8RNYSM3r4ThydoooFMkUsOFfeIcZ3Lub0UHy8lb9AA==">
+                    <canvas id="paperjs-preview-canvas" class="preview-media paperjs-preview-canvas" resize data-paperjs-preview aria-label="Sunflower preview"></canvas>
+                </div>
             </section>
             
             
@@ -529,6 +536,8 @@
             &copy; 2026 Alexander Deplov, designer and developer of iOS and macOS apps, product designer.
         </footer>
     </article>
+    <script src="../../PaperJSEngine/paper-full.js"></script>
+    <script src="../../paperjs-preview-runner.js"></script>
     <script>
 document.addEventListener("click", function (event) {
     var button = event.target.closest(".copy-code-button");

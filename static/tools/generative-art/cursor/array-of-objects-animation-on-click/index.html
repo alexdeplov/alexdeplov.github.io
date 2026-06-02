@@ -270,6 +270,13 @@
             object-fit: contain;
         }
 
+        .preview-panel canvas {
+            width: 100%;
+            display: block;
+            aspect-ratio: 4 / 3;
+            background: #000;
+        }
+
         .actions {
             display: flex;
             flex-wrap: wrap;
@@ -469,7 +476,7 @@
         </header>
         <div class="content">
             <section class="preview-panel" aria-label="Preview">
-                <img class="preview-media" src="/tools/generative-art/assets/collection/Cursor/Array%20of%20objects%20animation%20on%20click/2022_09_07_11_03_PM_1662584625.2022-09-07_23_06_46.gif" alt="Array of objects animation on click" loading="eager" decoding="async">
+                <canvas id="paperjs-preview-canvas" class="preview-media paperjs-preview-canvas" style="background: whitesmoke;" resize data-paperjs-preview aria-label="Array of objects animation on click preview"></canvas>
             </section>
             <div class="actions"><a class="button secondary" href="/tools/generative-art/assets/collection/Cursor/Array%20of%20objects%20animation%20on%20click/Array_of_objects_animation_on_click.html">Array of objects animation on click.html</a>
 <a class="button secondary" href="/tools/generative-art/assets/collection/Cursor/Array%20of%20objects%20animation%20on%20click/2022_09_07_06_28_PM_1662568122.mp4">https://s3-us-west-2.amazonaws.com/secure.notion-static.com/1bc8b55e-b530-457a-bb2b-c6ab3d577ba1/2022_09_07_06_28_PM_1662568122.mp4</a></div>
@@ -500,6 +507,7 @@
 </span></span><span style="display:flex;"><span>
 </span></span><span style="display:flex;"><span><span style="color:#c678dd">var</span> group <span style="color:#56b6c2">=</span> <span style="color:#c678dd">new</span> <span style="color:#e5c07b">Group</span>()
 </span></span><span style="display:flex;"><span><span style="color:#c678dd">var</span> coloredObjectsArray <span style="color:#56b6c2">=</span> []
+</span></span><span style="display:flex;"><span><span style="color:#c678dd">var</span> resetTimer
 </span></span><span style="display:flex;"><span><span style="color:#c678dd">var</span> svg <span style="color:#56b6c2">=</span> <span style="color:#e5c07b">project</span>.<span style="color:#e5c07b">importSVG</span>(document.<span style="color:#e5c07b">getElementById</span>(<span style="color:#98c379">&#x27;svg&#x27;</span>)).children[<span style="color:#d19a66">1</span>]
 </span></span><span style="display:flex;"><span>
 </span></span><span style="display:flex;"><span><span style="color:#c678dd">for</span> (<span style="color:#c678dd">var</span> i <span style="color:#56b6c2">=</span> <span style="color:#d19a66">0</span>; i <span style="color:#56b6c2">&lt;</span> svg.children.length; i<span style="color:#56b6c2">++</span>){
@@ -515,17 +523,36 @@
 </span></span><span style="display:flex;"><span>}
 </span></span><span style="display:flex;"><span>
 </span></span><span style="display:flex;"><span><span style="color:#c678dd">function</span> <span style="color:#e5c07b">animate</span>(point){
+</span></span><span style="display:flex;"><span>  <span style="color:#c678dd">var</span> maxDuration <span style="color:#56b6c2">=</span> <span style="color:#d19a66">0</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>  <span style="color:#c678dd">if</span> (resetTimer) {
+</span></span><span style="display:flex;"><span>    <span style="color:#e5c07b">clearTimeout</span>(resetTimer)
+</span></span><span style="display:flex;"><span>  }
 </span></span><span style="display:flex;"><span>
 </span></span><span style="display:flex;"><span>  <span style="color:#c678dd">for</span> (<span style="color:#c678dd">var</span> i <span style="color:#56b6c2">=</span> <span style="color:#d19a66">0</span>; i <span style="color:#56b6c2">&lt;</span> coloredObjectsArray.length; i<span style="color:#56b6c2">++</span>){
 </span></span><span style="display:flex;"><span>    <span style="color:#c678dd">var</span> path <span style="color:#56b6c2">=</span> coloredObjectsArray[i]
 </span></span><span style="display:flex;"><span>    <span style="color:#c678dd">var</span> distance <span style="color:#56b6c2">=</span> point.<span style="color:#e5c07b">getDistance</span>(path.position)
+</span></span><span style="display:flex;"><span>    <span style="color:#c678dd">var</span> duration <span style="color:#56b6c2">=</span> distance <span style="color:#56b6c2">*</span> <span style="color:#d19a66">2</span>
+</span></span><span style="display:flex;"><span>    maxDuration <span style="color:#56b6c2">=</span> <span style="color:#e5c07b">Math</span>.<span style="color:#e5c07b">max</span>(maxDuration, duration)
+</span></span><span style="display:flex;"><span>    path.opacity <span style="color:#56b6c2">=</span> <span style="color:#d19a66">1</span>
 </span></span><span style="display:flex;"><span>    <span style="color:#c678dd">var</span> tween <span style="color:#56b6c2">=</span> path.<span style="color:#e5c07b">tweenTo</span>({
 </span></span><span style="display:flex;"><span>      opacity<span style="color:#56b6c2">:</span> <span style="color:#d19a66">0</span>,
-</span></span><span style="display:flex;"><span>    }, distance <span style="color:#56b6c2">*</span> <span style="color:#d19a66">2</span>)
+</span></span><span style="display:flex;"><span>    }, duration)
 </span></span><span style="display:flex;"><span>
 </span></span><span style="display:flex;"><span>
 </span></span><span style="display:flex;"><span>  }
 </span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>  resetTimer <span style="color:#56b6c2">=</span> <span style="color:#e5c07b">setTimeout</span>(resetCanvas, maxDuration <span style="color:#56b6c2">+</span> <span style="color:#d19a66">1000</span>)
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>}
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#c678dd">function</span> <span style="color:#e5c07b">resetCanvas</span>(){
+</span></span><span style="display:flex;"><span>  <span style="color:#c678dd">for</span> (<span style="color:#c678dd">var</span> i <span style="color:#56b6c2">=</span> <span style="color:#d19a66">0</span>; i <span style="color:#56b6c2">&lt;</span> coloredObjectsArray.length; i<span style="color:#56b6c2">++</span>){
+</span></span><span style="display:flex;"><span>    coloredObjectsArray[i].opacity <span style="color:#56b6c2">=</span> <span style="color:#d19a66">1</span>
+</span></span><span style="display:flex;"><span>    coloredObjectsArray[i].fillColor <span style="color:#56b6c2">=</span> <span style="color:#e5c07b">Color</span>.<span style="color:#e5c07b">random</span>()
+</span></span><span style="display:flex;"><span>  }
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>  <span style="color:#e5c07b">view</span>.<span style="color:#e5c07b">update</span>()
 </span></span><span style="display:flex;"><span>}
 </span></span><span style="display:flex;"><span>
 </span></span><span style="display:flex;"><span><span style="color:#56b6c2">&lt;/</span>script<span style="color:#56b6c2">&gt;</span>
@@ -634,6 +661,8 @@
             &copy; 2026 Alexander Deplov, designer and developer of iOS and macOS apps, product designer.
         </footer>
     </article>
+    <script src="../../PaperJSEngine/paper-full.js"></script>
+    <script src="../../paperjs-preview-runner.js"></script>
     <script>
 document.addEventListener("click", function (event) {
     var button = event.target.closest(".copy-code-button");

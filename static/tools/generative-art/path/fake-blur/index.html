@@ -281,6 +281,13 @@
             object-fit: contain;
         }
 
+        .preview-panel canvas {
+            width: 100%;
+            display: block;
+            aspect-ratio: 4 / 3;
+            background: #000;
+        }
+
         .actions {
             display: flex;
             flex-wrap: wrap;
@@ -480,9 +487,9 @@
         </header>
         <div class="content">
             <section class="preview-panel" aria-label="Preview">
-                <a class="preview-link" href="http://sketch.paperjs.org/#V/0.12.17/S/VY+xCsIwEIZfJWRRoRQ7CBJwsbMgOFqHNDlJ6DUpadIgpe9uaq3gbf//fQd3IzW8BcrorQEvFM2osHLOA3dEaCcQCnIiBiK5cq/y8lNtx8qQNAKMB8fIoCHmS8gW4rjUoWekOOy/Ta+4tLG0aNPCpsYAmz9yxpDAcdWfGnGVo9L+Z9cIRl7SkQm0Ab3u8DWzaVeZyqQHage86aw2vqfs/pje" target="_blank" rel="noopener noreferrer" aria-label="Open v1 in Sketch">
-                    <img class="preview-media" src="/tools/generative-art/assets/collection/Path/Fake%20blur/Screenshot_2023-12-28_at_10.31.33.png" alt="Fake blur" loading="eager" decoding="async">
-                </a>
+                <div class="preview-link paperjs-preview-frame" data-sketch-url="http://sketch.paperjs.org/#V/0.12.17/S/VY+xCsIwEIZfJWRRoRQ7CBJwsbMgOFqHNDlJ6DUpadIgpe9uaq3gbf//fQd3IzW8BcrorQEvFM2osHLOA3dEaCcQCnIiBiK5cq/y8lNtx8qQNAKMB8fIoCHmS8gW4rjUoWekOOy/Ta+4tLG0aNPCpsYAmz9yxpDAcdWfGnGVo9L+Z9cIRl7SkQm0Ab3u8DWzaVeZyqQHage86aw2vqfs/pje">
+                    <canvas id="paperjs-preview-canvas" class="preview-media paperjs-preview-canvas" resize data-paperjs-preview aria-label="Fake blur preview"></canvas>
+                </div>
             </section>
             
             
@@ -529,6 +536,8 @@
             &copy; 2026 Alexander Deplov, designer and developer of iOS and macOS apps, product designer.
         </footer>
     </article>
+    <script src="../../PaperJSEngine/paper-full.js"></script>
+    <script src="../../paperjs-preview-runner.js"></script>
     <script>
 document.addEventListener("click", function (event) {
     var button = event.target.closest(".copy-code-button");

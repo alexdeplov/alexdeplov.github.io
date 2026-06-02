@@ -281,6 +281,13 @@
             object-fit: contain;
         }
 
+        .preview-panel canvas {
+            width: 100%;
+            display: block;
+            aspect-ratio: 4 / 3;
+            background: #000;
+        }
+
         .actions {
             display: flex;
             flex-wrap: wrap;
@@ -480,9 +487,9 @@
         </header>
         <div class="content">
             <section class="preview-panel" aria-label="Preview">
-                <a class="preview-link" href="http://sketch.paperjs.org/#V/0.12.17/S/hZDNCsIwEIRfJeTSClL04EXxZK+CIJ7UQ0xXG5rulnSriPjubv1DpWAOIcnsfDPkotGUoMd6WQDbXPe1pay9q6MJqjKcTzaomMgnpcPU1WzQgpqq4eAtEM6pqSGlE4qwb9CyI4zhCMg9dZGxdrUskRFOaiHHuPfxnpgse8wnFTlxfWo1BypgRp6C+KOdbyD60l1Zebc/34nX31LBHP6U6goXjOwvl3rCVlWn/11g9N0bPFiGTOI5NNBS5Xt3AUxxz6n1eL293gA=" target="_blank" rel="noopener noreferrer" aria-label="Open v1 in Sketch">
-                    <img class="preview-media" src="/tools/generative-art/assets/collection/Cursor/Vector%20drawing%20tool/Screen_Recording_2022-06-04_at_19.34.13.2022-06-04_19_34_41.gif" alt="Vector drawing tool" loading="eager" decoding="async">
-                </a>
+                <div class="preview-link paperjs-preview-frame" data-sketch-url="http://sketch.paperjs.org/#V/0.12.17/S/hZDNCsIwEIRfJeTSClL04EXxZK+CIJ7UQ0xXG5rulnSriPjubv1DpWAOIcnsfDPkotGUoMd6WQDbXPe1pay9q6MJqjKcTzaomMgnpcPU1WzQgpqq4eAtEM6pqSGlE4qwb9CyI4zhCMg9dZGxdrUskRFOaiHHuPfxnpgse8wnFTlxfWo1BypgRp6C+KOdbyD60l1Zebc/34nX31LBHP6U6goXjOwvl3rCVlWn/11g9N0bPFiGTOI5NNBS5Xt3AUxxz6n1eL293gA=">
+                    <canvas id="paperjs-preview-canvas" class="preview-media paperjs-preview-canvas" resize data-paperjs-preview aria-label="Vector drawing tool preview"></canvas>
+                </div>
             </section>
             
             
@@ -516,6 +523,8 @@
             &copy; 2026 Alexander Deplov, designer and developer of iOS and macOS apps, product designer.
         </footer>
     </article>
+    <script src="../../PaperJSEngine/paper-full.js"></script>
+    <script src="../../paperjs-preview-runner.js"></script>
     <script>
 document.addEventListener("click", function (event) {
     var button = event.target.closest(".copy-code-button");

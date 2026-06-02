@@ -281,6 +281,13 @@
             object-fit: contain;
         }
 
+        .preview-panel canvas {
+            width: 100%;
+            display: block;
+            aspect-ratio: 4 / 3;
+            background: #000;
+        }
+
         .actions {
             display: flex;
             flex-wrap: wrap;
@@ -480,9 +487,9 @@
         </header>
         <div class="content">
             <section class="preview-panel" aria-label="Preview">
-                <a class="preview-link" href="http://sketch.paperjs.org/#V/0.12.17/S/bVTLbtswEPwVQpc6sExwSS4fSXMoei4QoL3VReHYdCxYkQxJddAG/vcOpTg20PJELnd2ZmcpvRbN6jkVt8XXfRrWu6Is1u0mn5fNcdWJw2rYiXvRpBfxgO1sWXxhJ9kG0iUf1XpBUikfqVRioaXy1sdSSWJkiIWRWinHCFjnrDmqDPDSKa2pDKjCHllkkUbBl9jEYB0hFKWPIYYSG0PO+gkapLIUTOmkDsYw8py0HKItCRTQ4SGCpWYyCGlpWGueoCQpKoolSSYKDlDpA+tYGmmMdf4SYIgN1k4wJRWEG8BC8GSFghwVGSjnoR1VNQcHjPEUJwwhJSCmpTPea6HRlNNARHYcBMMvrd7PI4QlQYKHh+jD2Xx99lXkFgN7LuGm0sbDxXqhbSa28Icg1wYbUUXLEFk5aI1MsB9AyqUgQHttcm1mFcI58EatdIClSkSpSXHIzJpjQHM6T0iPzN5H50YA/NImuhLTZhUVoyGM0UMxy+jIjbyKDOrALAwYs6sNthY2IGhZZhE2u4sSFP1I6TlYDAHDC458rj65h5nrGK8if5bFzd2yye9S9kPX7tPntm47vNEPj/Vqvf9wvjy0fTVUbYObY5Ve5Do1Q+pwOz3szarPD1uru+ncbrd9GhAh9Z5T4ZhPL7uqTrNKfBw/B1mn5mnY3YjXZSOwcubPw3D9lbxeKbs9Cztl3RmAZLnabGZjsac0PLRVM3waZtXNOWPbdrPNSC42YM1a825+L+w7bV7VVkDWfEz6n7Tzyox11aRv7b+k8w1ox6wL5nQ5ni6a++r5UFfb37PrRvpUp/WQstqh+5XebqqsdbR4/uYsLk7Z15G/S8/tMaEOfjePXVrtD1lNX9x+/3H6Cw==" target="_blank" rel="noopener noreferrer" aria-label="Open v1 in Sketch">
-                    <img class="preview-media" src="/tools/generative-art/assets/collection/Path/Dash%20by%20lines/Screenshot_2022-06-04_at_20.20.55.png" alt="Dash by lines" loading="eager" decoding="async">
-                </a>
+                <div class="preview-link paperjs-preview-frame" data-sketch-url="http://sketch.paperjs.org/#V/0.12.17/S/bVTLbtswEPwVQpc6sExwSS4fSXMoei4QoL3VReHYdCxYkQxJddAG/vcOpTg20PJELnd2ZmcpvRbN6jkVt8XXfRrWu6Is1u0mn5fNcdWJw2rYiXvRpBfxgO1sWXxhJ9kG0iUf1XpBUikfqVRioaXy1sdSSWJkiIWRWinHCFjnrDmqDPDSKa2pDKjCHllkkUbBl9jEYB0hFKWPIYYSG0PO+gkapLIUTOmkDsYw8py0HKItCRTQ4SGCpWYyCGlpWGueoCQpKoolSSYKDlDpA+tYGmmMdf4SYIgN1k4wJRWEG8BC8GSFghwVGSjnoR1VNQcHjPEUJwwhJSCmpTPea6HRlNNARHYcBMMvrd7PI4QlQYKHh+jD2Xx99lXkFgN7LuGm0sbDxXqhbSa28Icg1wYbUUXLEFk5aI1MsB9AyqUgQHttcm1mFcI58EatdIClSkSpSXHIzJpjQHM6T0iPzN5H50YA/NImuhLTZhUVoyGM0UMxy+jIjbyKDOrALAwYs6sNthY2IGhZZhE2u4sSFP1I6TlYDAHDC458rj65h5nrGK8if5bFzd2yye9S9kPX7tPntm47vNEPj/Vqvf9wvjy0fTVUbYObY5Ve5Do1Q+pwOz3szarPD1uru+ncbrd9GhAh9Z5T4ZhPL7uqTrNKfBw/B1mn5mnY3YjXZSOwcubPw3D9lbxeKbs9Cztl3RmAZLnabGZjsac0PLRVM3waZtXNOWPbdrPNSC42YM1a825+L+w7bV7VVkDWfEz6n7Tzyox11aRv7b+k8w1ox6wL5nQ5ni6a++r5UFfb37PrRvpUp/WQstqh+5XebqqsdbR4/uYsLk7Z15G/S8/tMaEOfjePXVrtD1lNX9x+/3H6Cw==">
+                    <canvas id="paperjs-preview-canvas" class="preview-media paperjs-preview-canvas" resize data-paperjs-preview aria-label="Dash by lines preview"></canvas>
+                </div>
             </section>
             <div class="actions"><a class="button secondary" href="/tools/generative-art/assets/collection/Path/Dash%20by%20lines/Dash_by_lines.html">Dash by lines.html</a></div>
             
@@ -549,6 +556,8 @@
             &copy; 2026 Alexander Deplov, designer and developer of iOS and macOS apps, product designer.
         </footer>
     </article>
+    <script src="../../PaperJSEngine/paper-full.js"></script>
+    <script src="../../paperjs-preview-runner.js"></script>
     <script>
 document.addEventListener("click", function (event) {
     var button = event.target.closest(".copy-code-button");

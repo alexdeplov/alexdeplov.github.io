@@ -281,6 +281,13 @@
             object-fit: contain;
         }
 
+        .preview-panel canvas {
+            width: 100%;
+            display: block;
+            aspect-ratio: 4 / 3;
+            background: #000;
+        }
+
         .actions {
             display: flex;
             flex-wrap: wrap;
@@ -480,9 +487,9 @@
         </header>
         <div class="content">
             <section class="preview-panel" aria-label="Preview">
-                <a class="preview-link" href="http://sketch.paperjs.org/#V/0.12.17/S/fVVRb9owEP4rVqZJSWEhZNB22fpQsbGnStU2aasIDyYxiddgI8dpyyr++852QpxQ4AXb953vvvN3l1eH4Q1xIufnI5FJ7gydhKdq/4QFWmXoBjHyjO6xzP0fJJGYZQVxX2OG4FfSfyRCT5Q8+2o5NKdrWhQzXnARodh5FwbB7TSMndq45SWVlLPaLSFMEhGzvRezVeYfXP0Sy0pghYQMAv9jz1zQLJeMlKW2jsOYxUwlLDiX3wWvtnXeeu16xoiFwDswLJZmn6irytvmFJKdz4LgUiWrMp9/m8y+Bmqjd/PZPGhMl1fht/mn2Fk2cfGGV0z+gWsu7YMHcxCzNRfIVecvKuHP8Pel8YHNYODVFT3gdga3O+AeYNPi1E/BspprIgiW5JegOCWKboPRdr8puq+iv6ALdB2chKjAux7kUFUfp+ksp0Xqaq860B7eT5HURCuW6FfrZlSnbafceZ42EaVGsMaO1K4aETsG0V6ijEqJXXlmVYHFPS92GWeuVSmjso7khq21pCkpIzSxjgROaaXOAhsnBX8ktbIt7SzGyyPUb5rKPEK2+xYLiBwZmnXhvIZX7/WpeX0Kr98w9UuSbeCC0i8Iy2QO1mM5JFQk3aLM9IldDJvfOByi0egKDSDUBTTSdNjFWa18knC3q4/SXdAliIsy2Xexy9Gz4e222N1huOslQmtclKS17y11tyu6Ri5F71GIbqByXo+uUZbgEhTphlOvazVFOzlcplZsS1Lnna6bJ30Tm1cEDW50zcdWm+n55G+rMneNi9fcsm8Whglnc2HapGk3lzxBNW3eHc7AwuvcZDaCwJBljSL3nf6tY3QvPidUk/0ZcfLVX/iAgINGgi66ZszoBox3SrUlrRn5iZp9WpvjiZKph0boCjSbcF6Aft/SgolzXG4d4AKFwRlo+4rg4J7MJQjRB0RHE5WNzVvtw35Ouq71gGwnadMyQNkaS/D5XcHgfNQdUzrRYrn/Dw==" target="_blank" rel="noopener noreferrer" aria-label="Open v1 in Sketch">
-                    <img class="preview-media" src="/tools/generative-art/assets/collection/Animation/Colored%20circles%20dance/Screen_Recording_2023-04-10_at_17.34.33.2023-04-10_17_39_53.gif" alt="Colored circles dance" loading="eager" decoding="async">
-                </a>
+                <div class="preview-link paperjs-preview-frame" data-sketch-url="http://sketch.paperjs.org/#V/0.12.17/S/fVVRb9owEP4rVqZJSWEhZNB22fpQsbGnStU2aasIDyYxiddgI8dpyyr++852QpxQ4AXb953vvvN3l1eH4Q1xIufnI5FJ7gydhKdq/4QFWmXoBjHyjO6xzP0fJJGYZQVxX2OG4FfSfyRCT5Q8+2o5NKdrWhQzXnARodh5FwbB7TSMndq45SWVlLPaLSFMEhGzvRezVeYfXP0Sy0pghYQMAv9jz1zQLJeMlKW2jsOYxUwlLDiX3wWvtnXeeu16xoiFwDswLJZmn6irytvmFJKdz4LgUiWrMp9/m8y+Bmqjd/PZPGhMl1fht/mn2Fk2cfGGV0z+gWsu7YMHcxCzNRfIVecvKuHP8Pel8YHNYODVFT3gdga3O+AeYNPi1E/BspprIgiW5JegOCWKboPRdr8puq+iv6ALdB2chKjAux7kUFUfp+ksp0Xqaq860B7eT5HURCuW6FfrZlSnbafceZ42EaVGsMaO1K4aETsG0V6ijEqJXXlmVYHFPS92GWeuVSmjso7khq21pCkpIzSxjgROaaXOAhsnBX8ktbIt7SzGyyPUb5rKPEK2+xYLiBwZmnXhvIZX7/WpeX0Kr98w9UuSbeCC0i8Iy2QO1mM5JFQk3aLM9IldDJvfOByi0egKDSDUBTTSdNjFWa18knC3q4/SXdAliIsy2Xexy9Gz4e222N1huOslQmtclKS17y11tyu6Ri5F71GIbqByXo+uUZbgEhTphlOvazVFOzlcplZsS1Lnna6bJ30Tm1cEDW50zcdWm+n55G+rMneNi9fcsm8Whglnc2HapGk3lzxBNW3eHc7AwuvcZDaCwJBljSL3nf6tY3QvPidUk/0ZcfLVX/iAgINGgi66ZszoBox3SrUlrRn5iZp9WpvjiZKph0boCjSbcF6Aft/SgolzXG4d4AKFwRlo+4rg4J7MJQjRB0RHE5WNzVvtw35Ouq71gGwnadMyQNkaS/D5XcHgfNQdUzrRYrn/Dw==">
+                    <canvas id="paperjs-preview-canvas" class="preview-media paperjs-preview-canvas" resize data-paperjs-preview aria-label="Colored circles dance preview"></canvas>
+                </div>
             </section>
             
             
@@ -584,6 +591,8 @@
             &copy; 2026 Alexander Deplov, designer and developer of iOS and macOS apps, product designer.
         </footer>
     </article>
+    <script src="../../PaperJSEngine/paper-full.js"></script>
+    <script src="../../paperjs-preview-runner.js"></script>
     <script>
 document.addEventListener("click", function (event) {
     var button = event.target.closest(".copy-code-button");

@@ -281,6 +281,13 @@
             object-fit: contain;
         }
 
+        .preview-panel canvas {
+            width: 100%;
+            display: block;
+            aspect-ratio: 4 / 3;
+            background: #000;
+        }
+
         .actions {
             display: flex;
             flex-wrap: wrap;
@@ -480,9 +487,9 @@
         </header>
         <div class="content">
             <section class="preview-panel" aria-label="Preview">
-                <a class="preview-link" href="http://sketch.paperjs.org/#V/0.12.17/S/fZNPT4QwEMW/SsMFSFayy8YL6MmrGqMmHsRDKbNrs90OaQsbNfvdnZbuH6OxB0Lfr33TeZSvRPMtJFXytAEn3pNZIrDz85Eb1q7ZNdOwYw/cvRePIBzXawXZV6MZDSs/oWKjhF3R4qA7O5v0lVTqBhWaiqX9YHoFaaP3eaMb7V17MjvzzfK60V4rrDO4gbCTeNoqLjbpT/giu7B5WUevxcEJpXbZYj6fMXrkB1wS7hcF77rstfTw4nL+dqRLT8uJEosolNviCM+Y9YujoqQOSvlLWZ462CL6jiZ/IY1QcB7hTVAO+QnQDkxMcJrEBA3v5GArauWPSA10Ic/YhUNUscYzvYY4vVagvsPBwh11Qnw1aOEk6gxGqpSzeIaQA+GgFr1PsT4R7VHobA3uHrgB625R8GDU53Hl1CdtttIDf5j+h5VcsYykTlq6QALYFSvnxxP48dfn/wClcJfWp1WxziitbEOuzgwQ+Z6BsnDu+Wv1itOK+v+ixzsXPCll+iFaA3wT2rFJ9fq2/wY=" target="_blank" rel="noopener noreferrer" aria-label="Open v1 in Sketch">
-                    <img class="preview-media" src="/tools/generative-art/assets/collection/Cursor/Nearest%20Point/Screen_Recording_2022-06-05_at_15.26.53.2022-06-05_15_27_32.gif" alt="Nearest Point" loading="eager" decoding="async">
-                </a>
+                <div class="preview-link paperjs-preview-frame" data-sketch-url="http://sketch.paperjs.org/#V/0.12.17/S/fZNPT4QwEMW/SsMFSFayy8YL6MmrGqMmHsRDKbNrs90OaQsbNfvdnZbuH6OxB0Lfr33TeZSvRPMtJFXytAEn3pNZIrDz85Eb1q7ZNdOwYw/cvRePIBzXawXZV6MZDSs/oWKjhF3R4qA7O5v0lVTqBhWaiqX9YHoFaaP3eaMb7V17MjvzzfK60V4rrDO4gbCTeNoqLjbpT/giu7B5WUevxcEJpXbZYj6fMXrkB1wS7hcF77rstfTw4nL+dqRLT8uJEosolNviCM+Y9YujoqQOSvlLWZ462CL6jiZ/IY1QcB7hTVAO+QnQDkxMcJrEBA3v5GArauWPSA10Ic/YhUNUscYzvYY4vVagvsPBwh11Qnw1aOEk6gxGqpSzeIaQA+GgFr1PsT4R7VHobA3uHrgB625R8GDU53Hl1CdtttIDf5j+h5VcsYykTlq6QALYFSvnxxP48dfn/wClcJfWp1WxziitbEOuzgwQ+Z6BsnDu+Wv1itOK+v+ixzsXPCll+iFaA3wT2rFJ9fq2/wY=">
+                    <canvas id="paperjs-preview-canvas" class="preview-media paperjs-preview-canvas" style="background: whitesmoke;" resize data-paperjs-preview aria-label="Nearest Point preview"></canvas>
+                </div>
             </section>
             
             
@@ -533,6 +540,8 @@
             &copy; 2026 Alexander Deplov, designer and developer of iOS and macOS apps, product designer.
         </footer>
     </article>
+    <script src="../../PaperJSEngine/paper-full.js"></script>
+    <script src="../../paperjs-preview-runner.js"></script>
     <script>
 document.addEventListener("click", function (event) {
     var button = event.target.closest(".copy-code-button");

@@ -281,6 +281,13 @@
             object-fit: contain;
         }
 
+        .preview-panel canvas {
+            width: 100%;
+            display: block;
+            aspect-ratio: 4 / 3;
+            background: #000;
+        }
+
         .actions {
             display: flex;
             flex-wrap: wrap;
@@ -480,9 +487,9 @@
         </header>
         <div class="content">
             <section class="preview-panel" aria-label="Preview">
-                <a class="preview-link" href="http://sketch.paperjs.org/#V/0.12.17/S/jVKxbsIwEP2VU5aEJkoDrTqk7cTUqagdCYMxB1iYc+Q4IIr49/pIIO5WD7Hz/O75vbPPEYk9RmX0vUMnt1EWSbPi/4OwsNzAOxAeYSbcNv9C6QRtNCbnisCPRv1gCQeFx5yXWYeuldZTo40tIV5qIXdxRZdRRRWxpLBWnD6I0Hrp+SIAP1t3B3t4b1pyHhpPGFobCwnjykPFq5/eeopfp+mod3Vl8AEzo8g1YYKpsnKwz8OKlWqbEibZgIUBTqi1OcbBbm0a5ZShPrhEYtspzJ+LDIpFR+S8PHffwE1ujRMOk6eXAh5vAR9AZaFaXzy0Kq/bZpsEMn/kObDh5t0DhwdKbQiTviCg5bcgkPqej4vAfcj6p98LX5B/PEuLYldfS6Nyvrj8Ag==" target="_blank" rel="noopener noreferrer" aria-label="Open v1 in Sketch">
-                    <img class="preview-media" src="/tools/generative-art/assets/collection/Path/Circles%20pattern/Screenshot_2024-01-18_at_20.28.42.png" alt="Circles pattern" loading="eager" decoding="async">
-                </a>
+                <div class="preview-link paperjs-preview-frame" data-sketch-url="http://sketch.paperjs.org/#V/0.12.17/S/jVKxbsIwEP2VU5aEJkoDrTqk7cTUqagdCYMxB1iYc+Q4IIr49/pIIO5WD7Hz/O75vbPPEYk9RmX0vUMnt1EWSbPi/4OwsNzAOxAeYSbcNv9C6QRtNCbnisCPRv1gCQeFx5yXWYeuldZTo40tIV5qIXdxRZdRRRWxpLBWnD6I0Hrp+SIAP1t3B3t4b1pyHhpPGFobCwnjykPFq5/eeopfp+mod3Vl8AEzo8g1YYKpsnKwz8OKlWqbEibZgIUBTqi1OcbBbm0a5ZShPrhEYtspzJ+LDIpFR+S8PHffwE1ujRMOk6eXAh5vAR9AZaFaXzy0Kq/bZpsEMn/kObDh5t0DhwdKbQiTviCg5bcgkPqej4vAfcj6p98LX5B/PEuLYldfS6Nyvrj8Ag==">
+                    <canvas id="paperjs-preview-canvas" class="preview-media paperjs-preview-canvas" resize data-paperjs-preview aria-label="Circles pattern preview"></canvas>
+                </div>
             </section>
             
             
@@ -524,6 +531,8 @@
             &copy; 2026 Alexander Deplov, designer and developer of iOS and macOS apps, product designer.
         </footer>
     </article>
+    <script src="../../PaperJSEngine/paper-full.js"></script>
+    <script src="../../paperjs-preview-runner.js"></script>
     <script>
 document.addEventListener("click", function (event) {
     var button = event.target.closest(".copy-code-button");

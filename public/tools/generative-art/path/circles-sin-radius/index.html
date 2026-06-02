@@ -281,6 +281,13 @@
             object-fit: contain;
         }
 
+        .preview-panel canvas {
+            width: 100%;
+            display: block;
+            aspect-ratio: 4 / 3;
+            background: #000;
+        }
+
         .actions {
             display: flex;
             flex-wrap: wrap;
@@ -480,9 +487,9 @@
         </header>
         <div class="content">
             <section class="preview-panel" aria-label="Preview">
-                <a class="preview-link" href="http://sketch.paperjs.org/#V/0.12.17/S/pVNNb9swDP0rhC91EiNOE3QbvPYUbEUPRYN2t7YH1WZiIYpkyHLTLfB/L/Xh2sm60wTEVh4fn8hH+RBJtsMoix62aPIySqJcFfb/K9OQCyWxhitYzJ6kBdhONdLcre/V3sLnBPuAZgVv6hu5QralwLchetsIwyvBUd/JXyX+kAUxhkppOAfSdDZdLHwulxL1vRMg+oU7aa00xC5I0Ow7vS6PhAiZTEYHSwValrljb6H+Dil4bZjM8adWuyVKg5oIHMbwlX63zJTT1Q1Mhuf3uVoZZvBaq6YKSV3CGOYDWlf2kS2BXHMZ28x/mTPyOrlGOmrJdS6wjqmN5JPKk2FFSZAkgdZa4BxrZG64kv8jd+gbY3Ij0Pr5ZZaSRh/YBEsk7sFlx6GNz0ZGmR+TgrDcdXPVBZWV9crXGw94dvm6svBOjoNrLsRSCaUzOHsRDZ6dxHPXaQaPrxz3NIw/ON3zwpTpPIEeKpFvSpPO6SL8bdPziWTFNOGZN+EkxqpK/Ka5a/6WwZqJGvt4O+r3fkfPHvJ2TP1IYm/9GHgo0/cx6u56221cEV3SYJyBaZ8tfeUvdB+2leLS1FH2+Ny+Aw==" target="_blank" rel="noopener noreferrer" aria-label="Open v1 in Sketch">
-                    <img class="preview-media" src="/tools/generative-art/assets/collection/Path/Circles%20Sin%20Radius/Screenshot_2022-06-04_at_20.26.06.png" alt="Circles Sin Radius" loading="eager" decoding="async">
-                </a>
+                <div class="preview-link paperjs-preview-frame" data-sketch-url="http://sketch.paperjs.org/#V/0.12.17/S/pVNNb9swDP0rhC91EiNOE3QbvPYUbEUPRYN2t7YH1WZiIYpkyHLTLfB/L/Xh2sm60wTEVh4fn8hH+RBJtsMoix62aPIySqJcFfb/K9OQCyWxhitYzJ6kBdhONdLcre/V3sLnBPuAZgVv6hu5QralwLchetsIwyvBUd/JXyX+kAUxhkppOAfSdDZdLHwulxL1vRMg+oU7aa00xC5I0Ow7vS6PhAiZTEYHSwValrljb6H+Dil4bZjM8adWuyVKg5oIHMbwlX63zJTT1Q1Mhuf3uVoZZvBaq6YKSV3CGOYDWlf2kS2BXHMZ28x/mTPyOrlGOmrJdS6wjqmN5JPKk2FFSZAkgdZa4BxrZG64kv8jd+gbY3Ij0Pr5ZZaSRh/YBEsk7sFlx6GNz0ZGmR+TgrDcdXPVBZWV9crXGw94dvm6svBOjoNrLsRSCaUzOHsRDZ6dxHPXaQaPrxz3NIw/ON3zwpTpPIEeKpFvSpPO6SL8bdPziWTFNOGZN+EkxqpK/Ka5a/6WwZqJGvt4O+r3fkfPHvJ2TP1IYm/9GHgo0/cx6u56221cEV3SYJyBaZ8tfeUvdB+2leLS1FH2+Ny+Aw==">
+                    <canvas id="paperjs-preview-canvas" class="preview-media paperjs-preview-canvas" resize data-paperjs-preview aria-label="Circles Sin Radius preview"></canvas>
+                </div>
             </section>
             
             
@@ -541,6 +548,8 @@
             &copy; 2026 Alexander Deplov, designer and developer of iOS and macOS apps, product designer.
         </footer>
     </article>
+    <script src="../../PaperJSEngine/paper-full.js"></script>
+    <script src="../../paperjs-preview-runner.js"></script>
     <script>
 document.addEventListener("click", function (event) {
     var button = event.target.closest(".copy-code-button");

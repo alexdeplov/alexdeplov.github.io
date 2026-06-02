@@ -281,6 +281,13 @@
             object-fit: contain;
         }
 
+        .preview-panel canvas {
+            width: 100%;
+            display: block;
+            aspect-ratio: 4 / 3;
+            background: #000;
+        }
+
         .actions {
             display: flex;
             flex-wrap: wrap;
@@ -480,9 +487,9 @@
         </header>
         <div class="content">
             <section class="preview-panel" aria-label="Preview">
-                <a class="preview-link" href="http://sketch.paperjs.org/#V/0.12.17/S/lVVNc9owEP0rGi6xCxUGhgtNTsm0p0w7SQ9hIAchC6zGSB5JDtAM/70rWbIVEtLWF6Tdt99vxUtPkC3rzXr3T8zQojfoUZnb+zNRaLVBV0iwHfpBTIHvGDVEbEqWvCwFgk/z32yGnjnbYXscNNI1L8trWUo1QxerktCni6U4pkuxFNYl2cpamAfwO81iyRwkEy+pSJ5zsbGgyfSVyKLGXpRzDelQ9n19xwg1kUdNSQlga94IFMl5rZt7SKSCkuLqrrmiXWmNxcz/vq3MmrkjVkTkcpukHkOZMEz5rjQXryFVVR5uiVF8P0NrUmoW90VIrhnks3gMkpytueCGS+HTvD9sV7K8acWJLSHtKtooWVce+82eE6dcS4USq9+DLvsCP5dhCnDp91Nfcos7NLhDi5vDpcE1SPtZIBfNBABvU8G0lILZoAEUALjtHC5qhvpX6NbiQ+vQJzTO3rGqpA71L6J+4j0Y7NGw5ckA8o7UB1AfOvU8fXzHt6wI5caVirMx6qPkNKUMTz4uRRNTK+ITHH0ILfmmMIJp7eJNO6ybGYZErwte5kkw9YGPwBDb9AYVtSMqN0yf1krDBP/K6Ok7a2qgbF0RBQ4vzvM4pqtdt8yxqxbUJSXFVwUvScKeARw4ZeysM+yb43azlDumfvKtZY2BKY2yTkldxqOHUOEK2JdrvOM57OoQ2TG5KWkuksgRaOzAJtMMDYdwcBgqdYRJ3wSZnwQpmJ3R+SiOpTYCGvsOuYa/ImnIf9AG8dTroodXC+AnDvCGmRuvjfmchrVrWEAtUWBSeEuqJHQ/katf8DoPEA+d76L+Z+TGU6uLV2CNktbJ5en7m6Iosv28I88LiNom21DkFO/4UnCNu+e7HcMIT2Eqzg4GC0+S289sMnSD9wZn3HWbPjqDePM6ZXj8r9C2IcDkURa/kH6Bo2N38b157e1zm6HdsyP8Fa8UI0+V5MLo3mzxePwD" target="_blank" rel="noopener noreferrer" aria-label="Open v1 in Sketch">
-                    <img class="preview-media" src="/tools/generative-art/assets/collection/Animation/Infinite%20Sign%20by%20Circles/Screen_Recording_2024-06-05_at_22.19.21.2024-06-05_22_22_34.gif" alt="Infinite Sign by Circles" loading="eager" decoding="async">
-                </a>
+                <div class="preview-link paperjs-preview-frame" data-sketch-url="http://sketch.paperjs.org/#V/0.12.17/S/lVVNc9owEP0rGi6xCxUGhgtNTsm0p0w7SQ9hIAchC6zGSB5JDtAM/70rWbIVEtLWF6Tdt99vxUtPkC3rzXr3T8zQojfoUZnb+zNRaLVBV0iwHfpBTIHvGDVEbEqWvCwFgk/z32yGnjnbYXscNNI1L8trWUo1QxerktCni6U4pkuxFNYl2cpamAfwO81iyRwkEy+pSJ5zsbGgyfSVyKLGXpRzDelQ9n19xwg1kUdNSQlga94IFMl5rZt7SKSCkuLqrrmiXWmNxcz/vq3MmrkjVkTkcpukHkOZMEz5rjQXryFVVR5uiVF8P0NrUmoW90VIrhnks3gMkpytueCGS+HTvD9sV7K8acWJLSHtKtooWVce+82eE6dcS4USq9+DLvsCP5dhCnDp91Nfcos7NLhDi5vDpcE1SPtZIBfNBABvU8G0lILZoAEUALjtHC5qhvpX6NbiQ+vQJzTO3rGqpA71L6J+4j0Y7NGw5ckA8o7UB1AfOvU8fXzHt6wI5caVirMx6qPkNKUMTz4uRRNTK+ITHH0ILfmmMIJp7eJNO6ybGYZErwte5kkw9YGPwBDb9AYVtSMqN0yf1krDBP/K6Ok7a2qgbF0RBQ4vzvM4pqtdt8yxqxbUJSXFVwUvScKeARw4ZeysM+yb43azlDumfvKtZY2BKY2yTkldxqOHUOEK2JdrvOM57OoQ2TG5KWkuksgRaOzAJtMMDYdwcBgqdYRJ3wSZnwQpmJ3R+SiOpTYCGvsOuYa/ImnIf9AG8dTroodXC+AnDvCGmRuvjfmchrVrWEAtUWBSeEuqJHQ/katf8DoPEA+d76L+Z+TGU6uLV2CNktbJ5en7m6Iosv28I88LiNom21DkFO/4UnCNu+e7HcMIT2Eqzg4GC0+S289sMnSD9wZn3HWbPjqDePM6ZXj8r9C2IcDkURa/kH6Bo2N38b157e1zm6HdsyP8Fa8UI0+V5MLo3mzxePwD">
+                    <canvas id="paperjs-preview-canvas" class="preview-media paperjs-preview-canvas" resize data-paperjs-preview aria-label="Infinite Sign by Circles preview"></canvas>
+                </div>
             </section>
             
             
@@ -576,6 +583,8 @@
             &copy; 2026 Alexander Deplov, designer and developer of iOS and macOS apps, product designer.
         </footer>
     </article>
+    <script src="../../PaperJSEngine/paper-full.js"></script>
+    <script src="../../paperjs-preview-runner.js"></script>
     <script>
 document.addEventListener("click", function (event) {
     var button = event.target.closest(".copy-code-button");

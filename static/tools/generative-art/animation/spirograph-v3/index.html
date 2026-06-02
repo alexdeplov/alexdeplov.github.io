@@ -281,6 +281,13 @@
             object-fit: contain;
         }
 
+        .preview-panel canvas {
+            width: 100%;
+            display: block;
+            aspect-ratio: 4 / 3;
+            background: #000;
+        }
+
         .actions {
             display: flex;
             flex-wrap: wrap;
@@ -480,9 +487,9 @@
         </header>
         <div class="content">
             <section class="preview-panel" aria-label="Preview">
-                <a class="preview-link" href="http://sketch.paperjs.org/#V/0.12.17/S/zVZRb9owEP4rFtJEGDRLQqmmdEyaKnVPVadt0h6ABycxxCW1kWNoWcV/3zlxEjsNhe1peYDEvvvuu+/Ol7z0GH4kvbD3Y01knPZGvZgn6nmHBYpWaIoYeULfsEzd7ySWmK0y4rzMGYIrp79JiHaUPLkR37IkH5XrS5plNzzjIkT9KMPxuq83NjynknKmnWLCJBFzdhjMmQoXZ5yRHEJ+LJ+LYPA4vvLQB71b7gicUJx9FXy7uV/eRw/ALNdUi0VHI0ZcJETcUBEXQHUq5YpjsBgh35+Al+nh5lLwNSlSAe9+gsU6yrak32n2iyYyBTPPDVr7fINjKvdqTydahDxKS8urktzmIQomnboCj9OyLoG5o0JSFf0a/j5pIeF+OBwgHUuZbHDB/3i9m5pXjEya5toxpkfZoiGaeVCDwFsYplq4EPnGIt5ssv0dloI+h2iJs5yUeyrdAl9xF1xiSZyyg94jOjKDDRp9203k4iS5SWmWOAoGDA9lxXj04I/Ub3BdLyj7wrur8/T+F6EORtsA6rJlsRIBcXYr4AA6ZAfU6nJ0UtM5+Zq+yaDau/Bcb/xWepX47jNwMiSB5yG6U8rFPC/JwN2WSRAPMC8H8D/xzgHet4D3FXBO2QlgJfLJU+o16ftu3WfqeAqS9I29PMYZZSs0nKIAOPjuBEIdZdKpat0MCtCMq6sGUatCtgqoLpnSvGHopluCLtR4GOt+rfGCk0lPmuBBeypZaQf/nnZgzqmKpNXGlh6B5Xm2Hgb5RpErS5GumdXZc7HiIghzM8JWMrUnWjXVygwA6U2IGV0YY0eVuGpo8Cwh6pWW4asKtzUeWw7BuchBl1avsNEFuvQaP7pETgerd3Bu0BTUtOSpJBK4GFFFkywzzoVT3Kpl/uioE3qO/AMb+G25FfbCOr4267/Hqvp+WqTT+B8QgVfEf5u2/kAy+FpnwfxSaDWO32oby9Quf1vdspvQpMMxEiDiT34rOJOOzk03VTMXWxKgzzCh7NbqNJ95C1eQR74jzuCVqR4xx20Pxct4zjoVVtWHV6MbDOALNhIErzecMpn3wtni8Ac=" target="_blank" rel="noopener noreferrer" aria-label="Open v1 in Sketch">
-                    <img class="preview-media" src="/tools/generative-art/assets/collection/Animation/Spirograph%20v3/Screen_Recording_2022-06-04_at_18.11.17.2022-06-04_18_11_51.gif" alt="Spirograph v3" loading="eager" decoding="async">
-                </a>
+                <div class="preview-link paperjs-preview-frame" data-sketch-url="http://sketch.paperjs.org/#V/0.12.17/S/zVZRb9owEP4rFtJEGDRLQqmmdEyaKnVPVadt0h6ABycxxCW1kWNoWcV/3zlxEjsNhe1peYDEvvvuu+/Ol7z0GH4kvbD3Y01knPZGvZgn6nmHBYpWaIoYeULfsEzd7ySWmK0y4rzMGYIrp79JiHaUPLkR37IkH5XrS5plNzzjIkT9KMPxuq83NjynknKmnWLCJBFzdhjMmQoXZ5yRHEJ+LJ+LYPA4vvLQB71b7gicUJx9FXy7uV/eRw/ALNdUi0VHI0ZcJETcUBEXQHUq5YpjsBgh35+Al+nh5lLwNSlSAe9+gsU6yrak32n2iyYyBTPPDVr7fINjKvdqTydahDxKS8urktzmIQomnboCj9OyLoG5o0JSFf0a/j5pIeF+OBwgHUuZbHDB/3i9m5pXjEya5toxpkfZoiGaeVCDwFsYplq4EPnGIt5ssv0dloI+h2iJs5yUeyrdAl9xF1xiSZyyg94jOjKDDRp9203k4iS5SWmWOAoGDA9lxXj04I/Ub3BdLyj7wrur8/T+F6EORtsA6rJlsRIBcXYr4AA6ZAfU6nJ0UtM5+Zq+yaDau/Bcb/xWepX47jNwMiSB5yG6U8rFPC/JwN2WSRAPMC8H8D/xzgHet4D3FXBO2QlgJfLJU+o16ftu3WfqeAqS9I29PMYZZSs0nKIAOPjuBEIdZdKpat0MCtCMq6sGUatCtgqoLpnSvGHopluCLtR4GOt+rfGCk0lPmuBBeypZaQf/nnZgzqmKpNXGlh6B5Xm2Hgb5RpErS5GumdXZc7HiIghzM8JWMrUnWjXVygwA6U2IGV0YY0eVuGpo8Cwh6pWW4asKtzUeWw7BuchBl1avsNEFuvQaP7pETgerd3Bu0BTUtOSpJBK4GFFFkywzzoVT3Kpl/uioE3qO/AMb+G25FfbCOr4267/Hqvp+WqTT+B8QgVfEf5u2/kAy+FpnwfxSaDWO32oby9Quf1vdspvQpMMxEiDiT34rOJOOzk03VTMXWxKgzzCh7NbqNJ95C1eQR74jzuCVqR4xx20Pxct4zjoVVtWHV6MbDOALNhIErzecMpn3wtni8Ac=">
+                    <canvas id="paperjs-preview-canvas" class="preview-media paperjs-preview-canvas" resize data-paperjs-preview aria-label="Spirograph v3 preview"></canvas>
+                </div>
             </section>
             
             
@@ -578,6 +585,8 @@
             &copy; 2026 Alexander Deplov, designer and developer of iOS and macOS apps, product designer.
         </footer>
     </article>
+    <script src="../../PaperJSEngine/paper-full.js"></script>
+    <script src="../../paperjs-preview-runner.js"></script>
     <script>
 document.addEventListener("click", function (event) {
     var button = event.target.closest(".copy-code-button");

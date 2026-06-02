@@ -281,6 +281,13 @@
             object-fit: contain;
         }
 
+        .preview-panel canvas {
+            width: 100%;
+            display: block;
+            aspect-ratio: 4 / 3;
+            background: #000;
+        }
+
         .actions {
             display: flex;
             flex-wrap: wrap;
@@ -480,9 +487,9 @@
         </header>
         <div class="content">
             <section class="preview-panel" aria-label="Preview">
-                <a class="preview-link" href="http://sketch.paperjs.org/#V/0.12.17/S/ZZExa8MwEIX/yqEOiakRLaSLIVOCt0JpxyiDrFxsYfdUZNmJG/zfK8tqcagGoXs6vndPujGSn8gy9lGjUxVLmTKnqe6lhaKELRBe4E26ir+jcpLKBtc3QeBXq78xg17jhU/HdFbPuml2pjE2g1XRSFWvBI2JIEHnjpTThkBZlA532ioPu6YwJIE4WaogLm1jW/RUSA49+nBNh2N0tPKkuzaDzdP/EQR7yPN8/7IRLFzOk0D04YZy6/N7v9/h1th7iyTauUq3/A/Hqw7hcQvPgTSDLLrOUuT5pHdBDb2arsW9leWSe5c/6PzLaL/7t1iWgx929F9S+P46SC3LDsfxBw==" target="_blank" rel="noopener noreferrer" aria-label="Open v1 in Sketch">
-                    <img class="preview-media" src="/tools/generative-art/assets/collection/Cursor/Rainbow%20drawing/Screen_Recording_2022-06-04_at_19.32.51.2022-06-04_19_33_28.gif" alt="Rainbow drawing" loading="eager" decoding="async">
-                </a>
+                <div class="preview-link paperjs-preview-frame" data-sketch-url="http://sketch.paperjs.org/#V/0.12.17/S/ZZExa8MwEIX/yqEOiakRLaSLIVOCt0JpxyiDrFxsYfdUZNmJG/zfK8tqcagGoXs6vndPujGSn8gy9lGjUxVLmTKnqe6lhaKELRBe4E26ir+jcpLKBtc3QeBXq78xg17jhU/HdFbPuml2pjE2g1XRSFWvBI2JIEHnjpTThkBZlA532ioPu6YwJIE4WaogLm1jW/RUSA49+nBNh2N0tPKkuzaDzdP/EQR7yPN8/7IRLFzOk0D04YZy6/N7v9/h1th7iyTauUq3/A/Hqw7hcQvPgTSDLLrOUuT5pHdBDb2arsW9leWSe5c/6PzLaL/7t1iWgx929F9S+P46SC3LDsfxBw==">
+                    <canvas id="paperjs-preview-canvas" class="preview-media paperjs-preview-canvas" resize data-paperjs-preview aria-label="Rainbow drawing preview"></canvas>
+                </div>
             </section>
             
             
@@ -522,6 +529,8 @@
             &copy; 2026 Alexander Deplov, designer and developer of iOS and macOS apps, product designer.
         </footer>
     </article>
+    <script src="../../PaperJSEngine/paper-full.js"></script>
+    <script src="../../paperjs-preview-runner.js"></script>
     <script>
 document.addEventListener("click", function (event) {
     var button = event.target.closest(".copy-code-button");

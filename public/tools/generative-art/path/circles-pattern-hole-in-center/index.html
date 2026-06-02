@@ -281,6 +281,13 @@
             object-fit: contain;
         }
 
+        .preview-panel canvas {
+            width: 100%;
+            display: block;
+            aspect-ratio: 4 / 3;
+            background: #000;
+        }
+
         .actions {
             display: flex;
             flex-wrap: wrap;
@@ -480,9 +487,9 @@
         </header>
         <div class="content">
             <section class="preview-panel" aria-label="Preview">
-                <a class="preview-link" href="http://sketch.paperjs.org/#V/0.12.17/S/pVNLT9tAEP4rI19wiBWniSjIbU9RW3FARMAtcFjsSbzKZtdarwlt5P/e2YdrJ8CJlfz65ptvnj5Eku0wyqL7LZq8jJIoV4X9fmEacqEk1vAD5tNHaQG2U400t+s7tbfwF4K9QbOCN/W1XCLbkuFqiN40wvBKcNS38qHEn7IgxlApDXHSFKaT+dz7cilR3zkBol+4SGulIXZGgqbf6PH9SIiQ8Xh0sFSgY5k79noSDc6B9/aC14bJHH9ptVugNKiJzolzSdcNM+VkeQ3jYTa9r1aGGfytVVMFp87hHGYDWlfEUZMCueYytp4ftWrkdXKNFGrBdS6wjqmo5J3Mk2FGSZAkgdY2hLrXyNxwJT8jdujLYnIj0O7G12lKGr1hExoicQ/OOw5FvDc+8vw/NQjHrZ7LLqgsbad8vvGAZ4/PK4OL5BhfcyEWSiidwdmzaPDsxJ67IjNYvXDc0xT+4mTPC1OmswR6qES+KU06ow1426GnE8mKacIzX/+JjVWV+EMD1/w1gzUTNfb2NrSH7j3o65/4GcS+17S4ITmf/ahb9LZ7caE7p8H8HLOln/uZRr+tFJemjrLVU/sP" target="_blank" rel="noopener noreferrer" aria-label="Open v1 in Sketch">
-                    <img class="preview-media" src="/tools/generative-art/assets/collection/Path/Circles%20Pattern%20Hole%20in%20Center/Screenshot_2022-06-04_at_18.21.27.png" alt="Circles Pattern Hole in Center" loading="eager" decoding="async">
-                </a>
+                <div class="preview-link paperjs-preview-frame" data-sketch-url="http://sketch.paperjs.org/#V/0.12.17/S/pVNLT9tAEP4rI19wiBWniSjIbU9RW3FARMAtcFjsSbzKZtdarwlt5P/e2YdrJ8CJlfz65ptvnj5Eku0wyqL7LZq8jJIoV4X9fmEacqEk1vAD5tNHaQG2U400t+s7tbfwF4K9QbOCN/W1XCLbkuFqiN40wvBKcNS38qHEn7IgxlApDXHSFKaT+dz7cilR3zkBol+4SGulIXZGgqbf6PH9SIiQ8Xh0sFSgY5k79noSDc6B9/aC14bJHH9ptVugNKiJzolzSdcNM+VkeQ3jYTa9r1aGGfytVVMFp87hHGYDWlfEUZMCueYytp4ftWrkdXKNFGrBdS6wjqmo5J3Mk2FGSZAkgdY2hLrXyNxwJT8jdujLYnIj0O7G12lKGr1hExoicQ/OOw5FvDc+8vw/NQjHrZ7LLqgsbad8vvGAZ4/PK4OL5BhfcyEWSiidwdmzaPDsxJ67IjNYvXDc0xT+4mTPC1OmswR6qES+KU06ow1426GnE8mKacIzX/+JjVWV+EMD1/w1gzUTNfb2NrSH7j3o65/4GcS+17S4ITmf/ahb9LZ7caE7p8H8HLOln/uZRr+tFJemjrLVU/sP">
+                    <canvas id="paperjs-preview-canvas" class="preview-media paperjs-preview-canvas" resize data-paperjs-preview aria-label="Circles Pattern Hole in Center preview"></canvas>
+                </div>
             </section>
             
             
@@ -537,6 +544,8 @@
             &copy; 2026 Alexander Deplov, designer and developer of iOS and macOS apps, product designer.
         </footer>
     </article>
+    <script src="../../PaperJSEngine/paper-full.js"></script>
+    <script src="../../paperjs-preview-runner.js"></script>
     <script>
 document.addEventListener("click", function (event) {
     var button = event.target.closest(".copy-code-button");

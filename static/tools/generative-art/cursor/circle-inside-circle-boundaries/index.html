@@ -281,6 +281,13 @@
             object-fit: contain;
         }
 
+        .preview-panel canvas {
+            width: 100%;
+            display: block;
+            aspect-ratio: 4 / 3;
+            background: #000;
+        }
+
         .actions {
             display: flex;
             flex-wrap: wrap;
@@ -480,9 +487,9 @@
         </header>
         <div class="content">
             <section class="preview-panel" aria-label="Preview">
-                <a class="preview-link" href="http://sketch.paperjs.org/#V/0.12.17/S/dVJNT8MwDP0rUS+0bJQCGofycZkEp0kIjoxDlrlbtCyp0rRDTPvv2Ek7grSlhybxs9/zc/aJ5ltIyuRjA06sk3EizJLOc01fxy3b8m/2xO7ui3BcysZxLeDFmu0UtAOL0Zuij3K9UhDg15gYLlfWtDVeatixV9qnGRWvjGUpxSXGigf8PRIZbkajbE8IhosANXfrPv8Nt/lUWqEg3QcELeGVlKyTsMvDYfwXtXwp26Zkt0V0WUmlpkYZzLpYqBYuoljNLdYog/L+/pANkkhObo3jDtLQ8CWT45ibjU74lEXZR/J83ZJfxzJzfSAaT5zXppFOGo2AqPgwmHDyVWJz3kE4Xy7408gfKNkkdH6653PmDbZNcLiheyQmjNEz0zYwMx1pr1otSGUKHeYOkyOFHUrx4mJrrpjHYXNSO0LKCp+BR+YK9ApH/exfVNbP93+sf2w4j8ATuXDGL2QMJby3+MQXFvjG0zdJ+fl1+AU=" target="_blank" rel="noopener noreferrer" aria-label="Open v1 in Sketch">
-                    <img class="preview-media" src="/tools/generative-art/assets/collection/Cursor/Circle%20inside%20circle%20boundaries/Screen_Recording_2022-07-22_at_21.34.04.2022-07-22_21_36_23.gif" alt="Circle inside circle boundaries" loading="eager" decoding="async">
-                </a>
+                <div class="preview-link paperjs-preview-frame" data-sketch-url="http://sketch.paperjs.org/#V/0.12.17/S/dVJNT8MwDP0rUS+0bJQCGofycZkEp0kIjoxDlrlbtCyp0rRDTPvv2Ek7grSlhybxs9/zc/aJ5ltIyuRjA06sk3EizJLOc01fxy3b8m/2xO7ui3BcysZxLeDFmu0UtAOL0Zuij3K9UhDg15gYLlfWtDVeatixV9qnGRWvjGUpxSXGigf8PRIZbkajbE8IhosANXfrPv8Nt/lUWqEg3QcELeGVlKyTsMvDYfwXtXwp26Zkt0V0WUmlpkYZzLpYqBYuoljNLdYog/L+/pANkkhObo3jDtLQ8CWT45ibjU74lEXZR/J83ZJfxzJzfSAaT5zXppFOGo2AqPgwmHDyVWJz3kE4Xy7408gfKNkkdH6653PmDbZNcLiheyQmjNEz0zYwMx1pr1otSGUKHeYOkyOFHUrx4mJrrpjHYXNSO0LKCp+BR+YK9ApH/exfVNbP93+sf2w4j8ATuXDGL2QMJby3+MQXFvjG0zdJ+fl1+AU=">
+                    <canvas id="paperjs-preview-canvas" class="preview-media paperjs-preview-canvas" resize data-paperjs-preview aria-label="Circle inside circle boundaries preview"></canvas>
+                </div>
             </section>
             
             
@@ -537,6 +544,8 @@
             &copy; 2026 Alexander Deplov, designer and developer of iOS and macOS apps, product designer.
         </footer>
     </article>
+    <script src="../../PaperJSEngine/paper-full.js"></script>
+    <script src="../../paperjs-preview-runner.js"></script>
     <script>
 document.addEventListener("click", function (event) {
     var button = event.target.closest(".copy-code-button");

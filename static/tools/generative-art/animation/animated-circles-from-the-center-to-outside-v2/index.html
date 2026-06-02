@@ -281,6 +281,13 @@
             object-fit: contain;
         }
 
+        .preview-panel canvas {
+            width: 100%;
+            display: block;
+            aspect-ratio: 4 / 3;
+            background: #000;
+        }
+
         .actions {
             display: flex;
             flex-wrap: wrap;
@@ -480,9 +487,9 @@
         </header>
         <div class="content">
             <section class="preview-panel" aria-label="Preview">
-                <a class="preview-link" href="http://sketch.paperjs.org/#V/0.12.17/S/vVTBbtswDP0VwpfYjaM5abODtx6GAN2pwLAdmx4UWYmFOJIhyUm3Iv8+Srbj2HCLYof5IlkkH58eKb4Gkh54kAa/9tyyPIgDpjL3f6QaNju4B8lP8IPanPzkzFK5K3j4upaAnxF/eApHwU9koyqZmbg+34qiWKlC6RQmm4Ky/aQxlMoIK5RsghiXluu1PEdr6dJppex3raqyyer3IRq3SkPoPARa5l9w+QrzBNfpNIKGDNOcWr4SmhXchEu4ARHDrV8R4byWCFNJ5tIPfA/0JYZMGLwc4w9aHVae1wXZJfb3xuS3nxP4BBjRmXZjjL0M16yTmjVG9mm3KMyTeVfu9qtlf5onMSyT57hv7Gtf8cnAXmuO4b4CDoqcRGZzvNUihu4w52KXW3cK0xFxhmlLqvE8rcUY2GhZFr8fqdXiJYUtLQwfOGiaicqkWNIrwznq9rU4RMkHjc2KIrWVDPkR0/bEbAU1jBb8mxQHdA8XZInXeHSyGiFDgT8+kjDsW4s9kpBkATMs0Q0skijCe9/1IW0uDHGYQrpHcUEf8bqUgOQVh+n9B/PeJdEImFYWWzV0DjN0nr/p4/p6hn1G3if+D1zO3daX9//WAUPelsUpgq5djvq1jzBvWqiJq5+zHxFXkwjZ+NenhLThEp8XMqgRGqDLgCI0y1a5KLLQK1IPmM7azjm88hU8ztYNDp596fBNkD49n/8C" target="_blank" rel="noopener noreferrer" aria-label="Open v1 in Sketch">
-                    <img class="preview-media" src="/tools/generative-art/assets/collection/Animation/Animated%20circles%20from%20the%20center%20to%20outside%20v2/Screen_Recording_2023-01-26_at_20.55.43.2023-01-26_21_03_13.gif" alt="Animated circles from the center to outside v2" loading="eager" decoding="async">
-                </a>
+                <div class="preview-link paperjs-preview-frame" data-sketch-url="http://sketch.paperjs.org/#V/0.12.17/S/vVTBbtswDP0VwpfYjaM5abODtx6GAN2pwLAdmx4UWYmFOJIhyUm3Iv8+Srbj2HCLYof5IlkkH58eKb4Gkh54kAa/9tyyPIgDpjL3f6QaNju4B8lP8IPanPzkzFK5K3j4upaAnxF/eApHwU9koyqZmbg+34qiWKlC6RQmm4Ky/aQxlMoIK5RsghiXluu1PEdr6dJppex3raqyyer3IRq3SkPoPARa5l9w+QrzBNfpNIKGDNOcWr4SmhXchEu4ARHDrV8R4byWCFNJ5tIPfA/0JYZMGLwc4w9aHVae1wXZJfb3xuS3nxP4BBjRmXZjjL0M16yTmjVG9mm3KMyTeVfu9qtlf5onMSyT57hv7Gtf8cnAXmuO4b4CDoqcRGZzvNUihu4w52KXW3cK0xFxhmlLqvE8rcUY2GhZFr8fqdXiJYUtLQwfOGiaicqkWNIrwznq9rU4RMkHjc2KIrWVDPkR0/bEbAU1jBb8mxQHdA8XZInXeHSyGiFDgT8+kjDsW4s9kpBkATMs0Q0skijCe9/1IW0uDHGYQrpHcUEf8bqUgOQVh+n9B/PeJdEImFYWWzV0DjN0nr/p4/p6hn1G3if+D1zO3daX9//WAUPelsUpgq5djvq1jzBvWqiJq5+zHxFXkwjZ+NenhLThEp8XMqgRGqDLgCI0y1a5KLLQK1IPmM7azjm88hU8ztYNDp596fBNkD49n/8C">
+                    <canvas id="paperjs-preview-canvas" class="preview-media paperjs-preview-canvas" resize data-paperjs-preview aria-label="Animated circles from the center to outside v2 preview"></canvas>
+                </div>
             </section>
             <div class="actions"><a class="button secondary" href="/tools/generative-art/assets/collection/Animation/Animated%20circles%20from%20the%20center%20to%20outside%20v2/Animated_circles_from_the_center_to_outside_copy_25_2.html">Animated circles from the center to outside copy 25 2.html</a></div>
             
@@ -547,6 +554,8 @@
             &copy; 2026 Alexander Deplov, designer and developer of iOS and macOS apps, product designer.
         </footer>
     </article>
+    <script src="../../PaperJSEngine/paper-full.js"></script>
+    <script src="../../paperjs-preview-runner.js"></script>
     <script>
 document.addEventListener("click", function (event) {
     var button = event.target.closest(".copy-code-button");

@@ -281,6 +281,13 @@
             object-fit: contain;
         }
 
+        .preview-panel canvas {
+            width: 100%;
+            display: block;
+            aspect-ratio: 4 / 3;
+            background: #000;
+        }
+
         .actions {
             display: flex;
             flex-wrap: wrap;
@@ -480,9 +487,9 @@
         </header>
         <div class="content">
             <section class="preview-panel" aria-label="Preview">
-                <a class="preview-link" href="http://sketch.paperjs.org/#V/0.12.17/S/jVRNa9tAEP0ri3KQBM4iuzFJBD00LoVCSwot9GD7sJZG0uL1btkP+RDy3zu7WsVycEJ80s68mXnvzeCnRLIDJGXyew+26pJZUqnav3umScV1JeC7NLwG8plIOJJfzHZ0FeLZ00YS/GlWc2dKsl4WM3JbbGdD+J8y3HIlS9JzONIKpAWNued8Izfy1P7R2Q/2v8P+d8uP998pJYBJ3xK7n02jxu2sZpXNphqxclJDGy7ESgmlsTq9ui9WNzcP6TnEdKxWxxHkBYTvLL36VNwuFt/S/BL+QTgPX17KPTaNATu6obi0GcougqgpV6rhoHrI8jE8KjvFo8tOmxd279g7L6KxL7JLku6EgzTGB4fP7J66Lbg8W+IPfI8zGq0Or/fk41aVkR8d1xkzxmq1h0s0hsxfXtuuJIv3jmFkFyco+VM5A181a5Fn42TlKzLoEZxHoq/IIC6kMYCLGCDR096L9ZppeJh1sT3lmWyFz4cUbcH+wQj2+YLLpPMZsdpBTgNqKAqNDLQHBJn1fDsMvDT+zYu5np7MUFaDsCx/qy5eYRgtQLa2Q8PwD2Cnge3DRJOU6+3zfw==" target="_blank" rel="noopener noreferrer" aria-label="Open v1 in Sketch">
-                    <img class="preview-media" src="/tools/generative-art/assets/collection/Cursor/Shadow%20control/Screen_Recording_2022-06-05_at_14.35.24.2022-06-05_14_35_57.gif" alt="Shadow control" loading="eager" decoding="async">
-                </a>
+                <div class="preview-link paperjs-preview-frame" data-sketch-url="http://sketch.paperjs.org/#V/0.12.17/S/jVRNa9tAEP0ri3KQBM4iuzFJBD00LoVCSwot9GD7sJZG0uL1btkP+RDy3zu7WsVycEJ80s68mXnvzeCnRLIDJGXyew+26pJZUqnav3umScV1JeC7NLwG8plIOJJfzHZ0FeLZ00YS/GlWc2dKsl4WM3JbbGdD+J8y3HIlS9JzONIKpAWNued8Izfy1P7R2Q/2v8P+d8uP998pJYBJ3xK7n02jxu2sZpXNphqxclJDGy7ESgmlsTq9ui9WNzcP6TnEdKxWxxHkBYTvLL36VNwuFt/S/BL+QTgPX17KPTaNATu6obi0GcougqgpV6rhoHrI8jE8KjvFo8tOmxd279g7L6KxL7JLku6EgzTGB4fP7J66Lbg8W+IPfI8zGq0Or/fk41aVkR8d1xkzxmq1h0s0hsxfXtuuJIv3jmFkFyco+VM5A181a5Fn42TlKzLoEZxHoq/IIC6kMYCLGCDR096L9ZppeJh1sT3lmWyFz4cUbcH+wQj2+YLLpPMZsdpBTgNqKAqNDLQHBJn1fDsMvDT+zYu5np7MUFaDsCx/qy5eYRgtQLa2Q8PwD2Cnge3DRJOU6+3zfw==">
+                    <canvas id="paperjs-preview-canvas" class="preview-media paperjs-preview-canvas" style="background: whitesmoke;" resize data-paperjs-preview aria-label="Shadow control preview"></canvas>
+                </div>
             </section>
             
             
@@ -541,6 +548,8 @@
             &copy; 2026 Alexander Deplov, designer and developer of iOS and macOS apps, product designer.
         </footer>
     </article>
+    <script src="../../PaperJSEngine/paper-full.js"></script>
+    <script src="../../paperjs-preview-runner.js"></script>
     <script>
 document.addEventListener("click", function (event) {
     var button = event.target.closest(".copy-code-button");
