@@ -1,0 +1,1142 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Image Color Percentages - Alexander Deplov</title>
+  <meta name="description" content="Upload an image and see its dominant colors as percentages with a proportional color map.">
+  <meta name="author" content="Alexander Deplov">
+  <link rel="canonical" href="https://interfacecraft.online/tools/color-percentage/">
+
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://interfacecraft.online/tools/color-percentage/">
+  <meta property="og:title" content="Image Color Percentages - Alexander Deplov">
+  <meta property="og:description" content="Upload an image and see its dominant colors as percentages with a proportional color map.">
+  <meta property="og:locale" content="en_US">
+
+  <meta name="twitter:card" content="summary">
+  <meta property="twitter:domain" content="interfacecraft.online">
+  <meta property="twitter:url" content="https://interfacecraft.online/tools/color-percentage/">
+  <meta name="twitter:title" content="Image Color Percentages - Alexander Deplov">
+  <meta name="twitter:description" content="Upload an image and see its dominant colors as percentages with a proportional color map.">
+
+  <link rel="stylesheet" href="/tools/home-button.css">
+  <style>
+    :root {
+      --bg: #f8f7f3;
+      --ink: #24211d;
+      --muted: #77716a;
+      --line: #d9d4cc;
+      --panel: #fffdfa;
+      --panel-soft: #efebe4;
+      --accent: #c64c2f;
+      --accent-ink: #ffffff;
+      --shadow: 0 24px 70px rgba(49, 44, 37, 0.12);
+    }
+
+    * {
+      box-sizing: border-box;
+    }
+
+    body {
+      margin: 0;
+      min-height: 100vh;
+      background: var(--bg);
+      color: var(--ink);
+      font-family: ui-serif, Georgia, "Times New Roman", serif;
+    }
+
+    button,
+    input,
+    select {
+      font: inherit;
+    }
+
+    button {
+      border: 0;
+    }
+
+    .page {
+      width: min(1440px, calc(100% - 48px));
+      margin: 0 auto;
+      padding: 32px 0 28px;
+    }
+
+    .masthead {
+      display: grid;
+      grid-template-columns: 1fr auto;
+      gap: 24px;
+      align-items: end;
+      padding-bottom: 18px;
+      border-bottom: 1px solid var(--line);
+    }
+
+    h1 {
+      margin: 0;
+      max-width: 840px;
+      color: var(--ink);
+      font-size: clamp(2rem, 4.5vw, 4.75rem);
+      line-height: 0.96;
+      letter-spacing: 0;
+      font-weight: 500;
+    }
+
+    .subtitle {
+      margin: 10px 0 0;
+      color: var(--muted);
+      font-family: ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+      font-size: 0.95rem;
+      font-weight: 500;
+      line-height: 1.45;
+    }
+
+    .actions {
+      display: flex;
+      gap: 10px;
+      align-items: center;
+      justify-content: flex-end;
+      font-family: ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+    }
+
+    .button {
+      min-height: 42px;
+      padding: 0 16px;
+      border-radius: 7px;
+      background: var(--ink);
+      color: #fff;
+      cursor: pointer;
+      font-size: 0.92rem;
+      font-weight: 700;
+      transition: transform 150ms ease, background 150ms ease;
+      white-space: nowrap;
+    }
+
+    .button:hover {
+      background: #3a352f;
+      transform: translateY(-1px);
+    }
+
+    .button:disabled {
+      cursor: not-allowed;
+      opacity: 0.45;
+      transform: none;
+    }
+
+    .button.secondary {
+      border: 1px solid var(--line);
+      background: transparent;
+      color: var(--ink);
+    }
+
+    .button.secondary:hover {
+      background: var(--panel-soft);
+    }
+
+    .file-input {
+      position: absolute;
+      width: 1px;
+      height: 1px;
+      clip: rect(0, 0, 0, 0);
+      overflow: hidden;
+      white-space: nowrap;
+    }
+
+    .workspace {
+      display: grid;
+      grid-template-columns: minmax(320px, 0.92fr) minmax(420px, 1.28fr);
+      gap: 32px;
+      align-items: stretch;
+      min-height: calc(100vh - 174px);
+      padding: 32px 0 30px;
+      border-bottom: 1px solid var(--line);
+    }
+
+    .preview-panel,
+    .results-panel {
+      min-width: 0;
+    }
+
+    .drop-zone {
+      position: relative;
+      display: grid;
+      min-height: 560px;
+      height: 100%;
+      padding: 40px;
+      place-items: center;
+      border: 1px solid var(--line);
+      background: var(--panel);
+      box-shadow: var(--shadow);
+      outline: 0;
+      transition: border-color 160ms ease, background 160ms ease;
+    }
+
+    .drop-zone.is-dragging {
+      border-color: var(--accent);
+      background: #fff6ee;
+    }
+
+    .drop-zone:focus-visible {
+      border-color: var(--accent);
+      box-shadow: 0 0 0 4px rgba(198, 76, 47, 0.18), var(--shadow);
+    }
+
+    .drop-empty {
+      display: grid;
+      gap: 18px;
+      justify-items: center;
+      color: var(--muted);
+      font-family: ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+      text-align: center;
+    }
+
+    .drop-mark {
+      width: 86px;
+      height: 86px;
+      border: 1px solid var(--line);
+      border-radius: 50%;
+      display: grid;
+      place-items: center;
+      background:
+        linear-gradient(90deg, #c85f76 0 25%, #4775dc 25% 50%, #9bcce9 50% 75%, #c64e2f 75%);
+      color: transparent;
+    }
+
+    .drop-title {
+      color: var(--ink);
+      font-size: 1rem;
+      font-weight: 800;
+      line-height: 1.2;
+    }
+
+    .drop-copy {
+      max-width: 300px;
+      margin: 0;
+      font-size: 0.9rem;
+      line-height: 1.5;
+    }
+
+    .image-frame {
+      display: none;
+      width: 100%;
+      height: 100%;
+      align-content: center;
+      justify-items: center;
+      gap: 18px;
+    }
+
+    .has-image .drop-empty {
+      display: none;
+    }
+
+    .has-image .image-frame {
+      display: grid;
+    }
+
+    .image-frame img {
+      display: block;
+      max-width: 100%;
+      max-height: min(68vh, 640px);
+      object-fit: contain;
+      border: 1px solid var(--line);
+      background: #fff;
+    }
+
+    .file-meta {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      gap: 10px;
+      color: var(--muted);
+      font-family: ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+      font-size: 0.82rem;
+      font-weight: 700;
+      text-align: center;
+    }
+
+    .results-panel {
+      display: grid;
+      grid-template-rows: auto 1fr auto;
+      gap: 20px;
+      min-height: 560px;
+    }
+
+    .results-header {
+      display: grid;
+      grid-template-columns: 1fr auto;
+      gap: 18px;
+      align-items: center;
+    }
+
+    h2 {
+      margin: 0;
+      color: var(--ink);
+      font-size: clamp(1.45rem, 2vw, 2.25rem);
+      line-height: 1.05;
+      letter-spacing: 0;
+      font-weight: 500;
+    }
+
+    .controls {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      color: var(--muted);
+      font-family: ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+      font-size: 0.82rem;
+      font-weight: 800;
+      text-transform: uppercase;
+    }
+
+    .segmented {
+      display: flex;
+      gap: 2px;
+      padding: 3px;
+      border: 1px solid var(--line);
+      border-radius: 7px;
+      background: var(--panel);
+    }
+
+    .segmented button {
+      width: 42px;
+      height: 32px;
+      border-radius: 5px;
+      background: transparent;
+      color: var(--muted);
+      cursor: pointer;
+      font-family: ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+      font-size: 0.82rem;
+      font-weight: 800;
+    }
+
+    .segmented button[aria-pressed="true"] {
+      background: var(--ink);
+      color: #fff;
+    }
+
+    .palette-map {
+      position: relative;
+      min-height: 430px;
+      overflow: hidden;
+      border: 1px solid var(--line);
+      background: var(--panel);
+      box-shadow: var(--shadow);
+    }
+
+    .palette-empty {
+      position: absolute;
+      inset: 0;
+      display: grid;
+      place-items: center;
+      padding: 36px;
+      color: var(--muted);
+      font-family: ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+      font-weight: 700;
+      text-align: center;
+    }
+
+    .color-tile {
+      position: absolute;
+      overflow: hidden;
+      padding: 0;
+      border: 1px solid rgba(255, 255, 255, 0.22);
+      appearance: none;
+      cursor: pointer;
+    }
+
+    .tile-label {
+      position: absolute;
+      left: 14px;
+      top: 13px;
+      right: 14px;
+      display: grid;
+      gap: 3px;
+      font-family: ui-serif, Georgia, "Times New Roman", serif;
+      line-height: 1.08;
+      pointer-events: none;
+    }
+
+    .tile-label strong {
+      font-size: clamp(0.82rem, 1.2vw, 1.05rem);
+      font-weight: 700;
+    }
+
+    .tile-label span {
+      font-size: clamp(0.72rem, 1vw, 0.9rem);
+      font-style: italic;
+      opacity: 0.9;
+    }
+
+    .color-tile.is-small .tile-label {
+      display: none;
+    }
+
+    .color-list {
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: 10px 14px;
+      margin: 0;
+      padding: 0;
+      list-style: none;
+    }
+
+    .color-row {
+      display: grid;
+      grid-template-columns: 28px minmax(0, 1fr) auto;
+      gap: 10px;
+      align-items: center;
+      min-width: 0;
+      padding: 9px 0;
+      border-bottom: 1px solid rgba(36, 33, 29, 0.12);
+      font-family: ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+    }
+
+    .swatch {
+      width: 28px;
+      height: 28px;
+      padding: 0;
+      border: 1px solid rgba(36, 33, 29, 0.18);
+      border-radius: 5px;
+      cursor: pointer;
+    }
+
+    .color-code {
+      min-width: 0;
+      overflow: hidden;
+      text-overflow: ellipsis;
+      color: var(--ink);
+      font-size: 0.9rem;
+      font-weight: 800;
+      letter-spacing: 0;
+      white-space: nowrap;
+    }
+
+    .color-percent {
+      color: var(--muted);
+      font-size: 0.86rem;
+      font-weight: 800;
+      white-space: nowrap;
+    }
+
+    .summary {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 8px 18px;
+      color: var(--muted);
+      font-family: ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+      font-size: 0.82rem;
+      font-weight: 700;
+    }
+
+    .summary strong {
+      color: var(--ink);
+    }
+
+    .footer {
+      display: flex;
+      justify-content: space-between;
+      gap: 18px;
+      padding-top: 22px;
+      color: var(--muted);
+      font-family: ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+      font-size: 0.82rem;
+      font-weight: 700;
+    }
+
+    .footer a {
+      color: inherit;
+      text-decoration: none;
+    }
+
+    .footer a:hover {
+      color: var(--ink);
+      text-decoration: underline;
+    }
+
+    @media (max-width: 920px) {
+      .page {
+        width: min(100% - 28px, 720px);
+        padding-top: 24px;
+      }
+
+      .masthead,
+      .workspace,
+      .results-header {
+        grid-template-columns: 1fr;
+      }
+
+      .actions,
+      .controls {
+        justify-content: flex-start;
+      }
+
+      .workspace {
+        gap: 24px;
+        min-height: 0;
+      }
+
+      .drop-zone,
+      .results-panel {
+        min-height: 420px;
+      }
+
+      .palette-map {
+        min-height: 360px;
+      }
+
+      .color-list {
+        grid-template-columns: 1fr;
+      }
+    }
+
+    @media (max-width: 560px) {
+      .page {
+        width: min(100% - 22px, 720px);
+      }
+
+      .masthead {
+        padding-top: 42px;
+      }
+
+      .actions {
+        display: grid;
+        grid-template-columns: 1fr;
+      }
+
+      .button {
+        width: 100%;
+      }
+
+      .drop-zone {
+        min-height: 330px;
+        padding: 22px;
+      }
+
+      .results-panel {
+        min-height: 0;
+      }
+
+      .palette-map {
+        min-height: 330px;
+      }
+
+      .footer {
+        display: grid;
+      }
+    }
+  </style>
+</head>
+<body>
+  <a class="tool-home-button" href="/blog/" aria-label="Open blog">
+    <svg width="19" height="19" viewBox="0 0 24 24" fill="none" aria-hidden="true" xmlns="http://www.w3.org/2000/svg">
+      <path d="M3 10.75L12 3.75L21 10.75" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+      <path d="M5.75 9.5V20.25H18.25V9.5" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+      <path d="M9.75 20.25V14.25H14.25V20.25" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+    </svg>
+  </a>
+
+  <main class="page">
+    <header class="masthead">
+      <div>
+        <h1>Image Color Percentages</h1>
+        <p class="subtitle">Dominant palette, proportional blocks, and exact share for each grouped color.</p>
+      </div>
+      <div class="actions">
+        <input class="file-input" id="fileInput" type="file" accept="image/*">
+        <button class="button" id="chooseButton" type="button">Choose image</button>
+        <button class="button secondary" id="copyButton" type="button" disabled>Copy palette</button>
+        <button class="button secondary" id="sendButton" type="button" disabled>Send to ChatGPT</button>
+      </div>
+    </header>
+
+    <section class="workspace" aria-live="polite">
+      <div class="preview-panel">
+        <div class="drop-zone" id="dropZone" tabindex="0">
+          <div class="drop-empty">
+            <div class="drop-mark" aria-hidden="true"></div>
+            <div>
+              <div class="drop-title">Drop image here</div>
+              <p class="drop-copy">JPG, PNG, WebP, GIF, SVG, and other browser-readable image files.</p>
+            </div>
+          </div>
+          <div class="image-frame">
+            <img id="previewImage" alt="">
+            <div class="file-meta" id="fileMeta"></div>
+          </div>
+        </div>
+      </div>
+
+      <div class="results-panel">
+        <div class="results-header">
+          <h2 id="resultTitle">Palette</h2>
+          <div class="controls" aria-label="Palette color count">
+            <span>Colors</span>
+            <div class="segmented" id="colorCount">
+              <button type="button" data-count="8" aria-pressed="false">8</button>
+              <button type="button" data-count="12" aria-pressed="true">12</button>
+              <button type="button" data-count="16" aria-pressed="false">16</button>
+              <button type="button" data-count="24" aria-pressed="false">24</button>
+            </div>
+          </div>
+        </div>
+
+        <div class="palette-map" id="paletteMap">
+          <div class="palette-empty" id="paletteEmpty">Upload an image to analyze its colors.</div>
+        </div>
+
+        <ol class="color-list" id="colorList"></ol>
+
+        <div class="summary" id="summary"></div>
+      </div>
+    </section>
+
+    <footer class="footer">
+      <span>Alexander Deplov</span>
+      <a href="/tools/color-maker/">Color Maker Pro</a>
+    </footer>
+  </main>
+
+  <canvas id="analysisCanvas" hidden></canvas>
+
+  <script>
+    (function () {
+      var fileInput = document.getElementById('fileInput');
+      var chooseButton = document.getElementById('chooseButton');
+      var copyButton = document.getElementById('copyButton');
+      var sendButton = document.getElementById('sendButton');
+      var dropZone = document.getElementById('dropZone');
+      var previewImage = document.getElementById('previewImage');
+      var fileMeta = document.getElementById('fileMeta');
+      var paletteMap = document.getElementById('paletteMap');
+      var paletteEmpty = document.getElementById('paletteEmpty');
+      var colorList = document.getElementById('colorList');
+      var summary = document.getElementById('summary');
+      var resultTitle = document.getElementById('resultTitle');
+      var colorCount = document.getElementById('colorCount');
+      var canvas = document.getElementById('analysisCanvas');
+      var ctx = canvas.getContext('2d', { willReadFrequently: true });
+      var currentObjectUrl = '';
+      var currentImage = null;
+      var currentFile = null;
+      var currentPalette = [];
+      var targetColors = 12;
+
+      chooseButton.addEventListener('click', function () {
+        fileInput.click();
+      });
+
+      fileInput.addEventListener('change', function (event) {
+        var file = event.target.files && event.target.files[0];
+        if (file) {
+          loadFile(file);
+        }
+      });
+
+      dropZone.addEventListener('click', function (event) {
+        if (event.target.closest('button')) {
+          return;
+        }
+        fileInput.click();
+      });
+
+      dropZone.addEventListener('keydown', function (event) {
+        if (event.key === 'Enter' || event.key === ' ') {
+          event.preventDefault();
+          fileInput.click();
+        }
+      });
+
+      ['dragenter', 'dragover'].forEach(function (eventName) {
+        dropZone.addEventListener(eventName, function (event) {
+          event.preventDefault();
+          dropZone.classList.add('is-dragging');
+        });
+      });
+
+      ['dragleave', 'drop'].forEach(function (eventName) {
+        dropZone.addEventListener(eventName, function (event) {
+          event.preventDefault();
+          dropZone.classList.remove('is-dragging');
+        });
+      });
+
+      dropZone.addEventListener('drop', function (event) {
+        var file = event.dataTransfer.files && event.dataTransfer.files[0];
+        if (file && file.type.indexOf('image/') === 0) {
+          loadFile(file);
+        }
+      });
+
+      colorCount.addEventListener('click', function (event) {
+        var button = event.target.closest('button[data-count]');
+        if (!button) {
+          return;
+        }
+
+        targetColors = Number(button.dataset.count);
+        colorCount.querySelectorAll('button').forEach(function (item) {
+          item.setAttribute('aria-pressed', item === button ? 'true' : 'false');
+        });
+
+        if (currentImage) {
+          analyzeImage(currentImage);
+        }
+      });
+
+      copyButton.addEventListener('click', function () {
+        if (!currentPalette.length || !navigator.clipboard) {
+          return;
+        }
+
+        var text = formatPaletteText(currentPalette);
+
+        navigator.clipboard.writeText(text).then(function () {
+          copyButton.textContent = 'Copied';
+          window.setTimeout(function () {
+            copyButton.textContent = 'Copy palette';
+          }, 1200);
+        });
+      });
+
+      sendButton.addEventListener('click', function () {
+        if (!currentPalette.length) {
+          return;
+        }
+
+        var prompt = buildChatGPTPrompt(currentPalette);
+        window.open('https://chatgpt.com/?q=' + encodeURIComponent(prompt), '_blank', 'noopener,noreferrer');
+      });
+
+      function loadFile(file) {
+        if (currentObjectUrl) {
+          URL.revokeObjectURL(currentObjectUrl);
+        }
+
+        currentFile = file;
+        currentObjectUrl = URL.createObjectURL(file);
+        var image = new Image();
+
+        setLoading(file.name);
+
+        image.onload = function () {
+          currentImage = image;
+          previewImage.src = currentObjectUrl;
+          previewImage.alt = file.name;
+          dropZone.classList.add('has-image');
+          fileMeta.innerHTML = [
+            escapeHtml(file.name),
+            image.naturalWidth + ' x ' + image.naturalHeight + ' px',
+            formatBytes(file.size)
+          ].map(function (item) {
+            return '<span>' + item + '</span>';
+          }).join('');
+          analyzeImage(image);
+        };
+
+        image.onerror = function () {
+          setError('The browser could not read this image.');
+        };
+
+        image.src = currentObjectUrl;
+      }
+
+      function setLoading(fileName) {
+        currentPalette = [];
+        resultTitle.textContent = 'Analyzing';
+        paletteMap.innerHTML = '<div class="palette-empty">Reading ' + escapeHtml(fileName) + '...</div>';
+        colorList.innerHTML = '';
+        summary.innerHTML = '';
+        copyButton.disabled = true;
+        sendButton.disabled = true;
+      }
+
+      function setError(message) {
+        currentPalette = [];
+        resultTitle.textContent = 'Palette';
+        paletteMap.innerHTML = '<div class="palette-empty">' + escapeHtml(message) + '</div>';
+        colorList.innerHTML = '';
+        summary.innerHTML = '';
+        copyButton.disabled = true;
+        sendButton.disabled = true;
+      }
+
+      function analyzeImage(image) {
+        var maxSide = 1100;
+        var scale = Math.min(1, maxSide / Math.max(image.naturalWidth, image.naturalHeight));
+        var width = Math.max(1, Math.round(image.naturalWidth * scale));
+        var height = Math.max(1, Math.round(image.naturalHeight * scale));
+
+        canvas.width = width;
+        canvas.height = height;
+        ctx.clearRect(0, 0, width, height);
+        ctx.drawImage(image, 0, 0, width, height);
+
+        var imageData;
+        try {
+          imageData = ctx.getImageData(0, 0, width, height).data;
+        } catch (error) {
+          setError('This image cannot be analyzed because the canvas is blocked.');
+          return;
+        }
+
+        var analysis = buildPalette(imageData, width * height, targetColors);
+
+        if (!analysis.palette.length) {
+          setError('No visible pixels found.');
+          return;
+        }
+
+        currentPalette = analysis.palette;
+        renderPalette(analysis.palette);
+        renderList(analysis.palette);
+        resultTitle.textContent = analysis.palette.length + '-color palette';
+        summary.innerHTML = [
+          '<span><strong>' + analysis.visiblePixels.toLocaleString() + '</strong> visible pixels sampled</span>',
+          '<span><strong>' + width + ' x ' + height + '</strong> analysis size</span>',
+          analysis.transparentPixels ? '<span><strong>' + formatPercent(analysis.transparentPixels / (width * height) * 100) + '</strong> transparent skipped</span>' : ''
+        ].filter(Boolean).join('');
+        copyButton.disabled = false;
+        sendButton.disabled = false;
+      }
+
+      function formatPaletteText(palette) {
+        return palette.map(function (color) {
+          return color.hex + ' - ' + formatPercent(color.percent);
+        }).join('\n');
+      }
+
+      function buildChatGPTPrompt(palette) {
+        return 'Edit this picture so that the new version has these color proportions:\n\n' + formatPaletteText(palette);
+      }
+
+      function buildPalette(data, totalPixels, colorLimit) {
+        var bucketMap = new Map();
+        var visiblePixels = 0;
+        var transparentPixels = 0;
+
+        for (var i = 0; i < data.length; i += 4) {
+          var alpha = data[i + 3];
+          if (alpha < 24) {
+            transparentPixels += 1;
+            continue;
+          }
+
+          var r = data[i];
+          var g = data[i + 1];
+          var b = data[i + 2];
+          if (alpha < 255) {
+            r = Math.round((r * alpha + 248 * (255 - alpha)) / 255);
+            g = Math.round((g * alpha + 247 * (255 - alpha)) / 255);
+            b = Math.round((b * alpha + 243 * (255 - alpha)) / 255);
+          }
+
+          var key = (r >> 3) + '-' + (g >> 3) + '-' + (b >> 3);
+          var bucket = bucketMap.get(key);
+          if (!bucket) {
+            bucket = { r: 0, g: 0, b: 0, count: 0, minR: r, maxR: r, minG: g, maxG: g, minB: b, maxB: b };
+            bucketMap.set(key, bucket);
+          }
+
+          bucket.r += r;
+          bucket.g += g;
+          bucket.b += b;
+          bucket.count += 1;
+          if (r < bucket.minR) bucket.minR = r;
+          if (r > bucket.maxR) bucket.maxR = r;
+          if (g < bucket.minG) bucket.minG = g;
+          if (g > bucket.maxG) bucket.maxG = g;
+          if (b < bucket.minB) bucket.minB = b;
+          if (b > bucket.maxB) bucket.maxB = b;
+          visiblePixels += 1;
+        }
+
+        if (!visiblePixels) {
+          return {
+            palette: [],
+            visiblePixels: 0,
+            transparentPixels: transparentPixels,
+            sampledPixels: totalPixels
+          };
+        }
+
+        var buckets = Array.from(bucketMap.values()).map(function (bucket) {
+          return {
+            r: bucket.r,
+            g: bucket.g,
+            b: bucket.b,
+            count: bucket.count,
+            avgR: bucket.r / bucket.count,
+            avgG: bucket.g / bucket.count,
+            avgB: bucket.b / bucket.count
+          };
+        });
+
+        var boxes = medianCut(buckets, Math.min(colorLimit, buckets.length));
+        var palette = boxes.map(function (box) {
+          var totals = box.items.reduce(function (acc, item) {
+            acc.r += item.r;
+            acc.g += item.g;
+            acc.b += item.b;
+            acc.count += item.count;
+            return acc;
+          }, { r: 0, g: 0, b: 0, count: 0 });
+
+          var rgb = [
+            Math.round(totals.r / totals.count),
+            Math.round(totals.g / totals.count),
+            Math.round(totals.b / totals.count)
+          ];
+
+          return {
+            rgb: rgb,
+            hex: rgbToHex(rgb[0], rgb[1], rgb[2]),
+            count: totals.count,
+            percent: totals.count / visiblePixels * 100
+          };
+        }).sort(function (a, b) {
+          return b.count - a.count;
+        });
+
+        return {
+          palette: palette,
+          visiblePixels: visiblePixels,
+          transparentPixels: transparentPixels,
+          sampledPixels: totalPixels
+        };
+      }
+
+      function medianCut(items, limit) {
+        var boxes = [{ items: items }];
+
+        while (boxes.length < limit) {
+          boxes.sort(function (a, b) {
+            return boxScore(b.items) - boxScore(a.items);
+          });
+
+          var box = boxes.shift();
+          if (!box || box.items.length <= 1) {
+            if (box) {
+              boxes.push(box);
+            }
+            break;
+          }
+
+          var split = splitBox(box.items);
+          if (!split) {
+            boxes.push(box);
+            break;
+          }
+
+          boxes.push({ items: split[0] });
+          boxes.push({ items: split[1] });
+        }
+
+        return boxes;
+      }
+
+      function boxScore(items) {
+        var range = getRange(items);
+        var count = items.reduce(function (sum, item) {
+          return sum + item.count;
+        }, 0);
+        return Math.max(range.r, range.g, range.b) * count;
+      }
+
+      function splitBox(items) {
+        var range = getRange(items);
+        var channel = 'avgR';
+        if (range.g >= range.r && range.g >= range.b) {
+          channel = 'avgG';
+        } else if (range.b >= range.r && range.b >= range.g) {
+          channel = 'avgB';
+        }
+
+        var sorted = items.slice().sort(function (a, b) {
+          return a[channel] - b[channel];
+        });
+        var total = sorted.reduce(function (sum, item) {
+          return sum + item.count;
+        }, 0);
+        var half = total / 2;
+        var running = 0;
+        var splitIndex = 1;
+
+        for (var i = 0; i < sorted.length - 1; i += 1) {
+          running += sorted[i].count;
+          if (running >= half) {
+            splitIndex = i + 1;
+            break;
+          }
+        }
+
+        if (splitIndex <= 0 || splitIndex >= sorted.length) {
+          return null;
+        }
+
+        return [sorted.slice(0, splitIndex), sorted.slice(splitIndex)];
+      }
+
+      function getRange(items) {
+        var minR = Infinity;
+        var maxR = -Infinity;
+        var minG = Infinity;
+        var maxG = -Infinity;
+        var minB = Infinity;
+        var maxB = -Infinity;
+
+        items.forEach(function (item) {
+          if (item.avgR < minR) minR = item.avgR;
+          if (item.avgR > maxR) maxR = item.avgR;
+          if (item.avgG < minG) minG = item.avgG;
+          if (item.avgG > maxG) maxG = item.avgG;
+          if (item.avgB < minB) minB = item.avgB;
+          if (item.avgB > maxB) maxB = item.avgB;
+        });
+
+        return {
+          r: maxR - minR,
+          g: maxG - minG,
+          b: maxB - minB
+        };
+      }
+
+      function renderPalette(colors) {
+        paletteMap.innerHTML = '';
+        paletteMap.appendChild(paletteEmpty);
+        paletteEmpty.style.display = 'none';
+
+        var rects = treemap(colors, 0, 0, 100, 100);
+
+        rects.forEach(function (rect) {
+          var tile = document.createElement('button');
+          var contrast = getContrastColor(rect.item.rgb);
+          var area = rect.width * rect.height;
+          tile.className = 'color-tile' + (area < 520 || rect.width < 16 || rect.height < 15 ? ' is-small' : '');
+          tile.type = 'button';
+          tile.style.left = rect.x + '%';
+          tile.style.top = rect.y + '%';
+          tile.style.width = rect.width + '%';
+          tile.style.height = rect.height + '%';
+          tile.style.background = rect.item.hex;
+          tile.style.color = contrast;
+          tile.title = rect.item.hex + ' - ' + formatPercent(rect.item.percent);
+          tile.innerHTML = '<span class="tile-label"><strong>' + rect.item.hex + '</strong><span>' + formatPercent(rect.item.percent) + '</span></span>';
+          tile.addEventListener('click', function () {
+            copyColor(rect.item.hex);
+          });
+          paletteMap.appendChild(tile);
+        });
+      }
+
+      function renderList(colors) {
+        colorList.innerHTML = colors.map(function (color) {
+          return '<li class="color-row">' +
+            '<button class="swatch" type="button" data-hex="' + color.hex + '" style="background:' + color.hex + '" aria-label="Copy ' + color.hex + '"></button>' +
+            '<span class="color-code">' + color.hex + '</span>' +
+            '<span class="color-percent">' + formatPercent(color.percent) + '</span>' +
+          '</li>';
+        }).join('');
+
+        colorList.querySelectorAll('[data-hex]').forEach(function (button) {
+          button.addEventListener('click', function () {
+            copyColor(button.dataset.hex);
+          });
+        });
+      }
+
+      function treemap(items, x, y, width, height) {
+        if (!items.length) {
+          return [];
+        }
+
+        if (items.length === 1) {
+          return [{ item: items[0], x: x, y: y, width: width, height: height }];
+        }
+
+        var total = items.reduce(function (sum, item) {
+          return sum + item.count;
+        }, 0);
+        var half = total / 2;
+        var running = 0;
+        var splitIndex = 1;
+
+        for (var i = 0; i < items.length - 1; i += 1) {
+          running += items[i].count;
+          if (running >= half) {
+            splitIndex = i + 1;
+            break;
+          }
+        }
+
+        var first = items.slice(0, splitIndex);
+        var second = items.slice(splitIndex);
+        var firstTotal = first.reduce(function (sum, item) {
+          return sum + item.count;
+        }, 0);
+
+        if (width >= height) {
+          var firstWidth = width * firstTotal / total;
+          return treemap(first, x, y, firstWidth, height).concat(treemap(second, x + firstWidth, y, width - firstWidth, height));
+        }
+
+        var firstHeight = height * firstTotal / total;
+        return treemap(first, x, y, width, firstHeight).concat(treemap(second, x, y + firstHeight, width, height - firstHeight));
+      }
+
+      function copyColor(hex) {
+        if (!navigator.clipboard) {
+          return;
+        }
+
+        navigator.clipboard.writeText(hex);
+      }
+
+      function formatPercent(value) {
+        if (value >= 10) {
+          return value.toFixed(1) + '%';
+        }
+        if (value >= 1) {
+          return value.toFixed(2) + '%';
+        }
+        return value.toFixed(3) + '%';
+      }
+
+      function rgbToHex(r, g, b) {
+        return '#' + [r, g, b].map(function (value) {
+          return value.toString(16).padStart(2, '0');
+        }).join('').toUpperCase();
+      }
+
+      function getContrastColor(rgb) {
+        var luminance = (0.2126 * srgb(rgb[0]) + 0.7152 * srgb(rgb[1]) + 0.0722 * srgb(rgb[2]));
+        return luminance > 0.52 ? '#201d19' : '#fffaf2';
+      }
+
+      function srgb(value) {
+        value = value / 255;
+        return value <= 0.03928 ? value / 12.92 : Math.pow((value + 0.055) / 1.055, 2.4);
+      }
+
+      function formatBytes(bytes) {
+        if (!bytes) {
+          return '0 B';
+        }
+        var units = ['B', 'KB', 'MB', 'GB'];
+        var index = Math.min(Math.floor(Math.log(bytes) / Math.log(1024)), units.length - 1);
+        return (bytes / Math.pow(1024, index)).toFixed(index ? 1 : 0) + ' ' + units[index];
+      }
+
+      function escapeHtml(value) {
+        return String(value).replace(/[&<>"']/g, function (character) {
+          return {
+            '&': '&amp;',
+            '<': '&lt;',
+            '>': '&gt;',
+            '"': '&quot;',
+            "'": '&#039;'
+          }[character];
+        });
+      }
+    })();
+  </script>
+</body>
+</html>
