@@ -287,6 +287,120 @@ a.post-title-link:focus-visible h3 {
     margin: 2.25rem 0 !important;
 }
 
+.visually-hidden {
+    border: 0;
+    clip: rect(0 0 0 0);
+    clip-path: inset(50%);
+    height: 1px;
+    margin: -1px;
+    overflow: hidden;
+    padding: 0;
+    position: absolute;
+    white-space: nowrap;
+    width: 1px;
+}
+
+.product-designer-section {
+    width: min(640px, 100%);
+}
+
+.product-designer-grid {
+    display: grid;
+    gap: 16px;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+}
+
+.product-designer-card {
+    aspect-ratio: 626 / 402;
+    border-radius: 24px;
+    color: #000;
+    display: block;
+    overflow: hidden;
+    position: relative;
+    text-decoration: none;
+    transition: transform 180ms ease;
+}
+
+.product-designer-card:hover,
+.product-designer-card:focus-visible {
+    text-decoration: none;
+    transform: translateY(-4px);
+}
+
+.product-designer-card h3 {
+    color: #000;
+    font-size: 24px;
+    font-weight: 700;
+    left: 26px;
+    letter-spacing: 0;
+    line-height: 1.1;
+    margin: 0;
+    max-width: calc(100% - 52px);
+    position: absolute;
+    top: 22px;
+    z-index: 2;
+}
+
+.product-designer-arrow {
+    bottom: 28px;
+    height: 40px;
+    left: 26px;
+    position: absolute;
+    width: 40px;
+    z-index: 2;
+}
+
+.product-designer-art {
+    height: 100%;
+    inset: 0;
+    object-fit: cover;
+    pointer-events: none;
+    position: absolute;
+    width: 100%;
+    z-index: 1;
+}
+
+.product-designer-card-portfolio {
+    background-color: #f1eff0;
+}
+
+.product-designer-card-opera {
+    background-color: #faeceb;
+}
+
+.product-designer-card-icons {
+    background-color: #e8eff9;
+}
+
+.product-designer-card-waterlogue {
+    background-color: #ecf4ef;
+}
+
+@media (max-width: 520px) {
+    .product-designer-grid {
+        gap: 18px;
+        grid-template-columns: 1fr;
+    }
+
+    .product-designer-card {
+        border-radius: 30px;
+    }
+
+    .product-designer-card h3 {
+        font-size: clamp(28px, 7vw, 34px);
+        left: 32px;
+        max-width: calc(100% - 64px);
+        top: 28px;
+    }
+
+    .product-designer-arrow {
+        bottom: 36px;
+        height: 58px;
+        left: 32px;
+        width: 58px;
+    }
+}
+
 @media (max-width: 640px) {
     .blog-section-separator {
         margin: 1.35rem 0 !important;
