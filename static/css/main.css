@@ -148,13 +148,12 @@ hr {
 }
 
 .content details {
-    margin-top: 2rem;
+    margin-top: 1rem;
 }
 
 .content details > summary {
     color: #222;
     cursor: pointer;
-    font-size: 1.5rem;
     font-weight: 700;
 }
 

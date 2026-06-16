@@ -6,14 +6,14 @@
     <description>Recent content in MacOS on Alexander Deplov, AI artist, product designer</description>
     <generator>Hugo</generator>
     <language>en-us</language>
-    <lastBuildDate>Tue, 25 Nov 2025 12:55:15 +0100</lastBuildDate>
+    <lastBuildDate>Tue, 16 Jun 2026 12:00:00 +0200</lastBuildDate>
     <atom:link href="https://interfacecraft.online/tags/macos/index.xml" rel="self" type="application/rss+xml" />
     <item>
-      <title>How to Match FreeBSD’s YouTube Loading Speed on macOS</title>
+      <title>How to Match FreeBSD’s YouTube Seeking Speed on macOS</title>
       <link>https://interfacecraft.online/blog/2025/how-i-match-freebsd-youtube-speed-on-macos/</link>
       <pubDate>Tue, 25 Nov 2025 12:55:15 +0100</pubDate>
       <guid>https://interfacecraft.online/blog/2025/how-i-match-freebsd-youtube-speed-on-macos/</guid>
-      <description>&lt;p&gt;&lt;strong&gt;Update:&lt;/strong&gt; After experimenting with it for a while, I found that the initial setup prevents the Safari and Mail apps from accessing the internet. I changed the settings so that YouTube remains fast and the other apps work well.&lt;/p&gt;&#xA;&lt;p&gt;I watch a lot of YouTube videos, and I noticed something interesting. On FreeBSD, when I skip to any part of a video, it starts playing instantly. On macOS, however, it takes a couple of seconds to load.&lt;/p&gt;</description>
+      <description>&lt;p&gt;On FreeBSD, YouTube seeking feels instant: click anywhere on the seek bar and playback resumes immediately. On macOS, Firefox gave me a short pause after each seek.&lt;/p&gt;&#xA;&lt;p&gt;The fix that worked for me was &lt;strong&gt;not&lt;/strong&gt; global macOS TCP tuning. Those system-wide tweaks can affect other apps. The stable solution was Firefox-only: keep HTTP/3/QUIC enabled, give Firefox a much larger media cache, reduce media throttling, and prefer the faster MP4/H.264 path over AV1/WebM MSE.&lt;/p&gt;</description>
     </item>
     <item>
       <title>Automatically Disable Wi-Fi When Ethernet Is Plugged in macOS</title>

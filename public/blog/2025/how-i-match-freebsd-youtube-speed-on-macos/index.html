@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
 <head>
-    <title>How to Match FreeBSD’s YouTube Loading Speed on macOS – Alexander Deplov</title>
+    <title>How to Match FreeBSD’s YouTube Seeking Speed on macOS – Alexander Deplov</title>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Archivo:ital,wght@0,100..900;1,100..900&family=Source+Serif+4:ital,opsz,wght@0,8..60,200..900;1,8..60,200..900&display=swap" rel="stylesheet">
@@ -12,7 +12,7 @@
     <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16.png">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="canonical" href="https://interfacecraft.online/blog/2025/how-i-match-freebsd-youtube-speed-on-macos/">
-    <meta property="og:title" content="How to Match FreeBSD’s YouTube Loading Speed on macOS">
+    <meta property="og:title" content="How to Match FreeBSD’s YouTube Seeking Speed on macOS">
 <meta property="og:url" content="https://interfacecraft.online/blog/2025/how-i-match-freebsd-youtube-speed-on-macos/">
 <meta property="og:site_name" content="Alexander Deplov, AI artist, product designer">
 <meta property="og:type" content="article">
@@ -47,7 +47,7 @@
 
 <article class="max-w-3xl mx-auto px-4 py-8">
   <header class="mb-8">
-    <h1 class="mb-2" style="font-size: 2rem;">How to Match FreeBSD’s YouTube Loading Speed on macOS</h1>
+    <h1 class="mb-2" style="font-size: 2rem;">How to Match FreeBSD’s YouTube Seeking Speed on macOS</h1>
     <div class="text-sm font-semibold flex flex-wrap items-center gap-x-2" style="color: #71717A;">
       <span>November 25, 2025</span>
       <span>•</span>
@@ -58,58 +58,129 @@
   </header>
 
   <div class="content">
-    <p><strong>Update:</strong> After experimenting with it for a while, I found that the initial setup prevents the Safari and Mail apps from accessing the internet. I changed the settings so that YouTube remains fast and the other apps work well.</p>
-<p>I watch a lot of YouTube videos, and I noticed something interesting. On FreeBSD, when I skip to any part of a video, it starts playing instantly. On macOS, however, it takes a couple of seconds to load.</p>
-<p>I wanted to fix that delay, so with help from an LLM, I changed some network settings on macOS to match FreeBSD’s behavior — and it worked perfectly! YouTube now loads just as fast as on FreeBSD.</p>
-<p>First I feed LLM with from macOS:</p>
-<div class="highlight"><pre tabindex="0" style="color:#abb2bf;background-color:#282c34;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"><code class="language-js" data-lang="js"><span style="display:flex;"><span><span style="color:#e06c75">sysctl</span> <span style="color:#e06c75">net</span>.<span style="color:#e06c75">inet</span>.<span style="color:#e06c75">tcp</span>
-</span></span></code></pre></div><p>It recommends next settings:</p>
-<div class="highlight"><pre tabindex="0" style="color:#abb2bf;background-color:#282c34;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"><code class="language-js" data-lang="js"><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span># <span style="color:#e06c75">Increase</span> <span style="color:#e06c75">max</span> <span style="color:#e06c75">socket</span> <span style="color:#e06c75">buffer</span> <span style="color:#e06c75">sizes</span> (<span style="color:#e06c75">yours</span> <span style="color:#e06c75">are</span> <span style="color:#e06c75">fine</span>)
-</span></span><span style="display:flex;"><span><span style="color:#e06c75">sudo</span> <span style="color:#e06c75">sysctl</span> <span style="color:#56b6c2">-</span><span style="color:#e06c75">w</span> <span style="color:#e06c75">net</span>.<span style="color:#e06c75">inet</span>.<span style="color:#e06c75">tcp</span>.<span style="color:#e06c75">sendspace</span><span style="color:#56b6c2">=</span><span style="color:#d19a66">1048576</span>
-</span></span><span style="display:flex;"><span><span style="color:#e06c75">sudo</span> <span style="color:#e06c75">sysctl</span> <span style="color:#56b6c2">-</span><span style="color:#e06c75">w</span> <span style="color:#e06c75">net</span>.<span style="color:#e06c75">inet</span>.<span style="color:#e06c75">tcp</span>.<span style="color:#e06c75">recvspace</span><span style="color:#56b6c2">=</span><span style="color:#d19a66">2097152</span>
-</span></span></code></pre></div><p>These actually work on macOS:</p>
-<div class="highlight"><pre tabindex="0" style="color:#abb2bf;background-color:#282c34;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"><code class="language-js" data-lang="js"><span style="display:flex;"><span><span style="color:#e06c75">sudo</span> <span style="color:#e06c75">sysctl</span> <span style="color:#56b6c2">-</span><span style="color:#e06c75">w</span> <span style="color:#e06c75">net</span>.<span style="color:#e06c75">inet</span>.<span style="color:#e06c75">tcp</span>.<span style="color:#e06c75">win_scale_factor</span><span style="color:#56b6c2">=</span><span style="color:#d19a66">8</span>
-</span></span><span style="display:flex;"><span><span style="color:#e06c75">sudo</span> <span style="color:#e06c75">sysctl</span> <span style="color:#56b6c2">-</span><span style="color:#e06c75">w</span> <span style="color:#e06c75">net</span>.<span style="color:#e06c75">inet</span>.<span style="color:#e06c75">tcp</span>.<span style="color:#e06c75">delayed_ack</span><span style="color:#56b6c2">=</span><span style="color:#d19a66">0</span>       # <span style="color:#e06c75">disable</span> <span style="color:#e06c75">delayed</span> <span style="color:#e06c75">ACK</span> — <span style="color:#e06c75">helps</span> <span style="color:#e06c75">seeking</span> <span style="color:#e06c75">feel</span> <span style="color:#e06c75">more</span> <span style="color:#e06c75">instant</span>
-</span></span><span style="display:flex;"><span><span style="color:#e06c75">sudo</span> <span style="color:#e06c75">sysctl</span> <span style="color:#56b6c2">-</span><span style="color:#e06c75">w</span> <span style="color:#e06c75">net</span>.<span style="color:#e06c75">inet</span>.<span style="color:#e06c75">tcp</span>.<span style="color:#e06c75">mssdflt</span><span style="color:#56b6c2">=</span><span style="color:#d19a66">1440</span>        # <span style="color:#e06c75">safe</span> <span style="color:#e06c75">MSS</span> <span style="color:#c678dd">for</span> <span style="color:#e06c75">most</span> <span style="color:#e06c75">connections</span>
-</span></span><span style="display:flex;"><span><span style="color:#e06c75">sudo</span> <span style="color:#e06c75">sysctl</span> <span style="color:#56b6c2">-</span><span style="color:#e06c75">w</span> <span style="color:#e06c75">net</span>.<span style="color:#e06c75">inet</span>.<span style="color:#e06c75">tcp</span>.<span style="color:#e06c75">doautorcvbuf</span><span style="color:#56b6c2">=</span><span style="color:#d19a66">1</span>      # <span style="color:#e06c75">enable</span> <span style="color:#e06c75">auto</span> <span style="color:#e06c75">receive</span> <span style="color:#e06c75">buffer</span>
-</span></span><span style="display:flex;"><span><span style="color:#e06c75">sudo</span> <span style="color:#e06c75">sysctl</span> <span style="color:#56b6c2">-</span><span style="color:#e06c75">w</span> <span style="color:#e06c75">net</span>.<span style="color:#e06c75">inet</span>.<span style="color:#e06c75">tcp</span>.<span style="color:#e06c75">doautosndbuf</span><span style="color:#56b6c2">=</span><span style="color:#d19a66">1</span>      # <span style="color:#e06c75">enable</span> <span style="color:#e06c75">auto</span> <span style="color:#e06c75">send</span> <span style="color:#e06c75">buffer</span>
-</span></span><span style="display:flex;"><span><span style="color:#e06c75">sudo</span> <span style="color:#e06c75">sysctl</span> <span style="color:#56b6c2">-</span><span style="color:#e06c75">w</span> <span style="color:#e06c75">kern</span>.<span style="color:#e06c75">ipc</span>.<span style="color:#e06c75">maxsockbuf</span><span style="color:#56b6c2">=</span><span style="color:#d19a66">8388608</span>      # <span style="color:#e06c75">kernel</span> <span style="color:#e06c75">max</span> <span style="color:#e06c75">socket</span> <span style="color:#e06c75">buffer</span> — <span style="color:#e06c75">important</span> <span style="color:#c678dd">for</span> <span style="color:#e06c75">larger</span> <span style="color:#e06c75">TCP</span> <span style="color:#e06c75">buffers</span>
-</span></span><span style="display:flex;"><span><span style="color:#e06c75">sudo</span> <span style="color:#e06c75">sysctl</span> <span style="color:#56b6c2">-</span><span style="color:#e06c75">w</span> <span style="color:#e06c75">kern</span>.<span style="color:#e06c75">ipc</span>.<span style="color:#e06c75">somaxconn</span><span style="color:#56b6c2">=</span><span style="color:#d19a66">1024</span>
-</span></span></code></pre></div><p>Open about:config in Firefox and check/set:</p>
-<div class="highlight"><pre tabindex="0" style="color:#abb2bf;background-color:#282c34;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"><code class="language-js" data-lang="js"><span style="display:flex;"><span><span style="color:#e06c75">network</span>.<span style="color:#e06c75">http</span>.<span style="color:#e06c75">pipelining</span> <span style="color:#56b6c2">=</span> <span style="color:#e5c07b">true</span>
-</span></span><span style="display:flex;"><span><span style="color:#e06c75">network</span>.<span style="color:#e06c75">buffer</span>.<span style="color:#e06c75">cache</span>.<span style="color:#e06c75">size</span> <span style="color:#56b6c2">=</span> <span style="color:#d19a66">262144</span>
-</span></span><span style="display:flex;"><span><span style="color:#e06c75">network</span>.<span style="color:#e06c75">buffer</span>.<span style="color:#e06c75">cache</span>.<span style="color:#e06c75">count</span> <span style="color:#56b6c2">=</span> <span style="color:#d19a66">128</span>
-</span></span><span style="display:flex;"><span><span style="color:#e06c75">network</span>.<span style="color:#e06c75">http</span>.<span style="color:#e06c75">max</span><span style="color:#56b6c2">-</span><span style="color:#e06c75">persistent</span><span style="color:#56b6c2">-</span><span style="color:#e06c75">connections</span><span style="color:#56b6c2">-</span><span style="color:#e06c75">per</span><span style="color:#56b6c2">-</span><span style="color:#e06c75">server</span> <span style="color:#56b6c2">=</span> <span style="color:#d19a66">8</span>
-</span></span><span style="display:flex;"><span><span style="color:#e06c75">media</span>.<span style="color:#e06c75">cache_size</span> <span style="color:#56b6c2">=</span> <span style="color:#d19a66">524288</span>
-</span></span><span style="display:flex;"><span><span style="color:#e06c75">media</span>.<span style="color:#e06c75">cache_readahead_limit</span> <span style="color:#56b6c2">=</span> <span style="color:#d19a66">120</span>
-</span></span><span style="display:flex;"><span><span style="color:#e06c75">media</span>.<span style="color:#e06c75">cache_resume_threshold</span> <span style="color:#56b6c2">=</span> <span style="color:#d19a66">60</span>
-</span></span></code></pre></div><p>To make it permanent:</p>
-<div class="highlight"><pre tabindex="0" style="color:#abb2bf;background-color:#282c34;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"><code class="language-sh" data-lang="sh"><span style="display:flex;"><span>sudo nano /etc/sysctl.conf
-</span></span></code></pre></div><p>Put only the sysctl values in that file:</p>
-<div class="highlight"><pre tabindex="0" style="color:#abb2bf;background-color:#282c34;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"><code class="language-sh" data-lang="sh"><span style="display:flex;"><span><span style="color:#7f848e"># Increase max socket buffer sizes</span>
-</span></span><span style="display:flex;"><span>net.inet.tcp.sendspace<span style="color:#56b6c2">=</span><span style="color:#d19a66">1048576</span>
-</span></span><span style="display:flex;"><span>net.inet.tcp.recvspace<span style="color:#56b6c2">=</span><span style="color:#d19a66">2097152</span>
+    <p>On FreeBSD, YouTube seeking feels instant: click anywhere on the seek bar and playback resumes immediately. On macOS, Firefox gave me a short pause after each seek.</p>
+<p>The fix that worked for me was <strong>not</strong> global macOS TCP tuning. Those system-wide tweaks can affect other apps. The stable solution was Firefox-only: keep HTTP/3/QUIC enabled, give Firefox a much larger media cache, reduce media throttling, and prefer the faster MP4/H.264 path over AV1/WebM MSE.</p>
+<p>This guide assumes you are doing this for the first time.</p>
+<h2 id="1-find-your-firefox-profile">1. Find your Firefox profile</h2>
+<p>Open Firefox and go to:</p>
+<div class="highlight"><pre tabindex="0" style="color:#abb2bf;background-color:#282c34;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"><code class="language-text" data-lang="text"><span style="display:flex;"><span>about:profiles
+</span></span></code></pre></div><p>Find the profile you actually use and copy its <strong>Root Directory</strong> path.</p>
+<p>For example, mine is:</p>
+<div class="highlight"><pre tabindex="0" style="color:#abb2bf;background-color:#282c34;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"><code class="language-sh" data-lang="sh"><span style="display:flex;"><span>/Users/alex/Library/Application Support/Firefox/Profiles/profile.macOS
+</span></span></code></pre></div><p>In the commands below, replace this value if your profile path is different.</p>
+<h2 id="2-back-up-your-current-firefox-settings">2. Back up your current Firefox settings</h2>
+<p>Quit Firefox completely first:</p>
+<div class="highlight"><pre tabindex="0" style="color:#abb2bf;background-color:#282c34;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"><code class="language-sh" data-lang="sh"><span style="display:flex;"><span>osascript -e <span style="color:#98c379">&#39;quit app &#34;Firefox&#34;&#39;</span> 2&gt;/dev/null <span style="color:#56b6c2">||</span> <span style="color:#e5c07b">true</span>
+</span></span><span style="display:flex;"><span>sleep <span style="color:#d19a66">2</span>
+</span></span></code></pre></div><p>Now back up the current profile files and save a copy of your current macOS network state. We are not changing macOS network settings in this version, but keeping a copy is useful for debugging.</p>
+<div class="highlight"><pre tabindex="0" style="color:#abb2bf;background-color:#282c34;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"><code class="language-sh" data-lang="sh"><span style="display:flex;"><span><span style="color:#e06c75">PROFILE</span><span style="color:#56b6c2">=</span><span style="color:#98c379">&#34;/Users/alex/Library/Application Support/Firefox/Profiles/profile.macOS&#34;</span>
+</span></span><span style="display:flex;"><span><span style="color:#e06c75">BACKUP</span><span style="color:#56b6c2">=</span><span style="color:#98c379">&#34;</span><span style="color:#e06c75">$HOME</span><span style="color:#98c379">/Desktop/youtube-macos-backup-</span><span style="color:#c678dd">$(</span>date +%Y%m%d-%H%M%S<span style="color:#c678dd">)</span><span style="color:#98c379">&#34;</span>
 </span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span><span style="color:#7f848e"># These actually work on macOS</span>
-</span></span><span style="display:flex;"><span>net.inet.tcp.win_scale_factor<span style="color:#56b6c2">=</span><span style="color:#d19a66">8</span>
-</span></span><span style="display:flex;"><span>net.inet.tcp.delayed_ack<span style="color:#56b6c2">=</span><span style="color:#d19a66">0</span>       <span style="color:#7f848e"># disable delayed ACK — helps seeking feel more instant</span>
-</span></span><span style="display:flex;"><span>net.inet.tcp.mssdflt<span style="color:#56b6c2">=</span><span style="color:#d19a66">1440</span>        <span style="color:#7f848e"># safe MSS for most connections</span>
-</span></span><span style="display:flex;"><span>net.inet.tcp.doautorcvbuf<span style="color:#56b6c2">=</span><span style="color:#d19a66">1</span>      <span style="color:#7f848e"># enable auto receive buffer</span>
-</span></span><span style="display:flex;"><span>net.inet.tcp.doautosndbuf<span style="color:#56b6c2">=</span><span style="color:#d19a66">1</span>      <span style="color:#7f848e"># enable auto send buffer</span>
-</span></span><span style="display:flex;"><span>kern.ipc.maxsockbuf<span style="color:#56b6c2">=</span><span style="color:#d19a66">8388608</span>      <span style="color:#7f848e"># kernel max socket buffer — important for larger TCP buffers</span>
-</span></span><span style="display:flex;"><span>kern.ipc.somaxconn<span style="color:#56b6c2">=</span><span style="color:#d19a66">1024</span>
-</span></span></code></pre></div><p>Revert to completely stock (if you want to start clean first):</p>
-<div class="highlight"><pre tabindex="0" style="color:#abb2bf;background-color:#282c34;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"><code class="language-js" data-lang="js"><span style="display:flex;"><span><span style="color:#e06c75">sudo</span> <span style="color:#e06c75">sysctl</span> <span style="color:#56b6c2">-</span><span style="color:#e06c75">w</span> <span style="color:#e06c75">net</span>.<span style="color:#e06c75">inet</span>.<span style="color:#e06c75">tcp</span>.<span style="color:#e06c75">sendspace</span><span style="color:#56b6c2">=</span><span style="color:#d19a66">131072</span>
-</span></span><span style="display:flex;"><span><span style="color:#e06c75">sudo</span> <span style="color:#e06c75">sysctl</span> <span style="color:#56b6c2">-</span><span style="color:#e06c75">w</span> <span style="color:#e06c75">net</span>.<span style="color:#e06c75">inet</span>.<span style="color:#e06c75">tcp</span>.<span style="color:#e06c75">recvspace</span><span style="color:#56b6c2">=</span><span style="color:#d19a66">131072</span>
-</span></span><span style="display:flex;"><span><span style="color:#e06c75">sudo</span> <span style="color:#e06c75">sysctl</span> <span style="color:#56b6c2">-</span><span style="color:#e06c75">w</span> <span style="color:#e06c75">net</span>.<span style="color:#e06c75">inet</span>.<span style="color:#e06c75">tcp</span>.<span style="color:#e06c75">win_scale_factor</span><span style="color:#56b6c2">=</span><span style="color:#d19a66">3</span>
-</span></span><span style="display:flex;"><span><span style="color:#e06c75">sudo</span> <span style="color:#e06c75">sysctl</span> <span style="color:#56b6c2">-</span><span style="color:#e06c75">w</span> <span style="color:#e06c75">net</span>.<span style="color:#e06c75">inet</span>.<span style="color:#e06c75">tcp</span>.<span style="color:#e06c75">delayed_ack</span><span style="color:#56b6c2">=</span><span style="color:#d19a66">3</span>
-</span></span><span style="display:flex;"><span><span style="color:#e06c75">sudo</span> <span style="color:#e06c75">sysctl</span> <span style="color:#56b6c2">-</span><span style="color:#e06c75">w</span> <span style="color:#e06c75">net</span>.<span style="color:#e06c75">inet</span>.<span style="color:#e06c75">tcp</span>.<span style="color:#e06c75">mssdflt</span><span style="color:#56b6c2">=</span><span style="color:#d19a66">512</span>
-</span></span><span style="display:flex;"><span><span style="color:#e06c75">sudo</span> <span style="color:#e06c75">sysctl</span> <span style="color:#56b6c2">-</span><span style="color:#e06c75">w</span> <span style="color:#e06c75">net</span>.<span style="color:#e06c75">inet</span>.<span style="color:#e06c75">tcp</span>.<span style="color:#e06c75">doautorcvbuf</span><span style="color:#56b6c2">=</span><span style="color:#d19a66">1</span>
-</span></span><span style="display:flex;"><span><span style="color:#e06c75">sudo</span> <span style="color:#e06c75">sysctl</span> <span style="color:#56b6c2">-</span><span style="color:#e06c75">w</span> <span style="color:#e06c75">net</span>.<span style="color:#e06c75">inet</span>.<span style="color:#e06c75">tcp</span>.<span style="color:#e06c75">doautosndbuf</span><span style="color:#56b6c2">=</span><span style="color:#d19a66">1</span>
-</span></span><span style="display:flex;"><span><span style="color:#e06c75">sudo</span> <span style="color:#e06c75">sysctl</span> <span style="color:#56b6c2">-</span><span style="color:#e06c75">w</span> <span style="color:#e06c75">kern</span>.<span style="color:#e06c75">ipc</span>.<span style="color:#e06c75">maxsockbuf</span><span style="color:#56b6c2">=</span><span style="color:#d19a66">8388608</span>
-</span></span><span style="display:flex;"><span><span style="color:#e06c75">sudo</span> <span style="color:#e06c75">sysctl</span> <span style="color:#56b6c2">-</span><span style="color:#e06c75">w</span> <span style="color:#e06c75">kern</span>.<span style="color:#e06c75">ipc</span>.<span style="color:#e06c75">somaxconn</span><span style="color:#56b6c2">=</span><span style="color:#d19a66">128</span>
-</span></span></code></pre></div><p>Or erase /etc/sysctl.conf and reboot.</p>
+</span></span><span style="display:flex;"><span>mkdir -p <span style="color:#98c379">&#34;</span><span style="color:#e06c75">$BACKUP</span><span style="color:#98c379">&#34;</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>sysctl -a &gt; <span style="color:#98c379">&#34;</span><span style="color:#e06c75">$BACKUP</span><span style="color:#98c379">/sysctl-before.txt&#34;</span>
+</span></span><span style="display:flex;"><span>cp -a <span style="color:#98c379">&#34;</span><span style="color:#e06c75">$PROFILE</span><span style="color:#98c379">/user.js&#34;</span> <span style="color:#98c379">&#34;</span><span style="color:#e06c75">$BACKUP</span><span style="color:#98c379">/user.js.before&#34;</span> 2&gt;/dev/null <span style="color:#56b6c2">||</span> <span style="color:#e5c07b">true</span>
+</span></span><span style="display:flex;"><span>cp -a <span style="color:#98c379">&#34;</span><span style="color:#e06c75">$PROFILE</span><span style="color:#98c379">/prefs.js&#34;</span> <span style="color:#98c379">&#34;</span><span style="color:#e06c75">$BACKUP</span><span style="color:#98c379">/prefs.js.before&#34;</span> 2&gt;/dev/null <span style="color:#56b6c2">||</span> <span style="color:#e5c07b">true</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#e5c07b">echo</span> <span style="color:#98c379">&#34;Backup saved to: </span><span style="color:#e06c75">$BACKUP</span><span style="color:#98c379">&#34;</span>
+</span></span></code></pre></div><h2 id="3-write-the-firefox-userjs">3. Write the Firefox <code>user.js</code></h2>
+<p>This overwrites <code>user.js</code> in the selected Firefox profile.</p>
+<div class="highlight"><pre tabindex="0" style="color:#abb2bf;background-color:#282c34;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"><code class="language-sh" data-lang="sh"><span style="display:flex;"><span><span style="color:#e06c75">PROFILE</span><span style="color:#56b6c2">=</span><span style="color:#98c379">&#34;/Users/alex/Library/Application Support/Firefox/Profiles/profile.macOS&#34;</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>cat &gt; <span style="color:#98c379">&#34;</span><span style="color:#e06c75">$PROFILE</span><span style="color:#98c379">/user.js&#34;</span> <span style="color:#98c379">&lt;&lt;&#39;EOF_USERJS&#39;
+</span></span></span><span style="display:flex;"><span><span style="color:#98c379">// YouTube seek fix for macOS Firefox.
+</span></span></span><span style="display:flex;"><span><span style="color:#98c379">// Firefox-only: no global macOS TCP/sysctl tuning.
+</span></span></span><span style="display:flex;"><span><span style="color:#98c379">// Goal: HTTP/3/QUIC on, large media cache, less media throttling,
+</span></span></span><span style="display:flex;"><span><span style="color:#98c379">// and a faster MP4/H.264 path instead of AV1/WebM MSE.
+</span></span></span><span style="display:flex;"><span><span style="color:#98c379">
+</span></span></span><span style="display:flex;"><span><span style="color:#98c379">user_pref(&#34;network.http.http3.enable&#34;, true);
+</span></span></span><span style="display:flex;"><span><span style="color:#98c379">user_pref(&#34;network.http.http3.enabled&#34;, true);
+</span></span></span><span style="display:flex;"><span><span style="color:#98c379">user_pref(&#34;network.http.http3.enable_0rtt&#34;, true);
+</span></span></span><span style="display:flex;"><span><span style="color:#98c379">user_pref(&#34;network.http.http3.default-qpack-table-size&#34;, 65536);
+</span></span></span><span style="display:flex;"><span><span style="color:#98c379">user_pref(&#34;network.http.http3.default-max-stream-blocked&#34;, 100);
+</span></span></span><span style="display:flex;"><span><span style="color:#98c379">user_pref(&#34;network.http.altsvc.enabled&#34;, true);
+</span></span></span><span style="display:flex;"><span><span style="color:#98c379">
+</span></span></span><span style="display:flex;"><span><span style="color:#98c379">user_pref(&#34;network.http.max-connections&#34;, 2400);
+</span></span></span><span style="display:flex;"><span><span style="color:#98c379">user_pref(&#34;network.http.max-persistent-connections-per-server&#34;, 16);
+</span></span></span><span style="display:flex;"><span><span style="color:#98c379">user_pref(&#34;network.http.max-urgent-start-excessive-connections-per-host&#34;, 16);
+</span></span></span><span style="display:flex;"><span><span style="color:#98c379">user_pref(&#34;network.http.max-persistent-connections-per-proxy&#34;, 96);
+</span></span></span><span style="display:flex;"><span><span style="color:#98c379">user_pref(&#34;network.http.request.max-start-delay&#34;, 0);
+</span></span></span><span style="display:flex;"><span><span style="color:#98c379">user_pref(&#34;network.http.connection-retry-timeout&#34;, 50);
+</span></span></span><span style="display:flex;"><span><span style="color:#98c379">user_pref(&#34;network.http.fallback-connection-timeout&#34;, 1);
+</span></span></span><span style="display:flex;"><span><span style="color:#98c379">user_pref(&#34;network.http.network-changed.timeout&#34;, 1);
+</span></span></span><span style="display:flex;"><span><span style="color:#98c379">user_pref(&#34;network.http.speculative-parallel-limit&#34;, 80);
+</span></span></span><span style="display:flex;"><span><span style="color:#98c379">user_pref(&#34;network.http.fast-fallback-to-IPv4&#34;, true);
+</span></span></span><span style="display:flex;"><span><span style="color:#98c379">user_pref(&#34;network.http.on_click_priority&#34;, true);
+</span></span></span><span style="display:flex;"><span><span style="color:#98c379">user_pref(&#34;network.http.rendering-critical-requests-prioritization&#34;, true);
+</span></span></span><span style="display:flex;"><span><span style="color:#98c379">user_pref(&#34;network.http.pacing.requests.enabled&#34;, false);
+</span></span></span><span style="display:flex;"><span><span style="color:#98c379">user_pref(&#34;network.http.throttle.enable&#34;, false);
+</span></span></span><span style="display:flex;"><span><span style="color:#98c379">user_pref(&#34;network.http.send_window_size&#34;, 8192);
+</span></span></span><span style="display:flex;"><span><span style="color:#98c379">user_pref(&#34;network.http.focused_window_transaction_ratio&#34;, &#34;1.0&#34;);
+</span></span></span><span style="display:flex;"><span><span style="color:#98c379">
+</span></span></span><span style="display:flex;"><span><span style="color:#98c379">user_pref(&#34;network.dnsCacheEntries&#34;, 20000);
+</span></span></span><span style="display:flex;"><span><span style="color:#98c379">user_pref(&#34;network.dnsCacheExpiration&#34;, 7200);
+</span></span></span><span style="display:flex;"><span><span style="color:#98c379">user_pref(&#34;network.dnsCacheExpirationGracePeriod&#34;, 600);
+</span></span></span><span style="display:flex;"><span><span style="color:#98c379">user_pref(&#34;network.dns.disablePrefetch&#34;, false);
+</span></span></span><span style="display:flex;"><span><span style="color:#98c379">user_pref(&#34;network.dns.disableIPv6&#34;, false);
+</span></span></span><span style="display:flex;"><span><span style="color:#98c379">user_pref(&#34;network.predictor.enabled&#34;, true);
+</span></span></span><span style="display:flex;"><span><span style="color:#98c379">user_pref(&#34;network.predictor.enable-hover-on-ssl&#34;, true);
+</span></span></span><span style="display:flex;"><span><span style="color:#98c379">
+</span></span></span><span style="display:flex;"><span><span style="color:#98c379">user_pref(&#34;browser.cache.disk.enable&#34;, true);
+</span></span></span><span style="display:flex;"><span><span style="color:#98c379">user_pref(&#34;browser.cache.disk.smart_size.enabled&#34;, false);
+</span></span></span><span style="display:flex;"><span><span style="color:#98c379">user_pref(&#34;browser.cache.disk.capacity&#34;, 4194304);
+</span></span></span><span style="display:flex;"><span><span style="color:#98c379">user_pref(&#34;browser.cache.disk.max_entry_size&#34;, 2097152);
+</span></span></span><span style="display:flex;"><span><span style="color:#98c379">user_pref(&#34;browser.cache.disk_cache_ssl&#34;, true);
+</span></span></span><span style="display:flex;"><span><span style="color:#98c379">user_pref(&#34;browser.cache.memory.enable&#34;, true);
+</span></span></span><span style="display:flex;"><span><span style="color:#98c379">user_pref(&#34;browser.cache.memory.capacity&#34;, 2097152);
+</span></span></span><span style="display:flex;"><span><span style="color:#98c379">user_pref(&#34;browser.cache.memory.max_entry_size&#34;, 524288);
+</span></span></span><span style="display:flex;"><span><span style="color:#98c379">
+</span></span></span><span style="display:flex;"><span><span style="color:#98c379">user_pref(&#34;media.cache_size&#34;, 4194304);
+</span></span></span><span style="display:flex;"><span><span style="color:#98c379">user_pref(&#34;media.cache_readahead_limit&#34;, 86400);
+</span></span></span><span style="display:flex;"><span><span style="color:#98c379">user_pref(&#34;media.cache_resume_threshold&#34;, 43200);
+</span></span></span><span style="display:flex;"><span><span style="color:#98c379">user_pref(&#34;media.throttle-factor&#34;, 100000);
+</span></span></span><span style="display:flex;"><span><span style="color:#98c379">user_pref(&#34;media.memory_cache_max_size&#34;, 1048576);
+</span></span></span><span style="display:flex;"><span><span style="color:#98c379">user_pref(&#34;media.memory_caches_combined_limit_kb&#34;, 4194304);
+</span></span></span><span style="display:flex;"><span><span style="color:#98c379">
+</span></span></span><span style="display:flex;"><span><span style="color:#98c379">user_pref(&#34;media.av1.enabled&#34;, false);
+</span></span></span><span style="display:flex;"><span><span style="color:#98c379">user_pref(&#34;media.mediasource.enabled&#34;, true);
+</span></span></span><span style="display:flex;"><span><span style="color:#98c379">user_pref(&#34;media.mediasource.mp4.enabled&#34;, true);
+</span></span></span><span style="display:flex;"><span><span style="color:#98c379">user_pref(&#34;media.mp4.enabled&#34;, true);
+</span></span></span><span style="display:flex;"><span><span style="color:#98c379">user_pref(&#34;media.mediasource.webm.enabled&#34;, false);
+</span></span></span><span style="display:flex;"><span><span style="color:#98c379">user_pref(&#34;media.mediasource.webm.audio.enabled&#34;, false);
+</span></span></span><span style="display:flex;"><span><span style="color:#98c379">user_pref(&#34;media.webm.enabled&#34;, true);
+</span></span></span><span style="display:flex;"><span><span style="color:#98c379">
+</span></span></span><span style="display:flex;"><span><span style="color:#98c379">user_pref(&#34;media.hardware-video-decoding.enabled&#34;, true);
+</span></span></span><span style="display:flex;"><span><span style="color:#98c379">user_pref(&#34;media.hardware-video-decoding.force-enabled&#34;, true);
+</span></span></span><span style="display:flex;"><span><span style="color:#98c379">user_pref(&#34;gfx.webrender.all&#34;, true);
+</span></span></span><span style="display:flex;"><span><span style="color:#98c379">user_pref(&#34;layers.acceleration.force-enabled&#34;, true);
+</span></span></span><span style="display:flex;"><span><span style="color:#98c379">user_pref(&#34;toolkit.cosmeticAnimations.enabled&#34;, false);
+</span></span></span><span style="display:flex;"><span><span style="color:#98c379">EOF_USERJS</span>
+</span></span></code></pre></div><p>Disable App Nap for Firefox:</p>
+<div class="highlight"><pre tabindex="0" style="color:#abb2bf;background-color:#282c34;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"><code class="language-sh" data-lang="sh"><span style="display:flex;"><span>defaults write org.mozilla.firefox NSAppSleepDisabled -bool YES
+</span></span></code></pre></div><h2 id="4-clear-youtube-and-firefox-cache-once">4. Clear YouTube and Firefox cache once</h2>
+<p>This is optional, but I recommend doing it once so Firefox and YouTube rebuild their cache with the new behavior.</p>
+<div class="highlight"><pre tabindex="0" style="color:#abb2bf;background-color:#282c34;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"><code class="language-sh" data-lang="sh"><span style="display:flex;"><span><span style="color:#e06c75">PROFILE_NAME</span><span style="color:#56b6c2">=</span><span style="color:#98c379">&#34;profile.macOS&#34;</span>
+</span></span><span style="display:flex;"><span><span style="color:#e06c75">CACHE_BACKUP</span><span style="color:#56b6c2">=</span><span style="color:#98c379">&#34;</span><span style="color:#e06c75">$HOME</span><span style="color:#98c379">/Desktop/firefox-cache-backup-</span><span style="color:#c678dd">$(</span>date +%Y%m%d-%H%M%S<span style="color:#c678dd">)</span><span style="color:#98c379">&#34;</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>mkdir -p <span style="color:#98c379">&#34;</span><span style="color:#e06c75">$CACHE_BACKUP</span><span style="color:#98c379">&#34;</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>mv <span style="color:#98c379">&#34;</span><span style="color:#e06c75">$HOME</span><span style="color:#98c379">/Library/Caches/Firefox/Profiles/</span><span style="color:#e06c75">$PROFILE_NAME</span><span style="color:#98c379">&#34;</span> <span style="color:#98c379">&#34;</span><span style="color:#e06c75">$CACHE_BACKUP</span><span style="color:#98c379">/&#34;</span> 2&gt;/dev/null <span style="color:#56b6c2">||</span> <span style="color:#e5c07b">true</span>
+</span></span><span style="display:flex;"><span>mv <span style="color:#98c379">&#34;</span><span style="color:#e06c75">$HOME</span><span style="color:#98c379">/Library/Application Support/Firefox/Profiles/</span><span style="color:#e06c75">$PROFILE_NAME</span><span style="color:#98c379">/storage/default/https+++www.youtube.com&#34;</span> <span style="color:#98c379">&#34;</span><span style="color:#e06c75">$CACHE_BACKUP</span><span style="color:#98c379">/&#34;</span> 2&gt;/dev/null <span style="color:#56b6c2">||</span> <span style="color:#e5c07b">true</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#e5c07b">echo</span> <span style="color:#98c379">&#34;Old cache moved to: </span><span style="color:#e06c75">$CACHE_BACKUP</span><span style="color:#98c379">&#34;</span>
+</span></span></code></pre></div><h2 id="5-test-youtube">5. Test YouTube</h2>
+<p>Open Firefox again, open the same YouTube video, and click around the timeline.</p>
+<p>For debugging, right-click the video and open <strong>Stats for nerds</strong>. This setup tries to avoid AV1/WebM MSE and prefer a faster MP4/H.264 path. The codec line should ideally start with <code>avc1</code> rather than <code>av01</code> or <code>vp09</code>.</p>
+<p>Also open Mail.app. Since this version does not change global macOS network parameters, Mail.app should keep working normally.</p>
+<h2 id="rollback">Rollback</h2>
+<p>Use the backup directory printed in step 2:</p>
+<div class="highlight"><pre tabindex="0" style="color:#abb2bf;background-color:#282c34;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"><code class="language-sh" data-lang="sh"><span style="display:flex;"><span><span style="color:#e06c75">BACKUP</span><span style="color:#56b6c2">=</span><span style="color:#98c379">&#34;</span><span style="color:#e06c75">$HOME</span><span style="color:#98c379">/Desktop/youtube-macos-backup-YYYYMMDD-HHMMSS&#34;</span>
+</span></span><span style="display:flex;"><span><span style="color:#e06c75">PROFILE</span><span style="color:#56b6c2">=</span><span style="color:#98c379">&#34;/Users/alex/Library/Application Support/Firefox/Profiles/profile.macOS&#34;</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>cp -a <span style="color:#98c379">&#34;</span><span style="color:#e06c75">$BACKUP</span><span style="color:#98c379">/user.js.before&#34;</span> <span style="color:#98c379">&#34;</span><span style="color:#e06c75">$PROFILE</span><span style="color:#98c379">/user.js&#34;</span> 2&gt;/dev/null <span style="color:#56b6c2">||</span> rm -f <span style="color:#98c379">&#34;</span><span style="color:#e06c75">$PROFILE</span><span style="color:#98c379">/user.js&#34;</span>
+</span></span><span style="display:flex;"><span>cp -a <span style="color:#98c379">&#34;</span><span style="color:#e06c75">$BACKUP</span><span style="color:#98c379">/prefs.js.before&#34;</span> <span style="color:#98c379">&#34;</span><span style="color:#e06c75">$PROFILE</span><span style="color:#98c379">/prefs.js&#34;</span> 2&gt;/dev/null <span style="color:#56b6c2">||</span> <span style="color:#e5c07b">true</span>
+</span></span></code></pre></div><p>Then quit and reopen Firefox.</p>
+<p>That is it. The important part was moving the optimization into Firefox instead of globally tuning macOS networking. That kept YouTube seeking fast without breaking Mail.app.</p>
 
   </div>
 
@@ -117,7 +188,7 @@
     <div class="mx-auto flex mb-6 justify-center">
       <a id="replyViaEmail" target="_blank" rel="noopener"
         class="mx-auto font-bold py-2 px-6 md:px-12 rounded-xl hover:no-underline hover:-translate-y-2 transition-transform duration-300 ease-in-out"
-        href="mailto:dcwrjo84h@mozmail.com?subject=interfacecraft_online%3A%20How%20to%20Match%20FreeBSD%E2%80%99s%20YouTube%20Loading%20Speed%20on%20macOS">
+        href="mailto:dcwrjo84h@mozmail.com?subject=interfacecraft_online%3A%20How%20to%20Match%20FreeBSD%E2%80%99s%20YouTube%20Seeking%20Speed%20on%20macOS">
         Reply via Email
       </a>
     </div>
