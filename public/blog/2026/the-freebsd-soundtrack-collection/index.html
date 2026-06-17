@@ -141,8 +141,9 @@
 
       <input class="seekbar audio-seekbar" type="range" min="0" max="100" value="0" step="0.1" aria-label="Seek audio">
 
-      <div class="audio-time-indicator mt-1 text-right text-xs font-medium tabular-nums opacity-80" aria-live="off">
-        0:00 / 0:00
+      <div class="audio-time-indicator mt-1 flex justify-between text-xs font-medium tabular-nums opacity-80" aria-live="off">
+        <span class="audio-time-left">0:00</span>
+        <span class="audio-time-total">0:00</span>
       </div>
     </div>
   </div>
@@ -348,6 +349,8 @@
     const progressIndicator = player.querySelector('.progress-indicator');
     const seekbar = player.querySelector('.seekbar');
     const timeIndicator = player.querySelector('.audio-time-indicator');
+    const timeLeft = player.querySelector('.audio-time-left');
+    const timeTotal = player.querySelector('.audio-time-total');
 
     if (!audio || !playBtn || !playIcon || !pauseIcon || !progressIndicator) {
       return;
@@ -407,7 +410,13 @@
       const currentTime = Number.isFinite(audio.currentTime) ? audio.currentTime : 0;
       const duration = Number.isFinite(audio.duration) ? audio.duration : 0;
 
-      timeIndicator.textContent = `${formatTime(currentTime)} / ${formatTime(duration)}`;
+      if (timeLeft && timeTotal) {
+        timeLeft.textContent = formatTime(currentTime);
+        timeTotal.textContent = formatTime(duration);
+        return;
+      }
+
+      timeIndicator.textContent = `${formatTime(currentTime)} ${formatTime(duration)}`;
     }
 
     function updateSeekbar() {
@@ -507,7 +516,15 @@
 
         if (otherTimeIndicator) {
           const otherDuration = Number.isFinite(otherAudio.duration) ? otherAudio.duration : 0;
-          otherTimeIndicator.textContent = `0:00 / ${formatTime(otherDuration)}`;
+          const otherTimeLeft = otherPlayer.querySelector('.audio-time-left');
+          const otherTimeTotal = otherPlayer.querySelector('.audio-time-total');
+
+          if (otherTimeLeft && otherTimeTotal) {
+            otherTimeLeft.textContent = '0:00';
+            otherTimeTotal.textContent = formatTime(otherDuration);
+          } else {
+            otherTimeIndicator.textContent = `0:00 ${formatTime(otherDuration)}`;
+          }
         }
       });
     }
@@ -765,8 +782,9 @@ the future boots from where we are.</p>
 
       <input class="seekbar audio-seekbar" type="range" min="0" max="100" value="0" step="0.1" aria-label="Seek audio">
 
-      <div class="audio-time-indicator mt-1 text-right text-xs font-medium tabular-nums opacity-80" aria-live="off">
-        0:00 / 0:00
+      <div class="audio-time-indicator mt-1 flex justify-between text-xs font-medium tabular-nums opacity-80" aria-live="off">
+        <span class="audio-time-left">0:00</span>
+        <span class="audio-time-total">0:00</span>
       </div>
     </div>
   </div>
@@ -972,6 +990,8 @@ the future boots from where we are.</p>
     const progressIndicator = player.querySelector('.progress-indicator');
     const seekbar = player.querySelector('.seekbar');
     const timeIndicator = player.querySelector('.audio-time-indicator');
+    const timeLeft = player.querySelector('.audio-time-left');
+    const timeTotal = player.querySelector('.audio-time-total');
 
     if (!audio || !playBtn || !playIcon || !pauseIcon || !progressIndicator) {
       return;
@@ -1031,7 +1051,13 @@ the future boots from where we are.</p>
       const currentTime = Number.isFinite(audio.currentTime) ? audio.currentTime : 0;
       const duration = Number.isFinite(audio.duration) ? audio.duration : 0;
 
-      timeIndicator.textContent = `${formatTime(currentTime)} / ${formatTime(duration)}`;
+      if (timeLeft && timeTotal) {
+        timeLeft.textContent = formatTime(currentTime);
+        timeTotal.textContent = formatTime(duration);
+        return;
+      }
+
+      timeIndicator.textContent = `${formatTime(currentTime)} ${formatTime(duration)}`;
     }
 
     function updateSeekbar() {
@@ -1131,7 +1157,15 @@ the future boots from where we are.</p>
 
         if (otherTimeIndicator) {
           const otherDuration = Number.isFinite(otherAudio.duration) ? otherAudio.duration : 0;
-          otherTimeIndicator.textContent = `0:00 / ${formatTime(otherDuration)}`;
+          const otherTimeLeft = otherPlayer.querySelector('.audio-time-left');
+          const otherTimeTotal = otherPlayer.querySelector('.audio-time-total');
+
+          if (otherTimeLeft && otherTimeTotal) {
+            otherTimeLeft.textContent = '0:00';
+            otherTimeTotal.textContent = formatTime(otherDuration);
+          } else {
+            otherTimeIndicator.textContent = `0:00 ${formatTime(otherDuration)}`;
+          }
         }
       });
     }
@@ -1243,7 +1277,6 @@ the future boots from where we are.</p>
 <details>
 <summary>FreeBSD 14.3-RC1 Lyrics</summary>
 <p>Sashka Echo presents.</p>
-<h3 id="-code-like-the-wind-freebsd-143-rc1-anthem-">🎶 Code Like the Wind (FreeBSD 14.3 RC1 Anthem) 🎶</h3>
 <h3 id="verse-1-1">Verse 1</h3>
 <p>June 1st morning, I wake up to the sound,<br/>
 FreeBSD’s rolling out, new RC’s inbound.<br/>
@@ -1276,7 +1309,7 @@ Mirror sites waiting, ISO’s in the sky,<br/>
 Let’s spin up our systems, give this build a try!<br/></p>
 <h3 id="outro">Outro</h3>
 <p>So fire up the console, and pull down the tree,<br/>
-FreeBSD’s calling—come set your system free! 🎶</p>
+FreeBSD’s calling—come set your system free!</p>
 </details>
 
   </div>

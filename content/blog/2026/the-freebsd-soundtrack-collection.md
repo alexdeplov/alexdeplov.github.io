@@ -107,8 +107,6 @@ the future boots from where we are.
 
 Sashka Echo presents.
 
-### 🎶 Code Like the Wind (FreeBSD 14.3 RC1 Anthem) 🎶
-
 ### Verse 1
 June 1st morning, I wake up to the sound,<br/>
 FreeBSD’s rolling out, new RC’s inbound.<br/>
@@ -147,6 +145,6 @@ Let’s spin up our systems, give this build a try!<br/>
 
 ### Outro
 So fire up the console, and pull down the tree,<br/>
-FreeBSD’s calling—come set your system free! 🎶
+FreeBSD’s calling—come set your system free! 
 
 </details>
