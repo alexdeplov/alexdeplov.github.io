@@ -95,3 +95,58 @@ fifteen-one is ready—<br/>
 the future boots from where we are.
 
 </details>
+
+---
+
+## FreeBSD 14.3-RC1
+
+{{< audio-block src="/audio/FreeBSD-14.3-RC1.mp3" img="/audio/freebsd-14.3-rc1-cover.jpg" >}}
+
+<details>
+<summary>FreeBSD 14.3-RC1 Lyrics</summary>
+
+Sashka Echo presents.
+
+### 🎶 Code Like the Wind (FreeBSD 14.3 RC1 Anthem) 🎶
+
+### Verse 1
+June 1st morning, I wake up to the sound,<br/>
+FreeBSD’s rolling out, new RC’s inbound.<br/>
+14.3 release, it’s a code lover’s dream,<br/>
+amd64, ARM cores, running fast and clean.<br/>
+
+### Pre-Chorus
+PowerPC, RISC-V, the ports keep growing wide,<br/>
+i386 and aarch64, we test them with our pride.<br/>
+From kernel to userland, the patches fly in streams,<br/>
+In the land of the daemon, we’re chasing coding dreams.<br/>
+
+### Chorus
+Code like the wind, test what we find,<br/>
+RC1’s dropping, no bugs left behind!<br/>
+Mirror sites waiting, ISO’s in the sky,<br/>
+Let’s spin up our systems, give this build a try!<br/>
+
+### Verse 2
+PowerPC64le, and powerpcspe,<br/>
+The architectures dancing in perfect harmony.<br/>
+armv6 and v7, holding steady and strong,<br/>
+In the spirit of free software, we all belong.<br/>
+
+### Bridge
+No matter the system, no matter the core,<br/>
+FreeBSD’s the engine, opening doors.<br/>
+With every commit, we’re building the tide,<br/>
+For a stable tomorrow, with the code as our guide.<br/>
+
+### Chorus
+Code like the wind, test what we find,<br/>
+RC1’s dropping, no bugs left behind!<br/>
+Mirror sites waiting, ISO’s in the sky,<br/>
+Let’s spin up our systems, give this build a try!<br/>
+
+### Outro
+So fire up the console, and pull down the tree,<br/>
+FreeBSD’s calling—come set your system free! 🎶
+
+</details>
