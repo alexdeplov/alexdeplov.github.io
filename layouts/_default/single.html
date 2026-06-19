@@ -56,11 +56,17 @@
       transition: none;
     }
   }
+
+  {{ if .Param "audioTitleCopyLinks" }}
+  .article-audio-title-copy-links > h2[id] {
+    cursor: pointer;
+  }
+  {{ end }}
 </style>
 {{ end }}{{ end }}
 
 {{ define "main" }}
-{{ $accentColor := .Params.accentColor | default "#3B82F6" }}{{ $headingAnchors := .Param "headingAnchors" }}
+{{ $accentColor := .Params.accentColor | default "#3B82F6" }}{{ $headingAnchors := .Param "headingAnchors" }}{{ $audioTitleCopyLinks := .Param "audioTitleCopyLinks" }}
 <header class="max-w-3xl mx-auto px-4 pt-12 pb-8 text-zinc-500">
     <div>
         <a href="/" class="article-author">Alexander Deplov</a>
@@ -79,7 +85,7 @@
     </div>
   </header>
 
-  <div class="content{{ if $headingAnchors }} article-heading-anchors{{ end }}"{{ if $headingAnchors }} data-heading-anchors{{ end }}>
+  <div class="content{{ if $headingAnchors }} article-heading-anchors{{ end }}{{ if $audioTitleCopyLinks }} article-audio-title-copy-links{{ end }}"{{ if $headingAnchors }} data-heading-anchors{{ end }}{{ if $audioTitleCopyLinks }} data-audio-title-copy-links{{ end }}>
     {{ .Content }}
   </div>
 
@@ -87,7 +93,7 @@
     <div class="mx-auto flex mb-6 justify-center">
       <a id="replyViaEmail" target="_blank" rel="noopener"
         class="mx-auto font-bold py-2 px-6 md:px-12 rounded-xl hover:no-underline hover:-translate-y-2 transition-transform duration-300 ease-in-out"
-        href="{{ printf "mailto:dcwrjo84h@mozmail.com?subject=%s" (replace (urlquery (printf "interfacecraft_online: %s" .Title)) "+" "%20") | safeURL }}">
+        href="{{ printf "mailto:alex@pleeq.com?subject=%s" (replace (urlquery (printf "interfacecraft_online: %s" .Title)) "+" "%20") | safeURL }}">
         Reply via Email
       </a>
     </div>
@@ -116,6 +122,10 @@
 
       if (!container) {
         return;
+      }
+
+      if (container.hasAttribute('data-audio-title-copy-links')) {
+        setupAudioTitleCopyLinks(container);
       }
 
       Array.prototype.forEach.call(container.children, function (heading) {
@@ -165,6 +175,53 @@
         heading.prepend(anchor);
       });
     });
+
+    function setupAudioTitleCopyLinks(container) {
+      Array.prototype.forEach.call(container.children, function (heading) {
+        if (heading.tagName !== 'H2' || !heading.id) {
+          return;
+        }
+
+        var player = getAudioPlayerAfterHeading(heading);
+
+        if (!player || !player.id) {
+          return;
+        }
+
+        heading.addEventListener('click', function (event) {
+          if (event.target.closest && event.target.closest('a')) {
+            return;
+          }
+
+          var url = new URL(window.location.href);
+          url.hash = player.id;
+
+          copyHeadingLink(url.href).then(function () {
+            if (typeof window.showSiteToast === 'function') {
+              window.showSiteToast('Link copied');
+            }
+          });
+        });
+      });
+    }
+
+    function getAudioPlayerAfterHeading(heading) {
+      var node = heading.nextElementSibling;
+
+      while (node) {
+        if (node.classList && node.classList.contains('audio-player')) {
+          return node;
+        }
+
+        if (node.tagName === 'H2') {
+          return null;
+        }
+
+        node = node.nextElementSibling;
+      }
+
+      return null;
+    }
 
     function copyHeadingLink(text) {
       if (navigator.clipboard && window.isSecureContext) {

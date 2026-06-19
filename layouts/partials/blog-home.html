@@ -36,6 +36,29 @@
     </div>
 
     <script>
+    function openLightbox(src, type) {
+      var lb = document.getElementById('lightbox');
+      var img = document.getElementById('lb-img');
+      var vid = document.getElementById('lb-video');
+
+      if (!lb || !img || !vid) {
+        return;
+      }
+
+      if (type === 'video') {
+        vid.src = src;
+        vid.style.display = 'block';
+        img.style.display = 'none';
+      } else {
+        img.src = src;
+        img.style.display = 'block';
+        vid.style.display = 'none';
+        vid.src = '';
+      }
+
+      lb.style.display = 'block';
+    }
+
     (function() {
       document.querySelectorAll('[data-lb-src]').forEach(function(el) {
         var preview = el.querySelector('video[data-preview-src]');
@@ -58,22 +81,7 @@
         }
 
         el.addEventListener('click', function() {
-          var src = el.dataset.lbSrc;
-          var type = el.dataset.lbType;
-          var lb = document.getElementById('lightbox');
-          var img = document.getElementById('lb-img');
-          var vid = document.getElementById('lb-video');
-          if (type === 'video') {
-            vid.src = src;
-            vid.style.display = 'block';
-            img.style.display = 'none';
-          } else {
-            img.src = src;
-            img.style.display = 'block';
-            vid.style.display = 'none';
-            vid.src = '';
-          }
-          lb.style.display = 'block';
+          openLightbox(el.dataset.lbSrc, el.dataset.lbType);
         });
       });
       document.addEventListener('keydown', function(e) {

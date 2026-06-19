@@ -126,6 +126,58 @@
         { "text": "FreeBSD’s calling," },
         { "text": "come set your system free!" }
       ]
+    },
+    {
+      "slug": "eyes-on-the-kernel",
+      "audio": "static/audio/Eyes-on-the-Kernel-by-Sashka-Echo.mp3",
+      "player_src": "/audio/Eyes-on-the-Kernel-by-Sashka-Echo.mp3",
+      "drop_unmatched": false,
+      "min_score": 0.4,
+      "sources": [
+        "vocals",
+        "mix"
+      ],
+      "lyrics": [
+        { "section": "Chorus" },
+        { "text": "Eyes on the kernel, light in the code", "time": 0.0 },
+        { "text": "Finding the cracks before they explode", "time": 3.5 },
+        { "text": "AI finds the flaws before things go wrong", "time": 7.1 },
+        { "text": "FreeBSD guarded all night long", "time": 10.96 },
+        { "section": "Outro Tag" },
+        { "text": "Keep pushing forward, go Pierre!", "time": 19.8 },
+        { "section": "Repeating Hook" },
+        { "text": "Eyes on the kernel", "time": 76.6 },
+        { "text": "Eyes on the kernel", "time": 78.78 },
+        { "text": "Eyes on the kernel", "time": 82.64 },
+        { "text": "Eyes on the kernel", "time": 99.6 },
+        { "text": "Eyes on the kernel", "time": 102.12 },
+        { "text": "Eyes on the kernel", "time": 107.5 },
+        { "text": "Eyes on the kernel", "time": 109.84 },
+        { "text": "Eyes on the kernel", "time": 111.78 },
+        { "text": "Light in the code", "time": 113.48 },
+        { "text": "Eyes on the kernel", "time": 115.84 },
+        { "text": "Eyes on the kernel", "time": 117.56 },
+        { "text": "Eyes on the kernel", "time": 119.5 },
+        { "text": "Eyes on the kernel", "time": 121.5 },
+        { "text": "Eyes on the kernel", "time": 123.5 },
+        { "text": "Eyes on the kernel", "time": 125.58 },
+        { "text": "Eyes on the kernel", "time": 127.18 },
+        { "text": "Eyes on the kernel", "time": 142.22 },
+        { "text": "Eyes on the kernel", "time": 146.14 },
+        { "section": "Final Chorus" },
+        { "text": "Eyes on the kernel, light in the code", "time": 181.26 },
+        { "text": "Finding the cracks before they explode", "time": 196.24 },
+        { "text": "Eyes on the kernel, light in the code", "time": 200.62 },
+        { "text": "Finding the cracks before they explode", "time": 204.9 },
+        { "text": "AI finds the flaws before things go wrong", "time": 207.84 },
+        { "text": "FreeBSD guarded all night long", "time": 211.84 },
+        { "section": "Outro" },
+        { "text": "Keep pushing forward, go Pierre!", "time": 215.68 },
+        { "text": "Keep pushing forward, go Pierre!", "time": 219.5 },
+        { "text": "Keep pushing forward, go Pierre!", "time": 223.4 },
+        { "text": "Eyes on the kernel", "time": 227.3 },
+        { "text": "Go Pierre!", "time": 229.68 }
+      ]
     }
   ]
 }

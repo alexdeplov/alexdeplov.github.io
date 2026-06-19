@@ -7,13 +7,57 @@ featured = false
 author = "Alexander Deplov"
 tags = ["FreeBSD", "music"]
 headingAnchors = true
+audioTitleCopyLinks = true
 aliases = ["/blog/2026/the-freebsd-soundtrack-collection/"]
 +++
 
 This is my FreeBSD music collection. It consists of songs inspired by FreeBSD releases, experiments, and desktop and server experiences that have become part of everyday life. It was built using Suno AI and then tweaked and polished each one.
 
+---
 
-## FreeBSD 15.1-RELEASE Song
+## "Eyes on the FreeBSD Kernel" Song
+
+Context: the source of inspiration for that song become a six month [project](https://alpha-omega.dev/blog/freebsd-ai-assisted-vulnerability-discovery-project-launch/) that uses AI assisted analysis and security researchers to find, verify, and help fix vulnerabilities in the FreeBSD kernel and userland before they can be exploited.
+
+{{< audio-block src="/audio/Eyes-on-the-Kernel-by-Sashka-Echo.mp3" img="/audio/eyes-on-the-kernel-cover.jpg" song_name="Eyes on the Kernel" lyrics_json="/audio/freebsd-music-collection-lyrics.json" >}}
+
+### Chorus
+Eyes on the kernel, light in the code<br/>
+Finding the cracks before they explode<br/>
+AI finds the flaws before things go wrong<br/>
+FreeBSD guarded all night long<br/>
+
+### Outro
+Keep pushing forward, go Pierre!
+
+### Repeating Hook
+Eyes on the kernel<br/>
+Eyes on the kernel<br/>
+Eyes on the kernel<br/>
+Light in the code<br/>
+
+### Final Chorus
+Eyes on the kernel, light in the code<br/>
+Finding the cracks before they explode<br/>
+Eyes on the kernel, light in the code<br/>
+Finding the cracks before they explode<br/>
+AI finds the flaws before things go wrong<br/>
+FreeBSD guarded all night long<br/>
+
+### Outro
+Keep pushing forward, go Pierre!<br/>
+Keep pushing forward, go Pierre!<br/>
+Keep pushing forward, go Pierre!<br/>
+Eyes on the kernel<br/>
+Go Pierre!
+
+{{< /audio-block >}}
+
+---
+
+## "FreeBSD 15.1-RELEASE" Song
+
+Context: the song is inpired by FreeBSD 15.1-RELEASE. A significant milestone for the project, delivering major improvements in hardware support, virtualization, performance, and overall system reliability.
 
 {{< audio-block src="/audio/FreeBSD_15.1-RELEASE.mp3" img="/audio/freebsd-15.1-release-cover.png" song_name="FreeBSD 15.1-RELEASE" lyrics_json="/audio/freebsd-music-collection-lyrics.json" >}}
 
@@ -95,7 +139,9 @@ the future boots from where we are.
 
 ---
 
-## FreeBSD 14.3-RC1 Song
+## "FreeBSD 14.3-RC1" Song
+
+Context: inspired by the FreeBSD Foundation news about final release candidate before FreeBSD 14.3.
 
 {{< audio-block src="/audio/FreeBSD-14.3-RC1.mp3" img="/audio/freebsd-14.3-rc1-cover.jpg" song_name="FreeBSD 14.3-RC1" lyrics_json="/audio/freebsd-music-collection-lyrics.json" >}}
 

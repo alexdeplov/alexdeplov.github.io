@@ -1,7 +1,9 @@
 {{ $songName := or .songName (index . "song_name") .title (.src | path.Base) }}
+{{ $songAnchor := printf "song-%s" ($songName | anchorize) }}
+{{ $copyTitleLink := .copyTitleLink }}
 
-<div class="mt-4 audio-player text-black rounded-xl p-6 min-h-[320px] relative overflow-hidden flex items-center"
-  data-audio-src="{{ .src }}" data-lyrics-src="{{ .lyricsJson }}" data-song-name="{{ $songName }}" style="background-color: #f6f6f6;">
+<div id="{{ $songAnchor }}" class="mt-4 audio-player{{ if .lyrics }} audio-player-with-lyrics{{ end }} text-black rounded-xl p-6 min-h-[320px] relative overflow-hidden flex items-center"
+  data-audio-src="{{ .src }}" data-lyrics-src="{{ .lyricsJson }}" data-song-name="{{ $songName }}" style="background-color: var(--audio-player-bg, #f6f6f6);">
 
   <!-- Hidden audio player -->
   <audio class="audio-element hidden" preload="metadata">
@@ -17,133 +19,325 @@
       role="button" tabindex="0" aria-label="Play or pause audio">
 
       <img class="cover-art block h-full w-full object-cover !mt-0" src="{{ .img }}" alt="">
-
-      <div class="absolute inset-0 flex items-center justify-center bg-black bg-opacity-10">
-        <div class="play-button-container relative h-16 w-16 shrink-0 rounded-full backdrop-blur-md">
-          <!-- Button background: below progress ring, scales on hover -->
-          <div
-            class="play-button-bg is-image-bg pointer-events-none absolute inset-0 z-0 rounded-full bg-black bg-opacity-25 transition-transform transition-colors duration-300 ease-in-out">
-          </div>
-
-          <!-- Circular Progress SVG: above dark background -->
-          <svg class="circular-progress pointer-events-none absolute left-0 top-0 z-20 h-16 w-16 -rotate-90"
-            viewBox="0 0 100 100">
-            <circle class="progress-bg" cx="50" cy="50" r="46"
-              stroke="{{ if .img }}rgba(255, 255, 255, 0.28){{ else }}rgba(0, 0, 0, 0.1){{ end }}" stroke-width="4"
-              fill="none" />
-
-            <circle class="progress-indicator" cx="50" cy="50" r="46"
-              stroke="{{ if .img }}white{{ else }}#3B82F6{{ end }}" stroke-width="4" stroke-dasharray="289.027"
-              stroke-dashoffset="289.027" fill="none" />
-          </svg>
-
-          <!-- Play Button: keeps original hover:scale-110 group behavior -->
-          <div
-            class="play-button relative z-30 flex h-16 w-16 cursor-pointer items-center justify-center rounded-full bg-transparent transition-transform duration-300 ease-in-out hover:scale-110 group">
-            <div class="flex transition-transform duration-100 ease-in-out group-hover:scale-110">
-              <svg class="play-icon ml-1" width="28" height="29" viewBox="0 0 23 24" fill="none"
-                xmlns="http://www.w3.org/2000/svg">
-                <path
-                  d="M4.86328 17.0763V5.73008C4.86328 4.67612 5.98644 4.00223 6.9164 4.49821L17.5535 10.1713C18.539 10.6969 18.539 12.1095 17.5535 12.6351L6.9164 18.3082C5.98643 18.8042 4.86328 18.1303 4.86328 17.0763Z"
-                  fill="{{ if .img }}white{{ else }}black{{ end }}" />
-              </svg>
-
-              <svg class="pause-icon hidden" width="18" height="29" viewBox="0 0 24 25" fill="none"
-                xmlns="http://www.w3.org/2000/svg">
-                <path
-                  d="M4.78357 0.535156C5.95923 0.535156 6.54733 0.534895 6.99646 0.763672C7.39159 0.965003 7.7131 1.28651 7.91443 1.68164C8.14331 2.13085 8.14294 2.71942 8.14294 3.89551V21.1748C8.14294 22.3509 8.14331 22.9395 7.91443 23.3887C7.71311 23.7837 7.39146 24.1044 6.99646 24.3057C6.54731 24.5345 5.95936 24.5352 4.78357 24.5352H3.70349C2.5274 24.5352 1.93883 24.5345 1.48962 24.3057C1.09466 24.1044 0.772953 23.7836 0.571655 23.3887C0.342772 22.9395 0.34314 22.3509 0.34314 21.1748V3.89551C0.34314 2.71947 0.342806 2.13084 0.571655 1.68164C0.772987 1.28651 1.09449 0.965003 1.48962 0.763672C1.93883 0.534803 2.52742 0.535156 3.70349 0.535156H4.78357ZM19.7015 0.535156C20.8772 0.535156 21.4653 0.534925 21.9144 0.763672C22.3096 0.964998 22.6311 1.28652 22.8324 1.68164C23.0613 2.13085 23.0609 2.71941 23.0609 3.89551V21.1748C23.0609 22.3509 23.0613 22.9395 22.8324 23.3887C22.6311 23.7837 22.3094 24.1044 21.9144 24.3057C21.4653 24.5345 20.8774 24.5352 19.7015 24.5352H18.6215C17.4454 24.5352 16.8568 24.5345 16.4076 24.3057C16.0126 24.1043 15.6909 23.7836 15.4896 23.3887C15.2607 22.9395 15.2611 22.3509 15.2611 21.1748V3.89551C15.2611 2.7195 15.2608 2.13084 15.4896 1.68164C15.6909 1.28652 16.0125 0.965005 16.4076 0.763672C16.8568 0.534789 17.4454 0.535156 18.6215 0.535156H19.7015Z"
-                  fill="{{ if .img }}white{{ else }}black{{ end }}" />
-              </svg>
-            </div>
-          </div>
-        </div>
-      </div>
-    </div>
-    {{ else }}
-    <div class="play-button-container relative mx-auto h-16 w-16 shrink-0 rounded-full backdrop-blur-md">
-      <!-- Button background: below progress ring, scales on hover -->
-      <div
-        class="play-button-bg pointer-events-none absolute inset-0 z-0 rounded-full bg-blue-50 transition-transform duration-300 ease-in-out">
-      </div>
-
-      <!-- Circular Progress SVG: above button background -->
-      <svg class="circular-progress pointer-events-none absolute left-0 top-0 z-20 h-16 w-16 -rotate-90"
-        viewBox="0 0 100 100">
-        <circle class="progress-bg" cx="50" cy="50" r="46" stroke="rgba(0, 0, 0, 0.1)" stroke-width="4" fill="none" />
-        <circle class="progress-indicator" cx="50" cy="50" r="46" stroke="#3B82F6" stroke-width="4"
-          stroke-dasharray="289.027" stroke-dashoffset="289.027" fill="none" />
-      </svg>
-
-      <!-- Play Button: keeps original hover:scale-110 group behavior -->
-      <div
-        class="play-button relative z-30 flex h-16 w-16 cursor-pointer items-center justify-center rounded-full bg-transparent transition-transform duration-300 ease-in-out hover:scale-110 group">
-        <div class="flex transition-transform duration-100 ease-in-out group-hover:scale-110">
-          <svg class="play-icon ml-1" width="28" height="29" viewBox="0 0 23 24" fill="none"
-            xmlns="http://www.w3.org/2000/svg">
-            <path
-              d="M4.86328 17.0763V5.73008C4.86328 4.67612 5.98644 4.00223 6.9164 4.49821L17.5535 10.1713C18.539 10.6969 18.539 12.1095 17.5535 12.6351L6.9164 18.3082C5.98643 18.8042 4.86328 18.1303 4.86328 17.0763Z"
-              fill="black" />
-          </svg>
-
-          <svg class="pause-icon hidden" width="18" height="29" viewBox="0 0 24 25" fill="none"
-            xmlns="http://www.w3.org/2000/svg">
-            <path
-              d="M4.78357 0.535156C5.95923 0.535156 6.54733 0.534895 6.99646 0.763672C7.39159 0.965003 7.7131 1.28651 7.91443 1.68164C8.14331 2.13085 8.14294 2.71942 8.14294 3.89551V21.1748C8.14294 22.3509 8.14331 22.9395 7.91443 23.3887C7.71311 23.7837 7.39146 24.1044 6.99646 24.3057C6.54731 24.5345 5.95936 24.5352 4.78357 24.5352H3.70349C2.5274 24.5352 1.93883 24.5345 1.48962 24.3057C1.09466 24.1044 0.772953 23.7836 0.571655 23.3887C0.342772 22.9395 0.34314 22.3509 0.34314 21.1748V3.89551C0.34314 2.71947 0.342806 2.13084 0.571655 1.68164C0.772987 1.28651 1.09449 0.965003 1.48962 0.763672C1.93883 0.534803 2.52742 0.535156 3.70349 0.535156H4.78357ZM19.7015 0.535156C20.8772 0.535156 21.4653 0.534925 21.9144 0.763672C22.3096 0.964998 22.6311 1.28652 22.8324 1.68164C23.0613 2.13085 23.0609 2.71941 23.0609 3.89551V21.1748C23.0609 22.3509 23.0613 22.9395 22.8324 23.3887C22.6311 23.7837 22.3094 24.1044 21.9144 24.3057C21.4653 24.5345 20.8774 24.5352 19.7015 24.5352H18.6215C17.4454 24.5352 16.8568 24.5345 16.4076 24.3057C16.0126 24.1043 15.6909 23.7836 15.4896 23.3887C15.2607 22.9395 15.2611 22.3509 15.2611 21.1748V3.89551C15.2611 2.7195 15.2608 2.13084 15.4896 1.68164C15.6909 1.28652 16.0125 0.965005 16.4076 0.763672C16.8568 0.534789 17.4454 0.535156 18.6215 0.535156H19.7015Z"
-              fill="black" />
-          </svg>
-        </div>
-      </div>
+      <button class="cover-info-button" type="button" aria-label="Open cover art" title="Open cover art" data-cover-src="{{ .img }}" data-cover-title="{{ $songName }}">
+        <span aria-hidden="true">i</span>
+      </button>
+      <button class="cover-play-button" type="button" aria-label="Play audio" title="Play">
+        <svg class="cover-play-icon" width="20" height="20" viewBox="0 0 23 24" fill="none"
+          xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+          <path
+            d="M4.86328 17.0763V5.73008C4.86328 4.67612 5.98644 4.00223 6.9164 4.49821L17.5535 10.1713C18.539 10.6969 18.539 12.1095 17.5535 12.6351L6.9164 18.3082C5.98643 18.8042 4.86328 18.1303 4.86328 17.0763Z"
+            fill="currentColor" />
+        </svg>
+        <svg class="cover-pause-icon hidden" width="14" height="18" viewBox="0 0 24 25" fill="none"
+          xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+          <path
+            d="M4.78357 0.535156C5.95923 0.535156 6.54733 0.534895 6.99646 0.763672C7.39159 0.965003 7.7131 1.28651 7.91443 1.68164C8.14331 2.13085 8.14294 2.71942 8.14294 3.89551V21.1748C8.14294 22.3509 8.14331 22.9395 7.91443 23.3887C7.71311 23.7837 7.39146 24.1044 6.99646 24.3057C6.54731 24.5345 5.95936 24.5352 4.78357 24.5352H3.70349C2.5274 24.5352 1.93883 24.5345 1.48962 24.3057C1.09466 24.1044 0.772953 23.7836 0.571655 23.3887C0.342772 22.9395 0.34314 22.3509 0.34314 21.1748V3.89551C0.34314 2.71947 0.342806 2.13084 0.571655 1.68164C0.772987 1.28651 1.09449 0.965003 1.48962 0.763672C1.93883 0.534803 2.52742 0.535156 3.70349 0.535156H4.78357ZM19.7015 0.535156C20.8772 0.535156 21.4653 0.534925 21.9144 0.763672C22.3096 0.964998 22.6311 1.28652 22.8324 1.68164C23.0613 2.13085 23.0609 2.71941 23.0609 3.89551V21.1748C23.0609 22.3509 23.0613 22.9395 22.8324 23.3887C22.6311 23.7837 22.3094 24.1044 21.9144 24.3057C21.4653 24.5345 20.8774 24.5352 19.7015 24.5352H18.6215C17.4454 24.5352 16.8568 24.5345 16.4076 24.3057C16.0126 24.1043 15.6909 23.7836 15.4896 23.3887C15.2607 22.9395 15.2611 22.3509 15.2611 21.1748V3.89551C15.2611 2.7195 15.2608 2.13084 15.4896 1.68164C15.6909 1.28652 16.0125 0.965005 16.4076 0.763672C16.8568 0.534789 17.4454 0.535156 18.6215 0.535156H19.7015Z"
+            fill="currentColor" />
+        </svg>
+      </button>
     </div>
     {{ end }}
 
-      <div class="audio-track-meta mt-3 min-w-0 text-center leading-[1.2]">
-        <a class="block text-sm font-semibold hover:underline" href="{{ .src }}" download>
-          {{ $songName }}
-        </a>
-
-        <div class="mt-1 text-xs font-medium text-zinc-700 opacity-70">
-          Sashka Echo &bull; Suno AI
-        </div>
-      </div>
-
-      <input class="seekbar audio-seekbar" type="range" min="0" max="100" value="0" step="0.1" aria-label="Seek audio">
-
-      <div class="audio-time-indicator mt-1 flex justify-between text-xs font-medium tabular-nums text-zinc-700" aria-live="off">
-        <span class="audio-time-left">0:00</span>
-        <span class="audio-time-total">0:00</span>
-      </div>
     </div>
 
     {{ with .lyrics }}
-    <div class="audio-lyrics min-w-0 flex-1 text-left">
-      <div class="audio-lyrics-scroll">
-        {{ . | safeHTML }}
+    <div class="audio-lyrics-panel min-w-0 text-left">
+      <div class="audio-lyrics">
+        <div class="audio-lyrics-scroll">
+          {{ . | safeHTML }}
+        </div>
       </div>
+
     </div>
     {{ end }}
+  </div>
+
+  <div class="audio-toolbar">
+    <div class="audio-track-meta audio-toolbar-meta min-w-0 leading-[1.2]">
+      <a class="block text-sm font-semibold hover:underline{{ if $copyTitleLink }} audio-title-copy-link{{ end }}"
+        href="{{ if $copyTitleLink }}#{{ $songAnchor }}{{ else }}{{ .src }}{{ end }}"
+        {{ if $copyTitleLink }}data-audio-title-copy-link="true"{{ else }}download{{ end }}>
+        {{ $songName }}
+      </a>
+
+      <div class="mt-1 text-xs font-medium text-zinc-700 opacity-70">
+        Sashka Echo &bull; Suno AI
+      </div>
+    </div>
+
+    <div class="audio-transport audio-toolbar-transport">
+      <div class="audio-transport-row audio-time-indicator" aria-live="off">
+        <button class="audio-control-button play-button" type="button" aria-label="Play audio" title="Play">
+          <svg class="play-icon" width="17" height="18" viewBox="0 0 23 24" fill="none"
+            xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+            <path
+              d="M4.86328 17.0763V5.73008C4.86328 4.67612 5.98644 4.00223 6.9164 4.49821L17.5535 10.1713C18.539 10.6969 18.539 12.1095 17.5535 12.6351L6.9164 18.3082C5.98643 18.8042 4.86328 18.1303 4.86328 17.0763Z"
+              fill="currentColor" />
+          </svg>
+
+          <svg class="pause-icon hidden" width="14" height="18" viewBox="0 0 24 25" fill="none"
+            xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+            <path
+              d="M4.78357 0.535156C5.95923 0.535156 6.54733 0.534895 6.99646 0.763672C7.39159 0.965003 7.7131 1.28651 7.91443 1.68164C8.14331 2.13085 8.14294 2.71942 8.14294 3.89551V21.1748C8.14294 22.3509 8.14331 22.9395 7.91443 23.3887C7.71311 23.7837 7.39146 24.1044 6.99646 24.3057C6.54731 24.5345 5.95936 24.5352 4.78357 24.5352H3.70349C2.5274 24.5352 1.93883 24.5345 1.48962 24.3057C1.09466 24.1044 0.772953 23.7836 0.571655 23.3887C0.342772 22.9395 0.34314 22.3509 0.34314 21.1748V3.89551C0.34314 2.71947 0.342806 2.13084 0.571655 1.68164C0.772987 1.28651 1.09449 0.965003 1.48962 0.763672C1.93883 0.534803 2.52742 0.535156 3.70349 0.535156H4.78357ZM19.7015 0.535156C20.8772 0.535156 21.4653 0.534925 21.9144 0.763672C22.3096 0.964998 22.6311 1.28652 22.8324 1.68164C23.0613 2.13085 23.0609 2.71941 23.0609 3.89551V21.1748C23.0609 22.3509 23.0613 22.9395 22.8324 23.3887C22.6311 23.7837 22.3094 24.1044 21.9144 24.3057C21.4653 24.5345 20.8774 24.5352 19.7015 24.5352H18.6215C17.4454 24.5352 16.8568 24.5345 16.4076 24.3057C16.0126 24.1043 15.6909 23.7836 15.4896 23.3887C15.2607 22.9395 15.2611 22.3509 15.2611 21.1748V3.89551C15.2611 2.7195 15.2608 2.13084 15.4896 1.68164C15.6909 1.28652 16.0125 0.965005 16.4076 0.763672C16.8568 0.534789 17.4454 0.535156 18.6215 0.535156H19.7015Z"
+              fill="currentColor" />
+          </svg>
+        </button>
+
+        <span class="audio-time-value audio-time-left">0:00</span>
+        <input class="seekbar audio-seekbar" type="range" min="0" max="100" value="0" step="0.1" aria-label="Seek audio">
+        <span class="audio-time-value audio-time-total">0:00</span>
+
+        <button class="audio-control-button repeat-button is-repeat-all" type="button" data-repeat-mode="all" aria-label="Repeat all" aria-pressed="true" title="Repeat all">
+          <svg class="repeat-icon repeat-icon-all" viewBox="0 0 24 24" fill="none" aria-hidden="true">
+            <path d="M17 2L21 6L17 10" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" />
+            <path d="M3 11V10C3 7.79086 4.79086 6 7 6H21" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" />
+            <path d="M7 22L3 18L7 14" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" />
+            <path d="M21 13V14C21 16.2091 19.2091 18 17 18H3" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" />
+          </svg>
+          <svg class="repeat-icon repeat-icon-one hidden" viewBox="0 0 24 24" fill="none" aria-hidden="true">
+            <path d="M17 2L21 6L17 10" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" />
+            <path d="M3 11V10C3 7.79086 4.79086 6 7 6H21" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" />
+            <path d="M7 22L3 18L7 14" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" />
+            <path d="M21 13V14C21 16.2091 19.2091 18 17 18H3" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" />
+            <text x="12" y="15.5" text-anchor="middle" font-size="8" font-weight="700" fill="currentColor">1</text>
+          </svg>
+          <svg class="repeat-icon repeat-icon-off hidden" viewBox="0 0 24 24" fill="none" aria-hidden="true">
+            <path d="M17 2L21 6L17 10" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" />
+            <path d="M3 11V10C3 7.79086 4.79086 6 7 6H21" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" />
+            <path d="M7 22L3 18L7 14" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" />
+            <path d="M21 13V14C21 16.2091 19.2091 18 17 18H3" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" />
+            <path d="M4 4L20 20" stroke="currentColor" stroke-width="2" stroke-linecap="round" />
+          </svg>
+        </button>
+
+        <button class="audio-control-button audio-link-button" type="button" aria-label="Copy link to {{ $songName }}" title="Copy link">
+          <svg class="audio-link-icon" aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <path d="M9 17H7A5 5 0 0 1 7 7h2"></path>
+            <path d="M15 7h2a5 5 0 0 1 0 10h-2"></path>
+            <line x1="8" y1="12" x2="16" y2="12"></line>
+          </svg>
+        </button>
+      </div>
+    </div>
   </div>
 
 </div>
 
 <style>
   .audio-player {
+    --audio-player-bg: #f6f6f6;
+    --audio-player-bg-transparent: rgba(246, 246, 246, 0);
+    --audio-toolbar-bg: #eeeeee;
+    --audio-text: #18181b;
+    --audio-muted-text: #3f3f46;
+    --audio-lyrics-text: rgba(24, 24, 27, 0.74);
+    --audio-lyrics-heading-text: rgba(24, 24, 27, 0.46);
+    --audio-lyrics-line-text: rgba(24, 24, 27, 0.92);
+    --audio-lyrics-line-hover-text: rgba(24, 24, 27, 0.82);
+    --audio-control-text: #000;
+    --audio-control-hover-bg: rgba(24, 24, 27, 0.08);
+    --audio-control-disabled-text: rgba(24, 24, 27, 0.36);
+    --audio-cover-overlay-bg: rgba(0, 0, 0, 0.16);
+    --audio-cover-button-bg: rgba(255, 255, 255, 0.94);
+    --audio-cover-button-hover-bg: #fff;
+    --audio-cover-button-text: #18181b;
+    --audio-cover-info-bg: rgba(255, 255, 255, 0.14);
+    --audio-cover-info-hover-bg: rgba(255, 255, 255, 0.22);
+    --audio-cover-info-text: #fff;
+    --audio-cover-border: rgba(255, 255, 255, 0.15);
+    --audio-track-bg: rgba(24, 24, 27, 0.16);
+    --audio-track-fill: rgba(24, 24, 27, 0.9);
+    --audio-focus-ring: rgba(24, 24, 27, 0.55);
+
     box-sizing: border-box;
+    align-items: stretch;
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+    justify-content: center;
+    scroll-margin-top: 1.5rem;
     width: 100%;
-    color: #18181b;
+    color: var(--audio-text);
+  }
+
+  .content .audio-player {
+    margin-top: 3rem;
+  }
+
+  @media (prefers-color-scheme: dark) {
+    .audio-player {
+      --audio-player-bg: #1f1f24;
+      --audio-player-bg-transparent: rgba(31, 31, 36, 0);
+      --audio-toolbar-bg: #29292f;
+      --audio-text: #f4f4f5;
+      --audio-muted-text: #a1a1aa;
+      --audio-lyrics-text: rgba(244, 244, 245, 0.72);
+      --audio-lyrics-heading-text: rgba(244, 244, 245, 0.48);
+      --audio-lyrics-line-text: rgba(244, 244, 245, 0.9);
+      --audio-lyrics-line-hover-text: rgba(244, 244, 245, 0.78);
+      --audio-control-text: #f4f4f5;
+      --audio-control-hover-bg: rgba(255, 255, 255, 0.1);
+      --audio-control-disabled-text: rgba(244, 244, 245, 0.34);
+      --audio-cover-overlay-bg: rgba(0, 0, 0, 0.28);
+      --audio-cover-button-bg: rgba(24, 24, 28, 0.92);
+      --audio-cover-button-hover-bg: #27272f;
+      --audio-cover-button-text: #f4f4f5;
+      --audio-cover-info-bg: rgba(0, 0, 0, 0.28);
+      --audio-cover-info-hover-bg: rgba(0, 0, 0, 0.42);
+      --audio-cover-info-text: #fff;
+      --audio-cover-border: rgba(255, 255, 255, 0.1);
+      --audio-track-bg: rgba(244, 244, 245, 0.2);
+      --audio-track-fill: rgba(244, 244, 245, 0.92);
+      --audio-focus-ring: rgba(244, 244, 245, 0.68);
+    }
   }
 
   .audio-content {
+    justify-content: flex-start;
     min-height: 260px;
   }
 
   .audio-visual-controls {
-    width: 170px;
+    width: 240px;
+    max-width: 100%;
   }
 
   .cover-art-wrap {
     width: 170px;
     height: 170px;
-    margin: 0 auto;
+    margin: 0;
+  }
+
+  .cover-art-wrap::before {
+    background: var(--audio-cover-overlay-bg);
+    content: "";
+    inset: 0;
+    opacity: 0;
+    pointer-events: none;
+    position: absolute;
+    transition: opacity 160ms ease;
+    z-index: 35;
+  }
+
+  .cover-art-wrap:hover::before,
+  .cover-art-wrap:focus-within::before {
+    opacity: 1;
+  }
+
+  .cover-info-button,
+  .cover-play-button {
+    -webkit-tap-highlight-color: transparent;
+    align-items: center;
+    background: var(--audio-cover-button-bg);
+    border: 0;
+    border-radius: 999px;
+    box-shadow: 0 1px 5px rgba(0, 0, 0, 0.18);
+    color: var(--audio-cover-button-text);
+    cursor: pointer;
+    display: inline-flex;
+    opacity: 0;
+    pointer-events: none;
+    position: absolute;
+    transition: background-color 140ms ease, opacity 140ms ease, transform 140ms ease;
+    z-index: 50;
+  }
+
+  .cover-info-button {
+    background: var(--audio-cover-info-bg);
+    box-shadow: none;
+    color: var(--audio-cover-info-text);
+    font: inherit;
+    font-size: 13px;
+    font-weight: 700;
+    height: 26px;
+    justify-content: center;
+    line-height: 1;
+    padding: 0;
+    right: 9px;
+    top: 9px;
+    transform: translateY(-2px) scale(0.96);
+    width: 26px;
+  }
+
+  .cover-play-button {
+    height: 42px;
+    justify-content: center;
+    left: 50%;
+    padding: 0;
+    top: 50%;
+    transform: translate(-50%, -50%) scale(0.92);
+    width: 42px;
+  }
+
+  .cover-play-button svg {
+    flex: 0 0 auto;
+    pointer-events: none;
+  }
+
+  .cover-play-button svg.hidden {
+    display: none;
+  }
+
+  .cover-play-button .cover-play-icon {
+    height: 28px;
+    margin-left: 2px;
+    width: 28px;
+  }
+
+  .cover-play-button .cover-pause-icon {
+    height: 18px;
+    width: 14px;
+  }
+
+  .cover-art-wrap:hover .cover-info-button,
+  .cover-art-wrap:focus-within .cover-info-button,
+  .cover-art-wrap:hover .cover-play-button,
+  .cover-art-wrap:focus-within .cover-play-button {
+    opacity: 1;
+    pointer-events: auto;
+  }
+
+  .cover-art-wrap:hover .cover-info-button,
+  .cover-art-wrap:focus-within .cover-info-button {
+    transform: none;
+  }
+
+  .cover-art-wrap:hover .cover-play-button,
+  .cover-art-wrap:focus-within .cover-play-button {
+    transform: translate(-50%, -50%) scale(1);
+  }
+
+  .cover-info-button:hover,
+  .cover-info-button:focus-visible {
+    background: var(--audio-cover-info-hover-bg);
+  }
+
+  .cover-play-button:hover,
+  .cover-play-button:focus-visible {
+    background: var(--audio-cover-button-hover-bg);
+  }
+
+  .cover-info-button:active {
+    transform: scale(0.94);
+  }
+
+  .cover-play-button:active {
+    transform: translate(-50%, -50%) scale(0.94);
+  }
+
+  .audio-player-with-lyrics .audio-content {
+    gap: 1.5rem;
+    justify-content: flex-start;
+  }
+
+  .audio-player-with-lyrics .audio-visual-controls {
+    width: 280px;
+  }
+
+  .audio-player-with-lyrics .cover-art-wrap {
+    width: 280px;
+    height: 280px;
   }
 
   .cover-art-wrap::after {
@@ -152,7 +346,7 @@
     inset: 0;
     z-index: 40;
     border-radius: inherit;
-    box-shadow: inset 0 0 0 1px rgba(255, 255, 255, 0.15);
+    box-shadow: inset 0 0 0 1px var(--audio-cover-border);
     pointer-events: none;
   }
 
@@ -161,7 +355,7 @@
   }
 
   .audio-track-meta a {
-    color: #18181b;
+    color: var(--audio-text);
     overflow-wrap: anywhere;
     text-decoration: none;
     text-underline-offset: 0.16em;
@@ -174,12 +368,66 @@
     text-decoration: underline;
   }
 
+  .audio-toolbar {
+    align-items: center;
+    background: var(--audio-toolbar-bg);
+    display: flex;
+    gap: 0.5rem;
+    margin: auto -1.5rem -1.5rem;
+    padding: 0.875rem 1.5rem;
+    width: calc(100% + 3rem);
+  }
+
+  .audio-toolbar-meta {
+    flex: 0 1 180px;
+  }
+
+  .audio-toolbar-meta .text-zinc-700 {
+    color: var(--audio-muted-text);
+  }
+
+  .audio-toolbar-transport {
+    flex: 1 1 320px;
+    margin-top: 0;
+    min-width: 0;
+  }
+
+  .audio-lyrics-panel {
+    --audio-lyrics-height: 250px;
+    flex: 0 1 360px;
+    max-width: 360px;
+    width: 100%;
+  }
+
   .audio-lyrics {
-    color: rgba(24, 24, 27, 0.74);
+    color: var(--audio-lyrics-text);
+    position: relative;
+  }
+
+  .audio-lyrics::before,
+  .audio-lyrics::after {
+    content: "";
+    height: 2.25rem;
+    left: 0;
+    pointer-events: none;
+    position: absolute;
+    right: 0.75rem;
+    z-index: 2;
+  }
+
+  .audio-lyrics::before {
+    background: linear-gradient(to bottom, var(--audio-player-bg, #f6f6f6), var(--audio-player-bg-transparent, rgba(246, 246, 246, 0)));
+    top: 0;
+  }
+
+  .audio-lyrics::after {
+    background: linear-gradient(to top, var(--audio-player-bg, #f6f6f6), var(--audio-player-bg-transparent, rgba(246, 246, 246, 0)));
+    bottom: 0;
   }
 
   .audio-lyrics-scroll {
-    max-height: 250px;
+    height: var(--audio-lyrics-height);
+    max-height: var(--audio-lyrics-height);
     overflow-y: auto;
     padding-right: 0.75rem;
     font-size: 1rem;
@@ -193,7 +441,7 @@
 
   .audio-lyrics-scroll h3 {
     margin: 1.1rem 0 0.4rem 0;
-    color: rgba(24, 24, 27, 0.46);
+    color: var(--audio-lyrics-heading-text);
     font-size: 0.9rem;
     font-weight: 500;
     line-height: 1.25;
@@ -205,7 +453,7 @@
 
   .synced-lyrics-section {
     margin: 1.1rem 0 0.4rem 0;
-    color: rgba(24, 24, 27, 0.46);
+    color: var(--audio-lyrics-heading-text);
     font-size: 0.9rem;
     font-weight: 500;
     letter-spacing: 0;
@@ -216,7 +464,7 @@
     width: 100%;
     border: 0;
     background: transparent;
-    color: rgba(24, 24, 27, 0.92);
+    color: var(--audio-lyrics-line-text);
     cursor: pointer;
     padding: 0.22rem 0;
     text-align: left;
@@ -227,7 +475,7 @@
 
   .synced-lyrics-line:hover,
   .synced-lyrics-line:focus-visible {
-    color: rgba(24, 24, 27, 0.82);
+    color: var(--audio-lyrics-line-hover-text);
     outline: none;
   }
 
@@ -239,35 +487,141 @@
     transform: none;
   }
 
-  .play-button-bg {
-    transform: scale(1);
+  .play-button {
+    opacity: 1;
   }
 
-  .play-button-container:hover .play-button-bg {
-    transform: scale(1.1);
+  .audio-control-button svg {
+    filter: none;
+    flex: 0 0 auto;
+    pointer-events: none;
   }
 
-  .play-button-container:hover .play-button-bg.is-image-bg {
-    --tw-bg-opacity: 0.4;
+  .audio-control-button svg:not(.hidden) {
+    display: block;
+  }
+
+  .audio-control-button svg.hidden {
+    display: none;
+  }
+
+  .audio-transport {
+    --audio-control-gap: 0.5rem;
+    --audio-control-size: 36px;
+    --audio-time-width: 6ch;
+    margin-top: 0;
+  }
+
+  .audio-transport-row {
+    align-items: center;
+    display: flex;
+    gap: var(--audio-control-gap);
+    min-height: var(--audio-control-size);
+    width: 100%;
+  }
+
+  .audio-control-button {
+    -webkit-tap-highlight-color: transparent;
+    appearance: none;
+    align-items: center;
+    background: transparent;
+    border: 0;
+    border-radius: 999px;
+    box-shadow: none;
+    color: var(--audio-control-text);
+    cursor: pointer;
+    display: inline-flex;
+    flex: 0 0 var(--audio-control-size);
+    height: var(--audio-control-size);
+    justify-content: center;
+    padding: 0;
+    transition: background-color 140ms ease, color 140ms ease, transform 100ms ease;
+    width: var(--audio-control-size);
+  }
+
+  .audio-control-button:hover,
+  .audio-control-button:focus-visible {
+    background: var(--audio-control-hover-bg);
+  }
+
+  .audio-control-button:active {
+    transform: scale(0.96);
+  }
+
+  .repeat-button[data-repeat-mode="off"] {
+    color: var(--audio-control-disabled-text);
+  }
+
+  .repeat-icon {
+    height: 18px;
+    width: 18px;
+  }
+
+  .audio-link-icon {
+    height: 18px;
+    stroke: currentColor;
+    width: 18px;
+  }
+
+  .audio-link-button.is-copied {
+    color: var(--accent-orange, #f46c04);
+  }
+
+  .audio-control-button .play-icon {
+    height: 26px;
+    margin-left: 2px;
+    width: 26px;
+  }
+
+  .audio-control-button .pause-icon {
+    height: 18px;
+    width: 16px;
   }
 
   .audio-seekbar {
     --progress: 0%;
-    --track-bg: rgba(24, 24, 27, 0.16);
-    --track-fill: rgba(24, 24, 27, 0.9);
+    --track-bg: var(--audio-track-bg);
+    --track-fill: var(--audio-track-fill);
 
     -webkit-appearance: none;
     appearance: none;
+    align-self: center;
     display: block;
+    flex: 1 1 auto;
+    height: var(--audio-control-size);
+    min-width: 0;
     width: 100%;
-    height: 14px;
-    margin: 16px 0 0 0;
+    margin: 0;
     cursor: pointer;
     background: transparent;
   }
 
   .audio-time-indicator {
     line-height: 1;
+  }
+
+  .audio-time-value {
+    align-items: center;
+    color: var(--audio-muted-text);
+    display: flex;
+    flex: 0 0 var(--audio-time-width);
+    font-size: 0.75rem;
+    font-variant-numeric: tabular-nums;
+    font-weight: 500;
+    height: var(--audio-control-size);
+    line-height: 1;
+    white-space: nowrap;
+    width: var(--audio-time-width);
+  }
+
+  .audio-time-left {
+    justify-content: flex-end;
+    text-align: right;
+  }
+
+  .audio-time-total {
+    justify-content: flex-start;
+    text-align: left;
   }
 
   .audio-seekbar::-webkit-slider-runnable-track {
@@ -311,8 +665,10 @@
 
   .audio-seekbar:focus-visible,
   .cover-art-wrap:focus-visible,
-  .play-button:focus-visible {
-    outline: 2px solid rgba(24, 24, 27, 0.55);
+  .cover-info-button:focus-visible,
+  .cover-play-button:focus-visible,
+  .audio-control-button:focus-visible {
+    outline: 2px solid var(--audio-focus-ring);
     outline-offset: 3px;
   }
 
@@ -322,13 +678,23 @@
       padding: 1.25rem;
     }
 
+    .audio-toolbar {
+      margin: auto -1.25rem -1.25rem;
+      padding: 0.75rem 1.25rem;
+      width: calc(100% + 2.5rem);
+    }
+
     .audio-content {
       gap: 1rem;
       min-height: 230px;
     }
 
+    .audio-player-with-lyrics .audio-content {
+      gap: 1rem;
+    }
+
     .audio-visual-controls {
-      width: 170px;
+      width: 240px;
     }
 
     .cover-art-wrap {
@@ -336,26 +702,78 @@
       height: 170px;
     }
 
-    .play-button-container,
-    .circular-progress,
-    .play-button {
-      width: 3.5rem;
-      height: 3.5rem;
+    .audio-player-with-lyrics .audio-visual-controls {
+      width: 280px;
+    }
+
+    .audio-player-with-lyrics .cover-art-wrap {
+      width: 280px;
+      height: 280px;
     }
 
     .audio-seekbar {
-      margin-top: 14px;
+      margin-top: 0;
     }
 
     .audio-lyrics-scroll {
+      height: 220px;
       max-height: 220px;
     }
 
   }
 
+  @media (max-width: 740px) {
+    .audio-player-with-lyrics .audio-content {
+      flex-direction: column;
+      align-items: center;
+    }
+
+    .audio-player-with-lyrics .audio-visual-controls {
+      max-width: 280px;
+      width: 100%;
+    }
+
+    .audio-player-with-lyrics .cover-art-wrap {
+      max-width: 100%;
+      width: 280px;
+      height: auto;
+      aspect-ratio: 1 / 1;
+    }
+
+    .audio-lyrics-panel {
+      flex: 0 1 auto;
+      align-self: stretch;
+      max-width: none;
+      text-align: left;
+      width: 100%;
+    }
+
+    .audio-toolbar {
+      align-items: stretch;
+      flex-direction: column;
+      gap: 0.7rem;
+    }
+
+    .audio-toolbar-meta,
+    .audio-toolbar-transport {
+      flex: 0 1 auto;
+      width: 100%;
+    }
+  }
+
   @media (max-width: 520px) {
     .audio-player {
       padding: 1rem;
+    }
+
+    .content .audio-player {
+      margin-top: 2.5rem;
+    }
+
+    .audio-toolbar {
+      margin: auto -1rem -1rem;
+      padding: 0.75rem 1rem;
+      width: calc(100% + 2rem);
     }
 
     .audio-content {
@@ -366,7 +784,7 @@
 
     .audio-visual-controls {
       width: 100%;
-      max-width: 170px;
+      max-width: 240px;
     }
 
     .cover-art-wrap {
@@ -380,13 +798,25 @@
       width: 100%;
     }
 
+    .audio-lyrics-panel {
+      --audio-lyrics-height: 220px;
+      align-self: stretch;
+      max-width: none;
+      text-align: left;
+      width: 100%;
+    }
+
     .audio-lyrics-scroll {
-      max-height: 220px;
       padding-right: 0.5rem;
     }
 
     .audio-seekbar {
-      margin-top: 14px;
+      margin-top: 0;
+    }
+
+    .audio-transport {
+      --audio-control-gap: 0.375rem;
+      --audio-time-width: 5.3ch;
     }
 
   }
@@ -395,19 +825,49 @@
 <!-- Script for audio player initialization -->
 <script>
   (function () {
-    // Find the most recently added audio player
-    const players = document.querySelectorAll('.audio-player');
-    const player = players[players.length - 1];
+    function getCurrentPlayer() {
+      const script = document.currentScript;
+
+      if (script) {
+        let node = script.previousElementSibling;
+
+        while (node) {
+          if (node.matches && node.matches('.audio-player')) {
+            return node;
+          }
+
+          node = node.previousElementSibling;
+        }
+      }
+
+      const players = document.querySelectorAll('.audio-player:not([data-audio-initialized])');
+      return players[players.length - 1] || null;
+    }
+
+    const player = getCurrentPlayer();
 
     if (!player) {
       return;
     }
 
+    if (player.dataset.audioInitialized === 'true') {
+      return;
+    }
+
+    player.dataset.audioInitialized = 'true';
+
     const audio = player.querySelector('.audio-element');
     const playBtn = player.querySelector('.play-button');
+    const repeatBtn = player.querySelector('.repeat-button');
+    const linkBtn = player.querySelector('.audio-link-button');
+    const titleCopyLink = player.querySelector('[data-audio-title-copy-link]');
     const coverArtWrap = player.querySelector('.cover-art-wrap');
+    const coverInfoBtn = player.querySelector('.cover-info-button');
+    const coverPlayBtn = player.querySelector('.cover-play-button');
     const playIcon = player.querySelector('.play-icon');
     const pauseIcon = player.querySelector('.pause-icon');
+    const coverPlayIcon = player.querySelector('.cover-play-icon');
+    const coverPauseIcon = player.querySelector('.cover-pause-icon');
     const progressIndicator = player.querySelector('.progress-indicator');
     const seekbar = player.querySelector('.seekbar');
     const timeIndicator = player.querySelector('.audio-time-indicator');
@@ -416,21 +876,25 @@
     const lyricsScroll = player.querySelector('.audio-lyrics-scroll');
     const lyricsSrc = player.dataset.lyricsSrc || '';
 
-    if (!audio || !playBtn || !playIcon || !pauseIcon || !progressIndicator) {
+    if (!audio || !playBtn || !playIcon || !pauseIcon) {
       return;
     }
 
     let isSeeking = false;
+    let ignoreNextSeekChange = false;
+    let lastSeekEventAt = 0;
+    let hasPlaybackStarted = false;
     let syncedLyricItems = [];
     let activeLyricIndex = -1;
 
-    // Calculate the circumference of the progress circle
-    const radius = parseFloat(progressIndicator.getAttribute('r'));
-    const circumference = 2 * Math.PI * radius;
+    let circumference = 0;
 
-    // Set the dash array to the circumference
-    progressIndicator.style.strokeDasharray = circumference;
-    progressIndicator.style.strokeDashoffset = circumference;
+    if (progressIndicator) {
+      const radius = parseFloat(progressIndicator.getAttribute('r'));
+      circumference = 2 * Math.PI * radius;
+      progressIndicator.style.strokeDasharray = circumference;
+      progressIndicator.style.strokeDashoffset = circumference;
+    }
 
     function getPath(value) {
       if (!value) {
@@ -444,6 +908,18 @@
       }
     }
 
+    function decodePath(value) {
+      try {
+        return decodeURIComponent(value);
+      } catch (error) {
+        return value;
+      }
+    }
+
+    function normalizeTrackKey(value) {
+      return decodePath(getPath(value)).replace(/\/{2,}/g, '/');
+    }
+
     function getCurrentTrackPath() {
       const src = player.dataset.audioSrc || audio.querySelector('source')?.getAttribute('src') || audio.currentSrc || '';
       return getPath(src);
@@ -454,9 +930,35 @@
         return null;
       }
 
-      const trackPath = getCurrentTrackPath();
+      const source = audio.querySelector('source');
+      const candidates = [
+        getCurrentTrackPath(),
+        player.dataset.audioSrc || '',
+        source ? source.getAttribute('src') || '' : '',
+        audio.currentSrc || '',
+      ];
 
-      return payload.tracks[trackPath] || payload.tracks[decodeURIComponent(trackPath)] || null;
+      for (const candidate of candidates) {
+        if (candidate && payload.tracks[candidate]) {
+          return payload.tracks[candidate];
+        }
+
+        const decodedCandidate = decodePath(candidate);
+
+        if (decodedCandidate && payload.tracks[decodedCandidate]) {
+          return payload.tracks[decodedCandidate];
+        }
+      }
+
+      const normalizedCandidates = new Set(candidates.map(normalizeTrackKey).filter(Boolean));
+
+      for (const [trackKey, trackLyrics] of Object.entries(payload.tracks)) {
+        if (normalizedCandidates.has(normalizeTrackKey(trackKey))) {
+          return trackLyrics;
+        }
+      }
+
+      return null;
     }
 
     function scrollActiveLyricIntoView(element) {
@@ -471,8 +973,21 @@
       });
     }
 
+    function clearActiveLyric() {
+      if (activeLyricIndex >= 0 && syncedLyricItems[activeLyricIndex]) {
+        syncedLyricItems[activeLyricIndex].element.classList.remove('is-active');
+      }
+
+      activeLyricIndex = -1;
+    }
+
     function updateSyncedLyrics(shouldScroll) {
       if (!syncedLyricItems.length) {
+        return;
+      }
+
+      if (!hasPlaybackStarted) {
+        clearActiveLyric();
         return;
       }
 
@@ -542,8 +1057,10 @@
         if (Number.isFinite(time)) {
           line.dataset.time = String(time);
           line.addEventListener('click', () => {
+            const lyricText = (line.textContent || '').trim();
             seekTo(time);
             updateSyncedLyrics(true);
+            trackAudioEvent('lyrics click', lyricText || formatTime(time));
             playAudio();
           });
           syncedLyricItems.push({ time, element: line });
@@ -578,11 +1095,202 @@
 
           if (trackLyrics) {
             renderSyncedLyrics(trackLyrics);
+          } else {
+            console.warn('Synced lyrics missing for track:', getCurrentTrackPath());
           }
         })
         .catch(error => {
           console.warn('Synced lyrics unavailable:', error);
         });
+    }
+
+    function getRepeatMode() {
+      const mode = window.__audioRepeatMode || 'all';
+      return ['all', 'one', 'off'].includes(mode) ? mode : 'all';
+    }
+
+    function updateRepeatButton(button, mode) {
+      if (!button) {
+        return;
+      }
+
+      const label = mode === 'one' ? 'Repeat one' : mode === 'off' ? 'Repeat off' : 'Repeat all';
+      button.dataset.repeatMode = mode;
+      button.setAttribute('aria-label', label);
+      button.setAttribute('aria-pressed', mode === 'off' ? 'false' : 'true');
+      button.setAttribute('title', label);
+      button.classList.toggle('is-repeat-all', mode === 'all');
+      button.classList.toggle('is-repeat-one', mode === 'one');
+      button.classList.toggle('is-repeat-off', mode === 'off');
+
+      const allIcon = button.querySelector('.repeat-icon-all');
+      const oneIcon = button.querySelector('.repeat-icon-one');
+      const offIcon = button.querySelector('.repeat-icon-off');
+
+      if (allIcon) {
+        allIcon.classList.toggle('hidden', mode !== 'all');
+      }
+
+      if (oneIcon) {
+        oneIcon.classList.toggle('hidden', mode !== 'one');
+      }
+
+      if (offIcon) {
+        offIcon.classList.toggle('hidden', mode !== 'off');
+      }
+    }
+
+    function setRepeatMode(mode) {
+      window.__audioRepeatMode = ['all', 'one', 'off'].includes(mode) ? mode : 'all';
+
+      document.querySelectorAll('.repeat-button').forEach(button => {
+        updateRepeatButton(button, window.__audioRepeatMode);
+      });
+    }
+
+    function cycleRepeatMode() {
+      const mode = getRepeatMode();
+      const nextMode = mode === 'all' ? 'one' : mode === 'one' ? 'off' : 'all';
+      setRepeatMode(nextMode);
+    }
+
+    function getAudioLink() {
+      const url = new URL(window.location.href);
+      url.hash = player.id || '';
+      return url.href;
+    }
+
+    function copyText(text) {
+      if (navigator.clipboard && window.isSecureContext) {
+        return navigator.clipboard.writeText(text);
+      }
+
+      return new Promise((resolve, reject) => {
+        const textarea = document.createElement('textarea');
+        textarea.value = text;
+        textarea.setAttribute('readonly', '');
+        textarea.style.position = 'fixed';
+        textarea.style.top = '-9999px';
+        document.body.appendChild(textarea);
+        textarea.select();
+
+        try {
+          if (document.execCommand('copy')) {
+            resolve();
+          } else {
+            reject(new Error('Copy failed'));
+          }
+        } catch (error) {
+          reject(error);
+        } finally {
+          document.body.removeChild(textarea);
+        }
+      });
+    }
+
+    function markLinkCopied() {
+      if (!linkBtn) {
+        return;
+      }
+
+      const songName = (player.dataset.songName || '').trim();
+      const label = songName ? `Copy link to ${songName}` : 'Copy link to song';
+      linkBtn.classList.add('is-copied');
+      linkBtn.setAttribute('title', 'Link copied');
+      linkBtn.setAttribute('aria-label', 'Link copied');
+
+      if (typeof window.showSiteToast === 'function') {
+        window.showSiteToast('Link copied');
+      }
+
+      window.setTimeout(() => {
+        linkBtn.classList.remove('is-copied');
+        linkBtn.setAttribute('title', 'Copy link');
+        linkBtn.setAttribute('aria-label', label);
+      }, 1200);
+    }
+
+    function copyAudioLink() {
+      return copyText(getAudioLink())
+        .then(() => {
+          markLinkCopied();
+          return true;
+        });
+    }
+
+    function ensureLightbox() {
+      let lightbox = document.getElementById('lightbox');
+
+      if (lightbox) {
+        return lightbox;
+      }
+
+      lightbox = document.createElement('div');
+      lightbox.id = 'lightbox';
+      lightbox.style.cssText = 'display:none;position:fixed;inset:0;z-index:2000;background:rgba(0,0,0,0.9);cursor:pointer;';
+      lightbox.innerHTML = '<div style="position:absolute;inset:0;display:flex;align-items:center;justify-content:center;padding:24px;"><img id="lb-img" src="" alt="" style="display:none;max-width:100%;max-height:100%;border-radius:8px;object-fit:contain;"><video id="lb-video" autoplay loop muted playsinline style="display:none;max-width:100%;max-height:100%;border-radius:8px;"></video></div>';
+      lightbox.addEventListener('click', () => {
+        closeCoverArtLightbox();
+      });
+      document.body.appendChild(lightbox);
+
+      return lightbox;
+    }
+
+    function closeCoverArtLightbox() {
+      const lightbox = document.getElementById('lightbox');
+      const video = document.getElementById('lb-video');
+
+      if (lightbox) {
+        lightbox.style.display = 'none';
+      }
+
+      if (video) {
+        video.src = '';
+      }
+    }
+
+    function openCoverArtLightbox(src, title) {
+      if (!src) {
+        return;
+      }
+
+      if (typeof window.openLightbox === 'function') {
+        window.openLightbox(src, 'image');
+        return;
+      }
+
+      const lightbox = ensureLightbox();
+      const image = document.getElementById('lb-img');
+      const video = document.getElementById('lb-video');
+
+      if (!image) {
+        return;
+      }
+
+      image.src = src;
+      image.alt = title || '';
+      image.style.display = 'block';
+
+      if (video) {
+        video.style.display = 'none';
+        video.src = '';
+      }
+
+      lightbox.style.display = 'block';
+    }
+
+    if (typeof window.closeLightbox !== 'function') {
+      window.closeLightbox = closeCoverArtLightbox;
+    }
+
+    if (!window.__audioLightboxEscapeHandler) {
+      window.__audioLightboxEscapeHandler = true;
+      document.addEventListener('keydown', event => {
+        if (event.key === 'Escape' && typeof window.closeLightbox === 'function') {
+          window.closeLightbox();
+        }
+      });
     }
 
     function toggleIcons(isPlaying) {
@@ -593,19 +1301,47 @@
         pauseIcon.classList.add('hidden');
         playIcon.classList.remove('hidden');
       }
+
+      const label = isPlaying ? 'Pause audio' : 'Play audio';
+      playBtn.setAttribute('aria-label', label);
+      playBtn.setAttribute('title', isPlaying ? 'Pause' : 'Play');
+
+      if (coverPlayIcon && coverPauseIcon) {
+        if (isPlaying) {
+          coverPlayIcon.classList.add('hidden');
+          coverPauseIcon.classList.remove('hidden');
+        } else {
+          coverPauseIcon.classList.add('hidden');
+          coverPlayIcon.classList.remove('hidden');
+        }
+      }
+
+      if (coverPlayBtn) {
+        coverPlayBtn.setAttribute('aria-label', label);
+        coverPlayBtn.setAttribute('title', isPlaying ? 'Pause' : 'Play');
+      }
+
+      if (coverArtWrap) {
+        coverArtWrap.setAttribute('aria-label', label);
+      }
     }
 
     function updateProgress(percent) {
+      if (!progressIndicator || !circumference) {
+        return;
+      }
+
       const offset = circumference - (percent / 100) * circumference;
       progressIndicator.style.strokeDashoffset = offset;
     }
 
-    function updateSeekbarFill() {
+    function updateSeekbarFill(currentTime = audio.currentTime) {
       if (!seekbar || !audio.duration) {
         return;
       }
 
-      const percent = (audio.currentTime / audio.duration) * 100;
+      const progressTime = Number.isFinite(currentTime) ? currentTime : 0;
+      const percent = (progressTime / audio.duration) * 100;
       seekbar.style.setProperty('--progress', `${percent}%`);
     }
 
@@ -621,12 +1357,16 @@
       return `${minutes}:${String(remainingSeconds).padStart(2, '0')}`;
     }
 
-    function updateTimeIndicator() {
+    function updateTimeIndicator(currentTimeOverride) {
       if (!timeIndicator) {
         return;
       }
 
-      const currentTime = Number.isFinite(audio.currentTime) ? audio.currentTime : 0;
+      const currentTime = Number.isFinite(currentTimeOverride)
+        ? currentTimeOverride
+        : Number.isFinite(audio.currentTime)
+          ? audio.currentTime
+          : 0;
       const duration = Number.isFinite(audio.duration) ? audio.duration : 0;
 
       if (timeLeft && timeTotal) {
@@ -647,18 +1387,59 @@
       updateSeekbarFill();
     }
 
-    function seekTo(value) {
+    function getSeekTime(value) {
       if (!audio.duration) {
-        return;
+        return null;
       }
 
-      audio.currentTime = Math.min(Math.max(parseFloat(value) || 0, 0), audio.duration);
+      const parsedValue = parseFloat(value);
+      const targetTime = Number.isFinite(parsedValue) ? parsedValue : 0;
+      return Math.min(Math.max(targetTime, 0), audio.duration);
+    }
 
-      const percent = (audio.currentTime / audio.duration) * 100;
+    function updateSeekPreview(value) {
+      const seekTime = getSeekTime(value);
+
+      if (seekTime === null) {
+        return false;
+      }
+
+      const percent = (seekTime / audio.duration) * 100;
+
+      if (seekbar) {
+        seekbar.value = seekTime;
+      }
+
       updateProgress(percent);
-      updateSeekbarFill();
-      updateTimeIndicator();
+      updateSeekbarFill(seekTime);
+      updateTimeIndicator(seekTime);
+      return true;
+    }
+
+    function seekTo(value) {
+      const seekTime = getSeekTime(value);
+
+      if (seekTime === null) {
+        return false;
+      }
+
+      const currentTime = Number.isFinite(audio.currentTime) ? audio.currentTime : 0;
+
+      if (Math.abs(currentTime - seekTime) > 0.01) {
+        audio.currentTime = seekTime;
+      }
+
+      const percent = (seekTime / audio.duration) * 100;
+
+      if (seekbar) {
+        seekbar.value = seekTime;
+      }
+
+      updateProgress(percent);
+      updateSeekbarFill(seekTime);
+      updateTimeIndicator(seekTime);
       updateSyncedLyrics(true);
+      return true;
     }
 
     function getTrackName() {
@@ -688,20 +1469,36 @@
         .replace(/^-+|-+$/g, '') || 'unknown-track';
     }
 
-    function trackPlaybackTap() {
-      if (!window.goatcounter) {
+    function trackAudioEvent(action, details) {
+      if (!window.goatcounter || typeof window.goatcounter.count !== 'function') {
         return;
       }
 
       const trackName = getTrackName();
       const trackSlug = slugify(trackName);
-      const eventName = `music-${trackSlug}-play`;
+      const actionSlug = slugify(action);
+      const pathParts = ['audio', actionSlug, trackSlug];
+
+      if (details) {
+        pathParts.push(slugify(details));
+      }
 
       window.goatcounter.count({
-        path: eventName,
-        title: eventName,
+        path: pathParts.join('/'),
+        title: details ? `Audio ${action}: ${trackName} (${details})` : `Audio ${action}: ${trackName}`,
         event: true,
       });
+    }
+
+    function trackSeekEvent() {
+      const now = Date.now();
+
+      if (now - lastSeekEventAt < 250) {
+        return;
+      }
+
+      lastSeekEventAt = now;
+      trackAudioEvent('seek');
     }
 
     function resetOtherPlayers() {
@@ -755,6 +1552,70 @@
       });
     }
 
+    function getAudioPlayers() {
+      return Array.prototype.slice.call(document.querySelectorAll('.audio-player')).filter(audioPlayer => {
+        return audioPlayer.querySelector('.audio-element');
+      });
+    }
+
+    function getNextAudioPlayer() {
+      const players = getAudioPlayers();
+      const currentIndex = players.indexOf(player);
+
+      if (!players.length || currentIndex < 0) {
+        return null;
+      }
+
+      return players[(currentIndex + 1) % players.length];
+    }
+
+    function scrollPlayerIntoView(audioPlayer) {
+      if (!audioPlayer || typeof audioPlayer.scrollIntoView !== 'function') {
+        return;
+      }
+
+      const prefersReducedMotion = window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+
+      audioPlayer.scrollIntoView({
+        behavior: prefersReducedMotion ? 'auto' : 'smooth',
+        block: 'center',
+      });
+    }
+
+    function playPlayer(audioPlayer) {
+      if (!audioPlayer) {
+        return false;
+      }
+
+      const nextAudio = audioPlayer.querySelector('.audio-element');
+      const nextPlayBtn = audioPlayer.querySelector('.play-button');
+
+      if (!nextAudio) {
+        return false;
+      }
+
+      if (audioPlayer !== player) {
+        scrollPlayerIntoView(audioPlayer);
+      }
+
+      try {
+        nextAudio.currentTime = 0;
+      } catch (error) {
+        // Metadata may not be ready yet; playing still starts the next track.
+      }
+
+      if (nextPlayBtn) {
+        nextPlayBtn.click();
+        return true;
+      }
+
+      nextAudio.play().catch(error => {
+        console.error('Audio playback failed:', error);
+      });
+
+      return true;
+    }
+
     function playAudio() {
       if (!audio.paused) {
         return;
@@ -763,9 +1624,6 @@
       resetOtherPlayers();
 
       audio.play()
-        .then(() => {
-          trackPlaybackTap();
-        })
         .catch(error => {
           console.error('Audio playback failed:', error);
         });
@@ -779,15 +1637,93 @@
       }
     }
 
+    if (!window.__audioRepeatMode) {
+      window.__audioRepeatMode = 'all';
+    }
+
+    updateRepeatButton(repeatBtn, getRepeatMode());
+
+    if (repeatBtn) {
+      repeatBtn.addEventListener('click', event => {
+        event.stopPropagation();
+        cycleRepeatMode();
+        trackAudioEvent('loop', getRepeatMode());
+      });
+    }
+
+    if (linkBtn) {
+      linkBtn.addEventListener('click', event => {
+        event.preventDefault();
+        event.stopPropagation();
+
+        copyAudioLink()
+          .then(() => {
+            trackAudioEvent('share');
+          })
+          .catch(error => {
+            console.error('Audio link copy failed:', error);
+          });
+      });
+    }
+
+    if (titleCopyLink) {
+      titleCopyLink.addEventListener('click', event => {
+        event.preventDefault();
+
+        copyAudioLink()
+          .then(() => {
+            trackAudioEvent('share', 'title');
+          })
+          .catch(error => {
+            console.error('Audio title link copy failed:', error);
+          });
+      });
+    }
+
+    if (coverInfoBtn) {
+      coverInfoBtn.addEventListener('click', event => {
+        event.preventDefault();
+        event.stopPropagation();
+        openCoverArtLightbox(coverInfoBtn.dataset.coverSrc || '', coverInfoBtn.dataset.coverTitle || '');
+      });
+
+      coverInfoBtn.addEventListener('keydown', event => {
+        event.stopPropagation();
+      });
+    }
+
+    if (coverPlayBtn) {
+      coverPlayBtn.addEventListener('click', event => {
+        event.preventDefault();
+        event.stopPropagation();
+        togglePlayback();
+      });
+
+      coverPlayBtn.addEventListener('keydown', event => {
+        event.stopPropagation();
+      });
+    }
+
     playBtn.addEventListener('click', event => {
       event.stopPropagation();
+
+      if (event.isTrusted !== false) {
+        trackAudioEvent(audio.paused ? 'play' : 'pause');
+      }
+
       togglePlayback();
     });
 
     if (coverArtWrap) {
-      coverArtWrap.addEventListener('click', togglePlayback);
+      coverArtWrap.addEventListener('click', () => {
+        togglePlayback();
+      });
 
       coverArtWrap.addEventListener('keydown', event => {
+        if (event.target !== coverArtWrap) {
+          return;
+        }
+
         if (event.key === 'Enter' || event.key === ' ') {
           event.preventDefault();
           togglePlayback();
@@ -795,15 +1731,8 @@
       });
     }
 
-    audio.addEventListener('play', () => {
-      toggleIcons(true);
-    });
-
-    audio.addEventListener('pause', () => {
-      toggleIcons(false);
-    });
-
-    audio.addEventListener('ended', () => {
+    function resetEndedState() {
+      hasPlaybackStarted = false;
       toggleIcons(false);
       audio.currentTime = 0;
       updateProgress(0);
@@ -815,6 +1744,31 @@
 
       updateTimeIndicator();
       updateSyncedLyrics(true);
+    }
+
+    audio.addEventListener('play', () => {
+      hasPlaybackStarted = true;
+      toggleIcons(true);
+      updateSyncedLyrics(true);
+    });
+
+    audio.addEventListener('pause', () => {
+      toggleIcons(false);
+    });
+
+    audio.addEventListener('ended', () => {
+      const repeatMode = getRepeatMode();
+
+      resetEndedState();
+
+      if (repeatMode === 'one') {
+        playAudio();
+        return;
+      }
+
+      if (repeatMode === 'all') {
+        playPlayer(getNextAudioPlayer());
+      }
     });
 
     audio.addEventListener('loadedmetadata', () => {
@@ -846,25 +1800,51 @@
     if (seekbar) {
       seekbar.addEventListener('pointerdown', () => {
         isSeeking = true;
+        ignoreNextSeekChange = false;
       });
 
       seekbar.addEventListener('input', () => {
-        seekTo(seekbar.value);
+        if (isSeeking) {
+          updateSeekPreview(seekbar.value);
+          return;
+        }
+
+        if (seekTo(seekbar.value)) {
+          trackSeekEvent();
+        }
       });
 
       seekbar.addEventListener('change', () => {
-        seekTo(seekbar.value);
+        if (ignoreNextSeekChange) {
+          ignoreNextSeekChange = false;
+          return;
+        }
+
+        if (seekTo(seekbar.value)) {
+          trackSeekEvent();
+        }
+
         isSeeking = false;
       });
 
       seekbar.addEventListener('pointerup', () => {
-        seekTo(seekbar.value);
+        if (!isSeeking) {
+          return;
+        }
+
+        if (seekTo(seekbar.value)) {
+          trackSeekEvent();
+        }
+
         isSeeking = false;
+        ignoreNextSeekChange = true;
       });
 
       seekbar.addEventListener('pointercancel', () => {
         isSeeking = false;
+        ignoreNextSeekChange = false;
         updateSeekbar();
+        updateTimeIndicator();
       });
     }
   })();
