@@ -1,5 +1,5 @@
 +++
-title = "The FreeBSD Soundtrack Collection"
+title = "The FreeBSD Music Collection"
 short_title = "FreeBSD Music Collection"
 date = 2026-06-16T09:00:00+02:00
 draft = false
