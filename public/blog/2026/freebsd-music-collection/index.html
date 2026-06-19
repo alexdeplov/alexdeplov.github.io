@@ -19,6 +19,65 @@
 
 
     
+<style>
+  .article-heading-anchors > h2[id],
+  .article-heading-anchors > h3[id],
+  .article-heading-anchors > h4[id] {
+    position: relative;
+    margin-left: -1.5rem;
+    padding-left: 1.5rem;
+    scroll-margin-top: 1.5rem;
+  }
+
+  .article-heading-anchor-link {
+    position: absolute;
+    left: 0;
+    top: 0.5em;
+    display: inline-flex;
+    width: 0.875rem;
+    height: 0.875rem;
+    align-items: center;
+    justify-content: center;
+    color: var(--accent-orange);
+    border: 0;
+    box-shadow: none;
+    opacity: 0;
+    text-decoration: none;
+    transition: color 140ms ease, opacity 140ms ease;
+  }
+
+  .article-heading-anchors > h2[id]:hover .article-heading-anchor-link,
+  .article-heading-anchors > h3[id]:hover .article-heading-anchor-link,
+  .article-heading-anchors > h4[id]:hover .article-heading-anchor-link,
+  .article-heading-anchor-link:focus-visible,
+  .article-heading-anchor-link.is-copied {
+    opacity: 1;
+  }
+
+  .article-heading-anchor-link:hover,
+  .article-heading-anchor-link:focus-visible {
+    color: var(--link-color);
+    border: 0;
+    box-shadow: none;
+    outline: none;
+    text-decoration: none;
+  }
+
+  .article-heading-anchor-link svg {
+    display: block;
+    width: 100%;
+    height: 100%;
+    pointer-events: none;
+    stroke: currentColor;
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    .article-heading-anchor-link {
+      transition: none;
+    }
+  }
+</style>
+
 
 <script>
     document.addEventListener('DOMContentLoaded', function() {
@@ -57,7 +116,7 @@
     </div>
   </header>
 
-  <div class="content">
+  <div class="content article-heading-anchors" data-heading-anchors>
     <p>This is my FreeBSD music collection. It consists of songs inspired by FreeBSD releases, experiments, and desktop and server experiences that have become part of everyday life. It was built using Suno AI and then tweaked and polished each one.</p>
 <h2 id="freebsd-151-release-song">FreeBSD 15.1-RELEASE Song</h2>
 
@@ -1866,6 +1925,94 @@ come set your system free!</p>
     </div>
   </div>
 </article>
+<script>
+  (function () {
+    document.addEventListener('DOMContentLoaded', function () {
+      var container = document.querySelector('[data-heading-anchors]');
+      var icon = '<svg aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M9 17H7A5 5 0 0 1 7 7h2"></path><path d="M15 7h2a5 5 0 0 1 0 10h-2"></path><line x1="8" y1="12" x2="16" y2="12"></line></svg>';
+
+      if (!container) {
+        return;
+      }
+
+      Array.prototype.forEach.call(container.children, function (heading) {
+        if (!/^H[2-4]$/.test(heading.tagName) || !heading.id) {
+          return;
+        }
+
+        if (heading.querySelector('.article-heading-anchor-link')) {
+          return;
+        }
+
+        var anchor = document.createElement('a');
+        var label = 'Copy link to ' + heading.textContent.trim();
+
+        anchor.className = 'article-heading-anchor-link';
+        anchor.href = '#' + encodeURIComponent(heading.id);
+        anchor.setAttribute('aria-label', label);
+        anchor.setAttribute('title', 'Copy link');
+        anchor.innerHTML = icon;
+
+        anchor.addEventListener('click', function (event) {
+          event.preventDefault();
+
+          var url = new URL(window.location.href);
+          url.hash = heading.id;
+
+          if (window.history && window.history.pushState) {
+            window.history.pushState(null, '', url.href);
+            heading.scrollIntoView({ block: 'start' });
+          } else {
+            window.location.hash = heading.id;
+          }
+
+          copyHeadingLink(url.href).then(function () {
+            anchor.classList.add('is-copied');
+            anchor.setAttribute('title', 'Link copied');
+            anchor.setAttribute('aria-label', 'Copied link to ' + heading.textContent.trim());
+
+            window.setTimeout(function () {
+              anchor.classList.remove('is-copied');
+              anchor.setAttribute('title', 'Copy link');
+              anchor.setAttribute('aria-label', label);
+            }, 1200);
+          });
+        });
+
+        heading.prepend(anchor);
+      });
+    });
+
+    function copyHeadingLink(text) {
+      if (navigator.clipboard && window.isSecureContext) {
+        return navigator.clipboard.writeText(text);
+      }
+
+      return new Promise(function (resolve, reject) {
+        var textarea = document.createElement('textarea');
+        textarea.value = text;
+        textarea.setAttribute('readonly', '');
+        textarea.style.position = 'fixed';
+        textarea.style.top = '-9999px';
+        document.body.appendChild(textarea);
+        textarea.select();
+
+        try {
+          if (document.execCommand('copy')) {
+            resolve();
+          } else {
+            reject(new Error('Copy failed'));
+          }
+        } catch (error) {
+          reject(error);
+        } finally {
+          document.body.removeChild(textarea);
+        }
+      });
+    }
+  }());
+</script>
+
 
 
 
