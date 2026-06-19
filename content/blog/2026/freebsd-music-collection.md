@@ -1,24 +1,20 @@
 +++
 title = "The FreeBSD Soundtrack Collection"
-short_title = "FreeBSD Soundtrack"
+short_title = "FreeBSD Music Collection"
 date = 2026-06-16T09:00:00+02:00
 draft = false
 featured = false
 author = "Alexander Deplov"
 tags = ["FreeBSD", "music"]
+aliases = ["/blog/2026/the-freebsd-soundtrack-collection/"]
 +++
 
-This is my FreeBSD soundtrack collection: small tracks inspired by FreeBSD releases, experiments, desktop and server experience that becomes part of everyday life.
+This is my FreeBSD music collection. It consists of songs inspired by FreeBSD releases, experiments, and desktop and server experiences that have become part of everyday life. It was built using Suno AI and then tweaked and polished each one.
 
 
-## FreeBSD 15.1-RELEASE
+## FreeBSD 15.1-RELEASE Song
 
-Jun 16 2026.
-
-{{< audio-block src="/audio/FreeBSD_15.1-RELEASE.mp3" img="/audio/freebsd-15.1-release-cover.png" >}}
-
-<details>
-<summary>FreeBSD 15.1-RELEASE Lyrics </summary>
+{{< audio-block src="/audio/FreeBSD_15.1-RELEASE.mp3" img="/audio/freebsd-15.1-release-cover.png" song_name="FreeBSD 15.1-RELEASE" lyrics_json="/audio/freebsd-music-collection-lyrics.json" >}}
 
 ### Verse 1
 June heat on the console, <br/>
@@ -94,30 +90,15 @@ ports beneath red stars,<br/>
 fifteen-one is ready—<br/>
 the future boots from where we are.
 
-</details>
+{{< /audio-block >}}
 
 ---
 
-## FreeBSD 14.3-RC1
+## FreeBSD 14.3-RC1 Song
 
-{{< audio-block src="/audio/FreeBSD-14.3-RC1.mp3" img="/audio/freebsd-14.3-rc1-cover.jpg" >}}
-
-<details>
-<summary>FreeBSD 14.3-RC1 Lyrics</summary>
+{{< audio-block src="/audio/FreeBSD-14.3-RC1.mp3" img="/audio/freebsd-14.3-rc1-cover.jpg" song_name="FreeBSD 14.3-RC1" lyrics_json="/audio/freebsd-music-collection-lyrics.json" >}}
 
 Sashka Echo presents.
-
-### Verse 1
-June 1st morning, I wake up to the sound,<br/>
-FreeBSD’s rolling out, new RC’s inbound.<br/>
-14.3 release, it’s a code lover’s dream,<br/>
-amd64, ARM cores, running fast and clean.<br/>
-
-### Pre-Chorus
-PowerPC, RISC-V, the ports keep growing wide,<br/>
-i386 and aarch64, we test them with our pride.<br/>
-From kernel to userland, the patches fly in streams,<br/>
-In the land of the daemon, we’re chasing coding dreams.<br/>
 
 ### Chorus
 Code like the wind, test what we find,<br/>
@@ -144,7 +125,9 @@ Mirror sites waiting, ISO’s in the sky,<br/>
 Let’s spin up our systems, give this build a try!<br/>
 
 ### Outro
-So fire up the console, and pull down the tree,<br/>
-FreeBSD’s calling—come set your system free! 
+So fire up the console,<br/>
+and pull down the tree,<br/>
+FreeBSD’s calling,<br/>
+come set your system free! 
 
-</details>
+{{< /audio-block >}}

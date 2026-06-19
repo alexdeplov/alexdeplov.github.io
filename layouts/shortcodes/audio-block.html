@@ -1,4 +1,13 @@
+{{ $lyrics := "" }}
+{{ with .Inner }}
+  {{ $lyrics = $.Page.RenderString . }}
+{{ end }}
+{{ $songName := or (.Get "song_name") (.Get "songName") (.Get "title") }}
+
 {{ partial "audio-block.html" (dict
   "src" (.Get "src")
   "img" (.Get "img")
+  "songName" $songName
+  "lyrics" $lyrics
+  "lyricsJson" (.Get "lyrics_json")
 ) }}

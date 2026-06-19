@@ -1,0 +1,3 @@
+openai-whisper==20250625
+demucs==4.0.1
+torchcodec>=0.14.0
