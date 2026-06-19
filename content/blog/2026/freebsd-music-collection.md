@@ -8,6 +8,7 @@ author = "Alexander Deplov"
 tags = ["FreeBSD", "music"]
 headingAnchors = true
 audioTitleCopyLinks = true
+ogImageFromFirstAudioBlock = true
 aliases = ["/blog/2026/the-freebsd-soundtrack-collection/"]
 +++
 
