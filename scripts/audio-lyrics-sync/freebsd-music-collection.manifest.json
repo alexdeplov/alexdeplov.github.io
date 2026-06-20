@@ -11,6 +11,37 @@
   ],
   "tracks": [
     {
+      "slug": "rock-solid-every-single-day",
+      "audio": "static/audio/Rock_Solid_Every_Single_Day.mp3",
+      "player_src": "/audio/Rock_Solid_Every_Single_Day.mp3",
+      "drop_unmatched": false,
+      "min_score": 0.4,
+      "sources": [
+        "vocals",
+        "mix"
+      ],
+      "lyrics": [
+        { "section": "Verse" },
+        { "text": "Boot it up, smooth and bright," },
+        { "text": "FreeBSD all day and night." },
+        { "text": "Fast and clean, feeling right," },
+        { "text": "My desktop's flying out of sight." },
+        { "section": "Chorus" },
+        { "text": "FreeBSD, that's my way," },
+        { "text": "Rock-solid every single day." },
+        { "text": "No drama, no delay," },
+        { "text": "FreeBSD, here to stay!" },
+        { "section": "Bridge" },
+        { "text": "Ports and power at my hand," },
+        { "text": "Built to last, built to stand." },
+        { "section": "Final Chorus" },
+        { "text": "FreeBSD, can't you see?" },
+        { "text": "Best desktop for me!" },
+        { "text": "FreeBSD, wild and free," },
+        { "text": "Running happily!" }
+      ]
+    },
+    {
       "slug": "freebsd-15-1-release",
       "audio": "static/audio/FreeBSD_15.1-RELEASE.mp3",
       "player_src": "/audio/FreeBSD_15.1-RELEASE.mp3",

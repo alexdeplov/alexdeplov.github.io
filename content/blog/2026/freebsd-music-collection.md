@@ -21,6 +21,38 @@ This is my FreeBSD music collection. It consists of songs inspired by FreeBSD re
 
 ---
 
+## "Rock Solid Every Single Day" Song
+
+Context: a short FreeBSD desktop anthem about using a clean, fast, reliable system every day.
+
+{{< audio-block src="/audio/Rock_Solid_Every_Single_Day.mp3" img="/audio/rock-solid-every-single-day-cover.jpg" song_name="Rock Solid Every Single Day" lyrics_json="/audio/freebsd-music-collection-lyrics.json" >}}
+
+### Verse
+Boot it up, smooth and bright,<br/>
+FreeBSD all day and night.<br/>
+Fast and clean, feeling right,<br/>
+My desktop's flying out of sight.<br/>
+
+### Chorus
+FreeBSD, that's my way,<br/>
+Rock-solid every single day.<br/>
+No drama, no delay,<br/>
+FreeBSD, here to stay!<br/>
+
+### Bridge
+Ports and power at my hand,<br/>
+Built to last, built to stand.<br/>
+
+### Final Chorus
+FreeBSD, can't you see?<br/>
+Best desktop for me!<br/>
+FreeBSD, wild and free,<br/>
+Running happily!
+
+{{< /audio-block >}}
+
+---
+
 ## "Eyes on the FreeBSD Kernel" Song
 
 Context: the source of inspiration for that song become a six month [project](https://alpha-omega.dev/blog/freebsd-ai-assisted-vulnerability-discovery-project-launch/) that uses AI assisted analysis and security researchers to find, verify, and help fix vulnerabilities in the FreeBSD kernel and userland before they can be exploited.

@@ -2,6 +2,32 @@
   "version": 1,
   "generated": "2026-06-20",
   "tracks": {
+    "/audio/Rock_Solid_Every_Single_Day.mp3": {
+      "duration": 87.039979,
+      "vocalStart": 23.1,
+      "vocalEnd": 58.52,
+      "alignment": "Demucs vocal stem plus Whisper turbo word timestamps; FreeBSD phrase starts checked against vocal and full-mix transcripts",
+      "lines": [
+        { "type": "section", "time": 23.1, "text": "Verse" },
+        { "time": 23.1, "text": "Boot it up, smooth and bright," },
+        { "time": 25.66, "text": "FreeBSD all day and night." },
+        { "time": 28.38, "text": "Fast and clean, feeling right," },
+        { "time": 31.04, "text": "My desktop's flying out of sight." },
+        { "type": "section", "time": 33.84, "text": "Chorus" },
+        { "time": 33.84, "text": "FreeBSD, that's my way," },
+        { "time": 35.94, "text": "Rock-solid every single day." },
+        { "time": 38.62, "text": "No drama, no delay," },
+        { "time": 41.24, "text": "FreeBSD, here to stay!" },
+        { "type": "section", "time": 44.24, "text": "Bridge" },
+        { "time": 44.24, "text": "Ports and power at my hand," },
+        { "time": 47.84, "text": "Built to last, built to stand." },
+        { "type": "section", "time": 50.22, "text": "Final Chorus" },
+        { "time": 50.22, "text": "FreeBSD, can't you see?" },
+        { "time": 53.46, "text": "Best desktop for me!" },
+        { "time": 55.76, "text": "FreeBSD, wild and free," },
+        { "time": 58.52, "text": "Running happily!" }
+      ]
+    },
     "/audio/FreeBSD_15.1-RELEASE.mp3": {
       "duration": 254.76,
       "vocalStart": 22.66,
