@@ -84,7 +84,7 @@
             padding: 20px;
             display: flex;
             flex-direction: column;
-            gap: 10px;
+            gap: 12px;
         }
 
         #sidebar-footer {
@@ -160,6 +160,51 @@
             flex-direction: column;
             border-bottom: 1px solid var(--border);
             padding-bottom: 8px;
+        }
+
+        .control-section {
+            display: flex;
+            flex-direction: column;
+            gap: 10px;
+            padding: 12px;
+            border: 1px solid rgba(255,255,255,0.08);
+            border-left-width: 3px;
+            border-radius: 8px;
+            background: rgba(255,255,255,0.025);
+        }
+
+        .control-section-geometry {
+            border-left-color: #4d7fff;
+        }
+
+        .control-section-glass {
+            border-left-color: #67d7c1;
+        }
+
+        .control-section-distortion {
+            border-left-color: #d7b467;
+        }
+
+        .control-section-texture {
+            border-left-color: #d87bb3;
+        }
+
+        .control-section-profile {
+            border-left-color: #a877d8;
+        }
+
+        .control-section-title {
+            font-size: 10px;
+            color: rgba(255,255,255,0.55);
+            font-family: 'Rubik', sans-serif;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 0.06em;
+        }
+
+        .control-section .control-group:last-child {
+            border-bottom: 0;
+            padding-bottom: 0;
         }
 
         .control-header {
@@ -504,6 +549,9 @@
     <div id="controls">
 <input type="file" id="imageUpload" accept="image/*" style="display:none">
 
+        <div class="control-section control-section-geometry">
+            <div class="control-section-title">Geometry</div>
+
         <div class="control-group" data-id="sliceWidth">
             <div class="control-header">
                 <div class="control-label">Slice Width <span id="sliceWidthVal">0.078</span><button class="reset-btn" title="Reset to default" data-target="sliceWidth" data-default="0.078">↺</button></div>
@@ -548,6 +596,93 @@
             <input type="range" id="end" min="0" max="1" step="0.01" value="1.0">
         </div>
 
+        </div>
+
+        <div class="control-section control-section-glass">
+            <div class="control-section-title">Glass Edge Optics</div>
+
+        <div class="control-group" data-id="edgeMass">
+            <div class="control-header">
+                <div class="control-label">Edge Mass <span id="edgeMassVal">0.080</span><button class="reset-btn" title="Reset to default" data-target="edgeMass" data-default="0.080">↺</button></div>
+                <div class="link-tools">
+                    <label title="Link — when checked, moving any other linked slider also moves this one"><input type="checkbox" class="link-check">🔗</label>
+                    <label title="Invert — this slider moves in the opposite direction when pulled by a linked slider"><input type="checkbox" class="invert-check">+/-</label>
+                </div>
+            </div>
+            <input type="range" id="edgeMass" min="0.000" max="1.000" step="0.001" value="0.080">
+        </div>
+
+        <div class="control-group" data-id="refractionStrength">
+            <div class="control-header">
+                <div class="control-label">Refraction Strength <span id="refractionStrengthVal">3.00</span><button class="reset-btn" title="Reset to default" data-target="refractionStrength" data-default="3.00">↺</button></div>
+                <div class="link-tools">
+                    <label title="Link — when checked, moving any other linked slider also moves this one"><input type="checkbox" class="link-check">🔗</label>
+                    <label title="Invert — this slider moves in the opposite direction when pulled by a linked slider"><input type="checkbox" class="invert-check">+/-</label>
+                </div>
+            </div>
+            <input type="range" id="refractionStrength" min="-12.00" max="12.00" step="0.01" value="3.00">
+        </div>
+
+        <div class="control-group" data-id="ior">
+            <div class="control-header">
+                <div class="control-label">IOR <span id="iorVal">1.45</span><button class="reset-btn" title="Reset to default" data-target="ior" data-default="1.45">↺</button></div>
+                <div class="link-tools">
+                    <label title="Link — when checked, moving any other linked slider also moves this one"><input type="checkbox" class="link-check">🔗</label>
+                    <label title="Invert — this slider moves in the opposite direction when pulled by a linked slider"><input type="checkbox" class="invert-check">+/-</label>
+                </div>
+            </div>
+            <input type="range" id="ior" min="1.00" max="2.40" step="0.01" value="1.45">
+        </div>
+
+        <div class="control-group" data-id="aberration">
+            <div class="control-header">
+                <div class="control-label">Chromatic Aberration <span id="aberrationVal">0.04</span><button class="reset-btn" title="Reset to default" data-target="aberration" data-default="0.04">↺</button></div>
+                <div class="link-tools">
+                    <label title="Link — when checked, moving any other linked slider also moves this one"><input type="checkbox" class="link-check">🔗</label>
+                    <label title="Invert — this slider moves in the opposite direction when pulled by a linked slider"><input type="checkbox" class="invert-check">+/-</label>
+                </div>
+            </div>
+            <input type="range" id="aberration" min="-1.00" max="1.00" step="0.01" value="0.04">
+        </div>
+
+        <div class="control-group" data-id="edgeSoftness">
+            <div class="control-header">
+                <div class="control-label">Edge Softness <span id="edgeSoftnessVal">1.40</span><button class="reset-btn" title="Reset to default" data-target="edgeSoftness" data-default="1.40">↺</button></div>
+                <div class="link-tools">
+                    <label title="Link — when checked, moving any other linked slider also moves this one"><input type="checkbox" class="link-check">🔗</label>
+                    <label title="Invert — this slider moves in the opposite direction when pulled by a linked slider"><input type="checkbox" class="invert-check">+/-</label>
+                </div>
+            </div>
+            <input type="range" id="edgeSoftness" min="0.20" max="4.00" step="0.01" value="1.40">
+        </div>
+
+        <div class="control-group" data-id="cutSoftness">
+            <div class="control-header">
+                <div class="control-label">Cut Softness <span id="cutSoftnessVal">0.025</span><button class="reset-btn" title="Reset to default" data-target="cutSoftness" data-default="0.025">↺</button></div>
+                <div class="link-tools">
+                    <label title="Link — when checked, moving any other linked slider also moves this one"><input type="checkbox" class="link-check">🔗</label>
+                    <label title="Invert — this slider moves in the opposite direction when pulled by a linked slider"><input type="checkbox" class="invert-check">+/-</label>
+                </div>
+            </div>
+            <input type="range" id="cutSoftness" min="0.000" max="0.250" step="0.001" value="0.025">
+        </div>
+
+        <div class="control-group" data-id="edgeHighlight">
+            <div class="control-header">
+                <div class="control-label">Edge Highlight <span id="edgeHighlightVal">0.04</span><button class="reset-btn" title="Reset to default" data-target="edgeHighlight" data-default="0.04">↺</button></div>
+                <div class="link-tools">
+                    <label title="Link — when checked, moving any other linked slider also moves this one"><input type="checkbox" class="link-check">🔗</label>
+                    <label title="Invert — this slider moves in the opposite direction when pulled by a linked slider"><input type="checkbox" class="invert-check">+/-</label>
+                </div>
+            </div>
+            <input type="range" id="edgeHighlight" min="0.00" max="0.12" step="0.01" value="0.04">
+        </div>
+
+        </div>
+
+        <div class="control-section control-section-distortion">
+            <div class="control-section-title">Slice Shift</div>
+
         <div class="control-group" data-id="shift">
             <div class="control-header">
                 <div class="control-label">Incremental Shift <span id="shiftVal">0.04</span><button class="reset-btn" title="Reset to default" data-target="shift" data-default="0.04">↺</button></div>
@@ -571,6 +706,11 @@
         </div>
 
 
+        </div>
+
+        <div class="control-section control-section-texture">
+            <div class="control-section-title">Texture Mapping</div>
+
         <div class="control-group" data-id="texx">
             <div class="control-header">
                 <div class="control-label">Texture Base X <span id="texxVal">0.04</span><button class="reset-btn" title="Reset to default" data-target="texx" data-default="0.04">↺</button></div>
@@ -592,6 +732,11 @@
             </div>
             <input type="range" id="texScaleX" min="0.1" max="3.0" step="0.01" value="0.74">
         </div>
+
+        </div>
+
+        <div class="control-section control-section-profile">
+            <div class="control-section-title">Inner Profile</div>
 
         <div class="control-group" data-id="sliceInnerScale">
             <div class="control-header">
@@ -620,6 +765,8 @@
                 <input type="checkbox" id="centerSliceScale">
                 Scale from slice center <span id="centerSliceScaleVal"></span>
             </label>
+        </div>
+
         </div>
 
     </div>
@@ -658,6 +805,13 @@
             uniform sampler2D u_image;
             uniform float u_sliceWidth;
             uniform float u_spacing;
+            uniform float u_edgeMass;
+            uniform float u_refractionStrength;
+            uniform float u_ior;
+            uniform float u_aberration;
+            uniform float u_edgeSoftness;
+            uniform float u_cutSoftness;
+            uniform float u_edgeHighlight;
             uniform float u_start;
             uniform float u_end;
             uniform float u_shift;
@@ -672,6 +826,9 @@
                 vec2 uv = v_texCoord;
                 float totalShift = 0.0;
                 float innerDistortion = 0.0; 
+                float edgeBend = 0.0;
+                float edgeIntensity = 0.0;
+                float cutBlend = 1.0;
                 bool isGap = false;
 
                 if (uv.x >= u_start && uv.x <= u_end && u_start < u_end) {
@@ -685,7 +842,7 @@
                     } else {
                         float totalPossibleSlices = floor((u_end - u_start) / cellWidth);
                         float progress = (totalPossibleSlices > 1.0) ? sliceIndex / (totalPossibleSlices - 1.0) : 0.0;
-                        float curvedProgress = pow(progress, u_shiftCurve);
+                        float curvedProgress = pow(max(progress, 0.0001), u_shiftCurve);
                         totalShift = curvedProgress * u_shift;
                         float localX_norm = localX / u_sliceWidth;
                         float target_norm;
@@ -699,21 +856,55 @@
                             target_norm = 0.5 + (curvedCentered * 0.5 * u_sliceInnerScale);
                         } else {
                             // Original mode: curve starts from the slice's left edge, then scales around center.
-                            target_norm = pow(localX_norm, u_sliceInnerCurve);
+                            target_norm = pow(max(localX_norm, 0.0001), u_sliceInnerCurve);
                             target_norm = ((target_norm - 0.5) * u_sliceInnerScale) + 0.5;
                         }
 
                         float targetGlobalX = u_start + sliceIndex * cellWidth + (target_norm * u_sliceWidth);
                         innerDistortion = targetGlobalX - uv.x;
+
+                        float distanceToCut = min(localX_norm, 1.0 - localX_norm);
+                        if (u_cutSoftness > 0.0001) {
+                            cutBlend = smoothstep(0.0, u_cutSoftness, distanceToCut);
+                        }
+
+                        float edgeWidth = clamp(u_edgeMass, 0.0, 0.5);
+                        if (edgeWidth > 0.0001) {
+                            float edgeT = clamp(1.0 - (distanceToCut / edgeWidth), 0.0, 1.0);
+                            float edgeSide = localX_norm < 0.5 ? -1.0 : 1.0;
+                            float bevel = smoothstep(0.0, 1.0, pow(edgeT, 1.0 / max(u_edgeSoftness, 0.05)));
+                            float normalX = bevel * 0.72;
+                            float normalZ = sqrt(max(0.0, 1.0 - normalX * normalX));
+                            // Rounded edge mass: a bounded bevel normal gives glass-like lensing without rubbery warp.
+                            vec2 surfaceNormal = normalize(vec2(-edgeSide * normalX, normalZ));
+                            vec2 refractedRay = refract(vec2(0.0, -1.0), surfaceNormal, 1.0 / max(u_ior, 1.0001));
+                            float bendLimit = u_sliceWidth * mix(0.018, 0.14, edgeWidth / 0.5);
+                            edgeBend = clamp(
+                                refractedRay.x * edgeWidth * u_sliceWidth * u_refractionStrength * max(u_ior - 1.0, 0.0) * 0.65,
+                                -bendLimit,
+                                bendLimit
+                            );
+                            edgeIntensity = max(edgeIntensity, pow(bevel, 2.6) * (0.35 + edgeWidth));
+                        }
                     }
                 }
 
                 uv.x = ((uv.x + innerDistortion - totalShift - u_texX - 0.5) * u_texScaleX) + 0.5;
+                uv.x += edgeBend;
+                vec2 undistortedUv = vec2(((v_texCoord.x - u_texX - 0.5) * u_texScaleX) + 0.5, v_texCoord.y);
 
                 if (isGap || uv.x < 0.0 || uv.x > 1.0 || uv.y < 0.0 || uv.y > 1.0) {
                     gl_FragColor = vec4(0.0, 0.0, 0.0, 0.0);
                 } else {
-                    gl_FragColor = texture2D(u_image, uv);
+                    float chromaticOffset = edgeBend * u_aberration * 0.18;
+                    vec4 color = texture2D(u_image, uv);
+                    color.r = texture2D(u_image, vec2(uv.x + chromaticOffset, uv.y)).r;
+                    color.b = texture2D(u_image, vec2(uv.x - chromaticOffset, uv.y)).b;
+                    vec4 seamColor = texture2D(u_image, undistortedUv);
+                    color = mix(seamColor, color, cutBlend);
+                    color.a *= mix(1.0, cutBlend, step(0.0001, u_spacing));
+                    color.rgb = clamp(color.rgb + edgeIntensity * u_edgeHighlight, 0.0, 1.0);
+                    gl_FragColor = color;
                 }
             }
         `;
@@ -722,6 +913,9 @@
             const shader = gl.createShader(type);
             gl.shaderSource(shader, source);
             gl.compileShader(shader);
+            if (!gl.getShaderParameter(shader, gl.COMPILE_STATUS)) {
+                console.error(gl.getShaderInfoLog(shader));
+            }
             return shader;
         }
 
@@ -731,6 +925,9 @@
         gl.attachShader(program, vertexShader);
         gl.attachShader(program, fragmentShader);
         gl.linkProgram(program);
+        if (!gl.getProgramParameter(program, gl.LINK_STATUS)) {
+            console.error(gl.getProgramInfoLog(program));
+        }
         gl.useProgram(program);
 
         // Buffers
@@ -754,6 +951,13 @@
         const locations = {
             sliceWidth: gl.getUniformLocation(program, "u_sliceWidth"),
             spacing: gl.getUniformLocation(program, "u_spacing"),
+            edgeMass: gl.getUniformLocation(program, "u_edgeMass"),
+            refractionStrength: gl.getUniformLocation(program, "u_refractionStrength"),
+            ior: gl.getUniformLocation(program, "u_ior"),
+            aberration: gl.getUniformLocation(program, "u_aberration"),
+            edgeSoftness: gl.getUniformLocation(program, "u_edgeSoftness"),
+            cutSoftness: gl.getUniformLocation(program, "u_cutSoftness"),
+            edgeHighlight: gl.getUniformLocation(program, "u_edgeHighlight"),
             start: gl.getUniformLocation(program, "u_start"),
             end: gl.getUniformLocation(program, "u_end"),
             shift: gl.getUniformLocation(program, "u_shift"),
@@ -763,6 +967,9 @@
             sliceInnerScale: gl.getUniformLocation(program, "u_sliceInnerScale"),
             sliceInnerCurve: gl.getUniformLocation(program, "u_sliceInnerCurve"),
             centerSliceScale: gl.getUniformLocation(program, "u_centerSliceScale")
+        };
+        const uniformElementIds = {
+            texX: 'texx'
         };
 
         const texture = gl.createTexture();
@@ -784,7 +991,7 @@
             gl.clearColor(0, 0, 0, 0);
             gl.clear(gl.COLOR_BUFFER_BIT);
             Object.keys(locations).forEach(key => {
-                const el = document.getElementById(key === 'texx' ? 'texx' : key);
+                const el = document.getElementById(uniformElementIds[key] || key);
                 if (el) {
                     const value = el.type === 'checkbox' ? (el.checked ? 1.0 : 0.0) : parseFloat(el.value);
                     gl.uniform1f(locations[key], value);
@@ -1027,6 +1234,13 @@
                 start:           0.00,
                 end:             1.00,
                 shift:           0.08,
+                edgeMass:        0.120,
+                refractionStrength: 4.20,
+                ior:             1.50,
+                aberration:      0.06,
+                edgeSoftness:    1.25,
+                cutSoftness:     0.030,
+                edgeHighlight:   0.06,
                 shiftCurve:      0.8,
                 texx:            0.34,
                 texScaleX:       0.62,
@@ -1040,6 +1254,13 @@
                 start:           0.00,
                 end:             1.00,
                 shift:           -0.59,
+                edgeMass:        0.035,
+                refractionStrength: 2.20,
+                ior:             1.45,
+                aberration:      0.03,
+                edgeSoftness:    1.70,
+                cutSoftness:     0.018,
+                edgeHighlight:   0.03,
                 shiftCurve:      1.0,
                 texx:            0.04,
                 texScaleX:       0.74,
@@ -1053,6 +1274,13 @@
                 start:           0.00,
                 end:             1.00,
                 shift:           0.63,
+                edgeMass:        0.070,
+                refractionStrength: 4.00,
+                ior:             1.48,
+                aberration:      0.05,
+                edgeSoftness:    1.30,
+                cutSoftness:     0.024,
+                edgeHighlight:   0.05,
                 shiftCurve:      0.7,
                 texx:            0.29,
                 texScaleX:       0.74,
@@ -1066,6 +1294,13 @@
                 start:           0.00,
                 end:             0.80,
                 shift:           0.05,
+                edgeMass:        0.120,
+                refractionStrength: 3.60,
+                ior:             1.50,
+                aberration:      0.05,
+                edgeSoftness:    1.15,
+                cutSoftness:     0.030,
+                edgeHighlight:   0.06,
                 shiftCurve:      0.6,
                 texx:            0.00,
                 texScaleX:       0.40,
@@ -1079,6 +1314,13 @@
                 start:           0.00,
                 end:             1.00,
                 shift:           0.04,
+                edgeMass:        0.130,
+                refractionStrength: 4.80,
+                ior:             1.52,
+                aberration:      0.06,
+                edgeSoftness:    1.10,
+                cutSoftness:     0.035,
+                edgeHighlight:   0.05,
                 shiftCurve:      1.0,
                 texx:            0.04,
                 texScaleX:       0.25,
@@ -1092,6 +1334,13 @@
                 start:           0.00,
                 end:             1.00,
                 shift:           0.21,
+                edgeMass:        0.090,
+                refractionStrength: 6.00,
+                ior:             1.58,
+                aberration:      0.12,
+                edgeSoftness:    1.05,
+                cutSoftness:     0.012,
+                edgeHighlight:   0.07,
                 shiftCurve:      1.0,
                 texx:            -0.09,
                 texScaleX:       0.14,
@@ -1105,6 +1354,13 @@
                 start:           0.00,
                 end:             1.00,
                 shift:           0.04,
+                edgeMass:        0.080,
+                refractionStrength: 3.00,
+                ior:             1.45,
+                aberration:      0.04,
+                edgeSoftness:    1.40,
+                cutSoftness:     0.025,
+                edgeHighlight:   0.04,
                 shiftCurve:      1.0,
                 texx:            0.04,
                 texScaleX:       0.29,

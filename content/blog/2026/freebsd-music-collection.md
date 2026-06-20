@@ -9,8 +9,13 @@ tags = ["FreeBSD", "music"]
 headingAnchors = true
 audioTitleCopyLinks = true
 ogImageFromFirstAudioBlock = true
+image_processing = "webp"
+image_max_width = 1660
+image_srcset_widths = [480, 768, 1536, 1660]
 aliases = ["/blog/2026/the-freebsd-soundtrack-collection/"]
 +++
+
+![Group of people holding FreeBSD daemon masks in an urban city setting](images/freebsd-music-collection-masks.png)
 
 This is my FreeBSD music collection. It consists of songs inspired by FreeBSD releases, experiments, and desktop and server experiences that have become part of everyday life. It was built using Suno AI and then tweaked and polished each one.
 
@@ -20,7 +25,7 @@ This is my FreeBSD music collection. It consists of songs inspired by FreeBSD re
 
 Context: the source of inspiration for that song become a six month [project](https://alpha-omega.dev/blog/freebsd-ai-assisted-vulnerability-discovery-project-launch/) that uses AI assisted analysis and security researchers to find, verify, and help fix vulnerabilities in the FreeBSD kernel and userland before they can be exploited.
 
-{{< audio-block src="/audio/Eyes-on-the-Kernel-by-Sashka-Echo.mp3" img="/audio/eyes-on-the-kernel-cover.jpg" song_name="Eyes on the Kernel" lyrics_json="/audio/freebsd-music-collection-lyrics.json" >}}
+{{< audio-block src="/audio/Eyes-on-the-Kernel-by-Sashka-Echo.mp3?v=20260620-172s" img="/audio/eyes-on-the-kernel-cover.jpg" song_name="Eyes on the Kernel" lyrics_json="/audio/freebsd-music-collection-lyrics.json" >}}
 
 ### Chorus
 Eyes on the kernel, light in the code<br/>
@@ -36,6 +41,10 @@ Eyes on the kernel<br/>
 Eyes on the kernel<br/>
 Eyes on the kernel<br/>
 Light in the code<br/>
+Eyes on the kernel<br/>
+Eyes on the kernel<br/>
+Eyes on the kernel<br/>
+Eyes on the kernel, light in the code<br/>
 
 ### Final Chorus
 Eyes on the kernel, light in the code<br/>
