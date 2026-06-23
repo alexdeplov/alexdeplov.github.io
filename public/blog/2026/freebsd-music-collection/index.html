@@ -18,6 +18,7 @@
 <meta property="og:type" content="article">
 <meta property="og:image" content="https://interfacecraft.online/audio/kirk-kirk-bsd-cover.jpg">
 <meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="The FreeBSD Music Collection">
 <meta name="twitter:image" content="https://interfacecraft.online/audio/kirk-kirk-bsd-cover.jpg">
 
 
@@ -142,7 +143,7 @@
 
 
 <div id="song-kirk-kirk-bsd" class="mt-4 audio-player audio-player-with-lyrics text-black rounded-xl p-6 min-h-[320px] relative overflow-hidden flex items-center"
-  data-audio-src="/audio/kirk-kirk-bsd.mp3" data-lyrics-src="/audio/freebsd-music-collection-lyrics.json" data-song-name="Kirk, Kirk, BSD" style="background-color: var(--audio-player-bg, #f6f6f6);">
+  data-audio-src="/audio/kirk-kirk-bsd.mp3" data-lyrics-src="/audio/freebsd-music-collection-lyrics.json" data-song-name="Kirk, Kirk, BSD" data-share-url="/share/kirk-kirk-bsd/" style="background-color: var(--audio-player-bg, #f6f6f6);">
 
   
   <audio class="audio-element hidden" preload="metadata">
@@ -1337,8 +1338,18 @@ Keep our data safe below.<br/></p>
       return url.href;
     }
 
+    function getShareLink() {
+      const shareUrl = (player.dataset.shareUrl || '').trim();
+
+      if (!shareUrl) {
+        return '';
+      }
+
+      return new URL(shareUrl, window.location.href).href;
+    }
+
     function getAudioLink() {
-      return getAnchorLink(player.id || '');
+      return getShareLink() || getAnchorLink(player.id || '');
     }
 
     function getTitleHeading() {
@@ -2092,7 +2103,7 @@ Keep our data safe below.<br/></p>
 
 
 <div id="song-rock-solid-every-single-day" class="mt-4 audio-player audio-player-with-lyrics text-black rounded-xl p-6 min-h-[320px] relative overflow-hidden flex items-center"
-  data-audio-src="/audio/Rock_Solid_Every_Single_Day.mp3" data-lyrics-src="/audio/freebsd-music-collection-lyrics.json" data-song-name="Rock Solid Every Single Day" style="background-color: var(--audio-player-bg, #f6f6f6);">
+  data-audio-src="/audio/Rock_Solid_Every_Single_Day.mp3" data-lyrics-src="/audio/freebsd-music-collection-lyrics.json" data-song-name="Rock Solid Every Single Day" data-share-url="/share/rock-solid-every-single-day/" style="background-color: var(--audio-player-bg, #f6f6f6);">
 
   
   <audio class="audio-element hidden" preload="metadata">
@@ -3289,8 +3300,18 @@ Running happily!</p>
       return url.href;
     }
 
+    function getShareLink() {
+      const shareUrl = (player.dataset.shareUrl || '').trim();
+
+      if (!shareUrl) {
+        return '';
+      }
+
+      return new URL(shareUrl, window.location.href).href;
+    }
+
     function getAudioLink() {
-      return getAnchorLink(player.id || '');
+      return getShareLink() || getAnchorLink(player.id || '');
     }
 
     function getTitleHeading() {
@@ -4044,7 +4065,7 @@ Running happily!</p>
 
 
 <div id="song-eyes-on-the-kernel" class="mt-4 audio-player audio-player-with-lyrics text-black rounded-xl p-6 min-h-[320px] relative overflow-hidden flex items-center"
-  data-audio-src="/audio/Eyes-on-the-Kernel-by-Sashka-Echo.mp3?v=20260620-172s" data-lyrics-src="/audio/freebsd-music-collection-lyrics.json" data-song-name="Eyes on the Kernel" style="background-color: var(--audio-player-bg, #f6f6f6);">
+  data-audio-src="/audio/Eyes-on-the-Kernel-by-Sashka-Echo.mp3?v=20260620-172s" data-lyrics-src="/audio/freebsd-music-collection-lyrics.json" data-song-name="Eyes on the Kernel" data-share-url="/share/eyes-on-the-kernel/" style="background-color: var(--audio-player-bg, #f6f6f6);">
 
   
   <audio class="audio-element hidden" preload="metadata">
@@ -5252,8 +5273,18 @@ Go Pierre!</p>
       return url.href;
     }
 
+    function getShareLink() {
+      const shareUrl = (player.dataset.shareUrl || '').trim();
+
+      if (!shareUrl) {
+        return '';
+      }
+
+      return new URL(shareUrl, window.location.href).href;
+    }
+
     function getAudioLink() {
-      return getAnchorLink(player.id || '');
+      return getShareLink() || getAnchorLink(player.id || '');
     }
 
     function getTitleHeading() {
@@ -6007,7 +6038,7 @@ Go Pierre!</p>
 
 
 <div id="song-freebsd-151-release" class="mt-4 audio-player audio-player-with-lyrics text-black rounded-xl p-6 min-h-[320px] relative overflow-hidden flex items-center"
-  data-audio-src="/audio/FreeBSD_15.1-RELEASE.mp3" data-lyrics-src="/audio/freebsd-music-collection-lyrics.json" data-song-name="FreeBSD 15.1-RELEASE" style="background-color: var(--audio-player-bg, #f6f6f6);">
+  data-audio-src="/audio/FreeBSD_15.1-RELEASE.mp3" data-lyrics-src="/audio/freebsd-music-collection-lyrics.json" data-song-name="FreeBSD 15.1-RELEASE" data-share-url="/share/freebsd-151-release/" style="background-color: var(--audio-player-bg, #f6f6f6);">
 
   
   <audio class="audio-element hidden" preload="metadata">
@@ -7250,8 +7281,18 @@ the future boots from where we are.</p>
       return url.href;
     }
 
+    function getShareLink() {
+      const shareUrl = (player.dataset.shareUrl || '').trim();
+
+      if (!shareUrl) {
+        return '';
+      }
+
+      return new URL(shareUrl, window.location.href).href;
+    }
+
     function getAudioLink() {
-      return getAnchorLink(player.id || '');
+      return getShareLink() || getAnchorLink(player.id || '');
     }
 
     function getTitleHeading() {
@@ -8005,7 +8046,7 @@ the future boots from where we are.</p>
 
 
 <div id="song-freebsd-143-rc1" class="mt-4 audio-player audio-player-with-lyrics text-black rounded-xl p-6 min-h-[320px] relative overflow-hidden flex items-center"
-  data-audio-src="/audio/FreeBSD-14.3-RC1.mp3" data-lyrics-src="/audio/freebsd-music-collection-lyrics.json" data-song-name="FreeBSD 14.3-RC1" style="background-color: var(--audio-player-bg, #f6f6f6);">
+  data-audio-src="/audio/FreeBSD-14.3-RC1.mp3" data-lyrics-src="/audio/freebsd-music-collection-lyrics.json" data-song-name="FreeBSD 14.3-RC1" data-share-url="/share/freebsd-143-rc1/" style="background-color: var(--audio-player-bg, #f6f6f6);">
 
   
   <audio class="audio-element hidden" preload="metadata">
@@ -9210,8 +9251,18 @@ come set your system free!</p>
       return url.href;
     }
 
+    function getShareLink() {
+      const shareUrl = (player.dataset.shareUrl || '').trim();
+
+      if (!shareUrl) {
+        return '';
+      }
+
+      return new URL(shareUrl, window.location.href).href;
+    }
+
     function getAudioLink() {
-      return getAnchorLink(player.id || '');
+      return getShareLink() || getAnchorLink(player.id || '');
     }
 
     function getTitleHeading() {

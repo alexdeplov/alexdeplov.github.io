@@ -25,7 +25,7 @@ This is my FreeBSD music collection. It consists of songs inspired by FreeBSD re
 
 Context: a short drum and bass tribute made to pay respect to Kirk McKusick's work on BSD.
 
-{{< audio-block src="/audio/kirk-kirk-bsd.mp3" img="/audio/kirk-kirk-bsd-cover.jpg" song_name="Kirk, Kirk, BSD" lyrics_json="/audio/freebsd-music-collection-lyrics.json" >}}
+{{< audio-block src="/audio/kirk-kirk-bsd.mp3" img="/audio/kirk-kirk-bsd-cover.jpg" song_name="Kirk, Kirk, BSD" lyrics_json="/audio/freebsd-music-collection-lyrics.json" share_url="/share/kirk-kirk-bsd/" >}}
 
 ### Intro
 Oh, yeah,<br/>
@@ -55,7 +55,7 @@ Keep our data safe below.<br/>
 
 Context: a short FreeBSD desktop anthem about using a clean, fast, reliable system every day.
 
-{{< audio-block src="/audio/Rock_Solid_Every_Single_Day.mp3" img="/audio/rock-solid-every-single-day-cover.jpg" song_name="Rock Solid Every Single Day" lyrics_json="/audio/freebsd-music-collection-lyrics.json" >}}
+{{< audio-block src="/audio/Rock_Solid_Every_Single_Day.mp3" img="/audio/rock-solid-every-single-day-cover.jpg" song_name="Rock Solid Every Single Day" lyrics_json="/audio/freebsd-music-collection-lyrics.json" share_url="/share/rock-solid-every-single-day/" >}}
 
 ### Verse
 Boot it up, smooth and bright,<br/>
@@ -87,7 +87,7 @@ Running happily!
 
 Context: the source of inspiration for that song become a six month [project](https://alpha-omega.dev/blog/freebsd-ai-assisted-vulnerability-discovery-project-launch/) that uses AI assisted analysis and security researchers to find, verify, and help fix vulnerabilities in the FreeBSD kernel and userland before they can be exploited.
 
-{{< audio-block src="/audio/Eyes-on-the-Kernel-by-Sashka-Echo.mp3?v=20260620-172s" img="/audio/eyes-on-the-kernel-cover.jpg" song_name="Eyes on the Kernel" lyrics_json="/audio/freebsd-music-collection-lyrics.json" >}}
+{{< audio-block src="/audio/Eyes-on-the-Kernel-by-Sashka-Echo.mp3?v=20260620-172s" img="/audio/eyes-on-the-kernel-cover.jpg" song_name="Eyes on the Kernel" lyrics_json="/audio/freebsd-music-collection-lyrics.json" share_url="/share/eyes-on-the-kernel/" >}}
 
 ### Chorus
 Eyes on the kernel, light in the code<br/>
@@ -131,7 +131,7 @@ Go Pierre!
 
 Context: the song is inpired by FreeBSD 15.1-RELEASE. A significant milestone for the project, delivering major improvements in hardware support, virtualization, performance, and overall system reliability.
 
-{{< audio-block src="/audio/FreeBSD_15.1-RELEASE.mp3" img="/audio/freebsd-15.1-release-cover.png" song_name="FreeBSD 15.1-RELEASE" lyrics_json="/audio/freebsd-music-collection-lyrics.json" >}}
+{{< audio-block src="/audio/FreeBSD_15.1-RELEASE.mp3" img="/audio/freebsd-15.1-release-cover.png" song_name="FreeBSD 15.1-RELEASE" lyrics_json="/audio/freebsd-music-collection-lyrics.json" share_url="/share/freebsd-151-release/" >}}
 
 ### Verse 1
 June heat on the console, <br/>
@@ -215,7 +215,7 @@ the future boots from where we are.
 
 Context: inspired by the FreeBSD Foundation news about final release candidate before FreeBSD 14.3.
 
-{{< audio-block src="/audio/FreeBSD-14.3-RC1.mp3" img="/audio/freebsd-14.3-rc1-cover.jpg" song_name="FreeBSD 14.3-RC1" lyrics_json="/audio/freebsd-music-collection-lyrics.json" >}}
+{{< audio-block src="/audio/FreeBSD-14.3-RC1.mp3" img="/audio/freebsd-14.3-rc1-cover.jpg" song_name="FreeBSD 14.3-RC1" lyrics_json="/audio/freebsd-music-collection-lyrics.json" share_url="/share/freebsd-143-rc1/" >}}
 
 Sashka Echo presents.
 

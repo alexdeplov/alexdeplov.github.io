@@ -3,7 +3,7 @@
 {{ $copyTitleLink := .copyTitleLink }}
 
 <div id="{{ $songAnchor }}" class="mt-4 audio-player{{ if .lyrics }} audio-player-with-lyrics{{ end }} text-black rounded-xl p-6 min-h-[320px] relative overflow-hidden flex items-center"
-  data-audio-src="{{ .src }}" data-lyrics-src="{{ .lyricsJson }}" data-song-name="{{ $songName }}" style="background-color: var(--audio-player-bg, #f6f6f6);">
+  data-audio-src="{{ .src }}" data-lyrics-src="{{ .lyricsJson }}" data-song-name="{{ $songName }}"{{ with .shareUrl }} data-share-url="{{ . }}"{{ end }} style="background-color: var(--audio-player-bg, #f6f6f6);">
 
   <!-- Hidden audio player -->
   <audio class="audio-element hidden" preload="metadata">
@@ -1182,8 +1182,18 @@
       return url.href;
     }
 
+    function getShareLink() {
+      const shareUrl = (player.dataset.shareUrl || '').trim();
+
+      if (!shareUrl) {
+        return '';
+      }
+
+      return new URL(shareUrl, window.location.href).href;
+    }
+
     function getAudioLink() {
-      return getAnchorLink(player.id || '');
+      return getShareLink() || getAnchorLink(player.id || '');
     }
 
     function getTitleHeading() {

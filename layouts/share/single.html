@@ -1,0 +1,89 @@
+{{ define "headExtra" }}
+{{- with .Params.robots }}
+<meta name="robots" content="{{ . }}">
+{{- end }}
+<style>
+  .share-redirect {
+    min-height: 100vh;
+    display: grid;
+    place-items: center;
+    padding: 24px;
+    background: #f5f5f4;
+    color: #18181b;
+  }
+
+  .share-redirect-card {
+    width: min(100%, 360px);
+    text-align: center;
+  }
+
+  .share-redirect-cover {
+    display: block;
+    width: 100%;
+    aspect-ratio: 1;
+    object-fit: cover;
+    border-radius: 8px;
+    box-shadow: 0 24px 80px rgba(24, 24, 27, 0.18);
+  }
+
+  .share-redirect-title {
+    margin: 20px 0 8px;
+    font-size: 1.5rem;
+    line-height: 1.15;
+    font-weight: 800;
+    letter-spacing: 0;
+  }
+
+  .share-redirect-text {
+    margin: 0 0 18px;
+    color: #52525b;
+    font-size: 0.95rem;
+    line-height: 1.45;
+  }
+
+  .share-redirect-link {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    min-height: 44px;
+    padding: 0 18px;
+    border-radius: 8px;
+    background: #18181b;
+    color: #fff;
+    font-weight: 700;
+    text-decoration: none;
+  }
+
+  .share-redirect-link:hover {
+    color: #fff;
+    text-decoration: none;
+  }
+</style>
+{{ end }}
+
+{{ define "main" }}
+{{- $target := .Params.redirectTo | default "/" -}}
+<main class="share-redirect">
+  <div class="share-redirect-card">
+    {{ with .Params.image }}
+    <a href="{{ $target | safeURL }}" aria-label="Open {{ $.Title }}">
+      <img class="share-redirect-cover" src="{{ . }}" alt="">
+    </a>
+    {{ end }}
+    <h1 class="share-redirect-title">{{ .Title }}</h1>
+    {{ with .Params.description }}
+    <p class="share-redirect-text">{{ . }}</p>
+    {{ end }}
+    <a class="share-redirect-link" href="{{ $target | safeURL }}">Open track</a>
+  </div>
+</main>
+
+<script>
+  (function () {
+    var target = {{ $target | jsonify | safeJS }};
+    window.setTimeout(function () {
+      window.location.replace(target);
+    }, 120);
+  })();
+</script>
+{{ end }}
