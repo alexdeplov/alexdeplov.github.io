@@ -194,7 +194,7 @@
           }
 
           var url = new URL(window.location.href);
-          url.hash = player.id;
+          url.hash = heading.id;
 
           copyHeadingLink(url.href).then(function () {
             if (typeof window.showSiteToast === 'function') {

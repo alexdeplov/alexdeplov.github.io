@@ -11,6 +11,36 @@
   ],
   "tracks": [
     {
+      "slug": "kirk-kirk-bsd",
+      "audio": "static/audio/kirk-kirk-bsd.mp3",
+      "player_src": "/audio/kirk-kirk-bsd.mp3",
+      "alignment": "Demucs vocal stem plus Whisper word timestamps; second chorus hook corrected from full-mix transcript",
+      "drop_unmatched": false,
+      "min_score": 0.4,
+      "sources": [
+        "vocals",
+        "mix"
+      ],
+      "lyrics": [
+        { "section": "Intro" },
+        { "text": "Oh, yeah,", "time": 1.86 },
+        { "section": "Verse" },
+        { "text": "Give me one for my answer", "time": 21.26 },
+        { "text": "Give me two for the dancer", "time": 27.44 },
+        { "text": "Give me three to dance with Kirk below", "time": 32.58 },
+        { "section": "Chorus" },
+        { "text": "Kirk, Kirk, BSD,", "time": 35.86 },
+        { "text": "Keeper of the Unix tree.", "time": 40.94 },
+        { "text": "Soft updates, clean and bright,", "time": 45.4 },
+        { "text": "Guard our data through the night.", "time": 50.54 },
+        { "section": "Chorus" },
+        { "text": "Kirk, Kirk, BSD,", "time": 57.0 },
+        { "text": "Keeper of the Unix tree.", "time": 62.78 },
+        { "text": "Soft updates, steady flow,", "time": 67.24 },
+        { "text": "Keep our data safe below.", "time": 71.22 }
+      ]
+    },
+    {
       "slug": "rock-solid-every-single-day",
       "audio": "static/audio/Rock_Solid_Every_Single_Day.mp3",
       "player_src": "/audio/Rock_Solid_Every_Single_Day.mp3",

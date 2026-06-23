@@ -21,6 +21,36 @@ This is my FreeBSD music collection. It consists of songs inspired by FreeBSD re
 
 ---
 
+## "Kirk, Kirk, BSD" Song
+
+Context: a short drum and bass tribute made to pay respect to Kirk McKusick's work on BSD.
+
+{{< audio-block src="/audio/kirk-kirk-bsd.mp3" img="/audio/kirk-kirk-bsd-cover.jpg" song_name="Kirk, Kirk, BSD" lyrics_json="/audio/freebsd-music-collection-lyrics.json" >}}
+
+### Intro
+Oh, yeah,<br/>
+
+### Verse
+Give me one for my answer<br/>
+Give me two for the dancer<br/>
+Give me three to dance with Kirk below<br/>
+
+### Chorus
+**Kirk, Kirk, BSD,**<br/>
+Keeper of the Unix tree.<br/>
+Soft updates, clean and bright,<br/>
+Guard our data through the night.<br/>
+
+### Chorus
+**Kirk, Kirk, BSD,**<br/>
+Keeper of the Unix tree.<br/>
+Soft updates, steady flow,<br/>
+Keep our data safe below.<br/>
+
+{{< /audio-block >}}
+
+---
+
 ## "Rock Solid Every Single Day" Song
 
 Context: a short FreeBSD desktop anthem about using a clean, fast, reliable system every day.

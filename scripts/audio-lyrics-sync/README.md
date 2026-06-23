@@ -33,6 +33,14 @@ export TORCH_HOME=/private/tmp/torch-cache
   scripts/audio-lyrics-sync/freebsd-music-collection.manifest.json
 ```
 
+To sync only one track and merge it into the existing lyrics JSON:
+
+```sh
+/private/tmp/audio-lyrics-sync-venv/bin/python scripts/audio-lyrics-sync/sync_lyrics.py \
+  scripts/audio-lyrics-sync/freebsd-music-collection.manifest.json \
+  --track kirk-kirk-bsd
+```
+
 The FreeBSD manifest writes:
 
 - `static/audio/freebsd-music-collection-lyrics.json`

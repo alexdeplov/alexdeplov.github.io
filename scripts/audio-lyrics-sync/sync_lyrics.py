@@ -53,6 +53,26 @@ def slugify(value: str) -> str:
     return cleaned or "track"
 
 
+def normalize_selector(value: str) -> str:
+    value = value.split("?", 1)[0].split("#", 1)[0].strip()
+    return value.rstrip("/")
+
+
+def track_matches_selector(track: dict[str, Any], selector: str, base_dir: pathlib.Path) -> bool:
+    needle = normalize_selector(selector)
+    audio = relpath(track["audio"], base_dir)
+    slug = slugify(track.get("slug") or audio.stem)
+    candidates = {
+        slug,
+        normalize_selector(track["player_src"]),
+        normalize_selector(str(track["audio"])),
+        normalize_selector(str(audio)),
+        audio.name,
+        audio.stem,
+    }
+    return needle in candidates
+
+
 def run(cmd: list[str], *, env: dict[str, str] | None = None) -> None:
     print("+ " + " ".join(cmd), flush=True)
     subprocess.run(cmd, check=True, env=env)
@@ -366,10 +386,32 @@ def align_track(
 
         text = str(entry["text"])
         manual_time = entry.get("time")
+        auto_time: float | None = None
 
         if manual_time is not None:
             time_value = round(float(manual_time), 2)
-            match = Match(time=time_value, score=1.0, source="manual", window=text, status="manual")
+            auto_match = (
+                find_best_match(
+                    text,
+                    source_tokens,
+                    min_time=min_time,
+                    min_score=min_score,
+                )
+                if source_tokens
+                else None
+            )
+            if auto_match is None:
+                match = Match(time=time_value, score=1.0, source="manual", window=text, status="manual")
+            else:
+                auto_time = auto_match.time
+                status = "manual" if abs(auto_time - time_value) < 0.05 else "manual-adjusted"
+                match = Match(
+                    time=time_value,
+                    score=auto_match.score,
+                    source=auto_match.source,
+                    window=auto_match.window,
+                    status=status,
+                )
         else:
             match = find_best_match(
                 text,
@@ -396,16 +438,17 @@ def align_track(
 
         append_pending_sections(output_lines, pending_sections, time_value)
         output_lines.append({"time": time_value, "text": text})
-        report.append(
-            {
-                "text": text,
-                "time": time_value,
-                "score": match.score,
-                "source": match.source,
-                "status": match.status,
-                "window": match.window,
-            }
-        )
+        report_entry = {
+            "text": text,
+            "time": time_value,
+            "score": match.score,
+            "source": match.source,
+            "status": match.status,
+            "window": match.window,
+        }
+        if auto_time is not None and abs(auto_time - time_value) >= 0.05:
+            report_entry["auto_time"] = auto_time
+        report.append(report_entry)
         last_time = time_value
         min_time = time_value + 0.2
 
@@ -414,7 +457,10 @@ def align_track(
         "duration": duration,
         "vocalStart": vocal_lines[0]["time"] if vocal_lines else 0,
         "vocalEnd": vocal_lines[-1]["time"] if vocal_lines else duration,
-        "alignment": "Demucs vocal stem plus Whisper word timestamps; see report.json for match scores",
+        "alignment": track.get(
+            "alignment",
+            "Demucs vocal stem plus Whisper word timestamps; see report.json for match scores",
+        ),
         "lines": output_lines,
     }
     return player_src, payload, report
@@ -422,7 +468,72 @@ def align_track(
 
 def write_json(path: pathlib.Path, payload: Any) -> None:
     path.parent.mkdir(parents=True, exist_ok=True)
-    path.write_text(json.dumps(payload, indent=2, ensure_ascii=False) + "\n")
+    path.write_text(format_json(payload) + "\n")
+
+
+def read_json_if_exists(path: pathlib.Path) -> Any | None:
+    if not path.exists():
+        return None
+    return json.loads(path.read_text())
+
+
+def order_tracks(tracks: dict[str, Any], manifest_tracks: list[dict[str, Any]]) -> dict[str, Any]:
+    ordered: dict[str, Any] = {}
+    for track in manifest_tracks:
+        player_src = track["player_src"]
+        if player_src in tracks:
+            ordered[player_src] = tracks[player_src]
+
+    for player_src, payload in tracks.items():
+        if player_src not in ordered:
+            ordered[player_src] = payload
+
+    return ordered
+
+
+def is_scalar(value: Any) -> bool:
+    return value is None or isinstance(value, (bool, int, float, str))
+
+
+def is_compact_dict(value: dict[str, Any]) -> bool:
+    return bool(value) and all(is_scalar(item) for item in value.values())
+
+
+def format_json(value: Any, *, indent: int = 0) -> str:
+    if isinstance(value, dict):
+        if is_compact_dict(value):
+            inner = json.dumps(value, ensure_ascii=False, separators=(", ", ": "))
+            return "{ " + inner[1:-1] + " }"
+        if not value:
+            return "{}"
+
+        current = " " * indent
+        child = " " * (indent + 2)
+        lines = ["{"]
+        items = list(value.items())
+        for index, (key, item) in enumerate(items):
+            comma = "," if index < len(items) - 1 else ""
+            lines.append(
+                f"{child}{json.dumps(str(key), ensure_ascii=False)}: "
+                f"{format_json(item, indent=indent + 2)}{comma}"
+            )
+        lines.append(f"{current}}}")
+        return "\n".join(lines)
+
+    if isinstance(value, list):
+        if not value:
+            return "[]"
+
+        current = " " * indent
+        child = " " * (indent + 2)
+        lines = ["["]
+        for index, item in enumerate(value):
+            comma = "," if index < len(value) - 1 else ""
+            lines.append(f"{child}{format_json(item, indent=indent + 2)}{comma}")
+        lines.append(f"{current}]")
+        return "\n".join(lines)
+
+    return json.dumps(value, ensure_ascii=False)
 
 
 def main() -> int:
@@ -432,6 +543,12 @@ def main() -> int:
     parser.add_argument("--model", default=None, help="Whisper model name. Defaults to manifest or turbo.")
     parser.add_argument("--model-dir", default=None, help="Whisper model cache directory.")
     parser.add_argument("--work-dir", default=None, help="Override manifest work_dir.")
+    parser.add_argument(
+        "--track",
+        action="append",
+        default=[],
+        help="Only sync a matching track slug, player_src, audio path, file name, or stem. Repeatable.",
+    )
     args = parser.parse_args()
 
     base_dir = repo_root()
@@ -445,10 +562,24 @@ def main() -> int:
     language = manifest.get("language", "en")
     demucs_model = manifest.get("demucs_model", "htdemucs")
 
-    tracks: dict[str, Any] = {}
-    reports: dict[str, Any] = {}
+    selected_tracks = manifest["tracks"]
+    if args.track:
+        selected_tracks = [
+            track
+            for track in manifest["tracks"]
+            if any(track_matches_selector(track, selector, base_dir) for selector in args.track)
+        ]
+        if not selected_tracks:
+            selectors = ", ".join(args.track)
+            raise SystemExit(f"No tracks matched --track: {selectors}")
 
-    for track in manifest["tracks"]:
+    existing_output = read_json_if_exists(output_path) if args.track else None
+    existing_report = read_json_if_exists(work_dir / "report.json") if args.track else None
+
+    tracks: dict[str, Any] = dict((existing_output or {}).get("tracks") or {})
+    reports: dict[str, Any] = dict(existing_report or {})
+
+    for track in selected_tracks:
         player_src, payload, report = align_track(
             track,
             base_dir=base_dir,
@@ -465,7 +596,7 @@ def main() -> int:
     output = {
         "version": int(manifest.get("version", 1)),
         "generated": dt.date.today().isoformat(),
-        "tracks": tracks,
+        "tracks": order_tracks(tracks, manifest["tracks"]),
     }
     write_json(output_path, output)
 
