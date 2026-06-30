@@ -21,6 +21,9 @@
         "mix"
       ],
       "lyrics": [
+        { "section": "Intro" },
+        { "text": "FreeBSD, FreeBSD, FreeBSD" },
+        { "text": "Built to hold, built to breathe" },
         { "section": "Verse 1" },
         { "text": "FreeBSD in the stack, yeah, deep in the frame", "time": 19.02 },
         { "text": "Quiet little engine, but the world know the name", "time": 20.88 },

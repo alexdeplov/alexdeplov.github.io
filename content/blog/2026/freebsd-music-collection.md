@@ -27,6 +27,10 @@ Context: a rap track with a Jungle mash up about FreeBSD quietly powering stream
 
 {{< audio-block src="/audio/FreeBSD-Rap-by-Sashka-Esho.mp3" img="/audio/FreeBSD-Rap-by-Sashka-Esho-cover.jpg" song_name="FreeBSD Rap with Jungle Mashup" lyrics_json="/audio/freebsd-music-collection-lyrics.json" share_url="/share/freebsd-rap-by-sashka-esho/" >}}
 
+### Intro
+FreeBSD, FreeBSD, FreeBSD<br/>
+Built to hold, built to breathe<br/>
+
 ### Verse 1
 FreeBSD in the stack, yeah, deep in the frame<br/>
 Quiet little engine, but the world know the name<br/>

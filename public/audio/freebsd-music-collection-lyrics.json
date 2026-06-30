@@ -4,10 +4,13 @@
   "tracks": {
     "/audio/FreeBSD-Rap-by-Sashka-Esho.mp3": {
       "duration": 197.68,
-      "vocalStart": 19.02,
+      "vocalStart": 5.36,
       "vocalEnd": 190.4,
       "alignment": "Demucs vocal stem plus Whisper word timestamps; see report.json for match scores",
       "lines": [
+        { "type": "section", "time": 5.36, "text": "Intro" },
+        { "time": 5.36, "text": "FreeBSD, FreeBSD, FreeBSD" },
+        { "time": 10.76, "text": "Built to hold, built to breathe" },
         { "type": "section", "time": 19.02, "text": "Verse 1" },
         { "time": 19.02, "text": "FreeBSD in the stack, yeah, deep in the frame" },
         { "time": 20.88, "text": "Quiet little engine, but the world know the name" },
