@@ -847,6 +847,46 @@
 <!-- Script for audio player initialization -->
 <script>
   (function () {
+    if (!window.__audioSpacebarPauseHandler) {
+      window.__audioSpacebarPauseHandler = true;
+
+      document.addEventListener('keydown', event => {
+        if (
+          event.defaultPrevented ||
+          event.repeat ||
+          (event.key !== ' ' && event.key !== 'Spacebar' && event.code !== 'Space')
+        ) {
+          return;
+        }
+
+        const target = event.target;
+
+        if (
+          target instanceof Element &&
+          target.closest(
+            'textarea, select, [contenteditable=""], [contenteditable="true"], [contenteditable="plaintext-only"], ' +
+            'input:not([type]), input[type="date"], input[type="datetime-local"], input[type="email"], ' +
+            'input[type="month"], input[type="number"], input[type="password"], input[type="search"], ' +
+            'input[type="tel"], input[type="text"], input[type="time"], input[type="url"], input[type="week"]'
+          )
+        ) {
+          return;
+        }
+
+        const playingAudios = Array.from(document.querySelectorAll('.audio-element'))
+          .filter(audioElement => !audioElement.paused && !audioElement.ended);
+
+        if (!playingAudios.length) {
+          return;
+        }
+
+        event.preventDefault();
+        playingAudios.forEach(audioElement => {
+          audioElement.pause();
+        });
+      });
+    }
+
     function getCurrentPlayer() {
       const script = document.currentScript;
 

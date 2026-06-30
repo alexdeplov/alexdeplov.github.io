@@ -21,11 +21,11 @@ This is my FreeBSD music collection. It consists of songs inspired by FreeBSD re
 
 ---
 
-## "FreeBSD Rap" Song
+## "FreeBSD Rap with Jungle Mashup" Song {#freebsd-rap-song}
 
-Context: a jungle, drum and bass, rave mashup about FreeBSD quietly powering streaming, consoles, and everyday systems.
+Context: a rap track with a Jungle mash up about FreeBSD quietly powering streaming, consoles, and everyday systems.
 
-{{< audio-block src="/audio/FreeBSD-Rap-by-Sashka-Esho.mp3" img="/audio/FreeBSD-Rap-by-Sashka-Esho-cover.jpg" song_name="FreeBSD Rap" lyrics_json="/audio/freebsd-music-collection-lyrics.json" share_url="/share/freebsd-rap-by-sashka-esho/" >}}
+{{< audio-block src="/audio/FreeBSD-Rap-by-Sashka-Esho.mp3" img="/audio/FreeBSD-Rap-by-Sashka-Esho-cover.jpg" song_name="FreeBSD Rap with Jungle Mashup" lyrics_json="/audio/freebsd-music-collection-lyrics.json" share_url="/share/freebsd-rap-by-sashka-esho/" >}}
 
 ### Verse 1
 FreeBSD in the stack, yeah, deep in the frame<br/>
@@ -50,13 +50,13 @@ Same old core<br/>
 Still number one<br/>
 
 ### Chorus
-FreeBSD, freeBSD<br/>
+FreeBSD, FreeBSD<br/>
 Runs the world quietly<br/>
-FreeBSD, freeBSD<br/>
+FreeBSD, FreeBSD<br/>
 Under the hood, where it should be<br/>
-FreeBSD, freeBSD<br/>
+FreeBSD, FreeBSD<br/>
 Rock solid, endlessly<br/>
-FreeBSD, freeBSD<br/>
+FreeBSD, FreeBSD<br/>
 Built to hold, built to breathe<br/>
 
 ### Verse 2
@@ -82,13 +82,13 @@ Same old core<br/>
 Still number one<br/>
 
 ### Chorus
-FreeBSD, freeBSD<br/>
+FreeBSD, FreeBSD<br/>
 Runs the world quietly<br/>
-FreeBSD, freeBSD<br/>
+FreeBSD, FreeBSD<br/>
 Under the hood, where it should be<br/>
-FreeBSD, freeBSD<br/>
+FreeBSD, FreeBSD<br/>
 Rock solid, endlessly<br/>
-FreeBSD, freeBSD<br/>
+FreeBSD, FreeBSD<br/>
 Built to hold, built to breathe<br/>
 
 ### Bridge
@@ -98,19 +98,19 @@ Just keep the system steady<br/>
 And keep the signal tame<br/>
 
 ### Final Chorus
-FreeBSD, freeBSD<br/>
+FreeBSD, FreeBSD<br/>
 Runs the world quietly<br/>
-FreeBSD, freeBSD<br/>
+FreeBSD, FreeBSD<br/>
 Under the hood, where it should be<br/>
-FreeBSD, freeBSD<br/>
+FreeBSD, FreeBSD<br/>
 Rock solid, endlessly<br/>
-FreeBSD, freeBSD<br/>
+FreeBSD, FreeBSD<br/>
 Built to hold, built to breathe<br/>
 
 ### Outro
 Quiet code, loud impact<br/>
 Whole stack on its back<br/>
-FreeBSD, freeBSD<br/>
+FreeBSD, FreeBSD<br/>
 Yeah, that’s the fact
 
 {{< /audio-block >}}

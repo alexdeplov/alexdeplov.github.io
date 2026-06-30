@@ -1,6 +1,6 @@
 +++
-title = "FreeBSD Rap"
-description = "A jungle, drum and bass, rave mashup about FreeBSD quietly powering streaming, consoles, and everyday systems."
+title = "FreeBSD Rap with Jungle Mashup"
+description = "A rap track with a Jungle mash up about FreeBSD quietly powering streaming, consoles, and everyday systems."
 date = 2026-06-30T09:00:00+02:00
 draft = false
 image = "/audio/FreeBSD-Rap-by-Sashka-Esho-cover.jpg"
