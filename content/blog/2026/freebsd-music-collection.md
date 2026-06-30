@@ -21,6 +21,102 @@ This is my FreeBSD music collection. It consists of songs inspired by FreeBSD re
 
 ---
 
+## "FreeBSD Rap" Song
+
+Context: a jungle, drum and bass, rave mashup about FreeBSD quietly powering streaming, consoles, and everyday systems.
+
+{{< audio-block src="/audio/FreeBSD-Rap-by-Sashka-Esho.mp3" img="/audio/FreeBSD-Rap-by-Sashka-Esho-cover.jpg" song_name="FreeBSD Rap" lyrics_json="/audio/freebsd-music-collection-lyrics.json" share_url="/share/freebsd-rap-by-sashka-esho/" >}}
+
+### Verse 1
+FreeBSD in the stack, yeah, deep in the frame<br/>
+Quiet little engine, but the world know the name<br/>
+Netflix on the rails, keep it moving all day<br/>
+Millions of streams ride smooth, no delay<br/>
+
+PlayStation in the code, that’s under the hood<br/>
+Stability on the line, make the whole thing good<br/>
+Nintendo got a system from the kernel tree<br/>
+Same old bones, just tuned for the family<br/>
+
+It don’t need to flex, it just gets it done<br/>
+Built for the long run, not a flash in the sun<br/>
+From servers in the dark to the living room glow<br/>
+If you know, you know, that BSD flow<br/>
+
+### Pre-Chorus
+Count the machines<br/>
+Hear that hum<br/>
+Same old core<br/>
+Still number one<br/>
+
+### Chorus
+FreeBSD, freeBSD<br/>
+Runs the world quietly<br/>
+FreeBSD, freeBSD<br/>
+Under the hood, where it should be<br/>
+FreeBSD, freeBSD<br/>
+Rock solid, endlessly<br/>
+FreeBSD, freeBSD<br/>
+Built to hold, built to breathe<br/>
+
+### Verse 2
+Netflix on a server farm, feeding that demand<br/>
+Fast little packets in a well-tuned hand<br/>
+PlayStation boots up, clean when you press play<br/>
+Steady in the system, never in the way<br/>
+
+Nintendo on the rise with a custom touch<br/>
+Same hard roots, just polished up much<br/>
+They took that code and made it fit their lane<br/>
+Different front door, same backbone vein<br/>
+
+Not a headline star, but it powers the scene<br/>
+The kind of base layer holding up the dream<br/>
+So when the screen lights up and the players move<br/>
+That’s FreeBSD in the groove<br/>
+
+### Pre-Chorus
+Count the machines<br/>
+Hear that hum<br/>
+Same old core<br/>
+Still number one<br/>
+
+### Chorus
+FreeBSD, freeBSD<br/>
+Runs the world quietly<br/>
+FreeBSD, freeBSD<br/>
+Under the hood, where it should be<br/>
+FreeBSD, freeBSD<br/>
+Rock solid, endlessly<br/>
+FreeBSD, freeBSD<br/>
+Built to hold, built to breathe<br/>
+
+### Bridge
+From data halls to game nights<br/>
+It never asks for fame<br/>
+Just keep the system steady<br/>
+And keep the signal tame<br/>
+
+### Final Chorus
+FreeBSD, freeBSD<br/>
+Runs the world quietly<br/>
+FreeBSD, freeBSD<br/>
+Under the hood, where it should be<br/>
+FreeBSD, freeBSD<br/>
+Rock solid, endlessly<br/>
+FreeBSD, freeBSD<br/>
+Built to hold, built to breathe<br/>
+
+### Outro
+Quiet code, loud impact<br/>
+Whole stack on its back<br/>
+FreeBSD, freeBSD<br/>
+Yeah, that’s the fact
+
+{{< /audio-block >}}
+
+---
+
 ## "Kirk, Kirk, BSD" Song
 
 Context: a short drum and bass tribute made to pay respect to Kirk McKusick's work on BSD.
