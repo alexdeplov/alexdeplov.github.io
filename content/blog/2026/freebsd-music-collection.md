@@ -1,7 +1,7 @@
 +++
 title = "The FreeBSD Music Collection"
 short_title = "FreeBSD Music Collection"
-date = 2026-06-16T09:00:00+02:00
+date = 2026-07-01T09:00:00+02:00
 draft = false
 featured = false
 author = "Alexander Deplov"
@@ -18,6 +18,28 @@ aliases = ["/blog/2026/the-freebsd-soundtrack-collection/"]
 ![Group of people holding FreeBSD daemon masks in an urban city setting](images/freebsd-music-collection-masks.png)
 
 This is my FreeBSD music collection. It consists of songs inspired by FreeBSD releases, experiments, and desktop and server experiences that have become part of everyday life. It was built using Suno AI and then tweaked and polished each one.
+
+---
+
+## "FreeBSD From 14 to 15" Song
+
+Context: I recently upgraded my server from FreeBSD 14 to 15.1-RELEASE-p1, which went smoothly. To make the song I used old melody that I had before, re-build it 19 times in Suno, and then polished in Ableton Live 12. 
+
+{{< audio-block src="/audio/FreeBSD-From-14-to-15-by-Sashka-Echo.mp3" img="/audio/freebsd-from-14-to-15-cover.jpg" song_name="FreeBSD From 14 to 15" lyrics_json="/audio/freebsd-music-collection-lyrics.json" share_url="/share/freebsd-from-14-to-15/" >}}
+
+### Verse
+Fourteen served us, day by day,<br/>
+Now Fifteen takes the load away.<br/>
+Fetch the bits, reboot once more,<br/>
+Free-B-S-D at the core.<br/>
+
+### Chorus
+From Fourteen up to Fifteen now,<br/>
+Same old shell, just faster somehow.<br/>
+One command, then let it be,<br/>
+Hello, new Free-B-S-D.
+
+{{< /audio-block >}}
 
 ---
 

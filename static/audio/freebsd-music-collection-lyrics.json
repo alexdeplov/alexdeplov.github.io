@@ -1,7 +1,25 @@
 {
   "version": 1,
-  "generated": "2026-06-30",
+  "generated": "2026-07-01",
   "tracks": {
+    "/audio/FreeBSD-From-14-to-15-by-Sashka-Echo.mp3": {
+      "duration": 64.582646,
+      "vocalStart": 19.68,
+      "vocalEnd": 53.26,
+      "alignment": "Demucs vocal stem plus Whisper word timestamps; see report.json for match scores",
+      "lines": [
+        { "type": "section", "time": 19.68, "text": "Verse" },
+        { "time": 19.68, "text": "Fourteen served us, day by day," },
+        { "time": 23.38, "text": "Now Fifteen takes the load away." },
+        { "time": 28.64, "text": "Fetch the bits, reboot once more," },
+        { "time": 33.98, "text": "Free-B-S-D at the core." },
+        { "type": "section", "time": 39.18, "text": "Chorus" },
+        { "time": 39.18, "text": "From Fourteen up to Fifteen now," },
+        { "time": 43.24, "text": "Same old shell, just faster somehow." },
+        { "time": 48.3, "text": "One command, then let it be," },
+        { "time": 53.26, "text": "Hello, new Free-B-S-D." }
+      ]
+    },
     "/audio/FreeBSD-Rap-by-Sashka-Esho.mp3": {
       "duration": 197.68,
       "vocalStart": 5.36,

@@ -11,6 +11,29 @@
   ],
   "tracks": [
     {
+      "slug": "freebsd-from-14-to-15",
+      "audio": "static/audio/FreeBSD-From-14-to-15-by-Sashka-Echo.mp3",
+      "player_src": "/audio/FreeBSD-From-14-to-15-by-Sashka-Echo.mp3",
+      "drop_unmatched": false,
+      "min_score": 0.4,
+      "sources": [
+        "vocals",
+        "mix"
+      ],
+      "lyrics": [
+        { "section": "Verse" },
+        { "text": "Fourteen served us, day by day," },
+        { "text": "Now Fifteen takes the load away." },
+        { "text": "Fetch the bits, reboot once more," },
+        { "text": "Free-B-S-D at the core." },
+        { "section": "Chorus" },
+        { "text": "From Fourteen up to Fifteen now," },
+        { "text": "Same old shell, just faster somehow." },
+        { "text": "One command, then let it be," },
+        { "text": "Hello, new Free-B-S-D." }
+      ]
+    },
+    {
       "slug": "freebsd-rap-by-sashka-esho",
       "audio": "static/audio/FreeBSD-Rap-by-Sashka-Esho.mp3",
       "player_src": "/audio/FreeBSD-Rap-by-Sashka-Esho.mp3",
