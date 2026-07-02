@@ -381,7 +381,7 @@ def align_track(
 
     for entry in line_entries(track["lyrics"]):
         if "section" in entry:
-            pending_sections.append(str(entry["section"]))
+            pending_sections[:] = [str(entry["section"])]
             continue
 
         text = str(entry["text"])
