@@ -23,7 +23,7 @@ This is my FreeBSD music collection. It consists of songs inspired by FreeBSD re
 
 ## "FreeBSD From 14 to 15" Song
 
-Context: I recently upgraded my server from FreeBSD 14 to 15.1-RELEASE-p1, which went smoothly. To make the song I used old melody that I had before, re-build it 19 times in Suno, and then polished in Ableton Live 12. 
+Context: I recently upgraded my server from FreeBSD 14 to 15.1-RELEASE-p1, which went smoothly. To make the song I used old melody that I had before, modified it 19 times in Suno to tweak the voice, melody, rhythm, lyrics, and voice accents. Then, I polished it in Ableton Live 12 and combined the best parts of different tracks and lyrics into one song.
 
 {{< audio-block src="/audio/FreeBSD-From-14-to-15-by-Sashka-Echo.mp3" img="/audio/freebsd-from-14-to-15-cover.jpg" song_name="FreeBSD From 14 to 15" lyrics_json="/audio/freebsd-music-collection-lyrics.json" share_url="/share/freebsd-from-14-to-15/" >}}
 
