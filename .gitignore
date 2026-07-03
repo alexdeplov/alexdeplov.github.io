@@ -10,6 +10,7 @@ content/.DS_Store
 content/posts/.DS_Store
 public/.DS_Store
 resources/
+_site/
 .audio-lyrics-work/
 __pycache__/
 *.pyc
