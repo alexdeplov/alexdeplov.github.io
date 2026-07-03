@@ -67,6 +67,12 @@ jobs:
             --minify \
             --destination ./_site \
             --baseURL "${{ steps.pages.outputs.base_url }}/"
+      - name: Preserve legacy audio assets
+        run: |
+          if [[ -d public/audio ]]; then
+            mkdir -p ./_site/audio
+            cp -a public/audio/. ./_site/audio/
+          fi
       - name: Upload artifact
         uses: actions/upload-pages-artifact@v5
         with:
