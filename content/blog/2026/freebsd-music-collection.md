@@ -251,7 +251,7 @@ Go Pierre!
 
 ## "FreeBSD 15.1-RELEASE" Song
 
-Context: the song is inpired by FreeBSD 15.1-RELEASE. A significant milestone for the project, delivering major improvements in hardware support, virtualization, performance, and overall system reliability.
+Context: the song is inspired by FreeBSD 15.1-RELEASE. A significant milestone for the project, delivering major improvements in hardware support, virtualization, performance, and overall system reliability.
 
 {{< audio-block src="/audio/FreeBSD_15.1-RELEASE.mp3" img="/audio/freebsd-15.1-release-cover.png" song_name="FreeBSD 15.1-RELEASE" lyrics_json="/audio/freebsd-music-collection-lyrics.json" share_url="/share/freebsd-151-release/" >}}
 
