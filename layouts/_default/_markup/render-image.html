@@ -4,40 +4,48 @@
 {{- $isRemote := or (hasPrefix $src "http://") (hasPrefix $src "https://") -}}
 {{- $isSpecial := or (hasPrefix $src "#") (hasPrefix $src "data:") -}}
 {{- if or $isRemote $isSpecial -}}
-<img src="{{ $src | safeURL }}" alt="{{ $alt }}"{{ with $title }} title="{{ . }}"{{ end }} loading="lazy" decoding="async">
+<img src="{{ $src | safeURL }}" alt="{{ $alt }}" {{ with $title }} title="{{ . }}" {{ end }} loading="lazy"
+  decoding="async">
 {{- else -}}
-  {{- $cleanSrc := strings.TrimPrefix "./" $src -}}
-  {{- $image := .Page.Resources.GetMatch $cleanSrc -}}
-  {{- if and $image (eq $image.ResourceType "image") (in (slice "jpeg" "jpg" "png" "webp") $image.MediaType.SubType) -}}
-    {{- if eq (.Page.Params.image_processing | default "") "original" -}}
-<img src="{{ $image.RelPermalink }}" alt="{{ $alt }}"{{ with $title }} title="{{ . }}"{{ end }} width="{{ $image.Width }}" height="{{ $image.Height }}" loading="lazy" decoding="async">
-    {{- else if and (eq $image.MediaType.SubType "png") (ne (.Page.Params.image_processing | default "") "webp") -}}
-      {{- $webpSrc := replaceRE "\\.[^.]+$" ".webp" $cleanSrc -}}
-      {{- $webp := .Page.Resources.GetMatch $webpSrc -}}
-      {{- if $webp -}}
-<img src="{{ $webp.RelPermalink }}" alt="{{ $alt }}"{{ with $title }} title="{{ . }}"{{ end }} width="{{ $webp.Width }}" height="{{ $webp.Height }}" loading="lazy" decoding="async">
-      {{- else -}}
-<img src="{{ $image.RelPermalink }}" alt="{{ $alt }}"{{ with $title }} title="{{ . }}"{{ end }} width="{{ $image.Width }}" height="{{ $image.Height }}" loading="lazy" decoding="async">
-      {{- end -}}
-    {{- else if eq $image.MediaType.SubType "webp" -}}
-<img src="{{ $image.RelPermalink }}" alt="{{ $alt }}"{{ with $title }} title="{{ . }}"{{ end }} width="{{ $image.Width }}" height="{{ $image.Height }}" loading="lazy" decoding="async">
-    {{- else -}}
-      {{- $maxWidth := .Page.Params.image_max_width | default 1200 -}}
-      {{- $srcsetWidths := .Page.Params.image_srcset_widths | default (slice 480 768 1200) -}}
-      {{- $webpOptions := .Page.Params.image_webp_options | default "q95" -}}
-      {{- $fallbackWidth := cond (gt $image.Width $maxWidth) $maxWidth $image.Width -}}
-      {{- $fallback := $image.Resize (printf "%dx webp %s" $fallbackWidth $webpOptions) -}}
-      {{- $srcset := slice -}}
-      {{- range $srcsetWidths -}}
-        {{- $width := int . -}}
-        {{- if le $width $image.Width -}}
-          {{- $resized := $image.Resize (printf "%dx webp %s" $width $webpOptions) -}}
-          {{- $srcset = $srcset | append (printf "%s %dw" $resized.RelPermalink $width) -}}
-        {{- end -}}
-      {{- end -}}
-<img src="{{ $fallback.RelPermalink }}"{{ if gt (len $srcset) 0 }} srcset="{{ delimit $srcset ", " }}" sizes="(min-width: 768px) 768px, calc(100vw - 2rem)"{{ end }} alt="{{ $alt }}"{{ with $title }} title="{{ . }}"{{ end }} width="{{ $fallback.Width }}" height="{{ $fallback.Height }}" loading="lazy" decoding="async">
-    {{- end -}}
-  {{- else -}}
-<img src="{{ $src | safeURL }}" alt="{{ $alt }}"{{ with $title }} title="{{ . }}"{{ end }} loading="lazy" decoding="async">
-  {{- end -}}
+{{- $cleanSrc := strings.TrimPrefix "./" $src -}}
+{{- $image := .Page.Resources.GetMatch $cleanSrc -}}
+{{- if and $image (eq $image.ResourceType "image") (in (slice "jpeg" "jpg" "png" "webp") $image.MediaType.SubType) -}}
+{{- if eq (.Page.Params.image_processing | default "") "original" -}}
+<img src="{{ $image.RelPermalink }}" alt="{{ $alt }}" {{ with $title }} title="{{ . }}" {{ end }}
+  width="{{ $image.Width }}" height="{{ $image.Height }}" loading="lazy" decoding="async">
+{{- else if and (eq $image.MediaType.SubType "png") (ne (.Page.Params.image_processing | default "") "webp") -}}
+{{- $webpSrc := replaceRE "\\.[^.]+$" ".webp" $cleanSrc -}}
+{{- $webp := .Page.Resources.GetMatch $webpSrc -}}
+{{- if $webp -}}
+<img src="{{ $webp.RelPermalink }}" alt="{{ $alt }}" {{ with $title }} title="{{ . }}" {{ end }}
+  width="{{ $webp.Width }}" height="{{ $webp.Height }}" loading="lazy" decoding="async">
+{{- else -}}
+<img src="{{ $image.RelPermalink }}" alt="{{ $alt }}" {{ with $title }} title="{{ . }}" {{ end }}
+  width="{{ $image.Width }}" height="{{ $image.Height }}" loading="lazy" decoding="async">
+{{- end -}}
+{{- else if eq $image.MediaType.SubType "webp" -}}
+<img src="{{ $image.RelPermalink }}" alt="{{ $alt }}" {{ with $title }} title="{{ . }}" {{ end }}
+  width="{{ $image.Width }}" height="{{ $image.Height }}" loading="lazy" decoding="async">
+{{- else -}}
+{{- $maxWidth := .Page.Params.image_max_width | default 2400 -}}
+{{- $srcsetWidths := .Page.Params.image_srcset_widths | default (slice 2400) -}}
+{{- $webpOptions := .Page.Params.image_webp_options | default "q95" -}}
+{{- $fallbackWidth := cond (gt $image.Width $maxWidth) $maxWidth $image.Width -}}
+{{- $fallback := $image.Resize (printf "%dx webp %s" $fallbackWidth $webpOptions) -}}
+{{- $srcset := slice -}}
+{{- range $srcsetWidths -}}
+{{- $width := int . -}}
+{{- if le $width $image.Width -}}
+{{- $resized := $image.Resize (printf "%dx webp %s" $width $webpOptions) -}}
+{{- $srcset = $srcset | append (printf "%s %dw" $resized.RelPermalink $width) -}}
+{{- end -}}
+{{- end -}}
+<img src="{{ $fallback.RelPermalink }}" {{ if gt (len $srcset) 0 }} srcset="{{ delimit $srcset " , " }}"
+  sizes="(min-width: 768px) 768px, calc(100vw - 2rem)" {{ end }} alt="{{ $alt }}" {{ with $title }} title="{{ . }}" {{
+  end }} width="{{ $fallback.Width }}" height="{{ $fallback.Height }}" loading="lazy" decoding="async">
+{{- end -}}
+{{- else -}}
+<img src="{{ $src | safeURL }}" alt="{{ $alt }}" {{ with $title }} title="{{ . }}" {{ end }} loading="lazy"
+  decoding="async">
+{{- end -}}
 {{- end -}}

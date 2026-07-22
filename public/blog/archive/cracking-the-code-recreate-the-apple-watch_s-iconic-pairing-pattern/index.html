@@ -57,7 +57,7 @@
   </header>
 
   <div class="content">
-    <p><img src="/blog/archive/cracking-the-code-recreate-the-apple-watch_s-iconic-pairing-pattern/images/0_hu_faf0637381cbbd2b.webp" srcset="/blog/archive/cracking-the-code-recreate-the-apple-watch_s-iconic-pairing-pattern/images/0_hu_3fc01e82c18ee2d6.webp 480w, /blog/archive/cracking-the-code-recreate-the-apple-watch_s-iconic-pairing-pattern/images/0_hu_23d9e05e17ba6401.webp 768w, /blog/archive/cracking-the-code-recreate-the-apple-watch_s-iconic-pairing-pattern/images/0_hu_faf0637381cbbd2b.webp 1200w" sizes="(min-width: 768px) 768px, calc(100vw - 2rem)" alt="" width="1200" height="747" loading="lazy" decoding="async"></p>
+    <p><img src="/blog/archive/cracking-the-code-recreate-the-apple-watch_s-iconic-pairing-pattern/images/0_hu_ab423c7bb2be2540.webp"  alt=""  width="1620" height="1008" loading="lazy" decoding="async"></p>
 <p>Apple Watch itself is so beautiful, but also its pairing screen. I feel that this pattern is too complicated to be made by hand, so it seems that it was made by using code. It turns out that Apple made it based on 24 ovals, each representing 24 hours in a day. Each oval is offset from the center. So we can easily recreate it in code.</p>
 <p>I&rsquo;m using PaperJS - a vector graphics scripting framework - because you can export any final shape or pattern to an SVG file.</p>
 <h3 id="start-with-an-ellipse">Start with an ellipse</h3>
@@ -91,7 +91,7 @@
 </span></span><span style="display:flex;"><span>    <span style="color:#e06c75">ellipse</span>.<span style="color:#e06c75">rotate</span>(<span style="color:#e06c75">angle</span> <span style="color:#56b6c2">*</span> <span style="color:#e06c75">i</span>, <span style="color:#e06c75">view</span>.<span style="color:#e06c75">center</span>)
 </span></span><span style="display:flex;"><span>}
 </span></span></code></pre></div><p>The fun of the code is that you can tweak any number to get fun and interesting results.</p>
-<p><img src="/blog/archive/cracking-the-code-recreate-the-apple-watch_s-iconic-pairing-pattern/images/2_hu_2c032bd1b3f36423.webp" srcset="/blog/archive/cracking-the-code-recreate-the-apple-watch_s-iconic-pairing-pattern/images/2_hu_18707083acec5e46.webp 480w, /blog/archive/cracking-the-code-recreate-the-apple-watch_s-iconic-pairing-pattern/images/2_hu_37bfd7b2d6e9e106.webp 768w" sizes="(min-width: 768px) 768px, calc(100vw - 2rem)" alt="" width="1082" height="550" loading="lazy" decoding="async"></p>
+<p><img src="/blog/archive/cracking-the-code-recreate-the-apple-watch_s-iconic-pairing-pattern/images/2_hu_2c032bd1b3f36423.webp"  alt=""  width="1082" height="550" loading="lazy" decoding="async"></p>
 <h3 id="adding-dials">Adding dials</h3>
 <p>For the dials, we need to write a simple function that creates rectangles based on the parameters of the function. We will use this function twice: to create 12 and 24 dials.</p>
 <p>Try yourself: <a href="http://sketch.paperjs.org/#V/0.12.15/S/jVNNT8MwDP0rUS+0LOq67gNR4DTgjODAodshy7I1apZMSdgkqv134nRl7ZgAS60TPzux32urQJINC7LgrWSWFgEOqFrCfkc0okJJZtADSkczPZMQInItmIsMJ0m/hhvEWK1K9s6XtoAKCMOzUhqFgHMXTe6cuz+e69a9XlQhZ5AIHvKYEHxr4A7J9uiF2CJ+qkNh1eSBGf7JMpRPJhgNhzdz3MF8L1MllM7Q1UIQWl5dSPDNZu1NJ2mrDLdcyQztONvHlEnLNOqh/HaEUXK68RA1q8YfZ4i1ssSysCbtGnHcPslXHb55+pAULkNUM1fzyIkwYU0U9rNGVZulyzo06JIbSyRlz1ptpnXbTpLBuMn5U5Q2DZCnGbVtRV7d3rfQ1eSkC7zxObTiQvwiClhNjdPVEwWnxHsQpp8eufOhgvF1YfupE+PnqN1P4SQOGMzxD1V8YUeetirpyFWNMcpTPEjm0Tk8cK3mYw+532nhkHKruLQmyPL54Qs=">Sketch</a></p>
@@ -126,7 +126,7 @@
 </span></span><span style="display:flex;"><span><span style="color:#e06c75">createDials</span>(<span style="color:#d19a66">24</span> <span style="color:#56b6c2">*</span> <span style="color:#d19a66">5</span>, [<span style="color:#d19a66">2</span>,<span style="color:#d19a66">10</span>])
 </span></span><span style="display:flex;"><span><span style="color:#e06c75">createDials</span>(<span style="color:#d19a66">12</span>, [<span style="color:#d19a66">5</span>,<span style="color:#d19a66">10</span>])
 </span></span></code></pre></div><p>In the right corner of the sketch, tap the &ldquo;Save as SVG&rdquo; button to open it in any vector editing tool.</p>
-<p><img src="/blog/archive/cracking-the-code-recreate-the-apple-watch_s-iconic-pairing-pattern/images/3_hu_1b37dd9f0b01234c.webp" srcset="/blog/archive/cracking-the-code-recreate-the-apple-watch_s-iconic-pairing-pattern/images/3_hu_e62ef239202379.webp 480w, /blog/archive/cracking-the-code-recreate-the-apple-watch_s-iconic-pairing-pattern/images/3_hu_e6a845a86565db14.webp 768w" sizes="(min-width: 768px) 768px, calc(100vw - 2rem)" alt="" width="1082" height="774" loading="lazy" decoding="async"></p>
+<p><img src="/blog/archive/cracking-the-code-recreate-the-apple-watch_s-iconic-pairing-pattern/images/3_hu_1b37dd9f0b01234c.webp"  alt=""  width="1082" height="774" loading="lazy" decoding="async"></p>
 
   </div>
 

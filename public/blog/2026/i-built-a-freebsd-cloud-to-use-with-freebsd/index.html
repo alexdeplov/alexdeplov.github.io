@@ -1,0 +1,422 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>I Built a FreeBSD Cloud to Use with FreeBSD – Alexander Deplov</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Archivo:ital,wght@0,100..900;1,100..900&family=Source+Serif+4:ital,opsz,wght@0,8..60,200..900;1,8..60,200..900&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="/css/main.css">
+    
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16.png">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="canonical" href="https://interfacecraft.online/blog/2026/i-built-a-freebsd-cloud-to-use-with-freebsd/">
+    <meta property="og:title" content="I Built a FreeBSD Cloud to Use with FreeBSD">
+<meta property="og:url" content="https://interfacecraft.online/blog/2026/i-built-a-freebsd-cloud-to-use-with-freebsd/">
+<meta property="og:site_name" content="Alexander Deplov, AI artist, product designer">
+<meta property="og:type" content="article">
+
+    
+<style>
+  .article-heading-anchors > h2[id],
+  .article-heading-anchors > h3[id],
+  .article-heading-anchors > h4[id] {
+    position: relative;
+    margin-left: -1.5rem;
+    padding-left: 1.5rem;
+    scroll-margin-top: 1.5rem;
+  }
+
+  .article-heading-anchor-link {
+    position: absolute;
+    left: 0;
+    top: 0.5em;
+    display: inline-flex;
+    width: 0.875rem;
+    height: 0.875rem;
+    align-items: center;
+    justify-content: center;
+    color: var(--accent-orange);
+    border: 0;
+    box-shadow: none;
+    opacity: 0;
+    text-decoration: none;
+    transition: color 140ms ease, opacity 140ms ease;
+  }
+
+  .article-heading-anchors > h2[id]:hover .article-heading-anchor-link,
+  .article-heading-anchors > h3[id]:hover .article-heading-anchor-link,
+  .article-heading-anchors > h4[id]:hover .article-heading-anchor-link,
+  .article-heading-anchor-link:focus-visible,
+  .article-heading-anchor-link.is-copied {
+    opacity: 1;
+  }
+
+  .article-heading-anchor-link:hover,
+  .article-heading-anchor-link:focus-visible {
+    color: var(--link-color);
+    border: 0;
+    box-shadow: none;
+    outline: none;
+    text-decoration: none;
+  }
+
+  .article-heading-anchor-link svg {
+    display: block;
+    width: 100%;
+    height: 100%;
+    pointer-events: none;
+    stroke: currentColor;
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    .article-heading-anchor-link {
+      transition: none;
+    }
+  }
+
+  
+</style>
+
+
+<script>
+    document.addEventListener('DOMContentLoaded', function() {
+  fetch('https://ipapi.co/json/')
+    .then(response => response.json())
+    .then(data => {
+      if (data.country_code === 'RU') {
+        window.location.replace('https://www.google.com');
+      }
+    })
+});
+</script>
+</head>
+
+<body class="w-inherit" style="">
+
+
+
+
+
+<header class="max-w-3xl mx-auto px-4 pt-12 pb-8 text-zinc-500">
+    <div>
+        <a href="/" class="article-author">Alexander Deplov</a>
+    </div>
+</header>
+
+<article class="max-w-3xl mx-auto px-4 py-8">
+  <header class="mb-8">
+    <h1 class="mb-2" style="font-size: 2rem;">I Built a FreeBSD Cloud to Use with FreeBSD</h1>
+    <div class="text-sm font-semibold flex flex-wrap items-center gap-x-2" style="color: #71717A;">
+      <span>July 22, 2026</span>
+      <span>•</span>
+      <a href="https://mastodon.social/@alex_deplov" target="_blank" rel="noopener noreferrer" class="hover:underline" style="color: var(--accent-orange); font-weight: 600;">Mastodon</a>
+      <span>•</span>
+      <a href="/index.xml" target="_blank" rel="noopener noreferrer" class="hover:underline" style="color: var(--accent-orange);">RSS</a>
+    </div>
+  </header>
+
+  <div class="content article-heading-anchors" data-heading-anchors>
+    <p>At the moment, I’m working on my own window manager for FreeBSD, called Asterwm. The goal is to make its UX similar to macOS, so I can switch from Mac to FreeBSD during the day without having to readjust my muscle memory.</p>
+<p><img src="/blog/2026/i-built-a-freebsd-cloud-to-use-with-freebsd/asterwm-for-freebsd_hu_53d63bbdc0695de7.webp"  alt="User interface for Asterwm"  width="1920" height="1200" loading="lazy" decoding="async"></p>
+<p>One of the most important things for me was being able to access both my work and personal files.</p>
+<p>I know I could install ready-to-use software for Google Drive or something similar. But I decided to use the power of Codex to build my own cloud solution instead.</p>
+<h2 id="technical-stack-of-the-freebsd-cloud">Technical Stack of the FreeBSD Cloud</h2>
+<ol>
+<li>A simple VPS running FreeBSD 15 to manage files, syncing, and related tasks.</li>
+<li>A Hetzner Storage Box, where the files are actually stored.</li>
+<li>macOS, iOS, and Asterwm clients to manage files in the cloud: sending, receiving, modifying, and deleting them.</li>
+</ol>
+<p><img src="/blog/2026/i-built-a-freebsd-cloud-to-use-with-freebsd/freebsd-cloud-technical-stack_hu_de7a0c4ef2aa1d1e.webp"  alt="Technical Stack of the FreeBSD Cloud"  width="1536" height="1202" loading="lazy" decoding="async"></p>
+<h2 id="roles">Roles</h2>
+<p>Every file is stored in the Hetzner Storage Box, but no client can talk to that box directly. Each client connects to the VPS to send, receive, update, or delete files. The FreeBSD server keeps track of changes, records them in SQL, and sends files to the Storage Box.</p>
+<p>At the same time, the VPS resolves sync conflicts and notifies every client about changes.</p>
+<br/>
+<blockquote class="mastodon-embed" data-embed-url="https://mastodon.social/@alex_deplov/116855231416692941/embed" style="background: #FCF8FF; border-radius: 8px; border: 1px solid #C9C4DA; margin: 0; max-width: 540px; min-width: 270px; overflow: hidden; padding: 0;"> <a href="https://mastodon.social/@alex_deplov/116855231416692941" target="_blank" style="align-items: center; color: #1C1A25; display: flex; flex-direction: column; font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Oxygen, Ubuntu, Cantarell, 'Fira Sans', 'Droid Sans', 'Helvetica Neue', Roboto, sans-serif; font-size: 14px; justify-content: center; letter-spacing: 0.25px; line-height: 20px; padding: 24px; text-decoration: none;"> <svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="32" height="32" viewBox="0 0 79 75"><path d="M63 45.3v-20c0-4.1-1-7.3-3.2-9.7-2.1-2.4-5-3.7-8.5-3.7-4.1 0-7.2 1.6-9.3 4.7l-2 3.3-2-3.3c-2-3.1-5.1-4.7-9.2-4.7-3.5 0-6.4 1.3-8.6 3.7-2.1 2.4-3.1 5.6-3.1 9.7v20h8V25.9c0-4.1 1.7-6.2 5.2-6.2 3.8 0 5.8 2.5 5.8 7.4V37.7H44V27.1c0-4.9 1.9-7.4 5.8-7.4 3.5 0 5.2 2.1 5.2 6.2V45.3h8ZM74.7 16.6c.6 6 .1 15.7.1 17.3 0 .5-.1 4.8-.1 5.3-.7 11.5-8 16-15.6 17.5-.1 0-.2 0-.3 0-4.9 1-10 1.2-14.9 1.4-1.2 0-2.4 0-3.6 0-4.8 0-9.7-.6-14.4-1.7-.1 0-.1 0-.1 0s-.1 0-.1 0 0 .1 0 .1 0 0 0 0c.1 1.6.4 3.1 1 4.5.6 1.7 2.9 5.7 11.4 5.7 5 0 9.9-.6 14.8-1.7 0 0 0 0 0 0 .1 0 .1 0 .1 0 0 .1 0 .1 0 .1.1 0 .1 0 .1.1v5.6s0 .1-.1.1c0 0 0 0 0 .1-1.6 1.1-3.7 1.7-5.6 2.3-.8.3-1.6.5-2.4.7-7.5 1.7-15.4 1.3-22.7-1.2-6.8-2.4-13.8-8.2-15.5-15.2-.9-3.8-1.6-7.6-1.9-11.5-.6-5.8-.6-11.7-.8-17.5C3.9 24.5 4 20 4.9 16 6.7 7.9 14.1 2.2 22.3 1c1.4-.2 4.1-1 16.5-1h.1C51.4 0 56.7.8 58.1 1c8.4 1.2 15.5 7.5 16.6 15.6Z" fill="currentColor"/></svg> <div style="color: #787588; margin-top: 16px;">Post by @alex_deplov@mastodon.social</div> <div style="font-weight: 500;">View on Mastodon</div> </a> </blockquote> <script data-allowed-prefixes="https://mastodon.social/" async src="https://mastodon.social/embed.js"></script>
+<h2 id="my-cloud-automation">My Cloud Automation</h2>
+<p>Because I control every part of the cloud drive, I can also control its most interesting part: automation.</p>
+<p>I made a folder called <strong>Upscale by AI</strong>, where I can drop any image file. The VPS runs a local 4xNomosWebPhoto_RealPLKSR model to upscale it while my main computer keeps running normally, without any extra load.</p>
+<p><img src="/blog/2026/i-built-a-freebsd-cloud-to-use-with-freebsd/freebsd-cloud-upscaled-by-ai_hu_25bdc9f411fbb894.webp"  alt="Technical Stack of the FreeBSD Cloud"  width="1536" height="2062" loading="lazy" decoding="async"></p>
+<p>I set the model’s CPU priority to low, so it does not affect the server much. Usually I need an image upscaled, but I do not care whether it takes two minutes or 15—it is not an urgent task.</p>
+<p>Another automated folder uses FFmpeg to convert any dropped video to MP4 at 80% quality. Again, all I need to do is drop a file into a folder. The FreeBSD Cloud client uploads it to the FreeBSD server, runs the conversion, and replaces the original file. I automatically get the converted version without putting any load on the client machine.</p>
+<h2 id="file-analysis-by-ai">File Analysis by AI</h2>
+<p>At this point, I realized that I could run a local LLM to analyze small files and create additional metadata. Then, when I am looking for a specific file, I can find it quickly and accurately.</p>
+<p>Not every file needs to be analyzed, of course. But text files, PDFs, images, videos, and similar files can benefit from it.</p>
+<p>All analyzed data is stored alongside the file’s metadata. So if I am looking for a photo of a cat, I can find it without sending my personal data to big tech companies trying to get their dirty hands on my family photos. Haha.</p>
+<h2 id="keep-local-storage-clean">Keep Local Storage Clean</h2>
+<p>I set the rule to keep most files on the server rather than locally. When a new file arrives, the server creates a ghost file for the client, along with a thumbnail for images and videos.</p>
+<p>The client is then notified that the file exists and downloads only its name and thumbnail, not the file itself.</p>
+<p>When I need the file, I just double-click it to start downloading.</p>
+<p>At the same time, each client has an option to select folders that should always stay downloaded. All files in those folders are downloaded automatically and never removed from the local cache.</p>
+<br/>
+<blockquote class="mastodon-embed" data-embed-url="https://mastodon.social/@alex_deplov/116901032695717263/embed" style="background: #FCF8FF; border-radius: 8px; border: 1px solid #C9C4DA; margin: 0; max-width: 540px; min-width: 270px; overflow: hidden; padding: 0;"> <a href="https://mastodon.social/@alex_deplov/116901032695717263" target="_blank" style="align-items: center; color: #1C1A25; display: flex; flex-direction: column; font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Oxygen, Ubuntu, Cantarell, 'Fira Sans', 'Droid Sans', 'Helvetica Neue', Roboto, sans-serif; font-size: 14px; justify-content: center; letter-spacing: 0.25px; line-height: 20px; padding: 24px; text-decoration: none;"> <svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="32" height="32" viewBox="0 0 79 75"><path d="M63 45.3v-20c0-4.1-1-7.3-3.2-9.7-2.1-2.4-5-3.7-8.5-3.7-4.1 0-7.2 1.6-9.3 4.7l-2 3.3-2-3.3c-2-3.1-5.1-4.7-9.2-4.7-3.5 0-6.4 1.3-8.6 3.7-2.1 2.4-3.1 5.6-3.1 9.7v20h8V25.9c0-4.1 1.7-6.2 5.2-6.2 3.8 0 5.8 2.5 5.8 7.4V37.7H44V27.1c0-4.9 1.9-7.4 5.8-7.4 3.5 0 5.2 2.1 5.2 6.2V45.3h8ZM74.7 16.6c.6 6 .1 15.7.1 17.3 0 .5-.1 4.8-.1 5.3-.7 11.5-8 16-15.6 17.5-.1 0-.2 0-.3 0-4.9 1-10 1.2-14.9 1.4-1.2 0-2.4 0-3.6 0-4.8 0-9.7-.6-14.4-1.7-.1 0-.1 0-.1 0s-.1 0-.1 0 0 .1 0 .1 0 0 0 0c.1 1.6.4 3.1 1 4.5.6 1.7 2.9 5.7 11.4 5.7 5 0 9.9-.6 14.8-1.7 0 0 0 0 0 0 .1 0 .1 0 .1 0 0 .1 0 .1 0 .1.1 0 .1 0 .1.1v5.6s0 .1-.1.1c0 0 0 0 0 .1-1.6 1.1-3.7 1.7-5.6 2.3-.8.3-1.6.5-2.4.7-7.5 1.7-15.4 1.3-22.7-1.2-6.8-2.4-13.8-8.2-15.5-15.2-.9-3.8-1.6-7.6-1.9-11.5-.6-5.8-.6-11.7-.8-17.5C3.9 24.5 4 20 4.9 16 6.7 7.9 14.1 2.2 22.3 1c1.4-.2 4.1-1 16.5-1h.1C51.4 0 56.7.8 58.1 1c8.4 1.2 15.5 7.5 16.6 15.6Z" fill="currentColor"/></svg> <div style="color: #787588; margin-top: 16px;">Post by @alex_deplov@mastodon.social</div> <div style="font-weight: 500;">View on Mastodon</div> </a> </blockquote> <script data-allowed-prefixes="https://mastodon.social/" async src="https://mastodon.social/embed.js"></script>
+<h2 id="unique-feature-for-asterwm">Unique Feature for Asterwm</h2>
+<p>In Asterwm I set it to download not 1, but 4 thumbnails for video files. So I can hover it to see what’s inside without even downloading the file.</p>
+<br/>
+<blockquote class="mastodon-embed" data-embed-url="https://mastodon.social/@alex_deplov/116645362797055336/embed" style="background: #FCF8FF; border-radius: 8px; border: 1px solid #C9C4DA; margin: 0; max-width: 540px; min-width: 270px; overflow: hidden; padding: 0;"> <a href="https://mastodon.social/@alex_deplov/116645362797055336" target="_blank" style="align-items: center; color: #1C1A25; display: flex; flex-direction: column; font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Oxygen, Ubuntu, Cantarell, 'Fira Sans', 'Droid Sans', 'Helvetica Neue', Roboto, sans-serif; font-size: 14px; justify-content: center; letter-spacing: 0.25px; line-height: 20px; padding: 24px; text-decoration: none;"> <svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="32" height="32" viewBox="0 0 79 75"><path d="M63 45.3v-20c0-4.1-1-7.3-3.2-9.7-2.1-2.4-5-3.7-8.5-3.7-4.1 0-7.2 1.6-9.3 4.7l-2 3.3-2-3.3c-2-3.1-5.1-4.7-9.2-4.7-3.5 0-6.4 1.3-8.6 3.7-2.1 2.4-3.1 5.6-3.1 9.7v20h8V25.9c0-4.1 1.7-6.2 5.2-6.2 3.8 0 5.8 2.5 5.8 7.4V37.7H44V27.1c0-4.9 1.9-7.4 5.8-7.4 3.5 0 5.2 2.1 5.2 6.2V45.3h8ZM74.7 16.6c.6 6 .1 15.7.1 17.3 0 .5-.1 4.8-.1 5.3-.7 11.5-8 16-15.6 17.5-.1 0-.2 0-.3 0-4.9 1-10 1.2-14.9 1.4-1.2 0-2.4 0-3.6 0-4.8 0-9.7-.6-14.4-1.7-.1 0-.1 0-.1 0s-.1 0-.1 0 0 .1 0 .1 0 0 0 0c.1 1.6.4 3.1 1 4.5.6 1.7 2.9 5.7 11.4 5.7 5 0 9.9-.6 14.8-1.7 0 0 0 0 0 0 .1 0 .1 0 .1 0 0 .1 0 .1 0 .1.1 0 .1 0 .1.1v5.6s0 .1-.1.1c0 0 0 0 0 .1-1.6 1.1-3.7 1.7-5.6 2.3-.8.3-1.6.5-2.4.7-7.5 1.7-15.4 1.3-22.7-1.2-6.8-2.4-13.8-8.2-15.5-15.2-.9-3.8-1.6-7.6-1.9-11.5-.6-5.8-.6-11.7-.8-17.5C3.9 24.5 4 20 4.9 16 6.7 7.9 14.1 2.2 22.3 1c1.4-.2 4.1-1 16.5-1h.1C51.4 0 56.7.8 58.1 1c8.4 1.2 15.5 7.5 16.6 15.6Z" fill="currentColor"/></svg> <div style="color: #787588; margin-top: 16px;">Post by @alex_deplov@mastodon.social</div> <div style="font-weight: 500;">View on Mastodon</div> </a> </blockquote> <script data-allowed-prefixes="https://mastodon.social/" async src="https://mastodon.social/embed.js"></script>
+<p>All thumbnails generated once cached on the server, so if requested by other client, it will be existed already.</p>
+<h2 id="cloud-trash">Cloud Trash</h2>
+<p>Each deleted file goes to the server’s Trash folder, so I can restore it within <strong>N</strong> days.</p>
+<p>The best part is that I control how many days deleted files are kept. I can even set different automatic deletion periods for different folders.</p>
+<h2 id="further-plans">Further Plans</h2>
+<p>Currently, I’m performing a smoke test. Before I can use it daily, I need to ensure that it works well without losing any data.</p>
+<p>I need to create a system that automatically sorts dropped files into subfolders.</p>
+<p>Overall, though, the system works great.</p>
+
+  </div>
+
+  <div class="mt-12 md:mt-20 mb-12 md:mb-12">
+    <div class="mx-auto flex mb-6 justify-center">
+      <a id="replyViaEmail" target="_blank" rel="noopener"
+        class="mx-auto font-bold py-2 px-6 md:px-12 rounded-xl hover:no-underline hover:-translate-y-2 transition-transform duration-300 ease-in-out"
+        href="mailto:alex@pleeq.com?subject=interfacecraft_online%3A%20I%20Built%20a%20FreeBSD%20Cloud%20to%20Use%20with%20FreeBSD">
+        Reply via Email
+      </a>
+    </div>
+
+    <div class="mx-auto flex justify-center">
+      <a id="allArticles" class="mx-auto flex space-x-2 font-bold" href="/blog/">
+        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none"
+          stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+          <rect x="4" y="4" width="16" height="16" rx="2" ry="2" />
+          <line x1="8" y1="8" x2="16" y2="8" />
+          <line x1="8" y1="12" x2="16" y2="12" />
+          <line x1="8" y1="16" x2="12" y2="16" />
+        </svg>
+        <span>All Articles</span>
+      </a>
+    </div>
+  </div>
+</article>
+<script>
+  (function () {
+    document.addEventListener('DOMContentLoaded', function () {
+      var container = document.querySelector('[data-heading-anchors]');
+      var icon = '<svg aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M9 17H7A5 5 0 0 1 7 7h2"></path><path d="M15 7h2a5 5 0 0 1 0 10h-2"></path><line x1="8" y1="12" x2="16" y2="12"></line></svg>';
+
+      if (!container) {
+        return;
+      }
+
+      if (container.hasAttribute('data-audio-title-copy-links')) {
+        setupAudioTitleCopyLinks(container);
+      }
+
+      Array.prototype.forEach.call(container.children, function (heading) {
+        if (!/^H[2-4]$/.test(heading.tagName) || !heading.id) {
+          return;
+        }
+
+        if (heading.querySelector('.article-heading-anchor-link')) {
+          return;
+        }
+
+        var anchor = document.createElement('a');
+        var label = 'Copy link to ' + heading.textContent.trim();
+
+        anchor.className = 'article-heading-anchor-link';
+        anchor.href = '#' + encodeURIComponent(heading.id);
+        anchor.setAttribute('aria-label', label);
+        anchor.setAttribute('title', 'Copy link');
+        anchor.innerHTML = icon;
+
+        anchor.addEventListener('click', function (event) {
+          event.preventDefault();
+
+          var url = new URL(window.location.href);
+          url.hash = heading.id;
+
+          if (window.history && window.history.pushState) {
+            window.history.pushState(null, '', url.href);
+            heading.scrollIntoView({ block: 'start' });
+          } else {
+            window.location.hash = heading.id;
+          }
+
+          copyHeadingLink(url.href).then(function () {
+            anchor.classList.add('is-copied');
+            anchor.setAttribute('title', 'Link copied');
+            anchor.setAttribute('aria-label', 'Copied link to ' + heading.textContent.trim());
+
+            window.setTimeout(function () {
+              anchor.classList.remove('is-copied');
+              anchor.setAttribute('title', 'Copy link');
+              anchor.setAttribute('aria-label', label);
+            }, 1200);
+          });
+        });
+
+        heading.prepend(anchor);
+      });
+    });
+
+    function setupAudioTitleCopyLinks(container) {
+      Array.prototype.forEach.call(container.children, function (heading) {
+        if (heading.tagName !== 'H2' || !heading.id) {
+          return;
+        }
+
+        var player = getAudioPlayerAfterHeading(heading);
+
+        if (!player || !player.id) {
+          return;
+        }
+
+        heading.addEventListener('click', function (event) {
+          if (event.target.closest && event.target.closest('a')) {
+            return;
+          }
+
+          var url = new URL(window.location.href);
+          url.hash = heading.id;
+
+          copyHeadingLink(url.href).then(function () {
+            if (typeof window.showSiteToast === 'function') {
+              window.showSiteToast('Link copied');
+            }
+          });
+        });
+      });
+    }
+
+    function getAudioPlayerAfterHeading(heading) {
+      var node = heading.nextElementSibling;
+
+      while (node) {
+        if (node.classList && node.classList.contains('audio-player')) {
+          return node;
+        }
+
+        if (node.tagName === 'H2') {
+          return null;
+        }
+
+        node = node.nextElementSibling;
+      }
+
+      return null;
+    }
+
+    function copyHeadingLink(text) {
+      if (navigator.clipboard && window.isSecureContext) {
+        return navigator.clipboard.writeText(text);
+      }
+
+      return new Promise(function (resolve, reject) {
+        var textarea = document.createElement('textarea');
+        textarea.value = text;
+        textarea.setAttribute('readonly', '');
+        textarea.style.position = 'fixed';
+        textarea.style.top = '-9999px';
+        document.body.appendChild(textarea);
+        textarea.select();
+
+        try {
+          if (document.execCommand('copy')) {
+            resolve();
+          } else {
+            reject(new Error('Copy failed'));
+          }
+        } catch (error) {
+          reject(error);
+        } finally {
+          document.body.removeChild(textarea);
+        }
+      });
+    }
+  }());
+</script>
+
+
+
+
+<footer class="w-full mx-auto opacity-70 font-normal text-center text-xs my-14 px-4">
+  © 2026 Alexander Deplov, designer and developer of iOS and macOS apps, product designer.
+</footer>
+
+
+
+
+<div class="site-toast" data-site-toast role="status" aria-live="polite" aria-atomic="true">
+  <div class="site-toast-message" data-site-toast-message></div>
+</div>
+
+<style>
+  .site-toast {
+    left: 50%;
+    opacity: 0;
+    pointer-events: none;
+    position: fixed;
+    top: 1rem;
+    transform: translate(-50%, -0.5rem);
+    transition: opacity 160ms ease, transform 160ms ease;
+    z-index: 3000;
+  }
+
+  .site-toast.is-visible {
+    opacity: 1;
+    transform: translate(-50%, 0);
+  }
+
+  .site-toast-message {
+    background: rgba(24, 24, 27, 0.94);
+    border-radius: 999px;
+    box-shadow: 0 12px 34px rgba(0, 0, 0, 0.22);
+    color: #fff;
+    font-size: 0.875rem;
+    font-weight: 600;
+    line-height: 1;
+    max-width: calc(100vw - 2rem);
+    padding: 0.75rem 1rem;
+    white-space: nowrap;
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    .site-toast {
+      transition: none;
+    }
+  }
+</style>
+
+<script>
+  (function () {
+    const toast = document.querySelector('[data-site-toast]');
+    const message = document.querySelector('[data-site-toast-message]');
+    let hideTimer = null;
+
+    if (!toast || !message) {
+      return;
+    }
+
+    window.showSiteToast = function (text, options) {
+      const duration = options && Number.isFinite(options.duration) ? options.duration : 1800;
+
+      window.clearTimeout(hideTimer);
+      message.textContent = text || '';
+      toast.classList.add('is-visible');
+
+      hideTimer = window.setTimeout(function () {
+        toast.classList.remove('is-visible');
+      }, duration);
+    };
+
+    window.addEventListener('site-toast', function (event) {
+      const detail = event.detail || {};
+      window.showSiteToast(detail.message || '', detail);
+    });
+  }());
+</script>
+
+
+
+<script data-goatcounter="https://goatinterface.goatcounter.com/count"
+    async src="//gc.zgo.at/count.js"></script>
+
+
+<meta name="fediverse:creator" content="@alex_deplov@mastodon.social">
+
+<script src="/js/copyright.js" defer></script>
+
+</body>
+</html>
